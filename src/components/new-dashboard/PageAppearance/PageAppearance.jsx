@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useRef, useCallback } from 'react'
+import { useMemo, useState, useEffect, useRef, useCallback, useReducer } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -15,6 +15,7 @@ import {
     isSuperAdmin,
 } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import ModalOpenAI from '@/components/ModalOpenAI'
 import ModalPrompt from '@/components/ModalPrompt'
 import { ref, uploadBytes } from 'firebase/storage'
 import { storage } from '@/config/firebase-ui.config'
@@ -43,6 +44,7 @@ import {
     hasCustomButtonsFormValidationErrors,
     sanitizeBotTools,
 } from '@/lib/botActions'
+import { formatDomainListInputText } from '@/lib/webSearch'
 
 /** After OAuth or GET /bot, merge server stripe (incl. stripeUserId) into local form state. */
 const mergeServerStripeIntoLocalTools = (setTools, nextBot) => {
@@ -314,6 +316,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [bounceSave, setBounceSave] = useState(false)
     const [uploading, setUploading] = useState(null)
     const [showUpgrade, setShowUpgrade] = useState(false)
+    const [showOpenAIModal, setShowOpenAIModal] = useState(false)
+    const [, bumpTeamOpenAiKey] = useReducer((x) => x + 1, 0)
     const [canModify, setModify] = useState(false)
     const [showPromptModal, setShowPromptModal] = useState(false)
     const [activeTab, setActiveTab] = useState('content')
@@ -364,6 +368,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
     const [mcpServers, setMcpServers] = useState(bot.mcpServers || [])
     const [tools, setTools] = useState(() => getInitialDisplayTools(bot.tools))
+    const [webSearchAllowedDomainsText, setWebSearchAllowedDomainsText] =
+        useState(() =>
+            Array.isArray(bot?.tools?.web_search?.allowed_domains)
+                ? bot.tools.web_search.allowed_domains.join(', ')
+                : '',
+        )
     const [linkSafetyEnabled, setLinkSafetyEnabled] = useState(
         bot.linkSafetyEnabled === true,
     )
@@ -457,6 +467,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             setShowCopyButton(nextBot.showCopyButton || false)
             setIsAgent(nextIsAgent)
             setTools(nextTools)
+            setWebSearchAllowedDomainsText(
+                Array.isArray(nextTools?.web_search?.allowed_domains)
+                    ? nextTools.web_search.allowed_domains.join(', ')
+                    : '',
+            )
             setMcpServers(nextBot.mcpServers || [])
             previousBranding.current = nextBranding
             previousImageUploads.current = nextImageUploads
@@ -988,7 +1003,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                       ...normalizedTools,
                       web_search: {
                           ...(normalizedTools?.web_search || {}),
-                          enabled: false,
+                          enabled: true,
+                          live: false,
                       },
                   }
                 : normalizedTools
@@ -1182,12 +1198,15 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     tools={tools}
                     team={team}
                     setTools={setTools}
+                    webSearchAllowedDomainsText={webSearchAllowedDomainsText}
+                    setWebSearchAllowedDomainsText={setWebSearchAllowedDomainsText}
                     supportLink={supportLink}
                     setSupportLink={setSupportLink}
                     leadCollect={leadCollect}
                     setLeadCollect={setLeadCollect}
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
+                    onRequireOpenAIKey={() => setShowOpenAIModal(true)}
                     canManageStripeActions={hasHydrated && isSuperAdmin(user?.uid)}
                     stripeOAuthLoading={stripeOAuthLoading}
                     setStripeOAuthLoading={setStripeOAuthLoading}
@@ -1255,6 +1274,16 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                         team={team}
                         open={showUpgrade}
                         setOpen={setShowUpgrade}
+                    />
+
+                    <ModalOpenAI
+                        team={team}
+                        open={showOpenAIModal}
+                        setOpen={setShowOpenAIModal}
+                        onKey={(key) => {
+                            team.openAIKey = key
+                            bumpTeamOpenAiKey()
+                        }}
                     />
 
                     <ModalPrompt

@@ -46,8 +46,11 @@ import {
 } from '@heroicons/react/24/outline'
 import {
     DEFAULT_WEB_SEARCH_MODEL,
+    WEB_SEARCH_ALLOWED_DOMAINS_MAX,
     WEB_SEARCH_COMPATIBLE_MODELS_LABEL,
+    formatDomainListInputText,
     formatWebSearchModelLabel,
+    normalizeWebSearchAllowedDomains,
     isWebSearchCompatibleModel,
 } from '@/lib/webSearch'
 
@@ -244,12 +247,15 @@ const AppearanceActions = ({
     tools,
     team,
     setTools,
+    webSearchAllowedDomainsText,
+    setWebSearchAllowedDomainsText,
     supportLink,
     setSupportLink,
     leadCollect,
     setLeadCollect,
     toWidgetLeadCollectState,
     setShowUpgrade,
+    onRequireOpenAIKey,
     stripeOAuthLoading,
     setStripeOAuthLoading,
     stripeOAuthError,
@@ -271,13 +277,20 @@ const AppearanceActions = ({
     const stripe = normalizeStripe(tools?.stripe)
     const stripeStatus = getStripeStatus(stripe)
     const webSearchPlanCheck = checkPlanPermission(team, 'standard')
+    const webSearchDomainsPlanCheck = checkPlanPermission(team, 'business', 'webSearchAllowedDomains')
+    const webSearchAllowedDomainsCount =
+        normalizeWebSearchAllowedDomains(webSearchAllowedDomainsText).length
     const isPublicBot = bot?.privacy !== 'private'
     const stripePlanCheck = checkPlanPermission(team, 'standard', 'stripeActions')
     const schedulingPlanCheck = checkPlanPermission(team, 'personal', 'bookingActions')
     const hasOpenAIKey = Boolean(team?.openAIKey)
     const webSearchModel = bot?.model || DEFAULT_WEB_SEARCH_MODEL
     const webSearchModelCompatible = isWebSearchCompatibleModel(webSearchModel)
-    const webSearchEnabled = !isPublicBot && tools?.web_search?.enabled === true
+    const webSearchEnabled = tools?.web_search?.enabled === true
+    const webSearchLiveEnabled =
+        tools?.web_search?.enabled === true &&
+        tools?.web_search?.live === true &&
+        !isPublicBot
     const connectLoading = stripeOAuthLoading
     const connectError = stripeOAuthError
     const customButtons = Array.isArray(tools?.customButtons)
@@ -1734,10 +1747,6 @@ const AppearanceActions = ({
                         }
                         enabled={webSearchEnabled}
                         setEnabled={(enabled) => {
-                            if (enabled && isPublicBot) {
-                                return
-                            }
-
                             if (enabled && !webSearchModelCompatible) {
                                 return
                             }
@@ -1748,20 +1757,34 @@ const AppearanceActions = ({
                             }
 
                             if (enabled && !hasOpenAIKey) {
+                                onRequireOpenAIKey?.()
                                 return
                             }
 
                             setTools({
                                 ...tools,
                                 web_search: {
+                                    ...(tools?.web_search || {}),
                                     enabled,
+                                    live:
+                                        enabled && isPublicBot
+                                            ? false
+                                            : Boolean(tools?.web_search?.live),
                                 },
                             })
                         }}
                         disabled={
                             isUpdating ||
-                            isPublicBot ||
                             (!webSearchModelCompatible && !webSearchEnabled)
+                        }
+                        switchTooltipContent={
+                            !webSearchModelCompatible && !webSearchEnabled
+                                ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
+                                : !hasOpenAIKey &&
+                                    webSearchPlanCheck.allowed &&
+                                    webSearchModelCompatible
+                                  ? 'Add your team OpenAI API key in the dialog before enabling web search.'
+                                  : undefined
                         }
                         planLabel={
                             !webSearchPlanCheck.allowed
@@ -1769,34 +1792,140 @@ const AppearanceActions = ({
                                 : null
                         }
                         isNew={true}
-                        switchClassName={isPublicBot ? 'opacity-50' : undefined}
                     />
-                    {isPublicBot ? (
+                    {!webSearchEnabled &&
+                    !hasOpenAIKey &&
+                    webSearchPlanCheck.allowed &&
+                    webSearchModelCompatible ? (
                         <div className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
-                            Web search is not recommended for public bots due to response latency. You can enable it when chatting in the{' '}
-                            <a
-                                href={`/app/bots/${bot?.id}/chat`}
+                            Add your team OpenAI API key on the{' '}
+                            <Link
+                                href="/app/api"
                                 className="font-medium underline hover:text-amber-950"
                             >
-                                dashboard
-                            </a>
-                            ,{' '}
-                            <a
-                                href={`/app/bots/${bot?.id}/configure/system`}
-                                className="font-medium underline hover:text-amber-950"
-                            >
-                                set your bot to private
-                            </a>
-                            {' '}if it is for internal use, or override this setting via the widget embed code{' '}
-                            <a
-                                href="/documentation/developer/embeddable-chat-widget#option-overrides"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="font-medium underline hover:text-amber-950"
-                            >
-                                options
-                            </a>
-                            .
+                                API & Integrations
+                            </Link>
+                            {' '}page before enabling web search.
+                        </div>
+                    ) : null}
+
+                    {webSearchEnabled ? (
+                        <div className="mt-3 space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-3">
+                            <AppearanceToggle
+                                label="Live web search"
+                                description="When enabled, can crawl live external web pages. Slower, best for deeper research tasks."
+                                enabled={webSearchLiveEnabled}
+                                setEnabled={(enabled) =>
+                                    setTools({
+                                        ...tools,
+                                        web_search: {
+                                            ...(tools?.web_search || {}),
+                                            enabled: true,
+                                            live: enabled,
+                                        },
+                                    })
+                                }
+                                disabled={isUpdating || isPublicBot}
+                                switchTooltipContent={
+                                    isPublicBot
+                                        ? 'Public bots use cached web search only for speed. Switch this bot to private to enable live web search or override in embed code.'
+                                        : undefined
+                                }
+                            />
+
+                            <div className="space-y-1">
+                                <div className="flex w-full flex-wrap items-center gap-x-2 gap-y-1">
+                                    <div className="flex min-w-0 flex-wrap items-center gap-2">
+                                        <p className="text-xs font-medium text-gray-700">
+                                            Allowed domains (optional)
+                                        </p>
+                                        {!webSearchDomainsPlanCheck.allowed ? (
+                                            <Tooltip
+                                                content={`Allowed domains for web search are available on the ${webSearchDomainsPlanCheck.requiredPlanLabel} plan or higher.`}
+                                            >
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setShowUpgrade(true)}
+                                                    className="relative -top-0.5 inline-flex cursor-pointer items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800 hover:bg-cyan-200/80"
+                                                >
+                                                    {webSearchDomainsPlanCheck.requiredPlanLabel}
+                                                </button>
+                                            </Tooltip>
+                                        ) : null}
+                                    </div>
+                                    <div className="ml-auto flex shrink-0 items-center">
+                                        {webSearchAllowedDomainsCount === 0 ? (
+                                            <Tooltip
+                                                content="With no domains listed, web search can use results from any site. Add one or more domains below to limit crawling and search to only those sites and their pages."
+                                            >
+                                                <span className="relative -top-0.5 inline-flex cursor-help items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                                                    All allowed
+                                                </span>
+                                            </Tooltip>
+                                        ) : (
+                                            <Tooltip
+                                                content="Web search is limited to the domains you listed. The bot will only use pages on those sites when searching the web. Remove every domain (or clear the field) to allow any site again."
+                                            >
+                                                <span className="relative -top-0.5 inline-flex cursor-help items-center rounded-full bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800">
+                                                    Restricted
+                                                </span>
+                                            </Tooltip>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="relative">
+                                    <AppearanceInput
+                                        id="web-search-allowed-domains"
+                                        name="web-search-allowed-domains"
+                                        value={
+                                            webSearchDomainsPlanCheck.allowed
+                                                ? webSearchAllowedDomainsText
+                                                : ''
+                                        }
+                                        onChange={
+                                            webSearchDomainsPlanCheck.allowed
+                                                ? (e) => {
+                                                      const formattedDomains =
+                                                          formatDomainListInputText(
+                                                              e.target.value,
+                                                          )
+                                                      setWebSearchAllowedDomainsText(
+                                                          formattedDomains,
+                                                      )
+                                                      setTools({
+                                                          ...tools,
+                                                          web_search: {
+                                                              ...(tools?.web_search ||
+                                                                  {}),
+                                                              enabled: true,
+                                                              allowed_domains:
+                                                                  normalizeWebSearchAllowedDomains(
+                                                                      formattedDomains,
+                                                                  ).slice(
+                                                                      0,
+                                                                      WEB_SEARCH_ALLOWED_DOMAINS_MAX,
+                                                                  ),
+                                                          },
+                                                      })
+                                                  }
+                                                : undefined
+                                        }
+                                        disabled={
+                                            isUpdating ||
+                                            !webSearchDomainsPlanCheck.allowed
+                                        }
+                                        placeholder="example.com, docs.yoursite.com"
+                                    />
+                                    {!webSearchDomainsPlanCheck.allowed ? (
+                                        <button
+                                            type="button"
+                                            aria-label={`Upgrade to ${webSearchDomainsPlanCheck.requiredPlanLabel} or higher to set allowed web search domains`}
+                                            className="absolute inset-0 z-10 cursor-pointer rounded-md bg-transparent"
+                                            onClick={() => setShowUpgrade(true)}
+                                        />
+                                    ) : null}
+                                </div>
+                            </div>
                         </div>
                     ) : null}
                 </div>

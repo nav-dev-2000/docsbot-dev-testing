@@ -1609,7 +1609,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       full_source: true,
       stream: true,
       document_retriever: true,
-      web_search: canUseWebSearch && webSearch,
+      web_search: canUseWebSearch && webSearch ? 'live' : false,
       human_escalation: false,
       followup_rating: false,
       image_urls: imageUrls,

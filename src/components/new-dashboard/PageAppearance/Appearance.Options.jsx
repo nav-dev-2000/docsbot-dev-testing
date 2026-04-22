@@ -16,7 +16,40 @@ const AppearanceToggle = ({
     planLabel,
     className,
     switchClassName,
+    switchTooltipContent,
 }) => {
+    const switchControl = (
+        <Switch
+            checked={enabled}
+            onChange={setEnabled}
+            disabled={disabled}
+            className={clsx(
+                'cursor-pointer',
+                'relative inline-flex h-5 w-9 flex-shrink-0 rounded-full',
+                'transition-colors duration-200 ease-in-out',
+                'focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                {
+                    ['bg-cyan-500']: enabled,
+                    ['bg-gray-300']: !enabled,
+                },
+                switchClassName,
+            )}
+        >
+            <span
+                aria-hidden="true"
+                className={clsx(
+                    'pointer-events-none transition duration-200 ease-in-out',
+                    'block size-4 rounded-full bg-white shadow',
+                    'absolute top-1/2 -translate-y-1/2 transform',
+                    {
+                        ['right-0.5']: enabled,
+                        ['left-0.5']: !enabled,
+                    },
+                )}
+            />
+        </Switch>
+    )
+
     return (
         <Switch.Group
             as="div"
@@ -45,35 +78,15 @@ const AppearanceToggle = ({
                     </Switch.Label>
                 )}
 
-                <Switch
-                    checked={enabled}
-                    onChange={setEnabled}
-                    disabled={disabled}
-                    className={clsx(
-                        'cursor-pointer',
-                        'relative inline-flex h-5 w-9 flex-shrink-0 rounded-full',
-                        'transition-colors duration-200 ease-in-out',
-                        'focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
-                        {
-                            ['bg-cyan-500']: enabled,
-                            ['bg-gray-300']: !enabled,
-                        },
-                        switchClassName,
-                    )}
-                >
-                    <span
-                        aria-hidden="true"
-                        className={clsx(
-                            'pointer-events-none transition duration-200 ease-in-out',
-                            'block size-4 rounded-full bg-white shadow',
-                            'absolute top-1/2 -translate-y-1/2 transform',
-                            {
-                                ['right-0.5']: enabled,
-                                ['left-0.5']: !enabled,
-                            },
-                        )}
-                    />
-                </Switch>
+                {switchTooltipContent ? (
+                    <Tooltip content={switchTooltipContent}>
+                        <span className="inline-flex cursor-help">
+                            {switchControl}
+                        </span>
+                    </Tooltip>
+                ) : (
+                    switchControl
+                )}
             </div>
 
             {description && (

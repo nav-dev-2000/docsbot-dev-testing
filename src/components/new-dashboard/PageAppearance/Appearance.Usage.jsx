@@ -13,6 +13,7 @@ import {
 } from './Appearance.Options'
 import Button from '../Button'
 import IconButton from '../IconButton'
+import { formatDomainListInputText } from '@/lib/webSearch'
 
 const AppearanceUsage = ({
     bot,
@@ -175,9 +176,8 @@ const AppearanceUsage = ({
                     id="domains"
                     value={allowedDomainsText}
                     onChange={(e) => {
-                        const formattedDomains = e.target.value.replace(
-                            /\s+/g,
-                            ',',
+                        const formattedDomains = formatDomainListInputText(
+                            e.target.value,
                         )
                         setAllowedDomainsText(formattedDomains)
                         setAllowedDomains(

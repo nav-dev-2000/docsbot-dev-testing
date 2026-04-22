@@ -31,6 +31,7 @@ import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackH
 import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
 import {
   DEFAULT_WEB_SEARCH_MODEL,
+  WEB_SEARCH_ALLOWED_DOMAINS_MAX,
   WEB_SEARCH_COMPATIBLE_MODELS_LABEL,
   formatWebSearchModelLabel,
   isWebSearchCompatibleModel,
@@ -1123,6 +1124,19 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     }
 
 
+    const effectivePrivacy = botData.privacy || bot?.privacy || 'public'
+
+    if (
+      effectivePrivacy !== 'private' &&
+      validTools?.web_search &&
+      typeof validTools.web_search === 'object'
+    ) {
+      validTools.web_search = {
+        ...validTools.web_search,
+        live: false,
+      }
+    }
+
     const webSearchConfig = validTools?.web_search
     const webSearchEnabled =
       typeof webSearchConfig === 'boolean'
@@ -1132,6 +1146,30 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
             (webSearchConfig.enabled === undefined
               ? false
               : Boolean(webSearchConfig.enabled))
+
+    const webSearchAllowedDomains =
+      webSearchConfig && typeof webSearchConfig === 'object'
+        ? Array.isArray(webSearchConfig.allowed_domains)
+          ? webSearchConfig.allowed_domains
+          : []
+        : []
+
+    if (webSearchAllowedDomains.length > WEB_SEARCH_ALLOWED_DOMAINS_MAX) {
+      throw new Error(
+        `Web search allowed domains can include up to ${WEB_SEARCH_ALLOWED_DOMAINS_MAX} domains.`,
+      )
+    }
+
+    if (webSearchAllowedDomains.length > 0) {
+      if (
+        !checkPlanPermission(team, 'business', 'webSearchAllowedDomains').allowed &&
+        !isSuperAdmin(userId)
+      ) {
+        throw new Error(
+          'Web search allowed domains are only available on the Business plan or higher.',
+        )
+      }
+    }
 
     if (webSearchEnabled) {
       if (!checkPlanPermission(team, 'standard').allowed && !isSuperAdmin(userId)) {

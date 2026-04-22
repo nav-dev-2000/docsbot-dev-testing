@@ -146,6 +146,36 @@ describe('validateBotParams web search enforcement', () => {
     })
   })
 
+  it('forces public bots to use cached web search', async () => {
+    await expect(
+      validateBotParams(
+        {
+          body: {
+            privacy: 'public',
+            tools: {
+              web_search: {
+                enabled: true,
+                live: true,
+              },
+            },
+          },
+        },
+        { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+        'user-1',
+        true,
+        { id: 'bot-1', privacy: 'private', tools: {}, model: 'gpt-5.4-nano' },
+      ),
+    ).resolves.toMatchObject({
+      privacy: 'public',
+      tools: {
+        web_search: {
+          enabled: true,
+          live: false,
+        },
+      },
+    })
+  })
+
   it('throws when enabling web search on an incompatible model', async () => {
     await expect(
       validateBotParams(
@@ -156,7 +186,7 @@ describe('validateBotParams web search enforcement', () => {
         { id: 'bot-1', tools: {}, model: 'gpt-4.1-nano' },
       ),
     ).rejects.toThrow(
-      'Web search requires GPT-4.1 mini, GPT-4.1, GPT-4o mini, GPT-4o, or GPT-5+. Current model: GPT-4.1 nano.',
+      'Web search requires GPT-4o, GPT-4.1, or GPT-5+ family models. Current model: GPT-4.1 nano.',
     )
   })
 

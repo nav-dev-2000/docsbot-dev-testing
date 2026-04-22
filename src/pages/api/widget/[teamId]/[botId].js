@@ -47,6 +47,26 @@ const getToolEnabled = (toolConfig, defaultEnabled = true) => {
   return defaultEnabled
 }
 
+
+const getWebSearchMode = (toolConfig, { forceCached = false } = {}) => {
+  if (typeof toolConfig === 'boolean') {
+    return toolConfig ? true : false
+  }
+
+  if (!toolConfig || typeof toolConfig !== 'object') {
+    return false
+  }
+
+  const enabled =
+    toolConfig.enabled === undefined ? false : Boolean(toolConfig.enabled)
+
+  if (!enabled) {
+    return false
+  }
+
+  return toolConfig.live === true && !forceCached ? 'live' : true
+}
+
 const getSchedulingToolValue = (toolConfig) => {
   if (!toolConfig || typeof toolConfig !== 'object') {
     return false
@@ -131,8 +151,11 @@ export default async function handler(req, res) {
           useFeedback: getToolEnabled(bot.tools?.followup_rating, true),
           useWebSearch:
             (bot.isAgent || false) &&
-            webSearchAllowed &&
-            getToolEnabled(bot.tools?.web_search, false),
+            webSearchAllowed
+              ? getWebSearchMode(bot.tools?.web_search, {
+                forceCached: bot?.privacy === 'public',
+              })
+              : false,
           useCalendly: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calendly),
           useCalCom: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calcom),
           useTidyCal: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.tidycal),

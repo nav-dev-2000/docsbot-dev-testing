@@ -150,6 +150,26 @@ describe('bot tools sanitization', () => {
     })
   })
 
+
+  it('sanitizes web_search live mode and allowed domains', () => {
+    expect(
+      sanitizeBotTools({
+        web_search: {
+          enabled: 1,
+          live: 'yes',
+          allowed_domains:
+            'Docs.OpenAI.com, example.com https://foo.bar/docs invalid example.com',
+        },
+      }),
+    ).toEqual({
+      web_search: {
+        enabled: true,
+        live: true,
+        allowed_domains: ['docs.openai.com', 'example.com', 'foo.bar'],
+      },
+    })
+  })
+
   it('builds full display urls from stored booking paths', () => {
     expect(buildBookingDisplayUrl('calendly', 'docsbot/demo')).toBe(
       'https://calendly.com/docsbot/demo',

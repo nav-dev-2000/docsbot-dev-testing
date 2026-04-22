@@ -77,6 +77,66 @@ describe('/api/widget/[teamId]/[botId]', () => {
     expect(res.body.useTidyCal).toBe(false)
   })
 
+
+  it('returns "live" for web search when live mode is enabled', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      model: 'gpt-5.4-nano',
+      tools: {
+        web_search: {
+          enabled: true,
+          live: true,
+        },
+      },
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe('live')
+  })
+
+  it('forces public bots to use cached web search in the widget config', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      privacy: 'public',
+      isAgent: true,
+      model: 'gpt-5.4-nano',
+      tools: {
+        web_search: {
+          enabled: true,
+          live: true,
+        },
+      },
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useWebSearch).toBe(true)
+  })
+
   it('falls back to false when a booking action is not configured', async () => {
     mocks.getBot.mockResolvedValue({
       id: 'bot-1',

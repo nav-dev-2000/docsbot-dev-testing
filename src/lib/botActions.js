@@ -2,6 +2,7 @@ import {
   DEFAULT_CUSTOM_BUTTON_ICON,
   normalizeWhitelistedHeroIcon,
 } from '@/constants/heroIcons.constants'
+import { normalizeWebSearchAllowedDomains } from '@/lib/webSearch'
 
 const assertPlainObject = (value, label) => {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
@@ -744,6 +745,20 @@ export const sanitizeBotTools = (tools) => {
     }
 
     assertPlainObject(toolConfig, `tools.${toolName}`)
+
+    if (toolName === 'web_search') {
+      sanitizedTools.web_search = {
+        ...toolConfig,
+        enabled:
+          toolConfig.enabled === undefined ? false : Boolean(toolConfig.enabled),
+        live: Boolean(toolConfig.live),
+        allowed_domains: normalizeWebSearchAllowedDomains(
+          toolConfig.allowed_domains,
+        ),
+      }
+      continue
+    }
+
     sanitizedTools[toolName] = { ...toolConfig }
   }
 
