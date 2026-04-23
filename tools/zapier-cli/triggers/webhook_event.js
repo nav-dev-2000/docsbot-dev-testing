@@ -12,8 +12,80 @@ const WEBHOOK_EVENTS = [
 
 const DEFAULT_EVENT = WEBHOOK_EVENT_LEAD_CREATED;
 
-const buildWebhookBaseUrl = (bundle) =>
-  `https://docsbot.ai/api/teams/${bundle.authData.team_id}/bots/${bundle.authData.bot_id}/webhooks`;
+const buildBotUrl = (bundle) =>
+  `https://docsbot.ai/api/teams/${bundle.authData.team_id}/bots/${bundle.authData.bot_id}`;
+
+const buildWebhookBaseUrl = (bundle) => `${buildBotUrl(bundle)}/webhooks`;
+
+/** Map lead form field `type` to Zapier output field types. */
+const mapLeadFieldTypeToZapier = (type) => {
+  const t = (type || 'text').toString().toLowerCase();
+  if (t === 'number') {
+    return 'number';
+  }
+  return 'string';
+};
+
+/**
+ * When the trigger is "Lead Created", fetches the bot and exposes one Zapier
+ * output field per lead form field (Widget Actions → lead collection) using
+ * nested keys: lead__metadata__<fieldKey>. Zapier can refresh these from
+ * the editor; webhook payloads at runtime still carry whatever keys were submitted.
+ */
+const buildLeadMetadataOutputFields = async (z, bundle) => {
+  const event =
+    bundle?.inputData?.event ||
+    bundle?.subscribeData?.event ||
+    DEFAULT_EVENT;
+  if (event !== WEBHOOK_EVENT_LEAD_CREATED) {
+    return [];
+  }
+
+  if (!bundle?.authData?.team_id || !bundle?.authData?.bot_id) {
+    return [];
+  }
+
+  try {
+    const response = await z.request({
+      method: 'GET',
+      url: buildBotUrl(bundle),
+      headers: {
+        Authorization: `Bearer ${bundle.authData.api_key}`,
+        Accept: 'application/json',
+      },
+    });
+    if (response.status >= 400) {
+      return [];
+    }
+    const bot = response.json;
+    const leadCollect = bot?.leadCollect;
+    if (!leadCollect || !Array.isArray(leadCollect.fields)) {
+      return [];
+    }
+    return leadCollect.fields
+      .map((field) => {
+        if (!field || typeof field.key !== 'string') {
+          return null;
+        }
+        const k = field.key.trim();
+        if (!k) {
+          return null;
+        }
+        const label =
+          typeof field.label === 'string' && field.label.trim()
+            ? field.label.trim()
+            : k;
+        return {
+          key: `lead__metadata__${k}`,
+          label: `Lead — ${label} (metadata)`,
+          type: mapLeadFieldTypeToZapier(field.type),
+        };
+      })
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+};
 
 const parseApiResponse = (response) => {
   if (response.status >= 400) {
@@ -193,6 +265,11 @@ module.exports = {
       { key: 'event', label: 'Event Type' },
       { key: 'teamId', label: 'Team ID' },
       { key: 'botId', label: 'Bot ID' },
+      { key: 'lead__id', label: 'Lead — ID' },
+      { key: 'lead__createdAt', label: 'Lead — Created at', type: 'datetime' },
+      { key: 'lead__updatedAt', label: 'Lead — Updated at', type: 'datetime' },
+      { key: 'lead__ip', label: 'Lead — IP (hashed)' },
+      buildLeadMetadataOutputFields,
     ],
   },
 };

@@ -203,4 +203,62 @@ describe('triggers.webhook_event', () => {
       'Missing webhook id in subscription data.',
     );
   });
+
+  it('builds dynamic lead metadata output fields from the bot lead form', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          id: 'bot_123',
+          leadCollect: {
+            enabled: true,
+            mode: 'before_response',
+            fields: [
+              { key: 'name', label: 'Name', type: 'text' },
+              { key: 'companySize', label: 'Company Size', type: 'select' },
+            ],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(z.request).toHaveBeenCalledWith(
+      expect.objectContaining({
+        method: 'GET',
+        url: `https://docsbot.ai/api/teams/${authData.team_id}/bots/${authData.bot_id}`,
+        headers: expect.objectContaining({
+          Authorization: `Bearer ${authData.api_key}`,
+        }),
+      }),
+    );
+    expect(result).toEqual([
+      {
+        key: 'lead__metadata__name',
+        label: 'Lead — Name (metadata)',
+        type: 'string',
+      },
+      {
+        key: 'lead__metadata__companySize',
+        label: 'Lead — Company Size (metadata)',
+        type: 'string',
+      },
+    ]);
+  });
+
+  it('returns no dynamic lead metadata fields for non-lead events', async () => {
+    const z = { request: jest.fn() };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'conversation.rated' },
+    });
+    expect(z.request).not.toHaveBeenCalled();
+    expect(result).toEqual([]);
+  });
 });
