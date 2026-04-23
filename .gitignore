@@ -1,8 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-tools/stripe/node_modules
+node_modules/
 tools/stripe/.build
 /.pnp
 .pnp.js
@@ -45,4 +44,3 @@ public/feature-updates.json
 
 # stripe extension (local build outputs)
 /tools/stripe/.build/
-/tools/stripe/node_modules/
