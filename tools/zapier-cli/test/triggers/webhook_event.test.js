@@ -214,7 +214,12 @@ describe('triggers.webhook_event', () => {
             enabled: true,
             mode: 'before_response',
             fields: [
-              { key: 'name', label: 'Name', type: 'text' },
+              {
+                key: 'name',
+                label: 'Name',
+                type: 'text',
+                placeholder: 'Ada Lovelace',
+              },
               { key: 'companySize', label: 'Company Size', type: 'select' },
             ],
           },
@@ -241,13 +246,156 @@ describe('triggers.webhook_event', () => {
         key: 'lead__metadata__name',
         label: 'Lead — Name (metadata)',
         type: 'string',
+        sample: 'Ada Lovelace',
       },
       {
         key: 'lead__metadata__companySize',
         label: 'Lead — Company Size (metadata)',
         type: 'string',
+        sample: 'option_a',
       },
     ]);
+  });
+
+  it('uses first select option as sample when no placeholder', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [
+              {
+                key: 'companySize',
+                type: 'select',
+                options: [
+                  { value: '1-10', label: '1-10' },
+                  { value: '11-50', label: '11-50' },
+                ],
+              },
+            ],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe('1-10');
+  });
+
+  it('uses type-based default for email when no placeholder', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [{ key: 'workEmail', type: 'email' }],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe('jane.doe@example.com');
+  });
+
+  it('uses name-shaped default for text field key name when no placeholder', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [{ key: 'name', type: 'text' }],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe('Jane Doe');
+  });
+
+  it('resolves first/last/full name key variations to name-shaped samples', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [
+              { key: 'first_name', type: 'text' },
+              { key: 'family-name', type: 'text' },
+              { key: 'givenName', type: 'textarea' },
+              { key: 'SURNAME', type: 'text' },
+            ],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe('Jane');
+    expect(result[1].sample).toBe('Doe');
+    expect(result[2].sample).toBe('Jane');
+    expect(result[3].sample).toBe('Doe');
+  });
+
+  it('coerces number placeholder to numeric output sample', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [
+              { key: 'teamSize', type: 'number', placeholder: ' 42 ' },
+            ],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe(42);
+  });
+
+  it('falls back to default number sample when placeholder does not parse', async () => {
+    const z = {
+      request: jest.fn().mockResolvedValue({
+        status: 200,
+        json: {
+          leadCollect: {
+            fields: [
+              { key: 'n', type: 'number', placeholder: 'not-a-number' },
+            ],
+          },
+        },
+      }),
+    };
+    const outputFields = App.triggers.webhook_event.operation.outputFields;
+    const dynamicFn = outputFields.find((f) => typeof f === 'function');
+    const result = await dynamicFn(z, {
+      authData,
+      inputData: { event: 'lead.created' },
+    });
+    expect(result[0].sample).toBe(42);
   });
 
   it('returns no dynamic lead metadata fields for non-lead events', async () => {
