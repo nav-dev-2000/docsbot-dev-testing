@@ -1717,7 +1717,7 @@ const AppearanceActions = ({
             ) : null}
 
             {isAgent ? (
-                <div className="mt-6 border-t border-gray-200 pt-6">
+                <div className="mt-6 flex flex-col gap-4 border-t border-gray-200 pt-6">
                     <AppearanceToggle
                         label={
                             <BuiltInToolLabel
@@ -1797,7 +1797,7 @@ const AppearanceActions = ({
                     !hasOpenAIKey &&
                     webSearchPlanCheck.allowed &&
                     webSearchModelCompatible ? (
-                        <div className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+                        <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
                             Add your team OpenAI API key on the{' '}
                             <Link
                                 href="/app/api"
@@ -1810,9 +1810,9 @@ const AppearanceActions = ({
                     ) : null}
 
                     {webSearchEnabled ? (
-                        <div className="mt-3 space-y-3 rounded-lg border border-gray-200 bg-gray-50 p-3">
+                        <div className="ml-4 flex flex-col gap-4">
                             <AppearanceToggle
-                                label="Live web search"
+                                label="Live web crawling"
                                 description="When enabled, can crawl live external web pages. Slower, best for deeper research tasks."
                                 enabled={webSearchLiveEnabled}
                                 setEnabled={(enabled) =>
@@ -1828,17 +1828,20 @@ const AppearanceActions = ({
                                 disabled={isUpdating || isPublicBot}
                                 switchTooltipContent={
                                     isPublicBot
-                                        ? 'Public bots use cached web search only for speed. Switch this bot to private to enable live web search or override in embed code.'
+                                        ? 'Public bots use cached web search only for speed. Switch this bot to private to enable live web crawling or override in embed code.'
                                         : undefined
                                 }
                             />
 
-                            <div className="space-y-1">
+                            <div className="flex flex-col gap-2">
                                 <div className="flex w-full flex-wrap items-center gap-x-2 gap-y-1">
                                     <div className="flex min-w-0 flex-wrap items-center gap-2">
-                                        <p className="text-xs font-medium text-gray-700">
+                                        <label
+                                            htmlFor="web-search-allowed-domains"
+                                            className="text-xs font-semibold text-gray-900"
+                                        >
                                             Allowed domains (optional)
-                                        </p>
+                                        </label>
                                         {!webSearchDomainsPlanCheck.allowed ? (
                                             <Tooltip
                                                 content={`Allowed domains for web search are available on the ${webSearchDomainsPlanCheck.requiredPlanLabel} plan or higher.`}
@@ -1924,6 +1927,12 @@ const AppearanceActions = ({
                                             onClick={() => setShowUpgrade(true)}
                                         />
                                     ) : null}
+                                </div>
+                                <div className="text-xs text-gray-500">
+                                    Full hostnames only, comma-separated. Leave
+                                    empty to allow results from any site; when
+                                    set, search results & crawling are limited to those domains and
+                                    their pages.
                                 </div>
                             </div>
                         </div>
