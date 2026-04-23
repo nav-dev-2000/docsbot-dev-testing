@@ -654,7 +654,7 @@ export default function LeadCollectionToolSettings({
 
                       return (
                         <div
-                          key={`${field.key || 'field'}-${fieldIndex}`}
+                          key={fieldIdBase}
                           className={`rounded-md border p-2.5 transition ${
                             isDragOver
                               ? 'border-cyan-400 bg-cyan-50/40'
@@ -1054,7 +1054,7 @@ export default function LeadCollectionToolSettings({
                               <div className="space-y-2">
                                 {selectOptions.map((option, optionIndex) => (
                                   <div
-                                    key={`${field.key}-option-${optionIndex}`}
+                                    key={`${fieldIdBase}-opt-${optionIndex}`}
                                     className="grid gap-2 md:grid-cols-12"
                                   >
                                     <label
