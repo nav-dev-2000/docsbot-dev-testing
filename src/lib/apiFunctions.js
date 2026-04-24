@@ -36,6 +36,10 @@ import {
   formatWebSearchModelLabel,
   isWebSearchCompatibleModel,
 } from '@/lib/webSearch'
+import {
+  invalidHttpFieldNameMessage,
+  isValidHttpFieldName,
+} from '@/lib/httpFieldName'
 const TOPIC_LIMIT = 50
 
 export const deleteSource = async (
@@ -1286,6 +1290,22 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       if (!server.serverLabel || !server.serverUrl) {
         throw new Error('MCP server must have a label and URL.')
       }
+      const customHeaders = {}
+      if (
+        server?.customHeaders &&
+        typeof server.customHeaders === 'object' &&
+        !Array.isArray(server.customHeaders)
+      ) {
+        Object.entries(server.customHeaders).forEach(([rawKey, rawValue]) => {
+          const key = typeof rawKey === 'string' ? rawKey.trim() : ''
+          if (!key) return
+          if (!isValidHttpFieldName(key)) {
+            throw new Error(invalidHttpFieldNameMessage(key))
+          }
+          const value = rawValue == null ? '' : String(rawValue)
+          customHeaders[key] = value.slice(0, 4000)
+        })
+      }
       return {
           id: server.id || crypto.randomBytes(8).toString('hex'),
           type: 'mcp',
@@ -1304,6 +1324,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
           isConnecting: server.isConnecting !== undefined ? Boolean(server.isConnecting) : false,
           requiresOAuth: server.requiresOAuth !== undefined ? Boolean(server.requiresOAuth) : false,
           tokenExpired: server.tokenExpired !== undefined ? Boolean(server.tokenExpired) : false,
+          ...(Object.keys(customHeaders).length > 0 ? { customHeaders } : {}),
           createdAt: server.createdAt || new Date().toISOString(),
       }
     })

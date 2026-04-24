@@ -1,7 +1,28 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, TrashIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import {
+  invalidHttpFieldNameMessage,
+  isValidHttpFieldName,
+} from '@/lib/httpFieldName'
+
+/** Open the advanced (custom auth) panel when the saved server has data there. */
+function shouldOpenCustomAuthOnLoad(server) {
+  if (!server) return false
+  if (String(server.oauthClientId || '').trim()) return true
+  if (String(server.oauthClientSecret || '').trim()) return true
+  if (String(server.apiKey || '').trim()) return true
+  const h = server.customHeaders
+  if (h && typeof h === 'object' && !Array.isArray(h)) {
+    for (const [rawK, rawV] of Object.entries(h)) {
+      const k = rawK == null ? '' : String(rawK).trim()
+      const v = rawV == null ? '' : String(rawV).trim()
+      if (k || v) return true
+    }
+  }
+  return false
+}
 
 export default function ModalMcpServer({
   open,
@@ -21,10 +42,29 @@ export default function ModalMcpServer({
   const [draftError, setDraftError] = useState('')
   const [addPhase, setAddPhase] = useState('url')
   const [customAuthOpen, setCustomAuthOpen] = useState(false)
+  const [customHeaders, setCustomHeaders] = useState([{ key: '', value: '' }])
 
   const [errors, setErrors] = useState({})
 
   const isAdd = !server
+
+  const mapToHeaderRows = (headers) => {
+    if (!headers || typeof headers !== 'object' || Array.isArray(headers)) {
+      return [{ key: '', value: '' }]
+    }
+    const rows = Object.entries(headers).map(([key, value]) => ({
+      key: String(key ?? ''),
+      value: value == null ? '' : String(value),
+    }))
+    return rows.length ? rows : [{ key: '', value: '' }]
+  }
+
+  const headerRowsToMap = (rows) => rows.reduce((acc, row) => {
+    const key = typeof row?.key === 'string' ? row.key.trim() : ''
+    if (!key) return acc
+    acc[key] = row?.value == null ? '' : String(row.value)
+    return acc
+  }, {})
 
   const validateServerLabel = (label) => {
     if (!label) return 'Server label is required'
@@ -45,6 +85,17 @@ export default function ModalMcpServer({
     return ''
   }
 
+  const validateCustomHeaderRows = (rows) => {
+    for (const row of rows) {
+      const key = typeof row?.key === 'string' ? row.key.trim() : ''
+      if (!key) continue
+      if (!isValidHttpFieldName(key)) {
+        return invalidHttpFieldNameMessage(key)
+      }
+    }
+    return ''
+  }
+
   useEffect(() => {
     if (server) {
       setServerLabel(server.serverLabel || '')
@@ -53,10 +104,11 @@ export default function ModalMcpServer({
       setOauthClientId(server.oauthClientId || '')
       setOauthClientSecret(server.oauthClientSecret || '')
       setApiKey(server.apiKey || '')
+      setCustomHeaders(mapToHeaderRows(server.customHeaders))
       setDraftError('')
       setGeneratingDraft(false)
       setAddPhase('details')
-      setCustomAuthOpen(false)
+      setCustomAuthOpen(shouldOpenCustomAuthOnLoad(server))
     } else {
       setServerLabel('')
       setServerUrl('')
@@ -64,6 +116,7 @@ export default function ModalMcpServer({
       setOauthClientId('')
       setOauthClientSecret('')
       setApiKey('')
+      setCustomHeaders([{ key: '', value: '' }])
       setDraftError('')
       setGeneratingDraft(false)
       setAddPhase('url')
@@ -215,12 +268,14 @@ export default function ModalMcpServer({
     const nextErrors = {
       serverLabel: validateServerLabel(serverLabel),
       serverUrl: validateServerUrl(serverUrl),
+      customHeaders: validateCustomHeaderRows(customHeaders),
     }
     setErrors(nextErrors)
     if (Object.values(nextErrors).some((error) => error)) {
       return
     }
     setErrors({})
+    const customHeadersMap = headerRowsToMap(customHeaders)
     onSave({
       ...server,
 
@@ -233,6 +288,9 @@ export default function ModalMcpServer({
       oauthClientId,
       oauthClientSecret,
       apiKey: apiKey || '',
+      ...(Object.keys(customHeadersMap).length > 0
+        ? { customHeaders: customHeadersMap }
+        : {}),
       enabled: server?.enabled !== undefined ? server.enabled : false,
       tools: server?.tools || [],
       createdAt: server?.createdAt || new Date().toISOString(),
@@ -528,6 +586,87 @@ export default function ModalMcpServer({
                                   registration when the server requires
                                   allowlisting.
                                 </p>
+                                <div className="mt-3 border-t border-gray-100 pt-3">
+                                  <p className="text-sm font-medium text-gray-700">
+                                    Custom request headers
+                                  </p>
+                                  <p className="text-xs text-gray-400">
+                                    Optional headers sent when connecting to this MCP server.
+                                  </p>
+                                  {errors.customHeaders && (
+                                    <p className="mt-2 text-xs text-red-500">
+                                      {errors.customHeaders}
+                                    </p>
+                                  )}
+                                  <div className="mt-2 space-y-2">
+                                    {customHeaders.map((header, index) => (
+                                      <div key={`header-row-${index}`} className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_auto] gap-2">
+                                        <input
+                                          type="text"
+                                          value={header.key}
+                                          onChange={(e) => {
+                                            const value = e.target.value
+                                            setCustomHeaders((prev) => prev.map((row, rowIndex) => (
+                                              rowIndex === index ? { ...row, key: value } : row
+                                            )))
+                                            setErrors((prev) => {
+                                              const next = { ...prev }
+                                              delete next.customHeaders
+                                              return next
+                                            })
+                                          }}
+                                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                          placeholder="Header name"
+                                          autoComplete="off"
+                                        />
+                                        <input
+                                          type="text"
+                                          value={header.value}
+                                          onChange={(e) => {
+                                            const value = e.target.value
+                                            setCustomHeaders((prev) => prev.map((row, rowIndex) => (
+                                              rowIndex === index ? { ...row, value } : row
+                                            )))
+                                          }}
+                                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm"
+                                          placeholder="Header value"
+                                          autoComplete="off"
+                                          data-1p-ignore
+                                          data-lpignore="true"
+                                        />
+                                        {index > 0 ? (
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              setCustomHeaders((prev) =>
+                                                prev.filter((_, rowIndex) => rowIndex !== index),
+                                              )
+                                            }}
+                                            className="inline-flex flex-shrink-0 items-center justify-center self-end rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-500 sm:self-center"
+                                            title="Remove header"
+                                            aria-label="Remove header"
+                                          >
+                                            <TrashIcon className="h-4 w-4" aria-hidden="true" />
+                                          </button>
+                                        ) : (
+                                          <span
+                                            className="hidden shrink-0 sm:block sm:w-9"
+                                            aria-hidden="true"
+                                          />
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      setCustomHeaders((prev) => [...prev, { key: '', value: '' }])
+                                    }
+                                    className="mt-2 text-sm font-medium text-cyan-600 hover:text-cyan-800"
+                                  >
+                                    + Add header
+                                  </button>
+                                </div>
                               </div>
                             )}
                           </div>

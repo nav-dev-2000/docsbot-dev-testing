@@ -239,4 +239,54 @@ describe('validateBotParams web search enforcement', () => {
 
     expect(botData.mcpServers[0].oauthClientSecret).toBeUndefined()
   })
+
+  it('persists MCP custom request headers as a map', async () => {
+    const botData = await validateBotParams(
+      {
+        body: {
+          mcpServers: [
+            {
+              serverLabel: 'Cloudflare Tunnel',
+              serverUrl: 'https://mcp.example.com/sse',
+              customHeaders: {
+                'CF-Access-Client-Id': 'client-id',
+                'CF-Access-Client-Secret': 'client-secret',
+              },
+            },
+          ],
+        },
+      },
+      { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+      'user-1',
+      true,
+      { id: 'bot-1', tools: {}, model: 'gpt-5.4-mini' },
+    )
+
+    expect(botData.mcpServers[0].customHeaders).toEqual({
+      'CF-Access-Client-Id': 'client-id',
+      'CF-Access-Client-Secret': 'client-secret',
+    })
+  })
+
+  it('rejects MCP custom request headers with invalid field names (RFC 9110)', async () => {
+    await expect(
+      validateBotParams(
+        {
+          body: {
+            mcpServers: [
+              {
+                serverLabel: 'Example MCP',
+                serverUrl: 'https://mcp.example.com/sse',
+                customHeaders: { 'X Bad Name': 'x' },
+              },
+            ],
+          },
+        },
+        { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+        'user-1',
+        true,
+        { id: 'bot-1', tools: {}, model: 'gpt-5.4-mini' },
+      ),
+    ).rejects.toThrow(/RFC 9110/)
+  })
 })

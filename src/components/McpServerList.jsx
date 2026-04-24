@@ -173,7 +173,7 @@ export default function McpServerList({
         setServerErrors(prev => ({
           ...prev,
           [server.id]:
-            'This MCP server requires an API key or token in a request header (for example an Authorization: Bearer <token> header). DocsBot cannot inject custom headers for this server.',
+            'This MCP server requires authentication headers. Open Edit server → Custom Authentication (advanced) and add the required request headers, then try connect again.',
         }))
         onChange(list.map((s) =>
           s.id === server.id ? { ...s, isConnecting: false, isConnected: null } : s
