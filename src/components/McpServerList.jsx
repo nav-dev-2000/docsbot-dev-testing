@@ -15,12 +15,19 @@ import {
   ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline'
 import CompanyLogo from '@/components/CompanyLogo'
+import { Streamdown, defaultRemarkPlugins } from '@/components/Streamdown'
+import remarkExternalLinks from 'remark-external-links'
 import ModalMcpServer from '@/components/ModalMcpServer'
 import ModalConfirmDelete from '@/components/ModalConfirmDelete'
 import FieldToggle from '@/components/FieldToggle'
 import Tooltip from '@/components/Tooltip'
 import { useRouter } from 'next/router'
 import { checkPlanPermission, getDomainFromUrl, getMcpServerSlotLimit } from '@/utils/helpers'
+
+const mcpToolDescriptionRemarkPlugins = [
+  ...Object.values(defaultRemarkPlugins),
+  [remarkExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+]
 
 export default function McpServerList({
   mcpServers,
@@ -759,7 +766,15 @@ export default function McpServerList({
                           <div className="min-w-0 pr-2">
                             <p className="text-sm font-medium text-gray-900">{tool.name}</p>
                             {tool.description && (
-                              <p className="mt-0.5 text-xs text-gray-500">{tool.description}</p>
+                              <div className="mt-0.5 max-w-none break-words text-gray-500 prose prose-sm first:prose-p:mt-0 prose-p:mb-1 prose-p:mt-0 prose-headings:mb-1 prose-headings:mt-2 prose-a:text-cyan-600">
+                                <Streamdown
+                                  mode="static"
+                                  isAnimating={false}
+                                  remarkPlugins={mcpToolDescriptionRemarkPlugins}
+                                >
+                                  {tool.description}
+                                </Streamdown>
+                              </div>
                             )}
                           </div>
                           <FieldToggle

@@ -29,7 +29,10 @@ vi.mock('@/lib/dbQueries', () => ({
   getBot: vi.fn(),
 }))
 
-import { fetchOutbound } from '@/pages/api/teams/[teamId]/bots/[botId]/mcp/discover'
+import {
+  extraHeadersForSameOriginMcp,
+  fetchOutbound,
+} from '@/pages/api/teams/[teamId]/bots/[botId]/mcp/discover'
 
 describe('fetchOutbound', () => {
   beforeEach(() => {
@@ -55,5 +58,21 @@ describe('fetchOutbound', () => {
         method: 'GET',
       },
     )
+  })
+})
+
+describe('extraHeadersForSameOriginMcp', () => {
+  it('returns extra headers when target is same origin as MCP URL', () => {
+    const h = { 'X-Key': 'secret' }
+    expect(
+      extraHeadersForSameOriginMcp('https://mcp.example.com/sse', 'https://mcp.example.com/.well-known/foo', h),
+    ).toEqual(h)
+  })
+
+  it('returns empty object when target origin differs (no secret exfil)', () => {
+    const h = { Authorization: 'Bearer token' }
+    expect(
+      extraHeadersForSameOriginMcp('https://mcp.example.com/sse', 'https://evil.example/metadata', h),
+    ).toEqual({})
   })
 })

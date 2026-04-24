@@ -16,6 +16,26 @@ export async function fetchOutbound(urlString, init = {}) {
   return fetch(v.normalizedUrl, init)
 }
 
+/**
+ * customHeaders (API keys, etc.) are only for the user-configured MCP server. Metadata
+ * fetches to other origins, or to URLs taken from 401/JSON (WWW-Authenticate,
+ * resource documents), must not receive them, or a malicious endpoint could exfiltrate secrets.
+ * Only send custom headers to outbound requests whose origin matches the MCP server URL.
+ */
+export function extraHeadersForSameOriginMcp(mcpUrlString, targetUrlString, extraHeaders) {
+  if (!extraHeaders || typeof extraHeaders !== 'object') {
+    return {}
+  }
+  try {
+    if (new URL(mcpUrlString).origin === new URL(targetUrlString).origin) {
+      return { ...extraHeaders }
+    }
+  } catch {
+    // ignore
+  }
+  return {}
+}
+
 async function parseMcpToolsResponse(response) {
   const raw = await response.text()
   let data
@@ -108,7 +128,7 @@ function parseWwwAuthenticateForOAuthHeaderEndpoints(wwwAuthHeader) {
   }
 }
 
-async function discoverOAuthMetadataByDomainHeuristics(url, extraHeaders = {}) {
+async function discoverOAuthMetadataByDomainHeuristics(mcpUrl, url, extraHeaders = {}) {
   const baseUrl = `${url.protocol}//${url.host}`
   const rootDomain = extractRootDomain(url.hostname)
   const rootBaseUrl = rootDomain ? `${url.protocol}//${rootDomain}` : null
@@ -123,9 +143,14 @@ async function discoverOAuthMetadataByDomainHeuristics(url, extraHeaders = {}) {
   ]
 
   for (const candidate of wellKnownCandidates) {
-    const rfcMeta = await fetchAuthServerMetadata(candidate.base, candidate.pathPrefix, extraHeaders)
+    const rfcMeta = await fetchAuthServerMetadata(
+      mcpUrl,
+      candidate.base,
+      candidate.pathPrefix,
+      extraHeaders,
+    )
     if (rfcMeta) return rfcMeta
-    const oidcMeta = await fetchOidcMetadata(candidate.base, extraHeaders)
+    const oidcMeta = await fetchOidcMetadata(mcpUrl, candidate.base, extraHeaders)
     if (oidcMeta) return oidcMeta
   }
 
@@ -171,9 +196,10 @@ async function discoverOAuthMetadata(serverUrl, extraHeaders = {}) {
       const rmMatch = wwwAuth.match(/resource_metadata="([^"]+)"/)
       if (rmMatch) {
         try {
+          // Never forward custom headers: URL is server-controlled (may be another origin).
           const rmResponse = await fetchOutbound(rmMatch[1], {
             headers: {
-              ...extraHeaders,
+              Accept: 'application/json',
             },
           })
           if (rmResponse.ok) {
@@ -181,8 +207,13 @@ async function discoverOAuthMetadata(serverUrl, extraHeaders = {}) {
             // Resource metadata should point to the authorization server
             if (resourceMeta.authorization_servers?.length > 0) {
               const authServerUrl = resourceMeta.authorization_servers[0]
-              // Fetch the auth server's own metadata
-              const asMeta = await fetchAuthServerMetadata(String(authServerUrl), '', extraHeaders)
+              // Fetch the auth server's own metadata (URL is from remote JSON, not custom headers)
+              const asMeta = await fetchAuthServerMetadata(
+                serverUrl,
+                String(authServerUrl),
+                '',
+                {},
+              )
               if (asMeta) {
                 return { ...asMeta, resource_metadata: resourceMeta }
               }
@@ -197,22 +228,31 @@ async function discoverOAuthMetadata(serverUrl, extraHeaders = {}) {
 
       // Step 2: Try RFC 8414 .well-known at the server's origin
       const baseUrl = `${url.protocol}//${url.host}`
-      const rfcMeta = await fetchAuthServerMetadata(baseUrl, '', extraHeaders)
+      const rfcMeta = await fetchAuthServerMetadata(serverUrl, baseUrl, '', extraHeaders)
       if (rfcMeta) return rfcMeta
 
       // Step 3: Try path-nested .well-known (for servers at subpaths)
       if (url.pathname && url.pathname !== '/') {
         const pathBase = url.pathname.replace(/\/+$/, '')
-        const pathMeta = await fetchAuthServerMetadata(baseUrl, pathBase, extraHeaders)
+        const pathMeta = await fetchAuthServerMetadata(
+          serverUrl,
+          baseUrl,
+          pathBase,
+          extraHeaders,
+        )
         if (pathMeta) return pathMeta
       }
 
       // Step 4: OIDC fallback
-      const oidcMeta = await fetchOidcMetadata(baseUrl, extraHeaders)
+      const oidcMeta = await fetchOidcMetadata(serverUrl, baseUrl, extraHeaders)
       if (oidcMeta) return oidcMeta
 
       // Step 5: Domain heuristics fallback (e.g. mcp.calendly.com -> auth.calendly.com)
-      const heuristicMeta = await discoverOAuthMetadataByDomainHeuristics(url, extraHeaders)
+      const heuristicMeta = await discoverOAuthMetadataByDomainHeuristics(
+        serverUrl,
+        url,
+        extraHeaders,
+      )
       if (heuristicMeta) return heuristicMeta
 
       // 401 but no metadata found
@@ -233,15 +273,20 @@ async function discoverOAuthMetadata(serverUrl, extraHeaders = {}) {
 /**
  * Fetch OAuth Authorization Server Metadata (RFC 8414)
  */
-async function fetchAuthServerMetadata(baseUrl, pathPrefix = '', extraHeaders = {}) {
+async function fetchAuthServerMetadata(
+  mcpUrl,
+  targetBase,
+  pathPrefix = '',
+  extraHeaders = {},
+) {
   const wellKnownUrl = pathPrefix
-    ? `${baseUrl}/.well-known/oauth-authorization-server${pathPrefix}`
-    : `${baseUrl}/.well-known/oauth-authorization-server`
+    ? `${targetBase}/.well-known/oauth-authorization-server${pathPrefix}`
+    : `${targetBase}/.well-known/oauth-authorization-server`
 
   try {
     const response = await fetchOutbound(wellKnownUrl, {
       headers: {
-        ...extraHeaders,
+        ...extraHeadersForSameOriginMcp(mcpUrl, wellKnownUrl, extraHeaders),
       },
     })
     if (response.ok) {
@@ -262,11 +307,12 @@ async function fetchAuthServerMetadata(baseUrl, pathPrefix = '', extraHeaders = 
 /**
  * Fetch OIDC Discovery metadata (fallback)
  */
-async function fetchOidcMetadata(baseUrl, extraHeaders = {}) {
+async function fetchOidcMetadata(mcpUrl, targetBase, extraHeaders = {}) {
+  const oidcUrl = `${targetBase}/.well-known/openid-configuration`
   try {
-    const response = await fetchOutbound(`${baseUrl}/.well-known/openid-configuration`, {
+    const response = await fetchOutbound(oidcUrl, {
       headers: {
-        ...extraHeaders,
+        ...extraHeadersForSameOriginMcp(mcpUrl, oidcUrl, extraHeaders),
       },
     })
     if (response.ok) {
