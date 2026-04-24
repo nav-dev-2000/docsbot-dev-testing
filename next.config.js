@@ -361,6 +361,12 @@ const nextConfig = {
   },
 }
 
-module.exports = process.env.DISABLE_HEADLESS 
-  ? withMarkdoc()(nextConfig)
-  : withHeadlessConfig(withMarkdoc()(nextConfig), headlessConfig)
+// This repo uses Markdoc only for Pages Router markdown files under src/pages.
+// Once src/app exists, @markdoc/next.js otherwise sees Next's global appDir
+// flag and emits async App Router components for pages/*.md, which cannot be
+// prerendered by the Pages Router.
+const withPagesMarkdoc = withMarkdoc({ appDir: false })
+
+module.exports = process.env.DISABLE_HEADLESS
+  ? withPagesMarkdoc(nextConfig)
+  : withHeadlessConfig(withPagesMarkdoc(nextConfig), headlessConfig)
