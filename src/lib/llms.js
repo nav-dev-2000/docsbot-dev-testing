@@ -200,6 +200,10 @@ export const BENCHMARKS = {
     title: 'Expert Preference',
     description: 'Evaluates expert preferences for model outputs on real-world reasoning prompts',
   },
+  ExpertSWE: {
+    title: 'Expert-SWE',
+    description: 'Internal frontier software engineering evaluation for long-horizon coding tasks',
+  },
   FACTSBenchmarkSuite: {
     title: 'FACTS Benchmark Suite',
     description: 'Evaluates held-out internal grounding, parametric knowledge, multimodal understanding, and search retrieval capabilities',
@@ -211,6 +215,10 @@ export const BENCHMARKS = {
   FinanceAgent: {
     title: 'Finance Agent',
     description: 'Evaluates agents on core financial analyst tasks, measuring their ability to interpret and analyze financial data',
+  },
+  BixBench: {
+    title: 'BixBench',
+    description: 'Bioinformatics and scientific data analysis benchmark focused on real-world research workflows',
   },
   CodingResolution: {
     title: 'Coding Resolution',
@@ -261,6 +269,10 @@ export const BENCHMARKS = {
     description: 'Economic knowledge work evaluation focused on accuracy-adjusted GDPval results',
     format: 'number',
   },
+  GeneBench: {
+    title: 'GeneBench',
+    description: 'Scientific data analysis benchmark for genetics and quantitative biology workflows',
+  },
   GraphwalksBFS128k: {
     title: 'Graphwalks BFS (128k)',
     description: 'Evaluates long context graph traversal capabilities using breadth-first search at 128k context length',
@@ -277,6 +289,14 @@ export const BENCHMARKS = {
     title: 'Graphwalks BFS (256K–1M)',
     description: 'Long context graph traversal using breadth-first search, 256K–1M context range',
   },
+  GraphwalksBFS256K: {
+    title: 'Graphwalks BFS (256k)',
+    description: 'Long context graph traversal using breadth-first search at 256k context length',
+  },
+  GraphwalksBFS1M: {
+    title: 'Graphwalks BFS (1M)',
+    description: 'Long context graph traversal using breadth-first search at 1M context length',
+  },
   GraphwalksParents0_128K: {
     title: 'Graphwalks Parents (0–128K)',
     description: 'Long context graph traversal using parent relationships, 0–128K context range',
@@ -284,6 +304,14 @@ export const BENCHMARKS = {
   GraphwalksParents256K_1M: {
     title: 'Graphwalks Parents (256K–1M)',
     description: 'Long context graph traversal using parent relationships, 256K–1M context range',
+  },
+  GraphwalksParents256K: {
+    title: 'Graphwalks Parents (256k)',
+    description: 'Long context graph traversal using parent relationships at 256k context length',
+  },
+  GraphwalksParents1M: {
+    title: 'Graphwalks Parents (1M)',
+    description: 'Long context graph traversal using parent relationships at 1M context length',
   },
   HellaSwag: {
     title: 'HellaSwag',
@@ -304,6 +332,10 @@ export const BENCHMARKS = {
   HMMT2025: {
     title: 'HMMT 2025',
     description: 'Harvard-MIT Mathematics Tournament 2025 - Evaluates advanced mathematical problem-solving abilities',
+  },
+  HMMT2026: {
+    title: 'HMMT 2026',
+    description: 'Harvard-MIT Mathematics Tournament 2026 - Evaluates advanced mathematical problem-solving abilities',
   },
   HMMTNov2025: {
     title: 'HMMT Nov 2025',
@@ -333,6 +365,11 @@ export const BENCHMARKS = {
     title: 'Investment Banking Modeling Tasks',
     description: 'Internal benchmark for junior investment banking analyst modeling tasks',
   },
+  KernelBench: {
+    title: 'KernelBench',
+    description: 'Evaluates autonomous optimization of machine learning kernels and reports achieved speedup',
+    format: 'number',
+  },
   LMArena: {
     title: 'LM Arena',
     description: 'A benchmark that evaluates chat model performance through ELO ratings, where models compete against each other in head-to-head comparisons judged by users',
@@ -361,6 +398,10 @@ export const BENCHMARKS = {
   MathVista: {
     title: 'MathVista',
     description: 'Evaluates the mathematical reasoning abilities of AI models within visual contexts',
+  },
+  MathVision: {
+    title: 'MathVision',
+    description: 'Evaluates mathematical reasoning over visual inputs and diagrams',
   },
   MMMU: {
     title: 'MMMU',
@@ -401,6 +442,10 @@ export const BENCHMARKS = {
   MMLUPro: {
     title: 'MMLU Pro',
     description: 'A more robust MMLU benchmark with harder, reasoning-focused questions, a larger choice set, and reduced prompt sensitivity',
+  },
+  MLEBenchLite: {
+    title: 'MLE-Bench Lite',
+    description: 'Evaluates autonomous machine learning competition performance in low-resource Kaggle-style tasks',
   },
   MTOB: {
     title: 'MTOB',
@@ -475,6 +520,10 @@ export const BENCHMARKS = {
     title: 'Office QA',
     description: 'Evaluates office/productivity domain question answering',
   },
+  OfficeQAPro: {
+    title: 'OfficeQA Pro',
+    description: 'Advanced office/productivity benchmark for document-heavy professional knowledge work',
+  },
   OutputSpeedTokensPerSecond: {
     title: 'Output Speed (tokens/sec)',
     description: 'Token generation throughput',
@@ -483,6 +532,10 @@ export const BENCHMARKS = {
   NTREX: {
     title: 'NTREX',
     description: 'Neural Translation Benchmark',
+  },
+  NL2Repo: {
+    title: 'NL2Repo',
+    description: 'Evaluates repository generation and implementation from natural-language software requirements',
   },
   RepoQA: {
     title: 'RepoQA',

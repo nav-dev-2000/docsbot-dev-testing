@@ -149,7 +149,7 @@ const LLMS = [
     slug: 'claude-opus-4-7',
     provider: 'anthropic',
     description:
-      'Claude Opus 4.7 is Anthropic\'s most capable generally available model (released April 16, 2026). It features significant gains in advanced software engineering, long-horizon autonomy, and multimodal understanding. It supports higher resolution images (up to 2,576px), introduces an "xhigh" effort level, and includes real-time cyber safeguards. Outperforms Opus 4.6 on most benchmarks but remains below Claude Mythos Preview.',
+      'Claude Opus 4.7 is Anthropic\'s most capable generally available Opus model (released April 16, 2026), focused on advanced software engineering, long-horizon autonomy, instruction following, and high-resolution multimodal understanding. It supports 1M-token context in beta, images up to 2,576px on the long edge, a new xhigh effort level, and task budgets for longer-running agent work. Anthropic notes the updated tokenizer can map the same text to roughly 1.0-1.35x as many tokens as Opus 4.6 depending on content.',
     input_context_window: '1M (beta)',
     maximum_output_tokens: '128K',
     open_source: false,
@@ -175,6 +175,101 @@ const LLMS = [
       long_context: true,
     },
     benchmarks: {
+      SWEBenchPro: {
+        score: 64.3,
+        notes: 'Public; reported in OpenAI GPT-5.5 comparison table.',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      TerminalBench: {
+        score: 69.4,
+        notes: 'Terminal-Bench 2.0; Anthropic used Terminus-2 harness with thinking disabled.',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GDPvalWinsOrTies: {
+        score: 80.3,
+        notes: 'wins or ties vs industry professionals across 44 occupations',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OSWorld: {
+        score: 78.0,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      BrowseComp: {
+        score: 79.3,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      MCPAtlas: {
+        score: 79.1,
+        notes: 'Scale AI results after April 2026 update.',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      Toolathon: {
+        score: 48.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GPQADiamond: {
+        score: 94.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExam: {
+        score: 46.9,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 54.7,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier1_3: {
+        score: 43.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier4: {
+        score: 22.9,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      CyberGym: {
+        score: 73.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GraphwalksBFS256K: {
+        score: 76.9,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GraphwalksParents256K: {
+        score: 93.6,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 59.2,
+        notes: '8-needle, 128K-256K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle512K_1M: {
+        score: 32.2,
+        notes: '8-needle, 512K-1M',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      ARCAGI1: {
+        score: 93.5,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      ARCAGI2: {
+        score: 75.8,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
       CursorBench: {
         score: 70.0,
         notes: 'Significant jump from Opus 4.6 (58%).',
@@ -191,9 +286,14 @@ const LLMS = [
         source: 'https://www.anthropic.com/news/claude-opus-4-7',
       },
       FinanceAgent: {
-        score: 81.3,
-        notes: 'General Finance module; normalized to percentage scale for cross-model comparison.',
+        score: 64.4,
+        notes: 'FinanceAgent v1.1, reported in OpenAI GPT-5.5 comparison table. Anthropic also reports 0.813 on a General Finance module.',
         source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+      OfficeQAPro: {
+        score: 43.6,
+        notes: 'Databricks OfficeQA Pro',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
       },
       SWEBenchRakuten: {
         score: null,
@@ -334,6 +434,7 @@ const LLMS = [
   {
     model_name: 'Claude Opus 4.1',
     slug: 'claude-opus-4-1',
+    redirect_to: 'claude-opus-4-7',
     provider: 'anthropic',
     description:
       'Claude Opus 4.1 is Anthropic’s refined flagship reasoning model (released August 5, 2025), offering enhanced real-world coding, agentic research, creative writing, and hybrid reasoning capabilities. It supports extended thinking with user-visible reasoning summaries and hybrid mode toggles for instant or deep step-by-step reasoning. Available via Anthropic API, Claude Code, Amazon Bedrock, Google Vertex AI, and GitHub Copilot (Pro+ / Enterprise).',
@@ -401,6 +502,7 @@ const LLMS = [
   {
     model_name: 'Claude 4 Opus',
     slug: 'claude-4-opus',
+    redirect_to: 'claude-opus-4-7',
     provider: 'anthropic',
     description:
       "Claude 4 Opus is Anthropic’s most advanced model. With a 200K token context window and hybrid reasoning, it's the world’s best coding model and excels at reasoning, tool use, and math. Available on Claude.ai, API, Bedrock, and Vertex AI.",
@@ -497,6 +599,7 @@ const LLMS = [
   {
     model_name: 'Claude 4 Sonnet',
     slug: 'claude-4-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       "Claude 4 Sonnet is Anthropic's balanced flagship model. It features a 200K token context window and excels in hybrid reasoning, coding, and general knowledge tasks. It demonstrates strong performance on coding and mathematical benchmarks, and is available via Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud Vertex AI.",
@@ -558,6 +661,7 @@ const LLMS = [
   {
     model_name: 'Claude Instant 1.2',
     slug: 'claude-instant-1-2',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       'Claude Instant 1.2, created by Anthropic, features a context window of 100,000 tokens. The model is priced at 0.8 cents per thousand tokens for input and 2.4 cents per thousand tokens for output. It was launched on August 9, 2023, and has shown strong performance in the MMLU benchmark with a score of 73.4 in a 5-shot scenario.',
@@ -591,6 +695,7 @@ const LLMS = [
   {
     model_name: 'Claude 3.7 Sonnet - Extended Thinking',
     slug: 'claude-3-7-sonnet-extended-thinking',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-Bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
@@ -636,6 +741,7 @@ const LLMS = [
   {
     model_name: 'Claude 3.7 Sonnet',
     slug: 'claude-3-7-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       "Claude 3.7 Sonnet is Anthropic's most intelligent model to date and the first hybrid reasoning model on the market. It features both standard and extended thinking modes, with the latter enabling visible step-by-step reasoning. The model shows particularly strong improvements in coding and front-end web development, achieving state-of-the-art performance on SWE-Bench Verified and TAU-bench. Available through Claude.ai, Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
@@ -681,6 +787,7 @@ const LLMS = [
   {
     model_name: 'Claude 3.5 Sonnet',
     slug: 'claude-3-5-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       "The upgraded Claude 3.5 Sonnet delivers across-the-board improvements over its predecessor, with particularly significant gains in coding—an area where it already led the field. The model is the first frontier AI to offer computer use in public beta. It has demonstrated wide-ranging improvements on industry benchmarks, especially in coding and tool use tasks. Available through various APIs like Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI.",
@@ -730,15 +837,16 @@ const LLMS = [
   },
   {
     slug: 'claude-3-5-sonnet-20241022',
-    redirect_to: 'claude-3-5-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
   },
   {
     slug: 'claude-3-5-sonnet-20240620',
-    redirect_to: 'claude-3-5-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
   },
   {
     model_name: 'Claude 3 Sonnet',
     slug: 'claude-3-sonnet',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       'Claude 3 Sonnet, developed by Anthropic, features a context window of 200,000 tokens. The model costs 0.3 cents per thousand tokens for input and 1.5 cents per thousand tokens for output. It was released on March 4, 2024, and has achieved benchmark scores of 53.1 in MMMU, 89.0 in HellaSwag (10-shot), and 81.5 in MMLU (5-shot CoT).',
@@ -796,6 +904,7 @@ const LLMS = [
   {
     model_name: 'Claude 3 Opus',
     slug: 'claude-3-opus',
+    redirect_to: 'claude-opus-4-7',
     provider: 'anthropic',
     description:
       'Claude 3 Opus, developed by Anthropic, features a context window of 200,000 tokens. The model costs 1.5 cents per thousand tokens for input and 7.5 cents per thousand tokens for output. It was released on March 4, 2024, and has achieved impressive scores in benchmarks like HellaSwag with a score of 95.4 in a 10-shot scenario, MMLU with a score of 88.2 in a 5-shot CoT scenario, and MMMU with a score of 59.4.',
@@ -853,6 +962,7 @@ const LLMS = [
   {
     model_name: 'Claude 3.5 Haiku',
     slug: 'claude-3-5-haiku',
+    redirect_to: 'claude-haiku-4-5',
     provider: 'anthropic',
     description:
       'Claude 3.5 Haiku, developed by Anthropic, features a context window of 200,000 tokens. The model costs $1 per million input tokens and $5 per million output tokens, with up to 90% cost savings with prompt caching and 50% cost savings with Message Batches API. It was released on November 4, 2024. Ideal for code completions, interactive chatbots, data extraction/labeling, and real-time content moderation.',
@@ -894,6 +1004,7 @@ const LLMS = [
   {
     model_name: 'Claude 3 Haiku',
     slug: 'claude-3-haiku',
+    redirect_to: 'claude-haiku-4-5',
     provider: 'anthropic',
     description:
       'Claude 3 Haiku, developed by Anthropic, features a context window of 200,000 tokens. The model costs 0.025 cents per thousand tokens for input and 0.125 cents per thousand tokens for output. It was released on March 13, 2024. In benchmarks, it achieved a score of 50.2 in MMMU, 85.9 in HellaSwag in a 10-shot scenario, and 76.7 in MMLU in a 5-shot CoT scenario.',
@@ -934,6 +1045,7 @@ const LLMS = [
   {
     model_name: 'Claude 2.1',
     slug: 'claude-2-1',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       'Claude 2.1, developed by Anthropic, features a large context window of 200,000 tokens. The model costs 0.08 cents per thousand tokens for input and 0.24 cents per thousand tokens for output. It was released on November 23, 2023.',
@@ -962,6 +1074,7 @@ const LLMS = [
   {
     model_name: 'Claude 2',
     slug: 'claude-2',
+    redirect_to: 'claude-sonnet-4-6',
     provider: 'anthropic',
     description:
       'Claude 2, developed by Anthropic, features a large context window of 100,000 tokens. The model costs 0.8 cents per thousand tokens for input and 2.4 cents per thousand tokens for output. It was released on July 11, 2023, and has shown strong performance in the MMLU benchmark with a score of 78.5 in a 5-shot scenario.',
@@ -1287,6 +1400,7 @@ const LLMS = [
   {
     model_name: 'Command R+ (Aug 2024)',
     slug: 'command-r-plus-08-2024',
+    redirect_to: 'command-a',
     provider: 'cohere',
     description:
       'Command R+ (08-2024), developed by Cohere, features a context window of 128,000 tokens. It is updated to have roughly 50% higher throughput and 25% lower latencies compared to the previous version while maintaining the same hardware footprint. The model costs $2.375 per million input tokens and $9.5 per million output tokens. It was released in August 2024.',
@@ -1327,6 +1441,7 @@ const LLMS = [
   {
     model_name: 'Command R (Aug 2024)',
     slug: 'command-r-08-2024',
+    redirect_to: 'command-a',
     provider: 'cohere',
     description:
       'Command R (08-2024), updated by Cohere, offers enhanced multilingual retrieval-augmented generation (RAG) and tool use capabilities. This version excels in performance for math, code, and reasoning, providing competitive results comparable to the previous Command R+ model.',
@@ -1365,8 +1480,106 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemma 4 31B',
+    slug: 'gemma-4-31b',
+    provider: 'google',
+    description:
+      "Gemma 4 31B is Google DeepMind's strongest Gemma 4 open model, built from the same research and technology as Gemini 3 and released under the Apache 2.0 license. It is a dense multimodal model designed for advanced reasoning, coding, long-context work, and agentic workflows with native function calling, structured JSON output, system prompts, and image/video understanding. The 31B model supports a 256K context window and is intended to run locally on high-end developer hardware while delivering strong intelligence-per-parameter.",
+    input_context_window: '256K',
+    maximum_output_tokens: null,
+    open_source: true,
+    release_date: '2026-04-02',
+    knowledge_cut_off_date: 'January 2025',
+    api_providers: 'Google AI Studio, Hugging Face, Kaggle, Ollama, Vertex AI, Google Cloud',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      function_calling: true,
+      structured_output: true,
+      reasoning_mode: true,
+      long_context: true,
+      vision: true,
+    },
+    benchmarks: {
+      MMLUPro: {
+        score: 85.2,
+        notes: 'Instruction-tuned model',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      AIME2026: {
+        score: 89.2,
+        notes: 'No tools',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      LiveCodeBench: {
+        score: 80.0,
+        notes: 'v6',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      Codeforces: {
+        score: 2150,
+        notes: 'Elo',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      GPQADiamond: {
+        score: 84.3,
+        notes: null,
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      Tau2Bench: {
+        score: 76.9,
+        notes: 'Average over 3',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      HumanitysLastExam: {
+        score: 19.5,
+        notes: 'No tools',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      HumanitysLastExamWithTools: {
+        score: 26.5,
+        notes: 'With search',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      MMMLU: {
+        score: 88.4,
+        notes: null,
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      MMMUPro: {
+        score: 76.9,
+        notes: null,
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      OmniDocBench15: {
+        score: 0.131,
+        notes: 'Average edit distance; lower is better',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      MathVision: {
+        score: 85.6,
+        notes: null,
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+      MRCRv2_128k: {
+        score: 66.4,
+        notes: '8 needle, average',
+        source: 'https://ai.google.dev/gemma/docs/core/model_card_4',
+      },
+    },
+  },
+  {
     model_name: 'Gemma 2 27B',
     slug: 'gemma-2-27b',
+    redirect_to: 'gemma-4-31b',
     provider: 'google',
     description:
       'Gemma 2 27B by Google is an open model built from the same research and technology used to create the Gemini models. Gemma models are well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning.',
@@ -1411,6 +1624,7 @@ const LLMS = [
   {
     model_name: 'Gemma 2 9B',
     slug: 'gemma-2-9b',
+    redirect_to: 'gemma-4-31b',
     provider: 'google',
     description:
       'Gemma 2 9B by Google is an advanced, open-source language model that sets a new standard for efficiency and performance in its size class. Designed for a wide variety of tasks, it empowers developers and researchers to build innovative applications, while maintaining accessibility, safety, and cost-effectiveness.',
@@ -1460,6 +1674,7 @@ const LLMS = [
   {
     model_name: 'Gemini 1.0 Ultra',
     slug: 'gemini-1-0-ultra',
+    redirect_to: 'gemini-3-pro',
     provider: 'google',
     description:
       'Gemini Ultra, developed by Google, features a large context window of 32768 tokens. The model has excelled in benchmarks like MMMU with a score of 59.4 in a 0-shot pass@1 scenario and MMLU with a score of 83.7 in a 5-shot scenario.',
@@ -1506,6 +1721,7 @@ const LLMS = [
   {
     model_name: 'Gemini 1.0 Pro',
     slug: 'gemini-1-0-pro',
+    redirect_to: 'gemini-3-pro',
     provider: 'google',
     description:
       'Gemini Pro, developed by Google, features a context window of 32768 tokens. The model costs 0.0125 cents per thousand tokens for input and 0.0375 cents per thousand tokens for output. It was released on December 13, 2023, and has achieved a score of 47.9 in the MMMU benchmark with a "pass@1" caveat and a score of 71.8 in the MMLU benchmark in a 5-shot scenario.',
@@ -1560,6 +1776,7 @@ const LLMS = [
   {
     model_name: 'Gemini 1.5 Pro (002)',
     slug: 'gemini-1-5-pro-002',
+    redirect_to: 'gemini-3-pro',
     provider: 'google',
     description:
       'Gemini 1.5 Pro, a model designed for general performance across a wide range of text, code, and multimodal tasks. It supports a long context window, multimodal capabilities, and offers improved performance on benchmarks such as MMLU and MATH. The model has reduced input and output costs by approximately 64% and 52%, respectively. It was released as part of updated Gemini models alongside Gemini 1.5 Flash. These models provide faster output, lower latency, and increased rate limits, making them more efficient for various use cases.',
@@ -1618,11 +1835,12 @@ const LLMS = [
   },
   {
     slug: 'gemini-1-5-pro-001',
-    redirect_to: 'gemini-1-5-pro-002',
+    redirect_to: 'gemini-3-pro',
   },
   {
     model_name: 'Gemini 2.0 Flash Thinking (Experimental)',
     slug: 'gemini-2-0-flash-thinking',
+    redirect_to: 'gemini-3-flash',
     provider: 'google',
     description:
       'Gemini 2.0 Flash Thinking is an enhanced reasoning model, capable of showing its thoughts to improve performance and explainability. It excels at complex problem solving, coding challenges, and mathematical reasoning while showing its work. The model is optimized for tasks requiring detailed explanations and logical breakdowns, with native tool use capabilities including code execution and Google Search.',
@@ -2524,6 +2742,7 @@ const LLMS = [
   {
     model_name: 'Gemini 2.0 Pro',
     slug: 'gemini-2-0-pro',
+    redirect_to: 'gemini-3-pro',
     provider: 'google',
     description:
       "Gemini 2.0 Pro is Google's best model yet for coding performance and complex prompts. It features enhanced capabilities including native tool use, image generation, and speech generation. The model excels at complex reasoning tasks and supports multimodal inputs including text, images, video and audio. Available through Google AI Studio and Vertex AI, it offers significantly improved performance over previous versions while maintaining high efficiency.",
@@ -2612,6 +2831,7 @@ const LLMS = [
   {
     model_name: 'Gemini 2.0 Flash',
     slug: 'gemini-2-0-flash',
+    redirect_to: 'gemini-3-flash',
     provider: 'google',
     description:
       "Gemini 2.0 Flash is Google's powerful workhorse model with low latency and enhanced performance, built to power agentic experiences. It features native tool use capabilities and supports multimodal inputs including text, images, video and audio. The model delivers significantly improved performance over previous versions while maintaining high efficiency and speed.",
@@ -2700,6 +2920,7 @@ const LLMS = [
   {
     model_name: 'Gemini 2.0 Flash-Lite',
     slug: 'gemini-2-0-flash-lite',
+    redirect_to: 'gemini-3-1-flash-lite',
     provider: 'google',
     description:
       "Gemini 2.0 Flash-Lite is Google's most cost-efficient model yet, offering better quality than previous versions at the same speed and cost. It features a 1 million token context window and supports multimodal inputs including text, images, video and audio. The model is optimized for low-cost workflows while maintaining high performance.",
@@ -2788,6 +3009,7 @@ const LLMS = [
   {
     model_name: 'Gemini 1.5 Flash (002)',
     slug: 'gemini-1-5-flash-002',
+    redirect_to: 'gemini-3-flash',
     provider: 'google',
     description:
       'Gemini Flash, developed by Google, features a context window of 1M tokens and can generate up to 8,192 tokens in a single request. The model costs $0.13 per million tokens for input and $0.38 per million tokens for output. It was released on May 14th, 2024. Notable benchmarks include a 78.9 score on MMLU and a 56.1 score on MMMU. The model is available through Google AI Studio, Vertex AI.',
@@ -2846,11 +3068,12 @@ const LLMS = [
   },
   {
     slug: 'gemini-1-5-flash-001',
-    redirect_to: 'gemini-1-5-flash-002',
+    redirect_to: 'gemini-3-flash',
   },
   {
     model_name: 'Gemini 1.5 Flash-8B',
     slug: 'gemini-1-5-flash-8b',
+    redirect_to: 'gemini-3-1-flash-lite',
     provider: 'google',
     description:
       'Gemini 1.5 Flash-8B is optimized for speed and efficiency, offering enhanced performance in small prompt tasks like chat, transcription, and translation. With reduced latency, it is highly effective for real-time and large-scale operations. This model focuses on cost-effective solutions while maintaining high-quality results.',
@@ -3043,11 +3266,11 @@ const LLMS = [
     slug: 'llama-4-behemoth',
     provider: 'meta',
     description:
-      "Llama 4 Behemoth is a 288 billion active parameter model with 16 experts, making it Meta's most powerful model and among the world's smartest LLMs. It outperforms GPT-4.5, Claude Sonnet 3.7, and Gemini 2.0 Pro on several STEM benchmarks. Behemoth serves as a teacher model for distilling knowledge to the smaller Llama 4 models. As of April 2025, it is still training and not yet publicly available.",
+      "Llama 4 Behemoth is a 288 billion active parameter model with 16 experts, making it Meta's most powerful model and among the world's smartest LLMs. It outperforms GPT-4.5, Claude Sonnet 3.7, and Gemini 2.0 Pro on several STEM benchmarks. Behemoth serves as a teacher model for distilling knowledge to the smaller Llama 4 models. Meta previewed it on April 5, 2025, but did not release it publicly because it was still training.",
     input_context_window: null,
     maximum_output_tokens: null,
     open_source: false,
-    release_date: 'In training (as of April 2025)',
+    release_date: null,
     knowledge_cut_off_date: null,
     api_providers: null,
     input_cost_per_million_tokens: null,
@@ -3094,6 +3317,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.3 70B Instruct',
     slug: 'llama-3-3-70b-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       'Llama 3.3 70B Instruct, developed by Meta, is a multilingual, instruction-tuned large language model optimized for dialogue use cases. It supports multilingual text inputs and outputs with a context window of 128K tokens. Released on December 6th, 2024, it outperforms many open-source and closed chat models across industry benchmarks. The model employs Grouped-Query Attention (GQA) for enhanced scalability and is trained on a mix of public data with over 15 trillion tokens. Its knowledge cut-off date is December 2023.',
@@ -3153,6 +3377,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.2 90B Vision Instruct',
     slug: 'llama-3-2-90b-vision-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       'The Llama 90B Vision model is a top-tier, 90-billion-parameter multimodal model designed for challenging visual reasoning and language tasks. Built on Llama 3.1, it excels in image captioning, visual question answering, and advanced image-text comprehension. The model achieved impressive scores on benchmarks like VQAv2 (78.1%), MMMU (60.3%), and DocVQA (90.1%).',
@@ -3196,6 +3421,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.2 11B Vision Instruct',
     slug: 'llama-3-2-11b-vision-instruct',
+    redirect_to: 'llama-4-scout',
     provider: 'meta',
     description:
       'Llama 3.2 11B Vision is an 11-billion-parameter multimodal model built on Llama 3.1, designed for visual reasoning and language tasks. It excels in image captioning, visual question answering, and document understanding, achieving strong benchmark scores like VQAv2 (75.2%), MMMU (50.7%), and DocVQA (88.4%).',
@@ -3239,6 +3465,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.1 8B Instruct',
     slug: 'llama-3-1-8b-instruct',
+    redirect_to: 'llama-4-scout',
     provider: 'meta',
     description:
       'Llama 3.1 8B Instruct, developed by Meta, features a context window of 128K tokens. The model was released on July 23rd, 2024, and achieved a score of 66.7 in the MMLU benchmark in a 5-shot scenario.',
@@ -3278,6 +3505,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.1 70B Instruct',
     slug: 'llama3-1-70b-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       "Llama 3.1 70B Instruct, provided by Meta, features a context window of 128K tokens. It has a maximum output capability of 2,048 tokens per request. Open source availability allows public use of the model's code. Released on July 23rd, 2024, with a knowledge cut-off date in December 2023, the model is accessible on various platforms, including Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, and IBM watsonx. Pricing and empirical throughput data are not available currently. Notable benchmarks include an MMLU score of 83.6 5-shot and a MATH score of 68.0 0-shot.",
@@ -3322,6 +3550,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.1 405B Instruct',
     slug: 'llama-3-1-405b-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       'Llama 3.1 405B Instruct is a model developed by Meta that supports an input context window of 128K tokens and can generate a maximum of 2,048 tokens per request. The model is open-source and was released on July 23, 2024, with a knowledge cut-off date of December 2023. It is available through various API providers including Azure AI, AWS Bedrock, Google AI Studio, Vertex AI, NVIDIA NIM, and IBM watsonx.',
@@ -3361,6 +3590,7 @@ const LLMS = [
   {
     model_name: 'Llama 3 8B Instruct',
     slug: 'llama-3-8b-instruct',
+    redirect_to: 'llama-4-scout',
     provider: 'meta',
     description:
       'Llama 3 8B Instruct, developed by Meta, features a context window of 8000 tokens. The model was released on April 18, 2024, and achieved a score of 68.4 in the MMLU benchmark.',
@@ -3399,6 +3629,7 @@ const LLMS = [
   {
     model_name: 'Llama 3 70B Instruct',
     slug: 'llama-3-70b-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       'Llama 3 70B Instruct, developed by Meta, features a context window of 8000 tokens. The model was released on April 18, 2024, and achieved a score of 82.0 in the MMLU benchmark under a 5-shot scenario.',
@@ -3437,6 +3668,7 @@ const LLMS = [
   {
     model_name: 'Llama 2 Chat 70B',
     slug: 'llama-2-chat-70b',
+    redirect_to: 'llama-4-maverick',
     provider: 'meta',
     description:
       'Llama 2 Chat 70B, developed by Meta, features a context window of 4096 tokens. The model was released on July 18, 2023, and has achieved a score of 30.1 in the MMMU benchmark and 68.9 in the MMLU benchmark.',
@@ -3482,6 +3714,7 @@ const LLMS = [
   {
     model_name: 'Llama 2 Chat 13B',
     slug: 'llama-2-chat-13b',
+    redirect_to: 'llama-4-scout',
     provider: 'meta',
     description:
       'Llama 2 Chat 13B, developed by Meta, features a context window of 4096 tokens. The model was released on July 18, 2023, and achieved a score of 54.8 in the MMLU benchmark.',
@@ -3581,6 +3814,7 @@ const LLMS = [
   {
     model_name: 'Mistral Large',
     slug: 'mistral-large',
+    redirect_to: 'mistral-large-2',
     provider: 'mistral',
     description:
       'Mistral Large, developed by Mistral, features a context window of 32000 tokens. The model is priced at 0.8 cents per thousand tokens for both input and output. It was released on February 26, 2024, and has achieved impressive scores in benchmarks like MMLU (81.2 in a 5-shot scenario) and HellaSwag (89.2 in a 10-shot scenario).',
@@ -3618,6 +3852,7 @@ const LLMS = [
   {
     model_name: 'Mistral 8x7B Instruct',
     slug: 'mistral-8x7b-instruct',
+    redirect_to: 'mistral-large-2',
     provider: 'mistral',
     description:
       'Mistral 8x7B Instruct, developed by Mistral, features a context window of 32000 tokens. The model costs 0.07 cents per thousand tokens for both input and output. It was released on December 11, 2023, and achieved a score of 70.6 in the MMLU benchmark in a 5-shot scenario.',
@@ -3651,6 +3886,7 @@ const LLMS = [
   {
     model_name: 'Mistral 7B Instruct',
     slug: 'mistral-7b-instruct',
+    redirect_to: 'mistral-large-2',
     provider: 'mistral',
     description:
       'Mistral 7B Instruct, developed by Mistral, features a large context window of 32000 tokens. The model is priced at 0.025 cents per thousand tokens for both input and output. It was released on September 27, 2023, and achieved a score of 60.1 in the MMLU benchmark under a 5-shot scenario.',
@@ -3684,6 +3920,7 @@ const LLMS = [
   {
     model_name: 'Llama 3.1 Nemotron 70B Instruct',
     slug: 'llama-3-1-nemotron-70b-instruct',
+    redirect_to: 'llama-4-maverick',
     provider: 'nvidia',
     description:
       "NVIDIA's Llama 3.1 Nemotron 70B is a language model designed for generating precise and useful responses. Leveraging Llama 3.1 70B architecture and Reinforcement Learning from Human Feedback (RLHF), it excels in automatic alignment benchmarks. This model is tailored for applications requiring high accuracy in helpfulness and response generation, suitable for diverse user queries across multiple domains.",
@@ -3727,6 +3964,7 @@ const LLMS = [
   {
     model_name: 'o4-mini',
     slug: 'o4-mini',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'OpenAI o4-mini is their latest small o-series model, optimized for fast, effective reasoning with exceptionally efficient performance in coding and visual tasks. It offers a 200,000 token context window and 100,000 maximum output tokens. The model supports reasoning tokens and can process both text and image inputs while generating text outputs. It balances higher reasoning capabilities with medium speed, making it suitable for a wide range of applications requiring efficient performance.',
@@ -3790,6 +4028,7 @@ const LLMS = [
   {
     model_name: 'o3-pro',
     slug: 'o3-pro-2025-06-10',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'OpenAI o3-pro is a premium variant of the o3 model, designed to provide deeper and more reliable reasoning on complex tasks. Released in June 2025, o3-pro uses additional compute to “think harder,” making it ideal for challenging problems in research, software engineering, mathematics, and agentic reasoning. It supports all major developer tools including function calling, structured outputs, developer messages, and image inputs. o3-pro is served through the Responses API and supports background mode for long-running tasks.',
@@ -3843,6 +4082,7 @@ const LLMS = [
   {
     model_name: 'o3',
     slug: 'o3',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'OpenAI o3 is their most capable reasoning model, designed for complex tasks requiring deep reasoning. Released in April 2025, it excels at software engineering, mathematics, and scientific reasoning. The model features three reasoning effort levels (low, medium, high) to balance between deep reasoning and latency. It supports key developer features including function calling, structured outputs, and developer messages. o3 includes vision capabilities for analyzing images and can be accessed through Chat Completions API, Assistants API, and Batch API.',
@@ -3911,6 +4151,7 @@ const LLMS = [
   {
     model_name: 'o3-mini',
     slug: 'o3-mini',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'OpenAI o3-mini is a fast, cost-efficient reasoning model optimized for STEM tasks, particularly excelling in science, math, and coding. Released in January 2025, it supports key developer features including function calling, structured outputs, and developer messages. The model offers three reasoning effort options (low, medium, high) to balance between deep reasoning and low latency. Unlike o3, it does not support vision capabilities. Initially available to select developers in API usage tiers 3-5, it can be accessed through Chat Completions API, Assistants API, and Batch API.',
@@ -3954,6 +4195,7 @@ const LLMS = [
   {
     model_name: 'o1-pro',
     slug: 'o1-pro',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       "The o1 pro model, provided by OpenAI, features an input context window of 200K tokens and can generate up to 100K tokens in a single request. This model is not open source and was released in December 2024. It is currently accessible via the $200/month ChatGPT Pro plan, which provides scaled access to OpenAI's best models and tools, including o1, o1-mini, GPT-4o, and Advanced Voice. o1 pro mode uses enhanced compute and longer reflection time to deliver more accurate and reliable responses, particularly for solving complex problems.",
@@ -4003,6 +4245,7 @@ const LLMS = [
   {
     model_name: 'o1',
     slug: 'o1',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'The full o1 model, provided by OpenAI, features an input context window of 200K tokens and can generate up to 100K tokens in a single request. This model is not open source and was released in December 2024 first only via ChatGPT then API on December 19th. Its knowledge is up-to-date as of October 2023, and can be found in ChatGPT Plus and OpenAI API.',
@@ -4051,11 +4294,12 @@ const LLMS = [
   },
   {
     slug: 'o1-preview',
-    redirect_to: 'o1',
+    redirect_to: 'gpt-5-5',
   },
   {
     model_name: 'o1 Mini',
     slug: 'o1-mini',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       "The o1 Mini model, developed by OpenAI, features an input context window of 128K tokens. Capable of generating up to 65.5K tokens in a single request, this model was first released on September 12th, 2024. The knowledge cut-off date for the model is October 2023. It is not open source, and the model's input costs $3 per million tokens, while output generation costs $12 per million tokens. No benchmark results are available.",
@@ -4294,6 +4538,7 @@ const LLMS = [
   {
     model_name: 'GPT-4.5',
     slug: 'gpt-4-5',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'The latest GPT-4.5 model from OpenAI, launched on February 27, 2025, is a massive 12.8 trillion-parameter AI with a 128K token context window. It offers enhanced general knowledge, improved emotional intelligence, multimodal input (text and image), advanced function calling, and streaming responses. Initially available via ChatGPT Pro and later to Plus and Team users, it generates responses at around 37 tokens per second, making it ideal for tasks that require cutting-edge emotional and general intelligence.',
@@ -4517,6 +4762,7 @@ const LLMS = [
   {
     model_name: 'GPT-5 Codex',
     slug: 'gpt-5-codex',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'GPT-5 Codex is OpenAI’s GPT-5 variant optimized for agentic software engineering inside Codex. It excels at building full projects, refactoring large codebases, debugging, and code review. It supports images/screenshots for frontend work and runs in the Codex CLI, IDE extension, and cloud. Available in Codex surfaces and the OpenAI API (Responses API).',
@@ -4689,6 +4935,7 @@ const LLMS = [
   {
     model_name: 'GPT-5.3-Codex',
     slug: 'gpt-5-3-codex',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'GPT-5.3-Codex is OpenAI\'s most capable agentic coding model, improving on GPT-5.2-Codex with stronger coding performance and faster execution (reported ~25% faster). It\'s designed for long-running tasks involving research, tool use, and complex multi-step execution, and is available across Codex surfaces (app, CLI, IDE extension, and web).',
@@ -4745,6 +4992,314 @@ const LLMS = [
         score: 81.4,
         notes: 'Diamond',
         source: 'https://openai.com/index/introducing-gpt-5-3-codex/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-5.5',
+    slug: 'gpt-5-5',
+    provider: 'openai',
+    description:
+      'GPT-5.5 is OpenAI\'s frontier model for agentic coding, computer use, professional knowledge work, tool use, and early scientific research. It improves over GPT-5.4 while matching GPT-5.4 per-token latency in real-world serving, uses fewer tokens on Codex tasks, supports xhigh reasoning in evaluations, and is available in the Responses and Chat Completions APIs with a 1M context window.',
+    input_context_window: '1M API / 400K Codex',
+    maximum_output_tokens: '128K',
+    input_cost_per_million_tokens: 5.0,
+    output_cost_per_million_tokens: 30,
+    open_source: false,
+    release_date: '2026-04-23',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'ChatGPT, Codex, OpenAI API (Responses & Chat Completions)',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      scientific_research: true,
+      cybersecurity: true,
+      long_context: true,
+    },
+    benchmarks: {
+      // Coding
+      SWEBenchPro: {
+        score: 58.6,
+        notes: 'Public',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      TerminalBench: {
+        score: 82.7,
+        notes: 'Terminal-Bench 2.0',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      ExpertSWE: {
+        score: 73.1,
+        notes: 'Internal frontier eval for long-horizon coding tasks',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Professional tasks
+      GDPvalWinsOrTies: {
+        score: 84.9,
+        notes: 'wins or ties vs industry professionals across 44 occupations',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FinanceAgent: {
+        score: 60.0,
+        notes: 'v1.1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      InvestmentBankingModelingTasks: {
+        score: 88.5,
+        notes: 'Internal investment-banking modeling tasks',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OfficeQAPro: {
+        score: 54.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Computer use and vision
+      OSWorld: {
+        score: 78.7,
+        notes: 'OSWorld-Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      MMMUProNoTools: {
+        score: 81.2,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      MMMUProWithTools: {
+        score: 83.2,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Tool use
+      BrowseComp: {
+        score: 84.4,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      MCPAtlas: {
+        score: 75.3,
+        notes: 'Scale AI results after April 2026 update',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      Toolathon: {
+        score: 55.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      Tau2BenchTelecom: {
+        score: 98.0,
+        notes: 'Original prompts, no prompt adjustment',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Academic
+      GeneBench: {
+        score: 25.0,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier1_3: {
+        score: 51.7,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier4: {
+        score: 35.4,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      BixBench: {
+        score: 80.5,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GPQADiamond: {
+        score: 93.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExam: {
+        score: 41.4,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 52.2,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Cybersecurity
+      CybersecurityCTF: {
+        score: 88.1,
+        notes: 'Internal expansion of the hardest CTF tasks used in system cards',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      CyberGym: {
+        score: 81.8,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Long context
+      GraphwalksBFS256K: {
+        score: 73.7,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GraphwalksBFS1M: {
+        score: 45.4,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GraphwalksParents256K: {
+        score: 90.1,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GraphwalksParents1M: {
+        score: 58.5,
+        notes: 'f1',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle4K_8K: {
+        score: 98.1,
+        notes: '8-needle, 4K-8K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle8K_16K: {
+        score: 93.0,
+        notes: '8-needle, 8K-16K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle16K_32K: {
+        score: 96.5,
+        notes: '8-needle, 16K-32K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle32K_64K: {
+        score: 90.0,
+        notes: '8-needle, 32K-64K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle64K_128K: {
+        score: 83.1,
+        notes: '8-needle, 64K-128K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle128K_256K: {
+        score: 87.5,
+        notes: '8-needle, 128K-256K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle256K_512K: {
+        score: 81.5,
+        notes: '8-needle, 256K-512K',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      OpenAIMRCRv2Needle512K_1M: {
+        score: 74.0,
+        notes: '8-needle, 512K-1M',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+
+      // Abstract reasoning
+      ARCAGI1: {
+        score: 95.0,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      ARCAGI2: {
+        score: 85.0,
+        notes: 'Verified',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+    },
+  },
+  {
+    model_name: 'GPT-5.5 Pro',
+    slug: 'gpt-5-5-pro',
+    provider: 'openai',
+    description:
+      'GPT-5.5 Pro is OpenAI\'s higher-accuracy GPT-5.5 variant for the hardest questions and demanding professional, legal, education, data science, and research work. It is available in ChatGPT for Pro, Business, and Enterprise users, and in the OpenAI API at higher input and output rates than GPT-5.5.',
+    input_context_window: '1M',
+    maximum_output_tokens: '128K',
+    input_cost_per_million_tokens: 30,
+    output_cost_per_million_tokens: 180,
+    open_source: false,
+    release_date: '2026-04-23',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'ChatGPT Pro, Business, Enterprise; OpenAI API',
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      scientific_research: true,
+      cybersecurity: true,
+      long_context: true,
+    },
+    benchmarks: {
+      GDPvalWinsOrTies: {
+        score: 82.3,
+        notes: 'wins or ties vs industry professionals across 44 occupations',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      InvestmentBankingModelingTasks: {
+        score: 88.6,
+        notes: 'Internal investment-banking modeling tasks',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      BrowseComp: {
+        score: 90.1,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      GeneBench: {
+        score: 33.2,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier1_3: {
+        score: 52.4,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      FrontierMathTier4: {
+        score: 39.6,
+        notes: null,
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExam: {
+        score: 43.1,
+        notes: 'no tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      HumanitysLastExamWithTools: {
+        score: 57.2,
+        notes: 'with tools',
+        source: 'https://openai.com/index/introducing-gpt-5-5/',
       },
     },
   },
@@ -5858,6 +6413,7 @@ const LLMS = [
   {
     model_name: 'GPT-4 Turbo',
     slug: 'gpt-4-turbo',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'The latest GPT-4 Turbo, developed by OpenAI, features an input context window of 128K tokens and a generation capacity of 4,096 tokens per request. Released on April 9, 2024, its knowledge was last updated in December 2023 and it generates 31.8 tokens per second. It is offered by OpenAI and is not open source.',
@@ -5904,23 +6460,24 @@ const LLMS = [
   },
   {
     slug: 'gpt-4-turbo-2024-04-09',
-    redirect_to: 'gpt-4-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     slug: 'gpt-4-0125-preview',
-    redirect_to: 'gpt-4-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     slug: 'gpt-4-1106-preview',
-    redirect_to: 'gpt-4-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     slug: 'gpt-4-32k-0613',
-    redirect_to: 'gpt-4-32k',
+    redirect_to: 'gpt-5-5',
   },
   {
     model_name: 'GPT-4',
     slug: 'gpt-4',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'The latest GPT-4, developed by OpenAI, features a context window of 8192 tokens. The model costs 3.0 cents per thousand tokens for input and 6.0 cents per thousand tokens for output. It was released on March 14, 2023, and has achieved impressive scores in benchmarks like HellaSwag with a score of 95.3 in a 10-shot scenario and MMLU with a score of 86.4 in a 5-shot scenario.',
@@ -5964,11 +6521,12 @@ const LLMS = [
   },
   {
     slug: 'gpt-4-0613',
-    redirect_to: 'gpt-4',
+    redirect_to: 'gpt-5-5',
   },
   {
     model_name: 'GPT-4 32K',
     slug: 'gpt-4-32k',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'Retired GPT-4 32K, developed by OpenAI, features a context window of 32768 tokens. The model costs 6.0 cents per thousand tokens for input and 12.0 cents per thousand tokens for output. It was released on March 14, 2023.',
@@ -6012,11 +6570,12 @@ const LLMS = [
   },
   {
     slug: 'gpt-4-0314',
-    redirect_to: 'gpt-4',
+    redirect_to: 'gpt-5-5',
   },
   {
     model_name: 'GPT-3.5 Turbo',
     slug: 'gpt-3-5-turbo',
+    redirect_to: 'gpt-5-5',
     provider: 'openai',
     description:
       'The latest GPT-3.5 Turbo, developed by OpenAI, features a context window of 16385 tokens. The model costs 0.05 cents per thousand tokens for input and 0.15 cents per thousand tokens for output. It was released on January 25, 2024. With higher accuracy at responding in requested formats and a fix for a bug which caused a text encoding issue for non-English language function calls. Currently points to gpt-3.5-turbo-0125.',
@@ -6057,15 +6616,15 @@ const LLMS = [
   },
   {
     slug: 'gpt-3-5-turbo-0125',
-    redirect_to: 'gpt-3-5-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     slug: 'gpt-3-5-turbo-1106',
-    redirect_to: 'gpt-3-5-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     slug: 'gpt-3-5-turbo-16k',
-    redirect_to: 'gpt-3-5-turbo',
+    redirect_to: 'gpt-5-5',
   },
   {
     model_name: 'Grok 4.1',
@@ -6146,6 +6705,7 @@ const LLMS = [
   {
     model_name: 'Grok 3',
     slug: 'grok-3',
+    redirect_to: 'grok-4-1',
     provider: 'xai',
     description:
       "Grok 3 is xAI's most advanced model, trained on their Colossus supercluster with 10x the compute of previous state-of-the-art models. It features a 1M token context window and advanced reasoning capabilities refined through large-scale reinforcement learning, allowing it to think for seconds to minutes while solving complex problems. The model demonstrates leading performance across academic benchmarks and real-world user preferences, with an Elo score of 1402 in the Chatbot Arena. Released with a companion Grok 3 mini model optimized for cost-efficient reasoning.",
@@ -6198,6 +6758,7 @@ const LLMS = [
   {
     model_name: 'Grok-2',
     slug: 'grok-2',
+    redirect_to: 'grok-4-1',
     provider: 'xai',
     description:
       'Grok-2 is a frontier language model released by xAI, featuring state-of-the-art reasoning capabilities in chat, coding, and reasoning. It outperforms models like Claude 3.5 Sonnet and GPT-4-Turbo on the LMSYS leaderboard and offers advanced capabilities in both text and vision understanding. Released on August 13, 2024, Grok-2 is currently in beta on the 𝕏 platform and is soon to be available through an enterprise API.',
@@ -6247,6 +6808,7 @@ const LLMS = [
   {
     model_name: 'DeepSeek-V3',
     slug: 'deepseek-v3',
+    redirect_to: 'deepseek-v4-pro',
     provider: 'deepseek',
     description:
       'DeepSeek-V3 is a Open-Source 671B parameter Mixture-of-Experts (MoE) model with 37B activated parameters per token. It features innovative load balancing and multi-token prediction, trained on 14.8T tokens. The model achieves state-of-the-art performance across benchmarks while maintaining efficient training costs of only 2.788M H800 GPU hours. It incorporates reasoning capabilities distilled from DeepSeek-R1 and supports a 128K context window.',
@@ -6306,6 +6868,7 @@ const LLMS = [
   {
     model_name: 'DeepSeek-V3.2',
     slug: 'deepseek-v3-2',
+    redirect_to: 'deepseek-v4-pro',
     provider: 'deepseek',
     description:
       'DeepSeek-V3.2 is an open-weights, reasoning-first model built for agentic tool use and long-context efficiency. It introduces DeepSeek Sparse Attention (DSA) for improved long-context compute efficiency, scales post-training compute via a robust RL protocol, and uses a large-scale agentic task synthesis pipeline (1,800+ environments, 85k+ complex prompts) to integrate thinking into tool use. DeepSeek-V3.2 is the official successor to DeepSeek-V3.2-Exp and is available on App/Web/API and on Hugging Face under the MIT License.',
@@ -6417,8 +6980,135 @@ const LLMS = [
     },
   },
   {
+    model_name: 'DeepSeek-V4 Pro',
+    slug: 'deepseek-v4-pro',
+    provider: 'deepseek',
+    description:
+      'DeepSeek-V4 Pro is the flagship model in the DeepSeek-V4 preview series, an open-weights 1.6T parameter Mixture-of-Experts model with 49B activated parameters and a 1M token context window. It uses a hybrid attention architecture combining Compressed Sparse Attention and Heavily Compressed Attention for long-context efficiency, adds Manifold-Constrained Hyper-Connections, and supports non-thinking, thinking, and Think Max reasoning modes for agentic coding, knowledge work, and long-context tasks.',
+    input_context_window: '1M',
+    maximum_output_tokens: '384K',
+    open_source: true,
+    release_date: '2026-04-24',
+    knowledge_cut_off_date: null,
+    api_providers: 'DeepSeek API, HuggingFace, ModelScope, OpenRouter',
+    input_cost_per_million_tokens: 1.74,
+    output_cost_per_million_tokens: 3.48,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_context: true,
+      reasoning_mode: true,
+      function_calling: true,
+      structured_output: true,
+    },
+    benchmarks: {
+      MMLUPro: {
+        score: 87.5,
+        notes: 'EM, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      SimpleQA: {
+        score: 57.9,
+        notes: 'Verified, Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      GPQADiamond: {
+        score: 90.1,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      HumanitysLastExam: {
+        score: 37.7,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      LiveCodeBench: {
+        score: 93.5,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      Codeforces: {
+        score: 3206,
+        notes: 'Rating, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      HMMT2026: {
+        score: 95.2,
+        notes: 'February 2026, Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      IMOAnswerBench: {
+        score: 89.8,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      MathArenaApex: {
+        score: 38.3,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      MRCRv2_1M: {
+        score: 83.5,
+        notes: 'MRCR 1M, MMR, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      TerminalBench: {
+        score: 67.9,
+        notes: 'Terminal Bench 2.0, Acc, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      SWEBench: {
+        score: 80.6,
+        notes: 'Verified, Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      SWEBenchPro: {
+        score: 55.4,
+        notes: 'Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      SWEBenchMultilingual: {
+        score: 76.2,
+        notes: 'Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      BrowseComp: {
+        score: 83.4,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      HumanitysLastExamWithTools: {
+        score: 48.2,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      GDPvalAA: {
+        score: 1554,
+        notes: 'Elo, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      MCPAtlas: {
+        score: 73.6,
+        notes: 'Public set, Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+      Toolathon: {
+        score: 51.8,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro',
+      },
+    },
+  },
+  {
     model_name: 'DeepSeek-R1',
     slug: 'deepseek-r1',
+    redirect_to: 'deepseek-v4-pro',
     provider: 'deepseek',
     description:
       'DeepSeek-R1 is a 671B parameter Mixture-of-Experts (MoE) model with 37B activated parameters per token, trained via large-scale reinforcement learning with a focus on reasoning capabilities. It incorporates two RL stages for discovering improved reasoning patterns and aligning with human preferences, along with two SFT stages for seeding reasoning and non-reasoning capabilities. The model achieves performance comparable to OpenAI-o1 across math, code, and reasoning tasks.',
@@ -6466,6 +7156,7 @@ const LLMS = [
   {
     model_name: 'GLM-5',
     slug: 'glm-5',
+    redirect_to: 'glm-5-1',
     provider: 'zhipu',
     description:
       "GLM-5 is Zhipu AI's flagship foundation model designed for complex systems engineering and long-horizon agentic tasks. It features 744B total parameters (40B activated) in a Mixture of Experts architecture, trained on 28.5T tokens. GLM-5 integrates DeepSeek Sparse Attention for higher token efficiency while preserving long-context quality. It supports 200K context length and up to 128K output tokens, with capabilities including thinking modes, real-time streaming, function calling, context caching, and structured output. GLM-5 approaches Claude Opus 4.5 in code-logic density and systems-engineering capability. Open-sourced under MIT License.",
@@ -6573,8 +7264,131 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GLM-5.1',
+    slug: 'glm-5-1',
+    provider: 'zhipu',
+    description:
+      "GLM-5.1 is Z.ai's next-generation flagship model for agentic engineering, optimized for long-horizon coding and autonomous development workflows. It keeps the GLM-5 family architecture with a 200K context window and 128K maximum output, while improving sustained execution on multi-hour tasks, repository generation, terminal work, tool use, and iterative optimization. Z.ai describes GLM-5.1 as aligned with Claude Opus 4.6 overall and able to work autonomously on a single task for up to 8 hours.",
+    input_context_window: '200K',
+    maximum_output_tokens: '128K',
+    open_source: true,
+    release_date: '2026-04-08',
+    knowledge_cut_off_date: null,
+    api_providers: 'Z.ai API, HuggingFace, Together AI, OpenRouter',
+    input_cost_per_million_tokens: 1.4,
+    output_cost_per_million_tokens: 4.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: true,
+      multi_step_workflows: true,
+      function_calling: true,
+      structured_output: true,
+      reasoning_mode: true,
+    },
+    benchmarks: {
+      HumanitysLastExam: {
+        score: 31.0,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      HumanitysLastExamWithTools: {
+        score: 52.3,
+        notes: 'Thinking mode with tools',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      AIME2026: {
+        score: 95.3,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      HMMTNov2025: {
+        score: 94.0,
+        notes: 'Harvard-MIT Math Tournament, November 2025',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      HMMT2026: {
+        score: 82.6,
+        notes: 'Harvard-MIT Math Tournament, February 2026',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      IMOAnswerBench: {
+        score: 83.8,
+        notes: null,
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      GPQADiamond: {
+        score: 86.2,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      SWEBenchPro: {
+        score: 58.4,
+        notes: 'SWE-Bench Pro',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      NL2Repo: {
+        score: 42.7,
+        notes: 'Repository generation',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      TerminalBench: {
+        score: 63.5,
+        notes: 'Terminus-2; best self-reported is 69.0 with Claude Code',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      CyberGym: {
+        score: 68.7,
+        notes: null,
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      BrowseComp: {
+        score: 68.0,
+        notes: 'Without context management',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      BrowseCompWithContext: {
+        score: 79.3,
+        notes: 'With context management',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      Tau2Bench: {
+        score: 70.6,
+        notes: 'Tau3-Bench',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      MCPAtlas: {
+        score: 71.8,
+        notes: 'Public set',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      ToolDecathlon: {
+        score: 40.7,
+        notes: null,
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      VendingBench2: {
+        score: 5634.41,
+        notes: 'Final account balance',
+        source: 'https://huggingface.co/zai-org/GLM-5.1',
+      },
+      KernelBench: {
+        score: 3.6,
+        notes: 'Level 3 optimization, geometric mean speedup',
+        source: 'https://docs.z.ai/guides/llm/glm-5.1',
+      },
+    },
+  },
+  {
     model_name: 'MiniMax M2.5',
     slug: 'minimax-m2-5',
+    redirect_to: 'minimax-m2-7',
     provider: 'minimax',
     description:
       "MiniMax M2.5 is a state-of-the-art large language model designed for real-world productivity. Trained in diverse complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1 to extend into general office work, reaching fluency in generating and operating Word, Excel, and PowerPoint files, context switching between diverse software environments, and working across different agent and human teams. M2.5 is 37% faster at complex tasks than its predecessor while offering enterprise-ready throughput.",
@@ -6632,8 +7446,85 @@ const LLMS = [
     },
   },
   {
+    model_name: 'MiniMax M2.7',
+    slug: 'minimax-m2-7',
+    provider: 'minimax',
+    description:
+      "MiniMax M2.7 is MiniMax's latest M2-series flagship text model, focused on agent-centric workflows, recursive self-improvement, real-world software engineering, professional office delivery, and long-running task execution. MiniMax says M2.7 participated in its own model and harness evolution, can build complex agent harnesses, and improves productivity tasks across software engineering, ML workflows, office documents, and multi-agent collaboration. It is available through MiniMax Agent and the MiniMax API Platform, including a highspeed variant with the same model capability.",
+    input_context_window: '204.8K',
+    maximum_output_tokens: '204.8K',
+    open_source: true,
+    release_date: '2026-03-18',
+    knowledge_cut_off_date: null,
+    api_providers: 'MiniMax Platform, OpenRouter',
+    input_cost_per_million_tokens: 0.3,
+    output_cost_per_million_tokens: 1.2,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      document_automation: true,
+      multi_step_workflows: true,
+      agent_teams: true,
+      reasoning_mode: true,
+    },
+    benchmarks: {
+      SWEBenchPro: {
+        score: 56.22,
+        notes: 'SWE-Pro',
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      SWEBenchMultilingual: {
+        score: 76.5,
+        notes: null,
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      MultiSWEBench: {
+        score: 52.7,
+        notes: null,
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      VIBEPro: {
+        score: 55.6,
+        notes: 'Repo-level code generation / end-to-end project delivery',
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      TerminalBench: {
+        score: 57.0,
+        notes: 'Terminal Bench 2',
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      NL2Repo: {
+        score: 39.8,
+        notes: null,
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      GDPvalAA: {
+        score: 1495,
+        notes: 'Elo, highest among open-source models in MiniMax report',
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      Toolathon: {
+        score: 46.3,
+        notes: null,
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+      MLEBenchLite: {
+        score: 66.6,
+        notes: 'Average medal rate across three 24-hour runs',
+        source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+    },
+  },
+  {
     model_name: 'Kimi K2.5',
     slug: 'kimi-k2-5',
+    redirect_to: 'kimi-k2-6',
     provider: 'moonshot',
     description:
       "Kimi K2.5 is Moonshot AI's most powerful open-source model, built as a native multimodal model with state-of-the-art coding and vision capabilities. It features a self-directed agent swarm paradigm that can orchestrate up to 100 sub-agents executing parallel workflows across up to 1,500 tool calls, reducing execution time by up to 4.5x compared to single-agent setups. Built on Kimi K2 with continued pretraining over approximately 15T mixed visual and text tokens. Available via Kimi.com, Kimi App, API, and Kimi Code.",
@@ -6740,6 +7631,144 @@ const LLMS = [
         score: null,
         notes: '$1,198.46 final account balance',
         source: 'https://z.ai/blog/glm-5',
+      },
+    },
+  },
+  {
+    model_name: 'Kimi K2.6',
+    slug: 'kimi-k2-6',
+    provider: 'moonshot',
+    description:
+      "Kimi K2.6 is Moonshot AI's latest open-source native multimodal agentic model, advancing long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration. It keeps the Kimi K2.5 1T parameter MoE architecture with 32B activated parameters and 256K context, adds stronger coding and agent performance, and scales agent swarms up to 300 sub-agents and 4,000 coordinated steps for complex end-to-end tasks.",
+    input_context_window: '262K',
+    maximum_output_tokens: '98K',
+    open_source: true,
+    release_date: '2026-04-21',
+    knowledge_cut_off_date: null,
+    api_providers: 'Moonshot AI Platform, HuggingFace, Cloudflare Workers AI, OpenRouter',
+    input_cost_per_million_tokens: 0.95,
+    output_cost_per_million_tokens: 4.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      vision: true,
+      agent_swarm: true,
+      function_calling: true,
+      structured_output: true,
+      reasoning_mode: true,
+      coding_driven_design: true,
+    },
+    benchmarks: {
+      HumanitysLastExamWithTools: {
+        score: 54.0,
+        notes: 'HLE-Full with tools, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      BrowseComp: {
+        score: 83.2,
+        notes: 'Thinking mode; context management',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      Toolathon: {
+        score: 50.0,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      MCPMark: {
+        score: 55.9,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      APEXAgents: {
+        score: 27.9,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      OSWorld: {
+        score: 73.1,
+        notes: 'OSWorld-Verified, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      TerminalBench: {
+        score: 66.7,
+        notes: 'Terminal-Bench 2.0, Terminus-2, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      SWEBenchPro: {
+        score: 58.6,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      SWEBenchMultilingual: {
+        score: 76.7,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      SWEBench: {
+        score: 80.2,
+        notes: 'SWE-Bench Verified, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      SciCode: {
+        score: 52.2,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      LiveCodeBench: {
+        score: 89.6,
+        notes: 'v6, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      HumanitysLastExam: {
+        score: 34.7,
+        notes: 'HLE-Full, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      AIME2026: {
+        score: 96.4,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      HMMT2026: {
+        score: 92.7,
+        notes: 'February 2026, thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      IMOAnswerBench: {
+        score: 86.0,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      GPQADiamond: {
+        score: 90.5,
+        notes: 'Thinking mode',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      MMMUPro: {
+        score: 79.4,
+        notes: 'No tools',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      MMMUProWithPython: {
+        score: 80.1,
+        notes: 'With Python tool use',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      CharXivReasoning: {
+        score: 80.4,
+        notes: 'RQ; 86.7 with Python',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
+      },
+      MathVision: {
+        score: 87.4,
+        notes: '93.2 with Python',
+        source: 'https://huggingface.co/moonshotai/Kimi-K2.6',
       },
     },
   },
