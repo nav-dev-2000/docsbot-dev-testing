@@ -5308,7 +5308,7 @@ const LLMS = [
     slug: 'gpt-5-4',
     provider: 'openai',
     description:
-      'GPT‑5.4 is our frontier model for complex professional work. Learn more in our latest model guide. Reasoning.effort supports: none (default), low, medium, high and xhigh.',
+      'GPT‑5.4 is OpenAI\'s frontier model for complex professional work, combining strong coding, agentic tool use, long-context reasoning, document understanding, and multimodal analysis. It is designed for demanding workflows such as software engineering, research, data analysis, and multi-step knowledge work, with configurable reasoning effort from none through xhigh so developers can trade off latency, cost, and depth.',
     input_context_window: '1,050,000',
     maximum_output_tokens: '128K',
     input_cost_per_million_tokens: 2.50,
@@ -6627,8 +6627,31 @@ const LLMS = [
     redirect_to: 'gpt-5-5',
   },
   {
+    model_name: 'Grok 4.3',
+    slug: 'grok-4-3',
+    provider: 'xai',
+    description:
+      "Grok 4.3 is xAI's current Grok 4 series model for Grok consumer surfaces, with a dedicated xAI developer docs page and availability reported across grok.com, X, and the mobile apps. It builds on the Grok 4.20/Grok 4.1 line with long-context reasoning, multimodal input, native video understanding, and generated document-style outputs. Public API token pricing and official benchmark tables for Grok 4.3 have not been published by xAI yet.",
+    input_context_window: '2M',
+    maximum_output_tokens: 'Unknown',
+    open_source: false,
+    release_date: '2026-04-17',
+    knowledge_cut_off_date: null,
+    api_providers: 'xAI (Grok.com, X, iOS/Android)',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    benchmarks: {},
+  },
+  {
     model_name: 'Grok 4.1',
     slug: 'grok-4-1',
+    redirect_to: 'grok-4-3',
     provider: 'xai',
     description:
       "Grok 4.1 is an updated Grok 4 series model optimized for real-world usability, creative/emotional interactions, and collaborative conversations while retaining strong reasoning. xAI reports it was trained using the same large-scale reinforcement learning infrastructure as Grok 4, with additional post-training to improve style, personality, helpfulness, and alignment. Grok 4.1 is available on grok.com, X, and mobile apps.",
@@ -6705,7 +6728,7 @@ const LLMS = [
   {
     model_name: 'Grok 3',
     slug: 'grok-3',
-    redirect_to: 'grok-4-1',
+    redirect_to: 'grok-4-3',
     provider: 'xai',
     description:
       "Grok 3 is xAI's most advanced model, trained on their Colossus supercluster with 10x the compute of previous state-of-the-art models. It features a 1M token context window and advanced reasoning capabilities refined through large-scale reinforcement learning, allowing it to think for seconds to minutes while solving complex problems. The model demonstrates leading performance across academic benchmarks and real-world user preferences, with an Elo score of 1402 in the Chatbot Arena. Released with a companion Grok 3 mini model optimized for cost-efficient reasoning.",
@@ -6758,7 +6781,7 @@ const LLMS = [
   {
     model_name: 'Grok-2',
     slug: 'grok-2',
-    redirect_to: 'grok-4-1',
+    redirect_to: 'grok-4-3',
     provider: 'xai',
     description:
       'Grok-2 is a frontier language model released by xAI, featuring state-of-the-art reasoning capabilities in chat, coding, and reasoning. It outperforms models like Claude 3.5 Sonnet and GPT-4-Turbo on the LMSYS leaderboard and offers advanced capabilities in both text and vision understanding. Released on August 13, 2024, Grok-2 is currently in beta on the 𝕏 platform and is soon to be available through an enterprise API.',

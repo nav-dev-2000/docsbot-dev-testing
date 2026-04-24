@@ -225,6 +225,9 @@ const ModelPage = ({
 
   const providerInfo = getProviderInfo(provider)
   const IconComponent = providerInfo.icon
+  const benchmarkKeys = Object.keys(BENCHMARKS || {}).filter(
+    (key) => benchmarks?.[key],
+  )
 
   const faqs = generateFAQs()
 
@@ -883,81 +886,88 @@ const ModelPage = ({
               </div>
             </div>
 
-            {/* Benchmarks Table */}
-            <div id="benchmarks" className="mt-24 rounded-xl bg-gray-900 py-12">
-              <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="sm:flex sm:items-center">
-                  <div className="sm:flex-auto">
-                    <h2 className="text-base/7 font-semibold text-cyan-500">
-                      Model Performance
-                    </h2>
-                    <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                      Benchmarks
-                    </p>
-                    <p className="mt-6 text-lg/8 text-gray-300">
-                      Performance metrics across various standardized tests and
-                      evaluations.
-                    </p>
+            {benchmarkKeys.length > 0 && (
+              <div
+                id="benchmarks"
+                className="mt-24 rounded-xl bg-gray-900 py-12"
+              >
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                  <div className="sm:flex sm:items-center">
+                    <div className="sm:flex-auto">
+                      <h2 className="text-base/7 font-semibold text-cyan-500">
+                        Model Performance
+                      </h2>
+                      <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                        Benchmarks
+                      </p>
+                      <p className="mt-6 text-lg/8 text-gray-300">
+                        Performance metrics across various standardized tests
+                        and evaluations.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="mt-8">
-                  <div className="w-full">
-                    <table className="w-full divide-y divide-gray-700">
-                      <thead>
-                        <tr>
-                          <th
-                            scope="col"
-                            className="border-r border-gray-800 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
-                          >
-                            Benchmark
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-3 py-3.5 text-center text-sm font-semibold text-white"
-                          >
-                            Score
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-800">
-                        {Object.keys(BENCHMARKS || {}).filter(key => benchmarks?.[key]).map((key) => (
-                          <tr key={key}>
-                            <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">
-                              <div className="text-sm font-medium text-white">
-                                {getBenchmarkTitle(key)}
-                              </div>
-                              <div className="text-sm text-gray-300">
-                                {getBenchmarkDescription(key)}
-                              </div>
-                            </td>
-                            <td className="px-3 py-4 text-center">
-                              <div>
-                                <div className="text-xl font-bold text-cyan-400">
-                                  {formatBenchmarkScore(key, benchmarks[key].score)}
-                                </div>
-                                <div className="mt-1 text-gray-300">
-                                  {benchmarks[key].notes}
-                                </div>
-                                {benchmarks[key].source && (
-                                  <a
-                                    href={benchmarks[key].source}
-                                    className="mt-1 inline-block text-cyan-500 hover:text-cyan-400 hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    Source
-                                  </a>
-                                )}
-                              </div>
-                            </td>
+                  <div className="mt-8">
+                    <div className="w-full">
+                      <table className="w-full divide-y divide-gray-700">
+                        <thead>
+                          <tr>
+                            <th
+                              scope="col"
+                              className="border-r border-gray-800 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
+                            >
+                              Benchmark
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-3 py-3.5 text-center text-sm font-semibold text-white"
+                            >
+                              Score
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody className="divide-y divide-gray-800">
+                          {benchmarkKeys.map((key) => (
+                            <tr key={key}>
+                              <td className="border-r border-gray-800 py-4 pl-4 pr-3 sm:pl-0">
+                                <div className="text-sm font-medium text-white">
+                                  {getBenchmarkTitle(key)}
+                                </div>
+                                <div className="text-sm text-gray-300">
+                                  {getBenchmarkDescription(key)}
+                                </div>
+                              </td>
+                              <td className="px-3 py-4 text-center">
+                                <div>
+                                  <div className="text-xl font-bold text-cyan-400">
+                                    {formatBenchmarkScore(
+                                      key,
+                                      benchmarks[key].score,
+                                    )}
+                                  </div>
+                                  <div className="mt-1 text-gray-300">
+                                    {benchmarks[key].notes}
+                                  </div>
+                                  {benchmarks[key].source && (
+                                    <a
+                                      href={benchmarks[key].source}
+                                      className="mt-1 inline-block text-cyan-500 hover:text-cyan-400 hover:underline"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      Source
+                                    </a>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* FAQ Section */}
             <div id="faq" className="mt-24 px-4 sm:px-6 lg:px-8">
