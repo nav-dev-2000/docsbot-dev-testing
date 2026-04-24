@@ -67,6 +67,168 @@ async function parseMcpToolsResponse(response) {
   throw new Error('Error discovering MCP tools')
 }
 
+/** Best-effort user-facing message from MCP HTTP error body (JSON-RPC error, JSON, or text). */
+export function summarizeUpstreamMcpError(bodyText) {
+  const raw = (bodyText || '').trim()
+  if (!raw) {
+    return 'The MCP server rejected the request.'
+  }
+  const capped = raw.length > 8000 ? `${raw.slice(0, 8000)}…` : raw
+  try {
+    const data = JSON.parse(capped)
+    if (data && typeof data === 'object') {
+      if (data.error != null) {
+        const err = data.error
+        if (typeof err === 'string') return err
+        if (err && typeof err === 'object' && err.message != null) {
+          return String(err.message)
+        }
+      }
+      if (data.message != null) return String(data.message)
+      if (data.detail != null) return String(data.detail)
+    }
+  } catch {
+    // not JSON — use text below
+  }
+  return capped.length > 800 ? `${capped.slice(0, 800)}…` : capped
+}
+
+/**
+ * @param {Response} response
+ * @returns {string | null}
+ * @see https://modelcontextprotocol.io/specification/2024-11-05/basic/transports (Streamable HTTP / Mcp-Session-Id)
+ */
+export function getMcpSessionIdFromResponse(response) {
+  if (!response || !response.headers) return null
+  return response.headers.get('mcp-session-id') || null
+}
+
+/** First JSON object from a plain or SSE-style MCP HTTP body. */
+export function firstJsonObjectFromMcpHttpBody(text) {
+  if (!text || typeof text !== 'string') return null
+  const trimmed = text.trim()
+  if (trimmed.startsWith('data:') || trimmed.includes('data:')) {
+    const match = text.match(/data:\s*(\{[\s\S]*\})/m)
+    if (match) {
+      try {
+        return JSON.parse(match[1])
+      } catch {
+        return null
+      }
+    }
+  }
+  try {
+    return JSON.parse(trimmed)
+  } catch {
+    return null
+  }
+}
+
+const MCP_CLIENT_NAME = 'docsbot-site'
+const MCP_CLIENT_VERSION = '1.0.0'
+const MCP_PROTOCOL_VERSION = '2024-11-05'
+
+/**
+ * List tools over Streamable HTTP: initialize → (optional) Mcp-Session-Id →
+ * notifications/initialized → tools/list. Falls back to a single tools/list
+ * POST for servers that do not support initialize.
+ * @param {string} safeUrl
+ * @param {Record<string, string>} requestHeaders
+ * @returns {Promise<{ response: Response, flow: string }>}
+ */
+export async function fetchMcpToolsListWithStreamableSession(safeUrl, requestHeaders) {
+  const baseHeaders = { ...requestHeaders }
+
+  const doToolsList = (headers, listId) =>
+    fetch(safeUrl, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: listId,
+        method: 'tools/list',
+        params: {},
+      }),
+    })
+
+  const initRes = await fetch(safeUrl, {
+    method: 'POST',
+    headers: baseHeaders,
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      id: 0,
+      method: 'initialize',
+      params: {
+        protocolVersion: MCP_PROTOCOL_VERSION,
+        capabilities: {},
+        clientInfo: { name: MCP_CLIENT_NAME, version: MCP_CLIENT_VERSION },
+      },
+    }),
+  })
+
+  const sessionId = getMcpSessionIdFromResponse(initRes)
+  const initText = await initRes.text()
+  const initJson = firstJsonObjectFromMcpHttpBody(initText)
+
+  if (!initRes.ok) {
+    if (initRes.status === 404 || initRes.status === 405) {
+      const r = await doToolsList(baseHeaders, 1)
+      return { response: r, flow: 'legacy-tools-list-only' }
+    }
+    if (initRes.status === 400) {
+      const legacy = await doToolsList(baseHeaders, 1)
+      if (legacy.ok) {
+        return { response: legacy, flow: 'legacy-after-init-400' }
+      }
+      return { response: legacy, flow: 'init-400-legacy-failed' }
+    }
+    return {
+      response: new Response(initText, {
+        status: initRes.status,
+        statusText: initRes.statusText,
+        headers: initRes.headers,
+      }),
+      flow: 'initialize-http-error',
+    }
+  }
+
+  if (initJson && initJson.error) {
+    const legacy = await doToolsList(baseHeaders, 1)
+    if (legacy.ok) {
+      return { response: legacy, flow: 'legacy-after-init-jsonrpc-error' }
+    }
+    return { response: legacy, flow: 'init-jsonrpc-error-legacy-failed' }
+  }
+
+  const sessionHeaders = sessionId
+    ? { ...baseHeaders, 'Mcp-Session-Id': sessionId }
+    : { ...baseHeaders }
+
+  const notifRes = await fetch(safeUrl, {
+    method: 'POST',
+    headers: sessionHeaders,
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      method: 'notifications/initialized',
+      params: {},
+    }),
+  })
+  try {
+    await notifRes.text()
+  } catch {
+    // ignore
+  }
+  if (!notifRes.ok && notifRes.status !== 202 && notifRes.status !== 200) {
+    console.warn('[mcp/discover] notifications/initialized unexpected status', {
+      status: notifRes.status,
+      hasSession: Boolean(sessionId),
+    })
+  }
+
+  const listRes = await doToolsList(sessionHeaders, 1)
+  return { response: listRes, flow: sessionId ? 'streamable-with-session' : 'streamable-no-session' }
+}
+
 // Fallback using the official MCP client, mirroring your working Python MCP example.
 // Uses SSEClientTransport against the MCP server URL and lists tools via listTools().
 // The bearer token should be provided via NOTION_MCP_TOKEN env var; do not hard-code it.
@@ -509,15 +671,11 @@ export default async function handler(req, res) {
     if (authHeader) {
       requestHeaders['Authorization'] = authHeader
     }
-    const response = await fetch(safeServerUrl, {
-      method: 'POST',
-      headers: requestHeaders,
-      body: JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'tools/list',
-      }),
-    })
+    const { response, flow: mcpSessionFlow } = await fetchMcpToolsListWithStreamableSession(
+      safeServerUrl,
+      requestHeaders,
+    )
+    console.log('[mcp/discover] tools/list flow', { mcpSessionFlow, serverUrl: safeServerUrl })
 
     if (response.status === 401) {
       // Even with our token, got 401 — token might be revoked
@@ -526,38 +684,95 @@ export default async function handler(req, res) {
         await oauthDocRef.delete()
         return res.status(401).json({
           message: 'Stored OAuth token was rejected. Please re-authenticate.',
+          code: 'MCP_OAUTH_TOKEN_REJECTED',
           requiresReauth: true,
         })
       }
       return res.status(401).json({
         message: 'Server requires authentication.',
+        code: 'MCP_UNAUTHORIZED',
         requiresAuth: true,
       })
+    }
+
+    if (!response.ok) {
+      const bodyText = await response.text()
+      const message = summarizeUpstreamMcpError(bodyText)
+      const ourStatus = response.status >= 500 ? 502 : response.status
+      const payload = {
+        message,
+        code: 'MCP_UPSTREAM_HTTP_ERROR',
+        upstreamStatus: response.status,
+        upstreamOk: false,
+      }
+      console.log('[mcp/discover] upstream tools/list non-OK', {
+        mcpSessionFlow,
+        teamId: team.id,
+        botId,
+        serverUrl: safeServerUrl,
+        upstreamStatus: response.status,
+        upstreamStatusText: response.statusText,
+        ourStatus,
+        code: payload.code,
+        contentType: response.headers.get('content-type'),
+        bodyPreview: bodyText.slice(0, 800),
+        message,
+      })
+      return res.status(ourStatus).json(payload)
     }
 
     try {
       const tools = await parseMcpToolsResponse(response)
       return res.status(200).json({
         message: 'MCP tools discovered successfully',
+        code: 'MCP_DISCOVER_OK',
         tools,
       })
     } catch (parseError) {
-      console.error('Primary MCP tools/list parse failed, trying fallback:', parseError.message)
+      const ct = response.headers.get('content-type') || ''
+      console.log('[mcp/discover] tools/list parse failed (ok status but bad body)', {
+        mcpSessionFlow,
+        teamId: team.id,
+        botId,
+        serverUrl: safeServerUrl,
+        responseStatus: response.status,
+        contentType: ct,
+        parseError: parseError.message,
+      })
 
       // Fallback path similar to your Python client that works
       const fallbackTools = await fallbackMcpToolsList(safeServerUrl, authHeader)
       if (fallbackTools && fallbackTools.length) {
         return res.status(200).json({
           message: 'MCP tools discovered successfully (fallback)',
+          code: 'MCP_DISCOVER_OK_FALLBACK',
           tools: fallbackTools,
         })
       }
 
-      return res.status(500).json({ message: parseError.message })
+      console.log('[mcp/discover] fallback also failed; returning 502', {
+        teamId: team.id,
+        botId,
+        serverUrl: safeServerUrl,
+        parseError: parseError.message,
+      })
+      return res.status(502).json({
+        message: parseError.message,
+        code: 'MCP_DISCOVER_PARSE_ERROR',
+        upstreamStatus: response.status,
+        upstreamOk: true,
+      })
     }
 
   } catch (error) {
-    console.error('Error discovering MCP tools with SDK:', error)
-    return res.status(500).json({ message: 'Error discovering MCP tools' })
+    console.error('Error discovering MCP tools with SDK:', error, {
+      teamId: check?.team?.id,
+      botId: req.query?.botId,
+      serverUrl: req.body?.serverUrl,
+    })
+    return res.status(500).json({
+      message: 'Error discovering MCP tools',
+      code: 'MCP_DISCOVER_INTERNAL_ERROR',
+    })
   }
 }

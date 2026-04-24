@@ -1186,6 +1186,32 @@ export async function getTeam(teamId) {
   }
 }
 
+/**
+ * Same as {@link getTeam} but keeps the encrypted `openAIKey` for trusted server routes.
+ * Never send this object to clients.
+ */
+export async function getTeamWithEncryptedOpenAIKey(teamId) {
+  if (
+    !teamId ||
+    typeof teamId !== 'string' ||
+    !/^[A-Za-z0-9]{20}$/.test(teamId)
+  ) {
+    console.log('Invalid teamId parameter')
+    return null
+  }
+  const teamRef = await firestore.collection('teams').doc(teamId).get()
+  if (teamRef.exists) {
+    let team = { id: teamRef.id, ...teamRef.data() }
+    team.createdAt = team.createdAt.toDate().toJSON()
+    if (team.yearlyReports) {
+      team.yearlyReports = serializeYearlyReports(team.yearlyReports)
+    }
+    delete team.openAIKeyPreview
+    return team
+  }
+  return null
+}
+
 function serializeYearlyReports(reports = {}) {
   const yearlyReports = {}
   Object.entries(reports || {}).forEach(([year, report]) => {

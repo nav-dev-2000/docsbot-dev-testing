@@ -11,12 +11,22 @@
  * @returns {string} - The processed text with normalized math delimiters
  */
 export function preprocessMath(text) {
-	if (!text || typeof text !== 'string') return text;
+	// Never return non-strings: callers pass this to React/MD as children; objects (e.g. mistaken API payloads) must not leak through.
+	const str =
+		text == null || text === ''
+			? ''
+			: typeof text === 'string'
+				? text
+				: typeof text === 'number' || typeof text === 'boolean'
+					? String(text)
+					: ''
+
+	if (!str) return ''
 
 	// Store code blocks and inline code to restore later
 	const codeBlocks = [];
 	const inlineCodes = [];
-	let result = text;
+	let result = str;
 
 	// Extract code blocks (triple backticks) first, before inline code
 	// This handles code blocks with optional language identifier

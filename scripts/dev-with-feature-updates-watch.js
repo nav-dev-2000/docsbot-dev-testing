@@ -3,6 +3,13 @@ const path = require('path')
 
 const repoRoot = process.cwd()
 const nextBin = path.join(repoRoot, 'node_modules', '.bin', 'next')
+const forwardedNodeOptions = [process.env.NODE_OPTIONS, '--disable-warning=DEP0040']
+  .filter(Boolean)
+  .join(' ')
+const childEnv = {
+  ...process.env,
+  NODE_OPTIONS: forwardedNodeOptions,
+}
 
 const featureUpdatesWatcher = spawn(
   process.execPath,
@@ -10,7 +17,7 @@ const featureUpdatesWatcher = spawn(
   {
     cwd: repoRoot,
     stdio: 'inherit',
-    env: process.env,
+    env: childEnv,
   },
 )
 
@@ -19,7 +26,7 @@ const nextDevArgs = ['dev', ...process.argv.slice(2)]
 const nextDev = spawn(nextBin, nextDevArgs, {
   cwd: repoRoot,
   stdio: 'inherit',
-  env: process.env,
+  env: childEnv,
 })
 
 const shutdown = (signal) => {

@@ -1,5 +1,34 @@
 import { featureDefinitions } from '@/constants/pricing.constants'
 
+/** Omitted from plan card / Stripe compact bullet lists (still in full matrix). */
+const COMPACT_EXCLUDED = new Set(['mcpServer'])
+
+/**
+ * When two rows share a category, lower index wins (Skills & action ordering).
+ * Unknown keys sort after known ones, stable for the rest.
+ */
+const COMPACT_BULLET_KEY_ORDER = [
+  'docsBots',
+  'sourcePages',
+  'messagesPerMonth',
+  'researchTasksPerMonth',
+  'teamUsers',
+  'docsBotSkills',
+  'bookingActions',
+  'webSearch',
+  'leadCollection',
+  'leadCollectionCustomFields',
+  'escalationTickets',
+  'mcpRemoteConnectors',
+  'stripeActions',
+  'customActionButtons',
+]
+
+function compactKeyOrderIndex(key) {
+  const i = COMPACT_BULLET_KEY_ORDER.indexOf(key)
+  return i === -1 ? 1000 : i
+}
+
 /**
  * Same feature rows as the Stripe pricing table columns (StripePricing.jsx).
  */
@@ -32,7 +61,9 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
         features.push([key, value])
       }
     })
-    return features.slice(0, 8)
+    return features
+      .filter(([k]) => !COMPACT_EXCLUDED.has(k))
+      .slice(0, 8)
   }
 
   const differentiatingFeatures = []
@@ -66,6 +97,18 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
 
     const prevValue = previousTier?.features[key]
 
+    if (key === 'customActionButtons') {
+      if (
+        typeof value === 'string' &&
+        value !== 'false' &&
+        value !== '' &&
+        value !== prevValue
+      ) {
+        differentiatingFeatures.push([key, value])
+      }
+      return
+    }
+
     if (featureDefinitions[key]?.category !== 'limits') {
       if (
         (prevValue === false || prevValue === 0 || prevValue === '') &&
@@ -81,6 +124,7 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
   const allFeatures = [...features, ...differentiatingFeatures]
 
   return allFeatures
+    .filter(([k]) => !COMPACT_EXCLUDED.has(k))
     .sort((a, b) => {
       const [aKey] = a
       const [bKey] = b
@@ -96,16 +140,18 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
       const priority = {
         limits: 0,
         integrations: 1,
-        analytics: 2,
-        ai: 3,
-        actions: 4,
+        actions: 2,
+        analytics: 3,
+        ai: 4,
         features: 5,
         sources: 6,
         customization: 7,
         support: 8,
         compliance: 9,
       }
-      return (priority[aCat] || 99) - (priority[bCat] || 99)
+      const pr = (priority[aCat] || 99) - (priority[bCat] || 99)
+      if (pr !== 0) return pr
+      return compactKeyOrderIndex(aKey) - compactKeyOrderIndex(bKey)
     })
     .slice(0, 14)
 }

@@ -12,6 +12,7 @@ import { canUserEditBot, canUserManageBotSettings } from '@/utils/function.utils
 import {
     checkPlanPermission,
     getCustomButtonsSlotLimit,
+    getWidgetSkillSlotLimit,
     isSuperAdmin,
 } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
@@ -168,6 +169,8 @@ const computeAppearanceDirtySnapshot = (
         tools,
         leadCollect,
         mcpServers,
+        widgetSkills,
+        savedWidgetSkills,
     },
 ) => {
     const reasons = []
@@ -191,6 +194,9 @@ const computeAppearanceDirtySnapshot = (
         }
     })()
     const initialMcpServers = bot?.mcpServers || []
+    const initialWidgetSkills = Array.isArray(savedWidgetSkills)
+        ? savedWidgetSkills
+        : []
 
     const push = (field, extra = {}) => reasons.push({ field, ...extra })
 
@@ -301,6 +307,13 @@ const computeAppearanceDirtySnapshot = (
                 stableStringify(initialMcpServers),
         })
     }
+    if (stableStringify(widgetSkills || []) !== stableStringify(initialWidgetSkills)) {
+        push('skills', {
+            stableEqual:
+                stableStringify(widgetSkills || []) ===
+                stableStringify(initialWidgetSkills),
+        })
+    }
 
     return { dirty: reasons.length > 0, reasons }
 }
@@ -367,6 +380,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     )
 
     const [mcpServers, setMcpServers] = useState(bot.mcpServers || [])
+    const [widgetSkills, setWidgetSkills] = useState([])
+    const [savedWidgetSkills, setSavedWidgetSkills] = useState([])
+    const [availableSkills, setAvailableSkills] = useState([])
+    const [skillsLoading, setSkillsLoading] = useState(false)
+    const [skillsError, setSkillsError] = useState('')
     const [tools, setTools] = useState(() => getInitialDisplayTools(bot.tools))
     const [webSearchAllowedDomainsText, setWebSearchAllowedDomainsText] =
         useState(() =>
@@ -521,6 +539,75 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         // Intentionally bot?.id + team only: re-hydrating on every bot prop update would
         // clobber in-progress edits. After save, updateBot calls hydrate with the response.
     }, [bot?.id, team, hydrateAppearanceStateFromBot])
+
+    useEffect(() => {
+        if (!isAgent || !team?.id || !bot?.id) {
+            setAvailableSkills([])
+            setSavedWidgetSkills([])
+            setWidgetSkills([])
+            setSkillsError('')
+            return
+        }
+
+        let cancelled = false
+
+        const loadSkills = async () => {
+            setSkillsLoading(true)
+            setSkillsError('')
+            try {
+                const listResponse = await fetch(
+                    `/api/teams/${team.id}/bots/${bot.id}/skills`,
+                )
+                const listData = await listResponse.json().catch(() => ({}))
+                if (!listResponse.ok) {
+                    throw new Error(listData.message || 'Unable to load skills.')
+                }
+
+                const summaries = Array.isArray(listData.skills) ? listData.skills : []
+                const details = await Promise.all(
+                    summaries.map(async (summary) => {
+                        const detailResponse = await fetch(
+                            `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(summary.name)}`,
+                        )
+                        const detailData = await detailResponse.json().catch(() => ({}))
+                        if (!detailResponse.ok) {
+                            throw new Error(
+                                detailData.message ||
+                                    `Unable to load skill ${summary.name}.`,
+                            )
+                        }
+                        return detailData.skill || summary
+                    }),
+                )
+
+                if (cancelled) return
+
+                const enabledNames = details
+                    .filter((skill) => skill?.enabledWidget === true)
+                    .map((skill) => skill.name)
+
+                setAvailableSkills(details)
+                setSavedWidgetSkills(enabledNames)
+                setWidgetSkills(enabledNames)
+            } catch (error) {
+                if (cancelled) return
+                setAvailableSkills([])
+                setSavedWidgetSkills([])
+                setWidgetSkills([])
+                setSkillsError(error.message || 'Unable to load skills.')
+            } finally {
+                if (!cancelled) {
+                    setSkillsLoading(false)
+                }
+            }
+        }
+
+        loadSkills()
+
+        return () => {
+            cancelled = true
+        }
+    }, [isAgent, team?.id, bot?.id])
 
     useEffect(() => {
         if (!team || !user) return
@@ -737,6 +824,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     tools,
                     leadCollect,
                     mcpServers,
+                    widgetSkills,
+                    savedWidgetSkills,
                 },
             ),
         [
@@ -760,6 +849,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             tools,
             leadCollect,
             mcpServers,
+            widgetSkills,
+            savedWidgetSkills,
             linkSafetyEnabled,
             keepFooterVisible,
         ],
@@ -947,6 +1038,57 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         setCustomButtonFieldErrors({})
     }, [])
 
+    const syncWidgetSkills = useCallback(async () => {
+        const previous = Array.isArray(savedWidgetSkills) ? savedWidgetSkills : []
+        const next = Array.isArray(widgetSkills) ? widgetSkills : []
+
+        const changed = availableSkills.filter((skill) => {
+            const wasEnabled = previous.includes(skill.name)
+            const isEnabled = next.includes(skill.name)
+            return wasEnabled !== isEnabled
+        })
+
+        if (changed.length === 0) {
+            return
+        }
+
+        await Promise.all(
+            changed.map(async (skill) => {
+                const enabledWidget = next.includes(skill.name)
+                const response = await fetch(
+                    `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(skill.name)}`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            manifest: {
+                                enabledWidget,
+                            },
+                        }),
+                    },
+                )
+
+                if (!response.ok) {
+                    const data = await response.json().catch(() => ({}))
+                    throw new Error(
+                        data.message ||
+                            `Unable to update widget availability for ${skill.name}.`,
+                    )
+                }
+            }),
+        )
+
+        setSavedWidgetSkills(next)
+        setAvailableSkills((prev) =>
+            prev.map((skill) => ({
+                ...skill,
+                enabledWidget: next.includes(skill.name),
+            })),
+        )
+    }, [availableSkills, bot.id, savedWidgetSkills, team.id, widgetSkills])
+
     async function updateBot() {
         setAllowedDomainsText(allowedDomains.join(', '))
         setErrorText('')
@@ -968,6 +1110,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             ? tools.customButtons.length
             : 0
         const customButtonSlots = getCustomButtonsSlotLimit(team)
+        const widgetSkillCount = Array.isArray(widgetSkills) ? widgetSkills.length : 0
+        const widgetSkillSlots = getWidgetSkillSlotLimit(team)
         if (!isSuperAdmin(user?.uid)) {
             if (customButtonSlots === 0 && customButtonCount > 0) {
                 setErrorText(
@@ -981,6 +1125,20 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             ) {
                 setErrorText(
                     'Your plan includes one custom CTA button. Upgrade to Standard or higher to add more.',
+                )
+                return
+            }
+            if (widgetSkillSlots === 0 && widgetSkillCount > 0) {
+                setErrorText(
+                    'Widget skills are only available on the Standard plan or higher.',
+                )
+                return
+            }
+            if (widgetSkillCount > widgetSkillSlots) {
+                setErrorText(
+                    widgetSkillSlots < 10
+                        ? `Your plan includes up to ${String(widgetSkillSlots)} skills per bot. Upgrade to Business for a higher limit.`
+                        : 'Your plan includes up to ten skills per bot.',
                 )
                 return
             }
@@ -1027,6 +1185,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             tools: finalTools,
             imageUploads,
             leadCollect,
+            mcpServers,
             linkSafetyEnabled,
             keepFooterVisible,
         }
@@ -1037,7 +1196,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         ) {
             botSettings.mcpServers = mcpServers
         }
-
         const urlParams = ['teams', team.id, 'bots', bot.id]
         const apiPath = '/api/' + urlParams.join('/')
 
@@ -1049,12 +1207,20 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             body: JSON.stringify(botSettings),
         })
         if (response.ok) {
-            const data = await response.json()
-            setIsUpdating(false)
-            if (setBot) setBot(data)
-            // Match local form state to getBot() shape (merged labels, sanitized stripe,
-            // etc.) so dirty detection agrees with the saved baseline.
-            hydrateAppearanceStateFromBot(data)
+            try {
+                const data = await response.json()
+                await syncWidgetSkills()
+                setIsUpdating(false)
+                if (setBot) setBot(data)
+                // Match local form state to getBot() shape (merged labels, sanitized stripe,
+                // etc.) so dirty detection agrees with the saved baseline.
+                hydrateAppearanceStateFromBot(data)
+            } catch (error) {
+                setErrorText(
+                    error.message || 'Something went wrong, please try again.',
+                )
+                setIsUpdating(false)
+            }
         } else {
             try {
                 const data = await response.json()
@@ -1190,6 +1356,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setBot={setBot}
                     toggleSchedulingAction={toggleSchedulingAction}
                     isAgent={isAgent}
+                    // DOCSBOT_SKILLS_RELEASE_GATE: use `isAgent` (or `true` when isAgent) instead of isSuperAdmin to show widget Skills for everyone
+                    showSkillsSection={isSuperAdmin(user?.uid)}
                     handleAgentToggle={handleAgentToggle}
                     setShowPromptModal={setShowPromptModal}
                     labels={labels}
@@ -1218,6 +1386,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     onStripeOAuthPopupClosed={refreshStripeConnectionFromServer}
                     mcpServers={mcpServers}
                     setMcpServers={setMcpServers}
+                    widgetSkills={widgetSkills}
+                    setWidgetSkills={setWidgetSkills}
+                    availableSkills={availableSkills}
+                    skillsLoading={skillsLoading}
+                    skillsError={skillsError}
                     customButtonFieldErrors={customButtonFieldErrors}
                     onClearCustomButtonFieldError={clearCustomButtonFieldError}
                     onClearCustomButtonRowErrors={clearCustomButtonRowErrors}

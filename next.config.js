@@ -12,6 +12,20 @@ const nextConfig = {
     scrollRestoration: true,
     largePageDataBytes: 256 * 1000, // 256kb, the default is 128kb
   },
+  // Dev-only: keep on-demand compiled routes warm for much longer than the
+  // default (25s / 2 pages). The skills builder lives in a hybrid setup
+  // (pages router page + app router API routes). Whenever an app router
+  // `route.js` under src/app/api/** is (re)compiled in dev — which happens
+  // on first use and again after `maxInactiveAge` of inactivity — Next's dev
+  // server fires a SERVER_COMPONENT_CHANGES HMR event, and the pages router
+  // HMR client responds to that by calling `window.location.reload()`. That
+  // reload is what interrupts an in-flight `useChat` stream and leaves the
+  // builder with "my message, no reply". Keeping routes compiled eliminates
+  // the recompile and therefore the reload. Production is unaffected.
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 50,
+  },
   images: {
     remotePatterns: [
       {
@@ -327,6 +341,11 @@ const nextConfig = {
       require('./scripts/latest-news')
       require('./scripts/generate-feature-updates')
     }
+
+    config.module.rules.push({
+      resourceQuery: /raw/,
+      type: 'asset/source',
+    })
 
     // Silence known dynamic require warning from @truto/truto-link-sdk client bundle
     // The SDK ships dynamic requires that webpack flags but are safe in our client-only usage.

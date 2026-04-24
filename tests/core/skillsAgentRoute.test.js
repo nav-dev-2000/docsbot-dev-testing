@@ -1,0 +1,859 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+let currentDraft
+
+const mocks = vi.hoisted(() => {
+  const openai = vi.fn((model) => ({ provider: 'openai', model }))
+  openai.tools = {
+    webSearch: vi.fn((options) => ({ type: 'web_search', options })),
+    shell: vi.fn((options) => ({ type: 'shell', options })),
+    applyPatch: vi.fn((options) => ({ type: 'apply_patch', options })),
+  }
+
+  return {
+    consumeStream: vi.fn(),
+    convertToModelMessages: vi.fn(async (messages) => messages),
+    stepCountIs: vi.fn((steps) => ({ type: 'stepCountIs', steps })),
+    streamText: vi.fn(),
+    openai,
+    createOpenAI: vi.fn(() => openai),
+    getTeamWithEncryptedOpenAIKey: vi.fn(),
+    decryptKey: vi.fn((k) => k),
+    incrementSkillDraftBuilderAgentUsage: vi.fn(),
+    getAuthorizedBotContext: vi.fn(),
+    openAiErrorMessage: vi.fn(() => null),
+    getSkillDraft: vi.fn(),
+    getSkillDraftDocRef: vi.fn(),
+    buildSkillContextSummary: vi.fn((record) => ({
+      skillName: record.skillName,
+      fileTree: record.files.map((file) => ({ path: file.path, size: file.content.length })),
+    })),
+    mergeBundleArtifact: vi.fn((files, artifact) => {
+      if (!artifact?.path) return files
+      const next = files.filter((file) => file.path !== artifact.path)
+      next.push({ path: artifact.path, content: artifact.content })
+      return next.sort((a, b) => a.path.localeCompare(b.path))
+    }),
+    publishSkillDraft: vi.fn(),
+    replaceSkillMdFrontmatter: vi.fn((markdown, { name, description }) => {
+      const body = String(markdown || '').replace(/^---[\s\S]*?---\s*/, '')
+      return `---\nname: ${name}\ndescription: \"${description}\"\n---\n\n${body || '# Skill\n'}`
+    }),
+    getSkillFileContent: vi.fn(
+      (files, path) => files.find((file) => file.path === path)?.content || '',
+    ),
+    upsertSkillFile: vi.fn((files, nextFile) => {
+      const next = files.filter((file) => file.path !== nextFile.path)
+      next.push(nextFile)
+      return next.sort((a, b) => a.path.localeCompare(b.path))
+    }),
+    updateSkillDraft: vi.fn(),
+    createSkillPatchExecute: vi.fn(),
+    createSkillShellExecute: vi.fn(),
+    buildSkillSandboxId: vi.fn((teamId, botId, skillName) => `skill:${teamId}:${botId}:${skillName}`),
+    SKILLS_SANDBOX_SESSION_ID: 'builder',
+    promoteSkillDraftToPublishedCurrent: vi.fn(),
+    readSkillDraftPackageFromR2: vi.fn(),
+    readPublishedSkillPackageFromR2: vi.fn(),
+    canUserManageBotSettings: vi.fn(() => true),
+    sanitizeValidationPayload: vi.fn((payload) => payload),
+    docRef: {
+      set: vi.fn(async () => undefined),
+      update: vi.fn(async () => undefined),
+    },
+    runtimeFetch: vi.fn(),
+    responseOptions: null,
+    streamArgs: null,
+    shellExecute: vi.fn(),
+    patchExecute: vi.fn(),
+    isSuperAdmin: vi.fn(() => true),
+  }
+})
+
+vi.mock('ai', () => ({
+  consumeStream: mocks.consumeStream,
+  convertToModelMessages: mocks.convertToModelMessages,
+  stepCountIs: mocks.stepCountIs,
+  streamText: mocks.streamText,
+}))
+
+vi.mock('@ai-sdk/openai', () => ({
+  openai: mocks.openai,
+  createOpenAI: mocks.createOpenAI,
+}))
+
+vi.mock('@/lib/dbQueries', () => ({
+  getTeamWithEncryptedOpenAIKey: mocks.getTeamWithEncryptedOpenAIKey,
+}))
+
+vi.mock('@/lib/encryption', () => ({
+  decryptKey: mocks.decryptKey,
+}))
+
+vi.mock('@/lib/appRouteAuth', () => ({
+  getAuthorizedBotContext: mocks.getAuthorizedBotContext,
+}))
+
+vi.mock('@/lib/openai-error-message', () => ({
+  openAiErrorMessage: mocks.openAiErrorMessage,
+}))
+
+vi.mock('@/lib/skills-builder', () => ({
+  GENERATED_BUNDLE_ARTIFACT_PATH: '.docsbot/bundle/index.js',
+  buildSkillContextSummary: mocks.buildSkillContextSummary,
+  getSkillFileContent: mocks.getSkillFileContent,
+  getSkillDraft: mocks.getSkillDraft,
+  getSkillDraftDocRef: mocks.getSkillDraftDocRef,
+  mergeBundleArtifact: mocks.mergeBundleArtifact,
+  publishSkillDraft: mocks.publishSkillDraft,
+  replaceSkillMdFrontmatter: mocks.replaceSkillMdFrontmatter,
+  sanitizeValidationPayload: mocks.sanitizeValidationPayload,
+  upsertSkillFile: mocks.upsertSkillFile,
+  updateSkillDraft: mocks.updateSkillDraft,
+  incrementSkillDraftBuilderAgentUsage: mocks.incrementSkillDraftBuilderAgentUsage,
+}))
+
+vi.mock('@/lib/skills-shell-executor', () => ({
+  createSkillShellExecute: mocks.createSkillShellExecute,
+}))
+
+vi.mock('@/lib/skills-patch-executor', () => ({
+  createSkillPatchExecute: mocks.createSkillPatchExecute,
+}))
+
+vi.mock('@/lib/skills-sandbox-client', () => ({
+  buildSkillSandboxId: mocks.buildSkillSandboxId,
+  SKILLS_SANDBOX_SESSION_ID: mocks.SKILLS_SANDBOX_SESSION_ID,
+}))
+
+vi.mock('@/lib/skills-r2-package', () => ({
+  promoteSkillDraftToPublishedCurrent: mocks.promoteSkillDraftToPublishedCurrent,
+  readSkillDraftPackageFromR2: mocks.readSkillDraftPackageFromR2,
+  readPublishedSkillPackageFromR2: mocks.readPublishedSkillPackageFromR2,
+}))
+
+vi.mock('@/utils/function.utils', async () => {
+  const actual = await vi.importActual('@/utils/function.utils')
+  return {
+    ...actual,
+    canUserManageBotSettings: mocks.canUserManageBotSettings,
+  }
+})
+
+vi.mock('@/utils/helpers', () => ({
+  isSuperAdmin: mocks.isSuperAdmin,
+}))
+
+function clone(value) {
+  return JSON.parse(JSON.stringify(value))
+}
+
+function createAbortableRequest(url, init = {}) {
+  const controller = new AbortController()
+  const request = new Request(url, {
+    ...init,
+    signal: controller.signal,
+  })
+
+  return { request, controller }
+}
+
+describe('skills agent route', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+
+    process.env.SKILLS_RUNTIME_URL = 'https://skills-runtime.example'
+    process.env.SKILLS_RUNTIME_TOKEN = 'runtime-token'
+
+    currentDraft = {
+      id: 'customer-refunds',
+      draftId: 'customer-refunds',
+      skillName: 'customer-refunds',
+      name: 'customer-refunds',
+      description: 'Use when customers need refund policy help.',
+      internal: false,
+      enabled: false,
+      mode: 'executable',
+      audience: 'customer',
+      status: 'draft',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      hasFunctions: true,
+      files: [
+        {
+          path: 'SKILL.md',
+          content:
+            '---\nname: customer-refunds\ndescription: "Use when customers need refund policy help."\n---\n\n# Refunds\n',
+        },
+      ],
+      validation: {
+        valid: false,
+        hasFunctions: true,
+      },
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [],
+      metadataBindings: [],
+      manifest: {
+        name: 'customer-refunds',
+        description: 'Use when customers need refund policy help.',
+        internal: false,
+        enabled: false,
+        hasFunctions: true,
+        r2Prefix: 'team-1/bot-1/customer-refunds',
+        networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+        envBindings: [],
+        secretBindings: [],
+        metadataBindings: [],
+      },
+      agent: {
+        sandboxId: null,
+        sessionId: null,
+        lastResponseId: null,
+      },
+      publishedAt: null,
+    }
+
+    mocks.getAuthorizedBotContext.mockResolvedValue({
+      team: { id: 'team-1', roles: { 'user-1': 'owner' } },
+      bot: { id: 'bot-1', roles: {} },
+      botId: 'bot-1',
+      userId: 'user-1',
+      firestore: { id: 'firestore' },
+    })
+
+    mocks.getSkillDraft.mockImplementation(async () => clone(currentDraft))
+    mocks.getSkillDraftDocRef.mockReturnValue(mocks.docRef)
+    mocks.createSkillShellExecute.mockReturnValue(mocks.shellExecute)
+    mocks.createSkillPatchExecute.mockReturnValue(mocks.patchExecute)
+    mocks.promoteSkillDraftToPublishedCurrent.mockResolvedValue({
+      configured: true,
+      promoted: 2,
+      deleted: 0,
+    })
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [
+        { path: '.docsbot/bundle/index.js', content: 'export default {}\n', truncated: false },
+      ],
+    })
+    mocks.readPublishedSkillPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [
+        { path: '.docsbot/bundle/index.js', content: 'export default {}\n', truncated: false },
+      ],
+    })
+    mocks.publishSkillDraft.mockImplementation(async ({ hasFunctions }) => {
+      currentDraft = {
+        ...currentDraft,
+        enabled: true,
+        hasFunctions,
+        publishedAt: '2026-04-18T20:00:00.000Z',
+        manifest: {
+          ...currentDraft.manifest,
+          enabled: true,
+          hasFunctions,
+        },
+      }
+      return clone(currentDraft)
+    })
+    mocks.updateSkillDraft.mockImplementation(async (_teamId, _botId, _skillName, updates) => {
+      const nextFiles = updates.files ?? currentDraft.files
+      const nextManifest = {
+        ...currentDraft.manifest,
+        ...(updates.manifest || {}),
+      }
+
+      currentDraft = {
+        ...currentDraft,
+        files: nextFiles,
+        mode: updates.mode ?? currentDraft.mode,
+        audience: updates.audience ?? currentDraft.audience,
+        validation: updates.validation ?? currentDraft.validation,
+        liveTest: updates.liveTest ?? currentDraft.liveTest,
+        chatMessages: updates.chatMessages ?? currentDraft.chatMessages,
+        agent: updates.agent ?? currentDraft.agent,
+        lastAuthoringSummary: updates.lastAuthoringSummary ?? currentDraft.lastAuthoringSummary,
+        publishedAt:
+          updates.publishedAt !== undefined ? updates.publishedAt : currentDraft.publishedAt,
+        manifest: nextManifest,
+        description: nextManifest.description,
+        internal: nextManifest.internal,
+        enabled: nextManifest.enabled,
+        hasFunctions: nextManifest.hasFunctions,
+        r2Prefix: nextManifest.r2Prefix,
+        networkPolicy: nextManifest.networkPolicy,
+        envBindings: nextManifest.envBindings,
+        secretBindings: nextManifest.secretBindings,
+        metadataBindings: nextManifest.metadataBindings,
+      }
+
+      return clone(currentDraft)
+    })
+    mocks.getTeamWithEncryptedOpenAIKey.mockResolvedValue({ openAIKey: null })
+    mocks.createOpenAI.mockImplementation(() => mocks.openai)
+
+    mocks.streamText.mockImplementation((args) => {
+      mocks.streamArgs = args
+      void Promise.resolve().then(() =>
+        args.onFinish?.({
+          totalUsage: {
+            inputTokens: 0,
+            outputTokens: 0,
+            inputTokenDetails: {
+              noCacheTokens: 0,
+              cacheReadTokens: 0,
+              cacheWriteTokens: 0,
+            },
+            outputTokenDetails: { textTokens: 0, reasoningTokens: 0 },
+            totalTokens: 0,
+          },
+          steps: [],
+        }),
+      )
+      return {
+        toUIMessageStreamResponse: (options) => {
+          mocks.responseOptions = options
+          return Response.json({ ok: true })
+        },
+      }
+    })
+
+    global.fetch = mocks.runtimeFetch
+  })
+
+  it('wires AI SDK shell execution through the Cloudflare sandbox and persists agent state', async () => {
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    const { request } = createAbortableRequest('https://docsbot.example/agent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: [{ role: 'user', content: 'Build the refund skill.' }],
+      }),
+    })
+
+    const response = await POST(request, {
+      params: Promise.resolve({
+        teamId: 'team-1',
+        botId: 'bot-1',
+        id: 'customer-refunds',
+      }),
+    })
+
+    expect(response.status).toBe(200)
+    expect(mocks.buildSkillSandboxId).toHaveBeenCalledWith('team-1', 'bot-1', 'customer-refunds')
+    expect(mocks.createSkillShellExecute).toHaveBeenCalledWith({
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'customer-refunds',
+      abortSignal: request.signal,
+      usageAccumulator: { calls: 0, durationMs: 0 },
+    })
+    expect(mocks.createOpenAI).not.toHaveBeenCalled()
+    expect(mocks.openai).toHaveBeenCalledWith('gpt-5.4-mini')
+    expect(mocks.openai.tools.webSearch).toHaveBeenCalledWith({
+      externalWebAccess: true,
+    })
+    expect(mocks.openai.tools.shell).toHaveBeenCalledWith({
+      execute: mocks.shellExecute,
+    })
+    expect(mocks.openai.tools.applyPatch).toHaveBeenCalledWith({
+      execute: mocks.patchExecute,
+    })
+    expect(mocks.docRef.set).toHaveBeenCalledWith(
+      {
+        agent: {
+          sandboxId: 'skill:team-1:bot-1:customer-refunds',
+          sessionId: 'builder',
+          lastResponseId: null,
+        },
+      },
+      { merge: true },
+    )
+
+    expect(mocks.streamArgs.abortSignal).toBe(request.signal)
+    expect(mocks.streamArgs.providerOptions).toEqual({
+      openai: {
+        reasoningEffort: 'high',
+        reasoningSummary: 'detailed',
+        parallelToolCalls: false,
+        truncation: 'auto',
+      },
+    })
+    expect(mocks.streamArgs.system).toContain('SKILL.md is the runtime skill file for the finished skill')
+    expect(mocks.streamArgs.system).toContain(
+      'Use the apply_patch tool for creating, updating, or deleting bundle files under /workspace.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'The deployed runtime root for this skill is `/skills/customer-refunds/`.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Only reference markdown or asset files that belong to this skill. Never cross-reference files from other skills.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Any cross-reference you author for the runtime agent should use either a path relative to this skill root or an absolute `/skills/customer-refunds/...` path.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not reference `/.agents/...` paths.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`envBindings` is `{ envVar, value?, description? }` for fixed non-secret deployment config',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`secretBindings` is `{ envVar, description? }` per credential',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`metadataBindings` is `{ envVar, metadataKey, description? }` for each value supplied from the widget embed or chat context',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'include a short one-sentence `description` in the manifest update so the UI can explain what the value is for.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Use env bindings for non-secret config that stays fixed for this skill bot deployment',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'If you need to rename a file, use shell tool.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'local `node_modules` contents are not the source of truth for validation.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not debug `/workspace/node_modules`, hidden package-manager directories, or local package cache layouts unless a local shell command explicitly failed because a package is missing.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'The Overview section should explain what the skill does, when it should be used, and any important execution context the runtime agent needs.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'SKILL.md should describe agent behavior, decision-making, and how the agent should use generated skill functions.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Return structured JSON objects only so the runtime can filter fields and pipe outputs between functions;',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not put raw API call instructions, request URLs, HTTP parameter recipes, shell commands, coding steps, or TypeScript implementation tasks into SKILL.md.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not include builder-only instructions in SKILL.md such as how to build the skill, how to use apply_patch or shell, progressive disclosure guidance, validation steps, publish steps, or secret-handling reminders meant for authors.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not use web_search to look up DocsBot.ai documentation, this skills builder, or how skills work in this environment.',
+    )
+
+    expect(mocks.responseOptions.consumeSseStream).toBe(mocks.consumeStream)
+    expect(typeof mocks.responseOptions.messageMetadata).toBe('function')
+
+    const finishMeta = mocks.responseOptions.messageMetadata({
+      part: {
+        type: 'finish',
+        finishReason: 'stop',
+        rawFinishReason: 'stop',
+        totalUsage: {
+          inputTokens: 100,
+          outputTokens: 50,
+          inputTokenDetails: {
+            noCacheTokens: 80,
+            cacheReadTokens: 20,
+            cacheWriteTokens: 0,
+          },
+          outputTokenDetails: { textTokens: 20, reasoningTokens: 30 },
+          totalTokens: 150,
+        },
+      },
+    })
+    expect(finishMeta?.skillsBuilderAgentUsage?.inputTokens).toBe(100)
+    expect(finishMeta?.skillsBuilderAgentUsage?.cachedInputTokens).toBe(20)
+    expect(finishMeta?.skillsBuilderAgentUsage?.webSearchCalls).toBe(0)
+    expect(finishMeta?.skillsBuilderAgentUsage?.shellCalls).toBe(0)
+    expect(finishMeta?.skillsBuilderAgentUsage?.shellDurationMs).toBe(0)
+    expect(finishMeta?.skillsBuilderAgentUsage?.openaiModelId).toBe('gpt-5.4-mini')
+    expect(finishMeta?.skillsBuilderAgentUsage?.modelSlug).toBe('gpt-5-4-mini')
+
+    await Promise.resolve()
+    expect(mocks.incrementSkillDraftBuilderAgentUsage).toHaveBeenCalledWith(
+      mocks.docRef,
+      expect.objectContaining({
+        openaiModelId: 'gpt-5.4-mini',
+        usage: expect.objectContaining({
+          openaiModelId: 'gpt-5.4-mini',
+          modelSlug: 'gpt-5-4-mini',
+        }),
+      }),
+    )
+
+    await mocks.responseOptions.onFinish({ isAborted: false })
+    expect(mocks.docRef.set).toHaveBeenLastCalledWith(
+      {
+        lastAuthoringSummary: {
+          updatedAt: expect.any(String),
+          messageCount: 1,
+          isAborted: false,
+        },
+        agent: {
+          sandboxId: 'skill:team-1:bot-1:customer-refunds',
+          sessionId: 'builder',
+          lastResponseId: null,
+        },
+      },
+      { merge: true },
+    )
+  })
+
+  it('uses team OpenAI key with gpt-5.4-mini when the team has an encrypted OpenAI key', async () => {
+    mocks.getTeamWithEncryptedOpenAIKey.mockResolvedValue({ openAIKey: 'enc:stub' })
+    mocks.decryptKey.mockReturnValue('sk-team')
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    const { request } = createAbortableRequest('https://docsbot.example/agent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: [{ role: 'user', content: 'Build the refund skill.' }],
+      }),
+    })
+
+    const response = await POST(request, {
+      params: Promise.resolve({
+        teamId: 'team-1',
+        botId: 'bot-1',
+        id: 'customer-refunds',
+      }),
+    })
+
+    expect(response.status).toBe(200)
+    expect(mocks.createOpenAI).toHaveBeenCalledWith({ apiKey: 'sk-team' })
+    expect(mocks.openai).toHaveBeenCalledWith('gpt-5.4-mini')
+
+    await Promise.resolve()
+    expect(mocks.incrementSkillDraftBuilderAgentUsage).toHaveBeenCalledWith(
+      mocks.docRef,
+      expect.objectContaining({
+        openaiModelId: 'gpt-5.4-mini',
+        usage: expect.objectContaining({
+          modelSlug: 'gpt-5-4-mini',
+          openaiModelId: 'gpt-5.4-mini',
+        }),
+      }),
+    )
+  })
+
+  it('does not attach usage messageMetadata for non–super-admins', async () => {
+    mocks.isSuperAdmin.mockReturnValue(false)
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    const { request } = createAbortableRequest('https://docsbot.example/agent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: [{ role: 'user', content: 'Build the refund skill.' }],
+      }),
+    })
+
+    await POST(request, {
+      params: Promise.resolve({
+        teamId: 'team-1',
+        botId: 'bot-1',
+        id: 'customer-refunds',
+      }),
+    })
+
+    expect(mocks.responseOptions.messageMetadata).toBeUndefined()
+    mocks.isSuperAdmin.mockReturnValue(true)
+  })
+
+  it('repairs interrupted tool calls before converting messages for the next turn', async () => {
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: [
+            { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+            {
+              role: 'assistant',
+              parts: [
+                {
+                  type: 'tool-shell',
+                  toolCallId: 'call_interrupted',
+                  state: 'input-available',
+                  input: {
+                    action: {
+                      commands: ['cd /workspace && pwd'],
+                    },
+                  },
+                },
+              ],
+            },
+            { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
+          ],
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(mocks.convertToModelMessages).toHaveBeenCalledWith([
+      { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+      {
+        role: 'assistant',
+        parts: [
+          {
+            type: 'tool-shell',
+            toolCallId: 'call_interrupted',
+            state: 'output-error',
+            input: {
+              action: {
+                commands: ['cd /workspace && pwd'],
+              },
+            },
+            errorText:
+              'User interrupted this tool call before it completed. Reassess the current state and continue.',
+          },
+        ],
+      },
+      { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
+    ])
+  })
+
+  it('preserves existing env binding values when update_manifest omits value', async () => {
+    currentDraft.envBindings = [
+      { envVar: 'WORKSPACE_ID', value: 'workspace-keep', description: 'Account scope' },
+    ]
+    currentDraft.manifest = {
+      ...currentDraft.manifest,
+      envBindings: currentDraft.envBindings,
+    }
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    const result = await mocks.streamArgs.tools.update_manifest.execute({
+      envBindings: [
+        { envVar: 'WORKSPACE_ID', description: 'Updated explanation only.' },
+        { envVar: 'TENANT_ID', value: 'tenant-new' },
+      ],
+    })
+
+    const lastCall = mocks.updateSkillDraft.mock.calls.at(-1)
+    expect(lastCall[3].manifest.envBindings).toEqual([
+      {
+        envVar: 'WORKSPACE_ID',
+        value: 'workspace-keep',
+        description: 'Updated explanation only.',
+      },
+      { envVar: 'TENANT_ID', value: 'tenant-new' },
+    ])
+    expect(result.manifest.envBindings).toEqual([
+      {
+        envVar: 'WORKSPACE_ID',
+        value: 'workspace-keep',
+        description: 'Updated explanation only.',
+      },
+      { envVar: 'TENANT_ID', value: 'tenant-new' },
+    ])
+  })
+
+  it('validates the current R2-backed draft and persists the returned bundle artifact', async () => {
+    mocks.runtimeFetch.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          valid: true,
+          hasFunctions: true,
+          warnings: [],
+          errors: [],
+          bundleArtifact: {
+            path: '.docsbot/bundle/index.js',
+            content: 'export default {}\n',
+          },
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    )
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    const result = await mocks.streamArgs.tools.validate_skill_bundle.execute({})
+
+    expect(mocks.runtimeFetch).toHaveBeenCalledWith(
+      'https://skills-runtime.example/test',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({
+          Authorization: 'Bearer runtime-token',
+          'Content-Type': 'application/json',
+        }),
+      }),
+    )
+    const validateBody = JSON.parse(mocks.runtimeFetch.mock.calls[0][1].body)
+    expect(validateBody.manifest).toEqual({
+      envBindings: [],
+      secretBindings: [],
+      metadataBindings: [],
+    })
+    expect(mocks.updateSkillDraft).toHaveBeenCalledWith(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      expect.objectContaining({
+        files: [
+          { path: '.docsbot/bundle/index.js', content: 'export default {}\n' },
+          {
+            path: 'SKILL.md',
+            content:
+              '---\nname: customer-refunds\ndescription: "Use when customers need refund policy help."\n---\n\n# Refunds\n',
+          },
+        ],
+        manifest: { hasFunctions: true },
+        validation: expect.objectContaining({ valid: true, hasFunctions: true }),
+      }),
+      { id: 'firestore' },
+    )
+    expect(result).toEqual({
+      ok: true,
+      validation: expect.objectContaining({ valid: true, hasFunctions: true }),
+      fileTree: ['.docsbot/bundle/index.js', 'SKILL.md'],
+    })
+  })
+
+  it('publishes by promoting the draft prefix and updating Firestore metadata', async () => {
+    mocks.runtimeFetch.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          valid: true,
+          hasFunctions: true,
+          bundleArtifact: {
+            path: '.docsbot/bundle/index.js',
+            content: 'export default {}\n',
+          },
+          warnings: [],
+          errors: [],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    )
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    const result = await mocks.streamArgs.tools.publish_skill_bundle.execute({})
+
+    expect(mocks.promoteSkillDraftToPublishedCurrent).toHaveBeenCalledWith(
+      'team-1/bot-1/customer-refunds',
+    )
+    expect(mocks.publishSkillDraft).toHaveBeenCalledWith(
+      {
+        teamId: 'team-1',
+        botId: 'bot-1',
+        skillName: 'customer-refunds',
+        userId: 'user-1',
+        hasFunctions: true,
+      },
+      { id: 'firestore' },
+    )
+    expect(result).toEqual({
+      ok: true,
+      publishedAt: '2026-04-18T20:00:00.000Z',
+      skill: {
+        skillName: 'customer-refunds',
+        fileTree: currentDraft.files.map((file) => ({ path: file.path, size: file.content.length })),
+      },
+      result: {
+        valid: true,
+        uploaded: true,
+        promoted: 2,
+        deleted: 0,
+      },
+    })
+  })
+
+  it('refuses to publish executable skills when validation does not return a bundle artifact', async () => {
+    mocks.runtimeFetch.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          valid: true,
+          hasFunctions: true,
+          warnings: [],
+          errors: [],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    )
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    const result = await mocks.streamArgs.tools.publish_skill_bundle.execute({})
+
+    expect(result).toEqual({
+      ok: false,
+      message: 'Runtime validation did not return a generated bundle artifact. Refusing to publish.',
+      validation: expect.objectContaining({ valid: true, hasFunctions: true }),
+    })
+    expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
+    expect(mocks.promoteSkillDraftToPublishedCurrent).not.toHaveBeenCalled()
+    expect(mocks.publishSkillDraft).not.toHaveBeenCalled()
+  })
+})

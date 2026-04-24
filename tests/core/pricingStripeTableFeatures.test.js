@@ -57,6 +57,47 @@ describe('pricingStripeTableFeatures', () => {
     expect(business?.features.bookingActions).toBe(true)
   })
 
+  it('includes Skills and merged custom action button tiers', () => {
+    expect(featureDefinitions.docsBotSkills).toEqual({
+      label: 'Skills — build, validate, and publish',
+      category: 'actions',
+    })
+    expect(featureDefinitions.customActionButtons).toEqual({
+      label: 'Custom action buttons',
+      category: 'actions',
+    })
+    expect(featureDefinitions.customButtons).toBeUndefined()
+    expect(featureDefinitions.multipleCustomButtons).toBeUndefined()
+
+    const free = pricingTiers.find((tier) => tier.id === 'free')
+    const hobby = pricingTiers.find((tier) => tier.id === 'hobby')
+    const personal = pricingTiers.find((tier) => tier.id === 'personal')
+    const pro = pricingTiers.find((tier) => tier.id === 'pro')
+    const standard = pricingTiers.find((tier) => tier.id === 'standard')
+    const business = pricingTiers.find((tier) => tier.id === 'business')
+
+    expect(free?.features.docsBotSkills).toBe(false)
+    expect(hobby?.features.docsBotSkills).toBe(false)
+    expect(personal?.features.docsBotSkills).toBe(false)
+    expect(pro?.features.docsBotSkills).toBe(false)
+    expect(standard?.features.docsBotSkills).toBe('3')
+    expect(business?.features.docsBotSkills).toBe('10')
+
+    expect(free?.features.customActionButtons).toBe(false)
+    expect(personal?.features.customActionButtons).toBe('1')
+    expect(standard?.features.customActionButtons).toBe('Unlimited')
+  })
+
+  it('never lists mcpServer in the compact differentiating list (top cards / Stripe)', () => {
+    const visible = getVisibleStripePricingTiers(pricingTiers)
+    for (let i = 0; i < visible.length; i++) {
+      const keys = getDifferentiatingFeatures(visible[i], i, visible).map(
+        ([k]) => k,
+      )
+      expect(keys).not.toContain('mcpServer')
+    }
+  })
+
   it('includes web search domain allowlist on Business only', () => {
     expect(featureDefinitions.webSearchAllowedDomains).toEqual({
       label: 'Web search domain allowlist',

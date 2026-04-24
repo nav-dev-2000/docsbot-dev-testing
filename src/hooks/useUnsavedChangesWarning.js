@@ -39,3 +39,38 @@ export function useUnsavedChangesWarning(isDirty, isUpdating = false) {
         }
     }, [isDirty, isUpdating, router])
 }
+
+/**
+ * Warns before leaving the page (tab close/refresh or in-app routing) while `active` is true.
+ * @param {boolean} active - e.g. skills builder agent mid-turn (`submitted` / `streaming`)
+ * @param {string} [message] - Custom confirm copy for in-app navigation; browser leave uses a generic prompt
+ */
+export function useBlockingNavigationWarning(
+    active,
+    message = 'The builder agent is still working on a response. If you leave now, that work may be lost. Continue?',
+) {
+    const router = useRouter()
+
+    useEffect(() => {
+        if (!active) return
+
+        const handleBrowseAway = () => {
+            if (window.confirm(message)) return
+            router.events.emit('routeChangeError')
+            throw 'routeChange aborted.'
+        }
+
+        const handleBeforeUnload = (e) => {
+            e.preventDefault()
+            e.returnValue = ''
+        }
+
+        router.events.on('routeChangeStart', handleBrowseAway)
+        window.addEventListener('beforeunload', handleBeforeUnload)
+
+        return () => {
+            router.events.off('routeChangeStart', handleBrowseAway)
+            window.removeEventListener('beforeunload', handleBeforeUnload)
+        }
+    }, [active, message, router])
+}

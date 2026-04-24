@@ -1,0 +1,36 @@
+{
+  "name": "docsbot-skills-sandbox",
+  "main": "src/index.ts",
+  "account_id": "383fd0def5fb61e8be680ec80d2cac73",
+  "compatibility_date": "2026-04-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "containers": [
+    {
+      "class_name": "Sandbox",
+      "image": "docker.io/cloudflare/sandbox:0.8.11-python",
+      "instance_type": "lite",
+      "max_instances": 50
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "Sandbox",
+        "class_name": "Sandbox"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "Sandbox"
+      ]
+    }
+  ],
+  "vars": {
+    "WORKSPACE_ROOT": "/workspace",
+    "CLOUDFLARE_ACCOUNT_ID": "383fd0def5fb61e8be680ec80d2cac73",
+    "SKILLS_R2_BUCKET": "docsbot-agent-skills"
+  }
+}

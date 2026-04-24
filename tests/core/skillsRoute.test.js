@@ -1,0 +1,138 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+const mocks = vi.hoisted(() => ({
+  getAuthorizedBotContext: vi.fn(),
+  jsonError: vi.fn((message, status = 500) => Response.json({ message }, { status })),
+  canUserManageBotSettings: vi.fn(() => true),
+  getSkillDraft: vi.fn(),
+  updateSkillDraft: vi.fn(),
+  skillRecordWithDecryptedSecretBindings: vi.fn((skill) => skill),
+  deleteSkillDraft: vi.fn(),
+  deleteSkillPrefixFromR2: vi.fn(),
+}))
+
+vi.mock('@/lib/appRouteAuth', () => ({
+  getAuthorizedBotContext: mocks.getAuthorizedBotContext,
+  jsonError: mocks.jsonError,
+}))
+
+vi.mock('@/utils/function.utils', async () => {
+  const actual = await vi.importActual('@/utils/function.utils')
+  return {
+    ...actual,
+    canUserManageBotSettings: mocks.canUserManageBotSettings,
+  }
+})
+
+vi.mock('@/lib/skills-builder', () => ({
+  deleteSkillDraft: mocks.deleteSkillDraft,
+  getSkillDraft: mocks.getSkillDraft,
+  skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
+  updateSkillDraft: mocks.updateSkillDraft,
+}))
+
+vi.mock('@/lib/skills-r2-package', () => ({
+  deleteSkillPrefixFromR2: mocks.deleteSkillPrefixFromR2,
+}))
+
+describe('skills route', () => {
+  beforeEach(() => {
+    vi.resetModules()
+    vi.clearAllMocks()
+
+    mocks.getAuthorizedBotContext.mockResolvedValue({
+      team: { id: 'team-1', roles: { 'user-1': 'owner' } },
+      bot: { id: 'bot-1', roles: {} },
+      userId: 'user-1',
+      firestore: { id: 'firestore' },
+    })
+  })
+
+  it('refuses to enable widget actions when an env binding value is missing', async () => {
+    mocks.getSkillDraft.mockResolvedValue({
+      skillName: 'customer-refunds',
+      name: 'customer-refunds',
+      manifest: {
+        enabledWidget: false,
+        envBindings: [{ envVar: 'WORKSPACE_ID', value: '' }],
+      },
+    })
+
+    const { PUT } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/route')
+    const response = await PUT(
+      new Request('https://docsbot.example/skill', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          manifest: {
+            enabledWidget: true,
+          },
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(response.status).toBe(400)
+    await expect(response.json()).resolves.toEqual({
+      message: 'This skill cannot be enabled in widget actions until all envBindings have values.',
+    })
+    expect(mocks.updateSkillDraft).not.toHaveBeenCalled()
+  })
+
+  it('allows enabling widget actions when env binding values are present', async () => {
+    mocks.getSkillDraft.mockResolvedValue({
+      skillName: 'customer-refunds',
+      name: 'customer-refunds',
+      manifest: {
+        enabledWidget: false,
+        envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
+      },
+    })
+    mocks.updateSkillDraft.mockResolvedValue({
+      skillName: 'customer-refunds',
+      manifest: {
+        enabledWidget: true,
+        envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
+      },
+    })
+
+    const { PUT } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/route')
+    const response = await PUT(
+      new Request('https://docsbot.example/skill', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          manifest: {
+            enabledWidget: true,
+          },
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(response.status).toBe(200)
+    expect(mocks.updateSkillDraft).toHaveBeenCalledWith(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          enabledWidget: true,
+        },
+      },
+      { id: 'firestore' },
+    )
+  })
+})

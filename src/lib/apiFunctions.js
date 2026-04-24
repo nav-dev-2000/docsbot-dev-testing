@@ -1279,8 +1279,8 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
         throw new Error(
           mcpSlotLimit === 1
             ? 'Your plan includes one remote MCP connector. Upgrade to Standard or higher to add more.'
-            : mcpSlotLimit === 5
-              ? 'Your plan includes up to five remote MCP connectors. Upgrade to Business for up to ten.'
+            : mcpSlotLimit === 3
+              ? 'Your plan includes up to three remote MCP connectors. Upgrade to Business for up to ten.'
               : 'Your plan includes up to ten remote MCP connectors.',
         )
       }

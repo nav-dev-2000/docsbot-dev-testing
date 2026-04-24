@@ -98,6 +98,51 @@ const WorkspaceLoader = ({
         </ul>
     )
 
+    const skillsListSkeleton = (
+        <div
+            className="w-full"
+            role="status"
+            aria-live="polite"
+            aria-busy="true"
+        >
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {Array.from({ length: 5 }).map((_, index) => (
+                    <div
+                        key={`skills-skeleton-card-${index}`}
+                        className="flex min-h-[160px] flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm"
+                    >
+                        <div className="flex items-start gap-3">
+                            <div className="h-10 w-10 shrink-0 animate-pulse rounded-lg bg-gray-100" />
+                            <div className="min-w-0 flex-1">
+                                <div className="flex items-start justify-between gap-2">
+                                    <div className="h-5 w-2/3 max-w-[12rem] animate-pulse rounded bg-gray-200/80" />
+                                    <div className="h-4 w-4 shrink-0 animate-pulse rounded-full bg-gray-100" />
+                                </div>
+                                <div className="mt-2 space-y-1.5">
+                                    <div className="h-3 w-full animate-pulse rounded bg-gray-100" />
+                                    <div className="h-3 w-11/12 animate-pulse rounded bg-gray-100" />
+                                    <div className="h-3 w-2/3 animate-pulse rounded bg-gray-100" />
+                                </div>
+                                <div className="mt-4 flex gap-1">
+                                    <div className="h-5 w-5 animate-pulse rounded bg-gray-100" />
+                                    <div className="h-5 w-5 animate-pulse rounded bg-gray-100" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+                <div className="flex min-h-[160px] flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 p-5">
+                    <div className="h-10 w-10 animate-pulse rounded-lg bg-gray-200/50" />
+                    <div className="mt-3 h-4 w-32 max-w-full animate-pulse rounded bg-gray-200/60" />
+                    <div className="mt-1.5 h-3 w-44 max-w-full animate-pulse rounded bg-gray-100" />
+                </div>
+            </div>
+            <div className="mt-6 flex items-center justify-center text-sm font-medium text-gray-500">
+                {message}
+            </div>
+        </div>
+    )
+
     if (variant === 'sources') {
         return (
             <div className={clsx('w-full', className)}>
@@ -202,6 +247,10 @@ const WorkspaceLoader = ({
                 {conversationsSidebarSkeleton}
             </div>
         )
+    }
+
+    if (variant === 'skills') {
+        return <div className={clsx('w-full', className)}>{skillsListSkeleton}</div>
     }
 
     return (

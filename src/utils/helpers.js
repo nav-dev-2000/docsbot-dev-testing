@@ -318,7 +318,8 @@ export function getCustomButtonsSlotLimit(team) {
 
 /**
  * Max remote MCP connector rows allowed in `mcpServers` for this team's plan.
- * @returns {number} `0` (unavailable), `1` (Personal/Pro), `5` (Standard), or `10` (Business+)
+ * Uses the same counts as per-bot DocsBot skills, except one connector is included on Personal.
+ * @returns {number} `0` (unavailable), `1` (Personal/Pro), `3` (Standard), or `10` (Business+)
  */
 export function getMcpServerSlotLimit(team) {
   if (!checkPlanPermission(team, 'personal', 'mcpServers').allowed) {
@@ -330,9 +331,24 @@ export function getMcpServerSlotLimit(team) {
   if (
     checkPlanPermission(team, 'standard', 'multipleMcpServers').allowed
   ) {
-    return 5
+    return 3
   }
   return 1
+}
+
+/**
+ * Max DocsBot skills per bot for this team's plan (also caps widget quick-action picks).
+ * Skills require Standard or higher; Business raises the per-bot cap.
+ * @returns {number} `0` (below Standard), `3` (Standard), or `10` (Business+)
+ */
+export function getWidgetSkillSlotLimit(team) {
+  if (!checkPlanPermission(team, 'standard', 'multipleMcpServers').allowed) {
+    return 0
+  }
+  if (checkPlanPermission(team, 'business', 'mcpConnectorsBusiness').allowed) {
+    return 10
+  }
+  return 3
 }
 
 export const PLAN_LEVELS = {

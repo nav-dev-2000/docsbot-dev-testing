@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import {
@@ -13,7 +13,9 @@ import PromptIcon from '@/components/PromptIcon'
 import { DEFAULT_CUSTOM_BUTTON_ICON } from '@/constants/heroIcons.constants'
 import { i18n } from '@/constants/strings.constants'
 import CompanyLogo from '@/components/CompanyLogo'
+import SkillListIcon from '@/components/SkillListIcon'
 import ModalSelectMcpServer from '@/components/ModalSelectMcpServer'
+import ModalSelectSkill from '@/components/ModalSelectSkill'
 import Tooltip from '@/components/Tooltip'
 import {
     BOOKING_ACTION_KEYS,
@@ -32,6 +34,7 @@ import {
     countEnabledMcpTools,
     getCustomButtonsSlotLimit,
     getDomainFromUrl,
+    getWidgetSkillSlotLimit,
 } from '@/utils/helpers'
 import {
     ArrowPathIcon,
@@ -237,10 +240,86 @@ const AddMcpServerDashedButton = ({ onClick, disabled }) => (
     </button>
 )
 
+const AddSkillDashedButton = ({ onClick, disabled }) => (
+    <button
+        type="button"
+        onClick={onClick}
+        disabled={disabled}
+        className={ADD_CUSTOM_BUTTON_DASHED_CLASS}
+    >
+        <PlusIcon
+            className="h-5 w-5 shrink-0 text-gray-500 group-hover:text-cyan-600"
+            aria-hidden="true"
+        />
+        <span className="text-sm font-medium text-gray-800 group-hover:text-cyan-700">
+            Add skill
+        </span>
+    </button>
+)
+
+const hasMissingSkillSecrets = (skill) =>
+    Array.isArray(skill?.secretBindings) &&
+    skill.secretBindings.some(
+        (binding) =>
+            typeof binding?.secret !== 'string' || binding.secret.trim().length === 0,
+    )
+
+const hasMissingSkillEnvBindings = (skill) =>
+    Array.isArray(skill?.envBindings) &&
+    skill.envBindings.some(
+        (binding) =>
+            typeof binding?.value !== 'string' || binding.value.trim().length === 0,
+    )
+
+const buildWidgetSkillDisabledReasons = ({ skill, botId, isPublicBot }) => {
+    const skillHref = `/app/bots/${botId}/configure/skills/${encodeURIComponent(skill.name)}`
+    const reasons = []
+
+    if (!skill?.publishedAt) {
+        reasons.push({
+            key: 'unpublished',
+            message: 'Publish this skill before using it in the widget.',
+            href: skillHref,
+            linkLabel: 'Open skill',
+        })
+    }
+
+    if (hasMissingSkillSecrets(skill)) {
+        reasons.push({
+            key: 'missing-secrets',
+            message: 'This skill is missing one or more required secret values.',
+            href: skillHref,
+            linkLabel: 'Add secrets',
+        })
+    }
+
+    if (hasMissingSkillEnvBindings(skill)) {
+        reasons.push({
+            key: 'missing-env-bindings',
+            message: 'This skill is missing one or more required environment values.',
+            href: skillHref,
+            linkLabel: 'Open skill',
+        })
+    }
+
+    if (isPublicBot && skill?.internal) {
+        reasons.push({
+            key: 'internal-public',
+            message: 'Internal-only skills are disabled for public bots.',
+            href: skillHref,
+            linkLabel: 'Change audience',
+        })
+    }
+
+    return reasons
+}
+
 const AppearanceActions = ({
     bot,
     toggleSchedulingAction,
     isAgent,
+    // DOCSBOT_SKILLS_RELEASE_GATE: set default to true (or remove prop) when widget Skills is re-enabled for all users; see PageAppearance
+    showSkillsSection = false,
     labels,
     setLabels,
     isUpdating,
@@ -264,12 +343,18 @@ const AppearanceActions = ({
     canManageStripeActions = false,
     setMcpServers,
     mcpServers,
+    widgetSkills,
+    setWidgetSkills,
+    availableSkills = [],
+    skillsLoading = false,
+    skillsError = '',
     customButtonFieldErrors = {},
     onClearCustomButtonFieldError,
     onClearCustomButtonRowErrors,
     onClearAllCustomButtonFieldErrors,
 }) => {
     const [showMcpModal, setShowMcpModal] = useState(false)
+    const [showSkillsModal, setShowSkillsModal] = useState(false)
     const [customButtonPrompt, setCustomButtonPrompt] = useState('')
     const [customButtonPromptOpen, setCustomButtonPromptOpen] = useState(false)
     const [customButtonPromptLoading, setCustomButtonPromptLoading] = useState(false)
@@ -307,6 +392,12 @@ const AppearanceActions = ({
         'customButtons',
     )
     const mcpServersPlanCheck = checkPlanPermission(team, 'personal', 'mcpServers')
+    const enabledWidgetSkillIds = Array.isArray(widgetSkills) ? widgetSkills : []
+    const widgetSkillsPlanCheck = checkPlanPermission(team, 'standard')
+    const widgetSkillSlotLimit = getWidgetSkillSlotLimit(team)
+    const widgetSkillsSlotsFull =
+        Number.isFinite(widgetSkillSlotLimit) &&
+        enabledWidgetSkillIds.length >= widgetSkillSlotLimit
     const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
         const meta = BOOKING_ACTIONS[key]
         const active = tools?.[key]
@@ -660,6 +751,49 @@ const AppearanceActions = ({
         )
         setMcpServers(newServers)
     }
+
+    const handleEnableWidgetSkill = (skillName) => {
+        const nextSkills = Array.isArray(widgetSkills) ? widgetSkills : []
+        if (nextSkills.includes(skillName)) return
+        if (!widgetSkillsPlanCheck.allowed || widgetSkillsSlotsFull) {
+            setShowUpgrade(true)
+            return
+        }
+        setWidgetSkills([...nextSkills, skillName])
+    }
+
+    const handleRemoveWidgetSkill = (skillName) => {
+        const nextSkills = Array.isArray(widgetSkills)
+            ? widgetSkills.filter((name) => name !== skillName)
+            : []
+        setWidgetSkills(nextSkills)
+    }
+
+    const availableWidgetSkills = useMemo(
+        () =>
+            (availableSkills || []).map((skill) => ({
+                ...skill,
+                disabledReasons: buildWidgetSkillDisabledReasons({
+                    skill,
+                    botId: bot.id,
+                    isPublicBot,
+                }),
+            })),
+        [availableSkills, bot.id, isPublicBot],
+    )
+
+    const enabledWidgetSkills = useMemo(() => {
+        const selected = Array.isArray(widgetSkills) ? widgetSkills : []
+        return selected.map((skillName) => {
+            const skill = availableWidgetSkills.find((item) => item.name === skillName)
+            if (skill) return skill
+            return {
+                name: skillName,
+                description: 'This skill could not be loaded.',
+                internal: false,
+            }
+        })
+    }, [availableWidgetSkills, widgetSkills])
 
     return (
         <>
@@ -1362,6 +1496,76 @@ const AppearanceActions = ({
                 </AppearanceActionCategory>
             )}
 
+            {/* DOCSBOT_SKILLS_RELEASE_GATE: restore `isAgent &&` only (drop showSkillsSection) to re-enable widget Skills for all users */}
+            {isAgent && showSkillsSection && (
+                <AppearanceActionCategory
+                    title="Skills"
+                    titleTag="h4"
+                    isNew={true}
+                    planLabel={
+                        !widgetSkillsPlanCheck.allowed
+                            ? widgetSkillsPlanCheck.requiredPlanLabel
+                            : null
+                    }
+                    description={
+                        <>
+                            Enable published{' '}
+                            <Link
+                                href={`/app/bots/${bot.id}/configure/skills`}
+                                className="font-medium text-cyan-600 underline hover:text-cyan-800"
+                            >
+                                bot skills
+                            </Link>{' '}
+                            as selectable actions in your widget.
+                        </>
+                    }
+                >
+                    <div className="flex flex-col gap-3">
+                        {enabledWidgetSkills?.map((skill) => (
+                            <div
+                                key={skill.name}
+                                className="flex w-full items-center justify-between gap-3 rounded-lg bg-gray-100 px-4 py-3"
+                            >
+                                <div className="flex min-w-0 flex-1 items-center gap-3">
+                                    <SkillListIcon
+                                        icon={skill.icon}
+                                        networkPolicy={skill.networkPolicy}
+                                    />
+                                    <span className="min-w-0 truncate text-sm font-semibold text-gray-900">
+                                        {skill.name}
+                                    </span>
+                                </div>
+                                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-700">
+                                    {skill.internal ? 'Internal' : 'Customer'}
+                                </span>
+                                <Tooltip content="Remove skill" zIndex={1000001}>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleRemoveWidgetSkill(skill.name)}
+                                        disabled={isUpdating}
+                                        className="rounded-md p-1.5 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-500"
+                                        aria-label={`Remove ${skill.name}`}
+                                    >
+                                        <TrashIcon className="h-4 w-4" />
+                                    </button>
+                                </Tooltip>
+                            </div>
+                        ))}
+
+                        <AddSkillDashedButton
+                            onClick={() => {
+                                if (!widgetSkillsPlanCheck.allowed) {
+                                    setShowUpgrade(true)
+                                    return
+                                }
+                                setShowSkillsModal(true)
+                            }}
+                            disabled={isUpdating}
+                        />
+                    </div>
+                </AppearanceActionCategory>
+            )}
+
             {isAgent && (
                 <AppearanceActionCategory
                     title="MCP Servers"
@@ -1947,6 +2151,17 @@ const AppearanceActions = ({
                 setOpen={setShowMcpModal}
                 enabledServerIds={enabledMcpServerIds}
                 onEnableServer={handleEnableMcpServer}
+            />
+
+            <ModalSelectSkill
+                bot={bot}
+                skills={availableWidgetSkills}
+                open={showSkillsModal}
+                setOpen={setShowSkillsModal}
+                enabledSkillIds={enabledWidgetSkillIds}
+                onEnableSkill={handleEnableWidgetSkill}
+                loading={skillsLoading}
+                errorText={skillsError}
             />
 
         </>

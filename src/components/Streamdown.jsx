@@ -1,4 +1,4 @@
-import { Streamdown as BaseStreamdown, defaultRemarkPlugins } from 'streamdown'
+import { Streamdown as BaseStreamdown, defaultRemarkPlugins, defaultRehypePlugins } from 'streamdown'
 import StreamdownMermaidError from '@/components/StreamdownMermaidError'
 import { useEffect } from 'react'
 
@@ -281,4 +281,4 @@ const Streamdown = ({ mermaid, showMermaidActions, ...props }) => {
   return <BaseStreamdown {...props} mermaid={mergedMermaid} />
 }
 
-export { Streamdown, defaultRemarkPlugins }
+export { Streamdown, defaultRemarkPlugins, defaultRehypePlugins }

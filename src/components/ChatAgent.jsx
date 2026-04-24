@@ -763,6 +763,20 @@ const AGENT_EVENT_ROW_CLASS =
 const AGENT_EVENTS_TIMELINE_CLASS =
   'relative ml-3 text-left before:absolute before:bottom-2 before:left-0 before:top-2 before:border-l before:border-gray-200 before:content-[\"\"]'
 
+/** Must match `formatWorkedDurationLabel` in `Configure.Skills.jsx` (collapsed assistant tool rows). */
+function formatWorkedDurationLabel(durationMs) {
+  if (durationMs == null || !Number.isFinite(durationMs)) {
+    return 'Worked for a while...'
+  }
+  const totalSec = Math.max(0, Math.floor(durationMs / 1000))
+  const mins = Math.floor(totalSec / 60)
+  const secs = totalSec % 60
+  if (mins <= 0) {
+    return `Worked for ${secs}s...`
+  }
+  return `Worked for ${mins}m ${secs}s...`
+}
+
 function humanizeSnakeCaseLabel(value) {
   if (value == null || value === '') return ''
   const s = String(value).trim()
@@ -800,6 +814,25 @@ function getMcpToolCallLabels(toolCall) {
     serverLabel = 'MCP'
   }
   return { serverLabel, toolLabel }
+}
+
+/** Built-in agent graph tools for DocsBot skills (`name` + stringified `params` on the wire). */
+const AGENT_BUILTIN_SKILL_TOOL_NAMES = new Set([
+  'activate_skill',
+  'describe_skill_functions',
+  'call_skill_function',
+  'skills_exec',
+])
+
+function parseAgentSkillToolParams(rawParams) {
+  if (rawParams == null) return {}
+  if (typeof rawParams === 'object' && !Array.isArray(rawParams)) {
+    return rawParams
+  }
+  if (typeof rawParams === 'string') {
+    return tryParseJsonObject(rawParams) || {}
+  }
+  return {}
 }
 
 function AgentEventLeading({
@@ -939,6 +972,257 @@ const ToolCallDisplay = memo(({ toolCalls, isStreamingStarted = true, labels = {
             <div key={toolCall.id || idx} className={clsx("flex items-center gap-2 text-sm text-gray-500", AGENT_EVENT_ROW_CLASS)}>
               <AgentEventLeading icon={LifebuoyIcon} />
               <span className="font-medium">Escalating to human</span>
+            </div>
+          )
+        } else if (AGENT_BUILTIN_SKILL_TOOL_NAMES.has(name)) {
+          let parsed = {}
+          try {
+            parsed = parseAgentSkillToolParams(toolCall.params)
+          } catch (error) {
+            console.error('Error parsing built-in skill tool_call params:', error)
+          }
+
+          if (name === 'activate_skill') {
+            const skillName = firstNonEmptyString(parsed.name) || 'skill'
+            return (
+              <div
+                key={toolCall.id || idx}
+                className={clsx('flex items-center gap-2 text-sm text-gray-500', AGENT_EVENT_ROW_CLASS)}
+              >
+                <AgentEventLeading
+                  icon={SparklesIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
+                <span className="font-medium">
+                  {isStreamingStarted ? 'Activated' : 'Activating'} skill
+                </span>
+                <span className="truncate font-normal text-gray-600" title={skillName}>
+                  {skillName}
+                </span>
+              </div>
+            )
+          }
+
+          if (name === 'describe_skill_functions') {
+            const skillName = firstNonEmptyString(parsed.name) || 'skill'
+            const fnNames = Array.isArray(parsed.function_names) ? parsed.function_names : []
+            if (fnNames.length > 0) {
+              return (
+                <details key={toolCall.id || idx} className="group text-sm text-gray-500">
+                  <summary
+                    className={clsx(
+                      'cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden',
+                      AGENT_EVENT_ROW_CLASS,
+                    )}
+                  >
+                    <AgentEventLeading
+                      icon={SparklesIcon}
+                      isStreamingStarted={isStreamingStarted}
+                    />
+                    <span className="font-medium">
+                      {isStreamingStarted ? 'Listed' : 'Listing'} skill functions
+                    </span>
+                    <span
+                      className="truncate font-normal text-gray-600"
+                      title={skillName}
+                    >
+                      {skillName}
+                    </span>
+                    <span className="text-gray-400">· {fnNames.length} names</span>
+                    <ChevronDownIcon className="h-3 w-3 flex-shrink-0 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+                  </summary>
+                  <ul className="ms-10 mt-2 space-y-1">
+                    {fnNames.map((fn, i) => (
+                      <li key={i} className="text-xs text-gray-500">
+                        <code className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700">
+                          {String(fn)}
+                        </code>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )
+            }
+            return (
+              <div
+                key={toolCall.id || idx}
+                className={clsx('flex items-center gap-2 text-sm text-gray-500', AGENT_EVENT_ROW_CLASS)}
+              >
+                <AgentEventLeading
+                  icon={SparklesIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
+                <span className="font-medium">
+                  {isStreamingStarted ? 'Listed' : 'Listing'} functions on skill
+                </span>
+                <span className="truncate font-normal text-gray-600" title={skillName}>
+                  {skillName}
+                </span>
+              </div>
+            )
+          }
+
+          if (name === 'call_skill_function') {
+            const skillName = firstNonEmptyString(parsed.name) || 'skill'
+            const fn = firstNonEmptyString(parsed.function_name) || 'function'
+            const args = parsed.args
+            const hasArgs =
+              args != null && typeof args === 'object' && !Array.isArray(args) && Object.keys(args).length > 0
+            const hasCtx = parsed.context != null
+
+            if (hasArgs || hasCtx) {
+              return (
+                <details key={toolCall.id || idx} className="group text-sm text-gray-500">
+                  <summary
+                    className={clsx(
+                      'cursor-pointer text-gray-500 hover:text-gray-700 flex items-center gap-2 list-none [&::-webkit-details-marker]:hidden',
+                      AGENT_EVENT_ROW_CLASS,
+                    )}
+                  >
+                    <AgentEventLeading
+                      icon={SparklesIcon}
+                      isStreamingStarted={isStreamingStarted}
+                    />
+                    <span className="font-medium">
+                      {isStreamingStarted ? 'Called' : 'Calling'}
+                    </span>
+                    <code className="max-w-[min(12rem,40vw)] truncate rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-800">
+                      {fn}
+                    </code>
+                    <span className="text-gray-400">on</span>
+                    <span
+                      className="max-w-[min(10rem,35vw)] truncate font-normal text-gray-600"
+                      title={skillName}
+                    >
+                      {skillName}
+                    </span>
+                    <ChevronDownIcon className="h-3 w-3 flex-shrink-0 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+                  </summary>
+                  <div className="ms-10 mt-2 space-y-2 text-xs text-gray-600">
+                    {hasArgs && (
+                      <pre className="max-h-40 overflow-auto whitespace-pre-wrap break-words rounded border border-gray-100 bg-gray-50 p-2 font-mono text-xs">
+                        {JSON.stringify(args, null, 2)}
+                      </pre>
+                    )}
+                    {hasCtx && (
+                      <pre className="max-h-32 overflow-auto whitespace-pre-wrap break-words rounded border border-gray-100 bg-gray-50 p-2 font-mono text-xs">
+                        {JSON.stringify(parsed.context, null, 2)}
+                      </pre>
+                    )}
+                  </div>
+                </details>
+              )
+            }
+            return (
+              <div
+                key={toolCall.id || idx}
+                className={clsx('flex items-center gap-2 text-sm text-gray-500', AGENT_EVENT_ROW_CLASS)}
+              >
+                <AgentEventLeading
+                  icon={SparklesIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
+                <span className="font-medium">
+                  {isStreamingStarted ? 'Called' : 'Calling'}
+                </span>
+                <code className="max-w-[min(12rem,40vw)] truncate rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-800">
+                  {fn}
+                </code>
+                <span className="text-gray-400">on</span>
+                <span
+                  className="max-w-[min(10rem,35vw)] truncate font-normal text-gray-600"
+                  title={skillName}
+                >
+                  {skillName}
+                </span>
+              </div>
+            )
+          }
+
+          if (name === 'skills_exec') {
+            const code = typeof parsed.code === 'string' ? parsed.code : ''
+            const skills = Array.isArray(parsed.activated_skills) ? parsed.activated_skills : []
+            const ctx = parsed.context
+            const hasCtx = ctx != null && typeof ctx === 'object' && Object.keys(ctx).length > 0
+            const collapsed = code.replace(/\s+/g, ' ').trim()
+            const short = collapsed.slice(0, 96)
+            const summaryHint =
+              short.length > 0
+                ? (short.length < collapsed.length ? `${short}…` : short)
+                : 'script'
+
+            if (code || skills.length > 0 || hasCtx) {
+              return (
+                <details key={toolCall.id || idx} className="group text-sm text-gray-500">
+                  <summary
+                    className={clsx(
+                      'cursor-pointer text-gray-500 hover:text-gray-700 flex list-none items-center gap-2 [&::-webkit-details-marker]:hidden',
+                      AGENT_EVENT_ROW_CLASS,
+                    )}
+                  >
+                    <AgentEventLeading
+                      icon={SparklesIcon}
+                      isStreamingStarted={isStreamingStarted}
+                    />
+                    <span className="font-medium">
+                      {isStreamingStarted ? 'Ran' : 'Running'} skill code
+                    </span>
+                    <span className="min-w-0 flex-1 truncate font-mono text-xs text-gray-500" title={code}>
+                      {summaryHint}
+                    </span>
+                    <ChevronDownIcon className="h-3 w-3 flex-shrink-0 text-gray-400 transition-transform duration-150 group-open:rotate-180" />
+                  </summary>
+                  <div className="ms-10 mt-2 space-y-2 text-xs text-gray-600">
+                    {code ? (
+                      <pre className="max-h-48 overflow-auto whitespace-pre-wrap break-words rounded border border-gray-100 bg-gray-50 p-2 font-mono text-xs">
+                        {code}
+                      </pre>
+                    ) : null}
+                    {skills.length > 0 && (
+                      <div className="flex flex-wrap gap-1">
+                        <span className="text-gray-500">Activated:</span>
+                        {skills.map((s, i) => (
+                          <code
+                            key={i}
+                            className="rounded bg-gray-100 px-1 py-0.5 text-xs text-gray-700"
+                          >
+                            {String(s)}
+                          </code>
+                        ))}
+                      </div>
+                    )}
+                    {hasCtx && (
+                      <pre className="max-h-32 overflow-auto whitespace-pre-wrap break-words rounded border border-gray-100 bg-gray-50 p-2 font-mono text-xs">
+                        {JSON.stringify(ctx, null, 2)}
+                      </pre>
+                    )}
+                  </div>
+                </details>
+              )
+            }
+            return (
+              <div
+                key={toolCall.id || idx}
+                className={clsx('flex items-center gap-2 text-sm text-gray-500', AGENT_EVENT_ROW_CLASS)}
+              >
+                <AgentEventLeading
+                  icon={SparklesIcon}
+                  isStreamingStarted={isStreamingStarted}
+                />
+                <span className="font-medium">
+                  {isStreamingStarted ? 'Ran' : 'Running'} skill code
+                </span>
+              </div>
+            )
+          }
+
+          return (
+            <div
+              key={toolCall.id || idx}
+              className={clsx('flex items-center gap-2 text-sm text-gray-500', AGENT_EVENT_ROW_CLASS)}
+            >
+              <AgentEventLeading icon={SparklesIcon} isStreamingStarted={isStreamingStarted} />
+              <span className="font-medium">Using {name}</span>
             </div>
           )
         } else if (isMcpToolCallEvent(toolCall)) {
@@ -1149,6 +1433,8 @@ const AgentEventsList = memo(function AgentEventsList({
   labels = {},
   isStreaming = false,
   isAnswerStreaming = false,
+  /** Elapsed time (ms) for the agent-activity block; drives "Worked for …" summary. */
+  sectionDurationMs = null,
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
@@ -1160,7 +1446,7 @@ const AgentEventsList = memo(function AgentEventsList({
     return null
   }
 
-  const sectionLabel = labels.agentActivitySection || 'Agent activity…'
+  const sectionLabel = formatWorkedDurationLabel(sectionDurationMs)
 
   const renderEvent = (event, eventIndex) => {
     const hasFollowingEvent = eventIndex < events.length - 1
@@ -1203,16 +1489,16 @@ const AgentEventsList = memo(function AgentEventsList({
       open={isOpen}
       onToggle={(event) => setIsOpen(event.currentTarget.open)}
     >
-      <summary className="flex w-full cursor-pointer list-none items-center gap-2 rounded-md px-3 py-2 text-left text-gray-500 hover:text-gray-700 [&::-webkit-details-marker]:hidden">
-        <span className="min-w-0 flex-1 font-medium">{sectionLabel}</span>
+      <summary className="flex w-full cursor-pointer list-none items-center gap-1.5 rounded-md px-3 py-2 text-left text-gray-500 hover:text-gray-700 [&::-webkit-details-marker]:hidden">
+        <span className="min-w-0 font-medium">{sectionLabel}</span>
         {isOpen ? (
           <ChevronDownIcon
-            className="ml-auto h-3 w-3 flex-shrink-0 text-gray-400"
+            className="h-3 w-3 flex-shrink-0 text-gray-400"
             aria-hidden
           />
         ) : (
           <ChevronRightIcon
-            className="ml-auto h-3 w-3 flex-shrink-0 text-gray-400"
+            className="h-3 w-3 flex-shrink-0 text-gray-400"
             aria-hidden
           />
         )}
@@ -1370,6 +1656,8 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   const [pendingUpgrade, setPendingUpgrade] = useState(false)
   const [agentEvents, setAgentEvents] = useState([]) // Track tool calls and reasoning in order
   const agentEventsRef = useRef([]) // Ref to track agent events for closure access
+  const agentActivityStartMsRef = useRef(null) // First reasoning/tool in the turn; for "Worked for …" duration
+  const [agentActivityDurationTick, setAgentActivityDurationTick] = useState(0)
   const abortControllerRef = useRef(null)
   const currentAnswerRef = useRef('')
   const messagesEndRef  = useRef(null)
@@ -1403,6 +1691,20 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     })
   }, [answers.length, agentEvents.length, currentAnswer])
 
+  useEffect(() => {
+    if (!loading) return
+    if (agentActivityStartMsRef.current == null) return
+    const t = setInterval(() => {
+      setAgentActivityDurationTick((n) => n + 1)
+    }, 400)
+    return () => clearInterval(t)
+  }, [loading, agentEvents.length])
+
+  const streamingAgentActivitySectionDurationMs = useMemo(() => {
+    if (!loading || agentActivityStartMsRef.current == null) return null
+    return Date.now() - agentActivityStartMsRef.current
+  }, [loading, agentActivityDurationTick, agentEvents.length])
+
   const handleStop = (e) => {
     if (e) {
       e.preventDefault()
@@ -1417,6 +1719,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     const partialEvents = agentEventsRef.current.filter(
       (evt) => evt.type !== 'reasoning' || (evt.text && evt.text.trim()),
     )
+    const stoppedActivityMs =
+      agentActivityStartMsRef.current != null
+        ? Date.now() - agentActivityStartMsRef.current
+        : undefined
+    agentActivityStartMsRef.current = null
     setAnswers((prev) => {
       const next = [...prev]
       if (next.length === 0) return next
@@ -1428,6 +1735,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           ...last,
           markdown: partial,
           agentEvents: partialEvents.length > 0 ? partialEvents : last.agentEvents,
+          ...(typeof stoppedActivityMs === 'number' && Number.isFinite(stoppedActivityMs)
+            ? { agentActivityDurationMs: stoppedActivityMs }
+            : {}),
         }
       } else {
         // If the user stopped immediately, remove the empty placeholder answer
@@ -1583,6 +1893,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     // Clear agent events for new question
     setAgentEvents([])
     agentEventsRef.current = []
+    agentActivityStartMsRef.current = null
 
     //get apiBase from env
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/chat-agent`
@@ -1711,6 +2022,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           } else if (msg.event === 'tool_call') {
             // Handle tool call events
             try {
+              if (agentActivityStartMsRef.current == null) {
+                agentActivityStartMsRef.current = Date.now()
+              }
               const toolCallData = JSON.parse(msg.data)
               const newEvent = {
                 id: uuidv4(),
@@ -1735,6 +2049,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           } else if (msg.event === 'reasoning') {
             // Handle reasoning summary events
             try {
+              if (agentActivityStartMsRef.current == null) {
+                agentActivityStartMsRef.current = Date.now()
+              }
               const reasoningData = JSON.parse(msg.data)
               const newEvent = {
                 eventKey: uuidv4(),
@@ -1756,6 +2073,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
             setErrorText(msg.data)
             setAgentEvents([])
             agentEventsRef.current = []
+            agentActivityStartMsRef.current = null
             //strip all empty answers (always run - don't check stale closure value)
             setAnswers((prev) => {
               return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1783,6 +2101,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 )
                 setErrorText('Incomplete response received. Please try again.')
                 setLoading(false)
+                agentActivityStartMsRef.current = null
                 //strip all empty answers
                 setAnswers((prev) => {
                   return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1802,6 +2121,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 const currentEvents = agentEventsRef.current.filter(
                   e => e.type !== 'reasoning' || (e.text && e.text.trim())
                 )
+                const activityMs =
+                  agentActivityStartMsRef.current != null
+                    ? Date.now() - agentActivityStartMsRef.current
+                    : undefined
+                agentActivityStartMsRef.current = null
                 setAnswers((prev) => {
                   //add new answer with agent events
                   return [
@@ -1813,6 +2137,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       id: endData.id,
                       options: endData.options,
                       agentEvents: currentEvents,
+                      ...(typeof activityMs === 'number' && Number.isFinite(activityMs)
+                        ? { agentActivityDurationMs: activityMs }
+                        : {}),
                     },
                   ]
                 })
@@ -1831,6 +2158,11 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 const currentEvents = agentEventsRef.current.filter(
                   e => e.type !== 'reasoning' || (e.text && e.text.trim())
                 )
+                const activityMs =
+                  agentActivityStartMsRef.current != null
+                    ? Date.now() - agentActivityStartMsRef.current
+                    : undefined
+                agentActivityStartMsRef.current = null
                 setAnswers((prev) => {
                   const newPrev = [...prev]
                   if (newPrev.length > 0) {
@@ -1842,6 +2174,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                         endData.options || newPrev[newPrev.length - 1].options,
                       markdown: endData.answer,
                       agentEvents: currentEvents.length > 0 ? currentEvents : (newPrev[newPrev.length - 1].agentEvents || []),
+                      ...(typeof activityMs === 'number' && Number.isFinite(activityMs)
+                        ? { agentActivityDurationMs: activityMs }
+                        : {}),
                     }
                   }
                   return newPrev
@@ -1862,6 +2197,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
               )
               setErrorText('Error processing response. Please try again.')
               setLoading(false)
+              agentActivityStartMsRef.current = null
               //strip all empty answers
               setAnswers((prev) => {
                 return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1880,6 +2216,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 'There was an error with your request. Please try again.',
             )
             setLoading(false)
+            agentActivityStartMsRef.current = null
             //strip all empty answers
             setAnswers((prev) => {
               return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1895,6 +2232,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 'Failed to connect after several attempts. Please try again later.',
               )
               setLoading(false)
+              agentActivityStartMsRef.current = null
               //strip all empty answers
               setAnswers((prev) => {
                 return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1917,6 +2255,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 'Unable to connect to the server. Please check your connection and try again.',
               )
               setLoading(false)
+              agentActivityStartMsRef.current = null
               //strip all empty answers
               setAnswers((prev) => {
                 return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -1932,6 +2271,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
             // If we've received events, just show an error without retrying
             setErrorText('Connection lost. Please try again.')
             setLoading(false)
+            agentActivityStartMsRef.current = null
             throw err
           }
         },
@@ -1954,6 +2294,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           : 'Unknown error. Please try again later.',
       )
       setLoading(false)
+      agentActivityStartMsRef.current = null
       //strip all empty answers
       setAnswers((prev) => {
         return prev.filter((a) => a.type !== 'answer' || a.markdown)
@@ -2568,12 +2909,6 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
         ? answers.length - 1 
         : answers.length
     )
-    let latestCompletedEventsIndex = -1
-    completedMessages.forEach((answer, index) => {
-      if (answer.type === 'answer' && answer.agentEvents && answer.agentEvents.length > 0) {
-        latestCompletedEventsIndex = index
-      }
-    })
     const result = []
     completedMessages.forEach((answer, index) => {
       // Render agent events (reasoning and tool calls) in order before answer
@@ -2582,8 +2917,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
           <AgentEventsList
             key={`agent-events-${answer.id || index}`}
             events={answer.agentEvents}
-            defaultOpen={!loading && index === latestCompletedEventsIndex}
+            defaultOpen={false}
             labels={bot.labels}
+            sectionDurationMs={answer.agentActivityDurationMs ?? null}
           />
         )
       }
@@ -2666,6 +3002,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                   labels={bot.labels}
                   isStreaming={true}
                   isAnswerStreaming={currentAnswer.length > 0}
+                  sectionDurationMs={streamingAgentActivitySectionDurationMs}
                 />
               )}
               {/* Render streaming message separately so only it updates */}
@@ -2997,6 +3334,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 setConversationId(uuidv4())
                 setAgentEvents([])
                 agentEventsRef.current = []
+                agentActivityStartMsRef.current = null
               }}
             >
               <ArrowPathIcon

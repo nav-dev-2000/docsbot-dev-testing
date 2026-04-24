@@ -20,6 +20,7 @@ import {
   currencies,
   featureDefinitions,
 } from '@/constants/pricing.constants'
+import { getDifferentiatingFeatures } from '@/utils/pricingStripeTableFeatures'
 import { RadioGroup } from '@headlessui/react'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
@@ -63,91 +64,6 @@ const renderFeatureValue = (value, tierName) => {
   return <span className="text-sm/6 text-gray-950">{value}</span>
 }
 
-// Helper function to get differentiating features for each tier
-const getDifferentiatingFeatures = (currentTier, tierIndex, allTiers) => {
-  const previousTier = tierIndex > 0 ? allTiers[tierIndex - 1] : null
-  
-  // Always include core limits that users care about most
-  const coreLimits = ['docsBots', 'sourcePages', 'messagesPerMonth', 'researchTasksPerMonth', 'teamUsers']
-  const features = []
-  
-  // Add core limits first (always show these)
-  coreLimits.forEach(key => {
-    const value = currentTier.features[key]
-    if (value !== undefined && value !== false && value !== 0) {
-      features.push([key, value])
-    }
-  })
-  
-  // For Free tier, also show basic included features
-  if (tierIndex === 0) {
-    Object.entries(currentTier.features).forEach(([key, value]) => {
-      if (!coreLimits.includes(key) && typeof value === 'boolean' && value === true) {
-        features.push([key, value])
-      }
-    })
-    return features
-  }
-  
-  // For other tiers, add what's new or improved (excluding core limits already added)
-  const differentiatingFeatures = []
-  
-  // Add other improved limits (excluding core limits already handled)
-  Object.entries(currentTier.features).forEach(([key, value]) => {
-    if (coreLimits.includes(key)) return // Skip core limits, already added
-    
-    const prevValue = previousTier?.features[key]
-    const featureDef = featureDefinitions[key]
-    
-    if (featureDef?.category === 'limits') {
-      // Show if it's a meaningful increase
-      if (typeof value === 'number' && typeof prevValue === 'number' && value > prevValue) {
-        differentiatingFeatures.push([key, value])
-      } else if (typeof value === 'string' && value !== prevValue && value !== 'false' && value !== '') {
-        differentiatingFeatures.push([key, value])
-      }
-    }
-  })
-  
-  // Add newly enabled features (false -> true, or false -> string value)
-  Object.entries(currentTier.features).forEach(([key, value]) => {
-    if (coreLimits.includes(key)) return // Skip core limits, already added
-    
-    const prevValue = previousTier?.features[key]
-    
-    if (featureDefinitions[key]?.category !== 'limits') {
-      if ((prevValue === false || prevValue === 0 || prevValue === '') && 
-          (value === true || (typeof value === 'string' && value !== 'false' && value !== '') || (typeof value === 'number' && value > 0))) {
-        differentiatingFeatures.push([key, value])
-      }
-    }
-  })
-  
-  // Combine core limits with differentiating features
-  const allFeatures = [...features, ...differentiatingFeatures]
-  
-  // Prioritize by importance and limit to 8 features total
-  return allFeatures
-    .sort((a, b) => {
-      const [aKey] = a
-      const [bKey] = b
-      
-      // Core limits always come first
-      if (coreLimits.includes(aKey) && !coreLimits.includes(bKey)) return -1
-      if (!coreLimits.includes(aKey) && coreLimits.includes(bKey)) return 1
-      if (coreLimits.includes(aKey) && coreLimits.includes(bKey)) {
-        return coreLimits.indexOf(aKey) - coreLimits.indexOf(bKey)
-      }
-      
-      // Then by category priority
-      const aCat = featureDefinitions[aKey]?.category
-      const bCat = featureDefinitions[bKey]?.category
-      const priority = { limits: 0, integrations: 1, analytics: 2, ai: 3, actions: 4, features: 5, sources: 6, customization: 7, support: 8, compliance: 9 }
-      return (priority[aCat] || 99) - (priority[bCat] || 99)
-    })
-    .slice(0, 14)
-}
-
 // Create sections for comparison table
 const createComparisonSections = (activeTiers) => {
   const tierNames = activeTiers.map(tier => tier.name)
@@ -161,8 +77,25 @@ const createComparisonSections = (activeTiers) => {
     return acc
   }, {})
 
-  // Create sections structure
-  const sections = Object.entries(featuresByCategory).map(([category, features]) => ({
+  const sectionCategoryOrder = {
+    limits: 0,
+    integrations: 1,
+    actions: 2,
+    analytics: 3,
+    ai: 4,
+    features: 5,
+    sources: 6,
+    customization: 7,
+    support: 8,
+    compliance: 9,
+  }
+  // Create sections structure (order matches card bullets: Actions right before Analytics)
+  const sections = Object.entries(featuresByCategory)
+    .sort(
+      (a, b) =>
+        (sectionCategoryOrder[a[0]] ?? 99) - (sectionCategoryOrder[b[0]] ?? 99),
+    )
+    .map(([category, features]) => ({
     name: category.charAt(0).toUpperCase() + category.slice(1),
     features: features.map(feature => ({
       name: feature.label,

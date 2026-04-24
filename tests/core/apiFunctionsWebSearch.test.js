@@ -40,7 +40,7 @@ vi.mock('@/lib/service', () => ({
 vi.mock('@/utils/helpers', () => ({
   isSuperAdmin: vi.fn(() => false),
   getCustomButtonsSlotLimit: vi.fn(() => 5),
-  getMcpServerSlotLimit: vi.fn(() => 5),
+  getMcpServerSlotLimit: vi.fn(() => 3),
   checkPlanPermission: vi.fn((team, requiredPlan) => {
     if (requiredPlan === 'standard') {
       return { allowed: team?.plan === 'standard' || team?.plan === 'business', requiredPlanLabel: 'Standard' }

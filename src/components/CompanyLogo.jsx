@@ -45,7 +45,7 @@ export default function CompanyLogo({ domain, className, alt }) {
     <img
       src={src}
       alt={alt ?? `${domain} logo`}
-      className={clsx('bg-white', className)}
+      className={clsx('bg-white rounded-md', className)}
       onError={handleError}
     />
   )

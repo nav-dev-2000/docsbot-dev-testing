@@ -40,6 +40,8 @@ import {
     canUserModifyTeam,
     canUserViewBot,
 } from '@/utils/function.utils'
+// DOCSBOT_SKILLS_RELEASE_GATE: remove isSuperAdmin import when skills UI is re-enabled for all users
+import { isSuperAdmin } from '@/utils/helpers'
 
 import { useRouter } from 'next/router'
 import PageAppearance from '@new-dashboard/PageAppearance'
@@ -49,6 +51,8 @@ import PageAnalyticsConversations from '@new-dashboard/PageAnalytics/Conversatio
 import PageConfigure from '@new-dashboard/PageConfigure'
 import PageLeads from '@new-dashboard/PageLeads'
 import {
+    parseBotTabControlFromAsPath,
+    parseSkillIdFromBotAppAsPath,
     slugToTabControl,
     tabControlToPath,
     TOP_LEVEL_TABS,
@@ -233,11 +237,28 @@ const BotInner = ({
     const [permissionsResolved, setPermissionsResolved] = useState(false)
     useEffect(() => {
         if (authLoading) return
+        // Always use the bot from props for role checks. The local `bot` state can be
+        // briefly undefined/stale during updates; `canUserManageBotSettings(team, id, null)`
+        // falls back to team-only role and mis-classifies users who are bot admins via
+        // per-bot overrides — then we wrongly redirect configure/skills → sources.
+        if (!initialBot?.id) {
+            setPermissionsResolved(false)
+            return
+        }
 
-        setCanManageSettings(canUserManageBotSettings(team, user?.uid, bot))
-        setCanManageIntegrations(canUserManageIntegrations(team, user?.uid, bot))
+        const nextManageSettings = canUserManageBotSettings(team, user?.uid, initialBot)
+        const nextManageIntegrations = canUserManageIntegrations(team, user?.uid, initialBot)
+        setCanManageSettings(nextManageSettings)
+        setCanManageIntegrations(nextManageIntegrations)
         setPermissionsResolved(true)
-    }, [authLoading, user?.uid, team, bot])
+        if (typeof window !== 'undefined') {
+            console.info('[docsbot:bot-route] permissions', {
+                botId: initialBot?.id,
+                canManageSettings: nextManageSettings,
+                canManageIntegrations: nextManageIntegrations,
+            })
+        }
+    }, [authLoading, user?.uid, team, initialBot])
 
     const hasManageSettingsAccess =
         canManageBotSettingsFromServer || canManageSettings
@@ -249,7 +270,17 @@ const BotInner = ({
         [],
     )
     const configureControls = useMemo(
-        () => ['system', 'instructions', 'sources', 'questions', 'glossary', 'webhooks', 'search', 'mcp-connections'],
+        () => [
+            'system',
+            'instructions',
+            'sources',
+            'questions',
+            'glossary',
+            'mcp-connections',
+            'skills',
+            'webhooks',
+            'search',
+        ],
         [],
     )
     const widgetControls = useMemo(
@@ -265,22 +296,73 @@ const BotInner = ({
             return !hasIntegrationsAccess
         }
 
+        if (control === 'skills') {
+            // DOCSBOT_SKILLS_RELEASE_GATE: delete super-admin check; keep only `return !canManageSettings`
+            if (!isSuperAdmin(user?.uid)) return true
+            return !canManageSettings
+        }
+
         return false
-    }, [hasIntegrationsAccess, hasManageSettingsAccess])
+    }, [
+        canManageSettings,
+        hasIntegrationsAccess,
+        hasManageSettingsAccess,
+        user?.uid, // DOCSBOT_SKILLS_RELEASE_GATE: drop from deps if super-admin line above is removed
+    ])
 
 
-    const { tab: derivedTab, control: derivedControl } = useMemo(
+    const { tab: queryTab, control: queryControl, skillId: querySkillId = null } = useMemo(
         () => slugToTabControl(router.query.slug || []),
         [router.query.slug],
     )
 
+    const {
+        tab: asPathTab,
+        control: asPathControl,
+        skillId: asPathSkillId = null,
+    } = useMemo(() => parseBotTabControlFromAsPath(router.asPath), [router.asPath])
+
+    /**
+     * router.query.slug can lag during shallow route updates; prefer the visible URL parse
+     * so we don't transiently reclassify /configure/skills as another tab/control.
+     */
+    const derivedTab = asPathTab || queryTab
+    const derivedControl = asPathControl ?? queryControl
+    const derivedSkillIdFromQuery = asPathSkillId || querySkillId
+
+    /** When query lags (e.g. after shallow updates), keep skill id from the visible URL so path correction does not strip `/configure/skills/:id`. */
+    const derivedSkillId = useMemo(() => {
+        return derivedSkillIdFromQuery || parseSkillIdFromBotAppAsPath(router.asPath) || null
+    }, [derivedSkillIdFromQuery, router.asPath])
+
     useEffect(() => {
         if (!router.isReady || authLoading) return
+        // Wait until permission flags are computed. canManageSettings starts false; without this,
+        // configure/skills is misclassified as restricted and we replace the URL with sources
+        // on every refresh or bot re-fetch before the next paint.
+        if (!permissionsResolved) return
+        if (!initialBot?.id) {
+            if (typeof window !== 'undefined') {
+                console.info('[docsbot:bot-route] redirect skipped (no initialBot.id)', {
+                    derivedTab,
+                    derivedControl,
+                })
+            }
+            return
+        }
 
         const resolvedBotId = Array.isArray(botId) ? botId[0] : botId
 
         // If bot is not ready, redirect from chat to sources so user can train it
         if (bot && bot.status !== 'ready' && derivedTab === 'chat') {
+            if (typeof window !== 'undefined') {
+                console.info('[docsbot:bot-route] router.replace', {
+                    reason: 'bot not ready → configure/sources',
+                    botStatus: bot.status,
+                    derivedTab,
+                    to: `/app/bots/${resolvedBotId}/configure/sources`,
+                })
+            }
             router.replace(`/app/bots/${resolvedBotId}/configure/sources`, undefined, { shallow: true })
             return
         }
@@ -294,12 +376,32 @@ const BotInner = ({
 
         // Widget and deploy are admin-only (canManageIntegrations)
         if (!hasDeployAccess && (correctTab === 'widget' || correctTab === 'deploy')) {
+            if (typeof window !== 'undefined') {
+                console.info('[docsbot:bot-route] router.replace', {
+                    reason: 'no deploy access',
+                    correctTab,
+                    hasDeployAccess,
+                    canManageIntegrationsFromServer,
+                    canManageIntegrations,
+                })
+            }
             router.replace(`/app/bots/${Array.isArray(botId) ? botId[0] : botId}`, undefined, { shallow: true })
             return
         }
 
+        let configureRedirectReason = null
         if (correctTab === 'configure') {
-            if (!configureControls.includes(correctControl) || isConfigureControlRestricted(correctControl)) {
+            const unknownControl = !configureControls.includes(correctControl)
+            const restricted =
+                Boolean(correctControl) && isConfigureControlRestricted(correctControl)
+            if (unknownControl || restricted) {
+                configureRedirectReason = {
+                    unknownControl,
+                    restricted,
+                    derivedControl: correctControl,
+                    canManageSettings,
+                    canManageIntegrations,
+                }
                 correctControl = 'sources'
             }
         }
@@ -308,27 +410,47 @@ const BotInner = ({
             Array.isArray(botId) ? botId[0] : botId,
             correctTab,
             correctControl,
+            correctTab === 'configure' && correctControl === 'skills' && derivedSkillId
+                ? { skillId: derivedSkillId }
+                : {},
         )
 
         const currentPath = router.asPath.split('?')[0]
         const correctPathClean = correctPath.split('?')[0]
 
         if (currentPath !== correctPathClean) {
+            if (typeof window !== 'undefined') {
+                console.info('[docsbot:bot-route] router.replace', {
+                    reason: 'path correction',
+                    currentPath,
+                    correctPath: correctPathClean,
+                    derivedTab,
+                    derivedControl: derivedControl ?? null,
+                    correctTab,
+                    correctControl,
+                    configureRedirectReason,
+                    slug: router.query.slug,
+                })
+            }
             router.replace(correctPath, undefined, { shallow: true })
         }
     }, [
         router.isReady,
         authLoading,
+        permissionsResolved,
         derivedTab,
         derivedControl,
+        derivedSkillId,
         botId,
         bot,
         configureControls,
         canManageIntegrations,
         canManageIntegrationsFromServer,
         canManageBotSettingsFromServer,
+        canManageSettings,
         isConfigureControlRestricted,
         router,
+        initialBot?.id,
     ])
 
     const isBotDisabled = bot?.privacy === 'private' || bot?.status !== 'ready'
@@ -337,9 +459,11 @@ const BotInner = ({
     const analyticsControl = analyticsControls.includes(derivedControl)
         ? derivedControl
         : 'reports'
+    // Match redirect effect: until permissionsResolved, don't treat tabs as restricted using the
+    // initial false canManageSettings — that swapped configure/skills → sources and remounted Skills.
     const configureControl =
         configureControls.includes(derivedControl) &&
-        !isConfigureControlRestricted(derivedControl)
+        (!permissionsResolved || !isConfigureControlRestricted(derivedControl))
             ? derivedControl
             : 'sources'
     const widgetControl = widgetControls.includes(derivedControl)
@@ -429,6 +553,14 @@ const BotInner = ({
                 setBot={setBot}
             />
         ),
+        skills: (
+            <PageConfigure.Skills
+                key={bot.id}
+                team={team}
+                bot={bot}
+                routeSkillSlug={derivedSkillId}
+            />
+        ),
     }
     const configureContent =
         configureContentMap[configureControl] || configureContentMap.sources
@@ -480,6 +612,13 @@ const BotInner = ({
             requiresManageSettings: true,
         },
         {
+            name: 'Skills',
+            href: configureHref('skills'),
+            shallow: true,
+            isActive: activeId === 'configure' && configureControl === 'skills',
+            requiresManageSettings: true,
+        },
+        {
             name: 'Webhooks',
             href: configureHref('webhooks'),
             shallow: true,
@@ -493,7 +632,8 @@ const BotInner = ({
             shallow: true,
             isActive: activeId === 'configure' && configureControl === 'search',
         },
-    ]
+        // DOCSBOT_SKILLS_RELEASE_GATE: remove .filter(…) so the Skills item always shows (like other configure links)
+    ].filter((opt) => opt.name !== 'Skills' || isSuperAdmin(user?.uid))
 
     const setActiveId = (id, options = {}) => {
         let path

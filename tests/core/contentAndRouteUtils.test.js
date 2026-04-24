@@ -26,9 +26,11 @@ import {
   isPlanCompatibleWithSourceTypes,
 } from '@/utils/sourceTypePlanChecks'
 import {
+  parseBotTabControlFromAsPath,
   TAB_DEFAULTS,
   TOP_LEVEL_TABS,
   VALID_CONTROLS,
+  parseSkillIdFromBotAppAsPath,
   slugToTabControl,
   tabControlToPath,
 } from '@/lib/botRoutes'
@@ -64,6 +66,14 @@ describe('content and route utilities', () => {
     expect(preprocessMath(input)).toContain('const price = "$100"')
     expect(preprocessMath(input)).toContain('$$ y^2 $$'.replace('y', 'x'))
     expect(preprocessMath(input)).toContain('Also $$ x^2 $$ and $$y=z$$.')
+  })
+
+  it('returns a string from preprocessMath even when given non-string input (avoids React rendering objects)', () => {
+    expect(preprocessMath({ id: 'x' })).toBe('')
+    expect(preprocessMath(['a'])).toBe('')
+    expect(preprocessMath(null)).toBe('')
+    expect(preprocessMath(undefined)).toBe('')
+    expect(preprocessMath(42)).toBe('42')
   })
 
   it('rewrites WordPress URLs recursively and normalizes anchor tags', () => {
@@ -147,6 +157,19 @@ describe('content and route utilities', () => {
       control: 'reports',
       print: true,
     })
+    expect(slugToTabControl(['configure', 'skills'])).toEqual({
+      tab: 'configure',
+      control: 'skills',
+    })
+    expect(slugToTabControl(['configure', 'skills', 'pdf-tools'])).toEqual({
+      tab: 'configure',
+      control: 'skills',
+      skillId: 'pdf-tools',
+    })
+    expect(slugToTabControl(['configure', 'skills', 'bad_slug!!!'])).toEqual({
+      tab: 'configure',
+      control: 'skills',
+    })
 
     expect(tabControlToPath('bot-1', 'chat')).toBe('/app/bots/bot-1')
     expect(
@@ -158,6 +181,40 @@ describe('content and route utilities', () => {
     expect(
       tabControlToPath('bot-1', 'research', null, { jobId: 'job-1' }),
     ).toBe('/app/bots/bot-1/research?jobId=job-1')
+    expect(
+      tabControlToPath('bot-1', 'configure', 'skills', { skillId: 'pdf-tools' }),
+    ).toBe('/app/bots/bot-1/configure/skills/pdf-tools')
+    expect(tabControlToPath('bot-1', 'configure', 'skills')).toBe(
+      '/app/bots/bot-1/configure/skills',
+    )
+
+    expect(
+      parseSkillIdFromBotAppAsPath('/app/bots/bot-1/configure/skills/pdf-tools'),
+    ).toBe('pdf-tools')
+    expect(
+      parseSkillIdFromBotAppAsPath('/app/bots/bot-1/configure/skills/pdf-tools?x=1'),
+    ).toBe('pdf-tools')
+    expect(parseSkillIdFromBotAppAsPath('/app/bots/bot-1/configure/skills')).toBe(null)
+    expect(parseSkillIdFromBotAppAsPath('/app/bots/bot-1/configure/skills/bad!!!')).toBe(
+      null,
+    )
+
+    expect(parseBotTabControlFromAsPath('/app/bots/bot-1')).toEqual({
+      tab: 'chat',
+      control: null,
+    })
+    expect(parseBotTabControlFromAsPath('/app/bots/bot-1/configure/skills/pdf-tools')).toEqual({
+      tab: 'configure',
+      control: 'skills',
+      skillId: 'pdf-tools',
+    })
+    expect(
+      parseBotTabControlFromAsPath('/app/bots/bot-1/configure/skills/pdf-tools?x=1'),
+    ).toEqual({
+      tab: 'configure',
+      control: 'skills',
+      skillId: 'pdf-tools',
+    })
   })
 
   it('normalizes webhook docs, payloads, and SSRF checks', () => {

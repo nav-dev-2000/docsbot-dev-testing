@@ -126,7 +126,7 @@ const ApperancePreview = ({
     )
 
     return (
-        <div className="flex h-full w-full flex-col items-center">
+        <div className="flex h-full min-h-[360px] w-full flex-col items-center sm:min-h-[480px] md:min-h-[600px]">
             <div className="-mt-10 mb-4 flex w-full justify-end">
                 <SegmentedControl
                     value={previewMode}
