@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 import { getAuthorizedBotContext, jsonError } from '@/lib/appRouteAuth'
 import { canUserManageBotSettings } from '@/utils/function.utils'
 import {
-  GENERATED_BUNDLE_ARTIFACT_PATH,
   getSkillDraft,
   mergeBundleArtifact,
   publishSkillDraft,
@@ -11,25 +10,7 @@ import {
   skillRecordWithDecryptedSecretBindings,
   updateSkillDraft,
 } from '@/lib/skills-builder'
-import {
-  promoteSkillDraftToPublishedCurrent,
-  readPublishedSkillPackageFromR2,
-  readSkillDraftPackageFromR2,
-} from '@/lib/skills-r2-package'
-
-function skillRequiresGeneratedBundle(files = [], validation = null) {
-  return (
-    Array.isArray(files) &&
-    files.some((file) => file?.path === 'scripts/index.ts')
-  ) || Boolean(validation?.hasFunctions)
-}
-
-function hasNonEmptyR2File(pkg, path) {
-  const file = Array.isArray(pkg?.files)
-    ? pkg.files.find((entry) => entry?.path === path && !entry?.truncated)
-    : null
-  return Boolean(file && typeof file.content === 'string' && file.content.trim())
-}
+import { promoteSkillDraftToPublishedCurrent } from '@/lib/skills-r2-package'
 
 export async function POST(request, context) {
   try {
@@ -114,51 +95,10 @@ export async function POST(request, context) {
       )
     }
 
-    const requiresBundle = skillRequiresGeneratedBundle(updated.files, sanitizedValidationPayload)
-    if (
-      requiresBundle &&
-      !String(sanitizedValidationPayload?.bundleArtifact?.content || '').trim()
-    ) {
-      return jsonError(
-        'Runtime validation did not return a generated bundle artifact. Refusing to publish.',
-        500,
-      )
-    }
-
-    const draftPackage = await readSkillDraftPackageFromR2(updated.r2Prefix)
-    if (!draftPackage.configured) {
-      return jsonError(
-        draftPackage.message || 'Skills R2 storage is not configured.',
-        500,
-      )
-    }
-
-    if (requiresBundle && !hasNonEmptyR2File(draftPackage, GENERATED_BUNDLE_ARTIFACT_PATH)) {
-      return jsonError(
-        'Refusing to publish because the generated bundle artifact is missing from the draft package in R2.',
-        500,
-      )
-    }
-
     const promoteResult = await promoteSkillDraftToPublishedCurrent(updated.r2Prefix)
     if (!promoteResult.configured) {
       return jsonError(
         promoteResult.message || 'Skills R2 storage is not configured.',
-        500,
-      )
-    }
-
-    const publishedPackage = await readPublishedSkillPackageFromR2(updated.r2Prefix)
-    if (!publishedPackage.configured) {
-      return jsonError(
-        publishedPackage.message || 'Skills R2 storage is not configured.',
-        500,
-      )
-    }
-
-    if (requiresBundle && !hasNonEmptyR2File(publishedPackage, GENERATED_BUNDLE_ARTIFACT_PATH)) {
-      return jsonError(
-        'Refusing to mark the skill published because the generated bundle artifact is missing from the published R2 package.',
         500,
       )
     }

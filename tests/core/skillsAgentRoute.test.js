@@ -212,6 +212,10 @@ describe('skills agent route', () => {
         sandboxId: null,
         sessionId: null,
         lastResponseId: null,
+        builderUsageTotals: {
+          turns: 7,
+          inputTokens: 700,
+        },
       },
       publishedAt: null,
     }
@@ -412,6 +416,21 @@ describe('skills agent route', () => {
     )
     expect(mocks.streamArgs.system).toContain(
       'Use env bindings for non-secret config that stays fixed for this skill bot deployment',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Skill handlers receive arguments in this order: `handler(ctx, input)`',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Never define a two-argument handler as `(input, ctx)`',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Handler argument order is part of the runtime contract: `ctx` first, validated `input` second.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not use a placeholder as the entire `fetch` or `new Request` URL',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'fetch("https://hooks.slack.com/services/{{SLACK_WEBHOOK_PATH}}", ...)',
     )
     expect(mocks.streamArgs.system).toContain(
       'If you need to rename a file, use shell tool.',
@@ -677,6 +696,10 @@ describe('skills agent route', () => {
   })
 
   it('validates the current R2-backed draft and persists the returned bundle artifact', async () => {
+    currentDraft.files = [
+      { path: '.docsbot/bundle/index.js', content: 'stale generated bundle\n' },
+      ...currentDraft.files,
+    ]
     mocks.runtimeFetch.mockResolvedValue(
       new Response(
         JSON.stringify({
@@ -727,6 +750,7 @@ describe('skills agent route', () => {
       secretBindings: [],
       metadataBindings: [],
     })
+    expect(validateBody.files.map((file) => file.path)).toEqual(['SKILL.md'])
     expect(mocks.updateSkillDraft).toHaveBeenCalledWith(
       'team-1',
       'bot-1',
@@ -816,7 +840,7 @@ describe('skills agent route', () => {
     })
   })
 
-  it('refuses to publish executable skills when validation does not return a bundle artifact', async () => {
+  it('publishes executable skills when validation does not return a bundle artifact', async () => {
     mocks.runtimeFetch.mockResolvedValue(
       new Response(
         JSON.stringify({
@@ -848,12 +872,33 @@ describe('skills agent route', () => {
     const result = await mocks.streamArgs.tools.publish_skill_bundle.execute({})
 
     expect(result).toEqual({
-      ok: false,
-      message: 'Runtime validation did not return a generated bundle artifact. Refusing to publish.',
-      validation: expect.objectContaining({ valid: true, hasFunctions: true }),
+      ok: true,
+      publishedAt: '2026-04-18T20:00:00.000Z',
+      skill: {
+        skillName: 'customer-refunds',
+        fileTree: currentDraft.files.map((file) => ({ path: file.path, size: file.content.length })),
+      },
+      result: {
+        valid: true,
+        uploaded: true,
+        promoted: 2,
+        deleted: 0,
+      },
     })
     expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
-    expect(mocks.promoteSkillDraftToPublishedCurrent).not.toHaveBeenCalled()
-    expect(mocks.publishSkillDraft).not.toHaveBeenCalled()
+    expect(mocks.readPublishedSkillPackageFromR2).not.toHaveBeenCalled()
+    expect(mocks.promoteSkillDraftToPublishedCurrent).toHaveBeenCalledWith(
+      'team-1/bot-1/customer-refunds',
+    )
+    expect(mocks.publishSkillDraft).toHaveBeenCalledWith(
+      {
+        teamId: 'team-1',
+        botId: 'bot-1',
+        skillName: 'customer-refunds',
+        userId: 'user-1',
+        hasFunctions: true,
+      },
+      { id: 'firestore' },
+    )
   })
 })

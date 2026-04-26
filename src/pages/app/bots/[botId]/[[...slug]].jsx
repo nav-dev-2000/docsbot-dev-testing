@@ -218,6 +218,7 @@ const BotInner = ({
     canModifyTeam = false,
     canManageIntegrations: canManageIntegrationsFromServer = false,
     canManageBotSettings: canManageBotSettingsFromServer = false,
+    isSuperAdminUser = false,
 }) => {
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
@@ -298,7 +299,7 @@ const BotInner = ({
 
         if (control === 'skills') {
             // DOCSBOT_SKILLS_RELEASE_GATE: delete super-admin check; keep only `return !canManageSettings`
-            if (!isSuperAdmin(user?.uid)) return true
+            if (!isSuperAdminUser) return true
             return !canManageSettings
         }
 
@@ -307,7 +308,7 @@ const BotInner = ({
         canManageSettings,
         hasIntegrationsAccess,
         hasManageSettingsAccess,
-        user?.uid, // DOCSBOT_SKILLS_RELEASE_GATE: drop from deps if super-admin line above is removed
+        isSuperAdminUser, // DOCSBOT_SKILLS_RELEASE_GATE: drop from deps if super-admin line above is removed
     ])
 
 
@@ -633,7 +634,7 @@ const BotInner = ({
             isActive: activeId === 'configure' && configureControl === 'search',
         },
         // DOCSBOT_SKILLS_RELEASE_GATE: remove .filter(…) so the Skills item always shows (like other configure links)
-    ].filter((opt) => opt.name !== 'Skills' || isSuperAdmin(user?.uid))
+    ].filter((opt) => opt.name !== 'Skills' || isSuperAdminUser)
 
     const setActiveId = (id, options = {}) => {
         let path
@@ -982,6 +983,7 @@ export const getServerSideProps = async (context) => {
             data.props.userId,
             data.props.bot,
         )
+        data.props.isSuperAdminUser = isSuperAdmin(data.props.userId)
 
         const {
             tab,

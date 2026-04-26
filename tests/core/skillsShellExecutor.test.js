@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 const mocks = vi.hoisted(() => ({
   executeSkillSandboxCommands: vi.fn(),
@@ -11,7 +11,15 @@ vi.mock('@/lib/skills-sandbox-client', () => ({
 }))
 
 describe('skills-shell-executor', () => {
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('maps AI SDK shell actions to sandbox command execution results', async () => {
+    const consoleLog = vi.spyOn(console, 'log').mockImplementation(() => {})
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+
     mocks.executeSkillSandboxCommands.mockResolvedValue({
       output: [
         {
@@ -66,9 +74,16 @@ describe('skills-shell-executor', () => {
         },
       ],
     })
+    expect(consoleLog).not.toHaveBeenCalled()
+    expect(consoleWarn).not.toHaveBeenCalled()
+    expect(consoleError).not.toHaveBeenCalled()
   })
 
   it('returns shell stderr instead of throwing when sandbox execution fails', async () => {
+    const consoleLog = vi.spyOn(console, 'log').mockImplementation(() => {})
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+
     mocks.executeSkillSandboxCommands.mockRejectedValue(new Error('Sandbox execution failed with status 401.'))
 
     const { createSkillShellExecute } = await import('@/lib/skills-shell-executor')
@@ -100,6 +115,16 @@ describe('skills-shell-executor', () => {
           outcome: { type: 'exit', exitCode: 1 },
         },
       ],
+    })
+    expect(consoleLog).not.toHaveBeenCalled()
+    expect(consoleWarn).not.toHaveBeenCalled()
+    expect(consoleError).toHaveBeenCalledTimes(1)
+    expect(JSON.parse(consoleError.mock.calls[0][0])).toMatchObject({
+      event: 'skills.shell.error',
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'customer-refunds',
+      commandCount: 2,
     })
   })
 
@@ -186,6 +211,9 @@ describe('skills-shell-executor', () => {
   })
 
   it('resets the sandbox after timeout-like backend failures', async () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+
     mocks.executeSkillSandboxCommands.mockRejectedValue(
       new Error('Sandbox worker request timed out after 75000ms before a complete response was received.'),
     )
@@ -208,6 +236,15 @@ describe('skills-shell-executor', () => {
       teamId: 'team-1',
       botId: 'bot-1',
       skillName: 'customer-refunds',
+    })
+    expect(consoleWarn).not.toHaveBeenCalled()
+    expect(consoleError).toHaveBeenCalledTimes(1)
+    expect(JSON.parse(consoleError.mock.calls[0][0])).toMatchObject({
+      event: 'skills.shell.error',
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'customer-refunds',
+      commandCount: 1,
     })
   })
 })

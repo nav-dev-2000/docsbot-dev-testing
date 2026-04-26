@@ -406,11 +406,22 @@ function normalizeBindingDescription(value) {
 export function decryptSkillSecretStoredValue(stored) {
   if (stored == null || stored === '') return ''
   const s = String(stored)
-  if (!s.startsWith('enc:')) return s
   try {
-    return decryptKey(s.slice(4))
+    return decryptKey(s)
   } catch {
     return ''
+  }
+}
+
+/** Encrypt plaintext secrets for storage; leave values that already decrypt with our key unchanged. */
+function normalizeSecretBindingSecretForStorage(secret) {
+  if (secret == null || secret === '') return secret
+  const s = String(secret)
+  try {
+    decryptKey(s)
+    return s
+  } catch {
+    return encryptKey(s)
   }
 }
 
@@ -736,7 +747,10 @@ export async function incrementSkillDraftBuilderAgentUsage(docRef, { openaiModel
     'agent.builderUsageTotals.estimatedWebSearchCostUsd': inc(usage.estimatedWebSearchCostUsd),
     'agent.builderUsageTotals.estimatedCfShellCostUsd': inc(usage.estimatedCfShellCostUsd),
     'agent.builderUsageTotals.inputTokens': inc(usage.inputTokens),
+    'agent.builderUsageTotals.cachedInputTokens': inc(usage.cachedInputTokens),
+    'agent.builderUsageTotals.cacheWriteTokens': inc(usage.cacheWriteTokens),
     'agent.builderUsageTotals.outputTokens': inc(usage.outputTokens),
+    'agent.builderUsageTotals.reasoningTokens': inc(usage.reasoningTokens),
     'agent.builderUsageTotals.webSearchCalls': inc(usage.webSearchCalls),
     'agent.builderUsageTotals.shellCalls': inc(usage.shellCalls),
     'agent.builderUsageTotals.shellDurationMs': inc(usage.shellDurationMs),
@@ -777,10 +791,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
   if (Array.isArray(nextManifest.secretBindings)) {
     nextManifest.secretBindings = nextManifest.secretBindings.map((binding) => ({
       envVar: binding.envVar,
-      secret:
-        binding.secret && !String(binding.secret).startsWith('enc:')
-          ? `enc:${encryptKey(binding.secret)}`
-          : binding.secret,
+      secret: normalizeSecretBindingSecretForStorage(binding.secret),
       ...(normalizeBindingDescription(binding.description)
         ? { description: normalizeBindingDescription(binding.description) }
         : {}),

@@ -43,20 +43,6 @@ export function createSkillShellExecute({
         ? action.timeoutMs
         : DEFAULT_SHELL_TIMEOUT_MS
 
-    console.log(
-      JSON.stringify({
-        event: 'skills.shell.start',
-        teamId,
-        botId,
-        skillName,
-        commandCount: commands.length,
-        timeoutMs,
-        maxOutputLength: action?.maxOutputLength ?? null,
-        commandPreview: shellCommandPreview(commands),
-        timestamp: new Date(startedAt).toISOString(),
-      }),
-    )
-
     try {
       const result = await executeSkillSandboxCommands({
         teamId,
@@ -67,22 +53,6 @@ export function createSkillShellExecute({
         maxOutputLength: action?.maxOutputLength,
         abortSignal,
       })
-
-      console.log(
-        JSON.stringify({
-          event: 'skills.shell.finish',
-          teamId,
-          botId,
-          skillName,
-          commandCount: commands.length,
-          durationMs: Date.now() - startedAt,
-          outcomes: result.output.map((entry) => entry?.outcome?.type || 'exit'),
-          exitCodes: result.output.map((entry) =>
-            entry?.outcome?.type === 'exit' ? Number(entry?.outcome?.exitCode ?? 1) : null,
-          ),
-          timestamp: new Date().toISOString(),
-        }),
-      )
 
       return {
         output: result.output.map((entry) => ({
@@ -97,16 +67,6 @@ export function createSkillShellExecute({
       if (shouldResetSandboxAfterError(error)) {
         try {
           await resetSkillSandbox({ teamId, botId, skillName })
-          console.warn(
-            JSON.stringify({
-              event: 'skills.shell.reset',
-              teamId,
-              botId,
-              skillName,
-              reason: 'timeout',
-              timestamp: new Date().toISOString(),
-            }),
-          )
         } catch (resetError) {
           console.error(
             JSON.stringify({

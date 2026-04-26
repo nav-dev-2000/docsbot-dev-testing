@@ -6,13 +6,17 @@ const mocks = vi.hoisted(() => ({
   writeSkillDraftFilesToR2: vi.fn(),
   configureFirebaseApp: vi.fn(),
   serverTimestamp: vi.fn(() => 'SERVER_TIMESTAMP'),
+  increment: vi.fn((value) => ({ __increment: value })),
 }))
 
 vi.mock('@/lib/encryption', () => ({
   encryptKey: mocks.encryptKey,
   decryptKey: (payload) => {
     const value = String(payload || '')
-    return value.startsWith('encrypted:') ? value.slice('encrypted:'.length) : value
+    if (!value.startsWith('encrypted:')) {
+      throw new Error('invalid ciphertext')
+    }
+    return value.slice('encrypted:'.length)
   },
 }))
 
@@ -29,6 +33,7 @@ vi.mock('firebase-admin/firestore', () => ({
   getFirestore: vi.fn(),
   FieldValue: {
     serverTimestamp: mocks.serverTimestamp,
+    increment: mocks.increment,
   },
 }))
 
@@ -106,6 +111,43 @@ describe('skills-builder helpers', () => {
       written: 0,
       deleted: 0,
     })
+  })
+
+  it('increments all builder agent usage total fields', async () => {
+    const { incrementSkillDraftBuilderAgentUsage } = await import('@/lib/skills-builder')
+    const docRef = { update: vi.fn(async () => undefined) }
+
+    await incrementSkillDraftBuilderAgentUsage(docRef, {
+      openaiModelId: 'gpt-5.4-mini',
+      usage: {
+        modelSlug: 'gpt-5-4-mini',
+        estimatedCostUsd: 0.12,
+        estimatedTokenCostUsd: 0.1,
+        estimatedWebSearchCostUsd: 0.01,
+        estimatedCfShellCostUsd: 0.01,
+        inputTokens: 100,
+        cachedInputTokens: 25,
+        cacheWriteTokens: 5,
+        outputTokens: 50,
+        reasoningTokens: 12,
+        webSearchCalls: 1,
+        shellCalls: 2,
+        shellDurationMs: 3000,
+      },
+    })
+
+    expect(docRef.update).toHaveBeenCalledWith(
+      expect.objectContaining({
+        'agent.lastBuilderOpenaiModel': 'gpt-5.4-mini',
+        'agent.lastBuilderModelSlug': 'gpt-5-4-mini',
+        'agent.builderUsageTotals.turns': { __increment: 1 },
+        'agent.builderUsageTotals.inputTokens': { __increment: 100 },
+        'agent.builderUsageTotals.cachedInputTokens': { __increment: 25 },
+        'agent.builderUsageTotals.cacheWriteTokens': { __increment: 5 },
+        'agent.builderUsageTotals.outputTokens': { __increment: 50 },
+        'agent.builderUsageTotals.reasoningTokens': { __increment: 12 },
+      }),
+    )
   })
 
   it('creates executable drafts with an R2 prefix and sandbox agent state', async () => {
@@ -237,7 +279,7 @@ describe('skills-builder helpers', () => {
     expect(updated.secretBindings).toEqual([
       {
         envVar: 'API_TOKEN',
-        secret: 'enc:encrypted:raw-secret',
+        secret: 'encrypted:raw-secret',
         description: 'API token used for outbound requests.',
       },
     ])
@@ -249,6 +291,63 @@ describe('skills-builder helpers', () => {
       },
     ])
     expect(updated.files).toEqual([{ path: 'SKILL.md', content: 'new content' }])
+  })
+
+  it('updateSkillDraft does not re-encrypt existing ciphertext when updating unrelated fields', async () => {
+    const storedCipher = 'encrypted:already-stored'
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [
+        {
+          envVar: 'API_TOKEN',
+          secret: storedCipher,
+          description: 'API token used for outbound requests.',
+        },
+      ],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: {
+        sandboxId: 'skill:team-1:bot-1:customer-refunds',
+        sessionId: 'builder',
+        lastResponseId: null,
+      },
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    await updateSkillDraft('team-1', 'bot-1', 'customer-refunds', { validation: { ok: true } }, firestore)
+
+    expect(mocks.encryptKey).not.toHaveBeenCalled()
+    expect(firestore.docRef.set).toHaveBeenCalledWith(
+      expect.objectContaining({
+        secretBindings: [
+          {
+            envVar: 'API_TOKEN',
+            secret: storedCipher,
+            description: 'API token used for outbound requests.',
+          },
+        ],
+        validation: { ok: true },
+      }),
+      { merge: true },
+    )
   })
 
   it('getSkillDraft can return metadata without reading draft files from R2', async () => {
@@ -309,7 +408,7 @@ describe('skills-builder helpers', () => {
       secretBindings: [
         {
           envVar: 'API_TOKEN',
-          secret: 'enc:encrypted:sekret',
+          secret: 'encrypted:sekret',
           description: 'API token used to authenticate outbound requests.',
         },
       ],

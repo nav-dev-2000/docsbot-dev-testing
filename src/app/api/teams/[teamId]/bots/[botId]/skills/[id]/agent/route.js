@@ -10,7 +10,6 @@ import { openAiErrorMessage } from '@/lib/openai-error-message'
 import { getTeamWithEncryptedOpenAIKey } from '@/lib/dbQueries'
 import { decryptKey } from '@/lib/encryption'
 import {
-  GENERATED_BUNDLE_ARTIFACT_PATH,
   buildSkillContextSummary,
   getSkillFileContent,
   getSkillDraft,
@@ -30,11 +29,7 @@ import {
   buildSkillSandboxId,
   SKILLS_SANDBOX_SESSION_ID,
 } from '@/lib/skills-sandbox-client'
-import {
-  promoteSkillDraftToPublishedCurrent,
-  readPublishedSkillPackageFromR2,
-  readSkillDraftPackageFromR2,
-} from '@/lib/skills-r2-package'
+import { promoteSkillDraftToPublishedCurrent } from '@/lib/skills-r2-package'
 import {
   buildSkillsBuilderAgentUsageMetadata,
   countWebSearchToolCallsInSteps,
@@ -45,6 +40,8 @@ import { canUserManageBotSettings } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
 
 const WORKSPACE_ROOT = '/workspace'
+const GENERATED_BUNDLE_ARTIFACT_PATH = '.docsbot/bundle/index.js'
+const GENERATED_COMPILED_ARTIFACT_PATH = '.docsbot/compiled/index.js'
 const DOC_CONTENT_BY_KEY = {
   widget: {
     path: 'src/pages/documentation/developer/embeddable-chat-widget.md',
@@ -56,20 +53,6 @@ const DOC_CONTENT_BY_KEY = {
   },
 }
 export const maxDuration = 300
-
-function skillRequiresGeneratedBundle(files = [], validation = null) {
-  return (
-    Array.isArray(files) &&
-    files.some((file) => file?.path === 'scripts/index.ts')
-  ) || Boolean(validation?.hasFunctions)
-}
-
-function hasNonEmptyR2File(pkg, path) {
-  const file = Array.isArray(pkg?.files)
-    ? pkg.files.find((entry) => entry?.path === path && !entry?.truncated)
-    : null
-  return Boolean(file && typeof file.content === 'string' && file.content.trim())
-}
 
 const loadContextInputSchema = z
   .object({})
@@ -230,10 +213,16 @@ async function validateDraftAgainstRuntime({ draft, teamId, botId, firestore }) 
         secretBindings: draft.secretBindings || [],
         metadataBindings: draft.metadataBindings || [],
       },
-      files: (draft.files || []).map((file) => ({
-        path: file.path,
-        content: file.content,
-      })),
+      files: (draft.files || [])
+        .map((file) => ({
+          path: file.path,
+          content: file.content,
+        }))
+        .filter(
+          (file) =>
+            file.path !== GENERATED_BUNDLE_ARTIFACT_PATH &&
+            file.path !== GENERATED_COMPILED_ARTIFACT_PATH,
+        ),
     }),
   })
 
@@ -294,39 +283,6 @@ async function publishDraftBundle({ draft, teamId, botId, userId, firestore }) {
       }
     }
 
-    if (
-      skillRequiresGeneratedBundle(latestDraft.files, validationResult.payload) &&
-      !String(validationResult.payload?.bundleArtifact?.content || '').trim()
-    ) {
-      return {
-        ok: false,
-        draft: latestDraft,
-        message:
-          'Runtime validation did not return a generated bundle artifact. Refusing to publish.',
-        validation: validationResult.payload,
-      }
-    }
-  }
-
-  const requiresBundle = skillRequiresGeneratedBundle(latestDraft.files, latestDraft.validation)
-  if (requiresBundle) {
-    const draftPackage = await readSkillDraftPackageFromR2(latestDraft.r2Prefix)
-    if (!draftPackage.configured) {
-      return {
-        ok: false,
-        draft: latestDraft,
-        message: draftPackage.message || 'Skills R2 storage is not configured.',
-      }
-    }
-
-    if (!hasNonEmptyR2File(draftPackage, GENERATED_BUNDLE_ARTIFACT_PATH)) {
-      return {
-        ok: false,
-        draft: latestDraft,
-        message:
-          'Refusing to publish because the generated bundle artifact is missing from the draft package in R2.',
-      }
-    }
   }
 
   const promoted = await promoteSkillDraftToPublishedCurrent(latestDraft.r2Prefix)
@@ -335,26 +291,6 @@ async function publishDraftBundle({ draft, teamId, botId, userId, firestore }) {
       ok: false,
       draft: latestDraft,
       message: promoted.message || 'Skills R2 storage is not configured.',
-    }
-  }
-
-  if (requiresBundle) {
-    const publishedPackage = await readPublishedSkillPackageFromR2(latestDraft.r2Prefix)
-    if (!publishedPackage.configured) {
-      return {
-        ok: false,
-        draft: latestDraft,
-        message: publishedPackage.message || 'Skills R2 storage is not configured.',
-      }
-    }
-
-    if (!hasNonEmptyR2File(publishedPackage, GENERATED_BUNDLE_ARTIFACT_PATH)) {
-      return {
-        ok: false,
-        draft: latestDraft,
-        message:
-          'Refusing to mark the skill published because the generated bundle artifact is missing from the published R2 package.',
-      }
     }
   }
 
@@ -427,6 +363,8 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Every exported \`defineSkillFunction(...)\` must include \`description\`, \`input\`, and \`output\`.
 - \`input\` and \`output\` must be Zod schemas.
 - Define named Zod schema constants and explicit TypeScript input and output aliases for each exported function, then keep the handler aligned with them.
+- Skill handlers receive arguments in this order: \`handler(ctx, input)\`, where \`ctx\` is the runtime \`SkillContext\` and \`input\` is the object validated against the function's \`input\` Zod schema. If you use a named implementation function, define it in that same order, for example \`async function runThing(ctx: SkillContext, input: ThingInput): Promise<ThingOutput>\`.
+- Never define a two-argument handler as \`(input, ctx)\` or pass a named function with that order. That reverses the runtime context and model-provided input, causing required input fields to be \`undefined\` at execution time.
 - \`description\` should explain when the runtime agent should call the function and what the function does.
 - \`input\` must describe only the exact arguments the model truly needs to call the function successfully. Prefer a small, opinionated argument surface over mirroring every upstream API option.
 - \`output\` must describe only the structured result fields the deployed agent is likely to use in user responses or downstream chaining. Do not return full API payloads, debug fields, or speculative metadata.
@@ -459,6 +397,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - **Env bindings:** The runtime exposes declared env bindings in \`ctx.env\` and as \`{{ENV_VAR_NAME}}\` placeholders in outbound URLs and headers. Use env bindings for non-secret config that stays fixed for this skill bot deployment, not for per-user/session values.
 - **Metadata:** The runtime passes metadata bindings into the skill handler through \`ctx.metadata\` (allowlisted values keyed by \`metadataKey\`). Treat missing keys safely. Use metadata for per-user/session context such as user email, customer ID, etc., not for fixed deployment config or raw secrets.
 - **Proxy placeholders:** Env bindings, secret bindings, and metadata binding \`envVar\` names can be used as \`{{ENV_VAR_NAME}}\` placeholders in outbound HTTP request URLs and request header values. Use \`ctx.env\` / \`ctx.metadata\` when code logic needs the value; use \`{{ENV_VAR_NAME}}\` when the value only needs to be inserted into an outbound request by the proxy.
+- **URL placeholder shape:** Do not use a placeholder as the entire \`fetch\` or \`new Request\` URL, such as \`fetch("{{SLACK_WEBHOOK_URL}}")\`; that URL is invalid before the proxy can rewrite it. Keep the scheme and host literal, and put placeholders only in path segments, query parameters, or headers. For Slack webhooks, register a secret such as \`SLACK_WEBHOOK_PATH\` containing only the path after \`/services/\`, then call \`fetch("https://hooks.slack.com/services/{{SLACK_WEBHOOK_PATH}}", ...)\`.
 - **Secrets:** Decrypted secrets are never available in skill code and can not be read from \`ctx.env\`, \`ctx.metadata\`, or \`process.env\`. Secret values may only be referenced as \`{{ENV_VAR_NAME}}\` placeholders in outbound URLs and header values.
 - **Built-in runtime values:** \`DOCSBOT_TEAM_ID\`, \`DOCSBOT_BOT_ID\`, \`DOCSBOT_CONVERSATION_ID\`, and \`DOCSBOT_SKILL_NAME\` are always available. They are rarely needed, but they can be read from \`ctx.env\` or used as proxy placeholders like \`{{DOCSBOT_TEAM_ID}}\` when appropriate.
 - **Example manifest + \`fetch\`** (illustrative; align \`envVar\` / \`metadataKey\` with your real manifest):
@@ -525,7 +464,8 @@ async function fetchCustomerContext(ctx: SkillContext) {
 - Export named functions with \`export const functionName = defineSkillFunction({...})\`.
 - The runtime agent discovers callable functions from those exports, so the export name must be the public function name.
 - Prefer adjacent \`const FunctionNameInput = z.object(...)\`, \`const FunctionNameOutput = ...\`, and matching \`type FunctionNameInput = z.infer<typeof FunctionNameInput>\` aliases so the generated TypeScript definitions shown to the runtime agent stay readable.
-- Prefer a named implementation function such as \`async function runFunctionName(...) { ... }\` and pass that function to \`handler\`.
+- Prefer a named implementation function such as \`async function runFunctionName(ctx: SkillContext, input: FunctionNameInput): Promise<FunctionNameOutput> { ... }\` and pass that function to \`handler\`.
+- Handler argument order is part of the runtime contract: \`ctx\` first, validated \`input\` second. One-argument handlers may accept only \`input\`, but two-argument handlers must not use \`input\` first.
 - Keep schemas and handlers aligned. If the handler returns a shape that changed, update \`output\` in the same edit.
 - If a function consumes fixed deployment config, request metadata, secrets, or network access, register them in the manifest (see **Env, secrets, and customer metadata in \`update_manifest\` and scripts**) together with an appropriate \`networkPolicy\`, rather than describing hidden prerequisites in SKILL.md.
 
@@ -584,9 +524,11 @@ export async function POST(request, context) {
     await getSkillDraftDocRef(team.id, botId, draft.skillName, firestore).set(
       {
         agent: {
-          ...(draft.agent || {}),
           sandboxId,
           sessionId: SKILLS_SANDBOX_SESSION_ID,
+          ...(draft.agent?.lastResponseId !== undefined
+            ? { lastResponseId: draft.agent.lastResponseId }
+            : {}),
         },
       },
       { merge: true },
@@ -840,9 +782,11 @@ export async function POST(request, context) {
               isAborted: Boolean(isAborted),
             },
             agent: {
-              ...(draft.agent || {}),
               sandboxId,
               sessionId: SKILLS_SANDBOX_SESSION_ID,
+              ...(draft.agent?.lastResponseId !== undefined
+                ? { lastResponseId: draft.agent.lastResponseId }
+                : {}),
             },
           },
           { merge: true },

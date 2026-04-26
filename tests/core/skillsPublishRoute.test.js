@@ -144,7 +144,7 @@ describe('skills publish route', () => {
     expect(mocks.publishSkillDraft).not.toHaveBeenCalled()
   })
 
-  it('refuses to publish when fresh validation does not return a bundle artifact', async () => {
+  it('publishes executable skills when runtime validation does not return a bundle artifact', async () => {
     global.fetch.mockResolvedValue(
       Response.json({
         valid: true,
@@ -159,9 +159,18 @@ describe('skills publish route', () => {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', id: 'current-weather-api' }),
     })
 
-    expect(response.status).toBe(500)
+    expect(response.status).toBe(200)
     await expect(response.json()).resolves.toEqual({
-      message: 'Runtime validation did not return a generated bundle artifact. Refusing to publish.',
+      message: 'Skill bundle promoted to the published package and Firestore manifest updated.',
+      skill: expect.objectContaining({
+        publishedAt: '2026-04-22T00:00:00.000Z',
+      }),
+      result: {
+        valid: true,
+        uploaded: true,
+        promoted: 4,
+        deleted: 0,
+      },
     })
     const validationBody = JSON.parse(global.fetch.mock.calls[0][1].body)
     expect(validationBody.manifest).toEqual({
@@ -169,11 +178,24 @@ describe('skills publish route', () => {
       secretBindings: [],
       metadataBindings: [],
     })
-    expect(mocks.promoteSkillDraftToPublishedCurrent).not.toHaveBeenCalled()
-    expect(mocks.publishSkillDraft).not.toHaveBeenCalled()
+    expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
+    expect(mocks.readPublishedSkillPackageFromR2).not.toHaveBeenCalled()
+    expect(mocks.promoteSkillDraftToPublishedCurrent).toHaveBeenCalledWith(
+      'team-1/bot-1/current-weather-api',
+    )
+    expect(mocks.publishSkillDraft).toHaveBeenCalledWith(
+      {
+        teamId: 'team-1',
+        botId: 'bot-1',
+        skillName: 'current-weather-api',
+        userId: 'user-1',
+        hasFunctions: true,
+      },
+      { id: 'firestore' },
+    )
   })
 
-  it('refuses to publish when the generated bundle artifact is missing from published R2', async () => {
+  it('does not require the generated bundle artifact to exist in published R2', async () => {
     global.fetch.mockResolvedValue(
       Response.json({
         valid: true,
@@ -195,14 +217,23 @@ describe('skills publish route', () => {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', id: 'current-weather-api' }),
     })
 
-    expect(response.status).toBe(500)
+    expect(response.status).toBe(200)
     await expect(response.json()).resolves.toEqual({
-      message:
-        'Refusing to mark the skill published because the generated bundle artifact is missing from the published R2 package.',
+      message: 'Skill bundle promoted to the published package and Firestore manifest updated.',
+      skill: expect.objectContaining({
+        publishedAt: '2026-04-22T00:00:00.000Z',
+      }),
+      result: {
+        valid: true,
+        uploaded: true,
+        promoted: 4,
+        deleted: 0,
+      },
     })
     expect(mocks.promoteSkillDraftToPublishedCurrent).toHaveBeenCalledWith(
       'team-1/bot-1/current-weather-api',
     )
-    expect(mocks.publishSkillDraft).not.toHaveBeenCalled()
+    expect(mocks.readPublishedSkillPackageFromR2).not.toHaveBeenCalled()
+    expect(mocks.publishSkillDraft).toHaveBeenCalled()
   })
 })

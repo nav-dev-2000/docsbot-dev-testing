@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport, lastAssistantMessageIsCompleteWithToolCalls } from 'ai'
+import { Dialog, Transition } from '@headlessui/react'
+import { fetchEventSource } from '@microsoft/fetch-event-source'
 import clsx from 'clsx'
 import remarkExternalLinks from 'remark-external-links'
 import Link from 'next/link'
@@ -11,15 +13,21 @@ import {
     ArrowLeftIcon,
     ArrowPathIcon,
     BeakerIcon,
+    BoltIcon,
     BuildingOffice2Icon,
     ChatBubbleLeftRightIcon,
+    CheckIcon,
     ChevronDownIcon,
     ChevronRightIcon,
+    ClipboardDocumentIcon,
+    CodeBracketIcon,
     CommandLineIcon,
     DocumentTextIcon,
     GlobeAltIcon,
+    ListBulletIcon,
     MagnifyingGlassIcon,
     PencilSquareIcon,
+    PlayCircleIcon,
     PlusIcon,
     PhotoIcon,
     TrashIcon,
@@ -34,6 +42,7 @@ import { Streamdown, defaultRemarkPlugins, defaultRehypePlugins } from '@/compon
 import Workspace from '@new-dashboard/Workspace'
 import Button from '@new-dashboard/Button'
 import Note from '@new-dashboard/Note'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 import { preprocessMath } from '@/utils/markdown'
 import Tooltip from '@/components/Tooltip'
 import LocaleDateTime from '@/components/LocaleDateTime'
@@ -50,6 +59,23 @@ import { parseSkillIdFromBotAppAsPath } from '@/lib/botRoutes'
 import { buildBindingsHelpPrompt } from '@/lib/skills-bindings-help'
 import { formatSkillNameDisplay, normalizeSkillName } from '@/lib/skill-name-normalize'
 import { buildSkillsBuilderUsageTooltip } from '@/lib/skills-agent-usage'
+import {
+    createSkillsBuilderChatCache,
+    readSkillsBuilderChatCache,
+} from '@/lib/skills-builder-chat-cache'
+import {
+    buildSkillTestFinalMarkdown,
+    buildSkillTestReportPrompt,
+    createInitialSkillTestState,
+    getMissingSkillTestEnvironmentBindings,
+    hasMissingSkillTestEnvironmentBindings,
+    normalizeMetadataBindings,
+    reduceSkillTestStreamEvent,
+    SKILL_TEST_MODEL,
+    SKILL_TEST_REASONING_EFFORT,
+    skillDraftHasCallableFunctions,
+    skillTestEventsToAssistantParts,
+} from '@/lib/skill-test-agent-ui'
 import { auth } from '@/config/firebase-ui.config'
 import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -114,6 +140,10 @@ function formatBuilderLogValue(value) {
     } catch {
         return String(value)
     }
+}
+
+function formatRedirectLogValue(value) {
+    return typeof value === 'string' && value.trim() ? value.trim() : 'Unknown'
 }
 
 const LIVE_REFRESH_TOOL_NAMES = new Set([
@@ -194,7 +224,7 @@ function SkillsBuilderAskUserQuestionsForm({
     onBeforeSubmitAnswers,
 }) {
     const input = part?.input
-    const questions = Array.isArray(input?.questions) ? input.questions : []
+    const questions = useMemo(() => (Array.isArray(input?.questions) ? input.questions : []), [input?.questions])
     const intro = typeof input?.intro === 'string' ? input.intro.trim() : ''
 
     const [mcSingle, setMcSingle] = useState({})
@@ -204,7 +234,7 @@ function SkillsBuilderAskUserQuestionsForm({
 
     const submittedSelections = useMemo(
         () => (readOnly ? deriveAskUserSelectionsFromOutput(part?.output, questions) : null),
-        [readOnly, part?.output, part?.toolCallId, questions],
+        [readOnly, part?.output, questions],
     )
 
     useEffect(() => {
@@ -1323,6 +1353,214 @@ function getApplyPatchSummary(part) {
     return 'Apply patch'
 }
 
+function firstNonEmptySkillToolValue(...values) {
+    for (const value of values) {
+        if (typeof value === 'string' && value.trim()) return value.trim()
+        if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+    }
+    return ''
+}
+
+function parseSkillToolJsonValue(value) {
+    if (typeof value !== 'string') return value
+    const trimmed = value.trim()
+    if (!trimmed || !/^[{[]/.test(trimmed)) return value
+    try {
+        return JSON.parse(trimmed)
+    } catch {
+        return value
+    }
+}
+
+function normalizeSkillToolValue(value) {
+    const parsed = parseSkillToolJsonValue(value)
+    if (
+        parsed &&
+        typeof parsed === 'object' &&
+        !Array.isArray(parsed) &&
+        parsed.name &&
+        typeof parsed.name === 'object'
+    ) {
+        return {
+            ...parsed.name,
+            ...parsed,
+            name: parsed.name.name || parsed.name.skillName || parsed.name.skill_name || parsed.name.id,
+        }
+    }
+    return parsed
+}
+
+function getSkillToolOutput(part) {
+    return part?.output ?? part?.result ?? part?.response ?? null
+}
+
+function getSkillToolFunctionName(input = {}) {
+    input = normalizeSkillToolValue(input) || {}
+    return firstNonEmptySkillToolValue(
+        input.functionName,
+        input.function_name,
+        input.function,
+        input['function name'],
+        input['function Name'],
+        input['function_name'],
+        input.name,
+        input.tool_name,
+        input.call?.name,
+        input.call?.functionName,
+        input.call?.function_name,
+        input.call?.function?.name,
+        input.request?.name,
+        input.request?.functionName,
+        input.request?.function_name,
+        input.params?.functionName,
+        input.params?.function_name,
+        input.args?.functionName,
+        input.args?.function_name,
+    )
+}
+
+function getSkillToolSkillNameFromValue(value) {
+    value = normalizeSkillToolValue(value)
+    if (typeof value === 'string' && value.trim()) return value.trim()
+    if (!value || typeof value !== 'object') return ''
+    if (Array.isArray(value)) {
+        for (const item of value) {
+            const next = getSkillToolSkillNameFromValue(item)
+            if (next) return next
+        }
+        return ''
+    }
+    return firstNonEmptySkillToolValue(
+        value.skillName,
+        value.skill_name,
+        value.skill,
+        value.name,
+        value.id,
+        value.activated_skill,
+        value['activated skill'],
+        value['skill key'],
+        value['skill Key'],
+        value.request?.skillName,
+        value.request?.skill_name,
+    )
+}
+
+function getSkillToolSkillName(input = {}, output = null) {
+    return (
+        getSkillToolSkillNameFromValue(input) ||
+        getSkillToolSkillNameFromValue(input.activated_skills) ||
+        getSkillToolSkillNameFromValue(input.activatedSkills) ||
+        getSkillToolSkillNameFromValue(output) ||
+        getSkillToolSkillNameFromValue(output?.activated_skills) ||
+        getSkillToolSkillNameFromValue(output?.activatedSkills) ||
+        ''
+    )
+}
+
+function getSkillExecPreview(input = {}) {
+    return input.code || input.input || input.query || input.prompt || input.expression || ''
+}
+
+function getSkillFunctionNameFromValue(value) {
+    value = normalizeSkillToolValue(value)
+    if (typeof value === 'string' && value.trim()) return value.trim()
+    if (!value || typeof value !== 'object') return ''
+    return firstNonEmptySkillToolValue(
+        value.functionName,
+        value.function_name,
+        value['function name'],
+        value['function Name'],
+        value.name,
+        value.id,
+        value.tool_name,
+        value.schema?.name,
+        value.function?.name,
+    )
+}
+
+function getDescribedSkillFunctionNames(part) {
+    const input = normalizeSkillToolValue(part?.input || {}) || {}
+    const output = normalizeSkillToolValue(getSkillToolOutput(part)) || {}
+    const candidates = [
+        output?.functions,
+        output?.callable_functions,
+        output?.callableFunctions,
+        output?.function_names,
+        output?.functionNames,
+        output?.['function names'],
+        output?.['function Names'],
+        output?.tools,
+        output?.result?.functions,
+        output?.data?.functions,
+        output?.schema?.functions,
+        input.functions,
+        input.function_names,
+        input.functionNames,
+        input['function names'],
+        input['function Names'],
+        input.name?.function_names,
+        input.name?.functionNames,
+        input.name?.['function names'],
+        input.name?.['function Names'],
+    ]
+    const names = []
+    for (const candidate of candidates) {
+        const rows = Array.isArray(candidate) ? candidate : candidate ? Object.values(candidate) : []
+        for (const row of rows) {
+            const name = getSkillFunctionNameFromValue(row)
+            if (name && !names.includes(name)) names.push(name)
+        }
+    }
+    return names
+}
+
+function getSkillTestToolSummaryParts(part) {
+    const input = part?.input || {}
+    const output = getSkillToolOutput(part)
+    if (part?.type === 'tool-activate_skill') {
+        const skillName = getSkillToolSkillName(input, output)
+        return {
+            label: 'Activated skill',
+            detail: skillName || '',
+        }
+    }
+    if (part?.type === 'tool-describe_skill_functions') {
+        const functions = getDescribedSkillFunctionNames(part)
+        return {
+            label: 'Described skill functions',
+            detail: functions.length ? functions.join(', ') : '',
+        }
+    }
+    if (part?.type === 'tool-call_skill_function') {
+        const functionName = getSkillToolFunctionName(input)
+        return {
+            label: 'Called skill function',
+            detail: functionName || '',
+        }
+    }
+    return null
+}
+
+function summarizeValidationIssue(issue) {
+    if (typeof issue === 'string') return truncateSingleLine(issue, 600)
+    if (!issue || typeof issue !== 'object') return displayText(issue, '[Invalid validation entry]')
+
+    const path = issue.path || issue.file || issue.filePath || issue.loc || issue.location
+    const message = issue.message || issue.error || issue.detail || issue.reason || issue.title
+    const code = issue.code || issue.type
+    const pieces = []
+    if (path) pieces.push(String(path))
+    if (code) pieces.push(`[${String(code)}]`)
+    if (message) pieces.push(String(message))
+    if (pieces.length) return truncateSingleLine(pieces.join(' '), 600)
+
+    try {
+        return truncateSingleLine(JSON.stringify(issue), 600)
+    } catch {
+        return displayText(issue, '[Invalid validation entry]')
+    }
+}
+
 function getToolSummary(part) {
     const label = formatToolLabel(part)
     const input = part?.input
@@ -1361,6 +1599,40 @@ function getToolSummary(part) {
         if (valid === true) return 'Remote test: passed'
         if (valid === false) return 'Remote test: failed'
         return 'Remote test'
+    }
+
+    if (part?.type === 'tool-validate_skill_bundle') {
+        const valid = output?.ok ?? output?.valid ?? output?.validation?.valid
+        if (valid === true) return 'Validate skill: passed'
+        if (valid === false) return 'Validate skill: failed'
+        return 'Validate skill'
+    }
+
+    if (part?.type === 'tool-publish_skill_bundle') {
+        const ok = output?.ok
+        if (ok === true) return 'Publish skill: published'
+        if (ok === false) return 'Publish skill: failed'
+        return 'Publish skill'
+    }
+
+    if (part?.type === 'tool-activate_skill') {
+        const summary = getSkillTestToolSummaryParts(part)
+        return summary?.detail ? `${summary.label}: ${summary.detail}` : summary.label
+    }
+
+    if (part?.type === 'tool-describe_skill_functions') {
+        const summary = getSkillTestToolSummaryParts(part)
+        return summary?.detail ? `${summary.label}: ${summary.detail}` : summary.label
+    }
+
+    if (part?.type === 'tool-call_skill_function') {
+        const summary = getSkillTestToolSummaryParts(part)
+        return summary?.detail ? `${summary.label}: ${summary.detail}` : summary.label
+    }
+
+    if (part?.type === 'tool-skills_exec') {
+        const preview = truncateSingleLine(getSkillExecPreview(input), 72)
+        return preview ? `Ran skill code: ${preview}` : 'Ran skill code'
     }
 
     if (part?.type === 'tool-ask_user_questions') {
@@ -1457,7 +1729,13 @@ function toolIconForPart(part) {
     if (t === 'tool-load_context') return DocumentTextIcon
     if (t === 'tool-update_manifest') return PencilSquareIcon
     if (t === 'tool-test_skill_remote') return BeakerIcon
+    if (t === 'tool-validate_skill_bundle') return BeakerIcon
+    if (t === 'tool-publish_skill_bundle') return ArrowPathIcon
     if (t === 'tool-ask_user_questions') return ChatBubbleLeftRightIcon
+    if (t === 'tool-activate_skill') return BoltIcon
+    if (t === 'tool-describe_skill_functions') return ListBulletIcon
+    if (t === 'tool-call_skill_function') return PlayCircleIcon
+    if (t === 'tool-skills_exec') return CodeBracketIcon
     if (t === 'tool-apply_patch') {
         const operation = getApplyPatchOperation(part)
         if (operation?.type === 'create_file') return PlusIcon
@@ -1680,15 +1958,27 @@ function AssistantActivityRowsContent({
     onStopComposer,
     onBeforeSubmitAnswers,
 }) {
-    const allParts = message.parts || []
+    const allParts = useMemo(() => message.parts || [], [message.parts])
     const lastReasoningIndex = allParts.reduce((acc, p, i) => (p.type === 'reasoning' ? i : acc), -1)
     const [expandedRows, setExpandedRows] = useState({})
-    const partCount = parts.length
 
     useEffect(() => {
-        // New streamed events should collapse existing rows again by default.
+        // Reset manual row expansion when this is a different assistant message.
         setExpandedRows({})
-    }, [message.id, partCount])
+    }, [message.id])
+
+    const getRowKey = useCallback(
+        (part, index) => {
+            const globalIndex = allParts.indexOf(part)
+            return `${message.id}-${globalIndex}-${part.type || 'part'}-${part.toolCallId || part.callId || index}`
+        },
+        [allParts, message.id],
+    )
+
+    const isRowExpanded = useCallback(
+        (rowKey) => Boolean(expandedRows[rowKey]),
+        [expandedRows],
+    )
 
     const toggleRowExpanded = useCallback((rowKey) => {
         setExpandedRows((prev) => ({
@@ -1702,7 +1992,7 @@ function AssistantActivityRowsContent({
             {parts.map((part, index) => {
                 const globalIndex = allParts.indexOf(part)
                 const isLatestPart = isLatestMessage && globalIndex === allParts.length - 1
-                const rowKey = `${message.id}-${globalIndex}-${part.type || 'part'}-${part.toolCallId || part.callId || index}`
+                const rowKey = getRowKey(part, index)
                 const hasFutureEvent = globalIndex < allParts.length - 1
 
                 if (part.type === 'reasoning') {
@@ -1712,9 +2002,7 @@ function AssistantActivityRowsContent({
                     const title = getFirstLine(reasoningText) || 'Thought'
                     const body = reasoningBodyForDisplay(reasoningText)
                     const canExpand = Boolean(body)
-                    const isExpanded =
-                        canExpand &&
-                        (Boolean(expandedRows[rowKey]) || (isLatestPart && isStreaming && Boolean(reasoningText)))
+                    const isExpanded = canExpand && isRowExpanded(rowKey)
 
                     if (!reasoningText && hasFutureEvent) {
                         return null
@@ -1726,12 +2014,11 @@ function AssistantActivityRowsContent({
                                 key={`${message.id}-reasoning-${index}`}
                                 className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100"
                             >
-                                <BrainIcon
-                                    className={clsx(
-                                        'h-4 w-4 shrink-0 text-gray-400',
-                                        isStreaming && 'animate-pulse',
-                                    )}
-                                />
+                                <ActivityTimelineIcon>
+                                    <BrainIcon
+                                        className={clsx('h-4 w-4 text-gray-400', isStreaming && 'animate-pulse')}
+                                    />
+                                </ActivityTimelineIcon>
                                 <span className="font-medium text-gray-500">Thinking...</span>
                             </div>
                         )
@@ -1745,12 +2032,9 @@ function AssistantActivityRowsContent({
                                 isExpanded ? 'items-start' : 'items-center',
                             )}
                         >
-                            <BrainIcon
-                                className={clsx(
-                                    'h-4 w-4 shrink-0 text-gray-400',
-                                    isExpanded && 'mt-1',
-                                )}
-                            />
+                            <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                <BrainIcon className="h-4 w-4 text-gray-400" />
+                            </ActivityTimelineIcon>
                             <div className="min-w-0 flex-1 text-gray-700 [&_p]:text-left [&_*]:text-left">
                                 <button
                                     type="button"
@@ -1790,6 +2074,7 @@ function AssistantActivityRowsContent({
 
                 if (part.type?.startsWith('tool-')) {
                     const toolSummary = getToolSummary(part)
+                    const skillTestToolSummary = getSkillTestToolSummaryParts(part)
                     const isShell = part.type === 'tool-shell'
                     const isWebSearch = part.type === 'tool-web_search' || part.type === 'tool-search'
                     const shellCommand = getShellCommand(part)
@@ -1798,12 +2083,76 @@ function AssistantActivityRowsContent({
                         getShellOutputBlocks(part)
                     const webSources = part?.output?.sources || part?.result?.sources || []
                     const Icon = toolIconForPart(part)
+                    const formatToolDetailValue = (value) => {
+                        if (value == null || value === '') return ''
+                        if (typeof value === 'string') return value.trim()
+                        try {
+                            return JSON.stringify(value, null, 2)
+                        } catch {
+                            return String(value)
+                        }
+                    }
+                    const renderToolInputDetails = () => {
+                        if (part.type === 'tool-skills_exec') {
+                            const parsedInput = normalizeSkillToolValue(part.input)
+                            const code =
+                                typeof parsedInput?.code === 'string'
+                                    ? parsedInput.code
+                                    : typeof part.input?.code === 'string'
+                                      ? part.input.code
+                                      : ''
+                            if (code.trim()) {
+                                return renderToolCodeBlock(`\`\`\`js\n${code.trim()}\n\`\`\``)
+                            }
+                            const fallbackCode =
+                                typeof parsedInput === 'string'
+                                    ? parsedInput
+                                    : formatToolDetailValue(parsedInput)
+                            if (fallbackCode.trim()) {
+                                return renderToolCodeBlock(`\`\`\`js\n${fallbackCode.trim()}\n\`\`\``)
+                            }
+                            return null
+                        }
+                        const inputText = formatToolDetailValue(part.input)
+                        if (!inputText) return null
+                        return renderToolCodeBlock(`\`\`\`json\n${inputText}\n\`\`\``)
+                    }
+                    const getSkillsExecOutputValue = (value) => {
+                        const parsed = normalizeSkillToolValue(value)
+                        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return parsed
+                        return (
+                            parsed.output ??
+                            parsed.result ??
+                            parsed.response ??
+                            parsed.stdout ??
+                            parsed.value ??
+                            parsed.data ??
+                            parsed
+                        )
+                    }
+                    const renderToolOutputDetails = () => {
+                        const rawOutput = part.output ?? part.result
+                        if (part.type === 'tool-skills_exec') {
+                            const outputValue = getSkillsExecOutputValue(rawOutput)
+                            if (typeof outputValue === 'string') {
+                                const text = outputValue.trim()
+                                if (!text) return null
+                                return renderToolCodeBlock(`\`\`\`\n${text}\n\`\`\``)
+                            }
+                            const outputText = formatToolDetailValue(outputValue)
+                            if (!outputText) return null
+                            return renderToolCodeBlock(`\`\`\`json\n${outputText}\n\`\`\``)
+                        }
+                        const outputText = formatToolDetailValue(rawOutput)
+                        if (!outputText) return null
+                        return renderToolCodeBlock(`\`\`\`json\n${outputText}\n\`\`\``)
+                    }
 
                     if (isWebSearch) {
                         const { label: webLabel, detail: webDetail } = getWebSearchSummary(part)
                         const sources = Array.isArray(webSources) ? webSources : []
                         const searchPreview = truncateSingleLine(webDetail, 72)
-                        const isExpanded = Boolean(expandedRows[rowKey])
+                        const isExpanded = isRowExpanded(rowKey)
                         return (
                             <div
                                 key={`${message.id}-tool-${index}`}
@@ -1812,13 +2161,9 @@ function AssistantActivityRowsContent({
                                     isExpanded ? 'items-start' : 'items-center',
                                 )}
                             >
-                                <Icon
-                                    className={clsx(
-                                        'h-4 w-4 shrink-0 text-gray-400',
-                                        isExpanded && 'mt-1',
-                                    )}
-                                    aria-hidden
-                                />
+                                <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 space-y-1">
                                     <button
                                         type="button"
@@ -1880,7 +2225,7 @@ function AssistantActivityRowsContent({
                             shellStdoutBlocks.length > 0 ||
                             shellStderrBlocks.length > 0
                         const shellCommandPreview = shellPreviewFromCommand(shellCommand, 90)
-                        const isExpanded = hasShellStreams && Boolean(expandedRows[rowKey])
+                        const isExpanded = hasShellStreams && isRowExpanded(rowKey)
                         const trimmedShellCommand = String(shellCommand || '').trim()
 
                         if (!hasShellStreams) {
@@ -1889,7 +2234,9 @@ function AssistantActivityRowsContent({
                                     key={`${message.id}-tool-${index}`}
                                     className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
                                 >
-                                    <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                                    <ActivityTimelineIcon>
+                                        <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                    </ActivityTimelineIcon>
                                     <div className="min-w-0 flex-1 space-y-1 text-gray-800">
                                         <div className="truncate font-medium text-gray-700">
                                             <span>Shell call:</span>
@@ -1912,13 +2259,9 @@ function AssistantActivityRowsContent({
                                     isExpanded ? 'items-start' : 'items-center',
                                 )}
                             >
-                                <Icon
-                                    className={clsx(
-                                        'h-4 w-4 shrink-0 text-gray-400',
-                                        isExpanded && 'mt-1',
-                                    )}
-                                    aria-hidden
-                                />
+                                <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 space-y-1 text-gray-800">
                                     <button
                                         type="button"
@@ -1980,7 +2323,7 @@ function AssistantActivityRowsContent({
                     }
 
                     if (part.type === 'tool-apply_patch') {
-                        const isExpanded = Boolean(expandedRows[rowKey])
+                        const isExpanded = isRowExpanded(rowKey)
                         const patchSummary = getApplyPatchSummary(part)
                         const patchOutput =
                             part?.output?.output || part?.result?.output || part?.errorText || ''
@@ -1993,13 +2336,9 @@ function AssistantActivityRowsContent({
                                     isExpanded ? 'items-start' : 'items-center',
                                 )}
                             >
-                                <Icon
-                                    className={clsx(
-                                        'h-4 w-4 shrink-0 text-gray-400',
-                                        isExpanded && 'mt-1',
-                                    )}
-                                    aria-hidden
-                                />
+                                <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 text-gray-700">
                                     <button
                                         type="button"
@@ -2025,13 +2364,15 @@ function AssistantActivityRowsContent({
 
                     if (part.type === 'tool-test_skill_remote') {
                         const validation = part?.output?.validation
-                        const isExpanded = Boolean(expandedRows[rowKey])
+                        const isExpanded = isRowExpanded(rowKey)
                         return (
                             <div
                                 key={`${message.id}-tool-${index}`}
                                 className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100"
                             >
-                                <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                                <ActivityTimelineIcon>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1">
                                     <button
                                         type="button"
@@ -2061,13 +2402,247 @@ function AssistantActivityRowsContent({
                         )
                     }
 
+                    if (part.type === 'tool-validate_skill_bundle') {
+                        const output = part?.output ?? part?.result ?? {}
+                        const validation = output?.validation || output || {}
+                        const errors = Array.isArray(validation?.errors) ? validation.errors : []
+                        const warnings = Array.isArray(validation?.warnings) ? validation.warnings : []
+                        const fileTree = Array.isArray(output?.fileTree) ? output.fileTree : []
+                        const isExpanded = isRowExpanded(rowKey)
+                        const valid = output?.ok ?? validation?.valid
+                        const visibleErrors = errors.slice(0, 25)
+                        const visibleWarnings = warnings.slice(0, 10)
+
+                        return (
+                            <div
+                                key={`${message.id}-tool-${index}`}
+                                className={clsx(
+                                    'flex gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100',
+                                    isExpanded ? 'items-start' : 'items-center',
+                                )}
+                            >
+                                <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
+                                <div className="min-w-0 flex-1 text-gray-700">
+                                    <button
+                                        type="button"
+                                        className="flex w-full items-center gap-2 rounded text-left hover:text-gray-900"
+                                        onClick={() => toggleRowExpanded(rowKey)}
+                                    >
+                                        <span className="min-w-0 flex-1 truncate font-medium text-gray-700">
+                                            {toolSummary}
+                                        </span>
+                                        {isExpanded ? (
+                                            <ChevronDownIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
+                                        ) : (
+                                            <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
+                                        )}
+                                    </button>
+                                    {isExpanded ? (
+                                        <div className="mt-2 space-y-2 text-xs text-gray-600">
+                                            <div>
+                                                <span className="font-semibold uppercase tracking-wide text-gray-500">
+                                                    Output
+                                                </span>
+                                                <div className="mt-1">
+                                                    Status:{' '}
+                                                    <span
+                                                        className={clsx(
+                                                            'font-medium',
+                                                            valid === false
+                                                                ? 'text-red-700'
+                                                                : valid === true
+                                                                  ? 'text-emerald-700'
+                                                                  : 'text-gray-700',
+                                                        )}
+                                                    >
+                                                        {valid === false
+                                                            ? 'failed'
+                                                            : valid === true
+                                                              ? 'passed'
+                                                              : 'completed'}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {visibleErrors.length ? (
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-red-700">
+                                                        Errors
+                                                    </div>
+                                                    <ul className="mt-1 list-inside list-disc space-y-1 text-red-700">
+                                                        {visibleErrors.map((err, errIndex) => (
+                                                            <li key={`${message.id}-validate-error-${index}-${errIndex}`}>
+                                                                {summarizeValidationIssue(err)}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    {errors.length > visibleErrors.length ? (
+                                                        <div className="mt-1 text-gray-500">
+                                                            {errors.length - visibleErrors.length} more errors hidden.
+                                                        </div>
+                                                    ) : null}
+                                                </div>
+                                            ) : null}
+                                            {visibleWarnings.length ? (
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-amber-700">
+                                                        Warnings
+                                                    </div>
+                                                    <ul className="mt-1 list-inside list-disc space-y-1 text-amber-700">
+                                                        {visibleWarnings.map((warning, warningIndex) => (
+                                                            <li
+                                                                key={`${message.id}-validate-warning-${index}-${warningIndex}`}
+                                                            >
+                                                                {summarizeValidationIssue(warning)}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    {warnings.length > visibleWarnings.length ? (
+                                                        <div className="mt-1 text-gray-500">
+                                                            {warnings.length - visibleWarnings.length} more warnings hidden.
+                                                        </div>
+                                                    ) : null}
+                                                </div>
+                                            ) : null}
+                                            {fileTree.length ? (
+                                                <div className="text-gray-500">
+                                                    Checked {fileTree.length} {fileTree.length === 1 ? 'file' : 'files'}.
+                                                </div>
+                                            ) : null}
+                                            {!visibleErrors.length && !visibleWarnings.length && !fileTree.length ? (
+                                                <div className="text-gray-500">No validation details returned.</div>
+                                            ) : null}
+                                        </div>
+                                    ) : null}
+                                </div>
+                            </div>
+                        )
+                    }
+
+                    if (part.type === 'tool-publish_skill_bundle') {
+                        const output = part?.output ?? part?.result ?? {}
+                        const validation = output?.validation || {}
+                        const errors = Array.isArray(validation?.errors) ? validation.errors : []
+                        const visibleErrors = errors.slice(0, 10)
+                        const publishedAt = output?.publishedAt
+                        const result = output?.result || {}
+                        const promoted = Number(result?.promoted)
+                        const deleted = Number(result?.deleted)
+                        const messageText = String(output?.message || '').trim()
+                        const isExpanded = isRowExpanded(rowKey)
+
+                        return (
+                            <div
+                                key={`${message.id}-tool-${index}`}
+                                className={clsx(
+                                    'flex gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100',
+                                    isExpanded ? 'items-start' : 'items-center',
+                                )}
+                            >
+                                <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
+                                <div className="min-w-0 flex-1 text-gray-700">
+                                    <button
+                                        type="button"
+                                        className="flex w-full items-center gap-2 rounded text-left hover:text-gray-900"
+                                        onClick={() => toggleRowExpanded(rowKey)}
+                                    >
+                                        <span className="min-w-0 flex-1 truncate font-medium text-gray-700">
+                                            {toolSummary}
+                                        </span>
+                                        {isExpanded ? (
+                                            <ChevronDownIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
+                                        ) : (
+                                            <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
+                                        )}
+                                    </button>
+                                    {isExpanded ? (
+                                        <div className="mt-2 space-y-2 text-xs text-gray-600">
+                                            <div>
+                                                <span className="font-semibold uppercase tracking-wide text-gray-500">
+                                                    Output
+                                                </span>
+                                                <div className="mt-1">
+                                                    Status:{' '}
+                                                    <span
+                                                        className={clsx(
+                                                            'font-medium',
+                                                            output?.ok === false
+                                                                ? 'text-red-700'
+                                                                : output?.ok === true
+                                                                  ? 'text-emerald-700'
+                                                                  : 'text-gray-700',
+                                                        )}
+                                                    >
+                                                        {output?.ok === false
+                                                            ? 'failed'
+                                                            : output?.ok === true
+                                                              ? 'published'
+                                                              : 'completed'}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {publishedAt ? (
+                                                <div className="text-gray-500">
+                                                    Published at {String(publishedAt)}
+                                                </div>
+                                            ) : null}
+                                            {Number.isFinite(promoted) || Number.isFinite(deleted) ? (
+                                                <div className="text-gray-500">
+                                                    {Number.isFinite(promoted) ? `${promoted} promoted` : null}
+                                                    {Number.isFinite(promoted) && Number.isFinite(deleted) ? ' · ' : null}
+                                                    {Number.isFinite(deleted) ? `${deleted} deleted` : null}
+                                                </div>
+                                            ) : null}
+                                            {messageText ? (
+                                                <div className="text-gray-600">
+                                                    {truncateSingleLine(messageText, 600)}
+                                                </div>
+                                            ) : null}
+                                            {visibleErrors.length ? (
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-red-700">
+                                                        Errors
+                                                    </div>
+                                                    <ul className="mt-1 list-inside list-disc space-y-1 text-red-700">
+                                                        {visibleErrors.map((err, errIndex) => (
+                                                            <li key={`${message.id}-publish-error-${index}-${errIndex}`}>
+                                                                {summarizeValidationIssue(err)}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    {errors.length > visibleErrors.length ? (
+                                                        <div className="mt-1 text-gray-500">
+                                                            {errors.length - visibleErrors.length} more errors hidden.
+                                                        </div>
+                                                    ) : null}
+                                                </div>
+                                            ) : null}
+                                            {!publishedAt &&
+                                            !Number.isFinite(promoted) &&
+                                            !Number.isFinite(deleted) &&
+                                            !messageText &&
+                                            !visibleErrors.length ? (
+                                                <div className="text-gray-500">No publish details returned.</div>
+                                            ) : null}
+                                        </div>
+                                    ) : null}
+                                </div>
+                            </div>
+                        )
+                    }
+
                     if (part.type === 'tool-load_context') {
                         return (
                             <div
                                 key={`${message.id}-tool-${index}`}
                                 className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
                             >
-                                <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                                <ActivityTimelineIcon>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 text-gray-700">
                                     <div className="truncate font-medium text-gray-700">Read manifest</div>
                                 </div>
@@ -2081,7 +2656,9 @@ function AssistantActivityRowsContent({
                                 key={`${message.id}-tool-${index}`}
                                 className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
                             >
-                                <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                                <ActivityTimelineIcon>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 text-gray-700">
                                     <div className="truncate font-medium text-gray-700">Updated manifest</div>
                                 </div>
@@ -2161,7 +2738,9 @@ function AssistantActivityRowsContent({
                                 key={`${message.id}-tool-${index}`}
                                 className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
                             >
-                                <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                                <ActivityTimelineIcon>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 text-gray-700">
                                     <div className="truncate font-medium text-gray-700">{summary}</div>
                                 </div>
@@ -2169,12 +2748,20 @@ function AssistantActivityRowsContent({
                         )
                     }
 
+                    const isExpanded = isRowExpanded(rowKey)
+                    const inputDetails = isExpanded ? renderToolInputDetails() : null
+                    const outputDetails = isExpanded ? renderToolOutputDetails() : null
                     return (
                         <div
                             key={`${message.id}-tool-${index}`}
-                            className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100"
+                            className={clsx(
+                                'flex gap-1.5 rounded-md px-1.5 py-0.5 text-left hover:bg-gray-100',
+                                isExpanded ? 'items-start' : 'items-center',
+                            )}
                         >
-                            <Icon className="h-4 w-4 shrink-0 text-gray-400" aria-hidden />
+                            <ActivityTimelineIcon className={isExpanded && 'mt-1'}>
+                                <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                            </ActivityTimelineIcon>
                             <div className="min-w-0 flex-1 text-gray-700">
                                 <button
                                     type="button"
@@ -2182,14 +2769,47 @@ function AssistantActivityRowsContent({
                                     onClick={() => toggleRowExpanded(rowKey)}
                                 >
                                     <span className="min-w-0 flex-1 truncate">
-                                        {toolSummary}
+                                        {skillTestToolSummary ? (
+                                            <>
+                                                <span className="font-medium text-gray-700">
+                                                    {skillTestToolSummary.label}
+                                                </span>
+                                                {skillTestToolSummary.detail ? (
+                                                    <span className="font-normal text-gray-400">
+                                                        : {skillTestToolSummary.detail}
+                                                    </span>
+                                                ) : null}
+                                            </>
+                                        ) : (
+                                            toolSummary
+                                        )}
                                     </span>
-                                    {expandedRows[rowKey] ? (
+                                    {isExpanded ? (
                                         <ChevronDownIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
                                     ) : (
                                         <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-gray-500" />
                                     )}
                                 </button>
+                                {isExpanded ? (
+                                    <div className="mt-2 space-y-2 text-xs">
+                                        {inputDetails ? (
+                                            <div>
+                                                <div className="mb-1 font-semibold uppercase tracking-wide text-gray-500">
+                                                    Input
+                                                </div>
+                                                {inputDetails}
+                                            </div>
+                                        ) : null}
+                                        {outputDetails ? (
+                                            <div>
+                                                <div className="mb-1 font-semibold uppercase tracking-wide text-gray-500">
+                                                    Response
+                                                </div>
+                                                {outputDetails}
+                                            </div>
+                                        ) : null}
+                                    </div>
+                                ) : null}
                             </div>
                         </div>
                     )
@@ -2337,6 +2957,766 @@ function AssistantMessageBlock({
                 ),
             )}
         </div>
+    )
+}
+
+function createSkillTestConversationId() {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+        return crypto.randomUUID()
+    }
+    return `skill-test-${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
+
+function SkillTestRunningSpinner({
+    className = 'h-6 w-6',
+    showStopIcon = false,
+    spinnerClassName = 'border-t-cyan-600',
+    iconClassName = 'text-cyan-600',
+}) {
+    return (
+        <div className={clsx('group flex items-center justify-center', className)}>
+            <div className="relative flex h-full w-full items-center justify-center">
+                <div className="absolute inset-0 rounded-full opacity-25"></div>
+                <div
+                    className={clsx(
+                        'absolute inset-0 animate-spin rounded-full border-2 border-transparent',
+                        spinnerClassName,
+                    )}
+                ></div>
+                {showStopIcon ? (
+                    <StopIcon
+                        className={clsx(
+                            'relative z-10 h-1/2 w-1/2 transition-transform duration-200 group-hover:scale-125',
+                            iconClassName,
+                        )}
+                    />
+                ) : null}
+            </div>
+        </div>
+    )
+}
+
+function SkillTestLoadingDots() {
+    return (
+        <span className="inline-flex items-center gap-1" aria-label="Loading">
+            <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.2s]" />
+            <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 [animation-delay:-0.1s]" />
+            <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400" />
+        </span>
+    )
+}
+
+function ActivityTimelineIcon({ children, className }) {
+    return (
+        <span className={clsx('relative z-10 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white', className)}>
+            {children}
+        </span>
+    )
+}
+
+const SKILL_TEST_ACTIVITY_TIMELINE_CLASS =
+    'relative ml-3 space-y-1 text-left before:absolute before:bottom-2 before:left-[15px] before:top-2 before:z-0 before:border-l before:border-gray-200 before:content-[""]'
+
+function SkillTestActivityLog({ events, isStreaming, durationMs, showWaitingDots = false }) {
+    const parts = useMemo(() => skillTestEventsToAssistantParts(events), [events])
+    const message = useMemo(
+        () => ({
+            id: 'skill-test-activity',
+            role: 'assistant',
+            parts,
+        }),
+        [parts],
+    )
+
+    if (!parts.length && !showWaitingDots) return null
+
+    return (
+        <div className="px-1 py-1">
+            <div className={SKILL_TEST_ACTIVITY_TIMELINE_CLASS}>
+                {parts.length ? (
+                    <AssistantActivityRows
+                        message={message}
+                        parts={parts}
+                        isLatestMessage
+                        isStreaming={isStreaming}
+                        addToolOutput={() => {}}
+                        chatStarted={false}
+                        messageDurationMs={durationMs}
+                    />
+                ) : null}
+                {showWaitingDots ? (
+                    <div className="relative flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left">
+                        <span className="relative z-10 h-5 w-5 shrink-0 rounded-full bg-white" aria-hidden />
+                        <SkillTestLoadingDots />
+                    </div>
+                ) : null}
+            </div>
+        </div>
+    )
+}
+
+function SkillTestModal({
+    open,
+    draft,
+    team,
+    bot,
+    tokenUrl,
+    onClose,
+    onSendReportToBuilder,
+}) {
+    const metadataBindings = useMemo(
+        () =>
+            normalizeMetadataBindings(
+                Array.isArray(draft?.metadataBindings) && draft.metadataBindings.length
+                    ? draft.metadataBindings
+                    : draft?.manifest?.metadataBindings || [],
+            ),
+        [draft],
+    )
+    const [metadataValues, setMetadataValues] = useState({})
+    const [testState, setTestState] = useState(() => createInitialSkillTestState())
+    const [reportInstructions, setReportInstructions] = useState('')
+    const [sentToBuilder, setSentToBuilder] = useState(false)
+    const [reportCopied, setReportCopied] = useState(false)
+    const [technicalExpanded, setTechnicalExpanded] = useState(false)
+    const abortRef = useRef(null)
+    const resetOnAbortRef = useRef(false)
+    const scrollRef = useRef(null)
+
+    const isRunning = testState.status === 'running'
+    const hasResult = Boolean(
+        testState.summary ||
+            testState.technical ||
+            testState.markdown ||
+            testState.error ||
+            ['completed', 'error', 'stopped'].includes(testState.status),
+    )
+    const finalReportMarkdown = useMemo(
+        () =>
+            buildSkillTestFinalMarkdown({
+                summary: testState.summary,
+                technical: testState.technical,
+                markdown: testState.markdown,
+            }),
+        [testState.markdown, testState.summary, testState.technical],
+    )
+    const hasStructuredReport = Boolean(testState.summary || testState.technical)
+    const summaryMarkdown = hasStructuredReport ? testState.summary : testState.markdown
+    const technicalMarkdown = hasStructuredReport ? testState.technical : ''
+    const canSendReportToBuilder = hasResult && testState.status !== 'running'
+    const lastTestEvent = testState.events[testState.events.length - 1]
+    const lastEventIsThinking =
+        lastTestEvent?.type === 'reasoning' && !String(lastTestEvent.text || '').trim()
+
+    useEffect(() => {
+        if (!open) return
+        const next = {}
+        for (const binding of metadataBindings) {
+            next[binding.metadataKey] = ''
+        }
+        setMetadataValues(next)
+        setTestState(createInitialSkillTestState())
+        setReportInstructions('')
+        setSentToBuilder(false)
+        setReportCopied(false)
+        setTechnicalExpanded(false)
+    }, [metadataBindings, open])
+
+    useEffect(() => {
+        if (!open || !scrollRef.current) return
+        scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    }, [open, testState.events, testState.markdown, testState.summary, testState.technical, testState.error])
+
+    const metadataReady = metadataBindings.every((binding) =>
+        String(metadataValues[binding.metadataKey] || '').trim(),
+    )
+
+    const metadataPayload = useMemo(() => {
+        const out = {}
+        for (const binding of metadataBindings) {
+            const value = String(metadataValues[binding.metadataKey] || '').trim()
+            if (value) out[binding.metadataKey] = value
+        }
+        return out
+    }, [metadataBindings, metadataValues])
+
+    const abortRunningTest = useCallback((nextStatus = 'stopped') => {
+        const ctrl = abortRef.current
+        if (ctrl) {
+            ctrl.abort()
+        }
+        abortRef.current = null
+        if (nextStatus === 'idle') {
+            setReportInstructions('')
+            setSentToBuilder(false)
+            setReportCopied(false)
+            setTechnicalExpanded(false)
+            setTestState(createInitialSkillTestState())
+            return
+        }
+        setTestState((prev) => ({
+            ...prev,
+            status: nextStatus,
+            finishedAt: Date.now(),
+        }))
+    }, [])
+
+    const closeExplicitly = useCallback(() => {
+        if (isRunning) {
+            if (!window.confirm('Stop the running skill test and close this report?')) return
+            resetOnAbortRef.current = false
+            abortRunningTest('stopped')
+            onClose?.()
+            return
+        }
+        if (hasResult && !sentToBuilder) {
+            if (!window.confirm('Close this skill test report without sending it to the builder?')) return
+        }
+        onClose?.()
+    }, [abortRunningTest, hasResult, isRunning, onClose, sentToBuilder])
+
+    const handleDialogClose = useCallback(() => {
+        if (isRunning || hasResult) return
+        onClose?.()
+    }, [hasResult, isRunning, onClose])
+
+    const stopRunningTest = useCallback(() => {
+        if (!isRunning) return
+        if (!window.confirm('Stop the running skill test?')) return
+        resetOnAbortRef.current = true
+        abortRunningTest('idle')
+    }, [abortRunningTest, isRunning])
+
+    const startTest = useCallback(async () => {
+        if (!tokenUrl || isRunning || !metadataReady) return
+        const ctrl = new AbortController()
+        abortRef.current = ctrl
+        resetOnAbortRef.current = false
+        const startedAt = Date.now()
+        setSentToBuilder(false)
+        setReportCopied(false)
+        setReportInstructions('')
+        setTechnicalExpanded(false)
+        setTestState({
+            ...createInitialSkillTestState(),
+            status: 'running',
+            startedAt,
+        })
+
+        class FatalError extends Error {}
+
+        try {
+            const tokenResponse = await fetch(tokenUrl, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    metadata: metadataPayload,
+                }),
+                signal: ctrl.signal,
+            })
+            const tokenData = await tokenResponse.json().catch(() => ({}))
+            if (!tokenResponse.ok) {
+                throw new FatalError(
+                    tokenData?.message || tokenData?.error || 'Unable to create signed test token.',
+                )
+            }
+
+            const apiBaseUrl = process.env.NEXT_PUBLIC_BOT_API_URL
+            if (!apiBaseUrl) {
+                throw new FatalError('NEXT_PUBLIC_BOT_API_URL is not configured.')
+            }
+
+            const skillName = tokenData.skillName || draft?.skillName || draft?.name
+            const directTestUrl = `${apiBaseUrl.replace(/\/$/, '')}/teams/${encodeURIComponent(team.id)}/bots/${encodeURIComponent(bot.id)}/skills/${encodeURIComponent(skillName)}/test-agent`
+
+            await fetchEventSource(directTestUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${tokenData.token}`,
+                },
+                body: JSON.stringify({
+                    conversationId: createSkillTestConversationId(),
+                    metadata: tokenData.metadata || metadataPayload,
+                    model: SKILL_TEST_MODEL,
+                    reasoning_effort: SKILL_TEST_REASONING_EFFORT,
+                }),
+                signal: ctrl.signal,
+                openWhenHidden: true,
+                async onopen(response) {
+                    if (response.ok) return
+                    let message = `Skill test failed with status ${response.status}.`
+                    try {
+                        const data = await response.json()
+                        message = data?.message || data?.error || message
+                    } catch {
+                        // keep generic response status
+                    }
+                    throw new FatalError(message)
+                },
+                onmessage(msg) {
+                    if (msg.event === 'stream') {
+                        setTestState((prev) =>
+                            reduceSkillTestStreamEvent(prev, { type: 'stream', data: msg.data }),
+                        )
+                        return
+                    }
+                    if (msg.event === 'tool_call') {
+                        try {
+                            const parsed = JSON.parse(msg.data || '{}')
+                            setTestState((prev) =>
+                                reduceSkillTestStreamEvent(prev, {
+                                    type: 'tool_call',
+                                    name: parsed.name,
+                                    params: parsed.params || parsed.input || parsed.args,
+                                    output: parsed.output ?? parsed.result ?? parsed.response,
+                                    id: `skill-test-tool-${Date.now()}-${prev.events?.length || 0}`,
+                                    timestamp: Date.now(),
+                                }),
+                            )
+                        } catch {
+                            // Ignore malformed progress events.
+                        }
+                        return
+                    }
+                    if (msg.event === 'reasoning') {
+                        try {
+                            const parsed = JSON.parse(msg.data || '{}')
+                            setTestState((prev) =>
+                                reduceSkillTestStreamEvent(prev, {
+                                    type: 'reasoning',
+                                    reasoningId: parsed.id || null,
+                                    text: parsed.text || '',
+                                    id: `skill-test-reasoning-${Date.now()}-${prev.events?.length || 0}`,
+                                    timestamp: Date.now(),
+                                }),
+                            )
+                        } catch {
+                            // Ignore malformed progress events.
+                        }
+                        return
+                    }
+                    if (msg.event === 'final') {
+                        try {
+                            const parsed = JSON.parse(msg.data || '{}')
+                            setTestState((prev) =>
+                                reduceSkillTestStreamEvent(prev, {
+                                    type: 'final',
+                                    summary: parsed.summary,
+                                    technical: parsed.technical,
+                                }),
+                            )
+                        } catch {
+                            // Ignore malformed final events.
+                        }
+                        return
+                    }
+                    if (msg.event === 'error') {
+                        const message = msg.data || 'Skill test failed.'
+                        setTestState((prev) =>
+                            reduceSkillTestStreamEvent(prev, {
+                                type: 'error',
+                                error: message,
+                                finishedAt: Date.now(),
+                            }),
+                        )
+                        throw new FatalError(message)
+                    }
+                },
+                onerror(error) {
+                    throw error
+                },
+            })
+
+            if (!ctrl.signal.aborted) {
+                setTestState((prev) => ({
+                    ...prev,
+                    status: 'completed',
+                    finishedAt: Date.now(),
+                }))
+            }
+        } catch (error) {
+            if (ctrl.signal.aborted) {
+                if (resetOnAbortRef.current) {
+                    setReportInstructions('')
+                    setSentToBuilder(false)
+                    setReportCopied(false)
+                    setTechnicalExpanded(false)
+                    setTestState(createInitialSkillTestState())
+                } else {
+                    setTestState((prev) => ({
+                        ...prev,
+                        status: 'stopped',
+                        finishedAt: Date.now(),
+                    }))
+                }
+            } else {
+                setTestState((prev) =>
+                    reduceSkillTestStreamEvent(prev, {
+                        type: 'error',
+                        error: error?.message || 'Skill test failed.',
+                        finishedAt: Date.now(),
+                    }),
+                )
+            }
+        } finally {
+            if (abortRef.current === ctrl) {
+                abortRef.current = null
+            }
+            if (ctrl.signal.aborted) {
+                resetOnAbortRef.current = false
+            }
+        }
+    }, [bot.id, draft?.name, draft?.skillName, isRunning, metadataPayload, metadataReady, team.id, tokenUrl])
+
+    const sendReport = useCallback(() => {
+        if (!hasResult) return
+        onSendReportToBuilder?.(
+            buildSkillTestReportPrompt({
+                skillName: draft?.skillName || draft?.name,
+                metadata: metadataPayload,
+                events: testState.events,
+                markdown: finalReportMarkdown,
+                status: testState.status,
+                error: testState.error,
+                instructions: reportInstructions,
+            }),
+        )
+        setSentToBuilder(true)
+        onClose?.()
+    }, [
+        draft?.name,
+        draft?.skillName,
+        hasResult,
+        metadataPayload,
+        onClose,
+        onSendReportToBuilder,
+        reportInstructions,
+        finalReportMarkdown,
+        testState.error,
+        testState.events,
+        testState.status,
+    ])
+
+    const copyReport = useCallback(async () => {
+        const text = String(finalReportMarkdown || '').trim()
+        if (!text) return
+        try {
+            await navigator.clipboard.writeText(text)
+            setReportCopied(true)
+            window.setTimeout(() => setReportCopied(false), 1500)
+        } catch {
+            setReportCopied(false)
+        }
+    }, [finalReportMarkdown])
+
+    const statusLabel =
+        testState.status === 'running'
+            ? 'Running'
+            : testState.status === 'completed'
+              ? 'Completed'
+              : testState.status === 'error'
+                ? 'Failed'
+                : testState.status === 'stopped'
+                  ? 'Stopped'
+                  : 'Ready'
+
+    return (
+        <Transition.Root show={open} as={Fragment}>
+            <Dialog as="div" className="relative z-modal" onClose={handleDialogClose}>
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-200"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-150"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
+                </Transition.Child>
+
+                <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-200"
+                            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            enterTo="opacity-100 translate-y-0 sm:scale-100"
+                            leave="ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        >
+                            <Dialog.Panel
+                                className={clsx(
+                                    'relative flex w-full transform flex-col overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all duration-300 ease-out',
+                                    testState.status === 'idle'
+                                        ? 'max-h-[82vh] max-w-xl'
+                                        : 'h-[90vh] max-w-5xl',
+                                )}
+                            >
+                                <div className="flex shrink-0 items-start justify-between gap-4 border-b border-gray-200 px-5 py-4">
+                                    <div className="min-w-0">
+                                        <Dialog.Title className="truncate text-base font-semibold text-gray-900">
+                                            Test {formatSkillNameDisplay(draft?.skillName || draft?.name, 'skill')}
+                                        </Dialog.Title>
+                                        <p className="mt-1 text-sm text-gray-500">
+                                            Spins up an agent to strategically test every part of this skill, then
+                                            provides a report you can use to improve it.
+                                        </p>
+                                    </div>
+                                    <div className="flex shrink-0 items-center gap-2">
+                                        <span
+                                            className={clsx(
+                                                'rounded-full border px-2.5 py-1 text-xs font-medium',
+                                                testState.status === 'running'
+                                                    ? 'border-cyan-200 bg-cyan-50 text-cyan-800'
+                                                    : testState.status === 'completed'
+                                                      ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                                                      : testState.status === 'error'
+                                                        ? 'border-red-200 bg-red-50 text-red-800'
+                                                        : 'border-gray-200 bg-gray-50 text-gray-700',
+                                            )}
+                                        >
+                                            {statusLabel}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            onClick={closeExplicitly}
+                                            className="rounded-md p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                                            aria-label="Close skill test"
+                                        >
+                                            <XMarkIcon className="h-5 w-5" aria-hidden />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div ref={scrollRef} className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4">
+                                    {metadataBindings.length > 0 && testState.status === 'idle' ? (
+                                        <div className="mb-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
+                                            <div className="text-sm font-semibold text-gray-900">
+                                                Test metadata
+                                            </div>
+                                            <p className="mt-1 text-sm text-gray-500">
+                                                These values are signed server-side for this test run.
+                                            </p>
+                                            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                                {metadataBindings.map((binding) => (
+                                                    <div key={binding.metadataKey}>
+                                                        <label
+                                                            htmlFor={`skill-test-metadata-${binding.metadataKey}`}
+                                                            className="block text-xs font-medium text-gray-700"
+                                                        >
+                                                            {binding.metadataKey}
+                                                            {binding.envVar ? (
+                                                                <span className="ml-1 font-mono text-[11px] text-gray-500">
+                                                                    ({binding.envVar})
+                                                                </span>
+                                                            ) : null}
+                                                        </label>
+                                                        <input
+                                                            id={`skill-test-metadata-${binding.metadataKey}`}
+                                                            type="text"
+                                                            autoComplete="off"
+                                                            spellCheck={false}
+                                                            value={metadataValues[binding.metadataKey] || ''}
+                                                            onChange={(event) =>
+                                                                setMetadataValues((prev) => ({
+                                                                    ...prev,
+                                                                    [binding.metadataKey]: event.target.value,
+                                                                }))
+                                                            }
+                                                            className="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                                        />
+                                                        {binding.description ? (
+                                                            <p className="mt-1 text-xs leading-relaxed text-gray-500">
+                                                                {binding.description}
+                                                            </p>
+                                                        ) : null}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {testState.status === 'idle' ? (
+                                        <div className="flex flex-1 items-center justify-center py-10">
+                                            <div className="text-center">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => void startTest()}
+                                                    disabled={!metadataReady || !tokenUrl}
+                                                    className={clsx(
+                                                        'inline-flex items-center justify-center gap-1.5 rounded-md border-2 bg-white px-3 py-1.5 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                                                        metadataReady && tokenUrl
+                                                            ? 'border-cyan-600 text-cyan-700 hover:bg-cyan-50 hover:text-cyan-800'
+                                                            : 'cursor-not-allowed border-gray-300 text-gray-400 hover:bg-white',
+                                                    )}
+                                                >
+                                                    <BeakerIcon className="h-4 w-4" aria-hidden />
+                                                    Start test
+                                                </button>
+                                                {!metadataReady ? (
+                                                    <p className="mt-3 text-sm text-gray-500">
+                                                        Enter the required metadata values to start.
+                                                    </p>
+                                                ) : null}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {testState.events.length || testState.status === 'running' ? (
+                                        <div className="mb-4 space-y-2">
+                                            <div className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                                                Activity
+                                            </div>
+                                            <SkillTestActivityLog
+                                                events={testState.events}
+                                                isStreaming={testState.status === 'running'}
+                                                showWaitingDots={
+                                                    testState.status === 'running' &&
+                                                    !finalReportMarkdown &&
+                                                    !lastEventIsThinking
+                                                }
+                                                durationMs={
+                                                    testState.startedAt
+                                                        ? (testState.finishedAt || Date.now()) - testState.startedAt
+                                                        : null
+                                                }
+                                            />
+                                        </div>
+                                    ) : null}
+
+                                    {summaryMarkdown || technicalMarkdown ? (
+                                        <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                                            {summaryMarkdown ? (
+                                                <>
+                                                    <div className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-500">
+                                                        Summary
+                                                    </div>
+                                                    <div className={SKILLS_BUILDER_MARKDOWN_PROSE}>
+                                                        {renderMarkdown(
+                                                            summaryMarkdown,
+                                                            hasStructuredReport || testState.status !== 'running'
+                                                                ? 'static'
+                                                                : 'streaming',
+                                                        )}
+                                                    </div>
+                                                </>
+                                            ) : null}
+                                            {technicalMarkdown ? (
+                                                <div className={clsx(summaryMarkdown && 'mt-5 border-t border-gray-100 pt-4')}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setTechnicalExpanded((value) => !value)}
+                                                        className="inline-flex items-center gap-1.5 text-left focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                    >
+                                                        <span className="text-xs font-medium uppercase tracking-wide text-gray-500">
+                                                            Technical Details
+                                                        </span>
+                                                        {technicalExpanded ? (
+                                                            <ChevronDownIcon className="h-4 w-4 shrink-0 text-gray-500" aria-hidden />
+                                                        ) : (
+                                                            <ChevronRightIcon className="h-4 w-4 shrink-0 text-gray-500" aria-hidden />
+                                                        )}
+                                                    </button>
+                                                    {technicalExpanded ? (
+                                                        <div className={clsx('mt-3', SKILLS_BUILDER_MARKDOWN_PROSE)}>
+                                                            {renderMarkdown(technicalMarkdown, 'static')}
+                                                        </div>
+                                                    ) : null}
+                                                </div>
+                                            ) : null}
+                                            {testState.status !== 'running' ? (
+                                                <div className="mt-4 flex justify-end">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => void copyReport()}
+                                                        className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                    >
+                                                        {reportCopied ? (
+                                                            <CheckIcon className="h-4 w-4" aria-hidden />
+                                                        ) : (
+                                                            <ClipboardDocumentIcon className="h-4 w-4" aria-hidden />
+                                                        )}
+                                                        {reportCopied ? 'Copied' : 'Copy'}
+                                                    </button>
+                                                </div>
+                                            ) : null}
+                                        </div>
+                                    ) : null}
+
+                                    {testState.error ? (
+                                        <div className="mt-4">
+                                            <Alert title={alertString(testState.error)} type="error" />
+                                        </div>
+                                    ) : null}
+
+                                </div>
+
+                                {isRunning || canSendReportToBuilder ? (
+                                    <div className="flex shrink-0 flex-col gap-3 border-t border-gray-200 px-5 py-4 sm:flex-row sm:items-end sm:justify-end">
+                                        {canSendReportToBuilder ? (
+                                            <div className="min-w-0 flex-1">
+                                                <label
+                                                    htmlFor="skill-test-report-instructions"
+                                                    className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                                >
+                                                    Instructions for the builder
+                                                </label>
+                                                <div className="relative mt-1">
+                                                    <textarea
+                                                        id="skill-test-report-instructions"
+                                                        value={reportInstructions}
+                                                        onChange={(event) => setReportInstructions(event.target.value)}
+                                                        rows={2}
+                                                        className="w-full resize-none rounded-lg border border-gray-300 bg-white py-2 pl-3 pr-12 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                                        placeholder="Optional: tell the builder what to change based on this report."
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        onClick={sendReport}
+                                                        disabled={sentToBuilder}
+                                                        className="absolute bottom-3 right-3 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                                    >
+                                                        <span className="sr-only">
+                                                            {sentToBuilder
+                                                                ? 'Sent to builder'
+                                                                : 'Send report to builder'}
+                                                        </span>
+                                                        <PaperAirplaneIcon className="h-6 w-6" aria-hidden />
+                                                    </button>
+                                                </div>
+                                                {sentToBuilder ? (
+                                                    <p className="mt-1 text-sm text-emerald-700">
+                                                        Sent to the builder.
+                                                    </p>
+                                                ) : null}
+                                            </div>
+                                        ) : null}
+                                        <div className="flex shrink-0 items-center justify-end gap-2">
+                                            {isRunning ? (
+                                                <button
+                                                    type="button"
+                                                    onClick={stopRunningTest}
+                                                    className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-cyan-700 hover:bg-cyan-50 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                >
+                                                    <SkillTestRunningSpinner className="h-6 w-6" showStopIcon />
+                                                    <span>Stop</span>
+                                                </button>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                ) : null}
+                            </Dialog.Panel>
+                        </Transition.Child>
+                    </div>
+                </div>
+            </Dialog>
+        </Transition.Root>
     )
 }
 
@@ -2525,6 +3905,7 @@ function EnvironmentBindingsForm({
     onSkillUpdated,
     setErrorText,
     setInfoText,
+    testSkillButton = null,
 }) {
     const envRows = useMemo(() => (Array.isArray(envBindings) ? envBindings : []), [envBindings])
     const secretRows = useMemo(
@@ -2568,7 +3949,7 @@ function EnvironmentBindingsForm({
         // eslint-disable-next-line react-hooks/exhaustive-deps -- bindingsSyncKey tracks env + secret names, values, and descriptions
     }, [bindingsSyncKey])
 
-    if (!envRows.length && !secretRows.length) {
+    if (!envRows.length && !secretRows.length && !testSkillButton) {
         return (
             <p className="text-xs text-gray-500">
                 No environment variables or secrets for this skill yet. When the manifest lists them, you can manage both here.
@@ -2725,14 +4106,20 @@ function EnvironmentBindingsForm({
                 </div>
             )}
 
-            <Button
-                type="button"
-                theme="blueSolid"
-                size="sm"
-                label={saving ? 'Saving…' : 'Save environment settings'}
-                disabled={!canSave || saving}
-                onClick={() => void save()}
-            />
+            <div className="flex flex-wrap justify-end gap-2">
+                {testSkillButton}
+                {(envRows.length || secretRows.length) ? (
+                    <Button
+                        type="button"
+                        theme="blueSolid"
+                        size="sm"
+                        label={saving ? 'Saving' : 'Save'}
+                        icon={saving ? LoadingSpinner : SaveDiskIcon}
+                        disabled={!canSave || saving}
+                        onClick={() => void save()}
+                    />
+                ) : null}
+            </div>
         </div>
     )
 }
@@ -2744,6 +4131,7 @@ function LiveManifestSidebar({
     setErrorText,
     setInfoText,
     onAskWhereToGetBindings,
+    onOpenSkillTest,
 }) {
     if (!draft) {
         return (
@@ -2771,6 +4159,28 @@ function LiveManifestSidebar({
         Array.isArray(m.secretBindings) && m.secretBindings.length > 0
     const hasManifestMetadataBindings =
         Array.isArray(m.metadataBindings) && m.metadataBindings.length > 0
+    const hasMissingTestBindings = hasMissingSkillTestEnvironmentBindings(draft)
+    const missingTestBindingsMessage = hasMissingTestBindings
+        ? 'Save all required environment settings first.'
+        : ''
+    const hasCallableFunctions = skillDraftHasCallableFunctions(draft)
+    const canRunPublishedTest = Boolean(draft.publishedAt) && hasCallableFunctions && !hasMissingTestBindings
+    const testSkillButton =
+        draft.publishedAt && hasCallableFunctions ? (
+            <Tooltip content={missingTestBindingsMessage || 'Test the published skill'}>
+                <span className="inline-flex">
+                    <button
+                        type="button"
+                        disabled={!canRunPublishedTest}
+                        onClick={() => onOpenSkillTest?.()}
+                        className="inline-flex items-center justify-center gap-1.5 rounded-md border-2 border-cyan-600 bg-white px-3 py-1.5 text-sm font-semibold text-cyan-700 shadow-sm transition hover:bg-cyan-50 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-white"
+                    >
+                        <BeakerIcon className="h-4 w-4" aria-hidden />
+                        Test skill
+                    </button>
+                </span>
+            </Tooltip>
+        ) : null
 
     return (
         <div className="space-y-4">
@@ -2837,6 +4247,7 @@ function LiveManifestSidebar({
                         onSkillUpdated={onSkillUpdated}
                         setErrorText={setErrorText}
                         setInfoText={setInfoText}
+                        testSkillButton={testSkillButton}
                     />
                 </div>
             </div>
@@ -2895,6 +4306,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const chatMessagesContentRef = useRef(null)
     const builderComposerRef = useRef(null)
     const [builderChatShowScrollDown, setBuilderChatShowScrollDown] = useState(false)
+    const [skillTestOpen, setSkillTestOpen] = useState(false)
     const builderChatPrevMessageCountRef = useRef(0)
     const builderChatPrevSkillRef = useRef(null)
     const processedToolEventKeysRef = useRef(new Set())
@@ -3499,14 +4911,21 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         try {
             const raw = window.localStorage.getItem(builderChatStorageKey)
             if (!raw) return
-            const parsed = JSON.parse(raw)
-            if (Array.isArray(parsed)) {
-                chat.setMessages(parsed)
+            const cachedMessages = readSkillsBuilderChatCache(raw)
+            if (Array.isArray(cachedMessages)) {
+                chat.setMessages(cachedMessages)
                 // If the hydrated chat ends on a user message, an in-flight agent stream
                 // was interrupted (e.g. page reload mid-turn). Resume generation so the
                 // user isn't stranded with their message and no assistant reply.
-                const last = parsed[parsed.length - 1]
-                if (last?.role === 'user' && typeof chat.regenerate === 'function') {
+                const last = cachedMessages[cachedMessages.length - 1]
+                const isSimplifiedExpiredBuildLog = cachedMessages.some(
+                    (message) => message?.metadata?.simplifiedFromExpiredBuildLog,
+                )
+                if (
+                    !isSimplifiedExpiredBuildLog &&
+                    last?.role === 'user' &&
+                    typeof chat.regenerate === 'function'
+                ) {
                     try {
                         const maybePromise = chat.regenerate()
                         if (maybePromise && typeof maybePromise.then === 'function') {
@@ -3531,7 +4950,10 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
         try {
             if (chat.messages.length > 0) {
-                window.localStorage.setItem(builderChatStorageKey, JSON.stringify(chat.messages))
+                window.localStorage.setItem(
+                    builderChatStorageKey,
+                    createSkillsBuilderChatCache(chat.messages),
+                )
             } else {
                 window.localStorage.removeItem(builderChatStorageKey)
             }
@@ -3940,6 +5362,19 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     }, [isShellDetail, detailTab, loadWorkersLogs])
 
     const selectedDraft = draftState.draft
+    const skillTestTokenUrl =
+        selectedSkillName && selectedDraft?.publishedAt && skillDraftHasCallableFunctions(selectedDraft)
+            ? `${apiBase}/${encodeURIComponent(selectedSkillName)}/test-agent-token`
+            : null
+
+    const handleSendSkillTestReportToBuilder = useCallback(
+        (prompt) => {
+            if (!prompt) return
+            setDetailTab('builder')
+            sendBuilderMessageSafely(prompt)
+        },
+        [sendBuilderMessageSafely],
+    )
 
     useEffect(() => {
         if (!isShellDetail) {
@@ -4094,76 +5529,82 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     }
 
     const listPanel = (
-        <div className="px-8 py-8">
-            <div className="flex flex-col gap-8">
-                <Workspace.Header
-                    title={<SkillsPageWorkspaceTitle />}
-                    description={
-                        <>
-                            Skills are reusable instructions and tools that add capabilities to your bot. Describe what
-                            you need and our coding agent will build one for you! After you publish a skill, enable it
-                            on the{' '}
-                            <Link
-                                href={`/app/bots/${bot.id}/widget/actions`}
-                                shallow
-                                className="text-cyan-700 underline hover:text-cyan-900"
+        <div className="flex min-h-0 flex-1 flex-col">
+            <div className="shrink-0 border-b border-gray-200/80 bg-gray-50">
+                <div className="px-8 pt-8 pb-4">
+                    <Workspace.Header
+                        title={<SkillsPageWorkspaceTitle />}
+                        description={
+                            <>
+                                Skills are reusable instructions and tools that add capabilities to your bot. Describe
+                                what you need and our coding agent will build one for you! After you publish a skill,
+                                enable it on the{' '}
+                                <Link
+                                    href={`/app/bots/${bot.id}/widget/actions`}
+                                    shallow
+                                    className="text-cyan-700 underline hover:text-cyan-900"
+                                >
+                                    chat widget Actions tab
+                                </Link>{' '}
+                                so visitors can use skills in the widget. To register skills and other actions with the
+                                embed, see the{' '}
+                                <Link
+                                    href="/documentation/developer/embeddable-chat-widget"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-cyan-700 underline hover:text-cyan-900"
+                                >
+                                    embeddable chat widget
+                                </Link>{' '}
+                                guide.
+                            </>
+                        }
+                    />
+                </div>
+            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8">
+                <div className="flex flex-col gap-8">
+                    <Alert title={alertString(errorText)} type="error" />
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                        {drafts.map((skill) => (
+                            <button
+                                key={skill.name}
+                                type="button"
+                                onClick={() => openExistingSkill(skill)}
+                                className="flex flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
                             >
-                                chat widget Actions tab
-                            </Link>{' '}
-                            so visitors can use skills in the widget. To register skills and other actions with the
-                            embed, see the{' '}
-                            <Link
-                                href="/documentation/developer/embeddable-chat-widget"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-cyan-700 underline hover:text-cyan-900"
-                            >
-                                embeddable chat widget
-                            </Link>{' '}
-                            guide.
-                        </>
-                    }
-                />
-                <Alert title={alertString(errorText)} type="error" />
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                    {drafts.map((skill) => (
+                                <div className="flex items-start gap-3">
+                                    <SkillListIcon icon={skill.icon} networkPolicy={skill.networkPolicy} />
+                                    <div className="min-w-0 flex-1">
+                                        <div className="flex items-start justify-between gap-2">
+                                            <div className="text-base font-semibold text-gray-900">
+                                                {formatSkillNameDisplay(skill.name, '—')}
+                                            </div>
+                                            <SkillStatusDot publishedAt={skill.publishedAt} />
+                                        </div>
+                                        <p className="mt-2 line-clamp-3 flex-1 text-sm text-gray-600">
+                                            {skillListDescription(skill.description) || 'No description yet.'}
+                                        </p>
+                                        <div className="mt-4 flex items-center gap-0.5">
+                                            <SkillAudienceIcon internal={skill.internal} size="sm" />
+                                            <SkillCapabilityIcon mode={skill.mode} hasFunctions={skill.hasFunctions} size="sm" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        ))}
                         <button
-                            key={skill.name}
                             type="button"
-                            onClick={() => openExistingSkill(skill)}
-                            className="flex flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
+                            onClick={openCreateSkill}
+                            className="flex min-h-[160px] flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-5 text-center transition hover:border-cyan-400 hover:bg-cyan-50/40"
                         >
-                            <div className="flex items-start gap-3">
-                                <SkillListIcon icon={skill.icon} networkPolicy={skill.networkPolicy} />
-                                <div className="min-w-0 flex-1">
-                            <div className="flex items-start justify-between gap-2">
-                                <div className="text-base font-semibold text-gray-900">
-                                    {formatSkillNameDisplay(skill.name, '—')}
-                                </div>
-                                <SkillStatusDot publishedAt={skill.publishedAt} />
-                            </div>
-                            <p className="mt-2 line-clamp-3 flex-1 text-sm text-gray-600">
-                                {skillListDescription(skill.description) || 'No description yet.'}
-                            </p>
-                            <div className="mt-4 flex items-center gap-0.5">
-                                <SkillAudienceIcon internal={skill.internal} size="sm" />
-                                <SkillCapabilityIcon mode={skill.mode} hasFunctions={skill.hasFunctions} size="sm" />
-                            </div>
-                                </div>
-                            </div>
+                            <PlusIcon className="h-10 w-10 text-cyan-600" aria-hidden />
+                            <span className="mt-3 text-sm font-semibold text-cyan-800">Create new skill</span>
+                            <span className="mt-1 text-xs text-gray-500">
+                                Tell us what you need and the coding agent will build the skill for you
+                            </span>
                         </button>
-                    ))}
-                    <button
-                        type="button"
-                        onClick={openCreateSkill}
-                        className="flex min-h-[160px] flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-5 text-center transition hover:border-cyan-400 hover:bg-cyan-50/40"
-                    >
-                        <PlusIcon className="h-10 w-10 text-cyan-600" aria-hidden />
-                        <span className="mt-3 text-sm font-semibold text-cyan-800">Create new skill</span>
-                        <span className="mt-1 text-xs text-gray-500">
-                            Tell us what you need and the coding agent will build the skill for you
-                        </span>
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4174,7 +5615,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const builderPanel = (
         <>
             {createMode && !chatStarted ? (
-                <div className="flex flex-col overflow-y-auto bg-gradient-to-b from-slate-50/90 to-white">
+                <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto bg-gradient-to-b from-slate-50/90 to-white">
                     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 pb-12 pt-2 sm:px-6 lg:flex-row lg:items-start lg:gap-10">
                         <div className="flex min-w-0 flex-col lg:flex-1">
                             <h2 className="text-center text-xl font-semibold text-gray-900 sm:text-2xl lg:text-left">
@@ -4401,9 +5842,9 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                     </div>
                 </div>
             ) : (
-                <div className="flex h-[calc(100dvh-13.5rem)] w-full max-h-[calc(100dvh-13.5rem)] min-h-[360px] flex-col overflow-x-hidden overflow-y-auto sm:min-h-[480px] md:min-h-[600px]">
-                    <div className="flex min-h-0 flex-1 flex-col gap-3 lg:flex-row lg:items-stretch">
-                        <div className="order-1 flex min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm max-lg:min-h-[calc(100dvh-13.5rem)] max-lg:flex-none lg:order-2 lg:min-w-0 lg:flex-1">
+                <div className="flex min-h-0 w-full min-w-0 flex-1 flex-col overflow-x-hidden">
+                    <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-3 lg:flex-row lg:items-stretch">
+                        <div className="order-1 flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm lg:order-2 lg:min-w-0">
                 {!selectedSkillName ? (
                     <div className="flex flex-1 items-center justify-center p-8 text-center text-sm text-gray-500">
                         Select or create a skill to use the builder chat.
@@ -4693,7 +6134,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                 )}
                         </div>
 
-                        <div className="order-2 flex w-full shrink-0 flex-col lg:order-1 lg:w-[min(360px,40%)] lg:max-w-md lg:self-start">
+                        <div className="order-2 flex w-full min-h-0 shrink-0 flex-col lg:order-1 lg:w-[min(360px,40%)] lg:max-w-md lg:flex-none lg:self-start">
                             <div className="flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
                                 <div className="shrink-0 border-b border-gray-100 px-3 py-2.5">
                                     <div className="text-sm font-semibold leading-tight text-gray-900">Skill details</div>
@@ -4715,6 +6156,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                         setErrorText={setErrorText}
                                         setInfoText={setInfoText}
                                         onAskWhereToGetBindings={handleAskWhereToGetBindings}
+                                        onOpenSkillTest={() => setSkillTestOpen(true)}
                                     />
                                 </div>
                             </div>
@@ -4860,7 +6302,8 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
     const hasLogDetails = (entry) =>
         Boolean(
-            entry?.error ||
+            entry?.redirectChain ||
+                entry?.error ||
                 typeof entry?.input !== 'undefined' ||
                 typeof entry?.output !== 'undefined',
         )
@@ -4980,6 +6423,143 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                         ) : null}
                         {isExpanded ? (
                             <div className="mt-3 space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-3">
+                                {ev?.redirectChain ? (
+                                    <div>
+                                        <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                                            Redirect Chain
+                                        </div>
+                                        <div className="space-y-3 rounded-lg border border-gray-200 bg-white p-3 text-xs text-gray-700">
+                                            <div className="grid gap-2 sm:grid-cols-3">
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-gray-500">
+                                                        Redirects
+                                                    </div>
+                                                    <div className="mt-0.5">
+                                                        {Number.isFinite(ev.redirectChain.redirectCount)
+                                                            ? ev.redirectChain.redirectCount
+                                                            : ev.redirectChain.chain?.length || 0}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-gray-500">
+                                                        Final Status
+                                                    </div>
+                                                    <div className="mt-0.5">
+                                                        {Number.isFinite(ev.redirectChain.finalStatus)
+                                                            ? ev.redirectChain.finalStatus
+                                                            : 'Unknown'}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-semibold uppercase tracking-wide text-gray-500">
+                                                        Final URL
+                                                    </div>
+                                                    <div className="mt-0.5 break-all">
+                                                        {formatRedirectLogValue(ev.redirectChain.finalUrl)}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold uppercase tracking-wide text-gray-500">
+                                                    Initial URL
+                                                </div>
+                                                <div className="mt-0.5 break-all">
+                                                    {formatRedirectLogValue(ev.redirectChain.initialUrl)}
+                                                </div>
+                                            </div>
+                                            {Array.isArray(ev.redirectChain.chain) && ev.redirectChain.chain.length ? (
+                                                <div className="overflow-x-auto">
+                                                    <table className="min-w-full divide-y divide-gray-200 text-left">
+                                                        <thead>
+                                                            <tr className="text-[11px] uppercase tracking-wide text-gray-500">
+                                                                <th className="py-2 pr-3 font-semibold">Hop</th>
+                                                                <th className="py-2 pr-3 font-semibold">Status</th>
+                                                                <th className="py-2 pr-3 font-semibold">Method</th>
+                                                                <th className="py-2 pr-3 font-semibold">Request URL</th>
+                                                                <th className="py-2 font-semibold">Location</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody className="divide-y divide-gray-100">
+                                                            {ev.redirectChain.chain.map((hop, hopIndex) => (
+                                                                <tr key={`${ev.id}-redirect-hop-${hopIndex}`}>
+                                                                    <td className="py-2 pr-3 align-top text-gray-500">
+                                                                        {hopIndex + 1}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {Number.isFinite(hop?.status)
+                                                                            ? hop.status
+                                                                            : 'Unknown'}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {formatRedirectLogValue(hop?.method)}
+                                                                    </td>
+                                                                    <td className="max-w-xs break-all py-2 pr-3 align-top">
+                                                                        {formatRedirectLogValue(hop?.requestUrl)}
+                                                                    </td>
+                                                                    <td className="max-w-xs break-all py-2 align-top">
+                                                                        {formatRedirectLogValue(hop?.location)}
+                                                                    </td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            ) : null}
+                                            {Array.isArray(ev.redirectChain.templateValueShapes) &&
+                                            ev.redirectChain.templateValueShapes.length ? (
+                                                <div className="overflow-x-auto">
+                                                    <div className="mb-1 font-semibold uppercase tracking-wide text-gray-500">
+                                                        Template Value Shapes
+                                                    </div>
+                                                    <table className="min-w-full divide-y divide-gray-200 text-left">
+                                                        <thead>
+                                                            <tr className="text-[11px] uppercase tracking-wide text-gray-500">
+                                                                <th className="py-2 pr-3 font-semibold">Key</th>
+                                                                <th className="py-2 pr-3 font-semibold">Length</th>
+                                                                <th className="py-2 pr-3 font-semibold">Slashes</th>
+                                                                <th className="py-2 pr-3 font-semibold">Segments</th>
+                                                                <th className="py-2 pr-3 font-semibold">HTTP Scheme</th>
+                                                                <th className="py-2 font-semibold">Whitespace</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody className="divide-y divide-gray-100">
+                                                            {ev.redirectChain.templateValueShapes.map((shape, shapeIndex) => (
+                                                                <tr key={`${ev.id}-template-shape-${shapeIndex}`}>
+                                                                    <td className="py-2 pr-3 align-top font-medium text-gray-700">
+                                                                        {formatRedirectLogValue(shape?.key)}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {Number.isFinite(shape?.length) ? shape.length : 'Unknown'}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {Number.isFinite(shape?.slashCount) ? shape.slashCount : 'Unknown'}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {Number.isFinite(shape?.segmentCount) ? shape.segmentCount : 'Unknown'}
+                                                                    </td>
+                                                                    <td className="py-2 pr-3 align-top">
+                                                                        {shape?.startsWithHttpScheme === true
+                                                                            ? 'Yes'
+                                                                            : shape?.startsWithHttpScheme === false
+                                                                              ? 'No'
+                                                                              : 'Unknown'}
+                                                                    </td>
+                                                                    <td className="py-2 align-top">
+                                                                        {shape?.hasWhitespace === true
+                                                                            ? 'Yes'
+                                                                            : shape?.hasWhitespace === false
+                                                                              ? 'No'
+                                                                              : 'Unknown'}
+                                                                    </td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                ) : null}
                                 {ev?.error ? (
                                     <div>
                                         <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -5022,102 +6602,112 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     )
 
     const detailPanel = (
-        <div className="flex flex-col px-6 py-3 pb-10 md:px-8">
-            <div className="mb-2 flex shrink-0 flex-wrap items-end gap-x-2 gap-y-1.5 border-b border-gray-200">
-                <div className="flex min-w-0 flex-1 items-center gap-2 pb-2">
-                    <Tooltip content="Back to skills list">
-                        <button
-                            type="button"
-                            onClick={openList}
-                            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white p-2 text-gray-700 shadow-sm hover:bg-gray-50"
-                        >
-                            <ArrowLeftIcon className="h-4 w-4" aria-hidden />
-                            <span className="sr-only">Back</span>
-                        </button>
-                    </Tooltip>
+        <div className="flex min-h-0 flex-1 flex-col">
+            <div className="shrink-0 border-b border-gray-200 bg-gray-50">
+                <div className="flex flex-wrap items-end gap-x-2 gap-y-1.5 px-6 pt-3 pb-2 md:px-8">
                     <div className="flex min-w-0 flex-1 items-center gap-2">
-                        {!createMode && selectedSkillName && draftState.draft ? (
-                            <SkillListIcon
-                                icon={draftState.draft.icon}
-                                networkPolicy={
-                                    draftState.draft.networkPolicy ??
-                                    draftState.draft.manifest?.networkPolicy
-                                }
-                                sizeClass="size-9"
-                            />
-                        ) : null}
-                        <h1 className="min-w-0 truncate text-base font-semibold text-gray-900 md:text-lg">
-                            {createMode && !selectedSkillName
-                                ? 'New skill'
-                                : formatSkillNameDisplay(selectedSkillName, 'Skill')}
-                        </h1>
-                        {!createMode && selectedSkillName ? (
-                            <Tooltip content={isDeletingSkill ? 'Deleting…' : 'Delete skill'}>
-                                <span className="inline-flex shrink-0">
-                                    <button
-                                        type="button"
-                                        onClick={() => void deleteSelectedSkill()}
-                                        disabled={isDeletingSkill}
-                                        className="inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent p-2 text-red-700 hover:border-red-200 hover:bg-red-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
-                                        aria-label={isDeletingSkill ? 'Deleting skill' : 'Delete skill'}
-                                    >
-                                        {isDeletingSkill ? (
-                                            <LoadingSpinner className="h-4 w-4" aria-hidden />
-                                        ) : (
-                                            <TrashIcon className="h-4 w-4" aria-hidden />
-                                        )}
-                                    </button>
-                                </span>
-                            </Tooltip>
-                        ) : null}
-                    </div>
-                </div>
-                {!(createMode && !chatStarted) ? (
-                    <nav
-                        className="flex w-full shrink-0 justify-end gap-0.5 sm:ml-auto sm:w-auto"
-                        aria-label="Skill section"
-                    >
-                        {DETAIL_TABS.map((tab) => (
+                        <Tooltip content="Back to skills list">
                             <button
-                                key={tab.id}
                                 type="button"
-                                onClick={() => setDetailTab(tab.id)}
-                                className={clsx(
-                                    '-mb-px border-b-2 px-2.5 py-1 text-xs font-medium transition sm:px-3 sm:text-sm',
-                                    detailTab === tab.id
-                                        ? 'border-cyan-600 text-cyan-800'
-                                        : 'border-transparent text-gray-500 hover:text-gray-800',
-                                )}
+                                onClick={openList}
+                                className="inline-flex shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white p-2 text-gray-700 shadow-sm hover:bg-gray-50"
                             >
-                                {tab.title}
+                                <ArrowLeftIcon className="h-4 w-4" aria-hidden />
+                                <span className="sr-only">Back</span>
                             </button>
-                        ))}
-                    </nav>
-                ) : null}
+                        </Tooltip>
+                        <div className="flex min-w-0 flex-1 items-center gap-2">
+                            {!createMode && selectedSkillName && draftState.draft ? (
+                                <SkillListIcon
+                                    icon={draftState.draft.icon}
+                                    networkPolicy={
+                                        draftState.draft.networkPolicy ??
+                                        draftState.draft.manifest?.networkPolicy
+                                    }
+                                    sizeClass="size-9"
+                                />
+                            ) : null}
+                            <h1 className="min-w-0 truncate text-base font-semibold text-gray-900 md:text-lg">
+                                {createMode && !selectedSkillName
+                                    ? 'New skill'
+                                    : formatSkillNameDisplay(selectedSkillName, 'Skill')}
+                            </h1>
+                            {!createMode && selectedSkillName ? (
+                                <Tooltip content={isDeletingSkill ? 'Deleting…' : 'Delete skill'}>
+                                    <span className="inline-flex shrink-0">
+                                        <button
+                                            type="button"
+                                            onClick={() => void deleteSelectedSkill()}
+                                            disabled={isDeletingSkill}
+                                            className="inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent p-2 text-red-700 hover:border-red-200 hover:bg-red-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
+                                            aria-label={isDeletingSkill ? 'Deleting skill' : 'Delete skill'}
+                                        >
+                                            {isDeletingSkill ? (
+                                                <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                            ) : (
+                                                <TrashIcon className="h-4 w-4" aria-hidden />
+                                            )}
+                                        </button>
+                                    </span>
+                                </Tooltip>
+                            ) : null}
+                        </div>
+                    </div>
+                    {!(createMode && !chatStarted) ? (
+                        <nav
+                            className="flex w-full shrink-0 justify-end gap-0.5 sm:ml-auto sm:w-auto"
+                            aria-label="Skill section"
+                        >
+                            {DETAIL_TABS.map((tab) => (
+                                <button
+                                    key={tab.id}
+                                    type="button"
+                                    onClick={() => setDetailTab(tab.id)}
+                                    className={clsx(
+                                        '-mb-px border-b-2 px-2.5 py-1 text-xs font-medium transition sm:px-3 sm:text-sm',
+                                        detailTab === tab.id
+                                            ? 'border-cyan-600 text-cyan-800'
+                                            : 'border-transparent text-gray-500 hover:text-gray-800',
+                                    )}
+                                >
+                                    {tab.title}
+                                </button>
+                            ))}
+                        </nav>
+                    ) : null}
+                </div>
             </div>
 
-            <Alert title={alertString(errorText)} type="error" />
-            <Alert title={alertString(infoText)} type="info" />
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-6 pb-10 md:px-8">
+                <Alert title={alertString(errorText)} type="error" />
+                <Alert title={alertString(infoText)} type="info" />
 
-            {detailTab === 'builder' ? (
-                <div className="flex flex-col overflow-x-hidden">{builderPanel}</div>
-            ) : (
-                <div className="flex flex-col">
-                    {detailTab === 'advanced' ? advancedPanel : null}
-                    {detailTab === 'logs' ? logsPanel : null}
-                </div>
-            )}
+                {detailTab === 'builder' ? (
+                    <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-x-hidden pt-2">
+                        {builderPanel}
+                    </div>
+                ) : (
+                    <div className="flex flex-col pt-2">
+                        {detailTab === 'advanced' ? advancedPanel : null}
+                        {detailTab === 'logs' ? logsPanel : null}
+                    </div>
+                )}
+            </div>
         </div>
     )
 
     if (isBootstrapping) {
         return (
-            <div className="min-h-full overflow-y-auto px-8">
-                <div className="flex flex-col gap-8 py-8">
-                    <Workspace.Header
-                        title={<SkillsPageWorkspaceTitle />}
-                        description="Build and manage bot-scoped skills."
-                    />
+            <div className="flex min-h-0 w-full flex-1 flex-col">
+                <div className="shrink-0 border-b border-gray-200/80 bg-gray-50">
+                    <div className="px-8 pt-8 pb-4">
+                        <Workspace.Header
+                            title={<SkillsPageWorkspaceTitle />}
+                            description="Build and manage bot-scoped skills."
+                        />
+                    </div>
+                </div>
+                <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8">
                     <Workspace.Loader message="Loading skills…" variant="skills" />
                 </div>
             </div>
@@ -5125,18 +6715,27 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     }
 
     return (
-        <div className="relative min-h-full w-full overflow-x-hidden pb-8">
+        <div className="relative flex min-h-0 w-full flex-1 flex-col overflow-x-hidden">
             <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+            <SkillTestModal
+                open={skillTestOpen}
+                draft={selectedDraft}
+                team={team}
+                bot={bot}
+                tokenUrl={skillTestTokenUrl}
+                onClose={() => setSkillTestOpen(false)}
+                onSendReportToBuilder={handleSendSkillTestReportToBuilder}
+            />
             <div
                 className={clsx(
-                    'flex min-h-full w-[200%] items-stretch transition-transform duration-300 ease-out',
+                    'flex min-h-0 w-[200%] flex-1 items-stretch transition-transform duration-300 ease-out',
                     !isShellDetail ? 'translate-x-0' : '-translate-x-1/2',
                 )}
             >
-                <div className="w-1/2 shrink-0 self-stretch overflow-x-hidden">
+                <div className="flex w-1/2 min-h-0 shrink-0 flex-col self-stretch overflow-x-hidden">
                     {listPanel}
                 </div>
-                <div className="flex w-1/2 shrink-0 min-w-0 flex-col self-stretch">
+                <div className="flex w-1/2 min-h-0 shrink-0 min-w-0 flex-col self-stretch">
                     {detailPanel}
                 </div>
             </div>

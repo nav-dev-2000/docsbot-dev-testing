@@ -120,6 +120,48 @@ export function normalizeRuntimeEvent(event, index) {
     }
   }
 
+  if (eventName === 'outbound_redirect_chain') {
+    const redirectCount = Number.isFinite(source.redirect_count)
+      ? Number(source.redirect_count)
+      : Array.isArray(source.chain)
+        ? source.chain.length
+        : null
+    const finalStatus = Number.isFinite(source.final_status) ? Number(source.final_status) : null
+    return {
+      id: buildEntryId(event, source, index),
+      timestamp,
+      kind: 'outbound_redirect_chain',
+      status: finalStatus && finalStatus >= 400 ? 'error' : 'success',
+      title: 'Outbound redirect followed',
+      summary: `${redirectCount === 1 ? '1 redirect was' : `${redirectCount ?? 'Multiple'} redirects were`} followed for an outbound request${finalStatus ? `, ending with HTTP ${finalStatus}` : ''}.`,
+      redirectChain: {
+        redirectCount,
+        initialUrl: typeof source.initial_url === 'string' ? source.initial_url : null,
+        finalUrl: typeof source.final_url === 'string' ? source.final_url : null,
+        finalStatus,
+        chain: Array.isArray(source.chain)
+          ? source.chain.map((hop) => ({
+              status: Number.isFinite(hop?.status) ? Number(hop.status) : null,
+              method: typeof hop?.method === 'string' ? hop.method : null,
+              requestUrl: typeof hop?.requestUrl === 'string' ? hop.requestUrl : null,
+              location: typeof hop?.location === 'string' ? hop.location : null,
+            }))
+          : [],
+        templateValueShapes: Array.isArray(source.template_value_shapes)
+          ? source.template_value_shapes.map((shape) => ({
+              key: typeof shape?.key === 'string' ? shape.key : null,
+              length: Number.isFinite(shape?.length) ? Number(shape.length) : null,
+              slashCount: Number.isFinite(shape?.slashCount) ? Number(shape.slashCount) : null,
+              segmentCount: Number.isFinite(shape?.segmentCount) ? Number(shape.segmentCount) : null,
+              startsWithHttpScheme:
+                typeof shape?.startsWithHttpScheme === 'boolean' ? shape.startsWithHttpScheme : null,
+              hasWhitespace: typeof shape?.hasWhitespace === 'boolean' ? shape.hasWhitespace : null,
+            }))
+          : [],
+      },
+    }
+  }
+
   if (eventName === 'session_error') {
     const pathname = typeof source.pathname === 'string' ? source.pathname.trim() : ''
     if (pathname !== '/call-function' && pathname !== '/execute') {
