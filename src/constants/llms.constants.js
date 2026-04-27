@@ -3816,6 +3816,55 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Mistral Small 4',
+    slug: 'mistral-small-4',
+    provider: 'mistral',
+    description:
+      'Mistral Small 4 is Mistral’s open hybrid small model, released on March 16, 2026. It unifies instruct, reasoning, multimodal, and coding capabilities in a single Mixture-of-Experts model with 119B total parameters and 6.5B active parameters, supports a 256K context window, and exposes configurable reasoning effort for fast or deeper step-by-step responses. Mistral positions it as the successor to the Mistral Small line with day-one API, open-weight, and NVIDIA NIM availability.',
+    input_context_window: '256K',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2026-03-16',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Mistral API, AI Studio, Hugging Face, NVIDIA NIM, vLLM, llama.cpp, SGLang',
+    input_cost_per_million_tokens: 0.15,
+    output_cost_per_million_tokens: 0.6,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    benchmarks: {
+      AIME2025: {
+        score: 84,
+        notes: 'Reasoning mode (High); Instruct: 36',
+        source: 'https://mistral.ai/news/mistral-small-4',
+      },
+      LiveCodeBench: {
+        score: 64,
+        notes: 'Reasoning mode (High); Instruct: 32',
+        source: 'https://mistral.ai/news/mistral-small-4',
+      },
+      GPQADiamond: {
+        score: 71.2,
+        notes: 'Reasoning mode; Instruct: 59.1',
+        source: 'https://mistral.ai/news/mistral-small-4',
+      },
+      MMLUPro: {
+        score: 78,
+        notes: 'Reasoning mode; Instruct: 73.5',
+        source: 'https://mistral.ai/news/mistral-small-4',
+      },
+      MMMUPro: {
+        score: 60,
+        notes: 'Reasoning mode; Instruct: 46.3',
+        source: 'https://mistral.ai/news/mistral-small-4',
+      },
+    },
+  },
+  {
     model_name: 'Mistral Large 2',
     slug: 'mistral-large-2',
     provider: 'mistral',
