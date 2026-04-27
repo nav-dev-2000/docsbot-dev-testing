@@ -3,8 +3,6 @@ import { getFirestore, Timestamp } from 'firebase-admin/firestore'
 import { isBlockedWebhookTarget, mapWebhookEntries } from '@/lib/webhooks'
 import { validateOutboundFetchUrl } from '@/utils/outboundUrlValidation'
 
-const firestore = getFirestore()
-
 export const sendWebhook = async (webhook, payload, signatureKey) => {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 10000)
@@ -62,6 +60,7 @@ export const deliverWebhookEvent = async ({
   payload,
   webhookId: targetWebhookId,
 }) => {
+  const firestore = getFirestore()
   const botRef = firestore
     .collection('teams')
     .doc(teamId)
