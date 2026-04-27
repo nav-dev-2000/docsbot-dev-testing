@@ -9,8 +9,9 @@ import { logout } from '@/api/logout'
 import { routePaths } from '@/constants/routePaths.constants'
 import ProfileButton from './ProfileButton'
 import ProfileMenu from './ProfileMenu'
+import clsx from 'clsx'
 
-const Profile = () => {
+const Profile = ({ className }) => {
     const router = useRouter()
     const [user] = useAuthState(auth)
     const posthog = usePostHog()
@@ -30,7 +31,11 @@ const Profile = () => {
     const userNavigation = [{ name: 'Account', href: '/app/account' }]
 
     return (
-        <Menu as="div" className="relative" data-component="profile">
+        <Menu
+            as="div"
+            className={clsx('relative', className)}
+            data-component="profile"
+        >
             <ProfileButton user={user} />
             <Transition
                 as={Fragment}

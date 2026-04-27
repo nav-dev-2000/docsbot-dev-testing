@@ -61,10 +61,10 @@ const NotificationsMenu = forwardRef(
                                         : 'hover:bg-gray-50',
                                 )}
                             >
-                                <div className="flex items-start justify-between">
+                                <div className="flex items-start justify-between gap-3">
                                     <div
                                         className={clsx(
-                                            'text-sm font-medium',
+                                            'min-w-0 flex-1 whitespace-normal break-words text-sm font-medium',
                                             isUnread
                                                 ? 'text-white'
                                                 : 'text-gray-900',
@@ -74,7 +74,7 @@ const NotificationsMenu = forwardRef(
                                     </div>
                                     <div
                                         className={clsx(
-                                            'ml-3 shrink-0 text-xs',
+                                            'shrink-0 text-xs',
                                             isUnread
                                                 ? 'text-cyan-100'
                                                 : 'text-gray-400',
@@ -85,7 +85,7 @@ const NotificationsMenu = forwardRef(
                                 </div>
                                 <div
                                     className={clsx(
-                                        'mt-1 text-sm',
+                                        'mt-1 whitespace-normal break-words text-sm',
                                         isUnread ? 'text-cyan-50' : 'text-gray-600',
                                     )}
                                 >

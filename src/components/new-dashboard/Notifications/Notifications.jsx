@@ -1,12 +1,13 @@
 import { Fragment, useState, useEffect, useCallback } from 'react'
 import { Menu, Transition } from '@headlessui/react'
+import clsx from 'clsx'
 import * as cookie from 'cookie'
 import featureUpdates from '/public/feature-updates.json'
 const FEATURE_UPDATES = featureUpdates
 import NotificationsButton from './NotificationsButton'
 import NotificationsMenu from './NotificationsMenu'
 
-const Notifications = () => {
+const Notifications = ({ className }) => {
     const getPreferences = useCallback(() => {
         if (typeof window === 'undefined') return {}
         try {
@@ -103,7 +104,11 @@ const Notifications = () => {
     }
 
     return (
-        <Menu as="div" className="relative" data-component="notifications">
+        <Menu
+            as="div"
+            className={clsx('relative', className)}
+            data-component="notifications"
+        >
             {({ close, open }) => (
                 <>
                     <NotificationsButton
