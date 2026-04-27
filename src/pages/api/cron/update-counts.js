@@ -38,6 +38,114 @@ function cleanDailyStats(dailyStats) {
   return cleanedStats
 }
 
+/**
+ * When a bot document write fails, rebuild the botCounts rollup shape from the last
+ * stored Firestore data so the team-level aggregates still include that bot.
+ */
+function botCountsFromStoredBotData(botData, currentYear, currentMonth) {
+  const emptyMonthly = {
+    upVotes: 0,
+    downVotes: 0,
+    escalations: 0,
+    couldAnswer: 0,
+    couldNotAnswer: 0,
+    questions: 0,
+    messages: 0,
+  }
+  const emptyConversationMonthly = {
+    conversations: 0,
+    resolvedConfirmed: 0,
+    resolvedAssumed: 0,
+    unresolved: 0,
+    escalatedHandled: 0,
+    escalatedTriggered: 0,
+    sentimentPositive: 0,
+    sentimentNegative: 0,
+    sentimentNeutral: 0,
+    answered: 0,
+    unanswered: 0,
+    topics: {},
+  }
+  if (!botData || typeof botData !== 'object') {
+    return {
+      pageCount: 0,
+      sourceCount: 0,
+      monthly: { ...emptyMonthly },
+      daily: {},
+      conversationMonthly: { ...emptyConversationMonthly },
+      conversationDaily: {},
+      researchCount: 0,
+      researchDaily: {},
+    }
+  }
+
+  const monthKey = `${currentYear}-${currentMonth}`
+  const qhMonth = botData.questionHistory?.[monthKey] || {}
+  const chMonth = botData.conversationHistory?.[monthKey] || {}
+
+  const monthly = {
+    upVotes: qhMonth.upVotes || 0,
+    downVotes: qhMonth.downVotes || 0,
+    escalations: qhMonth.escalations || 0,
+    couldAnswer: qhMonth.couldAnswer || 0,
+    couldNotAnswer: qhMonth.couldNotAnswer || 0,
+    questions: qhMonth.questions || 0,
+    messages:
+      qhMonth.messages != null ? qhMonth.messages : qhMonth.questions || 0,
+  }
+
+  const daily = {}
+  const qhd = cleanDailyStats(botData.questionHistoryDaily || {})
+  for (const [day, v] of Object.entries(qhd)) {
+    if (!v || typeof v !== 'object') continue
+    daily[day] = {
+      questions: v.questions || 0,
+      messages: v.messages != null ? v.messages : v.questions || 0,
+      upVotes: v.upVotes || 0,
+      downVotes: v.downVotes || 0,
+      escalations: v.escalations || 0,
+      couldAnswer: v.couldAnswer || 0,
+      couldNotAnswer: v.couldNotAnswer || 0,
+    }
+  }
+
+  const conversationDaily = { ...cleanDailyStats(botData.conversationHistoryDaily || {}) }
+  const conversationMonthly = {
+    conversations: chMonth.conversations || 0,
+    resolvedConfirmed: chMonth.resolvedConfirmed || 0,
+    resolvedAssumed: chMonth.resolvedAssumed || 0,
+    unresolved: chMonth.unresolved || 0,
+    escalatedHandled: chMonth.escalatedHandled || 0,
+    escalatedTriggered: chMonth.escalatedTriggered || 0,
+    sentimentPositive: chMonth.sentimentPositive || 0,
+    sentimentNegative: chMonth.sentimentNegative || 0,
+    sentimentNeutral: chMonth.sentimentNeutral || 0,
+    answered: chMonth.answered || 0,
+    unanswered: chMonth.unanswered || 0,
+    topics: chMonth.topics || {},
+  }
+
+  const researchCount =
+    qhMonth.research != null ? qhMonth.research : botData.researchCount || 0
+  const researchDaily = {}
+  for (const [day, v] of Object.entries(qhd)) {
+    if (v && typeof v.research === 'number' && v.research > 0) {
+      researchDaily[day] = v.research
+    }
+  }
+
+  return {
+    pageCount: botData.pageCount || 0,
+    sourceCount: botData.sourceCount || 0,
+    monthly,
+    daily,
+    conversationMonthly,
+    conversationDaily,
+    researchCount,
+    researchDaily,
+  }
+}
+
 export default async function handler(request, response) {
   configureFirebaseApp()
   const firestore = getFirestore()
@@ -52,8 +160,6 @@ export default async function handler(request, response) {
     return
   }
 
-  console.log('cron update-counts started!')
-
   try {
     const teamsSnapshot = await firestore
       .collection('teams')
@@ -66,9 +172,10 @@ export default async function handler(request, response) {
       //.limit(5)
       .get()
 
-    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
-      console.log('team', teamDoc.id, 'is scheduled to have the counts updated...')
+    const teamCount = teamsSnapshot.size
+    console.log('cron update-counts start', { teamsToProcess: teamCount })
 
+    const teamsPromises = teamsSnapshot.docs.map(async (teamDoc) => {
       try {
         let currentDate = new Date()
         let currentDay = currentDate.getDate()
@@ -127,8 +234,10 @@ export default async function handler(request, response) {
 
         const botCounts = []
         const botCount = botsSnapshot.size
+        const botUpdateFailures = []
 
         for (const botDoc of botsSnapshot.docs) {
+          try {
           const { monthly, daily } = await getQuestionStats(teamDoc.id, botDoc.id)
           const { monthly: conversationMonthly, daily: conversationDaily } = await getConversationStats(teamDoc.id, botDoc.id)
 
@@ -189,8 +298,8 @@ export default async function handler(request, response) {
           const prevConversationHistory = botDoc.data().conversationHistory || {}
           const prevConversationHistoryDaily = botDoc.data().conversationHistoryDaily || {}
 
-          // Add research count to questionHistoryDaily for bot
-          const botQuestionHistoryDailyNew = { ...prevHistoryDaily }
+          // Add research count to questionHistoryDaily for bot — prune >93d before merging
+          const botQuestionHistoryDailyNew = { ...cleanDailyStats(prevHistoryDaily) }
           
           // First, zero out research counts for current month days to avoid double-counting
           // (since we're recalculating them from the database each time)
@@ -255,7 +364,7 @@ export default async function handler(request, response) {
               [`${currentYear}-${currentMonth}`]: conversationMonthly,
             },
             conversationHistoryDaily: cleanDailyStats({
-              ...prevConversationHistoryDaily,
+              ...cleanDailyStats(prevConversationHistoryDaily),
               ...conversationDaily,
             }),
           }
@@ -278,6 +387,37 @@ export default async function handler(request, response) {
           await botDoc.ref.update(botData)
 
           botCounts.push({ pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily, researchCount, researchDaily })
+          } catch (error) {
+            console.error('Error processing bot for update-counts (stats compute or bot document write)', {
+              teamId: teamDoc.id,
+              botId: botDoc.id,
+              error,
+            })
+            botUpdateFailures.push({
+              teamId: teamDoc.id,
+              botId: botDoc.id,
+              message: String(error?.message || error),
+            })
+            let storedBotData
+            try {
+              const snap = await botDoc.ref.get()
+              storedBotData = snap.data() || {}
+            } catch (reReadError) {
+              console.error('Error re-reading bot after update-counts failure; omitting from team totals', {
+                teamId: teamDoc.id,
+                botId: botDoc.id,
+                error: reReadError,
+              })
+              continue
+            }
+            botCounts.push(
+              botCountsFromStoredBotData(
+                storedBotData,
+                currentYear,
+                currentMonth,
+              ),
+            )
+          }
         }
 
         // take and sum the results
@@ -388,22 +528,6 @@ export default async function handler(request, response) {
           }
         }
 
-        console.log(
-          'team',
-          teamDoc.id,
-          'has',
-          questionTotal,
-          'questions,',
-          conversationTotal,
-          'conversations,',
-          sourceTotal,
-          'sources,',
-          pageTotal,
-          'source pages,',
-          researchTotal,
-          'research tasks',
-        )
-
         // update team count && needsUpdate
         const prevHistory = teamData.questionHistory || {}
         const prevHistoryDaily = teamData.questionHistoryDaily || {}
@@ -435,7 +559,7 @@ export default async function handler(request, response) {
             (() => {
               // Zero out research counts for current month days in prevHistoryDaily to avoid double-counting
               const currentMonthPrefix = `${currentYear}-${currentMonth}-`
-              const merged = { ...prevHistoryDaily }
+              const merged = { ...cleanDailyStats(prevHistoryDaily) }
               for (const day in merged) {
                 if (day.startsWith(currentMonthPrefix) && merged[day]) {
                   merged[day] = {
@@ -468,7 +592,7 @@ export default async function handler(request, response) {
             },
           },
           conversationHistoryDaily: cleanDailyStats({
-            ...prevConversationHistoryDaily,
+            ...cleanDailyStats(prevConversationHistoryDaily),
             ...conversationHistoryDailyNew,
           }),
           botCount: botCount,
@@ -476,15 +600,53 @@ export default async function handler(request, response) {
         }
 
         await teamDoc.ref.update(teamUpdateData)
+        return {
+          ok: true,
+          teamId: teamDoc.id,
+          questionTotal,
+          conversationTotal,
+          sourceTotal,
+          pageTotal,
+          researchTotal,
+          botCount,
+          botUpdateFailures,
+        }
       } catch (error) {
-        console.warn(`Error updating team ${teamDoc.id} counts:`, error)
-        return
+        console.error(`Error updating team ${teamDoc.id} counts:`, error)
+        return { ok: false, teamId: teamDoc.id }
       }
     })
 
-    await Promise.all(teamsPromises)
+    const results = await Promise.all(teamsPromises)
+    const succeeded = results.filter((r) => r?.ok)
+    const failed = results.filter((r) => r && !r.ok)
+
+    const sumKey = (key) =>
+      succeeded.reduce((acc, r) => acc + (r[key] || 0), 0)
+
+    const allBotUpdateFailures = succeeded.flatMap((r) => r?.botUpdateFailures || [])
+    const failureDetailLimit = 30
+    const failureDetails = allBotUpdateFailures.slice(0, failureDetailLimit)
+
+    console.log('cron update-counts finished', {
+      teamsToProcess: teamCount,
+      teamsSucceeded: succeeded.length,
+      teamsFailed: failed.length,
+      aggregateQuestionMessages: sumKey('questionTotal'),
+      aggregateConversations: sumKey('conversationTotal'),
+      aggregateSources: sumKey('sourceTotal'),
+      aggregateSourcePages: sumKey('pageTotal'),
+      aggregateResearchTasks: sumKey('researchTotal'),
+      aggregateBotRecords: sumKey('botCount'),
+      botDocumentUpdateFailureCount: allBotUpdateFailures.length,
+      botDocumentUpdateFailures: failureDetails,
+      botDocumentUpdateFailuresOmitted:
+        allBotUpdateFailures.length > failureDetailLimit
+          ? allBotUpdateFailures.length - failureDetailLimit
+          : 0,
+    })
   } catch (error) {
-    console.warn('Error updating counts:', error)
+    console.error('Error updating counts:', error)
     response.status(500).json({ message: error })
     return
   }
