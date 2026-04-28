@@ -23,8 +23,7 @@ import {
   updateSkillDraft,
 } from '@/lib/skills-builder'
 import {
-  recoverInterruptedToolCalls,
-  stripOpenAIResponseItemReferences,
+  prepareSkillsBuilderMessagesForModel,
 } from '@/lib/skills-builder-chat-recovery'
 import { createSkillPatchExecute } from '@/lib/skills-patch-executor'
 import { createSkillShellExecute } from '@/lib/skills-shell-executor'
@@ -519,8 +518,8 @@ export async function POST(request, context) {
     }
 
     const body = await request.json()
-    const messages = stripOpenAIResponseItemReferences(
-      recoverInterruptedToolCalls(Array.isArray(body.messages) ? body.messages : []),
+    const messages = prepareSkillsBuilderMessagesForModel(
+      Array.isArray(body.messages) ? body.messages : [],
     )
     const sandboxId = buildSkillSandboxId(team.id, botId, draft.skillName)
 

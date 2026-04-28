@@ -673,7 +673,7 @@ describe('skills agent route', () => {
     mocks.isSuperAdmin.mockReturnValue(true)
   })
 
-  it('repairs interrupted tool calls before converting messages for the next turn', async () => {
+  it('does not replay interrupted assistant tool calls when converting messages for the next turn', async () => {
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
 
     await POST(
@@ -713,28 +713,11 @@ describe('skills agent route', () => {
 
     expect(mocks.convertToModelMessages).toHaveBeenCalledWith([
       { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
-      {
-        role: 'assistant',
-        parts: [
-          {
-            type: 'tool-shell',
-            toolCallId: 'call_interrupted',
-            state: 'output-error',
-            input: {
-              action: {
-                commands: ['cd /workspace && pwd'],
-              },
-            },
-            errorText:
-              'User interrupted this tool call before it completed. Reassess the current state and continue.',
-          },
-        ],
-      },
       { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
     ])
   })
 
-  it('starts a fresh OpenAI response from message history by removing response replay metadata', async () => {
+  it('starts a fresh OpenAI response from text history without replaying response items', async () => {
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
 
     await POST(
@@ -800,25 +783,74 @@ describe('skills agent route', () => {
         role: 'assistant',
         parts: [
           {
-            type: 'reasoning',
-            text: 'I inspected the existing files.',
-          },
-          {
             type: 'text',
             text: 'I can continue from the authored files.',
-          },
-          {
-            type: 'tool-call',
-            toolCallId: 'call_old',
-            toolName: 'load_context',
-            input: {},
-            state: 'output-error',
-            errorText:
-              'User interrupted this tool call before it completed. Reassess the current state and continue.',
           },
         ],
       },
       { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
+    ])
+  })
+
+  it('preserves completed ask_user_questions tool outputs when continuing', async () => {
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    const askPart = {
+      type: 'tool-ask_user_questions',
+      toolCallId: 'call_questions',
+      state: 'output-available',
+      input: {
+        intro: 'I need one detail.',
+        questions: [
+          {
+            id: 'scope',
+            kind: 'multiple_choice',
+            prompt: 'Which scope?',
+            options: [{ id: 'refunds', label: 'Refunds' }],
+          },
+        ],
+      },
+      output: {
+        answers: [
+          {
+            questionId: 'scope',
+            kind: 'multiple_choice',
+            selectedOptionIds: ['refunds'],
+          },
+        ],
+      },
+    }
+
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: [
+            { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+            {
+              role: 'assistant',
+              parts: [askPart],
+            },
+            { role: 'user', parts: [{ type: 'text', text: 'Use refunds.' }] },
+          ],
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(mocks.convertToModelMessages).toHaveBeenCalledWith([
+      { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+      {
+        role: 'assistant',
+        parts: [askPart],
+      },
+      { role: 'user', parts: [{ type: 'text', text: 'Use refunds.' }] },
     ])
   })
 

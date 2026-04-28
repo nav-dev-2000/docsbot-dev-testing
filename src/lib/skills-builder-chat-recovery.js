@@ -6,6 +6,10 @@ function isResolvedToolPart(part) {
   return part?.state === 'output-available' || part?.state === 'output-error'
 }
 
+function isPreservedClientToolPart(part) {
+  return part?.type === 'tool-ask_user_questions' && isResolvedToolPart(part)
+}
+
 function interruptedToolErrorText() {
   return 'User interrupted this tool call before it completed. Reassess the current state and continue.'
 }
@@ -53,6 +57,57 @@ function stripOpenAIProviderDataFromPart(part) {
   }
 
   return changed ? next : part
+}
+
+function stripOpenAIProviderDataFromMessage(message) {
+  if (!message || typeof message !== 'object') return message
+
+  const next = { ...message }
+  let changed = false
+
+  if (next.providerOptions) {
+    const providerOptions = stripOpenAIProviderData(next.providerOptions)
+    if (providerOptions !== next.providerOptions) {
+      changed = true
+      if (providerOptions) {
+        next.providerOptions = providerOptions
+      } else {
+        delete next.providerOptions
+      }
+    }
+  }
+
+  if (next.providerMetadata) {
+    const providerMetadata = stripOpenAIProviderData(next.providerMetadata)
+    if (providerMetadata !== next.providerMetadata) {
+      changed = true
+      if (providerMetadata) {
+        next.providerMetadata = providerMetadata
+      } else {
+        delete next.providerMetadata
+      }
+    }
+  }
+
+  return changed ? next : message
+}
+
+function textPartsFromMessage(message) {
+  const parts = Array.isArray(message?.parts) ? message.parts : []
+  const preservedParts = parts.filter(
+    (part) =>
+      (part?.type === 'text' && typeof part.text === 'string') || isPreservedClientToolPart(part),
+  )
+
+  if (preservedParts.length) {
+    return preservedParts
+  }
+
+  if (typeof message?.content === 'string' && message.content.trim()) {
+    return [{ type: 'text', text: message.content }]
+  }
+
+  return []
 }
 
 function toInterruptedToolPart(part) {
@@ -118,12 +173,17 @@ export function stripOpenAIResponseItemReferences(messages) {
   let changed = false
 
   const stripped = list.map((message) => {
-    if (!message || typeof message !== 'object' || !Array.isArray(message.parts)) {
-      return message
+    let nextMessage = stripOpenAIProviderDataFromMessage(message)
+    if (nextMessage !== message) {
+      changed = true
+    }
+
+    if (!nextMessage || typeof nextMessage !== 'object' || !Array.isArray(nextMessage.parts)) {
+      return nextMessage
     }
 
     let messageChanged = false
-    const parts = message.parts.map((part) => {
+    const parts = nextMessage.parts.map((part) => {
       const nextPart = stripOpenAIProviderDataFromPart(part)
       if (nextPart !== part) {
         messageChanged = true
@@ -132,8 +192,57 @@ export function stripOpenAIResponseItemReferences(messages) {
       return nextPart
     })
 
-    return messageChanged ? { ...message, parts } : message
+    return messageChanged ? { ...nextMessage, parts } : nextMessage
   })
 
   return changed ? stripped : list
+}
+
+export function removeAssistantResponseItemsFromHistory(messages) {
+  const list = Array.isArray(messages) ? messages : []
+  let changed = false
+
+  const cleaned = []
+  for (const message of list) {
+    if (message?.role !== 'assistant') {
+      cleaned.push(message)
+      continue
+    }
+
+    const parts = textPartsFromMessage(message)
+    const existingParts = Array.isArray(message.parts) ? message.parts : []
+    const hasOnlyPreservedParts =
+      parts.length === existingParts.length &&
+      existingParts.every(
+        (part) =>
+          (part?.type === 'text' && typeof part.text === 'string') ||
+          isPreservedClientToolPart(part),
+      )
+
+    if (!parts.length) {
+      changed = true
+      continue
+    }
+
+    if (hasOnlyPreservedParts && !('content' in message)) {
+      cleaned.push(message)
+      continue
+    }
+
+    changed = true
+    const nextMessage = {
+      ...message,
+      parts,
+    }
+    delete nextMessage.content
+    cleaned.push(nextMessage)
+  }
+
+  return changed ? cleaned : list
+}
+
+export function prepareSkillsBuilderMessagesForModel(messages) {
+  return removeAssistantResponseItemsFromHistory(
+    stripOpenAIResponseItemReferences(recoverInterruptedToolCalls(messages)),
+  )
 }
