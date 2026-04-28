@@ -122,6 +122,7 @@ const CREATE_SKILL_INTENT_PLACEHOLDERS = [
     'e.g. Answer competitive questions with factual, approved talking points from our battlecard—instructions only, no code.',
     'e.g. Help reps explain our pricing tiers in plain language using the FAQ and policy snippets we provide in the skill.',
 ]
+const SKILLS_BUILDER_MESSAGE_MAX_LENGTH = 50000
 
 const defaultDraftState = {
     name: '',
@@ -5336,8 +5337,9 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const resizeTextarea = useCallback(() => {
         const textarea = textareaRef.current
         if (!textarea) return
+        const maxHeight = textarea.id === 'skills-create-intent' ? 600 : 200
         textarea.style.height = 'auto'
-        textarea.style.height = `${Math.min(textarea.scrollHeight, 200)}px`
+        textarea.style.height = `${Math.min(textarea.scrollHeight, maxHeight)}px`
     }, [])
 
     useEffect(() => {
@@ -6105,8 +6107,62 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                 multiple
                                 className="hidden"
                             />
-                            <div className="relative w-full rounded-xl border border-gray-300 bg-white shadow-sm sm:shadow-md">
-                                <div className="absolute bottom-0 left-0 z-10 flex items-center gap-0 pl-2">
+                            <div className="w-full overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm sm:shadow-md">
+                                {selectedImages.length > 0 && (
+                                    <div className="flex flex-wrap gap-2 p-3 pb-2">
+                                        {selectedImages.map((image, index) => (
+                                            <div key={index} className="relative">
+                                                <img
+                                                    src={image.url}
+                                                    alt={`Selected ${index + 1}`}
+                                                    className="m-0 h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20"
+                                                />
+                                                <button
+                                                    type="button"
+                                                    onClick={() => removeImage(index)}
+                                                    className="absolute -right-1 -top-1 rounded-full bg-gray-500 p-1 text-white hover:bg-gray-600"
+                                                >
+                                                    <XMarkIcon className="h-3 w-3" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                                <textarea
+                                    ref={textareaRef}
+                                    name="skills-create-intent"
+                                    id="skills-create-intent"
+                                    value={formTask}
+                                    maxLength={SKILLS_BUILDER_MESSAGE_MAX_LENGTH}
+                                    rows={1}
+                                    onChange={(e) => {
+                                        setFormTask(e.target.value)
+                                        resizeTextarea()
+                                    }}
+                                    onFocus={() => setErrorText(null)}
+                                    onKeyDown={(e) => {
+                                        if (e.isComposing || e.keyCode === 229) {
+                                            return
+                                        }
+                                        if (e.key === 'Enter' && !e.shiftKey) {
+                                            e.preventDefault()
+                                            if (
+                                                !createSkillComposerBusy &&
+                                                (formTask.trim() || selectedImages.length > 0)
+                                            ) {
+                                                void createDraftAndStart()
+                                            }
+                                        }
+                                    }}
+                                    tabIndex={1}
+                                    autoComplete="off"
+                                    className="text-md placeholder:text-sm block min-h-16 w-full resize-none border-0 px-2 py-3 outline-none ring-0 focus:outline-none focus:ring-0 disabled:opacity-50 sm:px-4"
+                                    placeholder={
+                                        CREATE_SKILL_INTENT_PLACEHOLDERS[createIntentPlaceholderIndex]
+                                    }
+                                    disabled={createSkillComposerBusy}
+                                />
+                                <div className="flex items-center justify-between px-2 pb-2">
                                     <Tooltip
                                         content={
                                             createSkillComposerBusy
@@ -6145,65 +6201,6 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                             </button>
                                         </div>
                                     </Tooltip>
-                                </div>
-                                {selectedImages.length > 0 && (
-                                    <div className="absolute left-0 right-0 top-0 z-[1] flex flex-wrap gap-2 p-3 pb-2">
-                                        {selectedImages.map((image, index) => (
-                                            <div key={index} className="relative">
-                                                <img
-                                                    src={image.url}
-                                                    alt={`Selected ${index + 1}`}
-                                                    className="m-0 h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20"
-                                                />
-                                                <button
-                                                    type="button"
-                                                    onClick={() => removeImage(index)}
-                                                    className="absolute -right-1 -top-1 rounded-full bg-gray-500 p-1 text-white hover:bg-gray-600"
-                                                >
-                                                    <XMarkIcon className="h-3 w-3" />
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                                <textarea
-                                    ref={textareaRef}
-                                    name="skills-create-intent"
-                                    id="skills-create-intent"
-                                    value={formTask}
-                                    maxLength={2000}
-                                    rows={1}
-                                    onChange={(e) => {
-                                        setFormTask(e.target.value)
-                                        resizeTextarea()
-                                    }}
-                                    onFocus={() => setErrorText(null)}
-                                    onKeyDown={(e) => {
-                                        if (e.isComposing || e.keyCode === 229) {
-                                            return
-                                        }
-                                        if (e.key === 'Enter' && !e.shiftKey) {
-                                            e.preventDefault()
-                                            if (
-                                                !createSkillComposerBusy &&
-                                                (formTask.trim() || selectedImages.length > 0)
-                                            ) {
-                                                void createDraftAndStart()
-                                            }
-                                        }
-                                    }}
-                                    tabIndex={1}
-                                    autoComplete="off"
-                                    className={clsx(
-                                        'text-md placeholder:text-sm block min-h-16 w-full resize-none rounded-xl border-0 px-2 pb-12 outline-none ring-0 focus:ring-0 focus:outline-none disabled:opacity-50 sm:px-4',
-                                        selectedImages.length > 0 ? 'pt-24' : 'pt-3',
-                                    )}
-                                    placeholder={
-                                        CREATE_SKILL_INTENT_PLACEHOLDERS[createIntentPlaceholderIndex]
-                                    }
-                                    disabled={createSkillComposerBusy}
-                                />
-                                <div className="absolute bottom-0 right-0 z-10 p-2">
                                     <button
                                         type="submit"
                                         tabIndex={2}
@@ -6463,54 +6460,18 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                 }}
                                 disabled={loading}
                             >
-                                <div className="mb-1 w-full rounded-xl sm:flex sm:shadow-sm">
-                                    <div className="relative flex w-full flex-grow items-stretch shadow-sm sm:shadow-inherit">
-                                        <>
-                                            <div className="absolute bottom-0 left-0 z-10 flex items-center gap-0 pl-2">
-                                                <input
-                                                    ref={fileInputRef}
-                                                    type="file"
-                                                    onChange={handleImageSelect}
-                                                    accept="image/*"
-                                                    multiple
-                                                    className="hidden"
-                                                />
-                                                <Tooltip
-                                                    content={
-                                                        checkPlanPermission(team, 'personal').allowed
-                                                            ? 'Add an image'
-                                                            : 'Upgrade to the Personal plan to enable image uploads'
-                                                    }
-                                                >
-                                                    <div>
-                                                        <button
-                                                            type="button"
-                                                            className={clsx(
-                                                                'cursor-pointer rounded-md p-2 text-gray-600 hover:text-cyan-600',
-                                                                selectedImages.length >= 4 &&
-                                                                    'cursor-not-allowed opacity-50',
-                                                                !checkPlanPermission(team, 'personal').allowed &&
-                                                                    'opacity-50',
-                                                            )}
-                                                            onClick={(e) => {
-                                                                e.stopPropagation()
-                                                                setErrorText(null)
-                                                                if (!checkPlanPermission(team, 'personal').allowed) {
-                                                                    setPendingUpgrade(true)
-                                                                    return
-                                                                }
-                                                                if (selectedImages.length < 4) {
-                                                                    fileInputRef.current?.click()
-                                                                }
-                                                            }}
-                                                        >
-                                                            <PhotoIcon className="h-5 w-5" />
-                                                        </button>
-                                                    </div>
-                                                </Tooltip>
-                                            </div>
+                                <div className="mb-1 w-full rounded-xl sm:shadow-sm">
+                                    <div className="flex w-full flex-grow flex-col overflow-hidden rounded-xl border border-gray-300 bg-white shadow-sm sm:shadow-inherit">
+                                        <input
+                                            ref={fileInputRef}
+                                            type="file"
+                                            onChange={handleImageSelect}
+                                            accept="image/*"
+                                            multiple
+                                            className="hidden"
+                                        />
                                             {selectedImages.length > 0 && (
-                                                <div className="absolute left-0 right-0 top-0 flex flex-wrap gap-2 p-3 pb-2">
+                                                <div className="flex flex-wrap gap-2 p-3 pb-2">
                                                     {selectedImages.map((image, index) => (
                                                         <div key={index} className="relative">
                                                             <img
@@ -6534,7 +6495,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                 name="skills-builder-query"
                                                 id="skills-builder-query"
                                                 value={input}
-                                                maxLength={2000}
+                                                maxLength={SKILLS_BUILDER_MESSAGE_MAX_LENGTH}
                                                 rows={1}
                                                 onChange={(e) => {
                                                     setInput(e.target.value)
@@ -6577,13 +6538,44 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                 }}
                                                 tabIndex={1}
                                                 autoComplete="off"
-                                                className={clsx(
-                                                    'block min-h-16 w-full resize-none rounded-xl border border-gray-300 px-2 pb-10 text-sm outline-none ring-0 focus:ring-0 focus:border-cyan-600 disabled:opacity-50 sm:px-4',
-                                                    selectedImages.length > 0 ? 'pt-24' : 'pt-3',
-                                                )}
+                                                className="block min-h-16 w-full resize-none border-0 px-2 py-3 text-sm outline-none ring-0 focus:ring-0 disabled:opacity-50 sm:px-4"
                                                 placeholder="Follow up..."
                                                 disabled={!chatStarted}
                                             />
+                                            <div className="flex items-center justify-between px-2 pb-2">
+                                                <Tooltip
+                                                    content={
+                                                        checkPlanPermission(team, 'personal').allowed
+                                                            ? 'Add an image'
+                                                            : 'Upgrade to the Personal plan to enable image uploads'
+                                                    }
+                                                >
+                                                    <div>
+                                                        <button
+                                                            type="button"
+                                                            className={clsx(
+                                                                'cursor-pointer rounded-md p-2 text-gray-600 hover:text-cyan-600',
+                                                                selectedImages.length >= 4 &&
+                                                                    'cursor-not-allowed opacity-50',
+                                                                !checkPlanPermission(team, 'personal').allowed &&
+                                                                    'opacity-50',
+                                                            )}
+                                                            onClick={(e) => {
+                                                                e.stopPropagation()
+                                                                setErrorText(null)
+                                                                if (!checkPlanPermission(team, 'personal').allowed) {
+                                                                    setPendingUpgrade(true)
+                                                                    return
+                                                                }
+                                                                if (selectedImages.length < 4) {
+                                                                    fileInputRef.current?.click()
+                                                                }
+                                                            }}
+                                                        >
+                                                            <PhotoIcon className="h-5 w-5" />
+                                                        </button>
+                                                    </div>
+                                                </Tooltip>
                                             <button
                                                 type={loading ? 'button' : 'submit'}
                                                 tabIndex={2}
@@ -6592,7 +6584,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                         handleStopComposer(e)
                                                     }
                                                 }}
-                                                className="absolute bottom-0 right-0 my-3 mr-4 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
+                                                className="rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
                                                 disabled={!chatStarted || !selectedSkillName}
                                             >
                                                 <span className="sr-only">
@@ -6610,7 +6602,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                     <PaperAirplaneIcon className="h-6 w-6" />
                                                 )}
                                             </button>
-                                        </>
+                                            </div>
                                     </div>
                                 </div>
                             </form>

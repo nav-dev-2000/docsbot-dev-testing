@@ -24,6 +24,7 @@ import {
 export const dynamic = 'force-dynamic'
 
 const MODEL = 'gpt-5.4'
+const SKILLS_BUILDER_MESSAGE_MAX_LENGTH = 50000
 
 const SKILL_NAME_SLUG_PATTERN = '^[a-z0-9]+(-[a-z0-9]+)*$'
 const SKILL_NAME_SLUG_REGEX = new RegExp(SKILL_NAME_SLUG_PATTERN)
@@ -227,7 +228,7 @@ export async function POST(request, context) {
       )
     }
 
-    if (prompt.length > 12000) {
+    if (prompt.length > SKILLS_BUILDER_MESSAGE_MAX_LENGTH) {
       return NextResponse.json({ message: 'Description is too long.' }, { status: 400 })
     }
 
