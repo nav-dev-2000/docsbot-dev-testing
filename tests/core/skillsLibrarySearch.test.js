@@ -150,6 +150,8 @@ describe('skills-library-search', () => {
         }),
       }),
     )
+    expect(mocks.writes[0].body.upsert_rows[0]).not.toHaveProperty('text')
+    expect(mocks.writes[0].body.schema).not.toHaveProperty('text')
   })
 
   it('uses a separate default Turbopuffer namespace in production', async () => {
@@ -189,6 +191,7 @@ describe('skills-library-search', () => {
     expect(mocks.multiQueries[0].body.queries).toHaveLength(2)
     expect(mocks.multiQueries[0].body.queries[0].rank_by[1]).toBe('ANN')
     expect(JSON.stringify(mocks.multiQueries[0].body.queries[1].rank_by)).toContain('BM25')
+    expect(JSON.stringify(mocks.multiQueries[0].body.queries[1].rank_by)).not.toContain('"text"')
   })
 
   it('maps indexed icon domain back to network policy for search result icons', async () => {

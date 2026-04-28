@@ -4556,6 +4556,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const builderAgentTurnInProgressRef = useRef(false)
 
     const apiBase = `/api/teams/${team.id}/bots/${bot.id}/skills`
+    const libraryApiBase = `/api/teams/${team.id}/bots/${bot.id}/skills-library`
     const workersLogsApi = `${apiBase}/workers-logs`
 
     const toggleExpandedLog = useCallback((logId) => {
@@ -4742,7 +4743,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             }
         }
         warm(apiBase)
-        warm(`${apiBase}/_library`)
+        warm(libraryApiBase)
         warm(`${apiBase}/__warmup/agent`)
         return () => ctrl?.abort()
         // Only on mount — warming once per bot is enough; the `onDemandEntries`
@@ -4796,7 +4797,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             const params = trimmedQuery
                 ? `?${new URLSearchParams({ query: trimmedQuery, limit: '24' }).toString()}`
                 : ''
-            const response = await fetch(`${apiBase}/_library${params}`, {
+            const response = await fetch(`${libraryApiBase}${params}`, {
                 credentials: 'same-origin',
             })
             const data = await response.json().catch(() => ({}))
@@ -4812,7 +4813,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         } finally {
             setLoadingLibrary(false)
         }
-    }, [apiBase])
+    }, [libraryApiBase])
 
     const refreshDraftUi = useCallback(
         async (skillName = selectedSkillName) => {
@@ -5383,7 +5384,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             setSimilarLibraryErrorText(null)
             try {
                 const params = new URLSearchParams({ query, limit: '3' })
-                const response = await fetch(`${apiBase}/_library?${params.toString()}`, {
+                const response = await fetch(`${libraryApiBase}?${params.toString()}`, {
                     credentials: 'same-origin',
                 })
                 const data = await response.json().catch(() => ({}))
@@ -5409,7 +5410,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             ignore = true
             clearTimeout(id)
         }
-    }, [apiBase, chatStarted, createMode, formTask])
+    }, [libraryApiBase, chatStarted, createMode, formTask])
 
     useEffect(() => {
         if (!createMode || chatStarted) return
@@ -5896,7 +5897,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         setErrorText(null)
         try {
             const response = await fetch(
-                `${apiBase}/_library/${encodeURIComponent(skill.id)}/import`,
+                `${libraryApiBase}/${encodeURIComponent(skill.id)}/import`,
                 {
                     method: 'POST',
                     credentials: 'same-origin',
@@ -5936,7 +5937,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         setDeletingLibrarySkillId(skill.id)
         setLibraryErrorText(null)
         try {
-            const response = await fetch(`${apiBase}/_library/${encodeURIComponent(skill.id)}`, {
+            const response = await fetch(`${libraryApiBase}/${encodeURIComponent(skill.id)}`, {
                 method: 'DELETE',
                 credentials: 'same-origin',
             })

@@ -885,14 +885,13 @@ export async function promoteSkillDraftToLibrary({
   const docRef = collection.doc(librarySkillName)
   const existing = await docRef.get()
   const record = libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId })
-  await docRef.set(
-    {
-      ...record,
-      ...(existing.exists ? {} : { createdAt: FieldValue.serverTimestamp() }),
-      updatedAt: FieldValue.serverTimestamp(),
-    },
-    { merge: true },
-  )
+  await docRef.set({
+    ...record,
+    createdAt: existing.exists
+      ? existing.data()?.createdAt || FieldValue.serverTimestamp()
+      : FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
+  })
 
   const saved = await docRef.get()
   const skill = serializeLibrarySkillRecord(saved.id, saved.data())

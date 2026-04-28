@@ -75,7 +75,7 @@ describe('skills library routes', () => {
   })
 
   it('lists library skills for users with bot access', async () => {
-    const { GET } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/_library/route')
+    const { GET } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills-library/route')
     const response = await GET(new Request('https://docsbot.example/library'), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1' }),
     })
@@ -88,7 +88,7 @@ describe('skills library routes', () => {
   })
 
   it('uses library hybrid search when a query is provided', async () => {
-    const { GET } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/_library/route')
+    const { GET } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills-library/route')
     const response = await GET(new Request('https://docsbot.example/library?query=forecast&limit=3'), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1' }),
     })
@@ -146,7 +146,7 @@ describe('skills library routes', () => {
 
   it('imports library skills for authorized bot managers', async () => {
     const { POST } = await import(
-      '@/app/api/teams/[teamId]/bots/[botId]/skills/_library/[librarySkillId]/import/route'
+      '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/import/route'
     )
     const response = await POST(new Request('https://docsbot.example/import', { method: 'POST' }), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', librarySkillId: 'weather' }),
@@ -172,7 +172,7 @@ describe('skills library routes', () => {
     mocks.listSkillDrafts.mockResolvedValue([{ name: 'existing' }])
 
     const { POST } = await import(
-      '@/app/api/teams/[teamId]/bots/[botId]/skills/_library/[librarySkillId]/import/route'
+      '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/import/route'
     )
     const response = await POST(new Request('https://docsbot.example/import', { method: 'POST' }), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', librarySkillId: 'weather' }),
@@ -190,7 +190,7 @@ describe('skills library routes', () => {
     mocks.isSuperAdmin.mockReturnValue(false)
 
     const { DELETE } = await import(
-      '@/app/api/teams/[teamId]/bots/[botId]/skills/_library/[librarySkillId]/route'
+      '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/route'
     )
     const response = await DELETE(new Request('https://docsbot.example/delete', { method: 'DELETE' }), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', librarySkillId: 'weather' }),
@@ -212,7 +212,7 @@ describe('skills library routes', () => {
     })
 
     const { DELETE } = await import(
-      '@/app/api/teams/[teamId]/bots/[botId]/skills/_library/[librarySkillId]/route'
+      '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/route'
     )
     const response = await DELETE(new Request('https://docsbot.example/delete', { method: 'DELETE' }), {
       params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', librarySkillId: 'weather' }),

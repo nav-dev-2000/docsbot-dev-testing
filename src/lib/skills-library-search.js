@@ -1,7 +1,7 @@
 import OpenAI from 'openai'
 import Turbopuffer from '@turbopuffer/turbopuffer'
 
-const DEFAULT_SKILLS_LIBRARY_SEARCH_NAMESPACE = 'docsbot-skills-library'
+const DEFAULT_SKILLS_LIBRARY_SEARCH_NAMESPACE = 'docsbot-skills-library-staging'
 const PRODUCTION_SKILLS_LIBRARY_SEARCH_NAMESPACE = 'docsbot-skills-library-production'
 
 function resolveSkillsLibrarySearchNamespace() {
@@ -149,7 +149,6 @@ export async function indexLibrarySkillForSearch(skill) {
     key: id,
     name: String(skill?.name || id),
     description: String(skill?.description || ''),
-    text,
     mode: String(skill?.mode || ''),
     audience: String(skill?.audience || ''),
     internal: Boolean(skill?.internal),
@@ -171,7 +170,6 @@ export async function indexLibrarySkillForSearch(skill) {
       key: { type: 'string', full_text_search: true },
       name: { type: 'string', full_text_search: true },
       description: { type: 'string', full_text_search: true },
-      text: { type: 'string', full_text_search: true },
       mode: 'string',
       audience: 'string',
       internal: 'bool',
@@ -251,7 +249,6 @@ export async function searchLibrarySkillsWithHybrid(query, options = {}) {
             ['Product', 3, ['name', 'BM25', q, { last_as_prefix: true }]],
             ['Product', 2, ['key', 'BM25', q, { last_as_prefix: true }]],
             ['description', 'BM25', q, { last_as_prefix: true }],
-            ['text', 'BM25', q, { last_as_prefix: true }],
           ],
         ],
         top_k: candidateLimit,

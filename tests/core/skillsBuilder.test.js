@@ -762,6 +762,64 @@ describe('skills-builder helpers', () => {
     )
   })
 
+  it('replaces an existing library skill document when promoting the same id', async () => {
+    const firestore = createLibraryFirestoreMock({
+      library: {
+        weather: {
+          name: 'weather',
+          description: 'Old weather skill.',
+          legacyField: 'remove-me',
+          createdAt: 'OLD_CREATED_AT',
+        },
+      },
+      local: {
+        weather: {
+          name: 'weather',
+          description: 'Updated weather skill.',
+          internal: true,
+          enabled: true,
+          enabledWidget: false,
+          hasFunctions: false,
+          icon: 'BoltIcon',
+          r2Prefix: 'team-1/bot-1/weather',
+          networkPolicy: { allowedDomains: ['api.weather.example'], allowedSchemes: ['https'] },
+          mode: 'markdown',
+          audience: 'internal',
+          publishedAt: '2026-04-22T00:00:00.000Z',
+        },
+      },
+    })
+
+    const { promoteSkillDraftToLibrary } = await import('@/lib/skills-builder')
+    await promoteSkillDraftToLibrary({
+      firestore,
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'weather',
+      userId: 'admin-1',
+    })
+
+    expect(firestore.state.library.weather).toEqual(
+      expect.objectContaining({
+        name: 'weather',
+        description: 'Updated weather skill.',
+        createdAt: 'OLD_CREATED_AT',
+        updatedAt: 'SERVER_TIMESTAMP',
+      }),
+    )
+    expect(firestore.state.library.weather).not.toHaveProperty('legacyField')
+    expect(mocks.copyPublishedSkillPackageToLibrary).toHaveBeenCalledWith(
+      'team-1/bot-1/weather',
+      'weather',
+    )
+    expect(mocks.indexLibrarySkillForSearch).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'weather',
+        description: 'Updated weather skill.',
+      }),
+    )
+  })
+
   it('returns configured library search hits directly from the search index', async () => {
     const firestore = createLibraryFirestoreMock()
     mocks.searchLibrarySkillsWithHybrid.mockResolvedValue({
