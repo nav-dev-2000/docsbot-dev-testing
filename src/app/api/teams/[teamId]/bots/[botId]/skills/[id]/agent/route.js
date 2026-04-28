@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { consumeStream, convertToModelMessages, stepCountIs, streamText } from 'ai'
+import { consumeStream, convertToModelMessages, hasToolCall, stepCountIs, streamText } from 'ai'
 import { createOpenAI, openai as openaiProviderDefault } from '@ai-sdk/openai'
 import { z } from 'zod'
 import embeddableWidgetDocs from '@/pages/documentation/developer/embeddable-chat-widget.md?raw'
@@ -343,6 +343,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Use the shell tool mainly for inspecting authored source files under ${WORKSPACE_ROOT}, optional local verification, and other CLI workflows that support authoring.
 - Treat ${WORKSPACE_ROOT} as the only writable bundle root.
 - Use the \`update_manifest\` tool for manifest changes.
+- Use \`ask_user_questions\` only when the user must choose a direction or provide non-secret information that cannot reasonably be represented as a configurable manifest binding. When you call it, make that call the only action in the step and stop immediately. Do not call another tool, continue reasoning, or write a fallback text question after \`ask_user_questions\`; wait for the form response.
 - Use the \`validate_skill_bundle\` tool after meaningful edits. It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.
 - Use the \`publish_skill_bundle\` tool before claiming the task is complete.
 - Do not generate, repair, or hand-author platform-generated artifacts yourself. Write source files, then use \`validate_skill_bundle\` and \`publish_skill_bundle\`.
@@ -354,6 +355,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 ## Platform rules
 - This chat is the only editing surface. Do not ask the user to manually edit files or manifest fields.
 - Do not ask the user to paste secrets, tokens, or integration IDs into chat. Declare required secretBindings instead.
+- Build skills as reusable templates for any team that installs them. Do not hard-code a customer's domains, workspace IDs, tenant IDs, account IDs, project IDs, helpdesk hosts, channel IDs, regions, email addresses, or similar deployment-specific values in code, SKILL.md, package files, references, or examples. Model these as env bindings, secret bindings, or metadata bindings in the manifest.
 - Keep all authored files within the supported skill bundle layout.
 - Use TypeScript for executable code.
 - Use ES modules format exclusively. Never use Service Worker format.
@@ -393,6 +395,8 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 
 ## Env, secrets, and customer metadata in \`update_manifest\` and scripts
 - **Register in the manifest** (via \`update_manifest\`): \`envBindings\` is \`{ envVar, value?, description? }\` for fixed non-secret deployment config such as workspace IDs, tenant IDs, account IDs, regions, or environment names. Omit \`value\` to keep the current saved value for that env var. \`secretBindings\` is \`{ envVar, description? }\` per credential (declare **names only**; never put secret values in chat, bundle files, or *.md). \`metadataBindings\` is \`{ envVar, metadataKey, description? }\` for each value supplied from the widget embed or chat context (\`metadataKey\` matches what the customer sets in embed configuration).
+- **Portability rule:** Account-specific non-secret values, including hosts/domains, workspace IDs, tenant IDs, project IDs, channel IDs, regions, and similar identifiers, belong in \`envBindings\` and should be read from \`ctx.env\` or used as \`{{ENV_VAR_NAME}}\` placeholders. If the value varies per end user or session, use \`metadataBindings\` instead. If the value is a credential, token, API key, webhook secret path, or other sensitive value, use \`secretBindings\`.
+- **Do not ask for identifiers just to code them in.** If a skill needs a service host, workspace or channel ID, repository owner/name, tenant or organization ID, account ID, subdomain, or comparable customer-specific identifier, declare a descriptive env binding such as \`SERVICE_DOMAIN\`, \`WORKSPACE_ID\`, \`CHANNEL_ID\`, \`REPOSITORY_OWNER\`, \`TENANT_ID\`, or \`ACCOUNT_ID\`. This allows the skill to be ported to other teams without updating code. Ask the user only when there is no reasonable generic binding design or when the user must choose between product behaviors.
 - **Binding descriptions:** When a binding would be confusing to a non-technical user, include a short one-sentence \`description\` in the manifest update so the UI can explain what the value is for.
 - **Env bindings:** The runtime exposes declared env bindings in \`ctx.env\` and as \`{{ENV_VAR_NAME}}\` placeholders in outbound URLs and headers. Use env bindings for non-secret config that stays fixed for this skill bot deployment, not for per-user/session values.
 - **Metadata:** The runtime passes metadata bindings into the skill handler through \`ctx.metadata\` (allowlisted values keyed by \`metadataKey\`). Treat missing keys safely. Use metadata for per-user/session context such as user email, customer ID, etc., not for fixed deployment config or raw secrets.
@@ -728,7 +732,7 @@ export async function POST(request, context) {
           truncation: 'auto',
         },
       },
-      stopWhen: stepCountIs(50),
+      stopWhen: [hasToolCall('ask_user_questions'), stepCountIs(50)],
       onFinish: async (event) => {
         try {
           const webSearchCalls = countWebSearchToolCallsInSteps(event.steps)

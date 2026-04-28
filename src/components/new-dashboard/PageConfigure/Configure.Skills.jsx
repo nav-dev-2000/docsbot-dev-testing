@@ -189,6 +189,26 @@ const BUILDER_CHAT_BUBBLE_INSET_USER = `ml-4 mr-2 min-w-0 w-fit ${BUILDER_CHAT_B
 /** Assistant UI that should span the chat row (forms, placeholders). */
 const BUILDER_CHAT_BUBBLE_WIDE_ASSISTANT = `ml-2 mr-4 min-w-0 w-full ${BUILDER_CHAT_BUBBLE_MAX_W}`
 
+function isAskUserQuestionsPart(part) {
+    return part?.type === 'tool-ask_user_questions'
+}
+
+function isPendingAskUserQuestionsPart(part) {
+    return (
+        part?.type === 'tool-ask_user_questions' &&
+        (part.state === 'input-available' || part.state === 'input-streaming')
+    )
+}
+
+function skillsBuilderShouldSendAutomatically({ messages }) {
+    const last = messages?.[messages.length - 1]
+    const pendingAsk = last?.role === 'assistant' && (last.parts || []).some(
+        (part) => isPendingAskUserQuestionsPart(part),
+    )
+    if (pendingAsk) return false
+    return lastAssistantMessageIsCompleteWithToolCalls({ messages })
+}
+
 /** Last assistant message: client-side `ask_user_questions` tool awaiting UI (input streaming or form). */
 function getAskUserQuestionsUiState(messages) {
     const last = messages[messages.length - 1]
@@ -383,24 +403,29 @@ function SkillsBuilderAskUserQuestionsForm({
                         const openValue = readOnly
                             ? (submittedSelections.openText[q.id] ?? '')
                             : (openText[q.id] ?? '')
+                        const openTextId = `skills-builder-ask-open-${part?.toolCallId}-${q.id}`
                         return (
                             <div key={q.id} className="space-y-2">
                                 <label
                                     className="block text-sm font-medium text-gray-900"
-                                    htmlFor={`skills-builder-ask-open-${part?.toolCallId}-${q.id}`}
+                                    htmlFor={readOnly ? undefined : openTextId}
                                 >
                                     {q.prompt}
                                     {q.optional ? (
                                         <span className="ml-1 font-normal text-gray-500">(optional)</span>
                                     ) : null}
                                 </label>
+                                {readOnly ? (
+                                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-800">
+                                        {openValue || 'No response'}
+                                    </p>
+                                ) : (
                                 <textarea
-                                    id={`skills-builder-ask-open-${part?.toolCallId}-${q.id}`}
-                                    name={`skills-builder-ask-open-${part?.toolCallId}-${q.id}`}
+                                    id={openTextId}
+                                    name={openTextId}
                                     rows={3}
                                     maxLength={2000}
-                                    disabled={!readOnly && controlsDisabled}
-                                    readOnly={readOnly}
+                                    disabled={controlsDisabled}
                                     placeholder={q.placeholder || ''}
                                     value={openValue}
                                     onChange={(e) => {
@@ -408,12 +433,13 @@ function SkillsBuilderAskUserQuestionsForm({
                                         setOpenText((prev) => ({ ...prev, [q.id]: e.target.value }))
                                     }}
                                     className={clsx(
-                                        'text-md block w-full resize-y rounded-lg border border-gray-300 px-3 py-2 outline-none ring-0',
+                                        'text-md block w-full resize-y rounded-lg border border-gray-300 px-3 py-2 outline-none ring-0 focus:outline-none focus-visible:outline-none',
                                         readOnly
-                                            ? 'cursor-default bg-white text-gray-800'
-                                            : 'focus:border-cyan-600 disabled:opacity-50',
+                                            ? 'cursor-default bg-white text-gray-800 disabled:opacity-100'
+                                            : 'focus:border-cyan-600 focus:ring-1 focus:ring-cyan-600 focus:ring-offset-0 focus-visible:border-cyan-600 focus-visible:ring-1 focus-visible:ring-cyan-600 focus-visible:ring-offset-0 disabled:opacity-50',
                                     )}
                                 />
+                                )}
                             </div>
                         )
                     }
@@ -423,14 +449,14 @@ function SkillsBuilderAskUserQuestionsForm({
             {error && !readOnly ? <p className="text-sm text-red-600">{error}</p> : null}
             {!readOnly ? (
                 <div className="flex justify-end pt-1">
-                    <Button
+                    <button
                         type="button"
-                        theme="blue"
-                        label="Submit answers"
-                        className="hover:bg-cyan-50"
+                        className="inline-flex items-center justify-center gap-1.5 rounded-md border-2 border-cyan-600 bg-white px-3 py-1.5 text-sm font-semibold text-cyan-700 shadow-sm transition hover:bg-cyan-50 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-white"
                         onClick={validateAndSubmit}
                         disabled={controlsDisabled}
-                    />
+                    >
+                        Submit answers
+                    </button>
                 </div>
             ) : null}
             </div>
@@ -1647,7 +1673,7 @@ function getToolSummary(part) {
         return preview ? `Ran skill code: ${preview}` : 'Ran skill code'
     }
 
-    if (part?.type === 'tool-ask_user_questions') {
+    if (isAskUserQuestionsPart(part)) {
         const n = part?.input?.questions?.length
         if (part.state === 'output-available') return 'Your answers were sent to the agent'
         if (part.state === 'input-available') {
@@ -1840,33 +1866,6 @@ function CollapsedAssistantToolCalls({ durationMs, runCostTooltipContent, childr
     )
 }
 
-/** Interleave "normal" activity (can collapse) with `ask_user_questions`, which is shown as a separate message. */
-function splitActivityPartsForAskMessages(parts) {
-    const list = Array.isArray(parts) ? parts : []
-    const segments = []
-    let i = 0
-    while (i < list.length) {
-        if (list[i]?.type === 'tool-ask_user_questions') {
-            const askParts = []
-            while (i < list.length && list[i]?.type === 'tool-ask_user_questions') {
-                askParts.push(list[i])
-                i += 1
-            }
-            segments.push({ kind: 'ask_message', parts: askParts })
-        } else {
-            const activityParts = []
-            while (i < list.length && list[i]?.type !== 'tool-ask_user_questions') {
-                activityParts.push(list[i])
-                i += 1
-            }
-            if (activityParts.length) {
-                segments.push({ kind: 'activity', parts: activityParts })
-            }
-        }
-    }
-    return segments
-}
-
 function AssistantActivityCollapseSegment({
     parts,
     isStreaming,
@@ -1905,57 +1904,23 @@ function AssistantActivityCollapseSegment({
     return <AssistantActivityRowsContent {...contentProps} parts={parts} isStreaming={isStreaming} />
 }
 
-/** White card, same family as `AssistantTextBubble`, wide enough for the MCQ form. */
-function AssistantAskUserQuestionsMessageBubble({ children }) {
-    return (
-        <div
-            className={clsx(
-                'rounded-md border border-gray-200 bg-white text-left shadow-sm sm:rounded-lg',
-                BUILDER_CHAT_BUBBLE_WIDE_ASSISTANT,
-            )}
-        >
-            <div className="p-5 sm:p-6 sm:px-8">{children}</div>
-        </div>
-    )
-}
-
 function AssistantActivityRows(props) {
     const { parts, isStreaming, messageDurationMs, runCostTooltipContent, message, ...contentProps } = props
-    const segments = useMemo(() => splitActivityPartsForAskMessages(parts), [parts])
 
-    if (segments.length === 0) {
+    if (!parts?.length) {
         return null
     }
 
     return (
         <div className="space-y-1">
-            {segments.map((seg, segIndex) => {
-                if (seg.kind === 'ask_message') {
-                    return (
-                        <div key={`${message.id}-ask-msg-${segIndex}`}>
-                            <AssistantAskUserQuestionsMessageBubble>
-                                <AssistantActivityRowsContent
-                                    message={message}
-                                    parts={seg.parts}
-                                    isStreaming={isStreaming}
-                                    {...contentProps}
-                                />
-                            </AssistantAskUserQuestionsMessageBubble>
-                        </div>
-                    )
-                }
-                return (
-                    <AssistantActivityCollapseSegment
-                        key={`${message.id}-act-seg-${segIndex}`}
-                        parts={seg.parts}
-                        isStreaming={isStreaming}
-                        messageDurationMs={messageDurationMs}
-                        runCostTooltipContent={runCostTooltipContent}
-                        message={message}
-                        {...contentProps}
-                    />
-                )
-            })}
+            <AssistantActivityCollapseSegment
+                parts={parts}
+                isStreaming={isStreaming}
+                messageDurationMs={messageDurationMs}
+                runCostTooltipContent={runCostTooltipContent}
+                message={message}
+                {...contentProps}
+            />
         </div>
     )
 }
@@ -2014,7 +1979,8 @@ function AssistantActivityRowsContent({
                     const title = getFirstLine(reasoningText) || 'Thought'
                     const body = reasoningBodyForDisplay(reasoningText)
                     const canExpand = Boolean(body)
-                    const isExpanded = canExpand && isRowExpanded(rowKey)
+                    const isStreamingLatestReasoning = isLatestPart && isStreaming
+                    const isExpanded = canExpand && (isStreamingLatestReasoning || isRowExpanded(rowKey))
 
                     if (!reasoningText && hasFutureEvent) {
                         return null
@@ -2055,7 +2021,7 @@ function AssistantActivityRowsContent({
                                         canExpand && 'hover:text-gray-900',
                                     )}
                                     onClick={() => {
-                                        if (canExpand) toggleRowExpanded(rowKey)
+                                        if (canExpand && !isStreamingLatestReasoning) toggleRowExpanded(rowKey)
                                     }}
                                 >
                                     <span className="min-w-0 flex-1 truncate font-medium text-gray-700">
@@ -2678,11 +2644,9 @@ function AssistantActivityRowsContent({
                         )
                     }
 
-                    if (part.type === 'tool-ask_user_questions') {
-                        const isLastPart = globalIndex === allParts.length - 1
+                    if (isAskUserQuestionsPart(part)) {
                         const showInline =
                             isLatestMessage &&
-                            isLastPart &&
                             (part.state === 'input-available' || part.state === 'input-streaming')
 
                         if (part.state === 'output-available') {
@@ -2717,47 +2681,9 @@ function AssistantActivityRowsContent({
                             )
                         }
 
-                        if (showInline && part.state === 'input-streaming') {
-                            return (
-                                <div
-                                    key={`${message.id}-tool-${index}`}
-                                    className={clsx('space-y-3', BUILDER_CHAT_BUBBLE_WIDE_ASSISTANT)}
-                                >
-                                    <div className="flex min-h-16 w-full flex-wrap items-center justify-between gap-3 rounded-md border border-dashed border-gray-200 bg-gray-50 px-5 py-4 text-sm text-gray-600 sm:px-8 sm:py-6">
-                                        <span>Preparing choices…</span>
-                                        {isStreaming ? (
-                                            <button
-                                                type="button"
-                                                onClick={(e) => onStopComposer?.(e)}
-                                                className="shrink-0 rounded-md border border-cyan-600 bg-white px-3 py-1.5 text-sm font-medium text-cyan-800 shadow-sm transition-colors hover:border-cyan-600 hover:bg-cyan-50 hover:text-cyan-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-1 active:bg-cyan-100/80"
-                                            >
-                                                Stop
-                                            </button>
-                                        ) : null}
-                                    </div>
-                                </div>
-                            )
-                        }
+                        if (showInline && part.state === 'input-streaming') return null
 
-                        const summary =
-                            part.state === 'input-available'
-                                ? 'Questions for you'
-                                : part.state === 'input-streaming'
-                                  ? 'Preparing questions…'
-                                  : toolSummary
-                        return (
-                            <div
-                                key={`${message.id}-tool-${index}`}
-                                className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
-                            >
-                                <ActivityTimelineIcon>
-                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
-                                </ActivityTimelineIcon>
-                                <div className="min-w-0 flex-1 text-gray-700">
-                                    <div className="truncate font-medium text-gray-700">{summary}</div>
-                                </div>
-                            </div>
-                        )
+                        return null
                     }
 
                     const isExpanded = isRowExpanded(rowKey)
@@ -2869,52 +2795,111 @@ function mergeAdjacentActivityGroups(groups) {
         const prev = merged[merged.length - 1]
         if (g.kind === 'activity' && prev?.kind === 'activity') {
             prev.parts = prev.parts.concat(g.parts)
+            prev.firstIndex = Math.min(prev.firstIndex, g.firstIndex)
+            prev.lastIndex = Math.max(prev.lastIndex, g.lastIndex)
         } else {
             merged.push(
                 g.kind === 'text'
-                    ? { kind: 'text', parts: [...g.parts] }
-                    : { kind: 'activity', parts: [...g.parts] },
+                    ? { kind: 'text', parts: [...g.parts], firstIndex: g.firstIndex, lastIndex: g.lastIndex }
+                    : { kind: 'activity', parts: [...g.parts], firstIndex: g.firstIndex, lastIndex: g.lastIndex },
             )
         }
     }
     return merged
 }
 
-/** Preserve assistant message part order so text and tool/reasoning rows interleave like the model stream. */
-function groupAssistantPartsForDisplay(parts) {
+function getRenderableAskUserQuestionsPartEntry(parts, isLatestMessage) {
     const list = Array.isArray(parts) ? parts : []
+    const askEntries = []
+    for (let index = 0; index < list.length; index += 1) {
+        if (isAskUserQuestionsPart(list[index])) {
+            askEntries.push({ part: list[index], index })
+        }
+    }
+    if (!askEntries.length) return null
+
+    for (let i = askEntries.length - 1; i >= 0; i -= 1) {
+        if (askEntries[i].part?.state === 'output-available') return askEntries[i]
+    }
+
+    if (!isLatestMessage) return null
+
+    for (let i = askEntries.length - 1; i >= 0; i -= 1) {
+        if (askEntries[i].part?.state === 'input-available') return askEntries[i]
+    }
+
+    return null
+}
+
+function groupNonAskAssistantPartsForDisplay(parts) {
+    const list = Array.isArray(parts)
+        ? parts
+              .map((part, index) => ({ part, index }))
+              .filter(({ part }) => !isAskUserQuestionsPart(part))
+        : []
     const groups = []
     let i = 0
     while (i < list.length) {
-        const p = list[i]
+        const p = list[i].part
         const t = p?.type
         if (t === 'text') {
             const chunk = []
-            while (i < list.length && list[i]?.type === 'text') {
+            while (i < list.length && list[i].part?.type === 'text') {
                 chunk.push(list[i])
                 i++
             }
-            if (chunk.some((tp) => getPartText({ text: tp.text }).length > 0)) {
-                groups.push({ kind: 'text', parts: chunk })
+            if (chunk.some(({ part }) => getPartText({ text: part.text }).length > 0)) {
+                groups.push({
+                    kind: 'text',
+                    parts: chunk.map(({ part }) => part),
+                    firstIndex: chunk[0].index,
+                    lastIndex: chunk[chunk.length - 1].index,
+                })
             }
         } else if (t === 'reasoning' || (typeof t === 'string' && t.startsWith('tool-'))) {
             const chunk = []
             while (
                 i < list.length &&
-                (list[i]?.type === 'reasoning' ||
-                    (typeof list[i]?.type === 'string' && list[i].type.startsWith('tool-')))
+                (list[i].part?.type === 'reasoning' ||
+                    (typeof list[i].part?.type === 'string' && list[i].part.type.startsWith('tool-')))
             ) {
                 chunk.push(list[i])
                 i++
             }
             if (chunk.length) {
-                groups.push({ kind: 'activity', parts: chunk })
+                groups.push({
+                    kind: 'activity',
+                    parts: chunk.map(({ part }) => part),
+                    firstIndex: chunk[0].index,
+                    lastIndex: chunk[chunk.length - 1].index,
+                })
             }
         } else {
             i++
         }
     }
     return mergeAdjacentActivityGroups(groups)
+}
+
+/** Preserve assistant message part order so text and tool/reasoning rows interleave like the model stream. */
+function groupAssistantPartsForDisplay(parts, { isLatestMessage = false } = {}) {
+    const list = Array.isArray(parts) ? parts : []
+    const askEntry = getRenderableAskUserQuestionsPartEntry(list, isLatestMessage)
+    if (!askEntry) return groupNonAskAssistantPartsForDisplay(list)
+
+    return [
+        ...groupNonAskAssistantPartsForDisplay(list.slice(0, askEntry.index)),
+        { kind: 'ask', parts: [askEntry.part], firstIndex: askEntry.index, lastIndex: askEntry.index },
+        ...groupNonAskAssistantPartsForDisplay(list.slice(askEntry.index + 1)).map((group) => ({
+            ...group,
+            firstIndex: group.firstIndex + askEntry.index + 1,
+            lastIndex: group.lastIndex + askEntry.index + 1,
+        })),
+    ]
+}
+
+function getAssistantActivitySegmentKey(messageId, segment) {
+    return `${messageId}:activity:${segment.firstIndex ?? 0}-${segment.lastIndex ?? 0}`
 }
 
 function AssistantMessageBlock({
@@ -2925,28 +2910,51 @@ function AssistantMessageBlock({
     chatStarted,
     onStopComposer,
     onBeforeSubmitAnswers,
-    assistantMessageDurationMs,
+    activitySegmentSnapshots,
     isSuperAdminViewer,
 }) {
     const parts = message.parts || []
-    const groups = groupAssistantPartsForDisplay(parts)
+    const groups = groupAssistantPartsForDisplay(parts, { isLatestMessage })
 
     if (groups.length === 0) {
         return null
     }
 
-    const runCostTooltipContent =
-        isSuperAdminViewer &&
-        typeof message.metadata?.skillsBuilderAgentUsage?.estimatedCostUsd === 'number'
-            ? `Est. this turn: ~$${message.metadata.skillsBuilderAgentUsage.estimatedCostUsd.toFixed(4)}`
-            : null
-
     return (
         <div className="space-y-1">
-            {groups.map((segment, segIndex) =>
-                segment.kind === 'activity' ? (
+            {groups.map((segment, segIndex) => {
+                if (segment.kind === 'activity') {
+                    const segmentIsStreaming = isStreaming && segIndex === groups.length - 1
+                    const segmentSnapshot = activitySegmentSnapshots.get(
+                        getAssistantActivitySegmentKey(message.id, segment),
+                    )
+                    const runCostTooltipContent =
+                        isSuperAdminViewer &&
+                        typeof segmentSnapshot?.usage?.estimatedCostUsd === 'number'
+                            ? `Est. this turn: ~$${segmentSnapshot.usage.estimatedCostUsd.toFixed(4)}`
+                            : null
+                    return (
                     <div key={`${message.id}-seg-${segIndex}`}>
                         <AssistantActivityRows
+                            message={message}
+                            parts={segment.parts}
+                            isLatestMessage={isLatestMessage}
+                            isStreaming={segmentIsStreaming}
+                            addToolOutput={addToolOutput}
+                            chatStarted={chatStarted}
+                            onStopComposer={onStopComposer}
+                            onBeforeSubmitAnswers={onBeforeSubmitAnswers}
+                            messageDurationMs={segmentSnapshot?.durationMs}
+                            runCostTooltipContent={runCostTooltipContent}
+                        />
+                    </div>
+                    )
+                }
+
+                if (segment.kind === 'ask') {
+                    return (
+                        <AssistantActivityRowsContent
+                            key={`${message.id}-ask-${segIndex}`}
                             message={message}
                             parts={segment.parts}
                             isLatestMessage={isLatestMessage}
@@ -2955,19 +2963,19 @@ function AssistantMessageBlock({
                             chatStarted={chatStarted}
                             onStopComposer={onStopComposer}
                             onBeforeSubmitAnswers={onBeforeSubmitAnswers}
-                            messageDurationMs={assistantMessageDurationMs}
-                            runCostTooltipContent={runCostTooltipContent}
                         />
-                    </div>
-                ) : (
+                    )
+                }
+
+                return (
                     <AssistantTextBubble
                         key={`${message.id}-seg-${segIndex}`}
                         parts={segment.parts}
                         isStreaming={isStreaming}
                         isLatestMessage={isLatestMessage && segIndex === groups.length - 1}
                     />
-                ),
-            )}
+                )
+            })}
         </div>
     )
 }
@@ -4552,6 +4560,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     /** Epoch ms; while now < this value, skip follow-to-bottom (cleared on send / skill change). */
     const builderChatSuppressFollowUntilRef = useRef(0)
     const chatStatusForScrollRef = useRef('ready')
+    const builderChatResponseTimerRef = useRef(null)
     /** Same truth as `loading` (agent turn in progress); kept on a ref for navigators declared below `useChat`. */
     const builderAgentTurnInProgressRef = useRef(false)
 
@@ -4886,7 +4895,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             : undefined,
         messages: [],
         transport: chatTransport,
-        sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
+        sendAutomaticallyWhen: skillsBuilderShouldSendAutomatically,
         onFinish: async () => {
             if (!selectedSkillName) return
             const slug = selectedSkillName
@@ -4964,37 +4973,67 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         })
     }, [isSuperAdminViewer, draftState.draft?.agent?.builderUsageTotals, chat.messages])
 
-    const [assistantMessageDurationsMs, setAssistantMessageDurationsMs] = useState(() => new Map())
+    const [activitySegmentSnapshots, setActivitySegmentSnapshots] = useState(() => new Map())
 
     useEffect(() => {
         const messages = chat.messages || []
         const last = messages[messages.length - 1]
-        if (!last || last.role !== 'assistant') return
+        const now = Date.now()
+        const isRequestActive = chat.status === 'submitted' || chat.status === 'streaming'
 
-        const id = last.id
+        if (isRequestActive && !builderChatResponseTimerRef.current) {
+            builderChatResponseTimerRef.current = { start: now, startPartIndex: 0, sawActive: true }
+        } else if (isRequestActive && builderChatResponseTimerRef.current) {
+            builderChatResponseTimerRef.current.sawActive = true
+        }
 
-        if (chat.status === 'streaming') {
-            setAssistantMessageDurationsMs((prev) => {
-                if (prev.has(id)) return prev
-                const next = new Map(prev)
-                next.set(id, { start: Date.now() })
-                return next
-            })
-        } else if (chat.status === 'ready') {
-            setAssistantMessageDurationsMs((prev) => {
-                const cur = prev.get(id)
-                if (!cur?.start || cur.durationMs != null) return prev
-                const next = new Map(prev)
-                next.set(id, {
-                    ...cur,
-                    durationMs: Math.max(0, Date.now() - cur.start),
-                })
-                return next
-            })
+        if (
+            chat.status === 'ready' &&
+            builderChatResponseTimerRef.current &&
+            builderChatResponseTimerRef.current.sawActive
+        ) {
+            const start = builderChatResponseTimerRef.current.start
+            const startPartIndex = builderChatResponseTimerRef.current.startPartIndex ?? 0
+            if (last?.role === 'assistant') {
+                const durationMs = Math.max(0, now - start)
+                const groups = groupAssistantPartsForDisplay(last.parts || [], { isLatestMessage: true })
+                const matchingSegments = groups.filter(
+                    (group) => group.kind === 'activity' && group.lastIndex >= startPartIndex,
+                )
+                const activitySegments = groups.filter((group) => group.kind === 'activity')
+                const targetSegment =
+                    matchingSegments[matchingSegments.length - 1] ||
+                    activitySegments[activitySegments.length - 1]
+                if (targetSegment) {
+                    const usage = last.metadata?.skillsBuilderAgentUsage || null
+                    setActivitySegmentSnapshots((prev) => {
+                        const next = new Map(prev)
+                        next.set(getAssistantActivitySegmentKey(last.id, targetSegment), {
+                            start,
+                            durationMs,
+                            usage,
+                        })
+                        return next
+                    })
+                }
+            }
+            builderChatResponseTimerRef.current = null
         }
     }, [chat.messages, chat.status])
 
-    const addToolOutput = chat.addToolOutput
+    const addToolOutput = useCallback(
+        (args) => {
+            const messages = chat.messages || []
+            const lastAssistant = [...messages].reverse().find((message) => message?.role === 'assistant')
+            builderChatResponseTimerRef.current = {
+                start: Date.now(),
+                startPartIndex: Array.isArray(lastAssistant?.parts) ? lastAssistant.parts.length : 0,
+                sawActive: false,
+            }
+            return chat.addToolOutput(args)
+        },
+        [chat],
+    )
 
     const loading = chat.status === 'submitted' || chat.status === 'streaming'
 
@@ -5012,7 +5051,8 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         clearPersistedChatLog(selectedSkillName)
         setErrorText(null)
         setInfoText(null)
-        setAssistantMessageDurationsMs(new Map())
+        setActivitySegmentSnapshots(new Map())
+        builderChatResponseTimerRef.current = null
         builderChatPrevMessageCountRef.current = 0
         processedToolEventKeysRef.current = new Set()
         builderChatFollowStreamRef.current = false
@@ -5053,6 +5093,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             setInfoText(null)
             builderChatFollowStreamRef.current = true
             builderChatSuppressFollowUntilRef.current = 0
+            builderChatResponseTimerRef.current = { start: Date.now(), startPartIndex: 0 }
 
             try {
                 const maybePromise = chat.sendMessage({ text: content })
@@ -6415,9 +6456,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                 chatStarted={chatStarted}
                                                 onStopComposer={handleStopComposer}
                                                 onBeforeSubmitAnswers={handleBuilderChatBeforeAskAnswers}
-                                                assistantMessageDurationMs={assistantMessageDurationsMs.get(
-                                                    message.id,
-                                                )?.durationMs}
+                                                activitySegmentSnapshots={activitySegmentSnapshots}
                                                 isSuperAdminViewer={isSuperAdminViewer}
                                             />
                                         )
@@ -6440,7 +6479,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                             </button>
                         ) : null}
                         </div>
-                        {askUi.phase === 'none' ? (
+                        {askUi.phase !== 'form' ? (
                             <div className="shrink-0 bg-white px-0 pb-1.5 pt-0 sm:pb-2">
                             <form
                                 ref={builderComposerRef}

@@ -13,6 +13,7 @@ const mocks = vi.hoisted(() => {
   return {
     consumeStream: vi.fn(),
     convertToModelMessages: vi.fn(async (messages) => messages),
+    hasToolCall: vi.fn((toolName) => ({ type: 'hasToolCall', toolName })),
     stepCountIs: vi.fn((steps) => ({ type: 'stepCountIs', steps })),
     streamText: vi.fn(),
     openai,
@@ -73,6 +74,7 @@ const mocks = vi.hoisted(() => {
 vi.mock('ai', () => ({
   consumeStream: mocks.consumeStream,
   convertToModelMessages: mocks.convertToModelMessages,
+  hasToolCall: mocks.hasToolCall,
   stepCountIs: mocks.stepCountIs,
   streamText: mocks.streamText,
 }))
@@ -386,6 +388,11 @@ describe('skills agent route', () => {
         truncation: 'auto',
       },
     })
+    expect(mocks.hasToolCall).toHaveBeenCalledWith('ask_user_questions')
+    expect(mocks.streamArgs.stopWhen).toEqual([
+      { type: 'hasToolCall', toolName: 'ask_user_questions' },
+      { type: 'stepCountIs', steps: 50 },
+    ])
     expect(mocks.streamArgs.system).toContain('SKILL.md is the runtime skill file for the finished skill')
     expect(mocks.streamArgs.system).toContain(
       'Use the apply_patch tool for creating, updating, or deleting bundle files under /workspace.',
@@ -437,6 +444,18 @@ describe('skills agent route', () => {
     )
     expect(mocks.streamArgs.system).toContain(
       'It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'When you call it, make that call the only action in the step and stop immediately.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Build skills as reusable templates for any team that installs them.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Account-specific non-secret values, including hosts/domains such as `acme.freshdesk.com`, workspace IDs, tenant IDs, project IDs, channel IDs, regions, and similar identifiers, belong in `envBindings`',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not ask for deployment IDs just to code them in.',
     )
     expect(mocks.streamArgs.system).toContain(
       'local `node_modules` contents are not the source of truth for validation.',
