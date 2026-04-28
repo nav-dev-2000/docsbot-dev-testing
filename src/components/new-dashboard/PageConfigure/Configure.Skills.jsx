@@ -12,7 +12,9 @@ import {
     ArrowDownIcon,
     ArrowLeftIcon,
     ArrowPathIcon,
+    ArrowDownTrayIcon,
     BeakerIcon,
+    BookOpenIcon,
     BoltIcon,
     BuildingOffice2Icon,
     ChatBubbleLeftRightIcon,
@@ -59,6 +61,15 @@ import { parseSkillIdFromBotAppAsPath } from '@/lib/botRoutes'
 import { buildBindingsHelpPrompt } from '@/lib/skills-bindings-help'
 import { formatSkillNameDisplay, normalizeSkillName } from '@/lib/skill-name-normalize'
 import { buildSkillsBuilderUsageTooltip } from '@/lib/skills-agent-usage'
+import {
+    filterSkillsLibrary,
+    SKILLS_LIBRARY_AUDIENCE_ALL,
+    SKILLS_LIBRARY_AUDIENCE_CUSTOMER,
+    SKILLS_LIBRARY_AUDIENCE_INTERNAL,
+    SKILLS_LIBRARY_CAPABILITY_ALL,
+    SKILLS_LIBRARY_CAPABILITY_EXECUTABLE,
+    SKILLS_LIBRARY_CAPABILITY_MARKDOWN,
+} from '@/lib/skills-library-ui'
 import {
     createSkillsBuilderChatCache,
     readSkillsBuilderChatCache,
@@ -3764,7 +3775,7 @@ function isExecutableSkillMode(mode, hasFunctions) {
 }
 
 /** Markdown / instructional vs executable scripts (list + detail tooltips). */
-function SkillCapabilityIcon({ mode, hasFunctions, size = 'md', className }) {
+function SkillCapabilityIcon({ mode, hasFunctions, size = 'md', className, tooltipZIndex }) {
     const executable = isExecutableSkillMode(mode, hasFunctions)
     const label = executable ? 'Includes scripts to perform actions' : 'Instructional (markdown)'
     const tip = executable
@@ -3773,7 +3784,7 @@ function SkillCapabilityIcon({ mode, hasFunctions, size = 'md', className }) {
     const Icon = executable ? CommandLineIcon : AcademicCapIcon
     const dim = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5'
     return (
-        <Tooltip content={tip}>
+        <Tooltip content={tip} zIndex={tooltipZIndex}>
             <span
                 className={clsx(
                     'inline-flex cursor-default rounded-md text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-800',
@@ -3789,7 +3800,7 @@ function SkillCapabilityIcon({ mode, hasFunctions, size = 'md', className }) {
 }
 
 /** Customer-facing vs internal audience (list + detail tooltips). */
-function SkillAudienceIcon({ internal, size = 'md', className }) {
+function SkillAudienceIcon({ internal, size = 'md', className, tooltipZIndex }) {
     const isInternal = Boolean(internal)
     const label = isInternal ? 'Internal-only' : 'Customer-facing'
     const tip = isInternal
@@ -3798,7 +3809,7 @@ function SkillAudienceIcon({ internal, size = 'md', className }) {
     const Icon = isInternal ? BuildingOffice2Icon : GlobeAltIcon
     const dim = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5'
     return (
-        <Tooltip content={tip}>
+        <Tooltip content={tip} zIndex={tooltipZIndex}>
             <span
                 className={clsx(
                     'inline-flex cursor-default rounded-md text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-800',
@@ -4269,6 +4280,217 @@ function SkillsPageWorkspaceTitle() {
     )
 }
 
+const SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX = 1000001
+
+function SkillsLibraryModal({
+    open,
+    onClose,
+    skills,
+    loading,
+    errorText,
+    search,
+    setSearch,
+    capabilityFilter,
+    setCapabilityFilter,
+    audienceFilter,
+    setAudienceFilter,
+    importingSkillId,
+    deletingLibrarySkillId,
+    isSuperAdminViewer,
+    onImportSkill,
+    onDeleteLibrarySkill,
+}) {
+    const filteredSkills = useMemo(
+        () =>
+            filterSkillsLibrary(skills, {
+                query: '',
+                capability: capabilityFilter,
+                audience: audienceFilter,
+            }),
+        [audienceFilter, capabilityFilter, skills],
+    )
+
+    return (
+        <Transition.Root show={open} as={Fragment}>
+            <Dialog as="div" className="relative z-modal" onClose={onClose}>
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-150"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-100"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <div className="fixed inset-0 bg-gray-900/40" />
+                </Transition.Child>
+                <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4">
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-150"
+                            enterFrom="translate-y-2 opacity-0 sm:scale-95"
+                            enterTo="translate-y-0 opacity-100 sm:scale-100"
+                            leave="ease-in duration-100"
+                            leaveFrom="translate-y-0 opacity-100 sm:scale-100"
+                            leaveTo="translate-y-2 opacity-0 sm:scale-95"
+                        >
+                            <Dialog.Panel className="flex max-h-[85vh] w-full max-w-4xl flex-col overflow-hidden rounded-xl bg-white shadow-xl">
+                                <div className="flex shrink-0 items-start justify-between gap-3 border-b border-gray-200 px-5 py-4">
+                                    <div className="min-w-0">
+                                        <Dialog.Title className="text-base font-semibold text-gray-900">
+                                            Add from skills library
+                                        </Dialog.Title>
+                                        <p className="mt-1 text-sm text-gray-500">
+                                            Import a disconnected copy into this bot.
+                                        </p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={onClose}
+                                        className="inline-flex shrink-0 items-center justify-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                                    >
+                                        <XMarkIcon className="h-5 w-5" aria-hidden />
+                                        <span className="sr-only">Close</span>
+                                    </button>
+                                </div>
+                                <div className="shrink-0 border-b border-gray-100 px-5 py-4">
+                                    <div className="flex flex-col gap-3 md:flex-row md:items-center">
+                                        <label className="relative min-w-0 flex-1">
+                                            <MagnifyingGlassIcon
+                                                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+                                                aria-hidden
+                                            />
+                                            <input
+                                                type="search"
+                                                value={search}
+                                                onChange={(e) => setSearch(e.target.value)}
+                                                placeholder="Search by name or description"
+                                                className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                            />
+                                        </label>
+                                        <div className="flex shrink-0 flex-wrap gap-2">
+                                            <select
+                                                value={capabilityFilter}
+                                                onChange={(e) => setCapabilityFilter(e.target.value)}
+                                                className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                            >
+                                                <option value={SKILLS_LIBRARY_CAPABILITY_ALL}>All capabilities</option>
+                                                <option value={SKILLS_LIBRARY_CAPABILITY_MARKDOWN}>Instructions only</option>
+                                                <option value={SKILLS_LIBRARY_CAPABILITY_EXECUTABLE}>Executable</option>
+                                            </select>
+                                            <select
+                                                value={audienceFilter}
+                                                onChange={(e) => setAudienceFilter(e.target.value)}
+                                                className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                            >
+                                                <option value={SKILLS_LIBRARY_AUDIENCE_ALL}>All audiences</option>
+                                                <option value={SKILLS_LIBRARY_AUDIENCE_CUSTOMER}>Customer-facing</option>
+                                                <option value={SKILLS_LIBRARY_AUDIENCE_INTERNAL}>Internal-only</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
+                                    {errorText ? <Alert title={alertString(errorText)} type="error" /> : null}
+                                    {loading ? (
+                                        <Workspace.Loader message="Loading skills library…" />
+                                    ) : filteredSkills.length === 0 ? (
+                                        <div className="rounded-lg border border-dashed border-gray-300 p-8 text-center text-sm text-gray-500">
+                                            No library skills match the current search and filters.
+                                        </div>
+                                    ) : (
+                                        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                                            {filteredSkills.map((skill) => {
+                                                const isImporting = importingSkillId === skill.id
+                                                const isDeleting = deletingLibrarySkillId === skill.id
+                                                return (
+                                                    <div
+                                                        key={skill.id}
+                                                        className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+                                                    >
+                                                        <div className="flex min-w-0 items-start gap-3">
+                                                            <SkillListIcon
+                                                                icon={skill.icon}
+                                                                networkPolicy={skill.networkPolicy}
+                                                            />
+                                                            <div className="min-w-0 flex-1">
+                                                                <div className="text-sm font-semibold text-gray-900">
+                                                                    {formatSkillNameDisplay(skill.name, 'Skill')}
+                                                                </div>
+                                                                <p className="mt-1 line-clamp-3 text-sm text-gray-600">
+                                                                    {skillListDescription(skill.description) ||
+                                                                        'No description yet.'}
+                                                                </p>
+                                                                <div className="mt-3 flex items-center justify-between gap-2">
+                                                                    <div className="flex min-w-0 items-center gap-0.5">
+                                                                        <SkillAudienceIcon
+                                                                            internal={skill.internal}
+                                                                            size="sm"
+                                                                            tooltipZIndex={SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX}
+                                                                        />
+                                                                        <SkillCapabilityIcon
+                                                                            mode={skill.mode}
+                                                                            hasFunctions={skill.hasFunctions}
+                                                                            size="sm"
+                                                                            tooltipZIndex={SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="flex shrink-0 items-center gap-1.5">
+                                                                        {isSuperAdminViewer ? (
+                                                                            <Tooltip
+                                                                                content={isDeleting ? 'Deleting…' : 'Delete from library'}
+                                                                                zIndex={SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX}
+                                                                            >
+                                                                                <span className="inline-flex">
+                                                                                    <button
+                                                                                        type="button"
+                                                                                        disabled={isDeleting || isImporting}
+                                                                                        onClick={() => onDeleteLibrarySkill(skill)}
+                                                                                        className="inline-flex items-center justify-center rounded-lg border border-transparent p-2 text-red-700 hover:border-red-200 hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-50"
+                                                                                    >
+                                                                                        {isDeleting ? (
+                                                                                            <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                                                                        ) : (
+                                                                                            <TrashIcon className="h-4 w-4" aria-hidden />
+                                                                                        )}
+                                                                                        <span className="sr-only">Delete from library</span>
+                                                                                    </button>
+                                                                                </span>
+                                                                            </Tooltip>
+                                                                        ) : null}
+                                                                        <button
+                                                                            type="button"
+                                                                            disabled={isImporting || isDeleting}
+                                                                            onClick={() => onImportSkill(skill)}
+                                                                            className="inline-flex items-center gap-1.5 rounded-lg border border-cyan-700 bg-cyan-700 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-cyan-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                                                        >
+                                                                            {isImporting ? (
+                                                                                <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                                                            ) : (
+                                                                                <ArrowDownTrayIcon className="h-4 w-4" aria-hidden />
+                                                                            )}
+                                                                            Import
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
+                            </Dialog.Panel>
+                        </Transition.Child>
+                    </div>
+                </div>
+            </Dialog>
+        </Transition.Root>
+    )
+}
+
 const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const router = useRouter()
     const [detailTab, setDetailTab] = useState('builder')
@@ -4300,6 +4522,19 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     /** Bumped to recreate the @ai-sdk `useChat` instance so the next request omits prior thread + stream state. */
     const [builderChatSessionEpoch, setBuilderChatSessionEpoch] = useState(0)
     const [isDeletingSkill, setIsDeletingSkill] = useState(false)
+    const [isPromotingLibrarySkill, setIsPromotingLibrarySkill] = useState(false)
+    const [libraryOpen, setLibraryOpen] = useState(false)
+    const [librarySkills, setLibrarySkills] = useState([])
+    const [loadingLibrary, setLoadingLibrary] = useState(false)
+    const [libraryErrorText, setLibraryErrorText] = useState(null)
+    const [librarySearch, setLibrarySearch] = useState('')
+    const [libraryCapabilityFilter, setLibraryCapabilityFilter] = useState(SKILLS_LIBRARY_CAPABILITY_ALL)
+    const [libraryAudienceFilter, setLibraryAudienceFilter] = useState(SKILLS_LIBRARY_AUDIENCE_ALL)
+    const [importingLibrarySkillId, setImportingLibrarySkillId] = useState(null)
+    const [deletingLibrarySkillId, setDeletingLibrarySkillId] = useState(null)
+    const [similarLibrarySkills, setSimilarLibrarySkills] = useState([])
+    const [loadingSimilarLibrarySkills, setLoadingSimilarLibrarySkills] = useState(false)
+    const [similarLibraryErrorText, setSimilarLibraryErrorText] = useState(null)
     const fileInputRef = useRef(null)
     const textareaRef = useRef(null)
     const chatScrollRef = useRef(null)
@@ -4506,6 +4741,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             }
         }
         warm(apiBase)
+        warm(`${apiBase}/_library`)
         warm(`${apiBase}/__warmup/agent`)
         return () => ctrl?.abort()
         // Only on mount — warming once per bot is enough; the `onDemandEntries`
@@ -4549,6 +4785,32 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         const data = await response.json()
         setDrafts(data.skills || [])
         return data.skills || []
+    }, [apiBase])
+
+    const loadLibrarySkills = useCallback(async (query = '') => {
+        setLoadingLibrary(true)
+        setLibraryErrorText(null)
+        try {
+            const trimmedQuery = String(query || '').trim()
+            const params = trimmedQuery
+                ? `?${new URLSearchParams({ query: trimmedQuery, limit: '24' }).toString()}`
+                : ''
+            const response = await fetch(`${apiBase}/_library${params}`, {
+                credentials: 'same-origin',
+            })
+            const data = await response.json().catch(() => ({}))
+            if (!response.ok) {
+                throw new Error(data.message || 'Unable to load the skills library.')
+            }
+            setLibrarySkills(data.skills || [])
+            return data.skills || []
+        } catch (error) {
+            setLibraryErrorText(error.message || 'Unable to load the skills library.')
+            setLibrarySkills([])
+            return []
+        } finally {
+            setLoadingLibrary(false)
+        }
     }, [apiBase])
 
     const refreshDraftUi = useCallback(
@@ -5090,6 +5352,64 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     }, [pendingUpgrade])
 
     useEffect(() => {
+        if (!libraryOpen) return
+        const id = setTimeout(() => {
+            void loadLibrarySkills(librarySearch)
+        }, 250)
+        return () => clearTimeout(id)
+    }, [libraryOpen, librarySearch, loadLibrarySkills])
+
+    useEffect(() => {
+        if (!createMode || chatStarted) {
+            setSimilarLibrarySkills([])
+            setSimilarLibraryErrorText(null)
+            setLoadingSimilarLibrarySkills(false)
+            return
+        }
+
+        const query = formTask.trim()
+        if (query.length < 8) {
+            setSimilarLibrarySkills([])
+            setSimilarLibraryErrorText(null)
+            setLoadingSimilarLibrarySkills(false)
+            return
+        }
+
+        let ignore = false
+        const id = setTimeout(async () => {
+            setLoadingSimilarLibrarySkills(true)
+            setSimilarLibraryErrorText(null)
+            try {
+                const params = new URLSearchParams({ query, limit: '3' })
+                const response = await fetch(`${apiBase}/_library?${params.toString()}`, {
+                    credentials: 'same-origin',
+                })
+                const data = await response.json().catch(() => ({}))
+                if (!response.ok) {
+                    throw new Error(data.message || 'Unable to search the skills library.')
+                }
+                if (!ignore) {
+                    setSimilarLibrarySkills(data.skills || [])
+                }
+            } catch (error) {
+                if (!ignore) {
+                    setSimilarLibrarySkills([])
+                    setSimilarLibraryErrorText(error.message || 'Unable to search the skills library.')
+                }
+            } finally {
+                if (!ignore) {
+                    setLoadingSimilarLibrarySkills(false)
+                }
+            }
+        }, 350)
+
+        return () => {
+            ignore = true
+            clearTimeout(id)
+        }
+    }, [apiBase, chatStarted, createMode, formTask])
+
+    useEffect(() => {
         if (!createMode || chatStarted) return
         setCreateIntentPlaceholderIndex(0)
         const id = setInterval(() => {
@@ -5507,6 +5827,39 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         }
     }
 
+    async function promoteSelectedSkillToLibrary() {
+        if (!selectedSkillName || createMode || isPromotingLibrarySkill || !isSuperAdminViewer) return
+        const label = formatSkillNameDisplay(selectedSkillName, selectedSkillName)
+        if (
+            !window.confirm(
+                `Add "${label}" to the global skills library? This copies the currently published package.`,
+            )
+        ) {
+            return
+        }
+        setIsPromotingLibrarySkill(true)
+        setErrorText(null)
+        setInfoText(null)
+        try {
+            const response = await fetch(
+                `${apiBase}/${encodeURIComponent(selectedSkillName)}/library`,
+                {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                },
+            )
+            const data = await response.json().catch(() => ({}))
+            if (!response.ok) {
+                throw new Error(data.message || 'Unable to add this skill to the library.')
+            }
+            setInfoText('Skill added to the global skills library.')
+        } catch (error) {
+            setErrorText(error.message || 'Unable to add this skill to the library.')
+        } finally {
+            setIsPromotingLibrarySkill(false)
+        }
+    }
+
     function openCreateSkill() {
         navigateToSkillsIndex()
         setCreateMode(true)
@@ -5518,6 +5871,12 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         setDetailTab('builder')
     }
 
+    function openSkillsLibrary() {
+        setLibraryOpen(true)
+        setLibraryErrorText(null)
+        void loadLibrarySkills()
+    }
+
     function openExistingSkill(skill) {
         navigateToSkill(skill.name)
         setDraftState((prev) => ({
@@ -5526,6 +5885,69 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             draft: skill,
         }))
         setDetailTab('builder')
+    }
+
+    async function importLibrarySkill(skill) {
+        if (!skill?.id || importingLibrarySkillId) return
+        setImportingLibrarySkillId(skill.id)
+        setLibraryErrorText(null)
+        setErrorText(null)
+        try {
+            const response = await fetch(
+                `${apiBase}/_library/${encodeURIComponent(skill.id)}/import`,
+                {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                },
+            )
+            const data = await response.json().catch(() => ({}))
+            if (!response.ok) {
+                throw new Error(data.message || 'Unable to import this library skill.')
+            }
+            const importedSkill = data.skill
+            if (!importedSkill?.name) {
+                throw new Error('The server did not return the imported skill.')
+            }
+            setLibraryOpen(false)
+            setDraftState((prev) => ({
+                ...prev,
+                name: importedSkill.name,
+                draft: importedSkill,
+            }))
+            await loadDrafts()
+            navigateToSkill(importedSkill.name)
+            setDetailTab('builder')
+            setInfoText('Library skill imported into this bot.')
+        } catch (error) {
+            setLibraryErrorText(error.message || 'Unable to import this library skill.')
+        } finally {
+            setImportingLibrarySkillId(null)
+        }
+    }
+
+    async function deleteLibrarySkillFromModal(skill) {
+        if (!skill?.id || deletingLibrarySkillId || !isSuperAdminViewer) return
+        const label = formatSkillNameDisplay(skill.name, skill.id)
+        if (!window.confirm(`Delete "${label}" from the global skills library? This cannot be undone.`)) {
+            return
+        }
+        setDeletingLibrarySkillId(skill.id)
+        setLibraryErrorText(null)
+        try {
+            const response = await fetch(`${apiBase}/_library/${encodeURIComponent(skill.id)}`, {
+                method: 'DELETE',
+                credentials: 'same-origin',
+            })
+            const data = await response.json().catch(() => ({}))
+            if (!response.ok) {
+                throw new Error(data.message || 'Unable to delete this library skill.')
+            }
+            setLibrarySkills((prev) => prev.filter((entry) => entry.id !== skill.id))
+        } catch (error) {
+            setLibraryErrorText(error.message || 'Unable to delete this library skill.')
+        } finally {
+            setDeletingLibrarySkillId(null)
+        }
     }
 
     const listPanel = (
@@ -5593,6 +6015,17 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                 </div>
                             </button>
                         ))}
+                        <button
+                            type="button"
+                            onClick={openSkillsLibrary}
+                            className="flex min-h-[160px] flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-5 text-center transition hover:border-cyan-400 hover:bg-cyan-50/40"
+                        >
+                            <BookOpenIcon className="h-10 w-10 text-cyan-600" aria-hidden />
+                            <span className="mt-3 text-sm font-semibold text-cyan-800">Add from library</span>
+                            <span className="mt-1 text-xs text-gray-500">
+                                Search reusable skills and import a copy into this bot
+                            </span>
+                        </button>
                         <button
                             type="button"
                             onClick={openCreateSkill}
@@ -5792,6 +6225,79 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                 </div>
                             </div>
                         </form>
+
+                        {loadingSimilarLibrarySkills ||
+                        similarLibraryErrorText ||
+                        similarLibrarySkills.length > 0 ? (
+                            <div className="mt-5 rounded-xl border border-cyan-100 bg-cyan-50/50 p-4">
+                                <div className="flex items-center justify-between gap-3">
+                                    <div>
+                                        <div className="text-sm font-semibold text-gray-900">
+                                            Similar skills in the library
+                                        </div>
+                                        <p className="mt-1 text-xs text-gray-600">
+                                            Import a copy to skip the builder setup, then customize it for this bot.
+                                        </p>
+                                    </div>
+                                    {loadingSimilarLibrarySkills ? (
+                                        <LoadingSpinner className="h-4 w-4 text-cyan-700" aria-hidden />
+                                    ) : null}
+                                </div>
+                                {similarLibraryErrorText ? (
+                                    <div className="mt-3 text-xs text-red-700">{similarLibraryErrorText}</div>
+                                ) : null}
+                                {similarLibrarySkills.length > 0 ? (
+                                    <div className="mt-3 space-y-2">
+                                        {similarLibrarySkills.map((skill) => {
+                                            const isImporting = importingLibrarySkillId === skill.id
+                                            return (
+                                                <div
+                                                    key={skill.id}
+                                                    className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+                                                >
+                                                    <SkillListIcon
+                                                        icon={skill.icon}
+                                                        networkPolicy={skill.networkPolicy}
+                                                    />
+                                                    <div className="min-w-0 flex-1">
+                                                        <div className="text-sm font-semibold text-gray-900">
+                                                            {formatSkillNameDisplay(skill.name, 'Skill')}
+                                                        </div>
+                                                        <p className="mt-1 line-clamp-2 text-xs text-gray-600">
+                                                            {skillListDescription(skill.description) ||
+                                                                'No description yet.'}
+                                                        </p>
+                                                        <div className="mt-2 flex items-center justify-between gap-2">
+                                                            <div className="flex min-w-0 items-center gap-0.5">
+                                                                <SkillAudienceIcon internal={skill.internal} size="sm" />
+                                                                <SkillCapabilityIcon
+                                                                    mode={skill.mode}
+                                                                    hasFunctions={skill.hasFunctions}
+                                                                    size="sm"
+                                                                />
+                                                            </div>
+                                                            <button
+                                                                type="button"
+                                                                disabled={isImporting || createSkillComposerBusy}
+                                                                onClick={() => void importLibrarySkill(skill)}
+                                                                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-cyan-700 bg-cyan-700 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-cyan-800 disabled:cursor-not-allowed disabled:opacity-50"
+                                                            >
+                                                                {isImporting ? (
+                                                                    <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                                                ) : (
+                                                                    <ArrowDownTrayIcon className="h-4 w-4" aria-hidden />
+                                                                )}
+                                                                Import
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                ) : null}
+                            </div>
+                        ) : null}
 
                         <div className="mt-10 space-y-6 text-sm leading-relaxed text-gray-600">
                             <div className="space-y-3">
@@ -6633,23 +7139,54 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                     : formatSkillNameDisplay(selectedSkillName, 'Skill')}
                             </h1>
                             {!createMode && selectedSkillName ? (
-                                <Tooltip content={isDeletingSkill ? 'Deleting…' : 'Delete skill'}>
-                                    <span className="inline-flex shrink-0">
-                                        <button
-                                            type="button"
-                                            onClick={() => void deleteSelectedSkill()}
-                                            disabled={isDeletingSkill}
-                                            className="inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent p-2 text-red-700 hover:border-red-200 hover:bg-red-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
-                                            aria-label={isDeletingSkill ? 'Deleting skill' : 'Delete skill'}
+                                <>
+                                    {isSuperAdminViewer ? (
+                                        <Tooltip
+                                            content={
+                                                isPromotingLibrarySkill
+                                                    ? 'Adding to library…'
+                                                    : 'Add to global skills library'
+                                            }
                                         >
-                                            {isDeletingSkill ? (
-                                                <LoadingSpinner className="h-4 w-4" aria-hidden />
-                                            ) : (
-                                                <TrashIcon className="h-4 w-4" aria-hidden />
-                                            )}
-                                        </button>
-                                    </span>
-                                </Tooltip>
+                                            <span className="inline-flex shrink-0">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => void promoteSelectedSkillToLibrary()}
+                                                    disabled={isPromotingLibrarySkill}
+                                                    className="inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent p-2 text-cyan-700 hover:border-cyan-200 hover:bg-cyan-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
+                                                    aria-label={
+                                                        isPromotingLibrarySkill
+                                                            ? 'Adding skill to library'
+                                                            : 'Add skill to library'
+                                                    }
+                                                >
+                                                    {isPromotingLibrarySkill ? (
+                                                        <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                                    ) : (
+                                                        <BookOpenIcon className="h-4 w-4" aria-hidden />
+                                                    )}
+                                                </button>
+                                            </span>
+                                        </Tooltip>
+                                    ) : null}
+                                    <Tooltip content={isDeletingSkill ? 'Deleting…' : 'Delete skill'}>
+                                        <span className="inline-flex shrink-0">
+                                            <button
+                                                type="button"
+                                                onClick={() => void deleteSelectedSkill()}
+                                                disabled={isDeletingSkill}
+                                                className="inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent p-2 text-red-700 hover:border-red-200 hover:bg-red-50 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
+                                                aria-label={isDeletingSkill ? 'Deleting skill' : 'Delete skill'}
+                                            >
+                                                {isDeletingSkill ? (
+                                                    <LoadingSpinner className="h-4 w-4" aria-hidden />
+                                                ) : (
+                                                    <TrashIcon className="h-4 w-4" aria-hidden />
+                                                )}
+                                            </button>
+                                        </span>
+                                    </Tooltip>
+                                </>
                             ) : null}
                         </div>
                     </div>
@@ -6717,6 +7254,24 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     return (
         <div className="relative flex min-h-0 w-full flex-1 flex-col overflow-x-hidden">
             <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+            <SkillsLibraryModal
+                open={libraryOpen}
+                onClose={() => setLibraryOpen(false)}
+                skills={librarySkills}
+                loading={loadingLibrary}
+                errorText={libraryErrorText}
+                search={librarySearch}
+                setSearch={setLibrarySearch}
+                capabilityFilter={libraryCapabilityFilter}
+                setCapabilityFilter={setLibraryCapabilityFilter}
+                audienceFilter={libraryAudienceFilter}
+                setAudienceFilter={setLibraryAudienceFilter}
+                importingSkillId={importingLibrarySkillId}
+                deletingLibrarySkillId={deletingLibrarySkillId}
+                isSuperAdminViewer={isSuperAdminViewer}
+                onImportSkill={(skill) => void importLibrarySkill(skill)}
+                onDeleteLibrarySkill={(skill) => void deleteLibrarySkillFromModal(skill)}
+            />
             <SkillTestModal
                 open={skillTestOpen}
                 draft={selectedDraft}

@@ -271,4 +271,70 @@ describe('skills-r2-package', () => {
       { path: 'SKILL.md', content: '# Weather\n', truncated: false },
     ])
   })
+
+  it('copies published skill packages into and out of the library prefix', async () => {
+    const {
+      copyLibrarySkillPackageToDraftAndPublished,
+      copyPublishedSkillPackageToLibrary,
+      deleteSkillLibraryPackageFromR2,
+      getSkillLibraryPublishedR2Prefix,
+      getSkillLibraryR2RootPrefix,
+      promoteSkillDraftToPublishedCurrent,
+      readPublishedSkillPackageFromR2,
+      readSkillDraftPackageFromR2,
+      writeSkillDraftFilesToR2,
+    } = await import('@/lib/skills-r2-package')
+
+    expect(getSkillLibraryR2RootPrefix('weather')).toBe('library/skills/weather')
+    expect(getSkillLibraryPublishedR2Prefix('weather')).toBe(
+      'library/skills/weather/published/current/',
+    )
+
+    await writeSkillDraftFilesToR2('team-1/bot-1/weather', [
+      { path: 'SKILL.md', content: '# Weather\n' },
+      { path: 'scripts/index.ts', content: 'export const run = true\n' },
+    ])
+    await promoteSkillDraftToPublishedCurrent('team-1/bot-1/weather')
+
+    const libraryCopy = await copyPublishedSkillPackageToLibrary('team-1/bot-1/weather', 'weather')
+    expect(libraryCopy).toEqual({
+      configured: true,
+      copied: 2,
+      deleted: 0,
+    })
+    expect([...mocks.objects.keys()].sort()).toContain(
+      'library/skills/weather/published/current/SKILL.md',
+    )
+
+    const importedCopy = await copyLibrarySkillPackageToDraftAndPublished(
+      'weather',
+      'team-2/bot-2/weather',
+    )
+    expect(importedCopy).toEqual({
+      configured: true,
+      draftCopied: 2,
+      draftDeleted: 0,
+      publishedCopied: 2,
+      publishedDeleted: 0,
+      message: undefined,
+    })
+
+    const importedDraft = await readSkillDraftPackageFromR2('team-2/bot-2/weather')
+    expect(importedDraft.files.map((file) => file.path).sort()).toEqual([
+      'SKILL.md',
+      'scripts/index.ts',
+    ])
+    const importedPublished = await readPublishedSkillPackageFromR2('team-2/bot-2/weather')
+    expect(importedPublished.files.map((file) => file.path).sort()).toEqual([
+      'SKILL.md',
+      'scripts/index.ts',
+    ])
+
+    const deleted = await deleteSkillLibraryPackageFromR2('weather')
+    expect(deleted.configured).toBe(true)
+    expect(deleted.deleted).toBe(3)
+    expect([...mocks.objects.keys()].some((key) => key.startsWith('library/skills/weather/'))).toBe(
+      false,
+    )
+  })
 })

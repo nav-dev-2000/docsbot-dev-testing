@@ -4,6 +4,13 @@ const mocks = vi.hoisted(() => ({
   encryptKey: vi.fn((value) => `encrypted:${value}`),
   readSkillDraftPackageFromR2: vi.fn(),
   writeSkillDraftFilesToR2: vi.fn(),
+  copyLibrarySkillPackageToDraftAndPublished: vi.fn(),
+  copyPublishedSkillPackageToLibrary: vi.fn(),
+  deleteSkillLibraryPackageFromR2: vi.fn(),
+  getSkillLibraryR2RootPrefix: vi.fn((skillName) => `library/skills/${skillName}`),
+  deleteLibrarySkillFromSearch: vi.fn(),
+  indexLibrarySkillForSearch: vi.fn(),
+  searchLibrarySkillsWithHybrid: vi.fn(),
   configureFirebaseApp: vi.fn(),
   serverTimestamp: vi.fn(() => 'SERVER_TIMESTAMP'),
   increment: vi.fn((value) => ({ __increment: value })),
@@ -21,8 +28,18 @@ vi.mock('@/lib/encryption', () => ({
 }))
 
 vi.mock('@/lib/skills-r2-package', () => ({
+  copyLibrarySkillPackageToDraftAndPublished: mocks.copyLibrarySkillPackageToDraftAndPublished,
+  copyPublishedSkillPackageToLibrary: mocks.copyPublishedSkillPackageToLibrary,
+  deleteSkillLibraryPackageFromR2: mocks.deleteSkillLibraryPackageFromR2,
+  getSkillLibraryR2RootPrefix: mocks.getSkillLibraryR2RootPrefix,
   readSkillDraftPackageFromR2: mocks.readSkillDraftPackageFromR2,
   writeSkillDraftFilesToR2: mocks.writeSkillDraftFilesToR2,
+}))
+
+vi.mock('@/lib/skills-library-search', () => ({
+  deleteLibrarySkillFromSearch: mocks.deleteLibrarySkillFromSearch,
+  indexLibrarySkillForSearch: mocks.indexLibrarySkillForSearch,
+  searchLibrarySkillsWithHybrid: mocks.searchLibrarySkillsWithHybrid,
 }))
 
 vi.mock('@/config/firebase-server.config', () => ({
@@ -99,6 +116,71 @@ function createFirestoreMock(initialData = null) {
   }
 }
 
+function createLibraryFirestoreMock({ library = {}, local = {} } = {}) {
+  const state = {
+    library: clone(library),
+    local: clone(local),
+  }
+
+  const makeSnapshot = (id, data) => ({
+    exists: data !== undefined,
+    id,
+    data: () => clone(data),
+  })
+
+  const makeDoc = (store, id) => ({
+    get: vi.fn(async () => makeSnapshot(id, store[id])),
+    set: vi.fn(async (nextData, options) => {
+      store[id] =
+        options?.merge && store[id]
+          ? {
+              ...store[id],
+              ...clone(nextData),
+            }
+          : clone(nextData)
+    }),
+    delete: vi.fn(async () => {
+      delete store[id]
+    }),
+  })
+
+  const localCollection = {
+    doc: vi.fn((id) => makeDoc(state.local, id)),
+    orderBy: vi.fn(() => ({
+      get: vi.fn(async () => ({
+        docs: Object.entries(state.local).map(([id, data]) => makeSnapshot(id, data)),
+      })),
+    })),
+  }
+
+  const topSkillsCollection = {
+    doc: vi.fn((id) => makeDoc(state.library, id)),
+    orderBy: vi.fn(() => ({
+      get: vi.fn(async () => ({
+        docs: Object.entries(state.library).map(([id, data]) => makeSnapshot(id, data)),
+      })),
+    })),
+  }
+
+  const botDoc = {
+    collection: vi.fn(() => localCollection),
+  }
+  const botsCollection = {
+    doc: vi.fn(() => botDoc),
+  }
+  const teamDoc = {
+    collection: vi.fn(() => botsCollection),
+  }
+  const teamsCollection = {
+    doc: vi.fn(() => teamDoc),
+  }
+
+  return {
+    state,
+    collection: vi.fn((name) => (name === 'skills' ? topSkillsCollection : teamsCollection)),
+  }
+}
+
 describe('skills-builder helpers', () => {
   beforeEach(() => {
     vi.clearAllMocks()
@@ -110,6 +192,34 @@ describe('skills-builder helpers', () => {
       configured: true,
       written: 0,
       deleted: 0,
+    })
+    mocks.copyLibrarySkillPackageToDraftAndPublished.mockResolvedValue({
+      configured: true,
+      draftCopied: 1,
+      draftDeleted: 0,
+      publishedCopied: 1,
+      publishedDeleted: 0,
+    })
+    mocks.copyPublishedSkillPackageToLibrary.mockResolvedValue({
+      configured: true,
+      copied: 1,
+      deleted: 0,
+    })
+    mocks.deleteSkillLibraryPackageFromR2.mockResolvedValue({
+      configured: true,
+      deleted: 1,
+    })
+    mocks.deleteLibrarySkillFromSearch.mockResolvedValue({
+      configured: true,
+      deleted: true,
+    })
+    mocks.indexLibrarySkillForSearch.mockResolvedValue({
+      configured: true,
+      indexed: true,
+    })
+    mocks.searchLibrarySkillsWithHybrid.mockResolvedValue({
+      configured: true,
+      skills: [],
     })
   })
 
@@ -589,5 +699,201 @@ describe('skills-builder helpers', () => {
 
     expect(template).toContain('structured JSON only')
     expect(template).toContain('filtering or chaining function results')
+  })
+
+  it('promotes a published bot skill into the top-level skills library', async () => {
+    const firestore = createLibraryFirestoreMock({
+      local: {
+        weather: {
+          name: 'weather',
+          description: 'Use when checking weather.',
+          internal: false,
+          enabled: true,
+          enabledWidget: false,
+          hasFunctions: true,
+          icon: 'BoltIcon',
+          r2Prefix: 'team-1/bot-1/weather',
+          networkPolicy: { allowedDomains: ['api.weather.example'], allowedSchemes: ['https'] },
+          mode: 'executable',
+          audience: 'customer',
+          publishedAt: '2026-04-22T00:00:00.000Z',
+        },
+      },
+    })
+
+    const { promoteSkillDraftToLibrary } = await import('@/lib/skills-builder')
+    const promoted = await promoteSkillDraftToLibrary({
+      firestore,
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'weather',
+      userId: 'admin-1',
+    })
+
+    expect(mocks.copyPublishedSkillPackageToLibrary).toHaveBeenCalledWith(
+      'team-1/bot-1/weather',
+      'weather',
+    )
+    expect(promoted.skill).toEqual(
+      expect.objectContaining({
+        id: 'weather',
+        name: 'weather',
+        description: 'Use when checking weather.',
+        r2Prefix: 'library/skills/weather',
+        hasFunctions: true,
+      }),
+    )
+    expect(mocks.indexLibrarySkillForSearch).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 'weather',
+        name: 'weather',
+      }),
+    )
+    expect(firestore.state.library.weather).toEqual(
+      expect.objectContaining({
+        name: 'weather',
+        source: expect.objectContaining({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          skillName: 'weather',
+        }),
+        createdBy: 'admin-1',
+      }),
+    )
+  })
+
+  it('returns configured library search hits directly from the search index', async () => {
+    const firestore = createLibraryFirestoreMock()
+    mocks.searchLibrarySkillsWithHybrid.mockResolvedValue({
+      configured: true,
+      skills: [
+        {
+          id: 'weather',
+          name: 'weather',
+          description: 'Search row.',
+          iconDomain: 'api.brand.dev',
+          networkPolicy: { allowedDomains: ['api.brand.dev'], allowedSchemes: ['https'] },
+          searchScore: 0.25,
+        },
+      ],
+    })
+
+    const { searchLibrarySkills } = await import('@/lib/skills-builder')
+    const result = await searchLibrarySkills('weather api', firestore)
+
+    expect(result.skills).toEqual([
+      expect.objectContaining({
+        id: 'weather',
+        name: 'weather',
+        description: 'Search row.',
+        iconDomain: 'api.brand.dev',
+        networkPolicy: { allowedDomains: ['api.brand.dev'], allowedSchemes: ['https'] },
+        searchScore: 0.25,
+      }),
+    ])
+  })
+
+  it('applies the limit when falling back to Firestore substring search', async () => {
+    const firestore = createLibraryFirestoreMock({
+      library: {
+        weather: {
+          name: 'weather',
+          description: 'Check weather conditions.',
+        },
+        weather_alerts: {
+          name: 'weather-alerts',
+          description: 'Send weather alerts.',
+        },
+        weather_maps: {
+          name: 'weather-maps',
+          description: 'Render weather maps.',
+        },
+      },
+    })
+    mocks.searchLibrarySkillsWithHybrid.mockResolvedValue({
+      configured: false,
+      skills: [],
+      message: 'Search service unavailable.',
+    })
+
+    const { searchLibrarySkills } = await import('@/lib/skills-builder')
+    const result = await searchLibrarySkills('weather', firestore, { limit: 2 })
+
+    expect(result.configured).toBe(false)
+    expect(result.skills).toHaveLength(2)
+    expect(result.skills.map((skill) => skill.id)).toEqual(['weather', 'weather_alerts'])
+  })
+
+  it('imports a library skill with a unique local suffix when the slug already exists', async () => {
+    const firestore = createLibraryFirestoreMock({
+      library: {
+        weather: {
+          name: 'weather',
+          description: 'Use when checking weather.',
+          internal: false,
+          hasFunctions: false,
+          icon: 'BoltIcon',
+          r2Prefix: 'library/skills/weather',
+          networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+          mode: 'markdown',
+          audience: 'customer',
+        },
+      },
+      local: {
+        weather: {
+          name: 'weather',
+          description: 'Existing weather skill.',
+          r2Prefix: 'team-1/bot-1/weather',
+        },
+      },
+    })
+
+    const { importLibrarySkillToBot } = await import('@/lib/skills-builder')
+    const imported = await importLibrarySkillToBot({
+      firestore,
+      teamId: 'team-1',
+      botId: 'bot-1',
+      librarySkillName: 'weather',
+    })
+
+    expect(imported.skill.name).toBe('weather-2')
+    expect(mocks.copyLibrarySkillPackageToDraftAndPublished).toHaveBeenCalledWith(
+      'weather',
+      'team-1/bot-1/weather-2',
+    )
+    expect(firestore.state.local['weather-2']).toEqual(
+      expect.objectContaining({
+        name: 'weather-2',
+        description: 'Use when checking weather.',
+        r2Prefix: 'team-1/bot-1/weather-2',
+        enabled: false,
+        enabledWidget: false,
+        publishedAt: expect.any(String),
+      }),
+    )
+  })
+
+  it('deletes library Firestore metadata and the library R2 prefix', async () => {
+    const firestore = createLibraryFirestoreMock({
+      library: {
+        weather: {
+          name: 'weather',
+          r2Prefix: 'library/skills/weather',
+        },
+      },
+    })
+
+    const { deleteLibrarySkill } = await import('@/lib/skills-builder')
+    const deleted = await deleteLibrarySkill('weather', firestore)
+
+    expect(mocks.deleteSkillLibraryPackageFromR2).toHaveBeenCalledWith('weather')
+    expect(deleted).toEqual({
+      deleted: true,
+      r2Deleted: 1,
+      r2Cleaned: true,
+      searchDeleted: true,
+      searchCleaned: true,
+    })
+    expect(firestore.state.library.weather).toBeUndefined()
   })
 })

@@ -9,6 +9,7 @@ import {
 
 const MAX_TEXT_BYTES = 512 * 1024
 const DELETE_BATCH_SIZE = 1000
+const SKILLS_LIBRARY_ROOT_PREFIX = 'library/skills'
 
 function getR2Config() {
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID
@@ -60,6 +61,15 @@ export function getSkillDraftR2Prefix(rootPrefix) {
 
 export function getSkillPublishedR2Prefix(rootPrefix) {
   return buildScopedPrefix(rootPrefix, 'published/current')
+}
+
+export function getSkillLibraryR2RootPrefix(skillName) {
+  const name = normalizeRootPrefix(skillName)
+  return name ? `${SKILLS_LIBRARY_ROOT_PREFIX}/${name}` : ''
+}
+
+export function getSkillLibraryPublishedR2Prefix(skillName) {
+  return getSkillPublishedR2Prefix(getSkillLibraryR2RootPrefix(skillName))
 }
 
 function buildDraftObjectKey(rootPrefix, relativePath) {
@@ -307,6 +317,82 @@ async function writeTextFilesUnderPrefix(prefix, files = []) {
   }
 }
 
+async function copyObjectsBetweenPrefixes(sourcePrefix, destinationPrefix) {
+  const config = getR2Config()
+  if (!config) {
+    return {
+      configured: false,
+      copied: 0,
+      deleted: 0,
+      message:
+        'R2 is not configured. Set CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and SKILLS_R2_BUCKET (or R2_SKILLS_BUCKET).',
+    }
+  }
+
+  const normalizedSourcePrefix = String(sourcePrefix || '').replace(/^\/+/, '')
+  const normalizedDestinationPrefix = String(destinationPrefix || '').replace(/^\/+/, '')
+  if (!normalizedSourcePrefix || !normalizedDestinationPrefix) {
+    return {
+      configured: true,
+      copied: 0,
+      deleted: 0,
+    }
+  }
+
+  const client = getClient(config)
+  const sourceObjects = await listObjects(client, config, normalizedSourcePrefix)
+  const sourceFileObjects = sourceObjects.filter(({ key }) => {
+    const relativePath = key.startsWith(normalizedSourcePrefix)
+      ? key.slice(normalizedSourcePrefix.length)
+      : ''
+    return Boolean(relativePath && !relativePath.endsWith('/'))
+  })
+  if (sourceFileObjects.length === 0) {
+    return {
+      configured: true,
+      copied: 0,
+      deleted: 0,
+    }
+  }
+
+  const destinationObjects = await listObjects(client, config, normalizedDestinationPrefix)
+  const nextDestinationKeys = new Set()
+
+  await ensurePrefixMarker(client, config, normalizedDestinationPrefix)
+
+  for (const { key } of sourceFileObjects) {
+    const relativePath = key.startsWith(normalizedSourcePrefix)
+      ? key.slice(normalizedSourcePrefix.length)
+      : ''
+    if (!relativePath || relativePath.endsWith('/')) {
+      continue
+    }
+
+    const destinationKey = `${normalizedDestinationPrefix}${relativePath}`
+    nextDestinationKeys.add(destinationKey)
+
+    await client.send(
+      new CopyObjectCommand({
+        Bucket: config.bucket,
+        Key: destinationKey,
+        CopySource: buildCopySource(config.bucket, key),
+      }),
+    )
+  }
+
+  const obsoleteKeys = destinationObjects
+    .map((object) => object.key)
+    .filter((key) => !nextDestinationKeys.has(key))
+
+  const deleted = await deleteKeys(config, obsoleteKeys)
+
+  return {
+    configured: true,
+    copied: nextDestinationKeys.size,
+    deleted,
+  }
+}
+
 export async function readSkillDraftPackageFromR2(rootPrefix, options) {
   return readTextFilesUnderPrefix(getSkillDraftR2Prefix(rootPrefix), options)
 }
@@ -425,6 +511,40 @@ export async function promoteSkillDraftToPublishedCurrent(rootPrefix) {
     promoted: nextPublishedKeys.size,
     deleted,
   }
+}
+
+export async function copyPublishedSkillPackageToLibrary(sourceRootPrefix, librarySkillName) {
+  return copyObjectsBetweenPrefixes(
+    getSkillPublishedR2Prefix(sourceRootPrefix),
+    getSkillLibraryPublishedR2Prefix(librarySkillName),
+  )
+}
+
+export async function copyLibrarySkillPackageToDraftAndPublished(librarySkillName, destinationRootPrefix) {
+  const libraryPublishedPrefix = getSkillLibraryPublishedR2Prefix(librarySkillName)
+  const draft = await copyObjectsBetweenPrefixes(
+    libraryPublishedPrefix,
+    getSkillDraftR2Prefix(destinationRootPrefix),
+  )
+  if (!draft.configured) return draft
+
+  const published = await copyObjectsBetweenPrefixes(
+    libraryPublishedPrefix,
+    getSkillPublishedR2Prefix(destinationRootPrefix),
+  )
+
+  return {
+    configured: published.configured,
+    draftCopied: draft.copied,
+    draftDeleted: draft.deleted,
+    publishedCopied: published.copied,
+    publishedDeleted: published.deleted,
+    message: published.message,
+  }
+}
+
+export async function deleteSkillLibraryPackageFromR2(librarySkillName) {
+  return deleteSkillPrefixFromR2(getSkillLibraryR2RootPrefix(librarySkillName))
 }
 
 export async function deleteSkillPrefixFromR2(rootPrefix) {

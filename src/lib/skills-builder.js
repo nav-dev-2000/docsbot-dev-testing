@@ -7,7 +7,19 @@ import {
 } from '@/constants/heroIcons.constants'
 import { decryptKey, encryptKey } from '@/lib/encryption'
 import { normalizeSkillName } from '@/lib/skill-name-normalize'
-import { readSkillDraftPackageFromR2, writeSkillDraftFilesToR2 } from '@/lib/skills-r2-package'
+import {
+  copyLibrarySkillPackageToDraftAndPublished,
+  copyPublishedSkillPackageToLibrary,
+  deleteSkillLibraryPackageFromR2,
+  getSkillLibraryR2RootPrefix,
+  readSkillDraftPackageFromR2,
+  writeSkillDraftFilesToR2,
+} from '@/lib/skills-r2-package'
+import {
+  deleteLibrarySkillFromSearch,
+  indexLibrarySkillForSearch,
+  searchLibrarySkillsWithHybrid,
+} from '@/lib/skills-library-search'
 
 export const SKILL_MODE_MARKDOWN = 'markdown'
 export const SKILL_MODE_EXECUTABLE = 'executable'
@@ -575,6 +587,10 @@ export function getSkillCollection(firestore, teamId, botId) {
     .collection('skills')
 }
 
+export function getSkillsLibraryCollection(firestore) {
+  return firestore.collection('skills')
+}
+
 function getBuilderFirestore(firestore) {
   if (firestore) return firestore
   configureFirebaseApp()
@@ -730,6 +746,263 @@ export function filesArrayToObject(files = []) {
 export function getSkillDraftDocRef(teamId, botId, skillName, firestore) {
   const db = getBuilderFirestore(firestore)
   return getSkillCollection(db, teamId, botId).doc(skillName)
+}
+
+export function serializeLibrarySkillRecord(id, data = {}) {
+  if (!data) return null
+  const name = safeSkillString(data.name, id)
+  const mode = data.mode === SKILL_MODE_EXECUTABLE ? SKILL_MODE_EXECUTABLE : SKILL_MODE_MARKDOWN
+  return {
+    id,
+    name,
+    skillName: name,
+    description: safeSkillString(data.description),
+    icon: normalizeWhitelistedHeroIcon(data.icon, DEFAULT_CUSTOM_BUTTON_ICON),
+    internal: Boolean(data.internal),
+    enabled: Boolean(data.enabled),
+    enabledWidget: Boolean(data.enabledWidget),
+    mode,
+    audience:
+      data.audience === SKILL_AUDIENCE_CUSTOMER || data.audience === SKILL_AUDIENCE_INTERNAL
+        ? data.audience
+        : Boolean(data.internal)
+          ? SKILL_AUDIENCE_INTERNAL
+          : SKILL_AUDIENCE_CUSTOMER,
+    hasFunctions:
+      data.hasFunctions !== undefined ? Boolean(data.hasFunctions) : mode === SKILL_MODE_EXECUTABLE,
+    r2Prefix: safeSkillString(data.r2Prefix, getSkillLibraryR2RootPrefix(id)),
+    networkPolicy: data.networkPolicy || {
+      allowedDomains: [],
+      allowedSchemes: ['https'],
+    },
+    source: data.source || null,
+    createdBy: safeSkillString(data.createdBy),
+    createdAt: serializeTimestamp(data.createdAt),
+    updatedAt: serializeTimestamp(data.updatedAt),
+  }
+}
+
+function libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId }) {
+  const librarySkillName = safeSkillString(draft.name, skillName)
+  return {
+    name: librarySkillName,
+    description: safeSkillString(draft.description),
+    internal: Boolean(draft.internal),
+    enabled: Boolean(draft.enabled),
+    enabledWidget: Boolean(draft.enabledWidget),
+    hasFunctions: Boolean(draft.hasFunctions),
+    icon: normalizeWhitelistedHeroIcon(draft.icon, DEFAULT_CUSTOM_BUTTON_ICON),
+    r2Prefix: getSkillLibraryR2RootPrefix(librarySkillName),
+    networkPolicy: draft.networkPolicy || {
+      allowedDomains: [],
+      allowedSchemes: ['https'],
+    },
+    mode: draft.mode === SKILL_MODE_EXECUTABLE ? SKILL_MODE_EXECUTABLE : SKILL_MODE_MARKDOWN,
+    audience:
+      draft.audience === SKILL_AUDIENCE_CUSTOMER || draft.audience === SKILL_AUDIENCE_INTERNAL
+        ? draft.audience
+        : draft.internal
+          ? SKILL_AUDIENCE_INTERNAL
+          : SKILL_AUDIENCE_CUSTOMER,
+    status: 'published',
+    version: SKILL_SCHEMA_VERSION,
+    source: {
+      teamId,
+      botId,
+      skillName,
+      r2Prefix: draft.r2Prefix || defaultR2Prefix(teamId, botId, skillName),
+      publishedAt: draft.publishedAt || null,
+    },
+    createdBy: userId,
+  }
+}
+
+export async function listLibrarySkills(firestore) {
+  const db = getBuilderFirestore(firestore)
+  const snapshot = await getSkillsLibraryCollection(db).orderBy('updatedAt', 'desc').get()
+  return snapshot.docs.map((doc) => serializeLibrarySkillRecord(doc.id, doc.data()))
+}
+
+export async function searchLibrarySkills(query, firestore, options = {}) {
+  const searchResult = await searchLibrarySkillsWithHybrid(query, options)
+  if (searchResult.configured) {
+    return searchResult
+  }
+
+  const q = String(query || '').trim().toLowerCase()
+  const limit = Math.min(Math.max(Number(options.limit) || 20, 1), 50)
+  const skills = await listLibrarySkills(firestore)
+  const filtered = q
+    ? skills.filter((skill) =>
+        [skill.id, skill.name, skill.description]
+          .map((value) => String(value || '').toLowerCase())
+          .join(' ')
+          .includes(q),
+      )
+    : skills
+
+  return {
+    ...searchResult,
+    skills: filtered.slice(0, limit),
+  }
+}
+
+export async function getLibrarySkill(librarySkillName, firestore) {
+  const db = getBuilderFirestore(firestore)
+  const snapshot = await getSkillsLibraryCollection(db).doc(librarySkillName).get()
+  if (!snapshot.exists) return null
+  return serializeLibrarySkillRecord(snapshot.id, snapshot.data())
+}
+
+export async function promoteSkillDraftToLibrary({
+  firestore,
+  teamId,
+  botId,
+  skillName,
+  userId,
+}) {
+  const db = getBuilderFirestore(firestore)
+  const draft = await getSkillDraft(teamId, botId, skillName, db, { includeFiles: false })
+  if (!draft) {
+    throw new Error('Skill draft not found.')
+  }
+
+  const librarySkillName = safeSkillString(draft.name, skillName)
+  const sourceRootPrefix = draft.r2Prefix || defaultR2Prefix(teamId, botId, skillName)
+  const copyResult = await copyPublishedSkillPackageToLibrary(sourceRootPrefix, librarySkillName)
+  if (!copyResult.configured) {
+    const error = new Error(copyResult.message || 'Skills R2 storage is not configured.')
+    error.status = 500
+    throw error
+  }
+  if ((copyResult.copied || 0) === 0) {
+    const error = new Error('Publish this skill before adding it to the library.')
+    error.status = 400
+    throw error
+  }
+
+  const collection = getSkillsLibraryCollection(db)
+  const docRef = collection.doc(librarySkillName)
+  const existing = await docRef.get()
+  const record = libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId })
+  await docRef.set(
+    {
+      ...record,
+      ...(existing.exists ? {} : { createdAt: FieldValue.serverTimestamp() }),
+      updatedAt: FieldValue.serverTimestamp(),
+    },
+    { merge: true },
+  )
+
+  const saved = await docRef.get()
+  const skill = serializeLibrarySkillRecord(saved.id, saved.data())
+  const searchIndex = await indexLibrarySkillForSearch(skill)
+  return {
+    skill,
+    result: copyResult,
+    searchIndex,
+  }
+}
+
+export async function importLibrarySkillToBot({
+  firestore,
+  teamId,
+  botId,
+  librarySkillName,
+}) {
+  const db = getBuilderFirestore(firestore)
+  const libraryRef = getSkillsLibraryCollection(db).doc(librarySkillName)
+  const librarySnapshot = await libraryRef.get()
+  if (!librarySnapshot.exists) {
+    const error = new Error('Library skill not found.')
+    error.status = 404
+    throw error
+  }
+
+  const librarySkill = serializeLibrarySkillRecord(librarySnapshot.id, librarySnapshot.data())
+  const localSkillName = await allocateUniqueSkillName(teamId, botId, librarySkill.name, db)
+  const localR2Prefix = defaultR2Prefix(teamId, botId, localSkillName)
+  const copyResult = await copyLibrarySkillPackageToDraftAndPublished(librarySkill.name, localR2Prefix)
+  if (!copyResult.configured) {
+    const error = new Error(copyResult.message || 'Skills R2 storage is not configured.')
+    error.status = 500
+    throw error
+  }
+  if ((copyResult.draftCopied || 0) === 0 || (copyResult.publishedCopied || 0) === 0) {
+    const error = new Error('Library skill package is missing.')
+    error.status = 404
+    throw error
+  }
+
+  const docRef = getSkillDraftDocRef(teamId, botId, localSkillName, db)
+  await docRef.set({
+    name: localSkillName,
+    description: librarySkill.description,
+    internal: Boolean(librarySkill.internal),
+    enabled: false,
+    enabledWidget: false,
+    hasFunctions: Boolean(librarySkill.hasFunctions),
+    icon: librarySkill.icon,
+    r2Prefix: localR2Prefix,
+    networkPolicy: librarySkill.networkPolicy || {
+      allowedDomains: [],
+      allowedSchemes: ['https'],
+    },
+    envBindings: [],
+    secretBindings: [],
+    metadataBindings: [],
+    version: SKILL_SCHEMA_VERSION,
+    mode: librarySkill.mode,
+    audience: librarySkill.audience,
+    status: 'draft',
+    validation: null,
+    liveTest: null,
+    chatMessages: [],
+    lastAuthoringSummary: null,
+    agent: {
+      sandboxId: null,
+      sessionId: null,
+      lastResponseId: null,
+    },
+    importedFromLibrary: {
+      skillName: librarySkill.name,
+      importedAt: FieldValue.serverTimestamp(),
+    },
+    publishedAt: new Date(),
+    createdAt: FieldValue.serverTimestamp(),
+    updatedAt: FieldValue.serverTimestamp(),
+  })
+
+  const created = await getSkillDraft(teamId, botId, localSkillName, db, { includeFiles: false })
+  return {
+    skill: created,
+    librarySkill,
+    result: copyResult,
+  }
+}
+
+export async function deleteLibrarySkill(librarySkillName, firestore) {
+  const db = getBuilderFirestore(firestore)
+  const docRef = getSkillsLibraryCollection(db).doc(librarySkillName)
+  const snapshot = await docRef.get()
+  if (!snapshot.exists) {
+    return {
+      deleted: false,
+      r2Deleted: 0,
+      r2Cleaned: true,
+    }
+  }
+
+  const r2Result = await deleteSkillLibraryPackageFromR2(librarySkillName)
+  const searchResult = await deleteLibrarySkillFromSearch(librarySkillName)
+  await docRef.delete()
+  return {
+    deleted: true,
+    r2Deleted: r2Result.deleted ?? 0,
+    r2Cleaned: Boolean(r2Result.configured),
+    searchDeleted: Boolean(searchResult.deleted),
+    searchCleaned: Boolean(searchResult.configured),
+  }
 }
 
 /**

@@ -1,0 +1,56 @@
+import { NextResponse } from 'next/server'
+
+import { getAuthorizedBotContext, jsonError } from '@/lib/appRouteAuth'
+import { canUserManageBotSettings } from '@/utils/function.utils'
+import { getWidgetSkillSlotLimit, isSuperAdmin } from '@/utils/helpers'
+import {
+  importLibrarySkillToBot,
+  listSkillDrafts,
+  skillRecordWithDecryptedSecretBindings,
+} from '@/lib/skills-builder'
+
+export const dynamic = 'force-dynamic'
+
+export async function POST(request, context) {
+  try {
+    const params = await context.params
+    const { team, bot, userId, firestore } = await getAuthorizedBotContext(request, params)
+
+    if (!canUserManageBotSettings(team, userId, bot)) {
+      return jsonError('You are not allowed to manage bot skills.', 403)
+    }
+
+    if (!isSuperAdmin(userId)) {
+      const skillSlotLimit = getWidgetSkillSlotLimit(team)
+      if (skillSlotLimit === 0) {
+        return jsonError('DocsBot skills require the Standard plan or higher.', 403)
+      }
+      const existingDrafts = await listSkillDrafts(team.id, bot.id, firestore)
+      if (existingDrafts.length >= skillSlotLimit) {
+        return jsonError(
+          `This bot can have at most ${String(skillSlotLimit)} skills on your current plan. Remove a skill or upgrade for a higher limit.`,
+          403,
+        )
+      }
+    }
+
+    const imported = await importLibrarySkillToBot({
+      firestore,
+      teamId: team.id,
+      botId: bot.id,
+      librarySkillName: params.librarySkillId,
+    })
+
+    return NextResponse.json(
+      {
+        message: 'Library skill imported into this bot.',
+        skill: skillRecordWithDecryptedSecretBindings(imported.skill),
+        librarySkill: imported.librarySkill,
+        result: imported.result,
+      },
+      { status: 201 },
+    )
+  } catch (error) {
+    return jsonError(error?.message || 'Unable to import library skill.', error?.status || 500)
+  }
+}
