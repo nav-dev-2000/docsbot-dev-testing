@@ -23,6 +23,7 @@ export const SKILLS_LIBRARY_EMBEDDING_MODEL =
 export const SKILLS_LIBRARY_EMBEDDING_DIMENSIONS = Number(
   process.env.SKILLS_LIBRARY_EMBEDDING_DIMENSIONS || 1024,
 )
+export const SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS = 1000
 
 function isSearchConfigured() {
   return Boolean(process.env.TURBOPUFFER_API_KEY && process.env.OPENAI_API_KEY)
@@ -45,6 +46,10 @@ function searchableTextForSkill(skill = {}) {
   ]
     .filter(Boolean)
     .join('\n')
+}
+
+function bm25QueryText(query) {
+  return String(query || '').trim().slice(0, SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS)
 }
 
 function firstAllowedDomainFromNetworkPolicy(policy = {}) {
@@ -229,6 +234,7 @@ export async function searchLibrarySkillsWithHybrid(query, options = {}) {
 
   const limit = Math.min(Math.max(Number(options.limit) || 20, 1), 50)
   const candidateLimit = Math.min(Math.max(limit * 4, 20), 100)
+  const bm25Query = bm25QueryText(q)
   const vector = await embedText(q)
   if (!vector) {
     throw new Error('Unable to embed skills library search query.')
@@ -246,9 +252,9 @@ export async function searchLibrarySkillsWithHybrid(query, options = {}) {
         rank_by: [
           'Sum',
           [
-            ['Product', 3, ['name', 'BM25', q, { last_as_prefix: true }]],
-            ['Product', 2, ['key', 'BM25', q, { last_as_prefix: true }]],
-            ['description', 'BM25', q, { last_as_prefix: true }],
+            ['Product', 3, ['name', 'BM25', bm25Query, { last_as_prefix: true }]],
+            ['Product', 2, ['key', 'BM25', bm25Query, { last_as_prefix: true }]],
+            ['description', 'BM25', bm25Query, { last_as_prefix: true }],
           ],
         ],
         top_k: candidateLimit,

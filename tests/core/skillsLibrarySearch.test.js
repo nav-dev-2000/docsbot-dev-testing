@@ -131,7 +131,7 @@ describe('skills-library-search', () => {
     )
     expect(mocks.writes[0]).toEqual(
       expect.objectContaining({
-        namespace: 'docsbot-skills-library',
+        namespace: 'docsbot-skills-library-staging',
         body: expect.objectContaining({
           distance_metric: 'cosine_distance',
           upsert_rows: [
@@ -192,6 +192,35 @@ describe('skills-library-search', () => {
     expect(mocks.multiQueries[0].body.queries[0].rank_by[1]).toBe('ANN')
     expect(JSON.stringify(mocks.multiQueries[0].body.queries[1].rank_by)).toContain('BM25')
     expect(JSON.stringify(mocks.multiQueries[0].body.queries[1].rank_by)).not.toContain('"text"')
+  })
+
+  it('limits only BM25 query text for long search inputs', async () => {
+    const {
+      SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS,
+      searchLibrarySkillsWithHybrid,
+    } = await import('@/lib/skills-library-search')
+
+    const longQuery = 'create a very detailed CRM sync skill '.repeat(100)
+    await searchLibrarySkillsWithHybrid(longQuery, { limit: 2 })
+
+    expect(mocks.embeddingsCreate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        input: longQuery.trim(),
+      }),
+    )
+
+    const bm25RankBy = mocks.multiQueries[0].body.queries[1].rank_by
+    const bm25QueryValues = [
+      bm25RankBy[1][0][2][2],
+      bm25RankBy[1][1][2][2],
+      bm25RankBy[1][2][2],
+    ]
+    expect(bm25QueryValues).toEqual([
+      longQuery.trim().slice(0, SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS),
+      longQuery.trim().slice(0, SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS),
+      longQuery.trim().slice(0, SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS),
+    ])
+    expect(bm25QueryValues[0].length).toBe(SKILLS_LIBRARY_BM25_QUERY_MAX_CHARS)
   })
 
   it('maps indexed icon domain back to network policy for search result icons', async () => {

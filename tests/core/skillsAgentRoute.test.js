@@ -734,6 +734,79 @@ describe('skills agent route', () => {
     ])
   })
 
+  it('starts a fresh OpenAI response from message history by removing stale response item references', async () => {
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: [
+            { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+            {
+              role: 'assistant',
+              parts: [
+                {
+                  type: 'reasoning',
+                  text: 'I inspected the existing files.',
+                  providerOptions: {
+                    openai: {
+                      itemId: 'rs_0c542f6eb81950000069f1223a2d6c81a1876ce6026ce9def1',
+                      responseId: 'resp_old',
+                      reasoningEncryptedContent: 'encrypted-content',
+                    },
+                  },
+                },
+                {
+                  type: 'text',
+                  text: 'I can continue from the authored files.',
+                  providerMetadata: {
+                    openai: {
+                      itemId: 'msg_old',
+                      responseId: 'resp_old',
+                    },
+                  },
+                },
+              ],
+            },
+            { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
+          ],
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(mocks.convertToModelMessages).toHaveBeenCalledWith([
+      { role: 'user', parts: [{ type: 'text', text: 'Build the refund skill.' }] },
+      {
+        role: 'assistant',
+        parts: [
+          {
+            type: 'reasoning',
+            text: 'I inspected the existing files.',
+            providerOptions: {
+              openai: {
+                reasoningEncryptedContent: 'encrypted-content',
+              },
+            },
+          },
+          {
+            type: 'text',
+            text: 'I can continue from the authored files.',
+          },
+        ],
+      },
+      { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
+    ])
+  })
+
   it('preserves existing env binding values when update_manifest omits value', async () => {
     currentDraft.envBindings = [
       { envVar: 'WORKSPACE_ID', value: 'workspace-keep', description: 'Account scope' },

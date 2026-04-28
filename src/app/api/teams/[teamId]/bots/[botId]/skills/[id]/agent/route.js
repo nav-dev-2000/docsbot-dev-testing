@@ -22,7 +22,10 @@ import {
   upsertSkillFile,
   updateSkillDraft,
 } from '@/lib/skills-builder'
-import { recoverInterruptedToolCalls } from '@/lib/skills-builder-chat-recovery'
+import {
+  recoverInterruptedToolCalls,
+  stripOpenAIResponseItemReferences,
+} from '@/lib/skills-builder-chat-recovery'
 import { createSkillPatchExecute } from '@/lib/skills-patch-executor'
 import { createSkillShellExecute } from '@/lib/skills-shell-executor'
 import {
@@ -516,7 +519,9 @@ export async function POST(request, context) {
     }
 
     const body = await request.json()
-    const messages = recoverInterruptedToolCalls(Array.isArray(body.messages) ? body.messages : [])
+    const messages = stripOpenAIResponseItemReferences(
+      recoverInterruptedToolCalls(Array.isArray(body.messages) ? body.messages : []),
+    )
     const sandboxId = buildSkillSandboxId(team.id, botId, draft.skillName)
 
     const teamSecrets = await getTeamWithEncryptedOpenAIKey(team.id)
