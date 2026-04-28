@@ -14,7 +14,6 @@ const mocks = vi.hoisted(() => {
     consumeStream: vi.fn(),
     convertToModelMessages: vi.fn(async (messages) => messages),
     hasToolCall: vi.fn((toolName) => ({ type: 'hasToolCall', toolName })),
-    stepCountIs: vi.fn((steps) => ({ type: 'stepCountIs', steps })),
     streamText: vi.fn(),
     openai,
     createOpenAI: vi.fn(() => openai),
@@ -75,7 +74,6 @@ vi.mock('ai', () => ({
   consumeStream: mocks.consumeStream,
   convertToModelMessages: mocks.convertToModelMessages,
   hasToolCall: mocks.hasToolCall,
-  stepCountIs: mocks.stepCountIs,
   streamText: mocks.streamText,
 }))
 
@@ -389,10 +387,40 @@ describe('skills agent route', () => {
       },
     })
     expect(mocks.hasToolCall).toHaveBeenCalledWith('ask_user_questions')
+    expect(mocks.hasToolCall).not.toHaveBeenCalledWith('publish_skill_bundle')
     expect(mocks.streamArgs.stopWhen).toEqual([
       { type: 'hasToolCall', toolName: 'ask_user_questions' },
-      { type: 'stepCountIs', steps: 50 },
+      expect.any(Function),
     ])
+    expect(mocks.streamArgs.stopWhen).not.toContainEqual({
+      type: 'hasToolCall',
+      toolName: 'publish_skill_bundle',
+    })
+    expect(mocks.streamArgs.stopWhen[1]({ steps: Array.from({ length: 49 }, () => ({})) })).toBe(false)
+    expect(
+      mocks.streamArgs.stopWhen[1]({
+        steps: [
+          ...Array.from({ length: 49 }, () => ({})),
+          { toolCalls: [{ toolName: 'publish_skill_bundle' }] },
+        ],
+      }),
+    ).toBe(false)
+    expect(mocks.streamArgs.stopWhen[1]({ steps: Array.from({ length: 50 }, () => ({})) })).toBe(true)
+    const publishFollowupStep = mocks.streamArgs.prepareStep({
+      steps: [
+        ...Array.from({ length: 49 }, () => ({})),
+        { toolCalls: [{ toolName: 'publish_skill_bundle' }] },
+      ],
+    })
+    expect(publishFollowupStep).toEqual(
+      expect.objectContaining({
+        activeTools: [],
+        toolChoice: 'none',
+      }),
+    )
+    expect(publishFollowupStep.system).toContain(
+      'You have the publish tool result in context now. Do not call tools.',
+    )
     expect(mocks.streamArgs.system).toContain('SKILL.md is the runtime skill file for the finished skill')
     expect(mocks.streamArgs.system).toContain(
       'Use the apply_patch tool for creating, updating, or deleting bundle files under /workspace.',
@@ -446,16 +474,22 @@ describe('skills agent route', () => {
       'It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.',
     )
     expect(mocks.streamArgs.system).toContain(
+      '`publish_skill_bundle` is not a stopping or pausing tool.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'A successful publish tool result is not a user-facing completion by itself and must not stop the agent.',
+    )
+    expect(mocks.streamArgs.system).toContain(
       'When you call it, make that call the only action in the step and stop immediately.',
     )
     expect(mocks.streamArgs.system).toContain(
       'Build skills as reusable templates for any team that installs them.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Account-specific non-secret values, including hosts/domains such as `acme.freshdesk.com`, workspace IDs, tenant IDs, project IDs, channel IDs, regions, and similar identifiers, belong in `envBindings`',
+      'Account-specific non-secret values, including hosts/domains, workspace IDs, tenant IDs, project IDs, channel IDs, regions, and similar identifiers, belong in `envBindings`',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Do not ask for deployment IDs just to code them in.',
+      'Do not ask for identifiers just to code them in.',
     )
     expect(mocks.streamArgs.system).toContain(
       'local `node_modules` contents are not the source of truth for validation.',
@@ -485,6 +519,7 @@ describe('skills agent route', () => {
     expect(mocks.responseOptions.consumeSseStream).toBe(mocks.consumeStream)
     expect(typeof mocks.responseOptions.messageMetadata).toBe('function')
 
+    expect(mocks.streamArgs.stopWhen[1]({ steps: Array.from({ length: 50 }, () => ({})) })).toBe(true)
     const finishMeta = mocks.responseOptions.messageMetadata({
       part: {
         type: 'finish',
@@ -510,6 +545,12 @@ describe('skills agent route', () => {
     expect(finishMeta?.skillsBuilderAgentUsage?.shellDurationMs).toBe(0)
     expect(finishMeta?.skillsBuilderAgentUsage?.openaiModelId).toBe('gpt-5.4-mini')
     expect(finishMeta?.skillsBuilderAgentUsage?.modelSlug).toBe('gpt-5-4-mini')
+    expect(finishMeta?.skillsBuilderAgentPaused).toEqual({
+      reason: 'step_limit',
+      maxSteps: 50,
+      message:
+        'Paused for safety after many steps. You can tell the builder agent to keep working, and include any direction or corrections you want it to follow.',
+    })
 
     await Promise.resolve()
     expect(mocks.incrementSkillDraftBuilderAgentUsage).toHaveBeenCalledWith(
@@ -530,6 +571,8 @@ describe('skills agent route', () => {
           updatedAt: expect.any(String),
           messageCount: 1,
           isAborted: false,
+          stepLimitReached: true,
+          maxSteps: 50,
         },
         agent: {
           sandboxId: 'skill:team-1:bot-1:customer-refunds',
@@ -579,7 +622,7 @@ describe('skills agent route', () => {
     )
   })
 
-  it('does not attach usage messageMetadata for non–super-admins', async () => {
+  it('does not attach usage metadata for non–super-admins', async () => {
     mocks.isSuperAdmin.mockReturnValue(false)
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
     const { request } = createAbortableRequest('https://docsbot.example/agent', {
@@ -598,7 +641,35 @@ describe('skills agent route', () => {
       }),
     })
 
-    expect(mocks.responseOptions.messageMetadata).toBeUndefined()
+    expect(typeof mocks.responseOptions.messageMetadata).toBe('function')
+    expect(mocks.streamArgs.stopWhen[1]({ steps: Array.from({ length: 50 }, () => ({})) })).toBe(true)
+    const finishMeta = mocks.responseOptions.messageMetadata({
+      part: {
+        type: 'finish',
+        finishReason: 'stop',
+        rawFinishReason: 'stop',
+        totalUsage: {
+          inputTokens: 100,
+          outputTokens: 50,
+          inputTokenDetails: {
+            noCacheTokens: 80,
+            cacheReadTokens: 20,
+            cacheWriteTokens: 0,
+          },
+          outputTokenDetails: { textTokens: 20, reasoningTokens: 30 },
+          totalTokens: 150,
+        },
+      },
+    })
+    expect(finishMeta).toEqual({
+      skillsBuilderAgentPaused: {
+        reason: 'step_limit',
+        maxSteps: 50,
+        message:
+          'Paused for safety after many steps. You can tell the builder agent to keep working, and include any direction or corrections you want it to follow.',
+      },
+    })
+    expect(finishMeta?.skillsBuilderAgentUsage).toBeUndefined()
     mocks.isSuperAdmin.mockReturnValue(true)
   })
 

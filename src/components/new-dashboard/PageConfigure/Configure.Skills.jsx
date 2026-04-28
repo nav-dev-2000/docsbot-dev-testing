@@ -132,6 +132,8 @@ const defaultDraftState = {
 
 const SKILL_DRAFT_MISSING_USER_MESSAGE =
     'This skill draft is no longer available. It may have been deleted or the link is out of date.'
+const SKILLS_BUILDER_STEP_LIMIT_PAUSE_MESSAGE =
+    'Paused for safety after many steps. You can tell the builder agent to keep working, and include any direction or corrections you want it to follow.'
 
 function isSkillDraftMissingError(error) {
     const msg = String(error?.message || '').toLowerCase()
@@ -202,6 +204,9 @@ function isPendingAskUserQuestionsPart(part) {
 
 function skillsBuilderShouldSendAutomatically({ messages }) {
     const last = messages?.[messages.length - 1]
+    if (last?.role === 'assistant' && last.metadata?.skillsBuilderAgentPaused?.reason === 'step_limit') {
+        return false
+    }
     const pendingAsk = last?.role === 'assistant' && (last.parts || []).some(
         (part) => isPendingAskUserQuestionsPart(part),
     )
@@ -2788,6 +2793,27 @@ function AssistantTextBubble({ parts, isStreaming, isLatestMessage }) {
     )
 }
 
+function AssistantPauseNotice({ message }) {
+    const pause = message?.metadata?.skillsBuilderAgentPaused
+    if (pause?.reason !== 'step_limit') return null
+
+    const text =
+        typeof pause.message === 'string' && pause.message.trim()
+            ? pause.message
+            : SKILLS_BUILDER_STEP_LIMIT_PAUSE_MESSAGE
+
+    return (
+        <div
+            className={clsx(
+                'rounded-md border border-yellow-200 bg-yellow-50 px-4 py-3 text-left text-sm leading-6 text-yellow-900 shadow-sm',
+                BUILDER_CHAT_BUBBLE_INSET_ASSISTANT,
+            )}
+        >
+            {text}
+        </div>
+    )
+}
+
 /** Collapse consecutive activity segments (e.g. tools split only by empty text parts in the stream). */
 function mergeAdjacentActivityGroups(groups) {
     const merged = []
@@ -2915,8 +2941,10 @@ function AssistantMessageBlock({
 }) {
     const parts = message.parts || []
     const groups = groupAssistantPartsForDisplay(parts, { isLatestMessage })
+    const showPauseNotice =
+        isLatestMessage && message?.metadata?.skillsBuilderAgentPaused?.reason === 'step_limit'
 
-    if (groups.length === 0) {
+    if (groups.length === 0 && !showPauseNotice) {
         return null
     }
 
@@ -2976,6 +3004,7 @@ function AssistantMessageBlock({
                     />
                 )
             })}
+            {showPauseNotice ? <AssistantPauseNotice message={message} /> : null}
         </div>
     )
 }
@@ -4896,7 +4925,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         messages: [],
         transport: chatTransport,
         sendAutomaticallyWhen: skillsBuilderShouldSendAutomatically,
-        onFinish: async () => {
+        onFinish: async ({ message }) => {
             if (!selectedSkillName) return
             const slug = selectedSkillName
             try {

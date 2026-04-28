@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { consumeStream, convertToModelMessages, hasToolCall, stepCountIs, streamText } from 'ai'
+import { consumeStream, convertToModelMessages, hasToolCall, streamText } from 'ai'
 import { createOpenAI, openai as openaiProviderDefault } from '@ai-sdk/openai'
 import { z } from 'zod'
 import embeddableWidgetDocs from '@/pages/documentation/developer/embeddable-chat-widget.md?raw'
@@ -40,6 +40,9 @@ import { canUserManageBotSettings } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
 
 const WORKSPACE_ROOT = '/workspace'
+const BUILDER_AGENT_MAX_STEPS = 50
+const BUILDER_AGENT_STEP_LIMIT_PAUSE_MESSAGE =
+  'Paused for safety after many steps. You can tell the builder agent to keep working, and include any direction or corrections you want it to follow.'
 const GENERATED_BUNDLE_ARTIFACT_PATH = '.docsbot/bundle/index.js'
 const GENERATED_COMPILED_ARTIFACT_PATH = '.docsbot/compiled/index.js'
 const DOC_CONTENT_BY_KEY = {
@@ -346,6 +349,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Use \`ask_user_questions\` only when the user must choose a direction or provide non-secret information that cannot reasonably be represented as a configurable manifest binding. When you call it, make that call the only action in the step and stop immediately. Do not call another tool, continue reasoning, or write a fallback text question after \`ask_user_questions\`; wait for the form response.
 - Use the \`validate_skill_bundle\` tool after meaningful edits. It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.
 - Use the \`publish_skill_bundle\` tool before claiming the task is complete.
+- \`publish_skill_bundle\` is not a stopping or pausing tool. After it succeeds, always continue and if done working, send a final assistant message in the same turn. Do not end the turn with only the tool result. Briefly tell the user that the skill was published and summarize the important changes.
 - Do not generate, repair, or hand-author platform-generated artifacts yourself. Write source files, then use \`validate_skill_bundle\` and \`publish_skill_bundle\`.
 
 ## User-facing messaging
@@ -486,7 +490,12 @@ async function fetchCustomerContext(ctx: SkillContext) {
 - \`publish_skill_bundle\` publishes the validated draft bundle.
 - \`validate_skill_bundle\` and \`publish_skill_bundle\` handle platform-managed generated artifacts; they are not the coding agent's job to create or repair manually.
 - Do not claim completion until \`publish_skill_bundle\` succeeds, or you can clearly explain the blocker.
+- A successful publish tool result is not a user-facing completion by itself and must not stop the agent. Follow it with a concise assistant message so the conversation never ends silently after publishing.
 `.trim()
+}
+
+function stepIncludesToolCall(step, toolName) {
+  return Array.isArray(step?.toolCalls) && step.toolCalls.some((toolCall) => toolCall?.toolName === toolName)
 }
 
 export async function POST(request, context) {
@@ -524,6 +533,7 @@ export async function POST(request, context) {
     const openaiForBuilder = useTeamOpenAiKey
       ? createOpenAI({ apiKey: teamOpenAiApiKey })
       : openaiProviderDefault
+    const systemPrompt = buildSystemPrompt(draft)
 
     await getSkillDraftDocRef(team.id, botId, draft.skillName, firestore).set(
       {
@@ -695,10 +705,20 @@ export async function POST(request, context) {
     const superAdmin = isSuperAdmin(userId)
     const webSearchUsageAcc = { calls: 0 }
     const shellUsageAcc = { calls: 0, durationMs: 0 }
+    let builderStepLimitReached = false
+    const builderStepLimitStopCondition = ({ steps = [] }) => {
+      const latestStep = steps[steps.length - 1]
+      if (steps.length >= BUILDER_AGENT_MAX_STEPS && stepIncludesToolCall(latestStep, 'publish_skill_bundle')) {
+        return false
+      }
+      const reached = steps.length >= BUILDER_AGENT_MAX_STEPS
+      if (reached) builderStepLimitReached = true
+      return reached
+    }
 
     const stream = streamText({
       model: openaiForBuilder(builderOpenaiModelId),
-      system: buildSystemPrompt(draft),
+      system: systemPrompt,
       messages: modelMessages,
       abortSignal: request.signal,
       tools: {
@@ -732,7 +752,20 @@ export async function POST(request, context) {
           truncation: 'auto',
         },
       },
-      stopWhen: [hasToolCall('ask_user_questions'), stepCountIs(50)],
+      prepareStep: ({ steps = [] }) => {
+        const latestStep = steps[steps.length - 1]
+        if (steps.length >= BUILDER_AGENT_MAX_STEPS && stepIncludesToolCall(latestStep, 'publish_skill_bundle')) {
+          return {
+            activeTools: [],
+            toolChoice: 'none',
+            system: `${systemPrompt}\n\nThe previous step called \`publish_skill_bundle\` at the safety step limit. You have the publish tool result in context now. Do not call tools. Read the result and send the user a concise final message that says whether publishing succeeded or explains the validation/publish failure and the next fix needed.`,
+          }
+        }
+        return undefined
+      },
+      // Only the question form intentionally pauses the builder. Publishing must continue so
+      // the model can send a user-visible completion message after the tool result.
+      stopWhen: [hasToolCall('ask_user_questions'), builderStepLimitStopCondition],
       onFinish: async (event) => {
         try {
           const webSearchCalls = countWebSearchToolCallsInSteps(event.steps)
@@ -759,23 +792,33 @@ export async function POST(request, context) {
       sendReasoning: true,
       sendSources: true,
       consumeSseStream: consumeStream,
-      messageMetadata: superAdmin
-        ? ({ part }) => {
-            if (part.type === 'tool-call' && !part.invalid && isWebSearchToolCallPart(part)) {
-              webSearchUsageAcc.calls += 1
-            }
-            if (part.type === 'finish') {
-              const meta = buildSkillsBuilderAgentUsageMetadata(
-                part.totalUsage,
-                webSearchUsageAcc.calls,
-                shellUsageAcc,
-                { openaiModelId: builderOpenaiModelId },
-              )
-              return meta
-            }
-            return undefined
+      messageMetadata: ({ part }) => {
+        if (superAdmin && part.type === 'tool-call' && !part.invalid && isWebSearchToolCallPart(part)) {
+          webSearchUsageAcc.calls += 1
+        }
+        if (part.type !== 'finish') return undefined
+
+        const meta = {}
+        if (builderStepLimitReached) {
+          meta.skillsBuilderAgentPaused = {
+            reason: 'step_limit',
+            maxSteps: BUILDER_AGENT_MAX_STEPS,
+            message: BUILDER_AGENT_STEP_LIMIT_PAUSE_MESSAGE,
           }
-        : undefined,
+        }
+        if (superAdmin) {
+          Object.assign(
+            meta,
+            buildSkillsBuilderAgentUsageMetadata(
+              part.totalUsage,
+              webSearchUsageAcc.calls,
+              shellUsageAcc,
+              { openaiModelId: builderOpenaiModelId },
+            ),
+          )
+        }
+        return Object.keys(meta).length ? meta : undefined
+      },
       onError: (error) => openAiErrorMessage(error) || 'Unable to run skills builder agent.',
       onFinish: async ({ isAborted }) => {
         await getSkillDraftDocRef(team.id, botId, draft.skillName, firestore).set(
@@ -784,6 +827,8 @@ export async function POST(request, context) {
               updatedAt: new Date().toISOString(),
               messageCount: messages.length,
               isAborted: Boolean(isAborted),
+              stepLimitReached: Boolean(builderStepLimitReached),
+              maxSteps: BUILDER_AGENT_MAX_STEPS,
             },
             agent: {
               sandboxId,
