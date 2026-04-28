@@ -1,8 +1,21 @@
 import OpenAI from 'openai'
 import Turbopuffer from '@turbopuffer/turbopuffer'
 
+const DEFAULT_SKILLS_LIBRARY_SEARCH_NAMESPACE = 'docsbot-skills-library'
+const PRODUCTION_SKILLS_LIBRARY_SEARCH_NAMESPACE = 'docsbot-skills-library-production'
+
+function resolveSkillsLibrarySearchNamespace() {
+  if (process.env.TURBOPUFFER_SKILLS_LIBRARY_NAMESPACE) {
+    return process.env.TURBOPUFFER_SKILLS_LIBRARY_NAMESPACE
+  }
+
+  return process.env.VERCEL_ENV === 'production'
+    ? PRODUCTION_SKILLS_LIBRARY_SEARCH_NAMESPACE
+    : DEFAULT_SKILLS_LIBRARY_SEARCH_NAMESPACE
+}
+
 export const SKILLS_LIBRARY_SEARCH_NAMESPACE =
-  process.env.TURBOPUFFER_SKILLS_LIBRARY_NAMESPACE || 'docsbot-skills-library'
+  resolveSkillsLibrarySearchNamespace()
 export const SKILLS_LIBRARY_SEARCH_REGION =
   process.env.TURBOPUFFER_SKILLS_LIBRARY_REGION || 'gcp-us-west1'
 export const SKILLS_LIBRARY_EMBEDDING_MODEL =

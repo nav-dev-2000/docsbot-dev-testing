@@ -101,6 +101,8 @@ describe('skills-library-search', () => {
     mocks.multiQueries.length = 0
     process.env.TURBOPUFFER_API_KEY = 'tpuf-key'
     process.env.OPENAI_API_KEY = 'openai-key'
+    delete process.env.TURBOPUFFER_SKILLS_LIBRARY_NAMESPACE
+    delete process.env.VERCEL_ENV
     delete process.env.SKILLS_LIBRARY_EMBEDDING_MODEL
     delete process.env.SKILLS_LIBRARY_EMBEDDING_DIMENSIONS
   })
@@ -148,6 +150,33 @@ describe('skills-library-search', () => {
         }),
       }),
     )
+  })
+
+  it('uses a separate default Turbopuffer namespace in production', async () => {
+    process.env.VERCEL_ENV = 'production'
+    const { indexLibrarySkillForSearch } = await import('@/lib/skills-library-search')
+
+    await indexLibrarySkillForSearch({
+      id: 'crm-sync',
+      name: 'crm-sync',
+      description: 'Use when syncing CRM records.',
+    })
+
+    expect(mocks.writes[0].namespace).toBe('docsbot-skills-library-production')
+  })
+
+  it('allows the skills library Turbopuffer namespace to be overridden', async () => {
+    process.env.VERCEL_ENV = 'production'
+    process.env.TURBOPUFFER_SKILLS_LIBRARY_NAMESPACE = 'custom-skills-library'
+    const { indexLibrarySkillForSearch } = await import('@/lib/skills-library-search')
+
+    await indexLibrarySkillForSearch({
+      id: 'crm-sync',
+      name: 'crm-sync',
+      description: 'Use when syncing CRM records.',
+    })
+
+    expect(mocks.writes[0].namespace).toBe('custom-skills-library')
   })
 
   it('runs vector and BM25 multi-query search and fuses results with RRF', async () => {
