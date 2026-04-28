@@ -1,0 +1,6 @@
+{
+  "date": "2026-04-28",
+  "title": "Stripe Billing Action",
+  "description": "Let DocsBot answer billing questions and take guarded Stripe actions for invoices, subscriptions, refunds, and cancellations.",
+  "href": "https://docsbot.ai/article/turn-docsbot-into-a-billing-support-agent-with-stripe-actions"
+}
