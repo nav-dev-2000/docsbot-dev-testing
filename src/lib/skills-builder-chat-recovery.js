@@ -10,34 +10,26 @@ function interruptedToolErrorText() {
   return 'User interrupted this tool call before it completed. Reassess the current state and continue.'
 }
 
-function stripOpenAIResponseIdsFromProviderData(value) {
+function stripOpenAIProviderData(value) {
   if (!value || typeof value !== 'object') return value
 
   const openaiData = value.openai
   if (!openaiData || typeof openaiData !== 'object') return value
 
-  const restOpenaiData = { ...openaiData }
-  delete restOpenaiData.itemId
-  delete restOpenaiData.responseId
-
   const next = { ...value }
-  if (Object.keys(restOpenaiData).length) {
-    next.openai = restOpenaiData
-  } else {
-    delete next.openai
-  }
+  delete next.openai
 
   return Object.keys(next).length ? next : undefined
 }
 
-function stripOpenAIResponseIdsFromPart(part) {
+function stripOpenAIProviderDataFromPart(part) {
   if (!part || typeof part !== 'object') return part
 
   const next = { ...part }
   let changed = false
 
   if (next.providerOptions) {
-    const providerOptions = stripOpenAIResponseIdsFromProviderData(next.providerOptions)
+    const providerOptions = stripOpenAIProviderData(next.providerOptions)
     if (providerOptions !== next.providerOptions) {
       changed = true
       if (providerOptions) {
@@ -49,7 +41,7 @@ function stripOpenAIResponseIdsFromPart(part) {
   }
 
   if (next.providerMetadata) {
-    const providerMetadata = stripOpenAIResponseIdsFromProviderData(next.providerMetadata)
+    const providerMetadata = stripOpenAIProviderData(next.providerMetadata)
     if (providerMetadata !== next.providerMetadata) {
       changed = true
       if (providerMetadata) {
@@ -132,7 +124,7 @@ export function stripOpenAIResponseItemReferences(messages) {
 
     let messageChanged = false
     const parts = message.parts.map((part) => {
-      const nextPart = stripOpenAIResponseIdsFromPart(part)
+      const nextPart = stripOpenAIProviderDataFromPart(part)
       if (nextPart !== part) {
         messageChanged = true
         changed = true

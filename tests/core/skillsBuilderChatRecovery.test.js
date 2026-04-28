@@ -60,7 +60,7 @@ describe('skills-builder-chat-recovery', () => {
     expect(recoverInterruptedToolCalls(messages)).toBe(messages)
   })
 
-  it('strips OpenAI stored response item references while preserving other provider metadata', () => {
+  it('strips OpenAI provider replay metadata while preserving other providers', () => {
     const messages = [
       { role: 'user', parts: [{ type: 'text', text: 'Start building' }] },
       {
@@ -75,6 +75,9 @@ describe('skills-builder-chat-recovery', () => {
                 responseId: 'resp_123',
                 reasoningEncryptedContent: 'encrypted-reasoning',
               },
+              docsbot: {
+                traceId: 'trace-1',
+              },
             },
           },
           {
@@ -85,6 +88,9 @@ describe('skills-builder-chat-recovery', () => {
                 itemId: 'msg_123',
                 responseId: 'resp_123',
                 annotations: [{ type: 'url_citation', url: 'https://example.com' }],
+              },
+              docsbot: {
+                safe: true,
               },
             },
           },
@@ -106,13 +112,13 @@ describe('skills-builder-chat-recovery', () => {
 
     expect(stripped).not.toBe(messages)
     expect(stripped[1].parts[0].providerOptions).toEqual({
-      openai: {
-        reasoningEncryptedContent: 'encrypted-reasoning',
+      docsbot: {
+        traceId: 'trace-1',
       },
     })
     expect(stripped[1].parts[1].providerMetadata).toEqual({
-      openai: {
-        annotations: [{ type: 'url_citation', url: 'https://example.com' }],
+      docsbot: {
+        safe: true,
       },
     })
     expect(stripped[1].parts[2].providerMetadata).toBeUndefined()

@@ -734,7 +734,7 @@ describe('skills agent route', () => {
     ])
   })
 
-  it('starts a fresh OpenAI response from message history by removing stale response item references', async () => {
+  it('starts a fresh OpenAI response from message history by removing response replay metadata', async () => {
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
 
     await POST(
@@ -768,6 +768,17 @@ describe('skills agent route', () => {
                     },
                   },
                 },
+                {
+                  type: 'tool-call',
+                  toolCallId: 'call_old',
+                  toolName: 'load_context',
+                  input: {},
+                  providerMetadata: {
+                    openai: {
+                      itemId: 'fc_0cdc252d2c8b1f950069f13526c5d081a28a6f187aeae67ddb',
+                    },
+                  },
+                },
               ],
             },
             { role: 'user', parts: [{ type: 'text', text: 'Keep going from there.' }] },
@@ -791,15 +802,19 @@ describe('skills agent route', () => {
           {
             type: 'reasoning',
             text: 'I inspected the existing files.',
-            providerOptions: {
-              openai: {
-                reasoningEncryptedContent: 'encrypted-content',
-              },
-            },
           },
           {
             type: 'text',
             text: 'I can continue from the authored files.',
+          },
+          {
+            type: 'tool-call',
+            toolCallId: 'call_old',
+            toolName: 'load_context',
+            input: {},
+            state: 'output-error',
+            errorText:
+              'User interrupted this tool call before it completed. Reassess the current state and continue.',
           },
         ],
       },
