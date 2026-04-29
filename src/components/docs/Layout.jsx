@@ -28,6 +28,7 @@ const navigation = [
     title: 'Core concepts',
     links: [
       { title: 'Authentication', href: '/documentation/developer/authentication' },
+      { title: 'Skills Technical Guide', href: '/documentation/developer/skills-technical-guide' },
       { title: 'API Errors', href: '/documentation/developer/api-errors' },
     ],
   },
