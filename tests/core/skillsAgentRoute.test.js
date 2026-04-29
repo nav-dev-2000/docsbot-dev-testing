@@ -474,6 +474,12 @@ describe('skills agent route', () => {
       'It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.',
     )
     expect(mocks.streamArgs.system).toContain(
+      'If `validate_skill_bundle` returns `ok: true` or `validation.valid: true`, treat validation as passed.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not continue troubleshooting validation, import, dependency, or package-install issues from earlier reasoning; proceed to publish if the skill is otherwise ready.',
+    )
+    expect(mocks.streamArgs.system).toContain(
       '`publish_skill_bundle` is not a stopping or pausing tool.',
     )
     expect(mocks.streamArgs.system).toContain(
@@ -492,10 +498,16 @@ describe('skills agent route', () => {
       'Do not ask for identifiers just to code them in.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'local `node_modules` contents are not the source of truth for validation.',
+      'Do not run `npm install`, `npm view`, or inspect `node_modules` just to make validation work;',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Do not debug `/workspace/node_modules`, hidden package-manager directories, or local package cache layouts unless a local shell command explicitly failed because a package is missing.',
+      'the remote runtime installs/resolves declared dependencies while bundling, and uploaded `node_modules` contents are ignored.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Put `"zod": "^4.0.0"` in `package.json` dependencies when using `import { z } from "zod";`.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not debug `/workspace/node_modules`, hidden package-manager directories, npm registry state, or local package cache layouts unless a local shell command explicitly failed because a package is missing.',
     )
     expect(mocks.streamArgs.system).toContain(
       'The Overview section should explain what the skill does, when it should be used, and any important execution context the runtime agent needs.',
@@ -505,6 +517,27 @@ describe('skills agent route', () => {
     )
     expect(mocks.streamArgs.system).toContain(
       'Return structured JSON objects only so the runtime can filter fields and pipe outputs between functions;',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'await ctx.artifacts.publish({ filename, contentType, body })',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'The `filename` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Prefer importing Zod as `import { z } from "zod";` for consistency.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'input: ExampleTaskInputSchema',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'output: ExampleTaskOutputSchema',
+    )
+    expect(mocks.streamArgs.system).not.toContain(
+      "If validation says `Function must define 'input' as a Zod schema`",
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'artifact URLs are public links intended to be shown to end users.',
     )
     expect(mocks.streamArgs.system).toContain(
       'Do not put raw API call instructions, request URLs, HTTP parameter recipes, shell commands, coding steps, or TypeScript implementation tasks into SKILL.md.',
@@ -756,7 +789,7 @@ describe('skills agent route', () => {
                   toolCallId: 'call_old',
                   toolName: 'load_context',
                   input: {},
-                  providerMetadata: {
+                  callProviderMetadata: {
                     openai: {
                       itemId: 'fc_0cdc252d2c8b1f950069f13526c5d081a28a6f187aeae67ddb',
                     },
@@ -880,6 +913,7 @@ describe('skills agent route', () => {
     )
 
     const result = await mocks.streamArgs.tools.update_manifest.execute({
+      name: 'Refund Policy Helper',
       envBindings: [
         { envVar: 'WORKSPACE_ID', description: 'Updated explanation only.' },
         { envVar: 'TENANT_ID', value: 'tenant-new' },
@@ -887,6 +921,7 @@ describe('skills agent route', () => {
     })
 
     const lastCall = mocks.updateSkillDraft.mock.calls.at(-1)
+    expect(lastCall[3].manifest.displayName).toBe('Refund Policy Helper')
     expect(lastCall[3].manifest.envBindings).toEqual([
       {
         envVar: 'WORKSPACE_ID',
@@ -905,7 +940,7 @@ describe('skills agent route', () => {
     ])
   })
 
-  it('validates the current R2-backed draft and persists the returned bundle artifact', async () => {
+  it('validates the current R2-backed draft and lets the runtime persist the bundle artifact', async () => {
     currentDraft.files = [
       { path: '.docsbot/bundle/index.js', content: 'stale generated bundle\n' },
       ...currentDraft.files,
@@ -917,10 +952,6 @@ describe('skills agent route', () => {
           hasFunctions: true,
           warnings: [],
           errors: [],
-          bundleArtifact: {
-            path: '.docsbot/bundle/index.js',
-            content: 'export default {}\n',
-          },
         }),
         { status: 200, headers: { 'Content-Type': 'application/json' } },
       ),
@@ -960,20 +991,13 @@ describe('skills agent route', () => {
       secretBindings: [],
       metadataBindings: [],
     })
+    expect(validateBody.r2Prefix).toBe('team-1/bot-1/customer-refunds')
     expect(validateBody.files.map((file) => file.path)).toEqual(['SKILL.md'])
     expect(mocks.updateSkillDraft).toHaveBeenCalledWith(
       'team-1',
       'bot-1',
       'customer-refunds',
       expect.objectContaining({
-        files: [
-          { path: '.docsbot/bundle/index.js', content: 'export default {}\n' },
-          {
-            path: 'SKILL.md',
-            content:
-              '---\nname: customer-refunds\ndescription: "Use when customers need refund policy help."\n---\n\n# Refunds\n',
-          },
-        ],
         manifest: { hasFunctions: true },
         validation: expect.objectContaining({ valid: true, hasFunctions: true }),
       }),
@@ -992,10 +1016,6 @@ describe('skills agent route', () => {
         JSON.stringify({
           valid: true,
           hasFunctions: true,
-          bundleArtifact: {
-            path: '.docsbot/bundle/index.js',
-            content: 'export default {}\n',
-          },
           warnings: [],
           errors: [],
         }),

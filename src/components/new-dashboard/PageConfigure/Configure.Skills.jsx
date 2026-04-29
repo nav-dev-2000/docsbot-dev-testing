@@ -88,7 +88,7 @@ import {
     skillTestEventsToAssistantParts,
 } from '@/lib/skill-test-agent-ui'
 import { auth } from '@/config/firebase-ui.config'
-import { checkPlanPermission, isSuperAdmin } from '@/utils/helpers'
+import { checkPlanPermission, getWidgetSkillSlotLimit, isSuperAdmin } from '@/utils/helpers'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useBlockingNavigationWarning } from '@/hooks/useUnsavedChangesWarning'
 import { diffLines, diffWordsWithSpace } from 'diff'
@@ -4320,6 +4320,124 @@ function SkillsPageWorkspaceTitle() {
 
 const SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX = 1000001
 
+function skillRecordId(skill) {
+    return String(
+        skill?.skillName ||
+            skill?.draftId ||
+            skill?.id ||
+            normalizeSkillName(String(skill?.name ?? '')),
+    ).trim()
+}
+
+const hasMissingSkillSecrets = (skill) =>
+    skill?.hasMissingSecretBindings === true ||
+    (Array.isArray(skill?.secretBindings) &&
+        skill.secretBindings.some(
+            (binding) =>
+                typeof binding?.secret !== 'string' || binding.secret.trim().length === 0,
+        ))
+
+const hasMissingSkillEnvBindings = (skill) =>
+    skill?.hasMissingEnvBindings === true ||
+    (Array.isArray(skill?.envBindings) &&
+        skill.envBindings.some(
+            (binding) =>
+                typeof binding?.value !== 'string' || binding.value.trim().length === 0,
+        ))
+
+function buildSkillWidgetDisabledReasons({ skill, botId, isPublicBot }) {
+    const id = skillRecordId(skill)
+    const skillHref = `/app/bots/${botId}/configure/skills/${encodeURIComponent(id)}`
+    const reasons = []
+
+    if (!skill?.publishedAt) {
+        reasons.push({
+            key: 'unpublished',
+            message: 'Publish this skill before adding it to the widget.',
+            href: skillHref,
+            linkLabel: 'Open skill',
+        })
+    }
+
+    if (hasMissingSkillSecrets(skill)) {
+        reasons.push({
+            key: 'missing-secrets',
+            message: 'Add all required secret values before adding this skill to the widget.',
+            href: skillHref,
+            linkLabel: 'Add secrets',
+        })
+    }
+
+    if (hasMissingSkillEnvBindings(skill)) {
+        reasons.push({
+            key: 'missing-env-bindings',
+            message: 'Save all required environment values before adding this skill to the widget.',
+            href: skillHref,
+            linkLabel: 'Open skill',
+        })
+    }
+
+    if (isPublicBot && skill?.internal) {
+        reasons.push({
+            key: 'internal-public',
+            message: 'Internal-only skills cannot be added to public widgets.',
+            href: skillHref,
+            linkLabel: 'Change audience',
+        })
+    }
+
+    return reasons
+}
+
+function SkillWidgetButton({ skill, botId, isPublicBot, disabled, onToggle }) {
+    const isEnabled = skill?.enabledWidget === true
+    const disabledReasons = isEnabled
+        ? []
+        : buildSkillWidgetDisabledReasons({ skill, botId, isPublicBot })
+    const isDisabled = disabled || disabledReasons.length > 0
+    const button = (
+        <button
+            type="button"
+            onClick={(event) => {
+                event.stopPropagation()
+                if (!isDisabled) onToggle?.(skill)
+            }}
+            disabled={isDisabled}
+            className={
+                isEnabled
+                    ? 'inline-flex items-center justify-center gap-1.5 rounded-md border border-gray-300 bg-white px-2.5 py-1 text-sm font-medium text-gray-700 transition-all hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50'
+                    : 'inline-flex items-center justify-center gap-1.5 rounded-md border border-cyan-600/40 bg-cyan-600 px-2.5 py-1 text-sm font-medium text-white transition-all hover:bg-cyan-500 disabled:cursor-not-allowed disabled:opacity-50'
+            }
+        >
+            {disabled ? (
+                <LoadingSpinner className="-ml-0.5 h-4 w-4" aria-hidden />
+            ) : (
+                <ChatBubbleLeftRightIcon className="-ml-0.5 h-4 w-4" aria-hidden />
+            )}
+            {isEnabled ? 'Remove from widget' : 'Add to widget'}
+        </button>
+    )
+
+    if (!isDisabled || disabled || disabledReasons.length === 0) {
+        return button
+    }
+
+    return (
+        <Tooltip
+            content={
+                <span className="block max-w-xs">
+                    {disabledReasons.map((reason) => reason.message).join(' ')}
+                </span>
+            }
+            zIndex={1000001}
+        >
+            <span className="inline-flex cursor-help" onClick={(event) => event.stopPropagation()}>
+                {button}
+            </span>
+        </Tooltip>
+    )
+}
+
 function SkillsLibraryModal({
     open,
     onClose,
@@ -4454,7 +4572,7 @@ function SkillsLibraryModal({
                                                             />
                                                             <div className="min-w-0 flex-1">
                                                                 <div className="text-sm font-semibold text-gray-900">
-                                                                    {formatSkillNameDisplay(skill.name, 'Skill')}
+                                                                    {skill.name || formatSkillNameDisplay(skill.id, 'Skill')}
                                                                 </div>
                                                                 <p className="mt-1 line-clamp-3 text-sm text-gray-600">
                                                                     {skillListDescription(skill.description) ||
@@ -4561,6 +4679,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const [builderChatSessionEpoch, setBuilderChatSessionEpoch] = useState(0)
     const [isDeletingSkill, setIsDeletingSkill] = useState(false)
     const [isPromotingLibrarySkill, setIsPromotingLibrarySkill] = useState(false)
+    const [updatingWidgetSkillId, setUpdatingWidgetSkillId] = useState(null)
     const [libraryOpen, setLibraryOpen] = useState(false)
     const [librarySkills, setLibrarySkills] = useState([])
     const [loadingLibrary, setLoadingLibrary] = useState(false)
@@ -5606,11 +5725,12 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     useEffect(() => {
         if (!selectedSkillName || !drafts.length) return
 
-        const selectedFromList = drafts.find((skill) => skill.name === selectedSkillName)
+        const selectedFromList = drafts.find((skill) => skillRecordId(skill) === selectedSkillName)
         if (!selectedFromList) return
 
         setDraftState((prev) => {
             if (
+                skillRecordId(prev.draft) === skillRecordId(selectedFromList) &&
                 prev.draft?.name === selectedFromList.name &&
                 prev.draft?.updatedAt === selectedFromList.updatedAt &&
                 prev.draft?.publishedAt === selectedFromList.publishedAt
@@ -5620,7 +5740,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
             return {
                 ...prev,
-                name: selectedFromList.name,
+                name: skillRecordId(selectedFromList),
                 draft: prev.draft ? { ...selectedFromList, ...prev.draft } : selectedFromList,
             }
         })
@@ -5816,7 +5936,8 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             const generatedDescription = String(skill.description || '').trim()
 
             const createdSlug = String(
-                skill.draftId ||
+                skill.skillName ||
+                    skill.draftId ||
                     skill.id ||
                     normalizeSkillName(String(skill.name ?? '')),
             ).trim()
@@ -5865,7 +5986,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
     async function deleteSelectedSkill() {
         if (!selectedSkillName || createMode || isDeletingSkill) return
-        const label = formatSkillNameDisplay(selectedSkillName, selectedSkillName)
+        const label = selectedDraft?.name || formatSkillNameDisplay(selectedSkillName, selectedSkillName)
         if (
             !window.confirm(
                 `Delete skill "${label}"? This removes the draft from the database and the published skill. This cannot be undone.`,
@@ -5902,7 +6023,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
     async function promoteSelectedSkillToLibrary() {
         if (!selectedSkillName || createMode || isPromotingLibrarySkill || !isSuperAdminViewer) return
-        const label = formatSkillNameDisplay(selectedSkillName, selectedSkillName)
+        const label = selectedDraft?.name || formatSkillNameDisplay(selectedSkillName, selectedSkillName)
         if (
             !window.confirm(
                 `Add "${label}" to the global skills library? This copies the currently published package.`,
@@ -5933,6 +6054,80 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         }
     }
 
+    async function toggleSkillWidgetAvailability(skill) {
+        const id = skillRecordId(skill)
+        if (!id || updatingWidgetSkillId) return
+
+        const nextEnabledWidget = skill.enabledWidget !== true
+        if (nextEnabledWidget) {
+            const planCheck = checkPlanPermission(team, 'standard')
+            const enabledCount = drafts.filter((entry) => entry?.enabledWidget === true).length
+            const slotLimit = getWidgetSkillSlotLimit(team)
+            const slotsFull = Number.isFinite(slotLimit) && enabledCount >= slotLimit
+
+            if (!planCheck.allowed || slotsFull) {
+                setShowUpgrade(true)
+                return
+            }
+
+            const disabledReasons = buildSkillWidgetDisabledReasons({
+                skill,
+                botId: bot.id,
+                isPublicBot: bot?.privacy === 'public',
+            })
+            if (disabledReasons.length > 0) return
+        }
+
+        setUpdatingWidgetSkillId(id)
+        setErrorText(null)
+        try {
+            const response = await fetch(`${apiBase}/${encodeURIComponent(id)}`, {
+                method: 'PUT',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    manifest: {
+                        enabledWidget: nextEnabledWidget,
+                    },
+                }),
+            })
+            const data = await response.json().catch(() => ({}))
+            if (!response.ok) {
+                throw new Error(data.message || 'Unable to update widget availability for this skill.')
+            }
+
+            const updatedSkill = data.skill || { ...skill, enabledWidget: nextEnabledWidget }
+            setDrafts((prev) =>
+                prev.map((entry) =>
+                    skillRecordId(entry) === id
+                        ? {
+                              ...entry,
+                              ...updatedSkill,
+                              enabledWidget: nextEnabledWidget,
+                          }
+                        : entry,
+                ),
+            )
+            setDraftState((prev) => {
+                if (skillRecordId(prev.draft) !== id) return prev
+                return {
+                    ...prev,
+                    draft: {
+                        ...prev.draft,
+                        ...updatedSkill,
+                        enabledWidget: nextEnabledWidget,
+                    },
+                }
+            })
+        } catch (error) {
+            setErrorText(error.message || 'Unable to update widget availability for this skill.')
+        } finally {
+            setUpdatingWidgetSkillId(null)
+        }
+    }
+
     function openCreateSkill() {
         navigateToSkillsIndex()
         setCreateMode(true)
@@ -5951,10 +6146,11 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     }
 
     function openExistingSkill(skill) {
-        navigateToSkill(skill.name)
+        const id = skillRecordId(skill)
+        navigateToSkill(id)
         setDraftState((prev) => ({
             ...prev,
-            name: skill.name,
+            name: id,
             draft: skill,
         }))
         setDetailTab('builder')
@@ -5978,17 +6174,18 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                 throw new Error(data.message || 'Unable to import this library skill.')
             }
             const importedSkill = data.skill
-            if (!importedSkill?.name) {
+            const importedSkillId = skillRecordId(importedSkill)
+            if (!importedSkillId) {
                 throw new Error('The server did not return the imported skill.')
             }
             setLibraryOpen(false)
             setDraftState((prev) => ({
                 ...prev,
-                name: importedSkill.name,
+                name: importedSkillId,
                 draft: importedSkill,
             }))
             await loadDrafts()
-            navigateToSkill(importedSkill.name)
+            navigateToSkill(importedSkillId)
             setDetailTab('builder')
             setInfoText('Library skill imported into this bot.')
         } catch (error) {
@@ -6000,7 +6197,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
 
     async function deleteLibrarySkillFromModal(skill) {
         if (!skill?.id || deletingLibrarySkillId || !isSuperAdminViewer) return
-        const label = formatSkillNameDisplay(skill.name, skill.id)
+        const label = skill.name || formatSkillNameDisplay(skill.id, skill.id)
         if (!window.confirm(`Delete "${label}" from the global skills library? This cannot be undone.`)) {
             return
         }
@@ -6057,37 +6254,56 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                     />
                 </div>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8">
+            <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8 pt-6">
                 <div className="flex flex-col gap-8">
                     <Alert title={alertString(errorText)} type="error" />
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                        {drafts.map((skill) => (
-                            <button
-                                key={skill.name}
-                                type="button"
+                        {drafts.map((skill) => {
+                            const id = skillRecordId(skill)
+                            return (
+                            <div
+                                key={id}
+                                role="button"
+                                tabIndex={0}
                                 onClick={() => openExistingSkill(skill)}
-                                className="flex flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
+                                onKeyDown={(event) => {
+                                    if (event.key === 'Enter' || event.key === ' ') {
+                                        event.preventDefault()
+                                        openExistingSkill(skill)
+                                    }
+                                }}
+                                className="flex cursor-pointer flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
                             >
                                 <div className="flex items-start gap-3">
                                     <SkillListIcon icon={skill.icon} networkPolicy={skill.networkPolicy} />
                                     <div className="min-w-0 flex-1">
                                         <div className="flex items-start justify-between gap-2">
                                             <div className="text-base font-semibold text-gray-900">
-                                                {formatSkillNameDisplay(skill.name, '—')}
+                                                {skill.name || formatSkillNameDisplay(skillRecordId(skill), '—')}
                                             </div>
                                             <SkillStatusDot publishedAt={skill.publishedAt} />
                                         </div>
                                         <p className="mt-2 line-clamp-3 flex-1 text-sm text-gray-600">
                                             {skillListDescription(skill.description) || 'No description yet.'}
                                         </p>
-                                        <div className="mt-4 flex items-center gap-0.5">
-                                            <SkillAudienceIcon internal={skill.internal} size="sm" />
-                                            <SkillCapabilityIcon mode={skill.mode} hasFunctions={skill.hasFunctions} size="sm" />
+                                        <div className="mt-4 flex items-center justify-between gap-3">
+                                            <div className="flex items-center gap-0.5">
+                                                <SkillAudienceIcon internal={skill.internal} size="sm" />
+                                                <SkillCapabilityIcon mode={skill.mode} hasFunctions={skill.hasFunctions} size="sm" />
+                                            </div>
+                                            <SkillWidgetButton
+                                                skill={skill}
+                                                botId={bot.id}
+                                                isPublicBot={bot?.privacy === 'public'}
+                                                disabled={updatingWidgetSkillId === id}
+                                                onToggle={toggleSkillWidgetAvailability}
+                                            />
                                         </div>
                                     </div>
                                 </div>
-                            </button>
-                        ))}
+                            </div>
+                            )
+                        })}
                         <button
                             type="button"
                             onClick={openSkillsLibrary}
@@ -6329,7 +6545,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                                                     />
                                                     <div className="min-w-0 flex-1">
                                                         <div className="text-sm font-semibold text-gray-900">
-                                                            {formatSkillNameDisplay(skill.name, 'Skill')}
+                                                            {skill.name || formatSkillNameDisplay(skill.id, 'Skill')}
                                                         </div>
                                                         <p className="mt-1 line-clamp-2 text-xs text-gray-600">
                                                             {skillListDescription(skill.description) ||
@@ -7197,7 +7413,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                             <h1 className="min-w-0 truncate text-base font-semibold text-gray-900 md:text-lg">
                                 {createMode && !selectedSkillName
                                     ? 'New skill'
-                                    : formatSkillNameDisplay(selectedSkillName, 'Skill')}
+                                    : selectedDraft?.name || formatSkillNameDisplay(selectedSkillName, 'Skill')}
                             </h1>
                             {!createMode && selectedSkillName ? (
                                 <>
@@ -7305,7 +7521,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
                         />
                     </div>
                 </div>
-                <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8">
+                <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8 pt-6">
                     <Workspace.Loader message="Loading skills…" variant="skills" />
                 </div>
             </div>

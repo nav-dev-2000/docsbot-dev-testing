@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 import { getAuthorizedBotContext } from '@/lib/appRouteAuth'
 import {
   getSkillDraft,
-  mergeBundleArtifact,
   sanitizeValidationPayload,
   skillRecordWithDecryptedSecretBindings,
   updateSkillDraft,
@@ -69,6 +68,12 @@ export async function POST(request, context) {
       },
       body: JSON.stringify({
         skillName: draft.skillName,
+        r2Prefix: draft.r2Prefix,
+        manifest: {
+          envBindings: draft.envBindings || [],
+          secretBindings: draft.secretBindings || [],
+          metadataBindings: draft.metadataBindings || [],
+        },
         files: (draft.files || []).map((file) => ({
           path: file.path,
           content: file.content,
@@ -83,16 +88,12 @@ export async function POST(request, context) {
     }))
 
     const sanitizedPayload = sanitizeValidationPayload(payload)
-    const mergedFiles = sanitizedPayload?.bundleArtifact
-      ? mergeBundleArtifact(draft.files || [], sanitizedPayload.bundleArtifact)
-      : draft.files
 
     const updated = await updateSkillDraft(
       auth.team.id,
       auth.bot.id,
       draft.skillName,
       {
-        files: mergedFiles,
         manifest: {
           hasFunctions: Boolean(sanitizedPayload?.hasFunctions),
         },

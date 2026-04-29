@@ -564,16 +564,19 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 }
 
                 const summaries = Array.isArray(listData.skills) ? listData.skills : []
+                const skillId = (skill) =>
+                    String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+
                 const details = await Promise.all(
                     summaries.map(async (summary) => {
                         const detailResponse = await fetch(
-                            `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(summary.name)}`,
+                            `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(skillId(summary))}`,
                         )
                         const detailData = await detailResponse.json().catch(() => ({}))
                         if (!detailResponse.ok) {
                             throw new Error(
                                 detailData.message ||
-                                    `Unable to load skill ${summary.name}.`,
+                                    `Unable to load skill ${summary.name || skillId(summary)}.`,
                             )
                         }
                         return detailData.skill || summary
@@ -584,7 +587,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
                 const enabledNames = details
                     .filter((skill) => skill?.enabledWidget === true)
-                    .map((skill) => skill.name)
+                    .map((skill) => skillId(skill))
 
                 setAvailableSkills(details)
                 setSavedWidgetSkills(enabledNames)
@@ -1043,8 +1046,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         const next = Array.isArray(widgetSkills) ? widgetSkills : []
 
         const changed = availableSkills.filter((skill) => {
-            const wasEnabled = previous.includes(skill.name)
-            const isEnabled = next.includes(skill.name)
+            const id = String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+            const wasEnabled = previous.includes(id)
+            const isEnabled = next.includes(id)
             return wasEnabled !== isEnabled
         })
 
@@ -1054,9 +1058,10 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
         await Promise.all(
             changed.map(async (skill) => {
-                const enabledWidget = next.includes(skill.name)
+                const id = String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+                const enabledWidget = next.includes(id)
                 const response = await fetch(
-                    `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(skill.name)}`,
+                    `/api/teams/${team.id}/bots/${bot.id}/skills/${encodeURIComponent(id)}`,
                     {
                         method: 'PUT',
                         headers: {
@@ -1074,7 +1079,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     const data = await response.json().catch(() => ({}))
                     throw new Error(
                         data.message ||
-                            `Unable to update widget availability for ${skill.name}.`,
+                            `Unable to update widget availability for ${skill.name || id}.`,
                     )
                 }
             }),
@@ -1082,10 +1087,13 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
 
         setSavedWidgetSkills(next)
         setAvailableSkills((prev) =>
-            prev.map((skill) => ({
-                ...skill,
-                enabledWidget: next.includes(skill.name),
-            })),
+            prev.map((skill) => {
+                const id = String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+                return {
+                    ...skill,
+                    enabledWidget: next.includes(id),
+                }
+            }),
         )
     }, [availableSkills, bot.id, savedWidgetSkills, team.id, widgetSkills])
 

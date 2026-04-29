@@ -271,8 +271,12 @@ const hasMissingSkillEnvBindings = (skill) =>
             typeof binding?.value !== 'string' || binding.value.trim().length === 0,
     )
 
+const skillRecordId = (skill) =>
+    String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+
 const buildWidgetSkillDisabledReasons = ({ skill, botId, isPublicBot }) => {
-    const skillHref = `/app/bots/${botId}/configure/skills/${encodeURIComponent(skill.name)}`
+    const id = skillRecordId(skill)
+    const skillHref = `/app/bots/${botId}/configure/skills/${encodeURIComponent(id)}`
     const reasons = []
 
     if (!skill?.publishedAt) {
@@ -785,7 +789,7 @@ const AppearanceActions = ({
     const enabledWidgetSkills = useMemo(() => {
         const selected = Array.isArray(widgetSkills) ? widgetSkills : []
         return selected.map((skillName) => {
-            const skill = availableWidgetSkills.find((item) => item.name === skillName)
+            const skill = availableWidgetSkills.find((item) => skillRecordId(item) === skillName)
             if (skill) return skill
             return {
                 name: skillName,
@@ -1523,7 +1527,7 @@ const AppearanceActions = ({
                     <div className="flex flex-col gap-3">
                         {enabledWidgetSkills?.map((skill) => (
                             <div
-                                key={skill.name}
+                                key={skillRecordId(skill)}
                                 className="flex w-full items-center justify-between gap-3 rounded-lg bg-gray-100 px-4 py-3"
                             >
                                 <div className="flex min-w-0 flex-1 items-center gap-3">
@@ -1541,7 +1545,7 @@ const AppearanceActions = ({
                                 <Tooltip content="Remove skill" zIndex={1000001}>
                                     <button
                                         type="button"
-                                        onClick={() => handleRemoveWidgetSkill(skill.name)}
+                                        onClick={() => handleRemoveWidgetSkill(skillRecordId(skill))}
                                         disabled={isUpdating}
                                         className="rounded-md p-1.5 text-gray-400 transition-colors hover:bg-red-50 hover:text-red-500"
                                         aria-label={`Remove ${skill.name}`}

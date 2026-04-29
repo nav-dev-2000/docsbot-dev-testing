@@ -4,7 +4,6 @@ import { getAuthorizedBotContext, jsonError } from '@/lib/appRouteAuth'
 import { canUserManageBotSettings } from '@/utils/function.utils'
 import {
   getSkillDraft,
-  mergeBundleArtifact,
   publishSkillDraft,
   sanitizeValidationPayload,
   skillRecordWithDecryptedSecretBindings,
@@ -44,6 +43,7 @@ export async function POST(request, context) {
       },
       body: JSON.stringify({
         skillName: draft.skillName,
+        r2Prefix: draft.r2Prefix,
         manifest: {
           envBindings: draft.envBindings || [],
           secretBindings: draft.secretBindings || [],
@@ -63,16 +63,12 @@ export async function POST(request, context) {
     }))
 
     const sanitizedValidationPayload = sanitizeValidationPayload(validationPayload)
-    const mergedFiles = sanitizedValidationPayload?.bundleArtifact
-      ? mergeBundleArtifact(draft.files || [], sanitizedValidationPayload.bundleArtifact)
-      : draft.files
 
     const updated = await updateSkillDraft(
       team.id,
       bot.id,
       params.id,
       {
-        files: mergedFiles,
         manifest: {
           hasFunctions: Boolean(sanitizedValidationPayload?.hasFunctions),
         },

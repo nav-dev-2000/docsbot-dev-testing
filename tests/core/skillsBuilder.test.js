@@ -79,6 +79,12 @@ function createFirestoreMock(initialData = null) {
         state.data = clone(nextData)
       }
     }),
+    update: vi.fn(async (nextData) => {
+      state.data = {
+        ...state.data,
+        ...clone(nextData),
+      }
+    }),
     delete: vi.fn(async () => {
       state.data = null
     }),
@@ -403,6 +409,49 @@ describe('skills-builder helpers', () => {
     expect(updated.files).toEqual([{ path: 'SKILL.md', content: 'new content' }])
   })
 
+  it('updateSkillDraft stores a friendly display name without changing the skill id', async () => {
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: false,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [],
+      metadataBindings: [],
+      mode: 'markdown',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: null,
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          displayName: 'Refund Policy Helper',
+        },
+      },
+      firestore,
+    )
+
+    expect(updated.skillName).toBe('customer-refunds')
+    expect(updated.name).toBe('Refund Policy Helper')
+    expect(updated.manifest.name).toBe('customer-refunds')
+    expect(updated.manifest.displayName).toBe('Refund Policy Helper')
+    expect(firestore.state.data.name).toBe('customer-refunds')
+    expect(firestore.state.data.displayName).toBe('Refund Policy Helper')
+  })
+
   it('updateSkillDraft does not re-encrypt existing ciphertext when updating unrelated fields', async () => {
     const storedCipher = 'encrypted:already-stored'
     const firestore = createFirestoreMock({
@@ -458,6 +507,67 @@ describe('skills-builder helpers', () => {
       }),
       { merge: true },
     )
+    expect(firestore.docRef.update).toHaveBeenCalledWith({
+      validation: { ok: true },
+    })
+  })
+
+  it('replaces validation map after merged draft updates so stale error details are cleared', async () => {
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: {
+        valid: false,
+        errors: ['old error'],
+        errorDetails: [{ code: 'invalid_input' }],
+      },
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        validation: {
+          valid: true,
+          errors: [],
+          warnings: [],
+        },
+      },
+      firestore,
+    )
+
+    expect(updated.validation).toEqual({
+      valid: true,
+      errors: [],
+      warnings: [],
+    })
+    expect(firestore.state.data.validation).toEqual({
+      valid: true,
+      errors: [],
+      warnings: [],
+    })
   })
 
   it('getSkillDraft can return metadata without reading draft files from R2', async () => {
@@ -493,7 +603,8 @@ describe('skills-builder helpers', () => {
 
     expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
     expect(draft.files).toEqual([])
-    expect(draft.name).toBe('customer-refunds')
+    expect(draft.skillName).toBe('customer-refunds')
+    expect(draft.name).toBe('Customer Refunds')
   })
 
   it('skillRecordWithDecryptedSecretBindings exposes plaintext values for the dashboard', async () => {
@@ -701,6 +812,32 @@ describe('skills-builder helpers', () => {
     expect(template).toContain('filtering or chaining function results')
   })
 
+  it('adds invalid Zod contract guidance only to matching validation payloads', async () => {
+    const { sanitizeValidationPayload } = await import('@/lib/skills-builder')
+
+    const invalidContract = sanitizeValidationPayload({
+      valid: false,
+      errors: ["Function must define 'input' as a Zod schema in defineSkillFunction({...})"],
+      warnings: [],
+      errorDetails: [{ code: 'invalid_output', artifactPath: '.docsbot/bundle/index.js' }],
+    })
+
+    expect(invalidContract.hints).toEqual([
+      expect.stringContaining('Fix the defineSkillFunction({...}) object first.'),
+    ])
+    expect(invalidContract.hints[0]).toContain('input: ExampleTaskInputSchema')
+    expect(invalidContract.hints[0]).toContain('output: ExampleTaskOutputSchema')
+    expect(invalidContract.errorDetails[0]).not.toHaveProperty('artifactPath')
+
+    const unrelated = sanitizeValidationPayload({
+      valid: false,
+      errors: ['Missing SKILL.md.'],
+      warnings: [],
+    })
+
+    expect(unrelated.hints).toBeUndefined()
+  })
+
   it('promotes a published bot skill into the top-level skills library', async () => {
     const firestore = createLibraryFirestoreMock({
       local: {
@@ -737,7 +874,8 @@ describe('skills-builder helpers', () => {
     expect(promoted.skill).toEqual(
       expect.objectContaining({
         id: 'weather',
-        name: 'weather',
+        skillName: 'weather',
+        name: 'Weather',
         description: 'Use when checking weather.',
         r2Prefix: 'library/skills/weather',
         hasFunctions: true,
@@ -746,12 +884,14 @@ describe('skills-builder helpers', () => {
     expect(mocks.indexLibrarySkillForSearch).toHaveBeenCalledWith(
       expect.objectContaining({
         id: 'weather',
-        name: 'weather',
+        skillName: 'weather',
+        name: 'Weather',
       }),
     )
     expect(firestore.state.library.weather).toEqual(
       expect.objectContaining({
-        name: 'weather',
+        name: 'Weather',
+        displayName: 'Weather',
         source: expect.objectContaining({
           teamId: 'team-1',
           botId: 'bot-1',
@@ -801,7 +941,7 @@ describe('skills-builder helpers', () => {
 
     expect(firestore.state.library.weather).toEqual(
       expect.objectContaining({
-        name: 'weather',
+        name: 'Weather',
         description: 'Updated weather skill.',
         createdAt: 'OLD_CREATED_AT',
         updatedAt: 'SERVER_TIMESTAMP',
@@ -914,7 +1054,8 @@ describe('skills-builder helpers', () => {
       librarySkillName: 'weather',
     })
 
-    expect(imported.skill.name).toBe('weather-2')
+    expect(imported.skill.skillName).toBe('weather-2')
+    expect(imported.skill.name).toBe('Weather')
     expect(mocks.copyLibrarySkillPackageToDraftAndPublished).toHaveBeenCalledWith(
       'weather',
       'team-1/bot-1/weather-2',
@@ -922,6 +1063,7 @@ describe('skills-builder helpers', () => {
     expect(firestore.state.local['weather-2']).toEqual(
       expect.objectContaining({
         name: 'weather-2',
+        displayName: 'Weather',
         description: 'Use when checking weather.',
         r2Prefix: 'team-1/bot-1/weather-2',
         enabled: false,

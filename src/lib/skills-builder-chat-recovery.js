@@ -32,31 +32,43 @@ function stripOpenAIProviderDataFromPart(part) {
   const next = { ...part }
   let changed = false
 
-  if (next.providerOptions) {
-    const providerOptions = stripOpenAIProviderData(next.providerOptions)
-    if (providerOptions !== next.providerOptions) {
-      changed = true
-      if (providerOptions) {
-        next.providerOptions = providerOptions
-      } else {
-        delete next.providerOptions
-      }
-    }
-  }
-
-  if (next.providerMetadata) {
-    const providerMetadata = stripOpenAIProviderData(next.providerMetadata)
-    if (providerMetadata !== next.providerMetadata) {
-      changed = true
-      if (providerMetadata) {
-        next.providerMetadata = providerMetadata
-      } else {
-        delete next.providerMetadata
+  for (const field of [
+    'providerOptions',
+    'providerMetadata',
+    'callProviderMetadata',
+    'resultProviderMetadata',
+  ]) {
+    if (next[field]) {
+      const providerData = stripOpenAIProviderData(next[field])
+      if (providerData !== next[field]) {
+        changed = true
+        if (providerData) {
+          next[field] = providerData
+        } else {
+          delete next[field]
+        }
       }
     }
   }
 
   return changed ? next : part
+}
+
+function isOpenAIHostedWebSearchPart(part) {
+  if (!part || typeof part !== 'object') return false
+
+  const type = String(part.type || '')
+  const toolName = String(part.toolName || '')
+
+  return (
+    type === 'web_search_call' ||
+    type === 'tool-web_search' ||
+    type === 'tool-openai.web_search' ||
+    (part.providerExecuted === true &&
+      (toolName === 'web_search' ||
+        toolName === 'openai.web_search' ||
+        part.toolCallId?.startsWith?.('ws_')))
+  )
 }
 
 function stripOpenAIProviderDataFromMessage(message) {
@@ -86,6 +98,26 @@ function stripOpenAIProviderDataFromMessage(message) {
       } else {
         delete next.providerMetadata
       }
+    }
+  }
+
+  if (Array.isArray(next.parts)) {
+    let partsChanged = false
+    const parts = next.parts.flatMap((part) => {
+      if (isOpenAIHostedWebSearchPart(part)) {
+        partsChanged = true
+        return []
+      }
+      const nextPart = stripOpenAIProviderDataFromPart(part)
+      if (nextPart !== part) {
+        partsChanged = true
+      }
+      return [nextPart]
+    })
+
+    if (partsChanged) {
+      changed = true
+      next.parts = parts
     }
   }
 
@@ -173,26 +205,9 @@ export function stripOpenAIResponseItemReferences(messages) {
   let changed = false
 
   const stripped = list.map((message) => {
-    let nextMessage = stripOpenAIProviderDataFromMessage(message)
-    if (nextMessage !== message) {
-      changed = true
-    }
-
-    if (!nextMessage || typeof nextMessage !== 'object' || !Array.isArray(nextMessage.parts)) {
-      return nextMessage
-    }
-
-    let messageChanged = false
-    const parts = nextMessage.parts.map((part) => {
-      const nextPart = stripOpenAIProviderDataFromPart(part)
-      if (nextPart !== part) {
-        messageChanged = true
-        changed = true
-      }
-      return nextPart
-    })
-
-    return messageChanged ? { ...nextMessage, parts } : nextMessage
+    const nextMessage = stripOpenAIProviderDataFromMessage(message)
+    if (nextMessage !== message) changed = true
+    return nextMessage
   })
 
   return changed ? stripped : list

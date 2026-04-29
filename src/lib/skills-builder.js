@@ -6,7 +6,7 @@ import {
   normalizeWhitelistedHeroIcon,
 } from '@/constants/heroIcons.constants'
 import { decryptKey, encryptKey } from '@/lib/encryption'
-import { normalizeSkillName } from '@/lib/skill-name-normalize'
+import { formatSkillNameDisplay, normalizeSkillName } from '@/lib/skill-name-normalize'
 import {
   copyLibrarySkillPackageToDraftAndPublished,
   copyPublishedSkillPackageToLibrary,
@@ -309,12 +309,6 @@ export function sanitizeValidationPayload(validation) {
       .filter(Boolean)
   }
 
-  if (next.bundleArtifact && typeof next.bundleArtifact === 'object') {
-    next.bundleArtifact = {
-      content: String(next.bundleArtifact.content ?? ''),
-    }
-  }
-
   if (Array.isArray(next.errorDetails)) {
     next.errorDetails = next.errorDetails.map((detail) => {
       if (!detail || typeof detail !== 'object') return detail
@@ -324,6 +318,24 @@ export function sanitizeValidationPayload(validation) {
     })
   }
 
+  const errors = Array.isArray(next.errors) ? next.errors : []
+  const details = Array.isArray(next.errorDetails) ? next.errorDetails : []
+  const hasInvalidZodContract =
+    details.some((detail) => detail?.code === 'invalid_input' || detail?.code === 'invalid_output') ||
+    errors.some(
+      (error) =>
+        typeof error === 'string' &&
+        (error.includes("Function must define 'input' as a Zod schema") ||
+          error.includes("Function must define 'output' as a Zod schema")),
+    )
+
+  if (hasInvalidZodContract) {
+    const hint =
+      "Fix the defineSkillFunction({...}) object first. This error means the value passed as input or output was not a runtime Zod schema object. Pass named schema constants directly, for example input: ExampleTaskInputSchema and output: ExampleTaskOutputSchema; do not diagnose it as a package import visibility issue unless validation also reports an import or bundling error."
+    const existingHints = Array.isArray(next.hints) ? next.hints.filter(Boolean) : []
+    next.hints = existingHints.includes(hint) ? existingHints : [...existingHints, hint]
+  }
+
   return next
 }
 
@@ -331,6 +343,7 @@ export function buildSkillManifest({
   teamId,
   botId,
   skillName,
+  displayName,
   description = '',
   audience = SKILL_AUDIENCE_INTERNAL,
   enabled = false,
@@ -340,6 +353,7 @@ export function buildSkillManifest({
 }) {
   return {
     name: skillName,
+    displayName: safeSkillString(displayName, formatSkillNameDisplay(skillName, skillName)),
     description,
     internal: audience === SKILL_AUDIENCE_INTERNAL,
     enabled,
@@ -361,6 +375,7 @@ export function createSkillDraftRecord({
   teamId,
   botId,
   skillName,
+  displayName,
   audience = SKILL_AUDIENCE_INTERNAL,
   mode = SKILL_MODE_MARKDOWN,
 }) {
@@ -374,6 +389,7 @@ export function createSkillDraftRecord({
       teamId,
       botId,
       skillName,
+      displayName,
       description:
         frontmatter.description ||
         `Use when the user needs help with ${skillName.replace(/-/g, ' ')} tasks.`,
@@ -408,6 +424,18 @@ export function safeSkillString(value, fallback = '') {
   if (typeof value === 'string') return value
   if (typeof value === 'number' || typeof value === 'boolean') return String(value)
   return fallback
+}
+
+export function resolveSkillDisplayName(id, data = {}) {
+  const explicit = safeSkillString(data.displayName).trim()
+  if (explicit) return explicit
+
+  const legacyName = safeSkillString(data.name).trim()
+  if (legacyName && legacyName !== id && normalizeSkillName(legacyName) !== legacyName) {
+    return legacyName
+  }
+
+  return formatSkillNameDisplay(id, id)
 }
 
 function normalizeBindingDescription(value) {
@@ -474,10 +502,12 @@ export function serializeSkillRecord(id, data = {}, files = []) {
 
   const safeFiles = listDraftFiles(files || [])
   const inferredMode = deriveMode(data, safeFiles)
-  const name = safeSkillString(data.name, id)
+  const skillName = safeSkillString(data.skillName, id)
+  const displayName = resolveSkillDisplayName(skillName, data)
   const description = safeSkillString(data.description)
   const manifest = {
-    name,
+    name: skillName,
+    displayName,
     description,
     internal: Boolean(data.internal),
     enabled: Boolean(data.enabled),
@@ -500,8 +530,9 @@ export function serializeSkillRecord(id, data = {}, files = []) {
   return {
     id,
     draftId: id,
-    skillName: name,
-    name,
+    skillName,
+    name: displayName,
+    displayName,
     description,
     icon: manifest.icon,
     internal: Boolean(data.internal),
@@ -538,7 +569,11 @@ export function serializeSkillRecord(id, data = {}, files = []) {
 
 export function skillListItemFromRecord(record) {
   return {
+    id: record.id,
+    draftId: record.draftId,
+    skillName: record.skillName,
     name: record.name,
+    displayName: record.displayName,
     description: record.description,
     mode: record.mode,
     internal: record.internal,
@@ -551,11 +586,14 @@ export function buildSkillContextSummary(record) {
   const files = filterSupportedSkillFiles(record.files || [])
 
   return {
-    skillName: record.name,
+    skillName: record.skillName,
+    name: record.name,
+    displayName: record.displayName,
     mode: record.mode,
     audience: record.audience,
     manifest: {
-      name: record.name,
+      name: record.skillName,
+      displayName: record.displayName,
       description: record.description,
       internal: record.internal,
       enabled: record.enabled,
@@ -680,6 +718,7 @@ export async function ensureSkillDraft({
   teamId,
   botId,
   skillName,
+  displayName,
   audience = SKILL_AUDIENCE_CUSTOMER,
   mode = SKILL_MODE_MARKDOWN,
 }) {
@@ -696,6 +735,7 @@ export async function ensureSkillDraft({
     teamId,
     botId,
     skillName,
+    displayName,
     audience,
     mode,
   })
@@ -750,12 +790,13 @@ export function getSkillDraftDocRef(teamId, botId, skillName, firestore) {
 
 export function serializeLibrarySkillRecord(id, data = {}) {
   if (!data) return null
-  const name = safeSkillString(data.name, id)
+  const name = resolveSkillDisplayName(id, data)
   const mode = data.mode === SKILL_MODE_EXECUTABLE ? SKILL_MODE_EXECUTABLE : SKILL_MODE_MARKDOWN
   return {
     id,
     name,
-    skillName: name,
+    displayName: name,
+    skillName: id,
     description: safeSkillString(data.description),
     icon: normalizeWhitelistedHeroIcon(data.icon, DEFAULT_CUSTOM_BUTTON_ICON),
     internal: Boolean(data.internal),
@@ -783,9 +824,10 @@ export function serializeLibrarySkillRecord(id, data = {}) {
 }
 
 function libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId }) {
-  const librarySkillName = safeSkillString(draft.name, skillName)
+  const librarySkillName = safeSkillString(draft.skillName, skillName)
   return {
-    name: librarySkillName,
+    name: draft.name,
+    displayName: draft.name,
     description: safeSkillString(draft.description),
     internal: Boolean(draft.internal),
     enabled: Boolean(draft.enabled),
@@ -867,7 +909,7 @@ export async function promoteSkillDraftToLibrary({
     throw new Error('Skill draft not found.')
   }
 
-  const librarySkillName = safeSkillString(draft.name, skillName)
+  const librarySkillName = safeSkillString(draft.skillName, skillName)
   const sourceRootPrefix = draft.r2Prefix || defaultR2Prefix(teamId, botId, skillName)
   const copyResult = await copyPublishedSkillPackageToLibrary(sourceRootPrefix, librarySkillName)
   if (!copyResult.configured) {
@@ -919,9 +961,9 @@ export async function importLibrarySkillToBot({
   }
 
   const librarySkill = serializeLibrarySkillRecord(librarySnapshot.id, librarySnapshot.data())
-  const localSkillName = await allocateUniqueSkillName(teamId, botId, librarySkill.name, db)
+  const localSkillName = await allocateUniqueSkillName(teamId, botId, librarySkill.skillName, db)
   const localR2Prefix = defaultR2Prefix(teamId, botId, localSkillName)
-  const copyResult = await copyLibrarySkillPackageToDraftAndPublished(librarySkill.name, localR2Prefix)
+  const copyResult = await copyLibrarySkillPackageToDraftAndPublished(librarySkill.skillName, localR2Prefix)
   if (!copyResult.configured) {
     const error = new Error(copyResult.message || 'Skills R2 storage is not configured.')
     error.status = 500
@@ -936,6 +978,7 @@ export async function importLibrarySkillToBot({
   const docRef = getSkillDraftDocRef(teamId, botId, localSkillName, db)
   await docRef.set({
     name: localSkillName,
+    displayName: librarySkill.name,
     description: librarySkill.description,
     internal: Boolean(librarySkill.internal),
     enabled: false,
@@ -964,7 +1007,7 @@ export async function importLibrarySkillToBot({
       lastResponseId: null,
     },
     importedFromLibrary: {
-      skillName: librarySkill.name,
+      skillName: librarySkill.skillName,
       importedAt: FieldValue.serverTimestamp(),
     },
     publishedAt: new Date(),
@@ -1040,7 +1083,8 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
 
   const current = await getSkillDraft(teamId, botId, skillName, db)
   const nextManifest = {
-    name: current.name,
+    name: current.skillName,
+    displayName: current.displayName,
     description: current.description,
     internal: current.internal,
     enabled: current.enabled,
@@ -1084,7 +1128,11 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
     nextManifest.hasFunctions = nextMode === SKILL_MODE_EXECUTABLE
   }
 
-  nextManifest.name = safeSkillString(nextManifest.name, current.name)
+  nextManifest.name = safeSkillString(nextManifest.name, current.skillName)
+  nextManifest.displayName = safeSkillString(
+    nextManifest.displayName,
+    current.displayName || formatSkillNameDisplay(skillName, skillName),
+  )
   nextManifest.description = safeSkillString(nextManifest.description)
   nextManifest.r2Prefix = safeSkillString(
     nextManifest.r2Prefix,
@@ -1098,6 +1146,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
   await docRef.set(
     {
       name: nextManifest.name,
+      displayName: nextManifest.displayName,
       description: nextManifest.description,
       internal: Boolean(nextManifest.internal),
       enabled: Boolean(nextManifest.enabled),
@@ -1122,6 +1171,12 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
     },
     { merge: true },
   )
+
+  if (updates.validation !== undefined) {
+    await docRef.update({
+      validation: updates.validation,
+    })
+  }
 
   const updatedSnapshot = await docRef.get()
   const files = updates.files !== undefined ? nextFiles : current.files

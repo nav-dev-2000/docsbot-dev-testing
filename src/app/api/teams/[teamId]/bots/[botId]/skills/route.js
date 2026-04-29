@@ -34,11 +34,20 @@ const NAME_MAX_LENGTH = 64
 const DESCRIPTION_MIN_LENGTH = 1
 const DESCRIPTION_MAX_LENGTH = 1024
 
-const SYSTEM_PROMPT = `You set the YAML frontmatter \`name\` and \`description\` fields for a DocsBot skill (SKILL.md). A skill is a bundle the agent may load: markdown instructions, optionally plus TypeScript under \`scripts/\` for APIs, actions, or sandbox files.
+const SYSTEM_PROMPT = `You create the initial dashboard name, stable slug, YAML frontmatter \`description\`, and icon for a DocsBot skill. A skill is a bundle the agent may load: markdown instructions, optionally plus TypeScript under \`scripts/\` for APIs, actions, or sandbox files.
 
 ## Field: \`name\` (required)
 
-Output the \`name\` value as a **single slug string** the platform stores as the skill identifier. It must match the parent directory / bundle name.
+Output a short, user-friendly display name for the dashboard and search. It may contain spaces and normal title casing.
+
+**Constraints:**
+- Length **3–64** characters.
+- Plain text only; no markdown, no line breaks.
+- Specific and memorable, e.g. “PDF Processing”, “Customer Refunds”, “CRM Lead Lookup”.
+
+## Field: \`slug\` (required)
+
+Output the \`slug\` value as a **single slug string** the platform stores as the immutable skill identifier and package path.
 
 **Constraints (must all hold):**
 - Length **3–64** characters.
@@ -50,7 +59,7 @@ Output the \`name\` value as a **single slug string** the platform stores as the
 
 **Invalid examples:** \`PDF-Processing\` (uppercase), \`-pdf\` (leading hyphen), \`pdf--processing\` (consecutive hyphens), \`my_skill\` (underscore).
 
-Choose a slug that is **specific and memorable**—not generic labels like \`helper\` or \`misc-tools\`.
+Choose a slug derived from the display name or user intent that is **specific and memorable**—not generic labels like \`helper\` or \`misc-tools\`.
 
 ## Field: \`description\` (required)
 
@@ -83,7 +92,7 @@ Agents often reach for skills when the task needs **specialized** knowledge or w
 You can use **web search** tool for quick research when it improves the \`name\` slug or \`description\`—for example: unfamiliar products, APIs, libraries, vendor names, acronyms, or domain terminology the user mentions. Use it **sparingly**: only when a short lookup would materially improve accuracy or triggering keywords. If the request is already clear, skip search and answer from context.
 
 ## Output
-Return only JSON matching the schema (including \`icon\`). Infer details conservatively from the user message, any images, and any brief research you performed.`
+Return only JSON matching the schema (including \`name\`, \`slug\`, and \`icon\`). Infer details conservatively from the user message, any images, and any brief research you performed.`
 
 function buildResponsesInput(prompt, images, audienceHint) {
   const text = String(prompt || '').trim()
@@ -121,7 +130,14 @@ const SKILL_METADATA_JSON_SCHEMA = {
     name: {
       type: 'string',
       description:
-        'SKILL.md `name`: slug 3–64 chars; only a-z, 0-9, hyphens; no leading/trailing hyphen; no consecutive hyphens.',
+        'Dashboard display name: friendly plain-text label, 3–64 chars, spaces and title casing allowed.',
+      minLength: NAME_MIN_LENGTH,
+      maxLength: NAME_MAX_LENGTH,
+    },
+    slug: {
+      type: 'string',
+      description:
+        'Stable skill identifier slug: 3–64 chars; only a-z, 0-9, hyphens; no leading/trailing hyphen; no consecutive hyphens.',
       minLength: NAME_MIN_LENGTH,
       maxLength: NAME_MAX_LENGTH,
       pattern: SKILL_NAME_SLUG_PATTERN,
@@ -140,8 +156,30 @@ const SKILL_METADATA_JSON_SCHEMA = {
       enum: HERO_ICON_ENUM,
     },
   },
-  required: ['name', 'description', 'icon'],
+  required: ['name', 'slug', 'description', 'icon'],
   additionalProperties: false,
+}
+
+function hasMissingEnvBindingValues(record) {
+  const bindings = record?.envBindings || record?.manifest?.envBindings
+  return (
+    Array.isArray(bindings) &&
+    bindings.some(
+      (binding) =>
+        typeof binding?.value !== 'string' || binding.value.trim().length === 0,
+    )
+  )
+}
+
+function hasMissingSecretBindingValues(record) {
+  const bindings = record?.secretBindings || record?.manifest?.secretBindings
+  return (
+    Array.isArray(bindings) &&
+    bindings.some(
+      (binding) =>
+        typeof binding?.secret !== 'string' || binding.secret.trim().length === 0,
+    )
+  )
 }
 
 export async function GET(request, context) {
@@ -152,7 +190,11 @@ export async function GET(request, context) {
 
     return NextResponse.json({
       skills: drafts.map((draft) => ({
+        id: draft.id,
+        draftId: draft.draftId,
+        skillName: draft.skillName,
         name: draft.name,
+        displayName: draft.displayName,
         description: draft.description,
         internal: draft.internal,
         enabled: draft.enabled,
@@ -163,6 +205,8 @@ export async function GET(request, context) {
         publishedAt: draft.publishedAt,
         icon: draft.icon,
         networkPolicy: draft.networkPolicy,
+        hasMissingEnvBindings: hasMissingEnvBindingValues(draft),
+        hasMissingSecretBindings: hasMissingSecretBindingValues(draft),
       })),
     })
   } catch (error) {
@@ -280,14 +324,24 @@ export async function POST(request, context) {
       )
     }
 
-    const nameRaw = typeof parsed.name === 'string' ? parsed.name.trim() : ''
+    const displayName = typeof parsed.name === 'string' ? parsed.name.trim() : ''
+    const slugRaw = typeof parsed.slug === 'string' ? parsed.slug.trim() : displayName
     const description =
       typeof parsed.description === 'string' ? parsed.description.trim() : ''
     const icon = normalizeWhitelistedHeroIcon(parsed.icon)
 
-    if (!nameRaw || !description) {
+    if (!displayName || !description) {
       return NextResponse.json(
         { message: 'The model returned an incomplete name or description.' },
+        { status: 502 },
+      )
+    }
+
+    if (displayName.length < NAME_MIN_LENGTH || displayName.length > NAME_MAX_LENGTH) {
+      return NextResponse.json(
+        {
+          message: `Generated skill name must be between ${NAME_MIN_LENGTH} and ${NAME_MAX_LENGTH} characters.`,
+        },
         { status: 502 },
       )
     }
@@ -304,7 +358,7 @@ export async function POST(request, context) {
       )
     }
 
-    const skillName = normalizeSkillName(nameRaw)
+    const skillName = normalizeSkillName(slugRaw)
     if (!skillName || skillName === 'new-skill') {
       return NextResponse.json(
         { message: 'Could not derive a valid skill name. Try a clearer description.' },
@@ -337,6 +391,7 @@ export async function POST(request, context) {
       teamId: team.id,
       botId: bot.id,
       skillName: uniqueSkillName,
+      displayName,
       audience,
     })
 
@@ -353,7 +408,7 @@ export async function POST(request, context) {
       bot.id,
       uniqueSkillName,
       {
-        manifest: { description, icon },
+        manifest: { displayName, description, icon },
         files: nextFiles,
         audience,
       },

@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { formatSkillNameDisplay } from '@/lib/skill-name-normalize'
 
+const skillRecordId = (skill) =>
+    String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
+
 function SkillDisabledReasons({ reasons = [] }) {
     if (!Array.isArray(reasons) || reasons.length === 0) return null
 
@@ -47,9 +50,11 @@ export default function ModalSelectSkill({
 
         return skills.filter((skill) => {
             const name = (skill.name || '').toLowerCase()
+            const id = skillRecordId(skill).toLowerCase()
             const description = (skill.description || '').toLowerCase()
             return (
                 name.includes(normalizedQuery) ||
+                id.includes(normalizedQuery) ||
                 description.includes(normalizedQuery)
             )
         })
@@ -135,7 +140,8 @@ export default function ModalSelectSkill({
                                                 </p>
                                             ) : (
                                                 filteredSkills.map((skill) => {
-                                                    const isEnabled = enabledSkillIds.includes(skill.name)
+                                                    const id = skillRecordId(skill)
+                                                    const isEnabled = enabledSkillIds.includes(id)
                                                     const disabledReasons = Array.isArray(skill.disabledReasons)
                                                         ? skill.disabledReasons
                                                         : []
@@ -143,7 +149,7 @@ export default function ModalSelectSkill({
 
                                                     return (
                                                         <div
-                                                            key={skill.name}
+                                                            key={id}
                                                             className={`w-full rounded-lg border p-3 ${
                                                                 isRowDisabled
                                                                     ? 'border-gray-200 bg-gray-50'
@@ -154,7 +160,7 @@ export default function ModalSelectSkill({
                                                                 type="button"
                                                                 onClick={() => {
                                                                     if (!isRowDisabled) {
-                                                                        onEnableSkill(skill.name)
+                                                                        onEnableSkill(id)
                                                                     }
                                                                 }}
                                                                 disabled={isRowDisabled}
@@ -171,10 +177,7 @@ export default function ModalSelectSkill({
                                                                     />
                                                                     <div className="min-w-0 text-left">
                                                                         <p className="min-w-0 truncate text-sm font-medium text-gray-900">
-                                                                            {formatSkillNameDisplay(
-                                                                                skill.name,
-                                                                                skill.name,
-                                                                            )}
+                                                                            {skill.name || formatSkillNameDisplay(id, id)}
                                                                         </p>
                                                                         <p className="mt-0.5 line-clamp-2 text-xs text-gray-500">
                                                                             {skill.description || 'No description yet.'}

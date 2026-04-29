@@ -202,9 +202,6 @@ describe('skills publish route', () => {
         errors: [],
         warnings: [],
         hasFunctions: true,
-        bundleArtifact: {
-          content: 'export default {}',
-        },
       }),
     )
     mocks.readPublishedSkillPackageFromR2.mockResolvedValue({
@@ -233,6 +230,8 @@ describe('skills publish route', () => {
     expect(mocks.promoteSkillDraftToPublishedCurrent).toHaveBeenCalledWith(
       'team-1/bot-1/current-weather-api',
     )
+    const validateBody = JSON.parse(global.fetch.mock.calls[0][1].body)
+    expect(validateBody.r2Prefix).toBe('team-1/bot-1/current-weather-api')
     expect(mocks.readPublishedSkillPackageFromR2).not.toHaveBeenCalled()
     expect(mocks.publishSkillDraft).toHaveBeenCalled()
   })

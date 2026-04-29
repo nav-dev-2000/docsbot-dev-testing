@@ -15,7 +15,6 @@ import {
   getSkillDraft,
   getSkillDraftDocRef,
   incrementSkillDraftBuilderAgentUsage,
-  mergeBundleArtifact,
   publishSkillDraft,
   replaceSkillMdFrontmatter,
   sanitizeValidationPayload,
@@ -67,6 +66,15 @@ const loadContextInputSchema = z
 
 const updateManifestInputSchema = z
   .object({
+    name: z
+      .string()
+      .trim()
+      .min(3)
+      .max(64)
+      .optional()
+      .describe(
+        'User-friendly dashboard display name for this skill. This renames the label shown in the dashboard and search only; it does not change the stable skill id, filesystem path, or SKILL.md frontmatter name.',
+      ),
     description: z
       .string()
       .min(1)
@@ -213,6 +221,7 @@ async function validateDraftAgainstRuntime({ draft, teamId, botId, firestore }) 
     },
     body: JSON.stringify({
       skillName: draft.skillName,
+      r2Prefix: draft.r2Prefix,
       manifest: {
         envBindings: draft.envBindings || [],
         secretBindings: draft.secretBindings || [],
@@ -238,16 +247,12 @@ async function validateDraftAgainstRuntime({ draft, teamId, botId, firestore }) 
   }))
 
   const sanitizedPayload = sanitizeValidationPayload(payload)
-  const mergedFiles = sanitizedPayload?.bundleArtifact
-    ? mergeBundleArtifact(draft.files || [], sanitizedPayload.bundleArtifact)
-    : draft.files
 
   const updated = await updateSkillDraft(
     teamId,
     botId,
     draft.skillName,
     {
-      files: mergedFiles,
       manifest: {
         hasFunctions: Boolean(sanitizedPayload?.hasFunctions),
       },
@@ -348,8 +353,10 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Use the shell tool mainly for inspecting authored source files under ${WORKSPACE_ROOT}, optional local verification, and other CLI workflows that support authoring.
 - Treat ${WORKSPACE_ROOT} as the only writable bundle root.
 - Use the \`update_manifest\` tool for manifest changes.
+- The \`update_manifest.name\` field is a user-facing display label for dashboard/search only. It does not change the stable skill id, package path, or SKILL.md frontmatter \`name\`.
 - Use \`ask_user_questions\` only when the user must choose a direction or provide non-secret information that cannot reasonably be represented as a configurable manifest binding. When you call it, make that call the only action in the step and stop immediately. Do not call another tool, continue reasoning, or write a fallback text question after \`ask_user_questions\`; wait for the form response.
 - Use the \`validate_skill_bundle\` tool after meaningful edits. It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.
+- If \`validate_skill_bundle\` returns \`ok: true\` or \`validation.valid: true\`, treat validation as passed. Do not continue troubleshooting validation, import, dependency, or package-install issues from earlier reasoning; proceed to publish if the skill is otherwise ready.
 - Use the \`publish_skill_bundle\` tool before claiming the task is complete.
 - \`publish_skill_bundle\` is not a stopping or pausing tool. After it succeeds, always continue and if done working, send a final assistant message in the same turn. Do not end the turn with only the tool result. Briefly tell the user that the skill was published and summarize the important changes.
 - Do not generate, repair, or hand-author platform-generated artifacts yourself. Write source files, then use \`validate_skill_bundle\` and \`publish_skill_bundle\`.
@@ -369,14 +376,18 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - You must import all methods, classes, and types used in the code you generate.
 - Executable skills must export functions created with \`defineSkillFunction(...)\` from \`@docsbot/skills\`.
 - Every exported \`defineSkillFunction(...)\` must include \`description\`, \`input\`, and \`output\`.
-- \`input\` and \`output\` must be Zod schemas.
-- Define named Zod schema constants and explicit TypeScript input and output aliases for each exported function, then keep the handler aligned with them.
+- \`input\` and \`output\` must be runtime Zod schema objects created with \`z.object(...)\` or another Zod schema builder. They must not be TypeScript types/interfaces, JSON Schema objects, OpenAI tool schemas, functions that return schemas, examples, or legacy \`inputSchema\`/\`outputSchema\` fields.
+- Prefer importing Zod as \`import { z } from "zod";\` for consistency.
+- Define named Zod schema constants, preferably ending in \`Schema\`, define explicit TypeScript input and output aliases from those schema constants, then pass the schema constants directly to \`defineSkillFunction\`.
 - Skill handlers receive arguments in this order: \`handler(ctx, input)\`, where \`ctx\` is the runtime \`SkillContext\` and \`input\` is the object validated against the function's \`input\` Zod schema. If you use a named implementation function, define it in that same order, for example \`async function runThing(ctx: SkillContext, input: ThingInput): Promise<ThingOutput>\`.
 - Never define a two-argument handler as \`(input, ctx)\` or pass a named function with that order. That reverses the runtime context and model-provided input, causing required input fields to be \`undefined\` at execution time.
 - \`description\` should explain when the runtime agent should call the function and what the function does.
 - \`input\` must describe only the exact arguments the model truly needs to call the function successfully. Prefer a small, opinionated argument surface over mirroring every upstream API option.
 - \`output\` must describe only the structured result fields the deployed agent is likely to use in user responses or downstream chaining. Do not return full API payloads, debug fields, or speculative metadata.
 - Every function output must be valid JSON that matches the declared \`output\` schema. Return structured JSON objects only so the runtime can filter fields and pipe outputs between functions; never return free-form text blobs, markdown, HTML, or other non-JSON content from skill functions.
+- When a function generates a file the user should view or download, such as an image, PDF, CSV, HTML report, document, chart, or similar artifact, call \`await ctx.artifacts.publish({ filename, contentType, body })\` from the handler and return the resulting public URL in the structured JSON output. The \`filename\` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path.
+- Do not return large generated file contents directly in JSON. Publish the file as an artifact and return fields such as \`url\`, \`filename\`, \`contentType\` instead.
+- Do not publish secrets, credentials, private tokens, or sensitive files as artifacts; artifact URLs are public links intended to be shown to end users.
 - The handler's TypeScript parameter type must match \`input\`, and the handler's Promise return type must match \`output\`.
 - If the function can return multiple result variants, express that intentionally in both TypeScript and \`output\` rather than returning ad hoc objects.
 - The schemas and named TypeScript aliases you author are used to generate the function context shown to frontend/runtime agents, so include enough structure, field names, descriptions, and result variants for those agents to call functions correctly and interpret their outputs reliably.
@@ -384,7 +395,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Prefer \`handler: namedFunction\` or a thin handler wrapper that delegates to a named function, rather than embedding substantial logic inline inside \`defineSkillFunction(...)\`.
 - Do not export plain objects, helper constants, or raw API recipes as callable skill functions. Export only real \`defineSkillFunction(...)\` functions intended for runtime use.
 - Executable skills should include \`package.json\` with the runtime dependencies needed to bundle the skill, including \`zod\`.
-- Scripts may depend on npm packages declared in \`package.json\`. If you add one, update \`package.json\` in the bundle. Use shell installation only when optional local verification truly needs it; local \`node_modules\` contents are not the source of truth for validation.
+- Scripts may depend on npm packages declared in \`package.json\`. If you add one, update \`package.json\` in the bundle. Do not run \`npm install\`, \`npm view\`, or inspect \`node_modules\` just to make validation work; the remote runtime installs/resolves declared dependencies while bundling, and uploaded \`node_modules\` contents are ignored. Use shell installation only when optional local verification truly needs it.
 - If there is an official SDK or library for the service you are integrating with, use it to simplify the implementation.
 - Minimize external dependencies beyond the SDKs and libraries actually needed for the skill.
 - Do not use libraries that rely on FFI, native bindings, or C/C++ extensions.
@@ -393,7 +404,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - Include comments explaining complex logic.
 - Keep all code in a single file unless the user explicitly asks for a multi-file structure or the complexity clearly requires a helper under \`scripts/**\`.
 - Author source files only. Do not try to manually create or fix generated artifacts; \`validate_skill_bundle\` and \`publish_skill_bundle\` handle that platform work.
-- When validation fails, first inspect the returned validation errors and the authored bundle files such as \`scripts/index.ts\`, \`package.json\`, and \`SKILL.md\`. Do not debug \`/workspace/node_modules\`, hidden package-manager directories, or local package cache layouts unless a local shell command explicitly failed because a package is missing.
+- When validation fails, first inspect the returned validation errors and the authored bundle files such as \`scripts/index.ts\`, \`package.json\`, and \`SKILL.md\`. Do not debug \`/workspace/node_modules\`, hidden package-manager directories, npm registry state, or local package cache layouts unless a local shell command explicitly failed because a package is missing.
 - Keep SKILL.md concise and operational.
 - Treat the current audience as ${audience} unless the user explicitly changes it.
 - Do not use web_search to look up DocsBot.ai documentation, this skills builder, or how skills work in this environment.
@@ -469,6 +480,7 @@ async function fetchCustomerContext(ctx: SkillContext) {
 - Executable skills are for complex capabilities that need code to run (such as API calls or code-driven actions). Markdown-only skills are for simpler capabilities that can be described in SKILL.md (and references/*.md for progressive disclosure).
 - Author executable code in \`scripts/index.ts\`.
 - Include \`package.json\` for executable skills.
+- Put \`"zod": "^4.0.0"\` in \`package.json\` dependencies when using \`import { z } from "zod";\`. Do not install it into the workspace; declaring it is enough for remote validation and publish.
 - Import \`defineSkillFunction\` from \`@docsbot/skills\`.
 - Import \`z\` from \`zod\`.
 - Export named functions with \`export const functionName = defineSkillFunction({...})\`.
@@ -478,6 +490,51 @@ async function fetchCustomerContext(ctx: SkillContext) {
 - Handler argument order is part of the runtime contract: \`ctx\` first, validated \`input\` second. One-argument handlers may accept only \`input\`, but two-argument handlers must not use \`input\` first.
 - Keep schemas and handlers aligned. If the handler returns a shape that changed, update \`output\` in the same edit.
 - If a function consumes fixed deployment config, request metadata, secrets, or network access, register them in the manifest (see **Env, secrets, and customer metadata in \`update_manifest\` and scripts**) together with an appropriate \`networkPolicy\`, rather than describing hidden prerequisites in SKILL.md.
+
+Canonical executable function shape. Replace \`ExampleTask\`, field names, and artifact details with names that match the user's skill:
+
+\`\`\`ts
+import { defineSkillFunction, type SkillContext } from "@docsbot/skills";
+import { z } from "zod";
+
+const ExampleTaskInputSchema = z.object({
+  title: z.string().min(1).describe("Title or short description supplied by the user."),
+});
+
+const ArtifactSchema = z.object({
+  url: z.string().url(),
+  filename: z.string(),
+  contentType: z.string(),
+  expiresAt: z.string(),
+});
+
+const ExampleTaskOutputSchema = z.object({
+  artifact: ArtifactSchema,
+});
+
+type ExampleTaskInput = z.infer<typeof ExampleTaskInputSchema>;
+type ExampleTaskOutput = z.infer<typeof ExampleTaskOutputSchema>;
+
+async function runExampleTask(
+  ctx: SkillContext,
+  input: ExampleTaskInput,
+): Promise<ExampleTaskOutput> {
+  const body = \`<h1>\${input.title}</h1>\`;
+  const artifact = await ctx.artifacts.publish({
+    filename: "report.html",
+    contentType: "text/html; charset=utf-8",
+    body,
+  });
+  return { artifact };
+}
+
+export const exampleTask = defineSkillFunction({
+  description: "Run the task and return a public artifact URL for the user.",
+  input: ExampleTaskInputSchema,
+  output: ExampleTaskOutputSchema,
+  handler: runExampleTask,
+});
+\`\`\`
 
 ## Supported bundle files
 - SKILL.md
@@ -568,6 +625,7 @@ export async function POST(request, context) {
           const latest = await getSkillDraft(team.id, botId, draft.skillName, firestore)
           const patch = {}
 
+          if (input.name !== undefined) patch.displayName = input.name
           if (input.description !== undefined) patch.description = input.description
           if (input.internal !== undefined) patch.internal = input.internal
           if (input.networkPolicy !== undefined) patch.networkPolicy = input.networkPolicy

@@ -108,9 +108,17 @@ describe('skills-builder-chat-recovery', () => {
             type: 'tool-shell',
             toolCallId: 'call_123',
             state: 'output-available',
-            providerMetadata: {
+            callProviderMetadata: {
               openai: {
                 itemId: 'sh_123',
+              },
+              docsbot: {
+                callTraceId: 'call-trace-1',
+              },
+            },
+            resultProviderMetadata: {
+              openai: {
+                itemId: 'sh_result_123',
               },
             },
           },
@@ -136,7 +144,91 @@ describe('skills-builder-chat-recovery', () => {
         safe: true,
       },
     })
-    expect(stripped[1].parts[2].providerMetadata).toBeUndefined()
+    expect(stripped[1].parts[2].callProviderMetadata).toEqual({
+      docsbot: {
+        callTraceId: 'call-trace-1',
+      },
+    })
+    expect(stripped[1].parts[2].resultProviderMetadata).toBeUndefined()
+  })
+
+  it('strips top-level message OpenAI provider metadata', () => {
+    const messages = [
+      {
+        role: 'assistant',
+        providerMetadata: {
+          openai: { responseId: 'resp_123' },
+          docsbot: { traceId: 'trace-1' },
+        },
+        parts: [{ type: 'text', text: 'Done' }],
+      },
+    ]
+
+    const stripped = stripOpenAIResponseItemReferences(messages)
+
+    expect(stripped[0].providerMetadata).toEqual({
+      docsbot: { traceId: 'trace-1' },
+    })
+  })
+
+  it('drops OpenAI hosted web search calls from replayed assistant history', () => {
+    const messages = [
+      { role: 'user', parts: [{ type: 'text', text: 'Research the vendor.' }] },
+      {
+        role: 'assistant',
+        parts: [
+          {
+            type: 'reasoning',
+            text: 'I should verify the current vendor docs.',
+          },
+          {
+            type: 'tool-web_search',
+            toolCallId: 'ws_04f1669e1036bfce0069f181374f088194b5dd4c5cf6c6b2cc',
+            state: 'output-available',
+            input: {},
+            output: {
+              action: { type: 'search', query: 'vendor API docs' },
+            },
+            providerExecuted: true,
+          },
+          {
+            type: 'text',
+            text: 'I found the API docs and updated the skill.',
+          },
+        ],
+      },
+      {
+        role: 'assistant',
+        parts: [
+          {
+            type: 'tool-call',
+            toolCallId: 'ws_04f1669e1036bfce0069f181374f088194b5dd4c5cf6c6b2cc',
+            toolName: 'web_search',
+            input: {},
+            providerExecuted: true,
+          },
+          {
+            type: 'web_search_call',
+            id: 'ws_04f1669e1036bfce0069f181374f088194b5dd4c5cf6c6b2cc',
+            status: 'completed',
+          },
+        ],
+      },
+    ]
+
+    const stripped = stripOpenAIResponseItemReferences(messages)
+
+    expect(stripped[1].parts).toEqual([
+      {
+        type: 'reasoning',
+        text: 'I should verify the current vendor docs.',
+      },
+      {
+        type: 'text',
+        text: 'I found the API docs and updated the skill.',
+      },
+    ])
+    expect(stripped[2].parts).toEqual([])
   })
 
   it('returns the original messages when there are no OpenAI response item references', () => {
