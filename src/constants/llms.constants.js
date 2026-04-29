@@ -4025,6 +4025,85 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Nemotron 3 Super 120B A12B',
+    slug: 'nemotron-3-super-120b-a12b',
+    provider: 'nvidia',
+    description:
+      "Nemotron 3 Super 120B A12B is NVIDIA's open flagship collaborative-agent model for high-volume reasoning, coding, planning, tool use, and long-context workflows. It uses a hybrid latent MoE architecture combining Mamba-2, attention, and Multi-Token Prediction, runs with configurable reasoning mode, supports up to a 1M token context window, and is positioned by NVIDIA for agentic workloads such as RAG, IT automation, and long-horizon software tasks.",
+    input_context_window: '1M',
+    maximum_output_tokens: '1M',
+    open_source: true,
+    release_date: '2026-03-11',
+    knowledge_cut_off_date: '2026-02',
+    api_providers: 'NVIDIA NIM, Hugging Face',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_context: true,
+      reasoning_mode: true,
+      function_calling: true,
+      structured_output: true,
+    },
+    benchmarks: {
+      MMLUPro: {
+        score: 83.73,
+        notes: null,
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      AIME2025: {
+        score: 90.21,
+        notes: 'No tools',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      GPQADiamond: {
+        score: 79.23,
+        notes: 'No tools',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      HumanitysLastExam: {
+        score: 18.26,
+        notes: 'No tools',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      LiveCodeBench: {
+        score: 81.19,
+        notes: 'v5 2024-08 to 2025-05',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      TerminalBench: {
+        score: 31.0,
+        notes: 'Terminal Bench Core 2.0',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      SWEBench: {
+        score: 60.47,
+        notes: 'OpenHands',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+      SWEBenchMultilingual: {
+        score: 45.78,
+        notes: 'OpenHands',
+        source:
+          'https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard',
+      },
+    },
+  },
+  {
     model_name: 'Llama 3.1 Nemotron 70B Instruct',
     slug: 'llama-3-1-nemotron-70b-instruct',
     redirect_to: 'llama-4-maverick',
