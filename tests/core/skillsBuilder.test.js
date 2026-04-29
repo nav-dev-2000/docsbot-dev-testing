@@ -150,13 +150,34 @@ function createLibraryFirestoreMock({ library = {}, local = {} } = {}) {
     }),
   })
 
+  const projectData = (data, fields) => {
+    if (!Array.isArray(fields) || fields.length === 0) return data
+    return fields.reduce((acc, field) => {
+      if (Object.prototype.hasOwnProperty.call(data || {}, field)) {
+        acc[field] = data[field]
+      }
+      return acc
+    }, {})
+  }
+
+  const localQuery = {
+    selectedFields: [],
+    select: vi.fn(function select(...fields) {
+      this.selectedFields = fields
+      return this
+    }),
+    get: vi.fn(async function get() {
+      return {
+        docs: Object.entries(state.local).map(([id, data]) =>
+          makeSnapshot(id, projectData(data, this.selectedFields)),
+        ),
+      }
+    }),
+  }
+
   const localCollection = {
     doc: vi.fn((id) => makeDoc(state.local, id)),
-    orderBy: vi.fn(() => ({
-      get: vi.fn(async () => ({
-        docs: Object.entries(state.local).map(([id, data]) => makeSnapshot(id, data)),
-      })),
-    })),
+    orderBy: vi.fn(() => localQuery),
   }
 
   const topSkillsCollection = {
@@ -183,6 +204,7 @@ function createLibraryFirestoreMock({ library = {}, local = {} } = {}) {
 
   return {
     state,
+    localQuery,
     collection: vi.fn((name) => (name === 'skills' ? topSkillsCollection : teamsCollection)),
   }
 }
@@ -739,6 +761,60 @@ describe('skills-builder helpers', () => {
       metadataBindings: [],
     })
     expect(withIcon.icon).toBe('BoltIcon')
+  })
+
+  it('lists skill draft summaries with a projected Firestore query and no R2 reads', async () => {
+    const firestore = createLibraryFirestoreMock({
+      local: {
+        'customer-refunds': {
+          name: 'Customer Refunds',
+          description: 'Use when customers ask about refunds.',
+          internal: false,
+          enabled: true,
+          enabledWidget: true,
+          mode: 'executable',
+          hasFunctions: true,
+          icon: 'ReceiptRefundIcon',
+          r2Prefix: 'team-1/bot-1/customer-refunds',
+          networkPolicy: { allowedDomains: ['api.example.com'], allowedSchemes: ['https'] },
+          envBindings: [{ envVar: 'WORKSPACE_ID', value: '' }],
+          secretBindings: [{ envVar: 'API_TOKEN', secret: 'encrypted:token' }],
+          chatMessages: [{ role: 'user', content: 'large history should not be selected' }],
+          files: [{ path: 'SKILL.md', content: '# large file should not be selected' }],
+          updatedAt: '2026-04-29T00:00:00.000Z',
+          publishedAt: '2026-04-29T00:00:00.000Z',
+        },
+      },
+    })
+
+    const { listSkillDraftSummaries } = await import('@/lib/skills-builder')
+    const summaries = await listSkillDraftSummaries('team-1', 'bot-1', firestore)
+
+    expect(firestore.localQuery.select).toHaveBeenCalled()
+    expect(firestore.localQuery.selectedFields).toEqual(
+      expect.arrayContaining([
+        'name',
+        'description',
+        'enabledWidget',
+        'networkPolicy',
+        'envBindings',
+        'secretBindings',
+        'updatedAt',
+      ]),
+    )
+    expect(firestore.localQuery.selectedFields).not.toContain('chatMessages')
+    expect(firestore.localQuery.selectedFields).not.toContain('files')
+    expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
+    expect(summaries).toHaveLength(1)
+    expect(summaries[0]).toEqual(
+      expect.objectContaining({
+        skillName: 'customer-refunds',
+        name: 'Customer Refunds',
+        enabledWidget: true,
+        hasFunctions: true,
+        files: [],
+      }),
+    )
   })
 
   it('filters node_modules and other unsupported package artifacts from draft files and context summaries', async () => {

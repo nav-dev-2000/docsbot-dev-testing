@@ -10,6 +10,7 @@ const mocks = vi.hoisted(() => ({
   ensureSkillDraft: vi.fn(),
   updateSkillDraft: vi.fn(),
   listSkillDrafts: vi.fn(async () => []),
+  listSkillDraftSummaries: vi.fn(async () => []),
   skillRecordWithDecryptedSecretBindings: vi.fn((skill) => skill),
 }))
 
@@ -45,6 +46,7 @@ vi.mock('@/lib/skills-builder', async () => {
     ),
     ensureSkillDraft: mocks.ensureSkillDraft,
     listSkillDrafts: mocks.listSkillDrafts,
+    listSkillDraftSummaries: mocks.listSkillDraftSummaries,
     normalizeSkillName: actual.normalizeSkillName,
     skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
     updateSkillDraft: mocks.updateSkillDraft,
@@ -150,7 +152,7 @@ describe('skills create route', () => {
   })
 
   it('lists skill widget readiness flags without exposing binding values in the summary shape', async () => {
-    mocks.listSkillDrafts.mockResolvedValue([
+    mocks.listSkillDraftSummaries.mockResolvedValue([
       {
         id: 'customer-refunds',
         draftId: 'customer-refunds',
@@ -178,6 +180,10 @@ describe('skills create route', () => {
     })
 
     expect(response.status).toBe(200)
+    expect(mocks.listSkillDraftSummaries).toHaveBeenCalledWith('team-1', 'bot-1', {
+      id: 'firestore',
+    })
+    expect(mocks.listSkillDrafts).not.toHaveBeenCalled()
     await expect(response.json()).resolves.toEqual({
       skills: [
         expect.objectContaining({

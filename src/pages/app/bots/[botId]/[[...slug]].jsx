@@ -57,6 +57,7 @@ import {
     tabControlToPath,
     TOP_LEVEL_TABS,
 } from '@/lib/botRoutes'
+import { listSkillDraftSummaries } from '@/lib/skills-builder'
 
 function formatMonthLabel(month) {
     if (!month) return null
@@ -219,15 +220,39 @@ const BotInner = ({
     canManageIntegrations: canManageIntegrationsFromServer = false,
     canManageBotSettings: canManageBotSettingsFromServer = false,
     isSuperAdminUser = false,
+    preloadedSkillSummaries = null,
 }) => {
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
     const { botId } = router.query
     const [bot, setBot] = useState(initialBot)
+    const [skillSummariesByBot, setSkillSummariesByBot] = useState(() => {
+        if (!initialBot?.id || !Array.isArray(preloadedSkillSummaries)) return {}
+        return { [initialBot.id]: preloadedSkillSummaries }
+    })
 
     useEffect(() => {
         setBot(initialBot)
     }, [initialBot])
+
+    useEffect(() => {
+        if (!initialBot?.id || !Array.isArray(preloadedSkillSummaries)) return
+        setSkillSummariesByBot((prev) => ({
+            ...prev,
+            [initialBot.id]: preloadedSkillSummaries,
+        }))
+    }, [initialBot?.id, preloadedSkillSummaries])
+
+    const handleSkillsChange = useCallback(
+        (skills) => {
+            if (!initialBot?.id || !Array.isArray(skills)) return
+            setSkillSummariesByBot((prev) => ({
+                ...prev,
+                [initialBot.id]: skills,
+            }))
+        },
+        [initialBot?.id],
+    )
 
     const [canManageSettings, setCanManageSettings] = useState(
         canManageBotSettingsFromServer,
@@ -265,6 +290,43 @@ const BotInner = ({
         canManageBotSettingsFromServer || canManageSettings
     const hasIntegrationsAccess =
         canManageIntegrationsFromServer || canManageIntegrations
+
+    useEffect(() => {
+        if (!team?.id || !initialBot?.id) return
+        if (!isSuperAdminUser || !hasManageSettingsAccess) return
+        if (Array.isArray(skillSummariesByBot[initialBot.id])) return
+
+        let cancelled = false
+        const loadSkillSummaries = async () => {
+            try {
+                const response = await fetch(
+                    `/api/teams/${team.id}/bots/${initialBot.id}/skills`,
+                    { credentials: 'same-origin' },
+                )
+                const data = await response.json().catch(() => ({}))
+                if (!response.ok) return
+                if (cancelled) return
+                setSkillSummariesByBot((prev) => ({
+                    ...prev,
+                    [initialBot.id]: Array.isArray(data.skills) ? data.skills : [],
+                }))
+            } catch {
+                // best-effort preload; the Skills page still fetches on mount if needed
+            }
+        }
+
+        loadSkillSummaries()
+
+        return () => {
+            cancelled = true
+        }
+    }, [
+        hasManageSettingsAccess,
+        initialBot?.id,
+        isSuperAdminUser,
+        skillSummariesByBot,
+        team?.id,
+    ])
 
     const analyticsControls = useMemo(
         () => ['reports', 'questions', 'conversations'],
@@ -472,6 +534,7 @@ const BotInner = ({
         : 'design'
 
     const normalizedBotId = Array.isArray(botId) ? botId[0] : botId
+    const cachedSkillSummaries = bot?.id ? skillSummariesByBot[bot.id] : undefined
 
     const analyticsHref = (nextControl) =>
         `/app/bots/${normalizedBotId}/analytics/${nextControl}`
@@ -560,6 +623,8 @@ const BotInner = ({
                 team={team}
                 bot={bot}
                 routeSkillSlug={derivedSkillId}
+                initialSkills={cachedSkillSummaries}
+                onSkillsChange={handleSkillsChange}
             />
         ),
     }
@@ -1026,6 +1091,24 @@ export const getServerSideProps = async (context) => {
                         permanent: false,
                     },
                 }
+            }
+        }
+
+        data.props.preloadedSkillSummaries = null
+        if (
+            tab === 'configure' &&
+            control === 'skills' &&
+            data.props.isSuperAdminUser &&
+            data.props.canManageBotSettings
+        ) {
+            try {
+                data.props.preloadedSkillSummaries = await listSkillDraftSummaries(
+                    data.props.team.id,
+                    botId,
+                )
+            } catch (error) {
+                console.warn('Error preloading skill summaries:', error)
+                data.props.preloadedSkillSummaries = []
             }
         }
 

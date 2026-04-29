@@ -4647,19 +4647,26 @@ function SkillsLibraryModal({
     )
 }
 
-const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
+const PageConfigureSkills = ({
+    team,
+    bot,
+    routeSkillSlug = null,
+    initialSkills,
+    onSkillsChange,
+}) => {
     const router = useRouter()
+    const hasInitialSkills = Array.isArray(initialSkills)
     const [detailTab, setDetailTab] = useState('builder')
     const [createMode, setCreateMode] = useState(false)
     const [draftState, setDraftState] = useState(defaultDraftState)
-    const [drafts, setDrafts] = useState([])
+    const [drafts, setDrafts] = useState(() => (hasInitialSkills ? initialSkills : []))
     const [formDescription, setFormDescription] = useState('')
     const [formTask, setFormTask] = useState('')
     const [chatStarted, setChatStarted] = useState(false)
     const [input, setInput] = useState('')
     const [errorText, setErrorText] = useState(null)
     const [infoText, setInfoText] = useState(null)
-    const [isBootstrapping, setIsBootstrapping] = useState(true)
+    const [isBootstrapping, setIsBootstrapping] = useState(!hasInitialSkills)
     const [isCreatingDraft, setIsCreatingDraft] = useState(false)
     const [isSuggestingMetadata, setIsSuggestingMetadata] = useState(false)
     const [createIntentPlaceholderIndex, setCreateIntentPlaceholderIndex] = useState(0)
@@ -4715,6 +4722,27 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
     const apiBase = `/api/teams/${team.id}/bots/${bot.id}/skills`
     const libraryApiBase = `/api/teams/${team.id}/bots/${bot.id}/skills-library`
     const workersLogsApi = `${apiBase}/workers-logs`
+
+    const applyDrafts = useCallback(
+        (nextDrafts) => {
+            setDrafts((prev) => {
+                const resolved =
+                    typeof nextDrafts === 'function' ? nextDrafts(prev) : nextDrafts
+                const safeDrafts = Array.isArray(resolved) ? resolved : []
+                if (typeof onSkillsChange === 'function') {
+                    onSkillsChange(safeDrafts)
+                }
+                return safeDrafts
+            })
+        },
+        [onSkillsChange],
+    )
+
+    useEffect(() => {
+        if (!Array.isArray(initialSkills)) return
+        setDrafts(initialSkills)
+        setIsBootstrapping(false)
+    }, [bot.id, initialSkills])
 
     const toggleExpandedLog = useCallback((logId) => {
         if (!logId) return
@@ -4942,9 +4970,9 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         }
 
         const data = await response.json()
-        setDrafts(data.skills || [])
+        applyDrafts(data.skills || [])
         return data.skills || []
-    }, [apiBase])
+    }, [apiBase, applyDrafts])
 
     const loadLibrarySkills = useCallback(async (query = '') => {
         setLoadingLibrary(true)
@@ -5684,7 +5712,9 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         let ignore = false
 
         async function bootstrap() {
-            setIsBootstrapping(true)
+            if (!hasInitialSkills) {
+                setIsBootstrapping(true)
+            }
             setErrorText(null)
 
             try {
@@ -5706,7 +5736,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
         return () => {
             ignore = true
         }
-    }, [loadDrafts])
+    }, [hasInitialSkills, loadDrafts])
 
     useEffect(() => {
         if (!selectedSkillName) return
@@ -6099,7 +6129,7 @@ const PageConfigureSkills = ({ team, bot, routeSkillSlug = null }) => {
             }
 
             const updatedSkill = data.skill || { ...skill, enabledWidget: nextEnabledWidget }
-            setDrafts((prev) =>
+            applyDrafts((prev) =>
                 prev.map((entry) =>
                     skillRecordId(entry) === id
                         ? {

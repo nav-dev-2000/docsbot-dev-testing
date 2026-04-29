@@ -15,6 +15,7 @@ import {
   createSkillMarkdownTemplate,
   ensureSkillDraft,
   listSkillDrafts,
+  listSkillDraftSummaries,
   normalizeSkillName,
   skillRecordWithDecryptedSecretBindings,
   updateSkillDraft,
@@ -185,8 +186,8 @@ function hasMissingSecretBindingValues(record) {
 export async function GET(request, context) {
   try {
     const params = await context.params
-    const { teamId, botId, firestore } = await getAuthorizedBotContext(request, params)
-    const drafts = await listSkillDrafts(teamId, botId, firestore)
+    const { team, bot, firestore } = await getAuthorizedBotContext(request, params)
+    const drafts = await listSkillDraftSummaries(team.id, bot.id, firestore)
 
     return NextResponse.json({
       skills: drafts.map((draft) => ({

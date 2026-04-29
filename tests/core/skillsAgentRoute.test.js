@@ -328,6 +328,12 @@ describe('skills agent route', () => {
     global.fetch = mocks.runtimeFetch
   })
 
+  it('allows long builder turns up to the Vercel Pro function maximum', async () => {
+    const { maxDuration } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+
+    expect(maxDuration).toBe(800)
+  })
+
   it('wires AI SDK shell execution through the Cloudflare sandbox and persists agent state', async () => {
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
     const { request } = createAbortableRequest('https://docsbot.example/agent', {
@@ -520,6 +526,9 @@ describe('skills agent route', () => {
     )
     expect(mocks.streamArgs.system).toContain(
       'await ctx.artifacts.publish({ filename, contentType, body })',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'The publish call returns an artifact object shaped like `{ url, key, filename, contentType, expiresAt }`, not a bare string URL.',
     )
     expect(mocks.streamArgs.system).toContain(
       'The `filename` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path.',

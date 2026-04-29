@@ -1189,6 +1189,36 @@ export async function listSkillDrafts(teamId, botId, firestore) {
   return snapshot.docs.map((doc) => serializeSkillRecord(doc.id, doc.data(), []))
 }
 
+const SKILL_DRAFT_SUMMARY_FIELDS = [
+  'name',
+  'displayName',
+  'description',
+  'internal',
+  'enabled',
+  'enabledWidget',
+  'mode',
+  'audience',
+  'hasFunctions',
+  'icon',
+  'r2Prefix',
+  'networkPolicy',
+  'envBindings',
+  'secretBindings',
+  'metadataBindings',
+  'createdAt',
+  'updatedAt',
+  'publishedAt',
+]
+
+export async function listSkillDraftSummaries(teamId, botId, firestore) {
+  const db = getBuilderFirestore(firestore)
+  const query = getSkillCollection(db, teamId, botId)
+    .orderBy('updatedAt', 'desc')
+    .select(...SKILL_DRAFT_SUMMARY_FIELDS)
+  const snapshot = await query.get()
+  return snapshot.docs.map((doc) => serializeSkillRecord(doc.id, doc.data(), []))
+}
+
 export async function deleteSkillDraft(teamId, botId, skillName, firestore) {
   const db = getBuilderFirestore(firestore)
   const docRef = getSkillDraftDocRef(teamId, botId, skillName, db)

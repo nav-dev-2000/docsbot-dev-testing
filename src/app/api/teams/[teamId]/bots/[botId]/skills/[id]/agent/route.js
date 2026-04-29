@@ -56,7 +56,7 @@ const DOC_CONTENT_BY_KEY = {
     content: chatAgentDocs,
   },
 }
-export const maxDuration = 300
+export const maxDuration = 800
 
 const loadContextInputSchema = z
   .object({})
@@ -385,7 +385,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - \`input\` must describe only the exact arguments the model truly needs to call the function successfully. Prefer a small, opinionated argument surface over mirroring every upstream API option.
 - \`output\` must describe only the structured result fields the deployed agent is likely to use in user responses or downstream chaining. Do not return full API payloads, debug fields, or speculative metadata.
 - Every function output must be valid JSON that matches the declared \`output\` schema. Return structured JSON objects only so the runtime can filter fields and pipe outputs between functions; never return free-form text blobs, markdown, HTML, or other non-JSON content from skill functions.
-- When a function generates a file the user should view or download, such as an image, PDF, CSV, HTML report, document, chart, or similar artifact, call \`await ctx.artifacts.publish({ filename, contentType, body })\` from the handler and return the resulting public URL in the structured JSON output. The \`filename\` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path.
+- When a function generates a file the user should view or download, such as an image, PDF, CSV, HTML report, document, chart, or similar artifact, call \`await ctx.artifacts.publish({ filename, contentType, body })\` from the handler. The \`filename\` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path. The publish call returns an artifact object shaped like \`{ url, key, filename, contentType, expiresAt }\`, not a bare string URL.
 - Do not return large generated file contents directly in JSON. Publish the file as an artifact and return fields such as \`url\`, \`filename\`, \`contentType\` instead.
 - Do not publish secrets, credentials, private tokens, or sensitive files as artifacts; artifact URLs are public links intended to be shown to end users.
 - The handler's TypeScript parameter type must match \`input\`, and the handler's Promise return type must match \`output\`.
@@ -503,6 +503,7 @@ const ExampleTaskInputSchema = z.object({
 
 const ArtifactSchema = z.object({
   url: z.string().url(),
+  key: z.string(),
   filename: z.string(),
   contentType: z.string(),
   expiresAt: z.string(),
