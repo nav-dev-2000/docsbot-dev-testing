@@ -89,7 +89,12 @@ import {
     skillTestEventsToAssistantParts,
 } from '@/lib/skill-test-agent-ui'
 import { auth } from '@/config/firebase-ui.config'
-import { checkPlanPermission, getWidgetSkillSlotLimit, isSuperAdmin } from '@/utils/helpers'
+import {
+    checkPlanPermission,
+    countBillableBotActions,
+    getBotActionSlotLimit,
+    isSuperAdmin,
+} from '@/utils/helpers'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useBlockingNavigationWarning } from '@/hooks/useUnsavedChangesWarning'
 import { diffLines, diffWordsWithSpace } from 'diff'
@@ -4444,6 +4449,9 @@ function SkillsPageWorkspaceTitle() {
     return (
         <span className="inline-flex flex-wrap items-center gap-2 text-inherit">
             Skills
+            <span className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                Standard
+            </span>
             <span className="bg-animate inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
                 New!
             </span>
@@ -6065,6 +6073,11 @@ const PageConfigureSkills = ({
         setErrorText(null)
         setInfoText(null)
 
+        if (!checkPlanPermission(team, 'standard').allowed) {
+            setShowUpgrade(true)
+            return
+        }
+
         const task = formTask.trim()
         if (!task && !selectedImages.length) {
             setErrorText('Describe what you want the skill to do, or attach an image.')
@@ -6227,11 +6240,18 @@ const PageConfigureSkills = ({
         const nextEnabledWidget = skill.enabledWidget !== true
         if (nextEnabledWidget) {
             const planCheck = checkPlanPermission(team, 'standard')
-            const enabledCount = drafts.filter((entry) => entry?.enabledWidget === true).length
-            const slotLimit = getWidgetSkillSlotLimit(team)
-            const slotsFull = Number.isFinite(slotLimit) && enabledCount >= slotLimit
+            const actionLimit = getBotActionSlotLimit(team)
+            const enabledWidgetSkills = drafts
+                .filter((entry) => entry?.enabledWidget === true)
+                .map((entry) => skillRecordId(entry))
+            const actionCount = countBillableBotActions({
+                tools: bot?.tools,
+                leadCollect: bot?.leadCollect,
+                mcpServers: bot?.mcpServers,
+                widgetSkills: [...enabledWidgetSkills, id],
+            })
 
-            if (!planCheck.allowed || slotsFull) {
+            if (!planCheck.allowed || actionCount > actionLimit) {
                 setShowUpgrade(true)
                 return
             }
@@ -6324,6 +6344,11 @@ const PageConfigureSkills = ({
 
     async function importLibrarySkill(skill) {
         if (!skill?.id || importingLibrarySkillId) return
+        if (!checkPlanPermission(team, 'standard').allowed) {
+            setShowUpgrade(true)
+            return
+        }
+
         setImportingLibrarySkillId(skill.id)
         setLibraryErrorText(null)
         setErrorText(null)
@@ -6506,6 +6531,12 @@ const PageConfigureSkills = ({
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto bg-gradient-to-b from-slate-50/90 to-white">
                     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 pb-12 pt-2 sm:px-6 lg:flex-row lg:items-start lg:gap-10">
                         <div className="flex min-w-0 flex-col lg:flex-1">
+                            <div className="mb-4 flex justify-center lg:justify-start">
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800 shadow-sm">
+                                    <BoltIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                                    We're giving away unlimited skill building for DocsBot Week!
+                                </span>
+                            </div>
                             <h2 className="text-center text-xl font-semibold text-gray-900 sm:text-2xl lg:text-left">
                                 What kind of skill can I build for you?
                             </h2>
@@ -6810,7 +6841,13 @@ const PageConfigureSkills = ({
                         <div className="shrink-0 border-b border-gray-200 bg-gray-50 px-4 py-1.5 sm:px-5">
                             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-0">
                                 <div className="flex min-w-0 flex-1 flex-col justify-center sm:w-3/4 sm:flex-none sm:pr-3">
-                                    <div className="text-sm font-semibold leading-tight text-gray-900">Builder chat</div>
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        <div className="text-sm font-semibold leading-tight text-gray-900">Builder chat</div>
+                                        <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-0.5 text-[11px] font-semibold text-cyan-800">
+                                            <BoltIcon className="h-3 w-3" aria-hidden="true" />
+                                            We're giving away unlimited skill building for DocsBot Week!
+                                        </span>
+                                    </div>
                                     <p className="mt-0 text-xs leading-snug text-gray-500">
                                         The DocsBot agent handles all research, building, validation, and publishing of
                                         skills.

@@ -43,12 +43,11 @@ vi.mock('openai', () => {
 })
 
 vi.mock('@/utils/helpers', () => ({
+  countBillableBotActions: vi.fn(() => 0),
+  getBotActionSlotLimit: vi.fn(() => 8),
   checkPlanPermission: vi.fn((team, requiredPlan, feature) => {
     if (requiredPlan === 'personal' && feature === 'customButtons') {
       return { allowed: true, requiredPlanLabel: 'Personal' }
-    }
-    if (requiredPlan === 'standard' && feature === 'multipleCustomButtons') {
-      return { allowed: true, requiredPlanLabel: 'Standard' }
     }
     return { allowed: true, requiredPlanLabel: 'Personal' }
   }),

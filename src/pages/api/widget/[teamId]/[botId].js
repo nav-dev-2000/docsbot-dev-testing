@@ -1,7 +1,7 @@
 import { getBot, getTeam } from '@/lib/dbQueries'
 import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
-import { checkPlanPermission, getCustomButtonsSlotLimit } from '@/utils/helpers'
+import { checkPlanPermission, getBotActionSlotLimit } from '@/utils/helpers'
 import {
   limitLeadCollectToDefaultFields,
   sanitizeLeadCollectOptions,
@@ -119,7 +119,7 @@ export default async function handler(req, res) {
           checkPlanPermission(team, 'standard').allowed &&
           Boolean(team?.openAIKey) &&
           isWebSearchCompatibleModel(bot?.model || DEFAULT_WEB_SEARCH_MODEL)
-        const customButtonsPlanAllowed = getCustomButtonsSlotLimit(team) > 0
+        const customButtonsPlanAllowed = getBotActionSlotLimit(team) > 0
         const enabledCustomButtonCount = customButtonsPlanAllowed
           ? getEnabledCustomButtons(bot.tools?.customButtons).length
           : 0

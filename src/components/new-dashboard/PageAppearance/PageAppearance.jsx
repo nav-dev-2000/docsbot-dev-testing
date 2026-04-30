@@ -11,9 +11,8 @@ import { canUserEditBot, canUserManageBotSettings } from '@/utils/function.utils
 
 import {
     checkPlanPermission,
-    getCustomButtonsSlotLimit,
-    getWidgetSkillSlotLimit,
-    isSuperAdmin,
+    countBillableBotActions,
+    getBotActionSlotLimit,
 } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalOpenAI from '@/components/ModalOpenAI'
@@ -1114,42 +1113,20 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
         }
         setCustomButtonFieldErrors({})
 
-        const customButtonCount = Array.isArray(tools?.customButtons)
-            ? tools.customButtons.length
-            : 0
-        const customButtonSlots = getCustomButtonsSlotLimit(team)
-        const widgetSkillCount = Array.isArray(widgetSkills) ? widgetSkills.length : 0
-        const widgetSkillSlots = getWidgetSkillSlotLimit(team)
-        if (!isSuperAdmin(user?.uid)) {
-            if (customButtonSlots === 0 && customButtonCount > 0) {
-                setErrorText(
-                    'Custom CTA buttons are only available on the Personal plan or higher.',
-                )
-                return
-            }
-            if (
-                customButtonSlots !== Number.POSITIVE_INFINITY &&
-                customButtonCount > customButtonSlots
-            ) {
-                setErrorText(
-                    'Your plan includes one custom CTA button. Upgrade to Standard or higher to add more.',
-                )
-                return
-            }
-            if (widgetSkillSlots === 0 && widgetSkillCount > 0) {
-                setErrorText(
-                    'Widget skills are only available on the Standard plan or higher.',
-                )
-                return
-            }
-            if (widgetSkillCount > widgetSkillSlots) {
-                setErrorText(
-                    widgetSkillSlots < 10
-                        ? `Your plan includes up to ${String(widgetSkillSlots)} skills per bot. Upgrade to Business for a higher limit.`
-                        : 'Your plan includes up to ten skills per bot.',
-                )
-                return
-            }
+        const actionLimit = getBotActionSlotLimit(team)
+        const actionCount = countBillableBotActions({
+            tools,
+            leadCollect,
+            mcpServers,
+            widgetSkills,
+        })
+        if (actionCount > actionLimit) {
+            setErrorText(
+                actionLimit === 0
+                    ? 'Actions are not available on your current plan.'
+                    : `Your plan includes up to ${String(actionLimit)} actions per bot. Disable an action or upgrade for a higher limit.`,
+            )
+            return
         }
 
         setIsUpdating(true)

@@ -2,10 +2,9 @@ import { NextResponse } from 'next/server'
 
 import { getAuthorizedBotContext, jsonError } from '@/lib/appRouteAuth'
 import { canUserManageBotSettings } from '@/utils/function.utils'
-import { getWidgetSkillSlotLimit, isSuperAdmin } from '@/utils/helpers'
+import { checkPlanPermission } from '@/utils/helpers'
 import {
   importLibrarySkillToBot,
-  listSkillDrafts,
   skillRecordWithDecryptedSecretBindings,
 } from '@/lib/skills-builder'
 
@@ -20,18 +19,8 @@ export async function POST(request, context) {
       return jsonError('You are not allowed to manage bot skills.', 403)
     }
 
-    if (!isSuperAdmin(userId)) {
-      const skillSlotLimit = getWidgetSkillSlotLimit(team)
-      if (skillSlotLimit === 0) {
-        return jsonError('DocsBot skills require the Standard plan or higher.', 403)
-      }
-      const existingDrafts = await listSkillDrafts(team.id, bot.id, firestore)
-      if (existingDrafts.length >= skillSlotLimit) {
-        return jsonError(
-          `This bot can have at most ${String(skillSlotLimit)} skills on your current plan. Remove a skill or upgrade for a higher limit.`,
-          403,
-        )
-      }
+    if (!checkPlanPermission(team, 'standard').allowed) {
+      return jsonError('DocsBot skills require the Standard plan or higher.', 403)
     }
 
     const imported = await importLibrarySkillToBot({

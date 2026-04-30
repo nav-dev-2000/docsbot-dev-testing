@@ -22,7 +22,12 @@ import ModalConfirmDelete from '@/components/ModalConfirmDelete'
 import FieldToggle from '@/components/FieldToggle'
 import Tooltip from '@/components/Tooltip'
 import { useRouter } from 'next/router'
-import { checkPlanPermission, getDomainFromUrl, getMcpServerSlotLimit } from '@/utils/helpers'
+import {
+  checkPlanPermission,
+  countBillableBotActions,
+  getBotActionSlotLimit,
+  getDomainFromUrl,
+} from '@/utils/helpers'
 
 const mcpToolDescriptionRemarkPlugins = [
   ...Object.values(defaultRemarkPlugins),
@@ -43,11 +48,12 @@ export default function McpServerList({
   /** When true, show Add to widget / Remove from widget for connected servers (agent bots). */
   showMcpWidgetToggle = false,
 }) {
-  const mcpSlotLimit = team ? getMcpServerSlotLimit(team) : Number.POSITIVE_INFINITY
+  const actionSlotLimit = team ? getBotActionSlotLimit(team) : Number.POSITIVE_INFINITY
   const mcpSlotsFull =
-    Number.isFinite(mcpSlotLimit) && (mcpServers?.length || 0) >= mcpSlotLimit
+    Number.isFinite(actionSlotLimit) &&
+    countBillableBotActions({ mcpServers }) >= actionSlotLimit
   const cannotAddDueToPlan =
-    Boolean(team) && (mcpSlotLimit === 0 || mcpSlotsFull)
+    Boolean(team) && actionSlotLimit === 0
   const router = useRouter()
   const hasAutoRefreshedForUrlRef = useRef(null)
   const [editingServer, setEditingServer] = useState(null)
@@ -321,7 +327,7 @@ export default function McpServerList({
       const planCheck = team
         ? checkPlanPermission(team, 'personal', 'mcpServers')
         : { allowed: true }
-      if (!planCheck.allowed) {
+      if (!planCheck.allowed || mcpSlotsFull) {
         onRequireUpgrade?.()
         return
       }
@@ -509,7 +515,7 @@ export default function McpServerList({
         </button>
       </div>
 
-      {team && mcpSlotLimit === 0 ? (
+      {team && actionSlotLimit === 0 ? (
         <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           Remote MCP connectors are available on the{' '}
           <span className="font-semibold">Personal</span> plan or higher.

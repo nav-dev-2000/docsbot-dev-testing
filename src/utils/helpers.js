@@ -111,6 +111,111 @@ export const getDomainFromUrl = (url, removeSubdomain = true) => {
 export const countEnabledMcpTools = (server) =>
   (server?.tools || []).filter((t) => t.enabled).length
 
+const BILLABLE_BOOKING_ACTION_KEYS = ['calendly', 'calcom', 'tidycal']
+
+const isPlainObject = (value) =>
+  Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+
+const actionEnabled = (value, defaultEnabled = false) => {
+  if (typeof value === 'boolean') return value
+  if (!isPlainObject(value)) return false
+  if ('enabled' in value) return Boolean(value.enabled)
+  return defaultEnabled
+}
+
+const hasConfiguredBookingAction = (value) => {
+  if (!actionEnabled(value, true)) return false
+  if (!isPlainObject(value)) return false
+  return typeof value.url === 'string' && value.url.trim() !== ''
+}
+
+const countEnabledCustomButtons = (customButtons) => {
+  if (!Array.isArray(customButtons)) return 0
+  return customButtons.filter((button) => actionEnabled(button, true)).length
+}
+
+const countEnabledWidgetSkills = (widgetSkills) =>
+  Array.isArray(widgetSkills) ? widgetSkills.length : 0
+
+const countEnabledMcpServers = (mcpServers) => {
+  if (!Array.isArray(mcpServers)) return 0
+  return mcpServers.filter((server) => server?.enabled === true).length
+}
+
+const hasEnabledLeadCollect = (leadCollect) => {
+  if (!leadCollect) return false
+  if (typeof leadCollect === 'boolean') return leadCollect
+  if (!isPlainObject(leadCollect)) return false
+  if ('enabled' in leadCollect) return Boolean(leadCollect.enabled)
+  return true
+}
+
+/**
+ * Max billable widget actions allowed per bot for this team's plan.
+ * Human escalation and feedback are intentionally excluded from this quota.
+ * @returns {number} `0` (unavailable), `3` (Personal), `8` (Standard), or `12` (Business/Enterprise)
+ */
+export function getBotActionSlotLimit(team) {
+  const currentPlan = stripePlan(team)
+  const currentPlanId = currentPlan?.id
+  const currentPlanName = currentPlan?.name || ''
+  const isEnterprise =
+    currentPlanName === 'Enterprise' ||
+    currentPlanName === 'Staff' ||
+    currentPlanName.includes('Enterprise') ||
+    currentPlan?.pages > 100000 ||
+    currentPlan?.bots > 100
+
+  if (isEnterprise) return 12
+  if (currentPlanId === 'business') return 12
+  if (currentPlanId === 'standard') return 8
+  if (currentPlanId === 'personal') return 3
+  return 0
+}
+
+/**
+ * Counts user-visible billable actions configured on a bot.
+ */
+export function countBillableBotActions({
+  tools = {},
+  leadCollect = false,
+  mcpServers = [],
+  widgetSkills = [],
+} = {}) {
+  const safeTools = isPlainObject(tools) ? tools : {}
+
+  let total = 0
+  for (const actionKey of BILLABLE_BOOKING_ACTION_KEYS) {
+    if (hasConfiguredBookingAction(safeTools[actionKey])) {
+      total += 1
+    }
+  }
+
+  total += countEnabledCustomButtons(safeTools.customButtons)
+
+  if (actionEnabled(safeTools.web_search, false)) {
+    total += 1
+  }
+
+  if (actionEnabled(safeTools.stripe, false)) {
+    total += 1
+  }
+
+  if (hasEnabledLeadCollect(leadCollect)) {
+    total += 1
+  }
+
+  total += countEnabledMcpServers(mcpServers)
+  total += countEnabledWidgetSkills(widgetSkills)
+
+  return total
+}
+
+export function getRemainingBotActionSlots(team, actionState = {}) {
+  const limit = getBotActionSlotLimit(team)
+  return Math.max(0, limit - countBillableBotActions(actionState))
+}
+
 export const validateOpenAIKey = (team, key) => {
   return (
     team.AzureDeploymentBase ||
@@ -298,57 +403,6 @@ export function checkPlanPermission(team, requiredPlan = null, feature = null) {
     allowed: false,
     requiredPlanLabel: 'Enterprise',
   }
-}
-
-/**
- * Max rows allowed in `tools.customButtons` for this team's plan.
- * @returns {number} `0` (unavailable), `1` (Personal/Pro), or `Infinity` (Standard+)
- */
-export function getCustomButtonsSlotLimit(team) {
-  if (!checkPlanPermission(team, 'personal', 'customButtons').allowed) {
-    return 0
-  }
-  if (
-    !checkPlanPermission(team, 'standard', 'multipleCustomButtons').allowed
-  ) {
-    return 1
-  }
-  return Number.POSITIVE_INFINITY
-}
-
-/**
- * Max remote MCP connector rows allowed in `mcpServers` for this team's plan.
- * Uses the same counts as per-bot DocsBot skills, except one connector is included on Personal.
- * @returns {number} `0` (unavailable), `1` (Personal/Pro), `3` (Standard), or `10` (Business+)
- */
-export function getMcpServerSlotLimit(team) {
-  if (!checkPlanPermission(team, 'personal', 'mcpServers').allowed) {
-    return 0
-  }
-  if (checkPlanPermission(team, 'business', 'mcpConnectorsBusiness').allowed) {
-    return 10
-  }
-  if (
-    checkPlanPermission(team, 'standard', 'multipleMcpServers').allowed
-  ) {
-    return 3
-  }
-  return 1
-}
-
-/**
- * Max DocsBot skills per bot for this team's plan (also caps widget quick-action picks).
- * Skills require Standard or higher; Business raises the per-bot cap.
- * @returns {number} `0` (below Standard), `3` (Standard), or `10` (Business+)
- */
-export function getWidgetSkillSlotLimit(team) {
-  if (!checkPlanPermission(team, 'standard', 'multipleMcpServers').allowed) {
-    return 0
-  }
-  if (checkPlanPermission(team, 'business', 'mcpConnectorsBusiness').allowed) {
-    return 10
-  }
-  return 3
 }
 
 export const PLAN_LEVELS = {

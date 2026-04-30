@@ -31,10 +31,10 @@ import {
 } from '@/lib/botActions'
 import {
     checkPlanPermission,
+    countBillableBotActions,
     countEnabledMcpTools,
-    getCustomButtonsSlotLimit,
+    getBotActionSlotLimit,
     getDomainFromUrl,
-    getWidgetSkillSlotLimit,
 } from '@/utils/helpers'
 import {
     ArrowPathIcon,
@@ -236,7 +236,7 @@ const AddMcpServerDashedButton = ({ onClick, disabled }) => (
             aria-hidden="true"
         />
         <span className="text-sm font-medium text-gray-800 group-hover:text-cyan-700">
-            Add connected MCP server
+            Add MCP server
         </span>
     </button>
 )
@@ -384,23 +384,29 @@ const AppearanceActions = ({
     const customButtons = Array.isArray(tools?.customButtons)
         ? tools.customButtons
         : []
-    const customButtonSlotLimit = getCustomButtonsSlotLimit(team)
-    const canUseCustomButtons = customButtonSlotLimit > 0
-    const canAddAnotherCustomButton =
-        customButtonSlotLimit === Number.POSITIVE_INFINITY ||
-        customButtons.length < customButtonSlotLimit
+    const actionSlotLimit = getBotActionSlotLimit(team)
+    const billableActionCount = countBillableBotActions({
+        tools,
+        leadCollect,
+        mcpServers,
+        widgetSkills,
+    })
+    const actionSlotsFull = billableActionCount >= actionSlotLimit
     const customButtonsPlanCheck = checkPlanPermission(
         team,
         'personal',
         'customButtons',
     )
-    const mcpServersPlanCheck = checkPlanPermission(team, 'personal', 'mcpServers')
+    const canUseCustomButtons =
+        customButtonsPlanCheck.allowed && actionSlotLimit > 0
+    const canAddAnotherCustomButton = canUseCustomButtons && !actionSlotsFull
+    const rawMcpServersPlanCheck = checkPlanPermission(team, 'personal', 'mcpServers')
+    const mcpServersPlanCheck = {
+        ...rawMcpServersPlanCheck,
+        allowed: rawMcpServersPlanCheck.allowed && actionSlotLimit > 0,
+    }
     const enabledWidgetSkillIds = Array.isArray(widgetSkills) ? widgetSkills : []
     const widgetSkillsPlanCheck = checkPlanPermission(team, 'standard')
-    const widgetSkillSlotLimit = getWidgetSkillSlotLimit(team)
-    const widgetSkillsSlotsFull =
-        Number.isFinite(widgetSkillSlotLimit) &&
-        enabledWidgetSkillIds.length >= widgetSkillSlotLimit
     const schedulingActions = BOOKING_ACTION_KEYS.map((key) => {
         const meta = BOOKING_ACTIONS[key]
         const active = tools?.[key]
@@ -452,7 +458,7 @@ const AppearanceActions = ({
     }
 
     const handleSchedulingToggle = (actionKey, nextEnabled) => {
-        if (nextEnabled && !schedulingPlanCheck.allowed) {
+        if (nextEnabled && (!schedulingPlanCheck.allowed || actionSlotsFull)) {
             setShowUpgrade(true)
             return
         }
@@ -541,7 +547,7 @@ const AppearanceActions = ({
             setCustomButtonPromptError(
                 !canUseCustomButtons
                     ? 'Custom CTA buttons require the Personal plan or higher.'
-                    : 'Your plan includes one custom button. Upgrade to Standard or higher to add another.',
+                    : `Your plan includes up to ${String(actionSlotLimit)} actions per bot. Disable an action or upgrade for a higher limit.`,
             )
             return
         }
@@ -628,6 +634,17 @@ const AppearanceActions = ({
 
     const handleCustomButtonToggle = (index, nextEnabled) => {
         if (nextEnabled && !canUseCustomButtons) {
+            setShowUpgrade(true)
+            return
+        }
+        const currentButtons = Array.isArray(tools?.customButtons)
+            ? tools.customButtons
+            : []
+        const currentlyEnabled =
+            currentButtons[index]?.enabled === undefined
+                ? Boolean(currentButtons[index])
+                : Boolean(currentButtons[index]?.enabled)
+        if (nextEnabled && !currentlyEnabled && actionSlotsFull) {
             setShowUpgrade(true)
             return
         }
@@ -742,6 +759,10 @@ const AppearanceActions = ({
     // Handle enabling a server
     const handleEnableMcpServer = (serverId) => {
         if (enabledMcpServerIds.includes(serverId)) return
+        if (!mcpServersPlanCheck.allowed || actionSlotsFull) {
+            setShowUpgrade(true)
+            return
+        }
         const newServers = (mcpServers || []).map((s) =>
             s.id === serverId ? { ...s, enabled: true } : s,
         )
@@ -758,7 +779,7 @@ const AppearanceActions = ({
     const handleEnableWidgetSkill = (skillName) => {
         const nextSkills = Array.isArray(widgetSkills) ? widgetSkills : []
         if (nextSkills.includes(skillName)) return
-        if (!widgetSkillsPlanCheck.allowed || widgetSkillsSlotsFull) {
+        if (!widgetSkillsPlanCheck.allowed || actionSlotsFull) {
             setShowUpgrade(true)
             return
         }
@@ -925,9 +946,14 @@ const AppearanceActions = ({
                 <LeadCollectionToolSettings
                     team={team}
                     value={leadCollect}
-                    onChange={(nextValue) =>
-                        setLeadCollect(toWidgetLeadCollectState(nextValue))
-                    }
+                    onChange={(nextValue) => {
+                        const nextLeadCollect = toWidgetLeadCollectState(nextValue)
+                        if (!leadCollect && nextLeadCollect && actionSlotsFull) {
+                            setShowUpgrade(true)
+                            return
+                        }
+                        setLeadCollect(nextLeadCollect)
+                    }}
                     leadCollectMessage={
                         labels?.leadCollectMessage ||
                         i18n.en.labels.leadCollectMessage ||
@@ -1109,8 +1135,8 @@ const AppearanceActions = ({
                             !canAddAnotherCustomButton &&
                             customButtons.length > 0 ? (
                             <p className="text-xs text-gray-600">
-                                Your plan includes one custom button. Upgrade to
-                                Standard or higher to add more.
+                                Your plan includes up to {actionSlotLimit} actions
+                                per bot. Disable an action or upgrade for a higher limit.
                             </p>
                         ) : null}
                         {!customButtonPromptOpen &&
@@ -1511,14 +1537,14 @@ const AppearanceActions = ({
                     }
                     description={
                         <>
-                            Enable published{' '}
+                            Enable{' '}
                             <Link
                                 href={`/app/bots/${bot.id}/configure/skills`}
                                 className="font-medium text-cyan-600 underline hover:text-cyan-800"
                             >
                                 bot skills
                             </Link>{' '}
-                            as selectable actions in your widget.
+                            to give your bot special abilities.
                         </>
                     }
                 >
@@ -1602,8 +1628,8 @@ const AppearanceActions = ({
                                 className="font-medium text-cyan-600 underline hover:text-cyan-800"
                             >
                                 connected MCP servers
-                            </Link>{' '}
-                            as selectable actions in your widget.
+                            </Link>
+                            . MCP servers connect your bot to external tools and data from your services.
                         </>
                     }
                 >
@@ -1661,7 +1687,13 @@ const AppearanceActions = ({
                         })}
 
                         <AddMcpServerDashedButton
-                            onClick={() => setShowMcpModal(true)}
+                            onClick={() => {
+                                if (!mcpServersPlanCheck.allowed) {
+                                    setShowUpgrade(true)
+                                    return
+                                }
+                                setShowMcpModal(true)
+                            }}
                             disabled={isUpdating}
                         />
                     </div>
@@ -1699,7 +1731,11 @@ const AppearanceActions = ({
                         label="Enable Stripe Tools"
                         enabled={stripe.enabled}
                         setEnabled={(nextEnabled) => {
-                            if (nextEnabled && !stripePlanCheck.allowed) {
+                            if (
+                                nextEnabled &&
+                                (!stripePlanCheck.allowed ||
+                                    (!stripe.enabled && actionSlotsFull))
+                            ) {
                                 setShowUpgrade(true)
                                 return
                             }
@@ -1973,7 +2009,11 @@ const AppearanceActions = ({
                                 return
                             }
 
-                            if (enabled && !webSearchPlanCheck.allowed) {
+                            if (
+                                enabled &&
+                                (!webSearchPlanCheck.allowed ||
+                                    (!webSearchEnabled && actionSlotsFull))
+                            ) {
                                 setShowUpgrade(true)
                                 return
                             }

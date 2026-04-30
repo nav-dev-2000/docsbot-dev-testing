@@ -4,7 +4,11 @@ const mocks = vi.hoisted(() => ({
   getAuthorizedBotContext: vi.fn(),
   jsonError: vi.fn((message, status = 500) => Response.json({ message }, { status })),
   canUserManageBotSettings: vi.fn(() => true),
+  countBillableBotActions: vi.fn(() => 1),
+  getBotActionSlotLimit: vi.fn(() => 8),
+  isSuperAdmin: vi.fn(() => false),
   getSkillDraft: vi.fn(),
+  listSkillDrafts: vi.fn(async () => []),
   updateSkillDraft: vi.fn(),
   skillRecordWithDecryptedSecretBindings: vi.fn((skill) => skill),
   deleteSkillDraft: vi.fn(),
@@ -27,8 +31,15 @@ vi.mock('@/utils/function.utils', async () => {
 vi.mock('@/lib/skills-builder', () => ({
   deleteSkillDraft: mocks.deleteSkillDraft,
   getSkillDraft: mocks.getSkillDraft,
+  listSkillDrafts: mocks.listSkillDrafts,
   skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
   updateSkillDraft: mocks.updateSkillDraft,
+}))
+
+vi.mock('@/utils/helpers', () => ({
+  countBillableBotActions: mocks.countBillableBotActions,
+  getBotActionSlotLimit: mocks.getBotActionSlotLimit,
+  isSuperAdmin: mocks.isSuperAdmin,
 }))
 
 vi.mock('@/lib/skills-r2-package', () => ({
@@ -39,6 +50,9 @@ describe('skills route', () => {
   beforeEach(() => {
     vi.resetModules()
     vi.clearAllMocks()
+    mocks.countBillableBotActions.mockReturnValue(1)
+    mocks.getBotActionSlotLimit.mockReturnValue(8)
+    mocks.isSuperAdmin.mockReturnValue(false)
 
     mocks.getAuthorizedBotContext.mockResolvedValue({
       team: { id: 'team-1', roles: { 'user-1': 'owner' } },
@@ -134,5 +148,45 @@ describe('skills route', () => {
       },
       { id: 'firestore' },
     )
+  })
+
+  it('enforces widget action limits for super admins', async () => {
+    mocks.isSuperAdmin.mockReturnValue(true)
+    mocks.getBotActionSlotLimit.mockReturnValue(0)
+    mocks.countBillableBotActions.mockReturnValue(1)
+    mocks.getSkillDraft.mockResolvedValue({
+      skillName: 'customer-refunds',
+      name: 'customer-refunds',
+      manifest: {
+        enabledWidget: false,
+        envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
+      },
+    })
+
+    const { PUT } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/route')
+    const response = await PUT(
+      new Request('https://docsbot.example/skill', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          manifest: {
+            enabledWidget: true,
+          },
+        }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    expect(response.status).toBe(403)
+    await expect(response.json()).resolves.toEqual({
+      message: 'Actions are not available on your current plan.',
+    })
+    expect(mocks.updateSkillDraft).not.toHaveBeenCalled()
   })
 })

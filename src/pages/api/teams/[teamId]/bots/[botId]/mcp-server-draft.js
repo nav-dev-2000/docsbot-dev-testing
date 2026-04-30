@@ -3,7 +3,7 @@ import { getBot } from '@/lib/dbQueries'
 import { phTrack } from '@/lib/posthog'
 import OpenAI from 'openai'
 import { canUserManageBotSettings } from '@/utils/function.utils'
-import { checkPlanPermission } from '@/utils/helpers'
+import { checkPlanPermission, getBotActionSlotLimit } from '@/utils/helpers'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -170,7 +170,10 @@ export default async function handler(req, res) {
     ? normalizeEnabledToolsFromBody(body.enabledTools)
     : []
 
-  if (!checkPlanPermission(team, 'personal', 'mcpServers').allowed) {
+  if (
+    !checkPlanPermission(team, 'personal', 'mcpServers').allowed ||
+    getBotActionSlotLimit(team) <= 0
+  ) {
     return res.status(403).json({
       message:
         'Remote MCP connectors are only available on the Personal plan or higher.',

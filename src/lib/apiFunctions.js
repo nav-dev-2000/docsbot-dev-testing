@@ -9,8 +9,8 @@ import { QueueSourceExpel } from '@/lib/service'
 import {
   isSuperAdmin,
   checkPlanPermission,
-  getCustomButtonsSlotLimit,
-  getMcpServerSlotLimit,
+  countBillableBotActions,
+  getBotActionSlotLimit,
 } from '@/utils/helpers'
 import { i18n } from '@/constants/strings.constants'
 import { PRESET_PROMPTS } from '@/constants/prompts.constants'
@@ -1099,27 +1099,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       )
     }
 
-    const customButtonsList = validTools?.customButtons
-    if (Array.isArray(customButtonsList) && customButtonsList.length > 0) {
-      const slotLimit = getCustomButtonsSlotLimit(team)
-      if (!isSuperAdmin(userId)) {
-        if (slotLimit === 0) {
-          throw new Error(
-            'Custom CTA buttons are only available on the Personal plan or higher.',
-          )
-        }
-        if (
-          slotLimit !== Number.POSITIVE_INFINITY &&
-          customButtonsList.length > slotLimit
-        ) {
-          throw new Error(
-            'Your plan includes one custom CTA button. Upgrade to Standard or higher to add more.',
-          )
-        }
-      }
-    }
-
-
     const effectivePrivacy = botData.privacy || bot?.privacy || 'public'
 
     if (
@@ -1268,23 +1247,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     if (!Array.isArray(mcpServers)) {
       throw new Error('mcpServers must be an array.')
     }
-    const mcpSlotLimit = getMcpServerSlotLimit(team)
-    if (!isSuperAdmin(userId)) {
-      if (mcpSlotLimit === 0 && mcpServers.length > 0) {
-        throw new Error(
-          'Remote MCP connectors are only available on the Personal plan or higher.',
-        )
-      }
-      if (mcpServers.length > mcpSlotLimit) {
-        throw new Error(
-          mcpSlotLimit === 1
-            ? 'Your plan includes one remote MCP connector. Upgrade to Standard or higher to add more.'
-            : mcpSlotLimit === 3
-              ? 'Your plan includes up to three remote MCP connectors. Upgrade to Business for up to ten.'
-              : 'Your plan includes up to ten remote MCP connectors.',
-        )
-      }
-    }
     // Validate each server
     botData.mcpServers = mcpServers.map(server => {
       if (!server.serverLabel || !server.serverUrl) {
@@ -1330,6 +1292,27 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     })
   } else if (!isUpdate) {
     botData.mcpServers = []
+  }
+
+  const actionLimit = getBotActionSlotLimit(team)
+  const actionCount = countBillableBotActions({
+    tools: tools !== undefined ? botData.tools : bot?.tools,
+    leadCollect:
+      leadCollect !== undefined
+        ? botData.leadCollect
+        : bot?.leadCollect,
+    mcpServers:
+      mcpServers !== undefined
+        ? botData.mcpServers
+        : bot?.mcpServers,
+  })
+
+  if (actionCount > actionLimit) {
+    throw new Error(
+      actionLimit === 0
+        ? 'Actions are not available on your current plan.'
+        : `Your plan includes up to ${String(actionLimit)} actions per bot. Disable an action or upgrade for a higher limit.`,
+    )
   }
 
   // Handle topics array

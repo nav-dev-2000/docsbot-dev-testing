@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 const mocks = vi.hoisted(() => ({
   getAuthorizedBotContext: vi.fn(),
   canUserManageBotSettings: vi.fn(() => true),
-  getWidgetSkillSlotLimit: vi.fn(() => 5),
+  checkPlanPermission: vi.fn(() => ({ allowed: true, requiredPlanLabel: 'Standard' })),
   isSuperAdmin: vi.fn(() => false),
   responsesCreate: vi.fn(),
   allocateUniqueSkillName: vi.fn(async (_teamId, _botId, skillName) => skillName),
@@ -31,7 +31,7 @@ vi.mock('@/utils/function.utils', () => ({
 }))
 
 vi.mock('@/utils/helpers', () => ({
-  getWidgetSkillSlotLimit: mocks.getWidgetSkillSlotLimit,
+  checkPlanPermission: mocks.checkPlanPermission,
   isSuperAdmin: mocks.isSuperAdmin,
 }))
 
@@ -59,6 +59,11 @@ describe('skills create route', () => {
     vi.resetModules()
     vi.clearAllMocks()
     process.env.OPENAI_API_KEY = 'test-openai-key'
+    mocks.checkPlanPermission.mockReturnValue({
+      allowed: true,
+      requiredPlanLabel: 'Standard',
+    })
+    mocks.isSuperAdmin.mockReturnValue(false)
 
     mocks.getAuthorizedBotContext.mockResolvedValue({
       team: { id: 'team-1' },
@@ -149,6 +154,35 @@ describe('skills create route', () => {
         name: 'Customer Refunds',
       }),
     })
+  })
+
+  it('requires Standard or higher even for super admins', async () => {
+    mocks.isSuperAdmin.mockReturnValue(true)
+    mocks.checkPlanPermission.mockReturnValue({
+      allowed: false,
+      requiredPlanLabel: 'Standard',
+    })
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/route')
+    const response = await POST(
+      new Request('https://docsbot.example/skills', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: 'Build a customer refund policy helper.',
+          audience: 'customer',
+        }),
+      }),
+      {
+        params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1' }),
+      },
+    )
+
+    expect(response.status).toBe(403)
+    await expect(response.json()).resolves.toEqual({
+      message: 'DocsBot skills require the Standard plan or higher.',
+    })
+    expect(mocks.ensureSkillDraft).not.toHaveBeenCalled()
   })
 
   it('lists skill widget readiness flags without exposing binding values in the summary shape', async () => {

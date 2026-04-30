@@ -6,6 +6,7 @@ const mocks = vi.hoisted(() => ({
   getBot: vi.fn(),
   getTeam: vi.fn(),
   checkPlanPermission: vi.fn(),
+  getBotActionSlotLimit: vi.fn(),
 }))
 
 vi.mock('@/lib/dbQueries', () => ({
@@ -18,6 +19,7 @@ vi.mock('@/utils/helpers', async () => {
   return {
     ...actual,
     checkPlanPermission: mocks.checkPlanPermission,
+    getBotActionSlotLimit: mocks.getBotActionSlotLimit,
   }
 })
 
@@ -28,6 +30,7 @@ describe('/api/widget/[teamId]/[botId]', () => {
     mocks.getBot.mockReset()
     mocks.getTeam.mockReset()
     mocks.checkPlanPermission.mockReset()
+    mocks.getBotActionSlotLimit.mockReset()
 
     mocks.getTeam.mockResolvedValue({
       id: 'team-1',
@@ -35,6 +38,7 @@ describe('/api/widget/[teamId]/[botId]', () => {
       openAIKey: 'sk-abc...1234',
     })
     mocks.checkPlanPermission.mockReturnValue({ allowed: true })
+    mocks.getBotActionSlotLimit.mockReturnValue(8)
   })
 
   it('returns boolean scheduling flags and web search as widget tool options', async () => {

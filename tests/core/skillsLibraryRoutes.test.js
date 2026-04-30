@@ -4,7 +4,7 @@ const mocks = vi.hoisted(() => ({
   getAuthorizedBotContext: vi.fn(),
   jsonError: vi.fn((message, status = 500) => Response.json({ message }, { status })),
   canUserManageBotSettings: vi.fn(() => true),
-  getWidgetSkillSlotLimit: vi.fn(() => 5),
+  checkPlanPermission: vi.fn(() => ({ allowed: true, requiredPlanLabel: 'Standard' })),
   isSuperAdmin: vi.fn(() => false),
   deleteLibrarySkill: vi.fn(),
   importLibrarySkillToBot: vi.fn(),
@@ -25,7 +25,7 @@ vi.mock('@/utils/function.utils', () => ({
 }))
 
 vi.mock('@/utils/helpers', () => ({
-  getWidgetSkillSlotLimit: mocks.getWidgetSkillSlotLimit,
+  checkPlanPermission: mocks.checkPlanPermission,
   isSuperAdmin: mocks.isSuperAdmin,
 }))
 
@@ -43,6 +43,11 @@ describe('skills library routes', () => {
   beforeEach(() => {
     vi.resetModules()
     vi.clearAllMocks()
+    mocks.checkPlanPermission.mockReturnValue({
+      allowed: true,
+      requiredPlanLabel: 'Standard',
+    })
+    mocks.isSuperAdmin.mockReturnValue(false)
     mocks.getAuthorizedBotContext.mockResolvedValue({
       team: { id: 'team-1' },
       bot: { id: 'bot-1' },
@@ -167,9 +172,11 @@ describe('skills library routes', () => {
     })
   })
 
-  it('enforces non-super-admin skill slot limits before import', async () => {
-    mocks.getWidgetSkillSlotLimit.mockReturnValue(1)
-    mocks.listSkillDrafts.mockResolvedValue([{ name: 'existing' }])
+  it('requires Standard or higher before import', async () => {
+    mocks.checkPlanPermission.mockReturnValue({
+      allowed: false,
+      requiredPlanLabel: 'Standard',
+    })
 
     const { POST } = await import(
       '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/import/route'
@@ -180,8 +187,28 @@ describe('skills library routes', () => {
 
     expect(response.status).toBe(403)
     await expect(response.json()).resolves.toEqual({
-      message:
-        'This bot can have at most 1 skills on your current plan. Remove a skill or upgrade for a higher limit.',
+      message: 'DocsBot skills require the Standard plan or higher.',
+    })
+    expect(mocks.importLibrarySkillToBot).not.toHaveBeenCalled()
+  })
+
+  it('requires Standard or higher before import for super admins', async () => {
+    mocks.isSuperAdmin.mockReturnValue(true)
+    mocks.checkPlanPermission.mockReturnValue({
+      allowed: false,
+      requiredPlanLabel: 'Standard',
+    })
+
+    const { POST } = await import(
+      '@/app/api/teams/[teamId]/bots/[botId]/skills-library/[librarySkillId]/import/route'
+    )
+    const response = await POST(new Request('https://docsbot.example/import', { method: 'POST' }), {
+      params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1', librarySkillId: 'weather' }),
+    })
+
+    expect(response.status).toBe(403)
+    await expect(response.json()).resolves.toEqual({
+      message: 'DocsBot skills require the Standard plan or higher.',
     })
     expect(mocks.importLibrarySkillToBot).not.toHaveBeenCalled()
   })

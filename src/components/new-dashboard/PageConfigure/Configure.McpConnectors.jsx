@@ -5,7 +5,7 @@ import McpServerList from '@/components/McpServerList'
 import Workspace from '@new-dashboard/Workspace'
 import Alert from '@/components/Alert'
 import ModalCheckout from '@/components/ModalCheckout'
-import { checkPlanPermission } from '@/utils/helpers'
+import { checkPlanPermission, getBotActionSlotLimit } from '@/utils/helpers'
 
 const ConfigureMcpConnectors = ({ team, bot, setBot }) => {
     const router = useRouter()
@@ -44,10 +44,13 @@ const ConfigureMcpConnectors = ({ team, bot, setBot }) => {
         )
     }, [mcpServers])
 
-    const mcpEntryPermission = useMemo(
-        () => checkPlanPermission(team, 'personal', 'mcpServers'),
-        [team],
-    )
+    const mcpEntryPermission = useMemo(() => {
+        const permission = checkPlanPermission(team, 'personal', 'mcpServers')
+        return {
+            ...permission,
+            allowed: permission.allowed && getBotActionSlotLimit(team) > 0,
+        }
+    }, [team])
 
     const handleMcpSave = async (updatedServers) => {
         try {

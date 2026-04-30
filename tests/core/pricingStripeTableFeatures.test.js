@@ -31,8 +31,25 @@ describe('pricingStripeTableFeatures', () => {
     expect(formatStripeTableFeatureLabel('botLifetime', 'Unlimited')).toBe(
       'Bot lifetime: Unlimited',
     )
+    expect(formatStripeTableFeatureLabel('messagesPerMonth', '15k')).toBe(
+      'AI message credits / month: 15k',
+    )
     expect(formatStripeTableFeatureLabel('slackIntegration', true)).toBe(
       'Slack integration',
+    )
+  })
+
+  it('places actions per bot directly after message credits in compact plan rows', () => {
+    const visible = getVisibleStripePricingTiers(pricingTiers)
+    const idx = visible.findIndex((t) => t.id === 'standard')
+    const keys = getDifferentiatingFeatures(visible[idx], idx, visible).map(
+      ([key]) => key,
+    )
+
+    expect(keys).toContain('messagesPerMonth')
+    expect(keys).toContain('actionsLimit')
+    expect(keys.indexOf('actionsLimit')).toBe(
+      keys.indexOf('messagesPerMonth') + 1,
     )
   })
 
@@ -52,12 +69,16 @@ describe('pricingStripeTableFeatures', () => {
     expect(free?.features.bookingActions).toBe(false)
     expect(hobby?.features.bookingActions).toBe(false)
     expect(personal?.features.bookingActions).toBe(true)
-    expect(pro?.features.bookingActions).toBe(true)
+    expect(pro?.features.bookingActions).toBe(false)
     expect(standard?.features.bookingActions).toBe(true)
     expect(business?.features.bookingActions).toBe(true)
   })
 
   it('includes Skills and merged custom action button tiers', () => {
+    expect(featureDefinitions.actionsLimit).toEqual({
+      label: 'Actions per bot',
+      category: 'actions',
+    })
     expect(featureDefinitions.docsBotSkills).toEqual({
       label: 'Skills — build, validate, and publish',
       category: 'actions',
@@ -78,14 +99,19 @@ describe('pricingStripeTableFeatures', () => {
 
     expect(free?.features.docsBotSkills).toBe(false)
     expect(hobby?.features.docsBotSkills).toBe(false)
+    expect(personal?.features.actionsLimit).toBe(3)
     expect(personal?.features.docsBotSkills).toBe(false)
     expect(pro?.features.docsBotSkills).toBe(false)
-    expect(standard?.features.docsBotSkills).toBe('3')
-    expect(business?.features.docsBotSkills).toBe('10')
+    expect(pro?.features.actionsLimit).toBe(0)
+    expect(standard?.features.actionsLimit).toBe(8)
+    expect(standard?.features.docsBotSkills).toBe(true)
+    expect(business?.features.actionsLimit).toBe(12)
+    expect(business?.features.docsBotSkills).toBe(true)
 
     expect(free?.features.customActionButtons).toBe(false)
-    expect(personal?.features.customActionButtons).toBe('1')
-    expect(standard?.features.customActionButtons).toBe('Unlimited')
+    expect(personal?.features.customActionButtons).toBe(true)
+    expect(pro?.features.customActionButtons).toBe(false)
+    expect(standard?.features.customActionButtons).toBe(true)
   })
 
   it('never lists mcpServer in the compact differentiating list (top cards / Stripe)', () => {

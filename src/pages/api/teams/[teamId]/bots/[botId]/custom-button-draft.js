@@ -12,7 +12,11 @@ import {
 } from '@/lib/botActions'
 import OpenAI from 'openai'
 import { canUserManageBotSettings } from '@/utils/function.utils'
-import { checkPlanPermission } from '@/utils/helpers'
+import {
+  checkPlanPermission,
+  countBillableBotActions,
+  getBotActionSlotLimit,
+} from '@/utils/helpers'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -154,16 +158,21 @@ export default async function handler(req, res) {
     })
   }
 
-  const existingCustomButtonCount = Array.isArray(bot.tools?.customButtons)
-    ? bot.tools.customButtons.length
-    : 0
-  if (
-    !checkPlanPermission(team, 'standard', 'multipleCustomButtons').allowed &&
-    existingCustomButtonCount >= 1
-  ) {
+  const actionLimit = getBotActionSlotLimit(team)
+  const actionCount = countBillableBotActions({
+    tools: bot.tools,
+    leadCollect: bot.leadCollect,
+    mcpServers: bot.mcpServers,
+  })
+  if (actionLimit <= 0) {
+    return res.status(403).json({
+      message: 'Actions are not available on your current plan.',
+    })
+  }
+  if (actionCount >= actionLimit) {
     return res.status(403).json({
       message:
-        'Your plan includes one custom CTA button. Upgrade to Standard or higher to add another.',
+        `Your plan includes up to ${String(actionLimit)} actions per bot. Disable an action or upgrade for a higher limit.`,
     })
   }
 

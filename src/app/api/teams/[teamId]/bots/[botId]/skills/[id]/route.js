@@ -3,8 +3,13 @@ import { NextResponse } from 'next/server'
 import { getAuthorizedBotContext, jsonError } from '@/lib/appRouteAuth'
 import { canUserManageBotSettings } from '@/utils/function.utils'
 import {
+  countBillableBotActions,
+  getBotActionSlotLimit,
+} from '@/utils/helpers'
+import {
   deleteSkillDraft,
   getSkillDraft,
+  listSkillDrafts,
   skillRecordWithDecryptedSecretBindings,
   updateSkillDraft,
 } from '@/lib/skills-builder'
@@ -89,6 +94,32 @@ export async function PUT(request, context) {
         'This skill cannot be enabled in widget actions until all envBindings have values.',
         400,
       )
+    }
+
+    if (
+      existing?.manifest?.enabledWidget !== true &&
+      nextManifest.enabledWidget === true
+    ) {
+      const drafts = await listSkillDrafts(team.id, bot.id, firestore)
+      const enabledWidgetSkills = drafts
+        .filter((draft) => draft?.id !== skillId && draft?.manifest?.enabledWidget === true)
+        .map((draft) => draft.skillName || draft.id)
+      const actionLimit = getBotActionSlotLimit(team)
+      const actionCount = countBillableBotActions({
+        tools: bot?.tools,
+        leadCollect: bot?.leadCollect,
+        mcpServers: bot?.mcpServers,
+        widgetSkills: [...enabledWidgetSkills, skillId],
+      })
+
+      if (actionCount > actionLimit) {
+        return jsonError(
+          actionLimit === 0
+            ? 'Actions are not available on your current plan.'
+            : `Your plan includes up to ${String(actionLimit)} actions per bot. Disable an action or upgrade for a higher limit.`,
+          403,
+        )
+      }
     }
 
     const updated = await updateSkillDraft(team.id, bot.id, skillId, updates, firestore)

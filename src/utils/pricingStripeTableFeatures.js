@@ -11,17 +11,18 @@ const COMPACT_BULLET_KEY_ORDER = [
   'docsBots',
   'sourcePages',
   'messagesPerMonth',
+  'actionsLimit',
   'researchTasksPerMonth',
   'teamUsers',
   'docsBotSkills',
-  'bookingActions',
-  'webSearch',
+  'mcpRemoteConnectors',
   'leadCollection',
   'leadCollectionCustomFields',
+  'bookingActions',
   'escalationTickets',
-  'mcpRemoteConnectors',
-  'stripeActions',
   'customActionButtons',
+  'stripeActions',
+  'webSearch',
 ]
 
 function compactKeyOrderIndex(key) {
@@ -39,6 +40,7 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
     'docsBots',
     'sourcePages',
     'messagesPerMonth',
+    'actionsLimit',
     'researchTasksPerMonth',
     'teamUsers',
   ]
@@ -98,11 +100,17 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
     const prevValue = previousTier?.features[key]
 
     if (key === 'customActionButtons') {
+      if (value === true && value !== prevValue) {
+        differentiatingFeatures.push([key, value])
+      }
+      return
+    }
+
+    if (key === 'actionsLimit') {
       if (
-        typeof value === 'string' &&
-        value !== 'false' &&
-        value !== '' &&
-        value !== prevValue
+        typeof value === 'number' &&
+        value > 0 &&
+        (typeof prevValue !== 'number' || value > prevValue)
       ) {
         differentiatingFeatures.push([key, value])
       }
@@ -139,8 +147,8 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
       const bCat = featureDefinitions[bKey]?.category
       const priority = {
         limits: 0,
-        integrations: 1,
-        actions: 2,
+        actions: 1,
+        integrations: 2,
         analytics: 3,
         ai: 4,
         features: 5,

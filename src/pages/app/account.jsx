@@ -8,10 +8,10 @@ import {
   ServerStackIcon,
   ArrowRightIcon,
   CheckBadgeIcon,
-  DocumentTextIcon,
   Square3Stack3DIcon,
   ChatBubbleBottomCenterTextIcon,
   UsersIcon,
+  WrenchScrewdriverIcon,
   BeakerIcon,
 } from '@heroicons/react/24/outline'
 import * as cookie from 'cookie'
@@ -19,7 +19,7 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import { stripePlan } from '@/utils/helpers'
+import { getBotActionSlotLimit, stripePlan } from '@/utils/helpers'
 import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
@@ -118,16 +118,12 @@ function Account({
       : 25
   const researchUsed = Number(team?.researchCount ?? 0) || 0
   const hasResearchAllowance = researchLimit > 0
+  const actionsPerBotLimit = getBotActionSlotLimit(team)
   const researchTooltip = hasResearchAllowance
     ? `Your ${teamPlan.name} plan includes ${researchLimit} deep research tasks per month.`
     : 'Your current plan does not include deep research tasks. Upgrade to unlock them.'
 
   const cards = [
-    {
-      name: 'Current Plan',
-      icon: CheckBadgeIcon,
-      stat: teamPlan.name,
-    },
     {
       name: 'Bots',
       tooltip: 'You can create up to ' + teamPlan.bots + ' bots.',
@@ -144,9 +140,9 @@ function Account({
       limit: teamPlan.pages,
     },
     {
-      name: 'Messages',
+      name: 'AI Credits',
       href: false,
-      tooltip: 'User messages in current month',
+      tooltip: 'AI message credits used in the current month.',
       icon: ChatBubbleBottomCenterTextIcon,
       stat: team?.questionCount || 0,
       limit: teamPlan.questions,
@@ -157,6 +153,14 @@ function Account({
       icon: BeakerIcon,
       stat: researchUsed,
       limit: hasResearchAllowance ? researchLimit : null,
+    },
+    {
+      name: 'Actions per Bot',
+      tooltip: actionsPerBotLimit > 0
+        ? `Your ${teamPlan.name} plan allows up to ${actionsPerBotLimit} actions per bot.`
+        : 'Actions are not available on your current plan.',
+      icon: WrenchScrewdriverIcon,
+      stat: actionsPerBotLimit,
     },
     {
       name: 'Team Members',
@@ -184,6 +188,14 @@ function Account({
 
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
+
+      <div className="mb-6 flex items-center gap-3 text-2xl font-semibold text-gray-700">
+        <CheckBadgeIcon className="h-8 w-8 text-cyan-600" aria-hidden="true" />
+        <span>
+          Current plan:{' '}
+          <span className="font-bold text-gray-950">{teamPlan.name}</span>
+        </span>
+      </div>
 
       <div className="grid grid-cols-2 gap-5 md:grid-cols-3 2xl:grid-cols-6">
         {/* Card */}

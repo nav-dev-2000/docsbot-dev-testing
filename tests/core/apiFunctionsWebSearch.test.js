@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/config/firebase-server.config', () => ({
   configureFirebaseApp: vi.fn(),
@@ -39,8 +39,8 @@ vi.mock('@/lib/service', () => ({
 
 vi.mock('@/utils/helpers', () => ({
   isSuperAdmin: vi.fn(() => false),
-  getCustomButtonsSlotLimit: vi.fn(() => 5),
-  getMcpServerSlotLimit: vi.fn(() => 3),
+  countBillableBotActions: vi.fn(() => 1),
+  getBotActionSlotLimit: vi.fn(() => 8),
   checkPlanPermission: vi.fn((team, requiredPlan) => {
     if (requiredPlan === 'standard') {
       return { allowed: team?.plan === 'standard' || team?.plan === 'business', requiredPlanLabel: 'Standard' }
@@ -91,6 +91,11 @@ vi.mock('@/lib/stripeConnect', () => ({
 }))
 
 import { validateBotParams } from '@/lib/apiFunctions'
+import {
+  countBillableBotActions,
+  getBotActionSlotLimit,
+  isSuperAdmin,
+} from '@/utils/helpers'
 
 describe('validateBotParams web search enforcement', () => {
   const baseReq = {
@@ -102,6 +107,12 @@ describe('validateBotParams web search enforcement', () => {
       },
     },
   }
+
+  afterEach(() => {
+    vi.mocked(isSuperAdmin).mockReturnValue(false)
+    vi.mocked(countBillableBotActions).mockReturnValue(1)
+    vi.mocked(getBotActionSlotLimit).mockReturnValue(8)
+  })
 
   it('throws when enabling web search without an OpenAI key', async () => {
     await expect(
@@ -144,6 +155,22 @@ describe('validateBotParams web search enforcement', () => {
         },
       },
     })
+  })
+
+  it('enforces action limits for super admins', async () => {
+    vi.mocked(isSuperAdmin).mockReturnValue(true)
+    vi.mocked(getBotActionSlotLimit).mockReturnValue(0)
+    vi.mocked(countBillableBotActions).mockReturnValue(1)
+
+    await expect(
+      validateBotParams(
+        baseReq,
+        { id: 'team-1', plan: 'standard', openAIKey: 'sk-test' },
+        'super-admin-1',
+        true,
+        { id: 'bot-1', tools: {}, model: 'gpt-5.4-nano' },
+      ),
+    ).rejects.toThrow('Actions are not available on your current plan.')
   })
 
   it('forces public bots to use cached web search', async () => {

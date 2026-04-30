@@ -79,8 +79,8 @@ const createComparisonSections = (activeTiers) => {
 
   const sectionCategoryOrder = {
     limits: 0,
-    integrations: 1,
-    actions: 2,
+    actions: 1,
+    integrations: 2,
     analytics: 3,
     ai: 4,
     features: 5,
@@ -90,24 +90,85 @@ const createComparisonSections = (activeTiers) => {
     compliance: 9,
   }
   // Create sections structure (order matches card bullets: Actions right before Analytics)
+  const actionFeatureOrder = [
+    'actionsLimit',
+    'docsBotSkills',
+    'mcpRemoteConnectors',
+    'leadCollection',
+    'leadCollectionCustomFields',
+    'bookingActions',
+    'escalationTickets',
+    'customActionButtons',
+    'stripeActions',
+    'webSearch',
+    'webSearchAllowedDomains',
+  ]
+
+  const getFeatureOrder = (category, key) => {
+    if (category !== 'actions') return 1000
+    const index = actionFeatureOrder.indexOf(key)
+    return index === -1 ? 1000 : index
+  }
+
+  const buildCategoryFeatures = (category, features) => {
+    const sortedFeatures = features
+      .slice()
+      .sort(
+        (a, b) =>
+          getFeatureOrder(category, a.key) - getFeatureOrder(category, b.key),
+      )
+
+    if (category !== 'limits') return sortedFeatures
+
+    const actionLimitFeature = {
+      key: 'actionsLimit',
+      ...featureDefinitions.actionsLimit,
+    }
+    const messagesIndex = sortedFeatures.findIndex(
+      feature => feature.key === 'messagesPerMonth',
+    )
+    const insertIndex = messagesIndex === -1 ? sortedFeatures.length : messagesIndex + 1
+    return [
+      ...sortedFeatures.slice(0, insertIndex),
+      actionLimitFeature,
+      ...sortedFeatures.slice(insertIndex),
+    ]
+  }
+
   const sections = Object.entries(featuresByCategory)
     .sort(
       (a, b) =>
         (sectionCategoryOrder[a[0]] ?? 99) - (sectionCategoryOrder[b[0]] ?? 99),
     )
     .map(([category, features]) => ({
-    name: category.charAt(0).toUpperCase() + category.slice(1),
-    features: features.map(feature => ({
-      name: feature.label,
-      tiers: tierNames.reduce((tierAcc, tierName) => {
-        const tier = activeTiers.find(t => t.name === tierName)
-        tierAcc[tierName] = tier?.features[feature.key] || false
-        return tierAcc
-      }, {})
+      name: category.charAt(0).toUpperCase() + category.slice(1),
+      actionLimits:
+        category === 'actions'
+          ? tierNames.reduce((tierAcc, tierName) => {
+              const tier = activeTiers.find(t => t.name === tierName)
+              tierAcc[tierName] = tier?.features.actionsLimit ?? 0
+              return tierAcc
+            }, {})
+          : null,
+      features: buildCategoryFeatures(category, features)
+        .filter(feature => category !== 'actions' || feature.key !== 'actionsLimit')
+        .map(feature => ({
+          name: feature.label,
+          tiers: tierNames.reduce((tierAcc, tierName) => {
+            const tier = activeTiers.find(t => t.name === tierName)
+            tierAcc[tierName] = tier?.features[feature.key] || false
+            return tierAcc
+          }, {})
+        }))
     }))
-  }))
 
   return sections
+}
+
+const formatActionsLimitLabel = (value) => {
+  const limit = Number(value)
+  if (!Number.isFinite(limit) || limit <= 0) return 'No actions'
+  return `Up to ${limit} per bot`
 }
 
 
@@ -811,15 +872,39 @@ export default function PricingPage() {
                           {sections.map((section) => (
                             <tbody key={section.name} className="group">
                               <tr>
-                                <th scope="colgroup" colSpan={activeTiers.length + 1} className="px-0 pb-0 pt-10 group-first-of-type:pt-5">
-                                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold text-gray-950">
+                                <th scope="colgroup" className="px-0 pb-0 pt-10 group-first-of-type:pt-5">
+                                  <div className="rounded-l-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold text-gray-950">
                                     {section.name}
                                   </div>
                                 </th>
+                                {activeTiers.map((tier, tierIndex) => (
+                                  <td key={`${section.name}-${tier.name}-category`} className="px-0 pb-0 pt-10 group-first-of-type:pt-5">
+                                    {section.actionLimits ? (
+                                      <div
+                                        className={clsx(
+                                          'bg-gray-50 px-4 py-3 text-left text-xs/6 font-semibold text-gray-600',
+                                          tierIndex === activeTiers.length - 1 && 'rounded-r-lg',
+                                        )}
+                                      >
+                                        {formatActionsLimitLabel(section.actionLimits[tier.name])}
+                                      </div>
+                                    ) : (
+                                      <div
+                                        className={clsx(
+                                          'bg-gray-50 px-2 py-3 text-xs/6 text-gray-50',
+                                          tierIndex === activeTiers.length - 1 && 'rounded-r-lg',
+                                        )}
+                                        aria-hidden="true"
+                                      >
+                                        &nbsp;
+                                      </div>
+                                    )}
+                                  </td>
+                                ))}
                               </tr>
                               {section.features.map((feature) => (
                                 <tr key={feature.name} className="border-b border-gray-100 last:border-none">
-                                  <th scope="row" className="px-0 py-4 text-sm/6 font-normal text-gray-600">
+                                  <th scope="row" className="py-4 pl-6 pr-0 text-sm/6 font-normal text-gray-600">
                                     {feature.name}
                                   </th>
                                   {activeTiers.map((tier) => (
@@ -885,7 +970,9 @@ export default function PricingPage() {
                                 {sections.map((section) => (
                                   <Fragment key={section.name}>
                                     <div className="-mx-6 mt-10 rounded-lg bg-gray-50 px-6 py-3 text-sm/6 font-semibold text-gray-950 group-first-of-type:mt-5">
-                                      {section.name}
+                                      {section.actionLimits
+                                        ? `${section.name} (${formatActionsLimitLabel(section.actionLimits[tier.name]).toLowerCase()})`
+                                        : section.name}
                                     </div>
                                     <dl>
                                       {section.features.map((feature) => (

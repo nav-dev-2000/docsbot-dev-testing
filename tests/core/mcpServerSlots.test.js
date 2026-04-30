@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { getMcpServerSlotLimit, getWidgetSkillSlotLimit } from '@/utils/helpers'
+import {
+  countBillableBotActions,
+  getBotActionSlotLimit,
+} from '@/utils/helpers'
 
 const planTeam = (planId, overrides = {}) => ({
   id: 'team-1',
@@ -14,39 +17,61 @@ const planTeam = (planId, overrides = {}) => ({
   },
 })
 
-describe('getMcpServerSlotLimit', () => {
-  it('returns 0 below Personal', () => {
-    expect(getMcpServerSlotLimit(planTeam('free'))).toBe(0)
-    expect(getMcpServerSlotLimit(planTeam('hobby'))).toBe(0)
+describe('getBotActionSlotLimit', () => {
+  it('returns 0 below Personal and for legacy Pro', () => {
+    expect(getBotActionSlotLimit(planTeam('free'))).toBe(0)
+    expect(getBotActionSlotLimit(planTeam('hobby'))).toBe(0)
+    expect(getBotActionSlotLimit(planTeam('pro'))).toBe(0)
   })
 
-  it('returns 1 on Personal and Pro', () => {
-    expect(getMcpServerSlotLimit(planTeam('personal'))).toBe(1)
-    expect(getMcpServerSlotLimit(planTeam('pro'))).toBe(1)
-  })
-
-  it('returns 3 on Standard (same as per-bot skills limit; Personal keeps 1)', () => {
-    expect(getMcpServerSlotLimit(planTeam('standard'))).toBe(3)
-  })
-
-  it('returns 10 on Business', () => {
-    expect(getMcpServerSlotLimit(planTeam('business'))).toBe(10)
+  it('returns 3 on Personal, 8 on Standard, and 12 on Business/Enterprise', () => {
+    expect(getBotActionSlotLimit(planTeam('personal'))).toBe(3)
+    expect(getBotActionSlotLimit(planTeam('standard'))).toBe(8)
+    expect(getBotActionSlotLimit(planTeam('business'))).toBe(12)
+    expect(
+      getBotActionSlotLimit(
+        planTeam('enterprise', { name: 'Enterprise', bots: 1000 }),
+      ),
+    ).toBe(12)
   })
 })
 
-describe('getWidgetSkillSlotLimit (per-bot DocsBot skills)', () => {
-  it('returns 0 below Standard', () => {
-    expect(getWidgetSkillSlotLimit(planTeam('free'))).toBe(0)
-    expect(getWidgetSkillSlotLimit(planTeam('hobby'))).toBe(0)
-    expect(getWidgetSkillSlotLimit(planTeam('personal'))).toBe(0)
-    expect(getWidgetSkillSlotLimit(planTeam('pro'))).toBe(0)
+describe('countBillableBotActions', () => {
+  it('does not count human escalation or feedback actions', () => {
+    expect(
+      countBillableBotActions({
+        tools: {
+          human_escalation: { enabled: true },
+          followup_rating: { enabled: true },
+        },
+      }),
+    ).toBe(0)
   })
 
-  it('returns 3 on Standard', () => {
-    expect(getWidgetSkillSlotLimit(planTeam('standard'))).toBe(3)
-  })
-
-  it('returns 10 on Business', () => {
-    expect(getWidgetSkillSlotLimit(planTeam('business'))).toBe(10)
+  it('counts user-visible widget actions only', () => {
+    expect(
+      countBillableBotActions({
+        tools: {
+          calendly: { enabled: true, url: 'docsbot/demo' },
+          calcom: { enabled: false, url: 'docsbot/demo' },
+          tidycal: { enabled: true, url: 'docsbot/office-hours' },
+          customButtons: [
+            { enabled: true, name: 'Pricing' },
+            { enabled: false, name: 'Docs' },
+          ],
+          web_search: {
+            enabled: true,
+            allowed_domains: ['docsbot.ai'],
+          },
+          stripe: { enabled: true, refund: { enabled: true } },
+        },
+        leadCollect: { mode: 'before_response', fields: [] },
+        mcpServers: [
+          { enabled: true, tools: [{ enabled: true }, { enabled: true }] },
+          { enabled: false, tools: [{ enabled: true }] },
+        ],
+        widgetSkills: ['refunds', 'crm-lookup'],
+      }),
+    ).toBe(9)
   })
 })
