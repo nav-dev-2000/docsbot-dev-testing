@@ -432,6 +432,9 @@ describe('skills agent route', () => {
       'Use the apply_patch tool for creating, updating, or deleting bundle files under /workspace.',
     )
     expect(mocks.streamArgs.system).toContain(
+      'The apply_patch operation.path must be relative to /workspace, for example "scripts/index.ts" or "SKILL.md", not "/workspace/scripts/index.ts".',
+    )
+    expect(mocks.streamArgs.system).toContain(
       'The deployed runtime root for this skill is `/skills/customer-refunds/`.',
     )
     expect(mocks.streamArgs.system).toContain(
@@ -448,6 +451,9 @@ describe('skills agent route', () => {
     )
     expect(mocks.streamArgs.system).toContain(
       '`secretBindings` is `{ envVar, description? }` per credential',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'prefer simpler user-provisioned credentials such as API keys, bearer tokens, webhook secrets, or personal access tokens over OAuth access/refresh tokens',
     )
     expect(mocks.streamArgs.system).toContain(
       '`metadataBindings` is `{ envVar, metadataKey, description? }` for each value supplied from the widget embed or chat context',

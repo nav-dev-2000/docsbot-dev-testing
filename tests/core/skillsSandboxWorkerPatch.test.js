@@ -47,6 +47,55 @@ describe('skills sandbox patch worker', () => {
     })
   })
 
+  it('normalizes accidental workspace-root prefixes and reports the corrected path', async () => {
+    const readFile = vi
+      .fn()
+      .mockResolvedValueOnce({ content: 'line1\nline2\n' })
+      .mockResolvedValueOnce({ content: 'line1\nupdated\n' })
+    const writeFile = vi.fn().mockResolvedValue(undefined)
+    const session = {
+      readFile,
+      writeFile,
+    }
+
+    await expect(
+      applyPatchOperation(session, '/workspace', {
+        type: 'update_file',
+        path: '/workspace/scripts/index.ts',
+        diff: ['@@ line1', '-line2', '+updated'].join('\n'),
+      }),
+    ).resolves.toEqual({
+      status: 'completed',
+      output:
+        'Path notice: /workspace/scripts/index.ts included the workspace root prefix; apply_patch paths should be relative to /workspace. The change was applied to scripts/index.ts.\nUpdated scripts/index.ts (1 changed lines)',
+    })
+
+    expect(readFile).toHaveBeenNthCalledWith(1, '/workspace/scripts/index.ts', {
+      encoding: 'utf-8',
+    })
+    expect(writeFile).toHaveBeenCalledWith('/workspace/scripts/index.ts', 'line1\nupdated\n', {
+      encoding: 'utf-8',
+    })
+  })
+
+  it('rejects paths that try to escape the workspace', async () => {
+    await expect(
+      applyPatchOperation(
+        {
+          deleteFile: vi.fn(),
+          mkdir: vi.fn(),
+          readFile: vi.fn(),
+          writeFile: vi.fn(),
+        },
+        '/workspace',
+        {
+          type: 'delete_file',
+          path: '/workspace/../secrets.txt',
+        },
+      ),
+    ).rejects.toThrow('Operation outside workspace: /workspace/../secrets.txt')
+  })
+
   it('restores the original file when post-write verification fails', async () => {
     const readFile = vi
       .fn()

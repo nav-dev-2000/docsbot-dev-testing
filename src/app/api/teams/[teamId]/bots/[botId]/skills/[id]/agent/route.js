@@ -349,7 +349,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - In the runtime environment, skills are mounted under \`/skills/NAME/...\`. Do not reference \`/.agents/...\` paths.
 
 ## Core workflow
-- Use the apply_patch tool for creating, updating, or deleting bundle files under ${WORKSPACE_ROOT}. If you need to rename a file, use shell tool.
+- Use the apply_patch tool for creating, updating, or deleting bundle files under ${WORKSPACE_ROOT}. The apply_patch operation.path must be relative to ${WORKSPACE_ROOT}, for example "scripts/index.ts" or "SKILL.md", not "${WORKSPACE_ROOT}/scripts/index.ts". If you need to rename a file, use shell tool.
 - Use the shell tool mainly for inspecting authored source files under ${WORKSPACE_ROOT}, optional local verification, and other CLI workflows that support authoring.
 - Treat ${WORKSPACE_ROOT} as the only writable bundle root.
 - Use the \`update_manifest\` tool for manifest changes.
@@ -420,6 +420,7 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - **Proxy placeholders:** Env bindings, secret bindings, and metadata binding \`envVar\` names can be used as \`{{ENV_VAR_NAME}}\` placeholders in outbound HTTP request URLs and request header values. Use \`ctx.env\` / \`ctx.metadata\` when code logic needs the value; use \`{{ENV_VAR_NAME}}\` when the value only needs to be inserted into an outbound request by the proxy.
 - **URL placeholder shape:** Do not use a placeholder as the entire \`fetch\` or \`new Request\` URL, such as \`fetch("{{SLACK_WEBHOOK_URL}}")\`; that URL is invalid before the proxy can rewrite it. Keep the scheme and host literal, and put placeholders only in path segments, query parameters, or headers. For Slack webhooks, register a secret such as \`SLACK_WEBHOOK_PATH\` containing only the path after \`/services/\`, then call \`fetch("https://hooks.slack.com/services/{{SLACK_WEBHOOK_PATH}}", ...)\`.
 - **Secrets:** Decrypted secrets are never available in skill code and can not be read from \`ctx.env\`, \`ctx.metadata\`, or \`process.env\`. Secret values may only be referenced as \`{{ENV_VAR_NAME}}\` placeholders in outbound URLs and header values.
+- **API authentication:** When a service supports multiple authentication methods, prefer simpler user-provisioned credentials such as API keys, bearer tokens, webhook secrets, or personal access tokens over OAuth access/refresh tokens. Non-technical users may not be able to create OAuth tokens, and the skill builder/runtime can not initiate OAuth consent flows. Use OAuth-token-style secrets only when the service has no simpler supported option or the user explicitly requests that approach.
 - **Built-in runtime values:** \`DOCSBOT_TEAM_ID\`, \`DOCSBOT_BOT_ID\`, \`DOCSBOT_CONVERSATION_ID\`, and \`DOCSBOT_SKILL_NAME\` are always available. They are rarely needed, but they can be read from \`ctx.env\` or used as proxy placeholders like \`{{DOCSBOT_TEAM_ID}}\` when appropriate.
 - **Example manifest + \`fetch\`** (illustrative; align \`envVar\` / \`metadataKey\` with your real manifest):
 

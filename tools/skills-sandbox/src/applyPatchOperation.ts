@@ -18,12 +18,50 @@ type SandboxApplyPatchOperation =
       diff: string
     }
 
-function resolveWorkspacePath(workspaceRoot: string, relativePath: string) {
-  const normalized = path.posix.normalize(`/${String(relativePath || '')}`).replace(/^\/+/, '')
-  if (!normalized || normalized === '.' || normalized.startsWith('../') || normalized.includes('/../')) {
-    throw new Error(`Operation outside workspace: ${relativePath}`)
+function normalizeWorkspaceOperationPath(workspaceRoot: string, operationPath: string) {
+  const rawPath = String(operationPath || '').trim()
+  const normalizedWorkspaceRoot = path.posix.normalize(workspaceRoot)
+  const rootRelativePrefix = normalizedWorkspaceRoot.replace(/^\/+/, '')
+  let pathForValidation = rawPath
+  let usedWorkspaceRootPrefix = false
+
+  if (rawPath === normalizedWorkspaceRoot) {
+    pathForValidation = ''
+    usedWorkspaceRootPrefix = true
+  } else if (rawPath.startsWith(`${normalizedWorkspaceRoot}/`)) {
+    pathForValidation = rawPath.slice(normalizedWorkspaceRoot.length + 1)
+    usedWorkspaceRootPrefix = true
+  } else if (rawPath === rootRelativePrefix) {
+    pathForValidation = ''
+    usedWorkspaceRootPrefix = true
+  } else if (rootRelativePrefix && rawPath.startsWith(`${rootRelativePrefix}/`)) {
+    pathForValidation = rawPath.slice(rootRelativePrefix.length + 1)
+    usedWorkspaceRootPrefix = true
   }
-  return path.posix.join(workspaceRoot, normalized)
+
+  const pathSegments = pathForValidation.split('/').filter(Boolean)
+  if (
+    !pathForValidation ||
+    pathForValidation === '.' ||
+    pathForValidation.startsWith('/') ||
+    pathSegments.includes('..')
+  ) {
+    throw new Error(`Operation outside workspace: ${operationPath}`)
+  }
+
+  const normalized = path.posix.normalize(pathForValidation).replace(/^\/+/, '')
+  if (!normalized || normalized === '.' || normalized.startsWith('../') || normalized.includes('/../')) {
+    throw new Error(`Operation outside workspace: ${operationPath}`)
+  }
+
+  return {
+    normalizedPath: normalized,
+    targetPath: path.posix.join(workspaceRoot, normalized),
+    pathNotice:
+      usedWorkspaceRootPrefix && rawPath !== normalized
+        ? `Path notice: ${operationPath} included the workspace root prefix; apply_patch paths should be relative to ${workspaceRoot}. The change was applied to ${normalized}.`
+        : null,
+  }
 }
 
 function countChangedLines(original: string, patched: string) {
@@ -72,6 +110,10 @@ function formatVerificationFailureMessage(operationPath: string, expected: strin
   return `Patch write verification failed for ${operationPath} (${mismatchDetails}). Re-read the file before attempting another edit.`
 }
 
+function formatPatchOutput(message: string, pathNotice: string | null) {
+  return pathNotice ? `${pathNotice}\n${message}` : message
+}
+
 async function rollbackPatchedFile(
   session: {
     writeFile: (path: string, content: string, options: { encoding: string }) => Promise<unknown>
@@ -92,13 +134,16 @@ export async function applyPatchOperation(
   workspaceRoot: string,
   operation: SandboxApplyPatchOperation,
 ) {
-  const targetPath = resolveWorkspacePath(workspaceRoot, operation.path)
+  const { normalizedPath, targetPath, pathNotice } = normalizeWorkspaceOperationPath(
+    workspaceRoot,
+    operation.path,
+  )
 
   if (operation.type === 'delete_file') {
     await session.deleteFile(targetPath)
     return {
       status: 'completed' as const,
-      output: `Deleted ${operation.path}`,
+      output: formatPatchOutput(`Deleted ${normalizedPath}`, pathNotice),
     }
   }
 
@@ -108,7 +153,7 @@ export async function applyPatchOperation(
     await session.writeFile(targetPath, content, { encoding: 'utf-8' })
     return {
       status: 'completed' as const,
-      output: `Created ${operation.path}`,
+      output: formatPatchOutput(`Created ${normalizedPath}`, pathNotice),
     }
   }
 
@@ -117,7 +162,7 @@ export async function applyPatchOperation(
   const patched = applyDiff(originalContent, operation.diff)
   if (patched === originalContent) {
     throw new Error(
-      `Patch made no content changes to ${operation.path}. Re-read the file and send a more specific diff with stronger context.`,
+      `Patch made no content changes to ${normalizedPath}. Re-read the file and send a more specific diff with stronger context.`,
     )
   }
   try {
@@ -125,7 +170,7 @@ export async function applyPatchOperation(
     const verified = await session.readFile(targetPath, { encoding: 'utf-8' })
     const verifiedContent = String(verified.content || '')
     if (verifiedContent !== patched) {
-      throw new Error(formatVerificationFailureMessage(operation.path, patched, verifiedContent))
+      throw new Error(formatVerificationFailureMessage(normalizedPath, patched, verifiedContent))
     }
   } catch (error) {
     const primaryMessage = error instanceof Error ? error.message : 'Patch write failed.'
@@ -144,6 +189,9 @@ export async function applyPatchOperation(
   }
   return {
     status: 'completed' as const,
-    output: `Updated ${operation.path} (${countChangedLines(originalContent, patched)} changed lines)`,
+    output: formatPatchOutput(
+      `Updated ${normalizedPath} (${countChangedLines(originalContent, patched)} changed lines)`,
+      pathNotice,
+    ),
   }
 }
