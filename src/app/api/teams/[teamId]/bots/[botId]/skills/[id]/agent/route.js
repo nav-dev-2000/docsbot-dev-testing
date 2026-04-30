@@ -165,7 +165,12 @@ const updateManifestInputSchema = z
 
 const askUserChoiceOptionSchema = z.object({
   id: z.string().min(1),
-  label: z.string().min(1),
+  label: z
+    .string()
+    .min(1)
+    .describe(
+      'User-visible option label. If you believe one option is clearly best, append " (recommended)" to that option label and only that option label.',
+    ),
 })
 
 const askUserMultipleChoiceQuestionSchema = z.object({
@@ -349,12 +354,14 @@ Build or revise the skill bundle named ${draft.skillName}. The working filesyste
 - In the runtime environment, skills are mounted under \`/skills/NAME/...\`. Do not reference \`/.agents/...\` paths.
 
 ## Core workflow
+- When building a new skill, start by planning the intended behavior before editing files: identify the trigger/use case, expected user-facing outcome, needed function(s), external services, required bindings, and validation path.
+- If the user's request leaves meaningful uncertainty about scope, audience, workflow, authentication method, required fields, data source, or success criteria, call \`ask_user_questions\` before implementing. Prefer a short set of specific multiple-choice questions with a "option (recommended)" option when you can make a good default recommendation.
 - Use the apply_patch tool for creating, updating, or deleting bundle files under ${WORKSPACE_ROOT}. The apply_patch operation.path must be relative to ${WORKSPACE_ROOT}, for example "scripts/index.ts" or "SKILL.md", not "${WORKSPACE_ROOT}/scripts/index.ts". If you need to rename a file, use shell tool.
 - Use the shell tool mainly for inspecting authored source files under ${WORKSPACE_ROOT}, optional local verification, and other CLI workflows that support authoring.
 - Treat ${WORKSPACE_ROOT} as the only writable bundle root.
 - Use the \`update_manifest\` tool for manifest changes.
 - The \`update_manifest.name\` field is a user-facing display label for dashboard/search only. It does not change the stable skill id, package path, or SKILL.md frontmatter \`name\`.
-- Use \`ask_user_questions\` only when the user must choose a direction or provide non-secret information that cannot reasonably be represented as a configurable manifest binding. When you call it, make that call the only action in the step and stop immediately. Do not call another tool, continue reasoning, or write a fallback text question after \`ask_user_questions\`; wait for the form response.
+- Use \`ask_user_questions\` when the user must choose a direction, clarify requirements, confirm a plan, or provide non-secret information that cannot reasonably be represented as a configurable manifest binding. When you call it, make that call the only action in the step and stop immediately. Do not call another tool, continue reasoning, or write a fallback text question after \`ask_user_questions\`; wait for the form response.
 - Use the \`validate_skill_bundle\` tool after meaningful edits. It validates the current draft files against the remote skill runtime, which is the source of truth for bundle errors.
 - If \`validate_skill_bundle\` returns \`ok: true\` or \`validation.valid: true\`, treat validation as passed. Do not continue troubleshooting validation, import, dependency, or package-install issues from earlier reasoning; proceed to publish if the skill is otherwise ready.
 - Use the \`publish_skill_bundle\` tool before claiming the task is complete.

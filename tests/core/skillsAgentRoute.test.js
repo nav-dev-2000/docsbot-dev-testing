@@ -435,6 +435,20 @@ describe('skills agent route', () => {
       'The apply_patch operation.path must be relative to /workspace, for example "scripts/index.ts" or "SKILL.md", not "/workspace/scripts/index.ts".',
     )
     expect(mocks.streamArgs.system).toContain(
+      'When building a new skill, start by planning the intended behavior before editing files',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'If the user\'s request leaves meaningful uncertainty about scope, audience, workflow, authentication method, required fields, data source, or success criteria, call `ask_user_questions` before implementing.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Use `ask_user_questions` when the user must choose a direction, clarify requirements, confirm a plan, or provide non-secret information',
+    )
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.ask_user_questions.inputSchema.toJSONSchema()),
+    ).toContain(
+      'If you believe one option is clearly best, append \\" (recommended)\\" to that option label and only that option label.',
+    )
+    expect(mocks.streamArgs.system).toContain(
       'The deployed runtime root for this skill is `/skills/customer-refunds/`.',
     )
     expect(mocks.streamArgs.system).toContain(
