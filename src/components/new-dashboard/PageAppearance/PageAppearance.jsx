@@ -1364,8 +1364,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setBot={setBot}
                     toggleSchedulingAction={toggleSchedulingAction}
                     isAgent={isAgent}
-                    // DOCSBOT_SKILLS_RELEASE_GATE: use `isAgent` (or `true` when isAgent) instead of isSuperAdmin to show widget Skills for everyone
-                    showSkillsSection={isSuperAdmin(user?.uid)}
                     handleAgentToggle={handleAgentToggle}
                     setShowPromptModal={setShowPromptModal}
                     labels={labels}

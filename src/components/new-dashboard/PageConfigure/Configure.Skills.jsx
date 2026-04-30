@@ -25,6 +25,7 @@ import {
     CodeBracketIcon,
     CommandLineIcon,
     DocumentTextIcon,
+    ExclamationTriangleIcon,
     GlobeAltIcon,
     ListBulletIcon,
     MagnifyingGlassIcon,
@@ -3065,6 +3066,8 @@ function ActivityTimelineIcon({ children, className }) {
 
 const SKILL_TEST_ACTIVITY_TIMELINE_CLASS =
     'relative ml-3 space-y-1 text-left before:absolute before:bottom-2 before:left-[15px] before:top-2 before:z-0 before:border-l before:border-gray-200 before:content-[""]'
+const SKILL_TEST_ACTIVITY_TIMELINE_COLLAPSED_CLASS =
+    'relative ml-3 space-y-1 text-left before:absolute before:bottom-2 before:left-[15px] before:top-12 before:z-0 before:border-l before:border-gray-200 before:content-[""]'
 
 function SkillTestActivityLog({ events, isStreaming, durationMs, showWaitingDots = false }) {
     const parts = useMemo(() => skillTestEventsToAssistantParts(events), [events])
@@ -3078,10 +3081,14 @@ function SkillTestActivityLog({ events, isStreaming, durationMs, showWaitingDots
     )
 
     if (!parts.length && !showWaitingDots) return null
+    const timelineClassName =
+        !isStreaming && parts.length
+            ? SKILL_TEST_ACTIVITY_TIMELINE_COLLAPSED_CLASS
+            : SKILL_TEST_ACTIVITY_TIMELINE_CLASS
 
     return (
         <div className="px-1 py-1">
-            <div className={SKILL_TEST_ACTIVITY_TIMELINE_CLASS}>
+            <div className={timelineClassName}>
                 {parts.length ? (
                     <AssistantActivityRows
                         message={message}
@@ -3124,6 +3131,8 @@ function SkillTestModal({
     )
     const [metadataValues, setMetadataValues] = useState({})
     const [testState, setTestState] = useState(() => createInitialSkillTestState())
+    const [testInstructions, setTestInstructions] = useState('')
+    const [activeTestInstructions, setActiveTestInstructions] = useState('')
     const [reportInstructions, setReportInstructions] = useState('')
     const [sentToBuilder, setSentToBuilder] = useState(false)
     const [reportCopied, setReportCopied] = useState(false)
@@ -3152,7 +3161,26 @@ function SkillTestModal({
     const hasStructuredReport = Boolean(testState.summary || testState.technical)
     const summaryMarkdown = hasStructuredReport ? testState.summary : testState.markdown
     const technicalMarkdown = hasStructuredReport ? testState.technical : ''
-    const canSendReportToBuilder = hasResult && testState.status !== 'running'
+    const testResultKind =
+        testState.status === 'completed'
+            ? testState.bugs
+                ? 'bugs'
+                : testState.improvements
+                  ? 'improvements'
+                  : 'pass'
+            : null
+    const canSendReportToBuilder =
+        hasResult &&
+        testState.status !== 'running' &&
+        (testState.status !== 'completed' || testResultKind === 'bugs' || testResultKind === 'improvements')
+    const shouldWarnBeforeClosingReport =
+        hasResult && !sentToBuilder && (testState.status === 'error' || testResultKind === 'bugs')
+    const sendReportButtonLabel =
+        testResultKind === 'bugs'
+            ? 'Fix bugs'
+            : testResultKind === 'improvements'
+              ? 'Make improvements'
+              : 'Send to builder'
     const lastTestEvent = testState.events[testState.events.length - 1]
     const lastEventIsThinking =
         lastTestEvent?.type === 'reasoning' && !String(lastTestEvent.text || '').trim()
@@ -3165,6 +3193,8 @@ function SkillTestModal({
         }
         setMetadataValues(next)
         setTestState(createInitialSkillTestState())
+        setTestInstructions('')
+        setActiveTestInstructions('')
         setReportInstructions('')
         setSentToBuilder(false)
         setReportCopied(false)
@@ -3196,6 +3226,8 @@ function SkillTestModal({
         }
         abortRef.current = null
         if (nextStatus === 'idle') {
+            setTestInstructions('')
+            setActiveTestInstructions('')
             setReportInstructions('')
             setSentToBuilder(false)
             setReportCopied(false)
@@ -3218,11 +3250,11 @@ function SkillTestModal({
             onClose?.()
             return
         }
-        if (hasResult && !sentToBuilder) {
+        if (shouldWarnBeforeClosingReport) {
             if (!window.confirm('Close this skill test report without sending it to the builder?')) return
         }
         onClose?.()
-    }, [abortRunningTest, hasResult, isRunning, onClose, sentToBuilder])
+    }, [abortRunningTest, isRunning, onClose, shouldWarnBeforeClosingReport])
 
     const handleDialogClose = useCallback(() => {
         if (isRunning || hasResult) return
@@ -3242,6 +3274,8 @@ function SkillTestModal({
         abortRef.current = ctrl
         resetOnAbortRef.current = false
         const startedAt = Date.now()
+        const trimmedTestInstructions = String(testInstructions || '').trim()
+        setActiveTestInstructions(trimmedTestInstructions)
         setSentToBuilder(false)
         setReportCopied(false)
         setReportInstructions('')
@@ -3280,6 +3314,15 @@ function SkillTestModal({
 
             const skillName = tokenData.skillName || draft?.skillName || draft?.name
             const directTestUrl = `${apiBaseUrl.replace(/\/$/, '')}/teams/${encodeURIComponent(team.id)}/bots/${encodeURIComponent(bot.id)}/skills/${encodeURIComponent(skillName)}/test-agent`
+            const testPayload = {
+                conversationId: createSkillTestConversationId(),
+                metadata: tokenData.metadata || metadataPayload,
+                model: SKILL_TEST_MODEL,
+                reasoning_effort: SKILL_TEST_REASONING_EFFORT,
+            }
+            if (trimmedTestInstructions) {
+                testPayload.instructions = trimmedTestInstructions
+            }
 
             await fetchEventSource(directTestUrl, {
                 method: 'POST',
@@ -3287,12 +3330,7 @@ function SkillTestModal({
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${tokenData.token}`,
                 },
-                body: JSON.stringify({
-                    conversationId: createSkillTestConversationId(),
-                    metadata: tokenData.metadata || metadataPayload,
-                    model: SKILL_TEST_MODEL,
-                    reasoning_effort: SKILL_TEST_REASONING_EFFORT,
-                }),
+                body: JSON.stringify(testPayload),
                 signal: ctrl.signal,
                 openWhenHidden: true,
                 async onopen(response) {
@@ -3356,6 +3394,8 @@ function SkillTestModal({
                                     type: 'final',
                                     summary: parsed.summary,
                                     technical: parsed.technical,
+                                    bugs: parsed.bugs,
+                                    improvements: parsed.improvements,
                                 }),
                             )
                         } catch {
@@ -3390,6 +3430,8 @@ function SkillTestModal({
         } catch (error) {
             if (ctrl.signal.aborted) {
                 if (resetOnAbortRef.current) {
+                    setTestInstructions('')
+                    setActiveTestInstructions('')
                     setReportInstructions('')
                     setSentToBuilder(false)
                     setReportCopied(false)
@@ -3419,7 +3461,17 @@ function SkillTestModal({
                 resetOnAbortRef.current = false
             }
         }
-    }, [bot.id, draft?.name, draft?.skillName, isRunning, metadataPayload, metadataReady, team.id, tokenUrl])
+    }, [
+        bot.id,
+        draft?.name,
+        draft?.skillName,
+        isRunning,
+        metadataPayload,
+        metadataReady,
+        team.id,
+        testInstructions,
+        tokenUrl,
+    ])
 
     const sendReport = useCallback(() => {
         if (!hasResult) return
@@ -3431,6 +3483,9 @@ function SkillTestModal({
                 markdown: finalReportMarkdown,
                 status: testState.status,
                 error: testState.error,
+                bugs: testState.bugs,
+                improvements: testState.improvements,
+                testInstructions: activeTestInstructions,
                 instructions: reportInstructions,
             }),
         )
@@ -3444,9 +3499,12 @@ function SkillTestModal({
         onClose,
         onSendReportToBuilder,
         reportInstructions,
+        activeTestInstructions,
         finalReportMarkdown,
+        testState.bugs,
         testState.error,
         testState.events,
+        testState.improvements,
         testState.status,
     ])
 
@@ -3462,16 +3520,42 @@ function SkillTestModal({
         }
     }, [finalReportMarkdown])
 
+    const resultStatusConfig =
+        testResultKind === 'bugs'
+            ? {
+                  label: 'Bugs found',
+                  badgeClassName: 'border-red-200 bg-red-50 text-red-800',
+                  bannerClassName: 'border-red-200 bg-red-50 text-red-800',
+                  icon: ExclamationTriangleIcon,
+                  message: 'Problems were found. Send the report to the builder to fix them.',
+              }
+            : testResultKind === 'improvements'
+              ? {
+                    label: 'Improvements suggested',
+                    badgeClassName: 'border-amber-200 bg-amber-50 text-amber-800',
+                    bannerClassName: 'border-amber-200 bg-amber-50 text-amber-800',
+                    icon: WrenchScrewdriverIcon,
+                    message: 'The skill worked, with suggested improvements available.',
+                }
+              : testResultKind === 'pass'
+                ? {
+                      label: 'Passed',
+                      badgeClassName: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+                      bannerClassName: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+                      icon: CheckIcon,
+                      message: 'No problems were found.',
+                  }
+                : null
     const statusLabel =
-        testState.status === 'running'
+        resultStatusConfig?.label ||
+        (testState.status === 'running'
             ? 'Running'
-            : testState.status === 'completed'
-              ? 'Completed'
-              : testState.status === 'error'
-                ? 'Failed'
-                : testState.status === 'stopped'
-                  ? 'Stopped'
-                  : 'Ready'
+            : testState.status === 'error'
+              ? 'Failed'
+              : testState.status === 'stopped'
+                ? 'Stopped'
+                : 'Ready')
+    const StatusIcon = resultStatusConfig?.icon
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -3520,16 +3604,16 @@ function SkillTestModal({
                                     <div className="flex shrink-0 items-center gap-2">
                                         <span
                                             className={clsx(
-                                                'rounded-full border px-2.5 py-1 text-xs font-medium',
-                                                testState.status === 'running'
-                                                    ? 'border-cyan-200 bg-cyan-50 text-cyan-800'
-                                                    : testState.status === 'completed'
-                                                      ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
-                                                      : testState.status === 'error'
-                                                        ? 'border-red-200 bg-red-50 text-red-800'
-                                                        : 'border-gray-200 bg-gray-50 text-gray-700',
+                                                'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium',
+                                                resultStatusConfig?.badgeClassName ||
+                                                    (testState.status === 'running'
+                                                        ? 'border-cyan-200 bg-cyan-50 text-cyan-800'
+                                                        : testState.status === 'error'
+                                                          ? 'border-red-200 bg-red-50 text-red-800'
+                                                          : 'border-gray-200 bg-gray-50 text-gray-700'),
                                             )}
                                         >
+                                            {StatusIcon ? <StatusIcon className="h-3.5 w-3.5" aria-hidden /> : null}
                                             {statusLabel}
                                         </span>
                                         <button
@@ -3543,7 +3627,13 @@ function SkillTestModal({
                                     </div>
                                 </div>
 
-                                <div ref={scrollRef} className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4">
+                                <div
+                                    ref={scrollRef}
+                                    className={clsx(
+                                        'overflow-y-auto px-5 py-4',
+                                        testState.status === 'idle' ? 'max-h-[calc(82vh-80px)]' : 'flex min-h-0 flex-1 flex-col',
+                                    )}
+                                >
                                     {metadataBindings.length > 0 && testState.status === 'idle' ? (
                                         <div className="mb-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
                                             <div className="text-sm font-semibold text-gray-900">
@@ -3592,14 +3682,37 @@ function SkillTestModal({
                                     ) : null}
 
                                     {testState.status === 'idle' ? (
-                                        <div className="flex flex-1 items-center justify-center py-10">
-                                            <div className="text-center">
+                                        <div className="space-y-4">
+                                            <div className="text-left">
+                                                <label
+                                                    htmlFor="skill-test-focus"
+                                                    className="block text-xs font-medium uppercase tracking-wide text-gray-500"
+                                                >
+                                                    Test focus
+                                                </label>
+                                                <textarea
+                                                    id="skill-test-focus"
+                                                    value={testInstructions}
+                                                    onChange={(event) => setTestInstructions(event.target.value)}
+                                                    rows={3}
+                                                    className="mt-1 w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                                    placeholder="Optional: describe specific scenarios, edge cases, or user requests to test."
+                                                />
+                                            </div>
+                                            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                                {!metadataReady ? (
+                                                    <p className="text-sm text-gray-500">
+                                                        Enter the required metadata values to start.
+                                                    </p>
+                                                ) : (
+                                                    <span aria-hidden className="hidden sm:block" />
+                                                )}
                                                 <button
                                                     type="button"
                                                     onClick={() => void startTest()}
                                                     disabled={!metadataReady || !tokenUrl}
                                                     className={clsx(
-                                                        'inline-flex items-center justify-center gap-1.5 rounded-md border-2 bg-white px-3 py-1.5 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                                                        'inline-flex items-center justify-center gap-1.5 rounded-md border-2 bg-white px-3 py-1.5 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 sm:self-end',
                                                         metadataReady && tokenUrl
                                                             ? 'border-cyan-600 text-cyan-700 hover:bg-cyan-50 hover:text-cyan-800'
                                                             : 'cursor-not-allowed border-gray-300 text-gray-400 hover:bg-white',
@@ -3608,11 +3721,6 @@ function SkillTestModal({
                                                     <BeakerIcon className="h-4 w-4" aria-hidden />
                                                     Start test
                                                 </button>
-                                                {!metadataReady ? (
-                                                    <p className="mt-3 text-sm text-gray-500">
-                                                        Enter the required metadata values to start.
-                                                    </p>
-                                                ) : null}
                                             </div>
                                         </div>
                                     ) : null}
@@ -3641,6 +3749,22 @@ function SkillTestModal({
 
                                     {summaryMarkdown || technicalMarkdown ? (
                                         <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+                                            {resultStatusConfig ? (
+                                                <div
+                                                    className={clsx(
+                                                        'mb-5 flex items-start gap-2 rounded-lg border px-3 py-2 text-sm',
+                                                        resultStatusConfig.bannerClassName,
+                                                    )}
+                                                >
+                                                    {StatusIcon ? (
+                                                        <StatusIcon className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+                                                    ) : null}
+                                                    <div>
+                                                        <div className="font-semibold">{resultStatusConfig.label}</div>
+                                                        <div className="mt-0.5">{resultStatusConfig.message}</div>
+                                                    </div>
+                                                </div>
+                                            ) : null}
                                             {summaryMarkdown ? (
                                                 <>
                                                     <div className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-500">
@@ -3706,39 +3830,24 @@ function SkillTestModal({
 
                                 </div>
 
-                                {isRunning || canSendReportToBuilder ? (
-                                    <div className="flex shrink-0 flex-col gap-3 border-t border-gray-200 px-5 py-4 sm:flex-row sm:items-end sm:justify-end">
+                                {isRunning || canSendReportToBuilder || testResultKind === 'pass' ? (
+                                    <div className="flex shrink-0 flex-col gap-3 border-t border-gray-200 px-5 py-4">
                                         {canSendReportToBuilder ? (
-                                            <div className="min-w-0 flex-1">
+                                            <div className="min-w-0">
                                                 <label
                                                     htmlFor="skill-test-report-instructions"
                                                     className="block text-xs font-medium uppercase tracking-wide text-gray-500"
                                                 >
                                                     Instructions for the builder
                                                 </label>
-                                                <div className="relative mt-1">
-                                                    <textarea
-                                                        id="skill-test-report-instructions"
-                                                        value={reportInstructions}
-                                                        onChange={(event) => setReportInstructions(event.target.value)}
-                                                        rows={2}
-                                                        className="w-full resize-none rounded-lg border border-gray-300 bg-white py-2 pl-3 pr-12 text-sm outline-none focus:border-cyan-600 focus:ring-0"
-                                                        placeholder="Optional: tell the builder what to change based on this report."
-                                                    />
-                                                    <button
-                                                        type="button"
-                                                        onClick={sendReport}
-                                                        disabled={sentToBuilder}
-                                                        className="absolute bottom-3 right-3 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                                    >
-                                                        <span className="sr-only">
-                                                            {sentToBuilder
-                                                                ? 'Sent to builder'
-                                                                : 'Send report to builder'}
-                                                        </span>
-                                                        <PaperAirplaneIcon className="h-6 w-6" aria-hidden />
-                                                    </button>
-                                                </div>
+                                                <textarea
+                                                    id="skill-test-report-instructions"
+                                                    value={reportInstructions}
+                                                    onChange={(event) => setReportInstructions(event.target.value)}
+                                                    rows={2}
+                                                    className="mt-1 w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                                    placeholder="Optional: tell the builder what to change based on this report."
+                                                />
                                                 {sentToBuilder ? (
                                                     <p className="mt-1 text-sm text-emerald-700">
                                                         Sent to the builder.
@@ -3755,6 +3864,33 @@ function SkillTestModal({
                                                 >
                                                     <SkillTestRunningSpinner className="h-6 w-6" showStopIcon />
                                                     <span>Stop</span>
+                                                </button>
+                                            ) : null}
+                                            {testResultKind === 'improvements' || testResultKind === 'pass' ? (
+                                                <button
+                                                    type="button"
+                                                    onClick={onClose}
+                                                    className="inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                >
+                                                    Close
+                                                </button>
+                                            ) : null}
+                                            {canSendReportToBuilder ? (
+                                                <button
+                                                    type="button"
+                                                    onClick={sendReport}
+                                                    disabled={sentToBuilder}
+                                                    className={clsx(
+                                                        'inline-flex shrink-0 items-center justify-center gap-1.5 rounded-md border-2 bg-white px-3 py-2 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+                                                        testResultKind === 'bugs'
+                                                            ? 'border-red-800 text-red-800 hover:bg-red-50 hover:text-red-900 focus:ring-red-500'
+                                                            : testResultKind === 'improvements'
+                                                              ? 'border-amber-600 text-amber-700 hover:bg-amber-50 hover:text-amber-800 focus:ring-amber-500'
+                                                              : 'border-cyan-600 text-cyan-700 hover:bg-cyan-50 hover:text-cyan-800 focus:ring-cyan-500',
+                                                    )}
+                                                >
+                                                    {sentToBuilder ? 'Sent' : sendReportButtonLabel}
+                                                    <PaperAirplaneIcon className="h-4 w-4" aria-hidden />
                                                 </button>
                                             ) : null}
                                         </div>

@@ -38,6 +38,7 @@ import {
 } from '@/utils/helpers'
 import {
     ArrowPathIcon,
+    BuildingOffice2Icon,
     ClipboardDocumentListIcon,
     GlobeAltIcon,
     HandThumbUpIcon,
@@ -322,8 +323,6 @@ const AppearanceActions = ({
     bot,
     toggleSchedulingAction,
     isAgent,
-    // DOCSBOT_SKILLS_RELEASE_GATE: set default to true (or remove prop) when widget Skills is re-enabled for all users; see PageAppearance
-    showSkillsSection = false,
     labels,
     setLabels,
     isUpdating,
@@ -1500,8 +1499,7 @@ const AppearanceActions = ({
                 </AppearanceActionCategory>
             )}
 
-            {/* DOCSBOT_SKILLS_RELEASE_GATE: restore `isAgent &&` only (drop showSkillsSection) to re-enable widget Skills for all users */}
-            {isAgent && showSkillsSection && (
+            {isAgent && (
                 <AppearanceActionCategory
                     title="Skills"
                     titleTag="h4"
@@ -1539,9 +1537,25 @@ const AppearanceActions = ({
                                         {skill.name}
                                     </span>
                                 </div>
-                                <span className="shrink-0 text-xs font-medium tabular-nums text-gray-700">
-                                    {skill.internal ? 'Internal' : 'Customer'}
-                                </span>
+                                <Tooltip
+                                    content={skill.internal ? 'Internal team use only' : 'Customer-facing'}
+                                    zIndex={1000001}
+                                >
+                                    <span
+                                        className={clsx(
+                                            'inline-flex h-8 w-8 shrink-0 cursor-help items-center justify-center',
+                                            skill.internal ? 'text-gray-600' : 'text-cyan-700',
+                                        )}
+                                        role="img"
+                                        aria-label={skill.internal ? 'Internal team use only' : 'Customer-facing'}
+                                    >
+                                        {skill.internal ? (
+                                            <BuildingOffice2Icon className="h-4 w-4" aria-hidden />
+                                        ) : (
+                                            <GlobeAltIcon className="h-4 w-4" aria-hidden />
+                                        )}
+                                    </span>
+                                </Tooltip>
                                 <Tooltip content="Remove skill" zIndex={1000001}>
                                     <button
                                         type="button"

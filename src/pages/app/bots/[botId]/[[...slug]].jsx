@@ -40,9 +40,6 @@ import {
     canUserModifyTeam,
     canUserViewBot,
 } from '@/utils/function.utils'
-// DOCSBOT_SKILLS_RELEASE_GATE: remove isSuperAdmin import when skills UI is re-enabled for all users
-import { isSuperAdmin } from '@/utils/helpers'
-
 import { useRouter } from 'next/router'
 import PageAppearance from '@new-dashboard/PageAppearance'
 import PageAnalyticsReports from '@new-dashboard/PageAnalytics/Reports'
@@ -219,7 +216,6 @@ const BotInner = ({
     canModifyTeam = false,
     canManageIntegrations: canManageIntegrationsFromServer = false,
     canManageBotSettings: canManageBotSettingsFromServer = false,
-    isSuperAdminUser = false,
     preloadedSkillSummaries = null,
 }) => {
     const router = useRouter()
@@ -293,7 +289,7 @@ const BotInner = ({
 
     useEffect(() => {
         if (!team?.id || !initialBot?.id) return
-        if (!isSuperAdminUser || !hasManageSettingsAccess) return
+        if (!hasManageSettingsAccess) return
         if (Array.isArray(skillSummariesByBot[initialBot.id])) return
 
         let cancelled = false
@@ -323,7 +319,6 @@ const BotInner = ({
     }, [
         hasManageSettingsAccess,
         initialBot?.id,
-        isSuperAdminUser,
         skillSummariesByBot,
         team?.id,
     ])
@@ -360,8 +355,6 @@ const BotInner = ({
         }
 
         if (control === 'skills') {
-            // DOCSBOT_SKILLS_RELEASE_GATE: delete super-admin check; keep only `return !canManageSettings`
-            if (!isSuperAdminUser) return true
             return !canManageSettings
         }
 
@@ -370,7 +363,6 @@ const BotInner = ({
         canManageSettings,
         hasIntegrationsAccess,
         hasManageSettingsAccess,
-        isSuperAdminUser, // DOCSBOT_SKILLS_RELEASE_GATE: drop from deps if super-admin line above is removed
     ])
 
 
@@ -698,8 +690,7 @@ const BotInner = ({
             shallow: true,
             isActive: activeId === 'configure' && configureControl === 'search',
         },
-        // DOCSBOT_SKILLS_RELEASE_GATE: remove .filter(…) so the Skills item always shows (like other configure links)
-    ].filter((opt) => opt.name !== 'Skills' || isSuperAdminUser)
+    ]
 
     const setActiveId = (id, options = {}) => {
         let path
@@ -1048,8 +1039,6 @@ export const getServerSideProps = async (context) => {
             data.props.userId,
             data.props.bot,
         )
-        data.props.isSuperAdminUser = isSuperAdmin(data.props.userId)
-
         const {
             tab,
             control,
@@ -1083,7 +1072,7 @@ export const getServerSideProps = async (context) => {
         if (!data.props.canManageBotSettings) {
             if (
                 tab === 'configure' &&
-                ['system', 'questions', 'glossary', 'mcp-connections'].includes(control)
+                ['system', 'questions', 'glossary', 'mcp-connections', 'skills'].includes(control)
             ) {
                 return {
                     redirect: {
@@ -1098,7 +1087,6 @@ export const getServerSideProps = async (context) => {
         if (
             tab === 'configure' &&
             control === 'skills' &&
-            data.props.isSuperAdminUser &&
             data.props.canManageBotSettings
         ) {
             try {

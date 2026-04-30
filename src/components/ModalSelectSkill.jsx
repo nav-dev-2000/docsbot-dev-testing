@@ -1,10 +1,17 @@
 import { Fragment, useMemo, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import SkillListIcon from '@/components/SkillListIcon'
-import { MagnifyingGlassIcon, PlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+    BuildingOffice2Icon,
+    GlobeAltIcon,
+    MagnifyingGlassIcon,
+    PlusIcon,
+    XMarkIcon,
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { formatSkillNameDisplay } from '@/lib/skill-name-normalize'
+import Tooltip from '@/components/Tooltip'
 
 const skillRecordId = (skill) =>
     String(skill?.skillName || skill?.draftId || skill?.id || skill?.name || '').trim()
@@ -185,9 +192,40 @@ export default function ModalSelectSkill({
                                                                     </div>
                                                                 </div>
                                                                 <div className="flex shrink-0 items-center gap-2">
-                                                                    <span className="text-xs tabular-nums text-gray-500">
-                                                                        {skill.internal ? 'Internal' : 'Customer'}
-                                                                    </span>
+                                                                    <Tooltip
+                                                                        content={
+                                                                            skill.internal
+                                                                                ? 'Internal team use only'
+                                                                                : 'Customer-facing'
+                                                                        }
+                                                                        zIndex={1000001}
+                                                                    >
+                                                                        <span
+                                                                            className={`inline-flex h-8 w-8 shrink-0 cursor-help items-center justify-center ${
+                                                                                skill.internal
+                                                                                    ? 'text-gray-600'
+                                                                                    : 'text-cyan-700'
+                                                                            }`}
+                                                                            role="img"
+                                                                            aria-label={
+                                                                                skill.internal
+                                                                                    ? 'Internal team use only'
+                                                                                    : 'Customer-facing'
+                                                                            }
+                                                                        >
+                                                                            {skill.internal ? (
+                                                                                <BuildingOffice2Icon
+                                                                                    className="h-4 w-4"
+                                                                                    aria-hidden
+                                                                                />
+                                                                            ) : (
+                                                                                <GlobeAltIcon
+                                                                                    className="h-4 w-4"
+                                                                                    aria-hidden
+                                                                                />
+                                                                            )}
+                                                                        </span>
+                                                                    </Tooltip>
                                                                     {isEnabled ? (
                                                                         <span className="rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-500">
                                                                             Added

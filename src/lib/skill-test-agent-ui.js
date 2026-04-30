@@ -81,6 +81,8 @@ export function createInitialSkillTestState() {
     markdown: '',
     summary: '',
     technical: '',
+    bugs: false,
+    improvements: false,
     events: [],
     error: '',
     startedAt: null,
@@ -120,10 +122,14 @@ export function reduceSkillTestStreamEvent(state, event) {
   if (event.type === 'final') {
     const summary = String(event.summary || '').trim()
     const technical = String(event.technical || '').trim()
+    const bugs = event.bugs === true
+    const improvements = event.improvements === true
     return {
       ...current,
       summary,
       technical,
+      bugs,
+      improvements,
       markdown: buildSkillTestFinalMarkdown({
         summary,
         technical,
@@ -230,12 +236,35 @@ export function buildSkillTestReportPrompt({
   markdown = '',
   status = 'completed',
   error = '',
+  bugs = false,
+  improvements = false,
+  testInstructions = '',
   instructions = '',
 } = {}) {
+  const hasBugs = bugs === true
+  const hasImprovements = improvements === true
+  const normalizedStatus = String(status || '').toLowerCase()
+  const hasCompletedResult = normalizedStatus === 'completed'
+  const resultStatus = hasBugs
+    ? 'bugs_found'
+    : hasImprovements
+      ? 'improvements_suggested'
+      : hasCompletedResult
+        ? 'passed'
+        : normalizedStatus || 'unknown'
   const lines = [
-    `Review the test agent report for the published skill "${skillName || 'unknown'}" and fix any issues in the draft skill if needed.`,
+    hasBugs
+      ? `Review the test agent report for the published skill "${skillName || 'unknown'}" and fix the detected bugs or problems in the draft skill.`
+      : hasImprovements
+        ? `Review the test agent report for the published skill "${skillName || 'unknown'}" and make the suggested improvements without treating the skill as broken.`
+        : hasCompletedResult
+          ? `Review the test agent report for the published skill "${skillName || 'unknown'}". The test passed without detected bugs or improvements.`
+          : `Review the test agent report for the published skill "${skillName || 'unknown'}" and investigate the failed or incomplete test run.`,
     '',
     `Test status: ${status || 'unknown'}`,
+    `Test result: ${resultStatus}`,
+    `Bugs detected: ${hasBugs ? 'yes' : 'no'}`,
+    `Improvements suggested: ${hasImprovements ? 'yes' : 'no'}`,
   ]
 
   const metadataKeys = Object.keys(metadata || {})
@@ -264,6 +293,10 @@ export function buildSkillTestReportPrompt({
     lines.push('', 'Error:', String(error))
   }
 
+  if (testInstructions && String(testInstructions).trim()) {
+    lines.push('', 'User guidance for the test:', String(testInstructions).trim())
+  }
+
   if (markdown) {
     lines.push('', 'Final test report:', String(markdown))
   }
@@ -272,10 +305,27 @@ export function buildSkillTestReportPrompt({
     lines.push('', 'User instructions for changes:', String(instructions).trim())
   }
 
-  lines.push(
-    '',
-    'Use the current draft files and validation tools to determine whether the issue is in the skill code, manifest, environment assumptions, or instructions. If a skill change is needed, make it and validate it.',
-  )
+  if (hasBugs) {
+    lines.push(
+      '',
+      'Use the current draft files and validation tools to determine whether each detected problem is in the skill code, manifest, environment assumptions, or instructions. Make the needed fixes and validate them.',
+    )
+  } else if (hasImprovements) {
+    lines.push(
+      '',
+      'Use the current draft files and validation tools to make worthwhile improvements from the report while preserving the working behavior. Validate any changes.',
+    )
+  } else if (hasCompletedResult) {
+    lines.push(
+      '',
+      'Use the current draft files and validation tools only if the user instructions above request a change. Do not invent bugs or improvements from the report text.',
+    )
+  } else {
+    lines.push(
+      '',
+      'Use the current draft files and validation tools to determine whether the failed or incomplete test run was caused by the skill code, manifest, environment assumptions, instructions, or the test setup. If a skill change is needed, make it and validate it.',
+    )
+  }
 
   return lines.join('\n')
 }

@@ -107,10 +107,14 @@ describe('skill test agent UI helpers', () => {
       type: 'final',
       summary: 'The skill passed the main checks.',
       technical: '- Called `lookup_weather`\n- No runtime errors',
+      bugs: true,
+      improvements: true,
     })
 
     expect(state.summary).toBe('The skill passed the main checks.')
     expect(state.technical).toContain('lookup_weather')
+    expect(state.bugs).toBe(true)
+    expect(state.improvements).toBe(true)
     expect(state.markdown).toBe(
       '## Summary\n\nThe skill passed the main checks.\n\n## Technical Details\n\n- Called `lookup_weather`\n- No runtime errors',
     )
@@ -120,6 +124,18 @@ describe('skill test agent UI helpers', () => {
         technical: 'Raw detail',
       }),
     ).toBe('## Summary\n\nReadable result\n\n## Technical Details\n\nRaw detail')
+  })
+
+  it('defaults missing final report flags to false without parsing report text', () => {
+    let state = createInitialSkillTestState()
+    state = reduceSkillTestStreamEvent(state, {
+      type: 'final',
+      summary: 'This text says bug and improvement but flags are absent.',
+      technical: 'Bugs: yes. Improvements: yes.',
+    })
+
+    expect(state.bugs).toBe(false)
+    expect(state.improvements).toBe(false)
   })
 
   it('converts test events into assistant activity parts', () => {
@@ -157,14 +173,48 @@ describe('skill test agent UI helpers', () => {
       ],
       markdown: '# Report\nFailed.',
       error: 'Boom',
+      bugs: true,
+      improvements: true,
+      testInstructions: 'Try refund edge cases.',
       instructions: 'Fix the refund call.',
     })
 
     expect(prompt).toContain('published skill "customer-refunds"')
+    expect(prompt).toContain('Test result: bugs_found')
+    expect(prompt).toContain('Bugs detected: yes')
+    expect(prompt).toContain('Improvements suggested: yes')
+    expect(prompt).toContain('Try refund edge cases.')
     expect(prompt).toContain('- priv_customer_id: [redacted]')
     expect(prompt).toContain('- locale: en-US')
     expect(prompt).toContain('Tool call: call_skill_function')
     expect(prompt).toContain('Fix the refund call.')
     expect(prompt).not.toContain('cust-secret')
+  })
+
+  it('builds an improvement-only report prompt without treating the skill as broken', () => {
+    const prompt = buildSkillTestReportPrompt({
+      skillName: 'customer-refunds',
+      status: 'completed',
+      bugs: false,
+      improvements: true,
+      markdown: '# Report\nWorked with suggestions.',
+    })
+
+    expect(prompt).toContain('Test result: improvements_suggested')
+    expect(prompt).toContain('make the suggested improvements without treating the skill as broken')
+    expect(prompt).toContain('Bugs detected: no')
+    expect(prompt).toContain('Improvements suggested: yes')
+  })
+
+  it('does not label failed tests as passed when no final flags are true', () => {
+    const prompt = buildSkillTestReportPrompt({
+      skillName: 'customer-refunds',
+      status: 'error',
+      error: 'Network failed.',
+    })
+
+    expect(prompt).toContain('Test result: error')
+    expect(prompt).toContain('investigate the failed or incomplete test run')
+    expect(prompt).not.toContain('test passed')
   })
 })
