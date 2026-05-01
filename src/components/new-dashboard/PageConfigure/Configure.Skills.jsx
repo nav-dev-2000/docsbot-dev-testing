@@ -4,6 +4,7 @@ import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport, lastAssistantMessageIsCompleteWithToolCalls } from 'ai'
 import { Dialog, Transition } from '@headlessui/react'
 import { fetchEventSource } from '@microsoft/fetch-event-source'
+import { usePostHog } from 'posthog-js/react'
 import clsx from 'clsx'
 import remarkExternalLinks from 'remark-external-links'
 import Link from 'next/link'
@@ -26,6 +27,8 @@ import {
     CommandLineIcon,
     DocumentTextIcon,
     ExclamationTriangleIcon,
+    EyeIcon,
+    EyeSlashIcon,
     GlobeAltIcon,
     ListBulletIcon,
     MagnifyingGlassIcon,
@@ -94,6 +97,7 @@ import {
     countBillableBotActions,
     getBotActionSlotLimit,
     isSuperAdmin,
+    stripePlan,
 } from '@/utils/helpers'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useBlockingNavigationWarning } from '@/hooks/useUnsavedChangesWarning'
@@ -1124,6 +1128,38 @@ function formatToolLabel(part) {
     return (part?.type || '').replace(/^tool-/, '').replace(/-/g, ' ')
 }
 
+function formatDocsToolTitle(value) {
+    const text = String(value || '').trim()
+    if (!text) return ''
+    return text
+        .replace(/\.[A-Za-z0-9]+$/, '')
+        .split(/[_\-/\s]+/)
+        .filter(Boolean)
+        .map((word) => {
+            const lower = word.toLowerCase()
+            if (lower === 'mcp') return 'MCP'
+            if (lower === 'api') return 'API'
+            if (lower === 'url') return 'URL'
+            if (lower === 'id') return 'ID'
+            return `${lower.charAt(0).toUpperCase()}${lower.slice(1)}`
+        })
+        .join(' ')
+}
+
+function getReadDocsSummary(part) {
+    const input = part?.input || {}
+    const output = part?.output ?? part?.result ?? {}
+    const title = formatDocsToolTitle(
+        output?.title ||
+        output?.doc ||
+        input?.title ||
+        input?.doc ||
+        output?.path ||
+        input?.path,
+    )
+    return title ? `Read docs: ${title}` : 'Read docs'
+}
+
 function stringifyShellCommand(value) {
     if (value === null || value === undefined) return ''
     if (typeof value === 'string') return value
@@ -1637,6 +1673,10 @@ function getToolSummary(part) {
 
     if (part?.type === 'tool-load_context') {
         return 'Read manifest'
+    }
+
+    if (part?.type === 'tool-read_docs') {
+        return getReadDocsSummary(part)
     }
 
     if (part?.type === 'tool-update_manifest') {
@@ -2634,6 +2674,24 @@ function AssistantActivityRowsContent({
                                 </ActivityTimelineIcon>
                                 <div className="min-w-0 flex-1 text-gray-700">
                                     <div className="truncate font-medium text-gray-700">Read manifest</div>
+                                </div>
+                            </div>
+                        )
+                    }
+
+                    if (part.type === 'tool-read_docs') {
+                        return (
+                            <div
+                                key={`${message.id}-tool-${index}`}
+                                className="flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-left"
+                            >
+                                <ActivityTimelineIcon>
+                                    <Icon className="h-4 w-4 text-gray-400" aria-hidden />
+                                </ActivityTimelineIcon>
+                                <div className="min-w-0 flex-1 text-gray-700">
+                                    <div className="truncate font-medium text-gray-700">
+                                        {getReadDocsSummary(part)}
+                                    </div>
                                 </div>
                             </div>
                         )
@@ -4088,6 +4146,161 @@ function MetadataBindingsReadable({ bindings }) {
     )
 }
 
+function bindingValueByEnvVar(bindings = []) {
+    const map = new Map()
+    for (const binding of Array.isArray(bindings) ? bindings : []) {
+        const key = String(binding?.envVar || '').trim()
+        if (!key) continue
+        const value = String(binding?.value || '').trim()
+        if (value) map.set(key, value)
+    }
+    return map
+}
+
+function resolveEnvPlaceholders(value, envValues) {
+    return String(value || '').replace(/\{\{([A-Za-z_][A-Za-z0-9_]*)\}\}/g, (match, envVar) => {
+        const resolved = envValues.get(envVar)
+        return resolved || match
+    })
+}
+
+function authProviderTechnicalLines(provider, envValues) {
+    if (provider?.type === 'basicAuth') {
+        return [
+            `Authorization: Basic base64({{${provider.usernameEnvVar || 'USERNAME_ENV'}}}:{{${provider.passwordEnvVar || 'PASSWORD_ENV'}}})`,
+        ]
+    }
+
+    if (provider?.type === 'headerAuth') {
+        const headers = Array.isArray(provider.headers) ? provider.headers : []
+        return headers
+            .map((header) => `${header.name || 'Header'}: ${resolveEnvPlaceholders(header.valueTemplate, envValues)}`)
+            .filter(Boolean)
+    }
+
+    if (provider?.type === 'queryAuth') {
+        const params = Array.isArray(provider.params) ? provider.params : []
+        return params
+            .map((param) => `${param.name || 'param'}=${resolveEnvPlaceholders(param.valueTemplate, envValues)}`)
+            .filter(Boolean)
+    }
+
+    if (provider?.type === 'awsSigV4') {
+        return [
+            `Signs requests with AWS SigV4 service=${provider.service || 'unknown'} region=${provider.region || provider.regionEnvVar || 'request/default'}`,
+            `Access key env: ${provider.accessKeyIdEnvVar || 'unknown'}`,
+            `Secret key env: ${provider.secretAccessKeyEnvVar || 'unknown'}`,
+        ]
+    }
+
+    return []
+}
+
+function authProviderTypeLabel(type) {
+    switch (type) {
+        case 'basicAuth':
+            return 'Basic auth'
+        case 'headerAuth':
+            return 'Custom headers'
+        case 'queryAuth':
+            return 'Query parameters'
+        case 'awsSigV4':
+            return 'AWS Signature'
+        default:
+            return displayText(type, 'Auth provider')
+    }
+}
+
+function AuthProviderTechnicalTooltip({ provider, envValues }) {
+    return (
+        <div style={{ maxWidth: '26rem', textAlign: 'left' }}>
+            <pre style={{ margin: 0, whiteSpace: 'pre-wrap', fontSize: '11px', lineHeight: 1.45 }}>
+                {authProviderTechnicalLines(provider, envValues).join('\n')}
+            </pre>
+        </div>
+    )
+}
+
+function AuthProvidersReadable({ providers, envBindings = [] }) {
+    const rows = Array.isArray(providers) ? providers : []
+    const envValues = bindingValueByEnvVar(envBindings)
+    if (!rows.length) {
+        return (
+            <p className="text-xs text-gray-500">
+                No credential-scoped auth providers for this skill yet.
+            </p>
+        )
+    }
+    return (
+        <ul className="space-y-1.5 text-xs">
+            {rows.map((provider, i) => {
+                const providerKey = `${provider.id || ''}-${i}`
+                const domains = Array.isArray(provider.allowedDomains)
+                    ? provider.allowedDomains.filter(Boolean)
+                    : []
+                const tooltipLines = authProviderTechnicalLines(provider, envValues)
+                const providerBoxContent = (
+                    <div className={tooltipLines.length ? 'cursor-help' : ''}>
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                            <code className="font-mono text-[11px] text-gray-900">
+                                {displayText(provider.id, '—')}
+                            </code>
+                            <span className="rounded bg-gray-100 px-1.5 py-0.5 text-[11px] text-gray-700">
+                                {authProviderTypeLabel(provider.type)}
+                            </span>
+                        </div>
+                        {provider.description ? (
+                            <p className="mt-1 text-[11px] leading-relaxed text-gray-500">
+                                {provider.description}
+                            </p>
+                        ) : null}
+                        <div className="mt-2">
+                            <div className="text-[10px] font-medium uppercase tracking-wide text-gray-500">
+                                Allowed domains
+                            </div>
+                            {domains.length ? (
+                                <div className="mt-1 flex flex-wrap gap-1">
+                                    {domains.map((domain) => {
+                                        const resolved = resolveEnvPlaceholders(domain, envValues)
+                                        return (
+                                            <code
+                                                key={domain}
+                                                className="break-all rounded bg-white px-1.5 py-0.5 text-[10px] text-gray-700 ring-1 ring-gray-100"
+                                            >
+                                                {resolved}
+                                            </code>
+                                        )
+                                    })}
+                                </div>
+                            ) : (
+                                <p className="mt-1 text-[11px] text-gray-500">No provider-scoped domains.</p>
+                            )}
+                        </div>
+                    </div>
+                )
+
+                return (
+                    <li
+                        key={providerKey}
+                        className="rounded-md border border-gray-100 bg-gray-50/80 px-2 py-1.5"
+                    >
+                        {tooltipLines.length ? (
+                            <Tooltip
+                                content={<AuthProviderTechnicalTooltip provider={provider} envValues={envValues} />}
+                                placement="left"
+                            >
+                                {providerBoxContent}
+                            </Tooltip>
+                        ) : (
+                            providerBoxContent
+                        )}
+                    </li>
+                )
+            })}
+        </ul>
+    )
+}
+
 function EnvironmentBindingsForm({
     envBindings = [],
     secretBindings = [],
@@ -4104,7 +4317,27 @@ function EnvironmentBindingsForm({
     )
     const [envValuesByVar, setEnvValuesByVar] = useState({})
     const [secretValuesByVar, setSecretValuesByVar] = useState({})
+    const [visibleSecretsByVar, setVisibleSecretsByVar] = useState({})
     const [saving, setSaving] = useState(false)
+
+    const envOptionsByVar = useMemo(() => {
+        const next = {}
+        for (const row of envRows) {
+            const options =
+                row.options && !Array.isArray(row.options) && typeof row.options === 'object'
+                    ? Object.entries(row.options).reduce((acc, [value, label]) => {
+                          const normalizedValue = String(value ?? '').trim()
+                          if (!normalizedValue) return acc
+                          const normalizedLabel =
+                              String(label ?? normalizedValue).trim() || normalizedValue
+                          acc[normalizedValue] = normalizedLabel
+                          return acc
+                      }, {})
+                    : {}
+            if (Object.keys(options).length) next[row.envVar] = options
+        }
+        return next
+    }, [envRows])
 
     const bindingsSyncKey = useMemo(
         () =>
@@ -4113,6 +4346,7 @@ function EnvironmentBindingsForm({
                     row.envVar,
                     row.value == null ? '' : String(row.value),
                     row.description == null ? '' : String(row.description),
+                    JSON.stringify(envOptionsByVar[row.envVar] || {}),
                 ]),
                 secrets: secretRows.map((row) => [
                     row.envVar,
@@ -4120,13 +4354,15 @@ function EnvironmentBindingsForm({
                     row.description == null ? '' : String(row.description),
                 ]),
             }),
-        [envRows, secretRows],
+        [envOptionsByVar, envRows, secretRows],
     )
 
     useEffect(() => {
         const nextEnv = {}
         for (const row of envRows) {
-            nextEnv[row.envVar] = row.value == null ? '' : String(row.value)
+            const value = row.value == null ? '' : String(row.value)
+            const firstOptionValue = Object.keys(envOptionsByVar[row.envVar] || {})[0] || ''
+            nextEnv[row.envVar] = value || firstOptionValue
         }
 
         const nextSecrets = {}
@@ -4136,7 +4372,7 @@ function EnvironmentBindingsForm({
 
         setEnvValuesByVar(nextEnv)
         setSecretValuesByVar(nextSecrets)
-        // eslint-disable-next-line react-hooks/exhaustive-deps -- bindingsSyncKey tracks env + secret names, values, and descriptions
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- bindingsSyncKey tracks env + secret names, values, descriptions, and options
     }, [bindingsSyncKey])
 
     if (!envRows.length && !secretRows.length && !testSkillButton) {
@@ -4163,6 +4399,9 @@ function EnvironmentBindingsForm({
                         envBindings: envRows.map((row) => ({
                             envVar: row.envVar,
                             value: (envValuesByVar[row.envVar] ?? '').trim(),
+                            ...(envOptionsByVar[row.envVar]
+                                ? { options: envOptionsByVar[row.envVar] }
+                                : {}),
                             ...(row.description ? { description: row.description } : {}),
                         })),
                         secretBindings: secretRows.map((row) => ({
@@ -4192,45 +4431,80 @@ function EnvironmentBindingsForm({
                 <div>
                     <div className="text-xs font-medium text-gray-700">Variables</div>
                     <div className="mt-2 space-y-4">
-                        {envRows.map((row, i) => (
-                            <div
-                                key={`${row.envVar || ''}-${i}`}
-                                className="rounded-md border border-gray-100 bg-gray-50/80 px-2 py-2"
-                            >
-                                <label
-                                    className="block text-[11px] font-medium text-gray-700"
-                                    htmlFor={`skill-env-${row.envVar}`}
+                        {envRows.map((row, i) => {
+                            const options = Object.entries(envOptionsByVar[row.envVar] || {}).map(
+                                ([value, label]) => ({ value, label }),
+                            )
+                            const fieldValue = envValuesByVar[row.envVar] ?? ''
+                            const isMissing = !String(fieldValue).trim()
+
+                            return (
+                                <div
+                                    key={`${row.envVar || ''}-${i}`}
+                                    className="rounded-md border border-gray-100 bg-gray-50/80 px-2 py-2"
                                 >
-                                    {displayText(row.envVar, 'Variable')}
-                                </label>
-                                <input
-                                    id={`skill-env-${row.envVar}`}
-                                    type="text"
-                                    aria-invalid={!String(envValuesByVar[row.envVar] ?? '').trim()}
-                                    autoComplete="off"
-                                    spellCheck={false}
-                                    disabled={!canSave || saving}
-                                    value={envValuesByVar[row.envVar] ?? ''}
-                                    onChange={(e) =>
-                                        setEnvValuesByVar((prev) => ({
-                                            ...prev,
-                                            [row.envVar]: e.target.value,
-                                        }))
-                                    }
-                                    className={clsx(
-                                        'mt-2 w-full rounded-lg border bg-white px-3 py-2 font-mono text-sm outline-none transition disabled:opacity-50',
-                                        String(envValuesByVar[row.envVar] ?? '').trim()
-                                            ? 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0'
-                                            : 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0',
+                                    <label
+                                        className="block text-[11px] font-medium text-gray-700"
+                                        htmlFor={`skill-env-${row.envVar}`}
+                                    >
+                                        {displayText(row.envVar, 'Variable')}
+                                    </label>
+                                    {options.length ? (
+                                        <select
+                                            id={`skill-env-${row.envVar}`}
+                                            aria-invalid={isMissing}
+                                            disabled={!canSave || saving}
+                                            value={fieldValue}
+                                            onChange={(e) =>
+                                                setEnvValuesByVar((prev) => ({
+                                                    ...prev,
+                                                    [row.envVar]: e.target.value,
+                                                }))
+                                            }
+                                            className={clsx(
+                                                'mt-2 w-full rounded-lg border bg-white px-3 py-2 text-sm outline-none transition disabled:opacity-50',
+                                                isMissing
+                                                    ? 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0'
+                                                    : 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0',
+                                            )}
+                                        >
+                                            {options.map((option) => (
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    ) : (
+                                        <input
+                                            id={`skill-env-${row.envVar}`}
+                                            type="text"
+                                            aria-invalid={isMissing}
+                                            autoComplete="off"
+                                            spellCheck={false}
+                                            disabled={!canSave || saving}
+                                            value={fieldValue}
+                                            onChange={(e) =>
+                                                setEnvValuesByVar((prev) => ({
+                                                    ...prev,
+                                                    [row.envVar]: e.target.value,
+                                                }))
+                                            }
+                                            className={clsx(
+                                                'mt-2 w-full rounded-lg border bg-white px-3 py-2 font-mono text-sm outline-none transition disabled:opacity-50',
+                                                isMissing
+                                                    ? 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0'
+                                                    : 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0',
+                                            )}
+                                        />
                                     )}
-                                />
-                                {row.description ? (
-                                    <p className="mt-1 text-xs leading-relaxed text-gray-500">
-                                        {row.description}
-                                    </p>
-                                ) : null}
-                            </div>
-                        ))}
+                                    {row.description ? (
+                                        <p className="mt-1 text-xs leading-relaxed text-gray-500">
+                                            {row.description}
+                                        </p>
+                                    ) : null}
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             ) : (
@@ -4257,27 +4531,60 @@ function EnvironmentBindingsForm({
                                 >
                                     {displayText(row.envVar, 'Variable')}
                                 </label>
-                                <input
-                                    id={`skill-secret-${row.envVar}`}
-                                    type="text"
-                                    aria-invalid={!String(secretValuesByVar[row.envVar] ?? '').trim()}
-                                    autoComplete="off"
-                                    spellCheck={false}
-                                    disabled={!canSave || saving}
-                                    value={secretValuesByVar[row.envVar] ?? ''}
-                                    onChange={(e) =>
-                                        setSecretValuesByVar((prev) => ({
-                                            ...prev,
-                                            [row.envVar]: e.target.value,
-                                        }))
-                                    }
-                                    className={clsx(
-                                        'mt-2 w-full rounded-lg border bg-white px-3 py-2 font-mono text-sm outline-none transition disabled:opacity-50',
-                                        String(secretValuesByVar[row.envVar] ?? '').trim()
-                                            ? 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0'
-                                            : 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0',
-                                    )}
-                                />
+                                <div className="relative mt-2">
+                                    <input
+                                        id={`skill-secret-${row.envVar}`}
+                                        name={`skill-binding-${row.envVar || i}`}
+                                        type={visibleSecretsByVar[row.envVar] ? 'text' : 'password'}
+                                        aria-invalid={!String(secretValuesByVar[row.envVar] ?? '').trim()}
+                                        autoComplete="new-password"
+                                        spellCheck={false}
+                                        autoCorrect="off"
+                                        autoCapitalize="none"
+                                        data-1p-ignore
+                                        data-bwignore="true"
+                                        data-form-type="other"
+                                        data-lpignore="true"
+                                        data-op-ignore="true"
+                                        data-protonpass-ignore="true"
+                                        disabled={!canSave || saving}
+                                        value={secretValuesByVar[row.envVar] ?? ''}
+                                        onChange={(e) =>
+                                            setSecretValuesByVar((prev) => ({
+                                                ...prev,
+                                                [row.envVar]: e.target.value,
+                                            }))
+                                        }
+                                        className={clsx(
+                                            'w-full rounded-lg border bg-white py-2 pl-3 pr-10 font-mono text-sm outline-none transition disabled:opacity-50',
+                                            String(secretValuesByVar[row.envVar] ?? '').trim()
+                                                ? 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0'
+                                                : 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0',
+                                        )}
+                                    />
+                                    <button
+                                        type="button"
+                                        aria-label={
+                                            visibleSecretsByVar[row.envVar]
+                                                ? `Hide ${displayText(row.envVar, 'secret')}`
+                                                : `Show ${displayText(row.envVar, 'secret')}`
+                                        }
+                                        aria-pressed={Boolean(visibleSecretsByVar[row.envVar])}
+                                        onClick={() =>
+                                            setVisibleSecretsByVar((prev) => ({
+                                                ...prev,
+                                                [row.envVar]: !prev[row.envVar],
+                                            }))
+                                        }
+                                        className="absolute inset-y-0 right-0 flex w-10 items-center justify-center rounded-r-lg text-gray-400 transition hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
+                                    >
+                                        {visibleSecretsByVar[row.envVar] ? (
+                                            <EyeSlashIcon className="h-4 w-4" aria-hidden="true" />
+                                        ) : (
+                                            <EyeIcon className="h-4 w-4" aria-hidden="true" />
+                                        )}
+                                    </button>
+                                </div>
                                 {row.description ? (
                                     <p className="mt-1 text-xs leading-relaxed text-gray-500">
                                         {row.description}
@@ -4344,11 +4651,13 @@ function LiveManifestSidebar({
     const envBindings = m.envBindings ?? draft.envBindings ?? []
     const metadataBindings = m.metadataBindings ?? draft.metadataBindings ?? []
     const secretBindings = m.secretBindings ?? draft.secretBindings ?? []
+    const authProviders = m.authProviders ?? draft.authProviders ?? []
     const hasManifestEnvBindings = Array.isArray(m.envBindings) && m.envBindings.length > 0
     const hasManifestSecretBindings =
         Array.isArray(m.secretBindings) && m.secretBindings.length > 0
     const hasManifestMetadataBindings =
         Array.isArray(m.metadataBindings) && m.metadataBindings.length > 0
+    const hasGlobalAllowedDomains = formatNetworkPolicySummary(networkPolicy).domains.length > 0
     const hasMissingTestBindings = hasMissingSkillTestEnvironmentBindings(draft)
     const missingTestBindingsMessage = hasMissingTestBindings
         ? 'Save all required environment settings first.'
@@ -4393,10 +4702,19 @@ function LiveManifestSidebar({
                 <div className="mt-1 whitespace-pre-wrap text-sm text-gray-700">{description}</div>
             </div>
 
+            {hasGlobalAllowedDomains ? (
+                <div>
+                    <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Network policy</div>
+                    <div className="mt-2">
+                        <NetworkPolicyReadable policy={networkPolicy} />
+                    </div>
+                </div>
+            ) : null}
+
             <div>
-                <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Network policy</div>
+                <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Auth providers</div>
                 <div className="mt-2">
-                    <NetworkPolicyReadable policy={networkPolicy} />
+                    <AuthProvidersReadable providers={authProviders} envBindings={envBindings} />
                 </div>
             </div>
 
@@ -4445,13 +4763,15 @@ function LiveManifestSidebar({
     )
 }
 
-function SkillsPageWorkspaceTitle() {
+function SkillsPageWorkspaceTitle({ permission }) {
     return (
         <span className="inline-flex flex-wrap items-center gap-2 text-inherit">
             Skills
-            <span className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
-                Standard
-            </span>
+            {!permission?.allowed ? (
+                <span className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-medium text-cyan-800">
+                    {permission?.requiredPlanLabel || 'Standard'}
+                </span>
+            ) : null}
             <span className="bg-animate inline-flex items-center rounded-full bg-cyan-600 px-2.5 py-0.5 text-xs font-medium text-white">
                 New!
             </span>
@@ -4558,7 +4878,7 @@ function SkillWidgetButton({ skill, botId, isPublicBot, disabled, onToggle }) {
             ) : (
                 <ChatBubbleLeftRightIcon className="-ml-0.5 h-4 w-4" aria-hidden />
             )}
-            {isEnabled ? 'Remove from widget' : 'Add to widget'}
+            {isEnabled ? 'Remove from widget' : 'Add to bot'}
         </button>
     )
 
@@ -4713,6 +5033,8 @@ function SkillsLibraryModal({
                                                             <SkillListIcon
                                                                 icon={skill.icon}
                                                                 networkPolicy={skill.networkPolicy}
+                                                                envBindings={skill.envBindings}
+                                                                authProviders={skill.authProviders}
                                                             />
                                                             <div className="min-w-0 flex-1">
                                                                 <div className="text-sm font-semibold text-gray-900">
@@ -4799,6 +5121,7 @@ const PageConfigureSkills = ({
     onSkillsChange,
 }) => {
     const router = useRouter()
+    const posthog = usePostHog()
     const hasInitialSkills = Array.isArray(initialSkills)
     const [detailTab, setDetailTab] = useState('builder')
     const [createMode, setCreateMode] = useState(false)
@@ -4826,6 +5149,7 @@ const PageConfigureSkills = ({
     const [pendingInitialMessage, setPendingInitialMessage] = useState(null)
     const [pendingUpgrade, setPendingUpgrade] = useState(false)
     const [showUpgrade, setShowUpgrade] = useState(false)
+    const [hasMounted, setHasMounted] = useState(false)
     /** Bumped to recreate the @ai-sdk `useChat` instance so the next request omits prior thread + stream state. */
     const [builderChatSessionEpoch, setBuilderChatSessionEpoch] = useState(0)
     const [isDeletingSkill, setIsDeletingSkill] = useState(false)
@@ -4866,6 +5190,25 @@ const PageConfigureSkills = ({
     const apiBase = `/api/teams/${team.id}/bots/${bot.id}/skills`
     const libraryApiBase = `/api/teams/${team.id}/bots/${bot.id}/skills-library`
     const workersLogsApi = `${apiBase}/workers-logs`
+    const skillsEntryPermission = useMemo(() => checkPlanPermission(team, 'standard'), [team])
+    const currentPlan = useMemo(() => stripePlan(team), [team])
+
+    const captureSkillBuilderEvent = useCallback(
+        (eventName, metadata = {}) => {
+            posthog?.capture(eventName, {
+                team_id: team?.id,
+                bot_id: bot?.id,
+                teamId: team?.id,
+                botId: bot?.id,
+                team_name: team?.name,
+                bot_name: bot?.name,
+                plan_id: currentPlan?.id,
+                plan_name: currentPlan?.name,
+                ...metadata,
+            })
+        },
+        [bot?.id, bot?.name, currentPlan?.id, currentPlan?.name, posthog, team?.id, team?.name],
+    )
 
     const applyDrafts = useCallback(
         (nextDrafts) => {
@@ -4881,6 +5224,10 @@ const PageConfigureSkills = ({
         },
         [onSkillsChange],
     )
+
+    useEffect(() => {
+        setHasMounted(true)
+    }, [])
 
     useEffect(() => {
         if (!Array.isArray(initialSkills)) return
@@ -4943,18 +5290,12 @@ const PageConfigureSkills = ({
     }, [flushBuilderChatScrollToEnd, updateBuilderChatScrollDownVisibility])
 
 
-    // Seed from either the SSR prop or (for bookmarked URLs where the prop may
-    // momentarily be null on the first render) by parsing the visible path.
+    // Seed from the SSR prop only. Client-only path parsing during the first render
+    // can make direct /configure/skills/:id reloads hydrate different markup.
     const initialSelectedSkill = useMemo(() => {
-        const fromProp =
-            routeSkillSlug && typeof routeSkillSlug === 'string' && routeSkillSlug.trim()
-                ? routeSkillSlug.trim()
-                : null
-        if (fromProp) return fromProp
-        if (typeof window !== 'undefined') {
-            return parseSkillIdFromBotAppAsPath(router.asPath)
-        }
-        return null
+        return routeSkillSlug && typeof routeSkillSlug === 'string' && routeSkillSlug.trim()
+            ? routeSkillSlug.trim()
+            : null
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -4992,6 +5333,12 @@ const PageConfigureSkills = ({
                 : null
         setSelectedSkillNameState((prev) => (prev === next ? prev : next))
     }, [routeSkillSlug])
+
+    useEffect(() => {
+        if (routeSkillSlug || selectedSkillName) return
+        const fromPath = parseSkillIdFromBotAppAsPath(router.asPath)
+        if (fromPath) setSelectedSkillNameState(fromPath)
+    }, [routeSkillSlug, router.asPath, selectedSkillName])
 
     const isShellDetail = Boolean(selectedSkillName) || createMode
 
@@ -5951,6 +6298,26 @@ const PageConfigureSkills = ({
 
                 processedToolEventKeysRef.current.add(eventKey)
                 nextRefreshKeys.push(toolName)
+
+                if (toolName === 'publish_skill_bundle') {
+                    const output = part?.output ?? part?.result ?? {}
+                    const published = output?.ok === true || Boolean(output?.publishedAt)
+                    const failed = output?.ok === false || Boolean(part?.errorText)
+                    if (published || failed) {
+                        captureSkillBuilderEvent(
+                            published
+                                ? 'Skill Builder Skill Published'
+                                : 'Skill Builder Skill Publish Failed',
+                            {
+                                skill_name: selectedSkillName,
+                                skillName: selectedSkillName,
+                                published_at: output?.publishedAt || null,
+                                has_functions: Boolean(output?.hasFunctions ?? draftState.draft?.hasFunctions),
+                                error: failed ? part?.errorText || output?.message || null : null,
+                            },
+                        )
+                    }
+                }
             })
         })
 
@@ -5966,7 +6333,14 @@ const PageConfigureSkills = ({
             }
             setErrorText(error.message || 'Unable to refresh skill details.')
         })
-    }, [chat.messages, handleSkillDraftMissing, refreshDraftUi, selectedSkillName])
+    }, [
+        captureSkillBuilderEvent,
+        chat.messages,
+        draftState.draft?.hasFunctions,
+        handleSkillDraftMissing,
+        refreshDraftUi,
+        selectedSkillName,
+    ])
 
     const loadPublishedPackage = useCallback(async () => {
         if (!selectedSkillName) return
@@ -6073,7 +6447,11 @@ const PageConfigureSkills = ({
         setErrorText(null)
         setInfoText(null)
 
-        if (!checkPlanPermission(team, 'standard').allowed) {
+        if (!skillsEntryPermission.allowed) {
+            captureSkillBuilderEvent('Skill Builder Upgrade Required', {
+                action: 'create_skill',
+                required_plan: skillsEntryPermission.requiredPlanLabel,
+            })
             setShowUpgrade(true)
             return
         }
@@ -6086,6 +6464,11 @@ const PageConfigureSkills = ({
 
         setIsSuggestingMetadata(true)
         setIsCreatingDraft(true)
+        captureSkillBuilderEvent('Skill Builder Skill Create Started', {
+            audience: draftState.audience,
+            has_prompt: Boolean(task),
+            image_count: selectedImages.length,
+        })
 
         try {
             const suggestRes = await fetch(apiBase, {
@@ -6140,7 +6523,21 @@ const PageConfigureSkills = ({
             setChatStarted(true)
             await loadDrafts()
             setPendingInitialMessage(task)
+            captureSkillBuilderEvent('Skill Builder Skill Created', {
+                skill_name: createdSlug,
+                skillName: createdSlug,
+                skill_display_name: skill.name || null,
+                audience: draftState.audience,
+                has_prompt: Boolean(task),
+                image_count: selectedImages.length,
+            })
         } catch (error) {
+            captureSkillBuilderEvent('Skill Builder Skill Create Failed', {
+                audience: draftState.audience,
+                has_prompt: Boolean(task),
+                image_count: selectedImages.length,
+                error: error.message || 'Unable to create the skill draft.',
+            })
             setErrorText(error.message || 'Unable to create the skill draft.')
         } finally {
             setIsSuggestingMetadata(false)
@@ -6193,6 +6590,11 @@ const PageConfigureSkills = ({
             clearPersistedChatLog(selectedSkillName)
             openList({ clearMessages: false, forceNavigation: true })
             setErrorText(null)
+            captureSkillBuilderEvent('Skill Builder Skill Deleted', {
+                skill_name: selectedSkillName,
+                skillName: selectedSkillName,
+                skill_display_name: label,
+            })
         } catch (error) {
             setErrorText(error.message || 'Unable to delete this skill.')
         } finally {
@@ -6226,6 +6628,11 @@ const PageConfigureSkills = ({
                 throw new Error(data.message || 'Unable to add this skill to the library.')
             }
             setInfoText('Skill added to the global skills library.')
+            captureSkillBuilderEvent('Skill Builder Skill Added To Library', {
+                skill_name: selectedSkillName,
+                skillName: selectedSkillName,
+                skill_display_name: label,
+            })
         } catch (error) {
             setErrorText(error.message || 'Unable to add this skill to the library.')
         } finally {
@@ -6307,6 +6714,12 @@ const PageConfigureSkills = ({
                     },
                 }
             })
+            captureSkillBuilderEvent('Skill Builder Widget Availability Changed', {
+                skill_name: id,
+                skillName: id,
+                skill_display_name: skill?.name || null,
+                enabled_widget: nextEnabledWidget,
+            })
         } catch (error) {
             setErrorText(error.message || 'Unable to update widget availability for this skill.')
         } finally {
@@ -6315,6 +6728,7 @@ const PageConfigureSkills = ({
     }
 
     function openCreateSkill() {
+        captureSkillBuilderEvent('Skill Builder Create Opened')
         navigateToSkillsIndex()
         setCreateMode(true)
         setDraftState({ ...defaultDraftState, audience: defaultSkillAudienceForBot(bot) })
@@ -6326,6 +6740,7 @@ const PageConfigureSkills = ({
     }
 
     function openSkillsLibrary() {
+        captureSkillBuilderEvent('Skill Builder Library Opened')
         setLibraryOpen(true)
         setLibraryErrorText(null)
         void loadLibrarySkills()
@@ -6344,7 +6759,15 @@ const PageConfigureSkills = ({
 
     async function importLibrarySkill(skill) {
         if (!skill?.id || importingLibrarySkillId) return
-        if (!checkPlanPermission(team, 'standard').allowed) {
+        if (!skillsEntryPermission.allowed) {
+            captureSkillBuilderEvent('Skill Builder Upgrade Required', {
+                action: 'import_library_skill',
+                skill_name: skill.id,
+                skillName: skill.id,
+                library_skill_id: skill.id,
+                library_skill_name: skill.name || null,
+                required_plan: skillsEntryPermission.requiredPlanLabel,
+            })
             setShowUpgrade(true)
             return
         }
@@ -6352,6 +6775,14 @@ const PageConfigureSkills = ({
         setImportingLibrarySkillId(skill.id)
         setLibraryErrorText(null)
         setErrorText(null)
+        captureSkillBuilderEvent('Skill Builder Library Import Started', {
+            skill_name: skill.id,
+            skillName: skill.id,
+            library_skill_id: skill.id,
+            library_skill_name: skill.name || null,
+            library_skill_mode: skill.mode || null,
+            library_skill_audience: skill.audience || null,
+        })
         try {
             const response = await fetch(
                 `${libraryApiBase}/${encodeURIComponent(skill.id)}/import`,
@@ -6379,7 +6810,23 @@ const PageConfigureSkills = ({
             navigateToSkill(importedSkillId)
             setDetailTab('builder')
             setInfoText('Library skill imported into this bot.')
+            captureSkillBuilderEvent('Skill Builder Library Skill Imported', {
+                skill_name: importedSkillId,
+                skillName: importedSkillId,
+                skill_display_name: importedSkill?.name || null,
+                library_skill_id: skill.id,
+                library_skill_name: skill.name || null,
+                library_skill_mode: skill.mode || null,
+                library_skill_audience: skill.audience || null,
+            })
         } catch (error) {
+            captureSkillBuilderEvent('Skill Builder Library Import Failed', {
+                skill_name: skill.id,
+                skillName: skill.id,
+                library_skill_id: skill.id,
+                library_skill_name: skill.name || null,
+                error: error.message || 'Unable to import this library skill.',
+            })
             setLibraryErrorText(error.message || 'Unable to import this library skill.')
         } finally {
             setImportingLibrarySkillId(null)
@@ -6416,7 +6863,7 @@ const PageConfigureSkills = ({
             <div className="shrink-0 border-b border-gray-200/80 bg-gray-50">
                 <div className="px-8 pt-8 pb-4">
                     <Workspace.Header
-                        title={<SkillsPageWorkspaceTitle />}
+                        title={<SkillsPageWorkspaceTitle permission={skillsEntryPermission} />}
                         description={
                             <>
                                 Skills are reusable instructions and tools that add capabilities to your bot. Describe
@@ -6466,7 +6913,12 @@ const PageConfigureSkills = ({
                                 className="flex cursor-pointer flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
                             >
                                 <div className="flex items-start gap-3">
-                                    <SkillListIcon icon={skill.icon} networkPolicy={skill.networkPolicy} />
+                                    <SkillListIcon
+                                        icon={skill.icon}
+                                        networkPolicy={skill.networkPolicy}
+                                        envBindings={skill.envBindings}
+                                        authProviders={skill.authProviders}
+                                    />
                                     <div className="min-w-0 flex-1">
                                         <div className="flex items-start justify-between gap-2">
                                             <div className="text-base font-semibold text-gray-900">
@@ -6739,6 +7191,8 @@ const PageConfigureSkills = ({
                                                     <SkillListIcon
                                                         icon={skill.icon}
                                                         networkPolicy={skill.networkPolicy}
+                                                        envBindings={skill.envBindings}
+                                                        authProviders={skill.authProviders}
                                                     />
                                                     <div className="min-w-0 flex-1">
                                                         <div className="text-sm font-semibold text-gray-900">
@@ -7610,6 +8064,14 @@ const PageConfigureSkills = ({
                                         draftState.draft.networkPolicy ??
                                         draftState.draft.manifest?.networkPolicy
                                     }
+                                    authProviders={
+                                        draftState.draft.authProviders ??
+                                        draftState.draft.manifest?.authProviders
+                                    }
+                                    envBindings={
+                                        draftState.draft.envBindings ??
+                                        draftState.draft.manifest?.envBindings
+                                    }
                                     sizeClass="size-9"
                                 />
                             ) : null}
@@ -7713,13 +8175,13 @@ const PageConfigureSkills = ({
         </div>
     )
 
-    if (isBootstrapping) {
+    if (isBootstrapping || !hasMounted) {
         return (
             <div className="flex min-h-0 w-full flex-1 flex-col">
                 <div className="shrink-0 border-b border-gray-200/80 bg-gray-50">
                     <div className="px-8 pt-8 pb-4">
                         <Workspace.Header
-                            title={<SkillsPageWorkspaceTitle />}
+                            title={<SkillsPageWorkspaceTitle permission={skillsEntryPermission} />}
                             description="Build and manage bot-scoped skills."
                         />
                     </div>

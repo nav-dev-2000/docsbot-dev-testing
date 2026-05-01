@@ -431,6 +431,179 @@ describe('skills-builder helpers', () => {
     expect(updated.files).toEqual([{ path: 'SKILL.md', content: 'new content' }])
   })
 
+  it('updateSkillDraft stores multiple-choice env options while keeping value scalar', async () => {
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [{ envVar: 'REGION', value: 'eu-west-1' }],
+      secretBindings: [],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'old content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          envBindings: [
+            {
+              envVar: 'REGION',
+              value: 'eu-west-1',
+              options: { 'us-east-1': 'us-east-1', 'eu-west-1': 'eu-west-1' },
+              description: 'Deployment region.',
+            },
+            {
+              envVar: 'API_ENVIRONMENT',
+              value: 'sandbox',
+              options: { sandbox: 'Sandbox', production: 'Production' },
+            },
+          ],
+        },
+      },
+      firestore,
+    )
+
+    expect(updated.envBindings).toEqual([
+      {
+        envVar: 'REGION',
+        value: 'eu-west-1',
+        options: { 'us-east-1': 'us-east-1', 'eu-west-1': 'eu-west-1' },
+        description: 'Deployment region.',
+      },
+      {
+        envVar: 'API_ENVIRONMENT',
+        value: 'sandbox',
+        options: { sandbox: 'Sandbox', production: 'Production' },
+      },
+    ])
+  })
+
+  it('updateSkillDraft preserves multiple-choice env options on scalar updates', async () => {
+    const firestore = createFirestoreMock({
+      name: 'image-generator',
+      description: 'Use when image generation needs defaults.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'PhotoIcon',
+      r2Prefix: 'team-1/bot-1/image-generator',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [
+        {
+          envVar: 'DEFAULT_QUALITY',
+          value: 'auto',
+          options: { auto: 'auto', low: 'low', medium: 'medium', high: 'high' },
+          description: 'Default image quality when the user does not specify one.',
+        },
+      ],
+      secretBindings: [],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'old content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'image-generator',
+      {
+        manifest: {
+          envBindings: [
+            {
+              envVar: 'DEFAULT_QUALITY',
+              value: 'medium',
+              description: 'Default image quality when the user does not specify one.',
+            },
+          ],
+        },
+      },
+      firestore,
+    )
+
+    expect(updated.envBindings).toEqual([
+      {
+        envVar: 'DEFAULT_QUALITY',
+        value: 'medium',
+        options: { auto: 'auto', low: 'low', medium: 'medium', high: 'high' },
+        description: 'Default image quality when the user does not specify one.',
+      },
+    ])
+    expect(updated.manifest.envBindings).toEqual(updated.envBindings)
+  })
+
+  it('updateSkillDraft rejects multiple-choice env values outside the option keys', async () => {
+    const firestore = createFirestoreMock({
+      name: 'image-generator',
+      description: 'Use when image generation needs defaults.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'PhotoIcon',
+      r2Prefix: 'team-1/bot-1/image-generator',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+
+    await expect(
+      updateSkillDraft(
+        'team-1',
+        'bot-1',
+        'image-generator',
+        {
+          manifest: {
+            envBindings: [
+              {
+                envVar: 'DEFAULT_QUALITY',
+                value: 'ultra',
+                options: { auto: 'auto', low: 'low', medium: 'medium', high: 'high' },
+              },
+            ],
+          },
+        },
+        firestore,
+      ),
+    ).rejects.toThrow('Env binding DEFAULT_QUALITY value must match one of its option keys.')
+  })
+
   it('updateSkillDraft stores a friendly display name without changing the skill id', async () => {
     const firestore = createFirestoreMock({
       name: 'customer-refunds',
@@ -777,6 +950,9 @@ describe('skills-builder helpers', () => {
           icon: 'ReceiptRefundIcon',
           r2Prefix: 'team-1/bot-1/customer-refunds',
           networkPolicy: { allowedDomains: ['api.example.com'], allowedSchemes: ['https'] },
+          authProviders: [
+            { id: 'service', type: 'headerAuth', allowedDomains: ['api.auth.example'], allowedSchemes: ['https'] },
+          ],
           envBindings: [{ envVar: 'WORKSPACE_ID', value: '' }],
           secretBindings: [{ envVar: 'API_TOKEN', secret: 'encrypted:token' }],
           chatMessages: [{ role: 'user', content: 'large history should not be selected' }],
@@ -797,6 +973,7 @@ describe('skills-builder helpers', () => {
         'description',
         'enabledWidget',
         'networkPolicy',
+        'authProviders',
         'envBindings',
         'secretBindings',
         'updatedAt',
@@ -812,6 +989,9 @@ describe('skills-builder helpers', () => {
         name: 'Customer Refunds',
         enabledWidget: true,
         hasFunctions: true,
+        authProviders: [
+          { id: 'service', type: 'headerAuth', allowedDomains: ['api.auth.example'], allowedSchemes: ['https'] },
+        ],
         files: [],
       }),
     )
@@ -850,7 +1030,18 @@ describe('skills-builder helpers', () => {
           description: 'Workspace ID for the customer account this skill uses.',
         },
       ],
-      secretBindings: [],
+      secretBindings: [
+        {
+          envVar: 'API_TOKEN',
+          secret: 'encrypted-secret-value',
+          description: 'API token for the customer account.',
+        },
+        {
+          envVar: 'OPTIONAL_TOKEN',
+          secret: '',
+          description: 'Optional token.',
+        },
+      ],
       metadataBindings: [],
       validation: null,
       liveTest: null,
@@ -873,8 +1064,20 @@ describe('skills-builder helpers', () => {
     expect(summary.manifest.envBindings).toEqual([
       {
         envVar: 'WORKSPACE_ID',
-        value: 'workspace-123',
+        value: '**REDACTED**',
         description: 'Workspace ID for the customer account this skill uses.',
+      },
+    ])
+    expect(summary.manifest.secretBindings).toEqual([
+      {
+        envVar: 'API_TOKEN',
+        secret: '**REDACTED**',
+        description: 'API token for the customer account.',
+      },
+      {
+        envVar: 'OPTIONAL_TOKEN',
+        secret: '',
+        description: 'Optional token.',
       },
     ])
   })

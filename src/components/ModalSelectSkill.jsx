@@ -181,6 +181,8 @@ export default function ModalSelectSkill({
                                                                     <SkillListIcon
                                                                         icon={skill.icon}
                                                                         networkPolicy={skill.networkPolicy}
+                                                                        envBindings={skill.envBindings}
+                                                                        authProviders={skill.authProviders}
                                                                     />
                                                                     <div className="min-w-0 text-left">
                                                                         <p className="min-w-0 truncate text-sm font-medium text-gray-900">

@@ -45,7 +45,7 @@ export default function McpServerList({
   refreshServerUrl,
   minimal = false,
   botIsPublic = false,
-  /** When true, show Add to widget / Remove from widget for connected servers (agent bots). */
+  /** When true, show Add to bot / Remove from widget for connected servers (agent bots). */
   showMcpWidgetToggle = false,
 }) {
   const actionSlotLimit = team ? getBotActionSlotLimit(team) : Number.POSITIVE_INFINITY
@@ -433,7 +433,7 @@ export default function McpServerList({
           }
         >
           <ChatBubbleLeftRightIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />
-          {server.enabled ? 'Remove from widget' : 'Add to widget'}
+          {server.enabled ? 'Disable in bot' : 'Enable in bot'}
         </button>
       )
       return (

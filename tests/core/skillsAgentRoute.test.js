@@ -47,6 +47,45 @@ const mocks = vi.hoisted(() => {
       next.push(nextFile)
       return next.sort((a, b) => a.path.localeCompare(b.path))
     }),
+    normalizeEnvBindingForStorage: vi.fn((binding, existing = {}) => {
+      const optionsSource =
+        binding.options !== undefined
+          ? binding.options
+          : binding.value !== undefined
+            ? existing.options
+            : existing.options
+      const options =
+        optionsSource && typeof optionsSource === 'object' && !Array.isArray(optionsSource)
+          ? Object.fromEntries(
+              Object.entries(optionsSource)
+                .map(([value, label]) => [String(value).trim(), String(label || value).trim()])
+                .filter(([value]) => value),
+            )
+          : {}
+      const optionValues = new Set(Object.keys(options))
+      const hasScalarValue =
+        typeof binding.value === 'string' ||
+        typeof binding.value === 'number' ||
+        typeof binding.value === 'boolean'
+      if (binding.value !== undefined && !hasScalarValue) {
+        throw new Error(`Env binding ${binding.envVar} value must be a scalar.`)
+      }
+      const scalar =
+        hasScalarValue ? String(binding.value) : existing.value || ''
+      if (optionValues.size && hasScalarValue && scalar && !optionValues.has(scalar)) {
+        throw new Error(`Env binding ${binding.envVar} value must match one of its option keys.`)
+      }
+      return {
+        envVar: binding.envVar,
+        value: scalar,
+        ...(optionValues.size ? { options } : {}),
+        ...(binding.description
+          ? { description: binding.description }
+          : existing.description
+            ? { description: existing.description }
+            : {}),
+      }
+    }),
     updateSkillDraft: vi.fn(),
     createSkillPatchExecute: vi.fn(),
     createSkillShellExecute: vi.fn(),
@@ -109,6 +148,7 @@ vi.mock('@/lib/skills-builder', () => ({
   replaceSkillMdFrontmatter: mocks.replaceSkillMdFrontmatter,
   sanitizeValidationPayload: mocks.sanitizeValidationPayload,
   upsertSkillFile: mocks.upsertSkillFile,
+  normalizeEnvBindingForStorage: mocks.normalizeEnvBindingForStorage,
   updateSkillDraft: mocks.updateSkillDraft,
   incrementSkillDraftBuilderAgentUsage: mocks.incrementSkillDraftBuilderAgentUsage,
 }))
@@ -461,14 +501,60 @@ describe('skills agent route', () => {
       'Do not reference `/.agents/...` paths.',
     )
     expect(mocks.streamArgs.system).toContain(
-      '`envBindings` is `{ envVar, value?, description? }` for fixed non-secret deployment config',
+      '`envBindings` is `{ envVar, value?, options?, description? }` for fixed non-secret deployment config',
     )
+    expect(mocks.streamArgs.system).toContain(
+      'create a dropdown with scalar `value` plus an optional `options` object',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Do not put arrays or objects in `value`',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`{ "envVar": "DEFAULT_MODEL", "value": "gpt-image-1.5", "options": { "gpt-image-1.5": "GPT Image 1.5", "gpt-image-1": "GPT Image 1", "gpt-image-1-mini": "GPT Image 1 Mini" }, "description": "Default image generation model." }`',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Use multiple-choice env bindings only for deployment-scoped choices that stay fixed across skill calls for this bot',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Those belong in `defineSkillFunction` input schemas as enum/union fields',
+    )
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.update_manifest.inputSchema.toJSONSchema()),
+    ).toContain('Optional public single-select dropdown choices')
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.update_manifest.inputSchema.toJSONSchema()),
+    ).toContain('value` must exactly match one of the option keys')
     expect(mocks.streamArgs.system).toContain(
       '`secretBindings` is `{ envVar, description? }` per credential',
     )
     expect(mocks.streamArgs.system).toContain(
-      'prefer simpler user-provisioned credentials such as API keys, bearer tokens, webhook secrets, or personal access tokens over OAuth access/refresh tokens',
+      'call `read_docs` with `auth_overview` and then the specific supported `auth_*` page',
     )
+    expect(mocks.streamArgs.system).toContain(
+      'For authenticated outbound requests, prefer `authProviders` with provider-scoped `allowedDomains` and `ctx.auth.fetch(...)`.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      'Use global `networkPolicy.allowedDomains` with built-in `fetch()` only for unauthenticated requests or legacy placeholder-based skills',
+    )
+    expect(mocks.streamArgs.system).toContain('## Progressive docs index')
+    expect(mocks.streamArgs.system).toContain(
+      '`auth_basic`: Read for Basic Auth APIs such as WordPress Application Passwords',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`auth_aws_sigv4`: Read for AWS APIs or AWS-compatible APIs',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`executable_functions`: Read before creating or changing `scripts/**`, `package.json`, or exported `defineSkillFunction` runtime functions.',
+    )
+    expect(mocks.streamArgs.system).toContain(
+      '`artifacts_files`: Read when a function creates a user-viewable or downloadable file',
+    )
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.read_docs.inputSchema.toJSONSchema()),
+    ).toContain('executable_functions')
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.read_docs.inputSchema.toJSONSchema()),
+    ).toContain('artifacts_files')
     expect(mocks.streamArgs.system).toContain(
       '`metadataBindings` is `{ envVar, metadataKey, description? }` for each value supplied from the widget embed or chat context',
     )
@@ -479,13 +565,10 @@ describe('skills agent route', () => {
       'Use env bindings for non-secret config that stays fixed for this skill bot deployment',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Skill handlers receive arguments in this order: `handler(ctx, input)`',
+      'Normal env binding placeholders such as `{{SERVICE_HOST}}` may be used in both global `networkPolicy.allowedDomains` and provider `authProviders[].allowedDomains`.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Never define a two-argument handler as `(input, ctx)`',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'Handler argument order is part of the runtime contract: `ctx` first, validated `input` second.',
+      'Use placeholder hostnames only when necessary for a portable skill because the hostname is customer-specific or deployment-specific.',
     )
     expect(mocks.streamArgs.system).toContain(
       'Do not use a placeholder as the entire `fetch` or `new Request` URL',
@@ -524,16 +607,10 @@ describe('skills agent route', () => {
       'Do not ask for identifiers just to code them in.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Do not run `npm install`, `npm view`, or inspect `node_modules` just to make validation work;',
+      'Before creating or changing executable TypeScript functions, call `read_docs` with `doc: "executable_functions"`.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'the remote runtime installs/resolves declared dependencies while bundling, and uploaded `node_modules` contents are ignored.',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'Put `"zod": "^4.0.0"` in `package.json` dependencies when using `import { z } from "zod";`.',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'Do not debug `/workspace/node_modules`, hidden package-manager directories, npm registry state, or local package cache layouts unless a local shell command explicitly failed because a package is missing.',
+      'If a function generates a file or downloadable artifact, call `read_docs` with `doc: "artifacts_files"` before writing the implementation.',
     )
     expect(mocks.streamArgs.system).toContain(
       'The Overview section should explain what the skill does, when it should be used, and any important execution context the runtime agent needs.',
@@ -542,31 +619,17 @@ describe('skills agent route', () => {
       'SKILL.md should describe agent behavior, decision-making, and how the agent should use generated skill functions.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'Return structured JSON objects only so the runtime can filter fields and pipe outputs between functions;',
+      'Function outputs must be structured JSON that matches the declared output schema.',
     )
     expect(mocks.streamArgs.system).toContain(
-      'await ctx.artifacts.publish({ filename, contentType, body })',
+      'Handler argument order is `handler(ctx, input)`; never reverse it.',
     )
-    expect(mocks.streamArgs.system).toContain(
-      'The publish call returns an artifact object shaped like `{ url, key, filename, contentType, expiresAt }`, not a bare string URL.',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'The `filename` is a user-facing display/download name and does not need to be globally unique; the runtime adds a UUID to the stored artifact path.',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'Prefer importing Zod as `import { z } from "zod";` for consistency.',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'input: ExampleTaskInputSchema',
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'output: ExampleTaskOutputSchema',
-    )
+    expect(mocks.streamArgs.system).not.toContain('await ctx.artifacts.publish({ filename, contentType, body })')
+    expect(mocks.streamArgs.system).not.toContain('input: ExampleTaskInputSchema')
+    expect(mocks.streamArgs.system).not.toContain('output: ExampleTaskOutputSchema')
+    expect(mocks.streamArgs.system).not.toContain('Put `"zod": "^4.0.0"`')
     expect(mocks.streamArgs.system).not.toContain(
       "If validation says `Function must define 'input' as a Zod schema`",
-    )
-    expect(mocks.streamArgs.system).toContain(
-      'artifact URLs are public links intended to be shown to end users.',
     )
     expect(mocks.streamArgs.system).toContain(
       'Do not put raw API call instructions, request URLs, HTTP parameter recipes, shell commands, coding steps, or TypeScript implementation tasks into SKILL.md.',
@@ -646,7 +709,7 @@ describe('skills agent route', () => {
     )
   })
 
-  it('uses team OpenAI key with gpt-5.4-mini when the team has an encrypted OpenAI key', async () => {
+  it('uses team OpenAI key with the skills builder model when the team has an encrypted OpenAI key', async () => {
     mocks.getTeamWithEncryptedOpenAIKey.mockResolvedValue({ openAIKey: 'enc:stub' })
     mocks.decryptKey.mockReturnValue('sk-team')
 
@@ -969,6 +1032,196 @@ describe('skills agent route', () => {
     ])
   })
 
+  it('rejects unsafe or non-env allowed domain values in update_manifest', async () => {
+    currentDraft.envBindings = [
+      { envVar: 'EXISTING_HOST', value: 'existing.example.com' },
+    ]
+    currentDraft.manifest = {
+      ...currentDraft.manifest,
+      envBindings: currentDraft.envBindings,
+    }
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['*'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/Wildcard allowed domains are not supported/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['*.example.com'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/Wildcard allowed domains are not supported/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['localhost'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/Local or private hostnames/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['127.0.0.1'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/IP literal allowed domains are not supported/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['https://api.example.com'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/hostnames only/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['{{ SERVICE_HOST }}'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/placeholders must be exactly one env binding placeholder/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        networkPolicy: { allowedDomains: ['{{SERVICE_HOST}}'], allowedSchemes: ['https'] },
+      }),
+    ).rejects.toThrow(/SERVICE_HOST is not declared in envBindings/)
+
+    await expect(
+      mocks.streamArgs.tools.update_manifest.execute({
+        authProviders: [
+          {
+            id: 'service',
+            type: 'headerAuth',
+            description: 'Adds service auth.',
+            headers: [{ name: 'Authorization', valueTemplate: 'Bearer {{SERVICE_TOKEN}}' }],
+            allowedDomains: ['*.example.com'],
+          },
+        ],
+        secretBindings: [{ envVar: 'SERVICE_TOKEN' }],
+      }),
+    ).rejects.toThrow(/Wildcard allowed domains are not supported/)
+
+    const result = await mocks.streamArgs.tools.update_manifest.execute({
+      envBindings: [
+        { envVar: 'EXISTING_HOST', value: 'existing.example.com' },
+        { envVar: 'SERVICE_HOST', value: 'api.example.com' },
+      ],
+      networkPolicy: { allowedDomains: ['{{SERVICE_HOST}}'], allowedSchemes: ['https'] },
+      authProviders: [
+        {
+          id: 'service',
+          type: 'headerAuth',
+          description: 'Adds service auth.',
+          headers: [{ name: 'Authorization', valueTemplate: 'Bearer {{SERVICE_TOKEN}}' }],
+          allowedDomains: ['{{SERVICE_HOST}}'],
+        },
+      ],
+      secretBindings: [{ envVar: 'SERVICE_TOKEN' }],
+    })
+
+    expect(result.manifest.networkPolicy.allowedDomains).toEqual(['{{SERVICE_HOST}}'])
+    expect(result.manifest.authProviders[0].allowedDomains).toEqual(['{{SERVICE_HOST}}'])
+    expect(result.warnings).toEqual([
+      expect.stringContaining('prefer the auth provider scoped allowedDomains'),
+    ])
+
+    const partialResult = await mocks.streamArgs.tools.update_manifest.execute({
+      envBindings: [{ envVar: 'OTHER_VALUE', value: 'other' }],
+      networkPolicy: { allowedDomains: ['{{EXISTING_HOST}}'], allowedSchemes: ['https'] },
+    })
+    expect(partialResult.manifest.networkPolicy.allowedDomains).toEqual(['{{EXISTING_HOST}}'])
+    expect(partialResult.warnings).toEqual([])
+
+    const authProviderPartialResult = await mocks.streamArgs.tools.update_manifest.execute({
+      envBindings: [
+        { envVar: 'OTHER_VALUE', value: 'other' },
+        { envVar: 'AUTH_SERVICE_HOST', value: 'auth.example.com' },
+      ],
+      authProviders: [
+        {
+          id: 'existing-service',
+          type: 'headerAuth',
+          description: 'Adds service auth for an existing host binding.',
+          headers: [{ name: 'Authorization', valueTemplate: 'Bearer {{SERVICE_TOKEN}}' }],
+          allowedDomains: ['{{AUTH_SERVICE_HOST}}'],
+        },
+      ],
+      secretBindings: [{ envVar: 'SERVICE_TOKEN' }],
+    })
+    expect(authProviderPartialResult.manifest.authProviders[0].allowedDomains).toEqual([
+      '{{AUTH_SERVICE_HOST}}',
+    ])
+  })
+
+  it('stores multiple-choice env bindings as scalar value plus options map', async () => {
+    currentDraft.envBindings = [
+      { envVar: 'REGION', value: 'eu-west-1', description: 'Current region' },
+    ]
+    currentDraft.manifest = {
+      ...currentDraft.manifest,
+      envBindings: currentDraft.envBindings,
+    }
+
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    const result = await mocks.streamArgs.tools.update_manifest.execute({
+      envBindings: [
+        {
+          envVar: 'REGION',
+          value: 'eu-west-1',
+          options: { 'us-east-1': 'us-east-1', 'eu-west-1': 'eu-west-1' },
+          description: 'Deployment region.',
+        },
+        {
+          envVar: 'API_ENVIRONMENT',
+          value: 'sandbox',
+          options: { sandbox: 'Sandbox', production: 'Production' },
+        },
+      ],
+    })
+
+    expect(result.manifest.envBindings).toEqual([
+      {
+        envVar: 'REGION',
+        value: 'eu-west-1',
+        options: { 'us-east-1': 'us-east-1', 'eu-west-1': 'eu-west-1' },
+        description: 'Deployment region.',
+      },
+      {
+        envVar: 'API_ENVIRONMENT',
+        value: 'sandbox',
+        options: { sandbox: 'Sandbox', production: 'Production' },
+      },
+    ])
+  })
+
   it('validates the current R2-backed draft and lets the runtime persist the bundle artifact', async () => {
     currentDraft.files = [
       { path: '.docsbot/bundle/index.js', content: 'stale generated bundle\n' },
@@ -1016,9 +1269,11 @@ describe('skills agent route', () => {
     )
     const validateBody = JSON.parse(mocks.runtimeFetch.mock.calls[0][1].body)
     expect(validateBody.manifest).toEqual({
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
       envBindings: [],
       secretBindings: [],
       metadataBindings: [],
+      authProviders: [],
     })
     expect(validateBody.r2Prefix).toBe('team-1/bot-1/customer-refunds')
     expect(validateBody.files.map((file) => file.path)).toEqual(['SKILL.md'])

@@ -6,6 +6,7 @@ import {
   countWebSearchToolCallsInSteps,
   formatSkillsBuilderUsageTooltip,
   isWebSearchToolCallPart,
+  SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL,
   SKILLS_BUILDER_AGENT_MODEL_SLUG,
   sumSkillsBuilderUsageFromMessages,
 } from '@/lib/skills-agent-usage'
@@ -31,7 +32,7 @@ describe('skills agent usage helpers', () => {
     )
 
     expect(meta.skillsBuilderAgentUsage.modelSlug).toBe(SKILLS_BUILDER_AGENT_MODEL_SLUG)
-    expect(meta.skillsBuilderAgentUsage.openaiModelId).toBe('gpt-5.4-mini')
+    expect(meta.skillsBuilderAgentUsage.openaiModelId).toBe(SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL)
     expect(meta.skillsBuilderAgentUsage.inputTokens).toBe(1_000_000)
     expect(meta.skillsBuilderAgentUsage.outputTokens).toBe(1_000_000)
     expect(meta.skillsBuilderAgentUsage.cachedInputTokens).toBe(200_000)
@@ -42,6 +43,28 @@ describe('skills agent usage helpers', () => {
     expect(meta.skillsBuilderAgentUsage.estimatedWebSearchCostUsd).toBeCloseTo(0.02, 5)
     expect(meta.skillsBuilderAgentUsage.estimatedCostUsd).toBeGreaterThan(0)
     expect(meta.skillsBuilderAgentUsage.estimatedTokenCostUsd).toBeGreaterThan(0)
+  })
+
+  it('uses GPT-5.5 selected-model rates in token cost estimates', () => {
+    const meta = buildSkillsBuilderAgentUsageMetadata(
+      {
+        inputTokens: 1_000_000,
+        outputTokens: 1_000_000,
+        inputTokenDetails: {
+          noCacheTokens: 800_000,
+          cacheReadTokens: 200_000,
+          cacheWriteTokens: 0,
+        },
+        outputTokenDetails: { textTokens: 1_000_000, reasoningTokens: 0 },
+        totalTokens: 2_000_000,
+      },
+      0,
+      {},
+      { openaiModelId: 'gpt-5.5' },
+    )
+
+    expect(meta.skillsBuilderAgentUsage.modelSlug).toBe('gpt-5-5')
+    expect(meta.skillsBuilderAgentUsage.estimatedTokenCostUsd).toBeCloseTo(34.1, 5)
   })
 
   it('uses gpt-5-4 pricing when openaiModelId is gpt-5.4', () => {

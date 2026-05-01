@@ -368,6 +368,7 @@ export function buildSkillManifest({
     envBindings: [],
     secretBindings: [],
     metadataBindings: [],
+    authProviders: [],
   }
 }
 
@@ -441,6 +442,73 @@ export function resolveSkillDisplayName(id, data = {}) {
 function normalizeBindingDescription(value) {
   const description = safeSkillString(value).trim()
   return description || undefined
+}
+
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+export function normalizeEnvBindingOptions(value) {
+  const options = {}
+
+  if (isPlainObject(value)) {
+    for (const [key, option] of Object.entries(value)) {
+      const valueFromKey = safeSkillString(key).trim()
+      if (!valueFromKey) continue
+      const label = safeSkillString(option, valueFromKey).trim()
+      options[valueFromKey] = label || valueFromKey
+    }
+  }
+
+  return options
+}
+
+export function normalizeEnvBindingForStorage(binding = {}, existing = {}) {
+  const envVar = safeSkillString(binding.envVar).trim()
+  const hasScalarValue =
+    typeof binding.value === 'string' ||
+    typeof binding.value === 'number' ||
+    typeof binding.value === 'boolean'
+  if (binding.value !== undefined && !hasScalarValue) {
+    const error = new Error(`Env binding ${envVar || 'value'} value must be a scalar.`)
+    error.status = 400
+    throw error
+  }
+  const optionsSource =
+    binding.options !== undefined
+      ? binding.options
+      : hasScalarValue
+        ? existing.options
+        : existing.options
+  const options = normalizeEnvBindingOptions(optionsSource)
+  const optionValues = new Set(Object.keys(options))
+  const existingValue = safeSkillString(existing.value).trim()
+  let value = hasScalarValue ? safeSkillString(binding.value).trim() : existingValue
+
+  if (optionValues.size) {
+    if (hasScalarValue && value && !optionValues.has(value)) {
+      const error = new Error(
+        `Env binding ${envVar} value must match one of its option keys.`,
+      )
+      error.status = 400
+      throw error
+    }
+
+    if (!hasScalarValue && value && !optionValues.has(value)) {
+      value = Object.keys(options)[0]
+    }
+  }
+
+  return {
+    envVar,
+    value,
+    ...(optionValues.size ? { options } : {}),
+    ...(normalizeBindingDescription(binding.description)
+      ? { description: normalizeBindingDescription(binding.description) }
+      : normalizeBindingDescription(existing.description)
+        ? { description: normalizeBindingDescription(existing.description) }
+        : {}),
+  }
 }
 
 export function decryptSkillSecretStoredValue(stored) {
@@ -522,9 +590,11 @@ export function serializeSkillRecord(id, data = {}, files = []) {
       allowedDomains: [],
       allowedSchemes: ['https'],
     },
+    authProviders: data.authProviders || [],
     envBindings: data.envBindings || [],
     secretBindings: data.secretBindings || [],
     metadataBindings: data.metadataBindings || [],
+    authProviders: data.authProviders || [],
   }
 
   return {
@@ -555,6 +625,7 @@ export function serializeSkillRecord(id, data = {}, files = []) {
     envBindings: manifest.envBindings,
     secretBindings: manifest.secretBindings,
     metadataBindings: manifest.metadataBindings,
+    authProviders: manifest.authProviders,
     manifest,
     agent: data.agent || {
       sandboxId: null,
@@ -579,11 +650,39 @@ export function skillListItemFromRecord(record) {
     internal: record.internal,
     enabled: record.enabled,
     updatedAt: record.updatedAt,
+    icon: record.icon,
+    networkPolicy: record.networkPolicy,
+    envBindings: record.envBindings,
+    authProviders: record.authProviders,
   }
+}
+
+function maskSecretBindingsForAgent(bindings) {
+  if (!Array.isArray(bindings)) return []
+  return bindings.map((binding) => ({
+    envVar: safeSkillString(binding.envVar),
+    secret: binding.secret ? '**REDACTED**' : '',
+    ...(normalizeBindingDescription(binding.description)
+      ? { description: normalizeBindingDescription(binding.description) }
+      : {}),
+  }))
+}
+
+function maskEnvBindingsForAgent(bindings) {
+  if (!Array.isArray(bindings)) return []
+  return bindings.map((binding) => ({
+    envVar: safeSkillString(binding.envVar),
+    value: binding.value ? '**REDACTED**' : '',
+    ...(normalizeBindingDescription(binding.description)
+      ? { description: normalizeBindingDescription(binding.description) }
+      : {}),
+  }))
 }
 
 export function buildSkillContextSummary(record) {
   const files = filterSupportedSkillFiles(record.files || [])
+  const envBindings = maskEnvBindingsForAgent(record.envBindings)
+  const secretBindings = maskSecretBindingsForAgent(record.secretBindings)
 
   return {
     skillName: record.skillName,
@@ -602,9 +701,10 @@ export function buildSkillContextSummary(record) {
       icon: record.icon,
       r2Prefix: record.r2Prefix,
       networkPolicy: record.networkPolicy,
-      envBindings: record.envBindings,
-      secretBindings: record.secretBindings,
+      envBindings,
+      secretBindings,
       metadataBindings: record.metadataBindings,
+      authProviders: record.authProviders,
     },
     fileTree: files.map((file) => ({
       path: file.path,
@@ -839,6 +939,7 @@ function libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId }) {
       allowedDomains: [],
       allowedSchemes: ['https'],
     },
+    authProviders: draft.authProviders || [],
     mode: draft.mode === SKILL_MODE_EXECUTABLE ? SKILL_MODE_EXECUTABLE : SKILL_MODE_MARKDOWN,
     audience:
       draft.audience === SKILL_AUDIENCE_CUSTOMER || draft.audience === SKILL_AUDIENCE_INTERNAL
@@ -993,6 +1094,7 @@ export async function importLibrarySkillToBot({
     envBindings: [],
     secretBindings: [],
     metadataBindings: [],
+    authProviders: librarySkill.authProviders || [],
     version: SKILL_SCHEMA_VERSION,
     mode: librarySkill.mode,
     audience: librarySkill.audience,
@@ -1099,6 +1201,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
     envBindings: current.envBindings || [],
     secretBindings: current.secretBindings || [],
     metadataBindings: current.metadataBindings || [],
+    authProviders: current.authProviders || [],
     ...(updates.manifest || {}),
   }
 
@@ -1112,6 +1215,15 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
         ? { description: normalizeBindingDescription(binding.description) }
         : {}),
     }))
+  }
+
+  if (Array.isArray(nextManifest.envBindings)) {
+    const currentEnvByName = new Map(
+      (current.envBindings || []).map((binding) => [binding.envVar, binding]),
+    )
+    nextManifest.envBindings = nextManifest.envBindings.map((binding) =>
+      normalizeEnvBindingForStorage(binding, currentEnvByName.get(binding.envVar) || {}),
+    )
   }
 
   const nextFiles = updates.files
@@ -1158,6 +1270,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
       envBindings: nextManifest.envBindings,
       secretBindings: nextManifest.secretBindings,
       metadataBindings: nextManifest.metadataBindings,
+      authProviders: nextManifest.authProviders,
       mode: nextMode,
       audience: updates.audience || current.audience,
       validation: updates.validation ?? current.validation,
@@ -1205,6 +1318,7 @@ const SKILL_DRAFT_SUMMARY_FIELDS = [
   'envBindings',
   'secretBindings',
   'metadataBindings',
+  'authProviders',
   'createdAt',
   'updatedAt',
   'publishedAt',

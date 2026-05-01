@@ -206,6 +206,8 @@ export async function GET(request, context) {
         publishedAt: draft.publishedAt,
         icon: draft.icon,
         networkPolicy: draft.networkPolicy,
+        envBindings: draft.envBindings,
+        authProviders: draft.authProviders,
         hasMissingEnvBindings: hasMissingEnvBindingValues(draft),
         hasMissingSecretBindings: hasMissingSecretBindingValues(draft),
       })),

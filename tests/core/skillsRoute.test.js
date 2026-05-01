@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => ({
   isSuperAdmin: vi.fn(() => false),
   getSkillDraft: vi.fn(),
   listSkillDrafts: vi.fn(async () => []),
+  listSkillDraftSummaries: vi.fn(async () => []),
   updateSkillDraft: vi.fn(),
   skillRecordWithDecryptedSecretBindings: vi.fn((skill) => skill),
   deleteSkillDraft: vi.fn(),
@@ -32,6 +33,7 @@ vi.mock('@/lib/skills-builder', () => ({
   deleteSkillDraft: mocks.deleteSkillDraft,
   getSkillDraft: mocks.getSkillDraft,
   listSkillDrafts: mocks.listSkillDrafts,
+  listSkillDraftSummaries: mocks.listSkillDraftSummaries,
   skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
   updateSkillDraft: mocks.updateSkillDraft,
 }))
@@ -53,12 +55,67 @@ describe('skills route', () => {
     mocks.countBillableBotActions.mockReturnValue(1)
     mocks.getBotActionSlotLimit.mockReturnValue(8)
     mocks.isSuperAdmin.mockReturnValue(false)
+    mocks.listSkillDraftSummaries.mockResolvedValue([])
 
     mocks.getAuthorizedBotContext.mockResolvedValue({
       team: { id: 'team-1', roles: { 'user-1': 'owner' } },
       bot: { id: 'bot-1', roles: {} },
       userId: 'user-1',
       firestore: { id: 'firestore' },
+    })
+  })
+
+  it('includes auth providers and env bindings in skill list summaries for provider-domain icons', async () => {
+    mocks.listSkillDraftSummaries.mockResolvedValue([
+      {
+        id: 'wordpress-posts',
+        draftId: 'wordpress-posts',
+        skillName: 'wordpress-posts',
+        name: 'WordPress Posts',
+        displayName: 'WordPress Posts',
+        description: 'Lists posts.',
+        internal: false,
+        enabled: true,
+        enabledWidget: false,
+        mode: 'executable',
+        hasFunctions: true,
+        updatedAt: '2026-04-30T00:00:00.000Z',
+        publishedAt: null,
+        icon: 'CommandLineIcon',
+        networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+        authProviders: [
+          {
+            id: 'wordpress',
+            type: 'basicAuth',
+            allowedDomains: ['wordpress.org'],
+            allowedSchemes: ['https'],
+          },
+        ],
+        envBindings: [{ envVar: 'WORDPRESS_HOST', value: 'wordpress.example' }],
+        secretBindings: [],
+      },
+    ])
+
+    const { GET } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/route')
+    const response = await GET(new Request('https://docsbot.example/skills'), {
+      params: Promise.resolve({ teamId: 'team-1', botId: 'bot-1' }),
+    })
+
+    expect(response.status).toBe(200)
+    await expect(response.json()).resolves.toMatchObject({
+      skills: [
+        {
+          skillName: 'wordpress-posts',
+          authProviders: [
+            {
+              id: 'wordpress',
+              type: 'basicAuth',
+              allowedDomains: ['wordpress.org'],
+            },
+          ],
+          envBindings: [{ envVar: 'WORDPRESS_HOST', value: 'wordpress.example' }],
+        },
+      ],
     })
   })
 

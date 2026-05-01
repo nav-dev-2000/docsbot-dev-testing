@@ -1,4 +1,5 @@
 import { LLMS } from '@/constants/llms.constants'
+import { LLM_PRICING } from '@/constants/llmPricing.constants'
 
 /** Skills builder agent always uses this OpenAI model id; BYOK only changes which API key is used. */
 export const SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL = 'gpt-5.4-mini'
@@ -7,8 +8,9 @@ export const SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL = 'gpt-5.4-mini'
 export const SKILLS_BUILDER_AGENT_MODEL_SLUG = 'gpt-5-4-mini'
 
 const OPENAI_MODEL_ID_TO_LLM_SLUG = {
+  'gpt-5.5': 'gpt-5-5',
   'gpt-5.4': 'gpt-5-4',
-  [SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL]: 'gpt-5-4-mini',
+  'gpt-5.4-mini': 'gpt-5-4-mini',
 }
 
 export function skillsBuilderOpenaiModelToLlmSlug(openaiModelId) {
@@ -34,7 +36,27 @@ const CF_SHELL_USD_PER_SECOND =
 const CACHE_READ_INPUT_RATE_MULTIPLIER = 0.1
 
 function resolveLlmPricing(slug) {
-  return LLMS.find((m) => m.slug === slug) || null
+  const llm = LLMS.find((m) => m.slug === slug) || null
+  const pricingRow =
+    Object.values(LLM_PRICING)
+      .flat()
+      .find((m) => m.model_slug === slug) || null
+
+  return {
+    inputCostPerMillion:
+      llm?.input_cost_per_million_tokens ??
+      pricingRow?.input_token_cost_per_million ??
+      0,
+    cachedInputCostPerMillion:
+      pricingRow?.cached_input_token_cost_per_million ??
+      (llm?.input_cost_per_million_tokens != null
+        ? llm.input_cost_per_million_tokens * CACHE_READ_INPUT_RATE_MULTIPLIER
+        : 0),
+    outputCostPerMillion:
+      llm?.output_cost_per_million_tokens ??
+      pricingRow?.output_token_cost_per_million ??
+      0,
+  }
 }
 
 /**
@@ -63,9 +85,9 @@ export function buildSkillsBuilderAgentUsageMetadata(
   const uncachedInput =
     typeof noCache === 'number' ? noCache : Math.max(0, inputTokens - cacheRead)
 
-  const inputRate = llm?.input_cost_per_million_tokens ?? 0
-  const outputRate = llm?.output_cost_per_million_tokens ?? 0
-  const cacheReadRate = inputRate * CACHE_READ_INPUT_RATE_MULTIPLIER
+  const inputRate = llm.inputCostPerMillion
+  const outputRate = llm.outputCostPerMillion
+  const cacheReadRate = llm.cachedInputCostPerMillion
 
   const estimatedTokenCostUsd =
     (uncachedInput / 1_000_000) * inputRate +

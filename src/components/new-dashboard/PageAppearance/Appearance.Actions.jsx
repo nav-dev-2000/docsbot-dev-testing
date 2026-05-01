@@ -1558,6 +1558,8 @@ const AppearanceActions = ({
                                     <SkillListIcon
                                         icon={skill.icon}
                                         networkPolicy={skill.networkPolicy}
+                                        envBindings={skill.envBindings}
+                                        authProviders={skill.authProviders}
                                     />
                                     <span className="min-w-0 truncate text-sm font-semibold text-gray-900">
                                         {skill.name}

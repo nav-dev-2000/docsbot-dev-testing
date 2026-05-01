@@ -217,6 +217,7 @@ const BotInner = ({
     canManageIntegrations: canManageIntegrationsFromServer = false,
     canManageBotSettings: canManageBotSettingsFromServer = false,
     preloadedSkillSummaries = null,
+    routeSkillIdFromServer = null,
 }) => {
     const router = useRouter()
     const [user, authLoading] = useAuthState(auth)
@@ -1043,8 +1044,10 @@ export const getServerSideProps = async (context) => {
             tab,
             control,
             questionId,
+            skillId,
             print: isPrint,
         } = slugToTabControl(slug)
+        data.props.routeSkillIdFromServer = skillId || null
 
         const normalizedBotIdForRedirect = Array.isArray(botId) ? botId[0] : botId
 

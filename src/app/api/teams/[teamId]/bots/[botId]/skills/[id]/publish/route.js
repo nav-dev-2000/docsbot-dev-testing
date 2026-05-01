@@ -45,9 +45,11 @@ export async function POST(request, context) {
         skillName: draft.skillName,
         r2Prefix: draft.r2Prefix,
         manifest: {
+          networkPolicy: draft.networkPolicy || { allowedDomains: [], allowedSchemes: ['https'] },
           envBindings: draft.envBindings || [],
           secretBindings: draft.secretBindings || [],
           metadataBindings: draft.metadataBindings || [],
+          authProviders: draft.authProviders || [],
         },
         files: (draft.files || []).map((file) => ({
           path: file.path,

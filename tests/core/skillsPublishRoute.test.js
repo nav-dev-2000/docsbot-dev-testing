@@ -63,6 +63,7 @@ describe('skills publish route', () => {
       envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
     },
     r2Prefix: 'team-1/bot-1/current-weather-api',
+    networkPolicy: { allowedDomains: ['api.example.com'], allowedSchemes: ['https'] },
     envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
     mode: 'executable',
     validation: { valid: false },
@@ -174,9 +175,11 @@ describe('skills publish route', () => {
     })
     const validationBody = JSON.parse(global.fetch.mock.calls[0][1].body)
     expect(validationBody.manifest).toEqual({
+      networkPolicy: { allowedDomains: ['api.example.com'], allowedSchemes: ['https'] },
       envBindings: [{ envVar: 'WORKSPACE_ID', value: 'workspace-123' }],
       secretBindings: [],
       metadataBindings: [],
+      authProviders: [],
     })
     expect(mocks.readSkillDraftPackageFromR2).not.toHaveBeenCalled()
     expect(mocks.readPublishedSkillPackageFromR2).not.toHaveBeenCalled()

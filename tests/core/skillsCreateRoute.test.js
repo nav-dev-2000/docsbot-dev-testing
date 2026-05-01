@@ -185,7 +185,7 @@ describe('skills create route', () => {
     expect(mocks.ensureSkillDraft).not.toHaveBeenCalled()
   })
 
-  it('lists skill widget readiness flags without exposing binding values in the summary shape', async () => {
+  it('lists skill widget readiness flags with env bindings for icon resolution', async () => {
     mocks.listSkillDraftSummaries.mockResolvedValue([
       {
         id: 'customer-refunds',
@@ -223,6 +223,7 @@ describe('skills create route', () => {
         expect.objectContaining({
           skillName: 'customer-refunds',
           name: 'Customer Refunds',
+          envBindings: [{ envVar: 'WORKSPACE_ID', value: '' }],
           hasMissingEnvBindings: true,
           hasMissingSecretBindings: true,
         }),
