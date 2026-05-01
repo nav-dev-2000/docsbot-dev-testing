@@ -43,6 +43,7 @@ function searchableTextForSkill(skill = {}) {
     skill.name,
     skill.skillName,
     skill.description,
+    skill.category,
   ]
     .filter(Boolean)
     .join('\n')
@@ -122,6 +123,7 @@ function rrfFuse(queryResults = [], limit = 20) {
             }
           : {}),
         id: String(row.id || attributes.id || ''),
+        category: String(attributes.category || ''),
         searchScore: score,
       }
     })
@@ -154,6 +156,7 @@ export async function indexLibrarySkillForSearch(skill) {
     key: id,
     name: String(skill?.name || id),
     description: String(skill?.description || ''),
+    category: String(skill?.category || ''),
     mode: String(skill?.mode || ''),
     audience: String(skill?.audience || ''),
     internal: Boolean(skill?.internal),
@@ -175,6 +178,7 @@ export async function indexLibrarySkillForSearch(skill) {
       key: { type: 'string', full_text_search: true },
       name: { type: 'string', full_text_search: true },
       description: { type: 'string', full_text_search: true },
+      category: { type: 'string', full_text_search: true },
       mode: 'string',
       audience: 'string',
       internal: 'bool',

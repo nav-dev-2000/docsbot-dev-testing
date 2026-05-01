@@ -21,6 +21,7 @@ const SKILL_UPDATE_KEYS = [
   'manifest',
   'files',
   'audience',
+  'category',
   'mode',
   'validation',
   'liveTest',

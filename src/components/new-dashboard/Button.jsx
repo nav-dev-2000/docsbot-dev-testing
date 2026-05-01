@@ -41,6 +41,10 @@ const Button = forwardRef(
                 themeClass = '!border-cyan-600 !bg-cyan-600 !text-white shadow-cyan-500/30 hover:!bg-cyan-700 hover:!border-cyan-700 hover:shadow-cyan-500/30'
                 break
 
+            case 'cyanSolid':
+                themeClass = '!border-cyan-600 !bg-cyan-600 !text-white shadow-cyan-500/30 hover:!bg-cyan-700 hover:!border-cyan-700 hover:shadow-cyan-500/30'
+                break
+
             case 'red':
                 themeClass = 'border-red-600 text-red-600 shadow-red-500/30 hover:shadow-red-500/30'
                 break

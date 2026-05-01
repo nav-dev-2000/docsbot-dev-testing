@@ -11,11 +11,13 @@ import {
 import {
   SKILL_AUDIENCE_CUSTOMER,
   SKILL_AUDIENCE_INTERNAL,
+  SKILL_CATEGORIES,
   allocateUniqueSkillName,
   createSkillMarkdownTemplate,
   ensureSkillDraft,
   listSkillDrafts,
   listSkillDraftSummaries,
+  normalizeSkillCategory,
   normalizeSkillName,
   skillRecordWithDecryptedSecretBindings,
   updateSkillDraft,
@@ -86,6 +88,10 @@ Choose a slug derived from the display name or user intent that is **specific an
 
 Pick **one** Heroicon name from the fixed enum returned by the schema. The icon is used in the dashboard and widget list when the skill does not yet have a network/API hostname; choose the single best match for the skill’s purpose (e.g. document work → \`DocumentTextIcon\`, shipping → \`TruckIcon\`, security → \`ShieldCheckIcon\`).
 
+## Field: \`category\` (required)
+
+Pick **one** category from the fixed enum returned by the schema. Choose the best broad category for the skill, whether it is a software integration, business process workflow, or informational/reference skill. Prefer broad business-process categories over narrow vendor/channel labels.
+
 ## Nuance
 Agents often reach for skills when the task needs **specialized** knowledge or workflows—not every trivial one-liner. Still write the description so matching tasks clearly qualify.
 
@@ -93,7 +99,7 @@ Agents often reach for skills when the task needs **specialized** knowledge or w
 You can use **web search** tool for quick research when it improves the \`name\` slug or \`description\`—for example: unfamiliar products, APIs, libraries, vendor names, acronyms, or domain terminology the user mentions. Use it **sparingly**: only when a short lookup would materially improve accuracy or triggering keywords. If the request is already clear, skip search and answer from context.
 
 ## Output
-Return only JSON matching the schema (including \`name\`, \`slug\`, and \`icon\`). Infer details conservatively from the user message, any images, and any brief research you performed.`
+Return only JSON matching the schema (including \`name\`, \`slug\`, \`description\`, \`icon\`, and \`category\`). Infer details conservatively from the user message, any images, and any brief research you performed.`
 
 function buildResponsesInput(prompt, images, audienceHint) {
   const text = String(prompt || '').trim()
@@ -131,7 +137,7 @@ const SKILL_METADATA_JSON_SCHEMA = {
     name: {
       type: 'string',
       description:
-        'Dashboard display name: friendly plain-text label, 3–64 chars, spaces and title casing allowed.',
+        'Dashboard display name: friendly plain-text label, 3–64 chars, spaces and title casing preferred.',
       minLength: NAME_MIN_LENGTH,
       maxLength: NAME_MAX_LENGTH,
     },
@@ -156,8 +162,14 @@ const SKILL_METADATA_JSON_SCHEMA = {
         'Single best Heroicon name for dashboard/widget lists (fallback when no API hostname is configured).',
       enum: HERO_ICON_ENUM,
     },
+    category: {
+      type: 'string',
+      description:
+        'Single best broad category for this skill across integrations, business workflows, and informational skills.',
+      enum: SKILL_CATEGORIES,
+    },
   },
-  required: ['name', 'slug', 'description', 'icon'],
+  required: ['name', 'slug', 'description', 'icon', 'category'],
   additionalProperties: false,
 }
 
@@ -202,6 +214,7 @@ export async function GET(request, context) {
         enabledWidget: draft.enabledWidget,
         mode: draft.mode,
         hasFunctions: draft.hasFunctions,
+        category: draft.category,
         updatedAt: draft.updatedAt,
         publishedAt: draft.publishedAt,
         icon: draft.icon,
@@ -320,6 +333,7 @@ export async function POST(request, context) {
     const description =
       typeof parsed.description === 'string' ? parsed.description.trim() : ''
     const icon = normalizeWhitelistedHeroIcon(parsed.icon)
+    const category = normalizeSkillCategory(parsed.category)
 
     if (!displayName || !description) {
       return NextResponse.json(
@@ -384,6 +398,7 @@ export async function POST(request, context) {
       skillName: uniqueSkillName,
       displayName,
       audience,
+      category,
     })
 
     const skillMd = createSkillMarkdownTemplate(uniqueSkillName, audience, draft.mode, {
@@ -402,6 +417,7 @@ export async function POST(request, context) {
         manifest: { displayName, description, icon },
         files: nextFiles,
         audience,
+        category,
       },
       firestore,
     )

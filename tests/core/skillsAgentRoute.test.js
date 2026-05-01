@@ -139,6 +139,35 @@ vi.mock('@/lib/openai-error-message', () => ({
 
 vi.mock('@/lib/skills-builder', () => ({
   GENERATED_BUNDLE_ARTIFACT_PATH: '.docsbot/bundle/index.js',
+  SKILL_CATEGORIES: [
+    'Default',
+    'Accounting & Finance',
+    'Analytics & BI',
+    'Application Development',
+    'Automation',
+    'Cloud Storage',
+    'Communications',
+    'Customer Support',
+    'Data Management',
+    'E-Commerce',
+    'Education & Training',
+    'Email',
+    'Events & Scheduling',
+    'HR & Recruiting',
+    'Identity & Access',
+    'Incident Management',
+    'Knowledge Management',
+    'Legal & Compliance',
+    'Marketing',
+    'Payments & Billing',
+    'Productivity',
+    'Project Management',
+    'Sales',
+    'Security & Verification',
+    'Subscriptions',
+    'Surveys & Feedback',
+    'Voice & Video',
+  ],
   buildSkillContextSummary: mocks.buildSkillContextSummary,
   getSkillFileContent: mocks.getSkillFileContent,
   getSkillDraft: mocks.getSkillDraft,
@@ -524,6 +553,9 @@ describe('skills agent route', () => {
     expect(
       JSON.stringify(mocks.streamArgs.tools.update_manifest.inputSchema.toJSONSchema()),
     ).toContain('value` must exactly match one of the option keys')
+    expect(
+      JSON.stringify(mocks.streamArgs.tools.update_manifest.inputSchema.toJSONSchema()),
+    ).toContain('Customer Support')
     expect(mocks.streamArgs.system).toContain(
       '`secretBindings` is `{ envVar, description? }` per credential',
     )
@@ -1030,6 +1062,31 @@ describe('skills agent route', () => {
       },
       { envVar: 'TENANT_ID', value: 'tenant-new' },
     ])
+  })
+
+  it('allows update_manifest to change the skill category', async () => {
+    const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
+    await POST(
+      new Request('https://docsbot.example/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [] }),
+      }),
+      {
+        params: Promise.resolve({
+          teamId: 'team-1',
+          botId: 'bot-1',
+          id: 'customer-refunds',
+        }),
+      },
+    )
+
+    await mocks.streamArgs.tools.update_manifest.execute({
+      category: 'Customer Support',
+    })
+
+    const lastCall = mocks.updateSkillDraft.mock.calls.at(-1)
+    expect(lastCall[3].manifest.category).toBe('Customer Support')
   })
 
   it('rejects unsafe or non-env allowed domain values in update_manifest', async () => {

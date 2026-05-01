@@ -11,9 +11,20 @@ const mocks = vi.hoisted(() => ({
   deleteLibrarySkillFromSearch: vi.fn(),
   indexLibrarySkillForSearch: vi.fn(),
   searchLibrarySkillsWithHybrid: vi.fn(),
+  responsesCreate: vi.fn(),
   configureFirebaseApp: vi.fn(),
   serverTimestamp: vi.fn(() => 'SERVER_TIMESTAMP'),
   increment: vi.fn((value) => ({ __increment: value })),
+}))
+
+vi.mock('openai', () => ({
+  default: class OpenAIMock {
+    constructor() {
+      this.responses = {
+        create: mocks.responsesCreate,
+      }
+    }
+  },
 }))
 
 vi.mock('@/lib/encryption', () => ({
@@ -249,6 +260,10 @@ describe('skills-builder helpers', () => {
       configured: true,
       skills: [],
     })
+    mocks.responsesCreate.mockResolvedValue({
+      output_text: JSON.stringify({ category: 'Productivity' }),
+    })
+    process.env.OPENAI_API_KEY = 'test-openai-key'
   })
 
   it('increments all builder agent usage total fields', async () => {
@@ -497,7 +512,7 @@ describe('skills-builder helpers', () => {
     ])
   })
 
-  it('updateSkillDraft preserves multiple-choice env options on scalar updates', async () => {
+  it('updateSkillDraft preserves existing env values on scalar updates', async () => {
     const firestore = createFirestoreMock({
       name: 'image-generator',
       description: 'Use when image generation needs defaults.',
@@ -552,12 +567,137 @@ describe('skills-builder helpers', () => {
     expect(updated.envBindings).toEqual([
       {
         envVar: 'DEFAULT_QUALITY',
-        value: 'medium',
+        value: 'auto',
         options: { auto: 'auto', low: 'low', medium: 'medium', high: 'high' },
         description: 'Default image quality when the user does not specify one.',
       },
     ])
     expect(updated.manifest.envBindings).toEqual(updated.envBindings)
+  })
+
+  it('updateSkillDraft ignores redacted placeholders and only fills empty binding values', async () => {
+    const storedCipher = 'encrypted:already-stored'
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [
+        { envVar: 'WORKSPACE_ID', value: 'workspace-123', description: 'Workspace ID.' },
+        { envVar: 'REGION', value: '', description: 'Deployment region.' },
+      ],
+      secretBindings: [
+        {
+          envVar: 'API_TOKEN',
+          secret: storedCipher,
+          description: 'API token used for outbound requests.',
+        },
+        {
+          envVar: 'WEBHOOK_SECRET',
+          secret: '',
+          description: 'Webhook signing secret.',
+        },
+      ],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'old content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          envBindings: [
+            {
+              envVar: 'WORKSPACE_ID',
+              value: '**REDACTED**',
+              description: 'Updated workspace description.',
+            },
+            {
+              envVar: 'REGION',
+              value: 'us-east-1',
+              description: 'Updated region description.',
+            },
+            {
+              envVar: 'ACCOUNT_ID',
+              value: '**REDACTED**',
+              description: 'Account ID.',
+            },
+          ],
+          secretBindings: [
+            {
+              envVar: 'API_TOKEN',
+              secret: '**REDACTED**',
+              description: 'Updated token description.',
+            },
+            {
+              envVar: 'WEBHOOK_SECRET',
+              secret: '**REDACTED**',
+              description: 'Updated webhook description.',
+            },
+            {
+              envVar: 'NEW_SECRET',
+              secret: '**REDACTED**',
+              description: 'New secret.',
+            },
+          ],
+        },
+      },
+      firestore,
+    )
+
+    expect(mocks.encryptKey).not.toHaveBeenCalled()
+    expect(updated.envBindings).toEqual([
+      {
+        envVar: 'WORKSPACE_ID',
+        value: 'workspace-123',
+        description: 'Updated workspace description.',
+      },
+      {
+        envVar: 'REGION',
+        value: 'us-east-1',
+        description: 'Updated region description.',
+      },
+      {
+        envVar: 'ACCOUNT_ID',
+        value: '',
+        description: 'Account ID.',
+      },
+    ])
+    expect(updated.secretBindings).toEqual([
+      {
+        envVar: 'API_TOKEN',
+        secret: storedCipher,
+        description: 'Updated token description.',
+      },
+      {
+        envVar: 'WEBHOOK_SECRET',
+        secret: '',
+        description: 'Updated webhook description.',
+      },
+      {
+        envVar: 'NEW_SECRET',
+        secret: '',
+        description: 'New secret.',
+      },
+    ])
   })
 
   it('updateSkillDraft rejects multiple-choice env values outside the option keys', async () => {
@@ -1123,6 +1263,7 @@ describe('skills-builder helpers', () => {
         weather: {
           name: 'weather',
           description: 'Use when checking weather.',
+          category: 'Automation',
           internal: false,
           enabled: true,
           enabledWidget: false,
@@ -1156,6 +1297,7 @@ describe('skills-builder helpers', () => {
         skillName: 'weather',
         name: 'Weather',
         description: 'Use when checking weather.',
+        category: 'Automation',
         r2Prefix: 'library/skills/weather',
         hasFunctions: true,
       }),
@@ -1177,8 +1319,10 @@ describe('skills-builder helpers', () => {
           skillName: 'weather',
         }),
         createdBy: 'admin-1',
+        category: 'Automation',
       }),
     )
+    expect(mocks.responsesCreate).not.toHaveBeenCalled()
   })
 
   it('replaces an existing library skill document when promoting the same id', async () => {
@@ -1195,6 +1339,7 @@ describe('skills-builder helpers', () => {
         weather: {
           name: 'weather',
           description: 'Updated weather skill.',
+          category: 'Knowledge Management',
           internal: true,
           enabled: true,
           enabledWidget: false,
@@ -1222,6 +1367,7 @@ describe('skills-builder helpers', () => {
       expect.objectContaining({
         name: 'Weather',
         description: 'Updated weather skill.',
+        category: 'Knowledge Management',
         createdAt: 'OLD_CREATED_AT',
         updatedAt: 'SERVER_TIMESTAMP',
       }),
@@ -1235,8 +1381,97 @@ describe('skills-builder helpers', () => {
       expect.objectContaining({
         id: 'weather',
         description: 'Updated weather skill.',
+        category: 'Knowledge Management',
       }),
     )
+  })
+
+  it('classifies missing categories when promoting a legacy skill to the library', async () => {
+    const firestore = createLibraryFirestoreMock({
+      local: {
+        weather: {
+          name: 'weather',
+          description: 'Use when checking weather.',
+          internal: false,
+          enabled: true,
+          enabledWidget: false,
+          hasFunctions: true,
+          icon: 'BoltIcon',
+          r2Prefix: 'team-1/bot-1/weather',
+          networkPolicy: { allowedDomains: ['api.weather.example'], allowedSchemes: ['https'] },
+          mode: 'executable',
+          audience: 'customer',
+          publishedAt: '2026-04-22T00:00:00.000Z',
+        },
+      },
+    })
+    mocks.responsesCreate.mockResolvedValueOnce({
+      output_text: JSON.stringify({ category: 'Automation' }),
+    })
+
+    const { promoteSkillDraftToLibrary, SKILL_CATEGORY_CLASSIFIER_MODEL } = await import(
+      '@/lib/skills-builder'
+    )
+    await promoteSkillDraftToLibrary({
+      firestore,
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'weather',
+      userId: 'admin-1',
+    })
+
+    expect(mocks.responsesCreate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        model: SKILL_CATEGORY_CLASSIFIER_MODEL,
+        text: expect.objectContaining({
+          format: expect.objectContaining({
+            schema: expect.objectContaining({
+              properties: expect.objectContaining({
+                category: expect.objectContaining({
+                  enum: expect.arrayContaining(['Default', 'Automation', 'Customer Support']),
+                }),
+              }),
+            }),
+          }),
+        }),
+      }),
+    )
+    expect(firestore.state.library.weather.category).toBe('Automation')
+  })
+
+  it('falls back to Default when legacy category classification fails during promotion', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const firestore = createLibraryFirestoreMock({
+      local: {
+        weather: {
+          name: 'weather',
+          description: 'Use when checking weather.',
+          internal: false,
+          enabled: true,
+          enabledWidget: false,
+          hasFunctions: false,
+          icon: 'BoltIcon',
+          r2Prefix: 'team-1/bot-1/weather',
+          networkPolicy: { allowedDomains: ['api.weather.example'], allowedSchemes: ['https'] },
+          mode: 'markdown',
+          audience: 'customer',
+          publishedAt: '2026-04-22T00:00:00.000Z',
+        },
+      },
+    })
+    mocks.responsesCreate.mockRejectedValueOnce(new Error('classifier unavailable'))
+
+    const { promoteSkillDraftToLibrary } = await import('@/lib/skills-builder')
+    await promoteSkillDraftToLibrary({
+      firestore,
+      teamId: 'team-1',
+      botId: 'bot-1',
+      skillName: 'weather',
+      userId: 'admin-1',
+    })
+
+    expect(firestore.state.library.weather.category).toBe('Default')
+    warnSpy.mockRestore()
   })
 
   it('returns configured library search hits directly from the search index', async () => {
@@ -1307,6 +1542,7 @@ describe('skills-builder helpers', () => {
         weather: {
           name: 'weather',
           description: 'Use when checking weather.',
+          category: 'Automation',
           internal: false,
           hasFunctions: false,
           icon: 'BoltIcon',
@@ -1344,6 +1580,7 @@ describe('skills-builder helpers', () => {
         name: 'weather-2',
         displayName: 'Weather',
         description: 'Use when checking weather.',
+        category: 'Automation',
         r2Prefix: 'team-1/bot-1/weather-2',
         enabled: false,
         enabledWidget: false,

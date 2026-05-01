@@ -40,6 +40,7 @@ vi.mock('@/lib/skills-builder', async () => {
   return {
     SKILL_AUDIENCE_CUSTOMER: actual.SKILL_AUDIENCE_CUSTOMER,
     SKILL_AUDIENCE_INTERNAL: actual.SKILL_AUDIENCE_INTERNAL,
+    SKILL_CATEGORIES: actual.SKILL_CATEGORIES,
     allocateUniqueSkillName: mocks.allocateUniqueSkillName,
     createSkillMarkdownTemplate: vi.fn((skillName, _audience, _mode, options = {}) =>
       `---\nname: ${skillName}\ndescription: "${options.description || ''}"\n---\n`,
@@ -47,6 +48,7 @@ vi.mock('@/lib/skills-builder', async () => {
     ensureSkillDraft: mocks.ensureSkillDraft,
     listSkillDrafts: mocks.listSkillDrafts,
     listSkillDraftSummaries: mocks.listSkillDraftSummaries,
+    normalizeSkillCategory: actual.normalizeSkillCategory,
     normalizeSkillName: actual.normalizeSkillName,
     skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
     updateSkillDraft: mocks.updateSkillDraft,
@@ -77,6 +79,7 @@ describe('skills create route', () => {
         slug: 'customer-refunds',
         description: 'Use when customers ask about refund policies and refund workflows.',
         icon: 'ReceiptRefundIcon',
+        category: 'Customer Support',
       }),
     })
     mocks.ensureSkillDraft.mockResolvedValue({
@@ -93,6 +96,7 @@ describe('skills create route', () => {
       name: 'Customer Refunds',
       displayName: 'Customer Refunds',
       description: 'Use when customers ask about refund policies and refund workflows.',
+      category: 'Customer Support',
     })
   })
 
@@ -118,7 +122,7 @@ describe('skills create route', () => {
         text: expect.objectContaining({
           format: expect.objectContaining({
             schema: expect.objectContaining({
-              required: ['name', 'slug', 'description', 'icon'],
+              required: ['name', 'slug', 'description', 'icon', 'category'],
             }),
           }),
         }),
@@ -134,6 +138,7 @@ describe('skills create route', () => {
       expect.objectContaining({
         skillName: 'customer-refunds',
         displayName: 'Customer Refunds',
+        category: 'Customer Support',
       }),
     )
     expect(mocks.updateSkillDraft).toHaveBeenCalledWith(
@@ -145,6 +150,7 @@ describe('skills create route', () => {
           displayName: 'Customer Refunds',
           description: 'Use when customers ask about refund policies and refund workflows.',
         }),
+        category: 'Customer Support',
       }),
       { id: 'firestore' },
     )
@@ -199,6 +205,7 @@ describe('skills create route', () => {
         enabledWidget: false,
         mode: 'executable',
         hasFunctions: true,
+        category: 'Customer Support',
         updatedAt: '2026-04-29T00:00:00.000Z',
         publishedAt: '2026-04-29T00:00:00.000Z',
         icon: 'ReceiptRefundIcon',
@@ -223,6 +230,7 @@ describe('skills create route', () => {
         expect.objectContaining({
           skillName: 'customer-refunds',
           name: 'Customer Refunds',
+          category: 'Customer Support',
           envBindings: [{ envVar: 'WORKSPACE_ID', value: '' }],
           hasMissingEnvBindings: true,
           hasMissingSecretBindings: true,

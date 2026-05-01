@@ -29,14 +29,19 @@ vi.mock('@/utils/function.utils', async () => {
   }
 })
 
-vi.mock('@/lib/skills-builder', () => ({
-  deleteSkillDraft: mocks.deleteSkillDraft,
-  getSkillDraft: mocks.getSkillDraft,
-  listSkillDrafts: mocks.listSkillDrafts,
-  listSkillDraftSummaries: mocks.listSkillDraftSummaries,
-  skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
-  updateSkillDraft: mocks.updateSkillDraft,
-}))
+vi.mock('@/lib/skills-builder', async () => {
+  const actual = await vi.importActual('@/lib/skills-builder')
+  return {
+    SKILL_CATEGORIES: actual.SKILL_CATEGORIES,
+    normalizeSkillCategory: actual.normalizeSkillCategory,
+    deleteSkillDraft: mocks.deleteSkillDraft,
+    getSkillDraft: mocks.getSkillDraft,
+    listSkillDrafts: mocks.listSkillDrafts,
+    listSkillDraftSummaries: mocks.listSkillDraftSummaries,
+    skillRecordWithDecryptedSecretBindings: mocks.skillRecordWithDecryptedSecretBindings,
+    updateSkillDraft: mocks.updateSkillDraft,
+  }
+})
 
 vi.mock('@/utils/helpers', () => ({
   countBillableBotActions: mocks.countBillableBotActions,

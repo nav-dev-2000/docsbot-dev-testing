@@ -19,6 +19,7 @@ import {
   publishSkillDraft,
   replaceSkillMdFrontmatter,
   sanitizeValidationPayload,
+  SKILL_CATEGORIES,
   upsertSkillFile,
   updateSkillDraft,
 } from '@/lib/skills-builder'
@@ -768,6 +769,12 @@ const updateManifestInputSchema = z
       .describe(
         'If true, the skill is intended for internal operators only; otherwise treat it as customer-facing.',
       ),
+    category: z
+      .enum(SKILL_CATEGORIES)
+      .optional()
+      .describe(
+        'Broad category for library filtering and skill organization. Choose the single best category for the integration, business workflow, or informational skill.',
+      ),
     networkPolicy: z
       .object({
         allowedDomains: z.array(allowedDomainSchema).optional(),
@@ -1232,6 +1239,7 @@ export async function POST(request, context) {
           if (input.name !== undefined) patch.displayName = input.name
           if (input.description !== undefined) patch.description = input.description
           if (input.internal !== undefined) patch.internal = input.internal
+          if (input.category !== undefined) patch.category = input.category
           if (input.networkPolicy !== undefined) patch.networkPolicy = input.networkPolicy
           if (input.envBindings !== undefined) {
             const existingEnvByName = new Map(

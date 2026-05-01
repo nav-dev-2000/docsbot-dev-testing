@@ -48,6 +48,7 @@ import { Streamdown, defaultRemarkPlugins, defaultRehypePlugins } from '@/compon
 import Workspace from '@new-dashboard/Workspace'
 import Button from '@new-dashboard/Button'
 import Note from '@new-dashboard/Note'
+import Select from '@new-dashboard/Select'
 import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 import { preprocessMath } from '@/utils/markdown'
 import Tooltip from '@/components/Tooltip'
@@ -73,6 +74,9 @@ import {
     SKILLS_LIBRARY_CAPABILITY_ALL,
     SKILLS_LIBRARY_CAPABILITY_EXECUTABLE,
     SKILLS_LIBRARY_CAPABILITY_MARKDOWN,
+    SKILLS_LIBRARY_CATEGORIES,
+    SKILLS_LIBRARY_CATEGORY_ALL,
+    SKILLS_LIBRARY_CATEGORY_DEFAULT,
 } from '@/lib/skills-library-ui'
 import {
     createSkillsBuilderChatCache,
@@ -105,6 +109,17 @@ import { diffLines, diffWordsWithSpace } from 'diff'
 
 /** useLayoutEffect warns on SSR; use useEffect on the server (effects still do not run until mount). */
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
+const CREATE_SKILL_AUDIENCE_OPTIONS = [
+    {
+        value: 'customer',
+        label: 'Customer-facing — widget and public chats',
+    },
+    {
+        value: 'internal',
+        label: 'Internal-only — team and authenticated use',
+    },
+]
 
 const DETAIL_TABS = [
     { id: 'builder', title: 'Builder' },
@@ -4450,30 +4465,21 @@ function EnvironmentBindingsForm({
                                         {displayText(row.envVar, 'Variable')}
                                     </label>
                                     {options.length ? (
-                                        <select
+                                        <Select
                                             id={`skill-env-${row.envVar}`}
-                                            aria-invalid={isMissing}
+                                            className="mt-2"
+                                            invalid={isMissing}
                                             disabled={!canSave || saving}
                                             value={fieldValue}
-                                            onChange={(e) =>
+                                            onChange={(next) =>
                                                 setEnvValuesByVar((prev) => ({
                                                     ...prev,
-                                                    [row.envVar]: e.target.value,
+                                                    [row.envVar]: next,
                                                 }))
                                             }
-                                            className={clsx(
-                                                'mt-2 w-full rounded-lg border bg-white px-3 py-2 text-sm outline-none transition disabled:opacity-50',
-                                                isMissing
-                                                    ? 'border-red-500 hover:border-red-500 focus:border-red-600 focus:shadow-md focus:shadow-red-500/25 focus:ring-0'
-                                                    : 'border-gray-300 hover:border-cyan-500 focus:border-cyan-500 focus:shadow-md focus:shadow-cyan-500/20 focus:ring-0',
-                                            )}
-                                        >
-                                            {options.map((option) => (
-                                                <option key={option.value} value={option.value}>
-                                                    {option.label}
-                                                </option>
-                                            ))}
-                                        </select>
+                                            options={options}
+                                            buttonClassName="py-2"
+                                        />
                                     ) : (
                                         <input
                                             id={`skill-env-${row.envVar}`}
@@ -4608,7 +4614,7 @@ function EnvironmentBindingsForm({
                 {(envRows.length || secretRows.length) ? (
                     <Button
                         type="button"
-                        theme="blueSolid"
+                        theme="cyanSolid"
                         size="sm"
                         label={saving ? 'Saving' : 'Save'}
                         icon={saving ? LoadingSpinner : SaveDiskIcon}
@@ -4646,17 +4652,17 @@ function LiveManifestSidebar({
         draft.skillDescription ||
         '—'
     const description = displayText(rawDescription, '—')
+    const category = displayText(m.category ?? draft.category, SKILLS_LIBRARY_CATEGORY_DEFAULT)
     const hasFunctions = m.hasFunctions ?? draft.hasFunctions ?? false
     const networkPolicy = m.networkPolicy || draft.networkPolicy
     const envBindings = m.envBindings ?? draft.envBindings ?? []
     const metadataBindings = m.metadataBindings ?? draft.metadataBindings ?? []
     const secretBindings = m.secretBindings ?? draft.secretBindings ?? []
     const authProviders = m.authProviders ?? draft.authProviders ?? []
-    const hasManifestEnvBindings = Array.isArray(m.envBindings) && m.envBindings.length > 0
-    const hasManifestSecretBindings =
-        Array.isArray(m.secretBindings) && m.secretBindings.length > 0
-    const hasManifestMetadataBindings =
-        Array.isArray(m.metadataBindings) && m.metadataBindings.length > 0
+    const hasEnvBindings = Array.isArray(envBindings) && envBindings.length > 0
+    const hasSecretBindings = Array.isArray(secretBindings) && secretBindings.length > 0
+    const hasMetadataBindings = Array.isArray(metadataBindings) && metadataBindings.length > 0
+    const hasAuthProviders = Array.isArray(authProviders) && authProviders.length > 0
     const hasGlobalAllowedDomains = formatNetworkPolicySummary(networkPolicy).domains.length > 0
     const hasMissingTestBindings = hasMissingSkillTestEnvironmentBindings(draft)
     const missingTestBindingsMessage = hasMissingTestBindings
@@ -4671,8 +4677,8 @@ function LiveManifestSidebar({
                     <button
                         type="button"
                         disabled={!canRunPublishedTest}
-                        onClick={() => onOpenSkillTest?.()}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-md border-2 border-cyan-600 bg-white px-3 py-1.5 text-sm font-semibold text-cyan-700 shadow-sm transition hover:bg-cyan-50 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-white"
+	                        onClick={() => onOpenSkillTest?.()}
+	                        className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-cyan-600 bg-white px-3 py-2 text-xs font-medium text-cyan-700 shadow-sm transition hover:bg-cyan-50 hover:text-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-white"
                     >
                         <BeakerIcon className="h-4 w-4" aria-hidden />
                         Test skill
@@ -4700,6 +4706,11 @@ function LiveManifestSidebar({
             <div>
                 <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Description</div>
                 <div className="mt-1 whitespace-pre-wrap text-sm text-gray-700">{description}</div>
+                <div className="mt-2 flex justify-end">
+                    <span className="inline-flex max-w-full items-center rounded-md bg-gray-100 px-1.5 py-0.5 text-[10px] font-medium text-gray-600">
+                        <span className="truncate">{category}</span>
+                    </span>
+                </div>
             </div>
 
             {hasGlobalAllowedDomains ? (
@@ -4711,29 +4722,31 @@ function LiveManifestSidebar({
                 </div>
             ) : null}
 
-            <div>
-                <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Auth providers</div>
-                <div className="mt-2">
-                    <AuthProvidersReadable providers={authProviders} envBindings={envBindings} />
+            {hasAuthProviders ? (
+                <div>
+                    <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Auth providers</div>
+                    <div className="mt-2">
+                        <AuthProvidersReadable providers={authProviders} envBindings={envBindings} />
+                    </div>
                 </div>
-            </div>
+            ) : null}
 
-            <div>
-                <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">User metadata</div>
-                {hasManifestMetadataBindings ? (
+            {hasMetadataBindings ? (
+                <div>
+                    <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">User metadata</div>
                     <p className="mt-1 text-[11px] text-gray-500">
                         Keys to pass from the widget into this skill. Each key is the identifier you add to your embed
                         code.
                     </p>
-                ) : null}
-                <div className="mt-2">
-                    <MetadataBindingsReadable bindings={metadataBindings} />
+                    <div className="mt-2">
+                        <MetadataBindingsReadable bindings={metadataBindings} />
+                    </div>
                 </div>
-            </div>
+            ) : null}
 
-            <div>
-                <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Environment</div>
-                {hasManifestEnvBindings || hasManifestSecretBindings ? (
+            {hasEnvBindings || hasSecretBindings ? (
+                <div>
+                    <div className="text-[11px] font-medium uppercase tracking-wide text-gray-500">Environment</div>
                     <button
                         type="button"
                         onClick={() =>
@@ -4746,19 +4759,20 @@ function LiveManifestSidebar({
                     >
                         Tell me where to find these values
                     </button>
-                ) : null}
-                <div className="mt-2">
-                    <EnvironmentBindingsForm
-                        envBindings={envBindings}
-                        secretBindings={secretBindings}
-                        skillUpdateUrl={skillUpdateUrl}
-                        onSkillUpdated={onSkillUpdated}
-                        setErrorText={setErrorText}
-                        setInfoText={setInfoText}
-                        testSkillButton={testSkillButton}
-                    />
+                    <div className="mt-2">
+                        <EnvironmentBindingsForm
+                            envBindings={envBindings}
+                            secretBindings={secretBindings}
+                            skillUpdateUrl={skillUpdateUrl}
+                            onSkillUpdated={onSkillUpdated}
+	                            setErrorText={setErrorText}
+	                            setInfoText={setInfoText}
+	                            testSkillButton={testSkillButton}
+	                        />
+                    </div>
                 </div>
-            </div>
+            ) : null}
+
         </div>
     )
 }
@@ -4878,7 +4892,7 @@ function SkillWidgetButton({ skill, botId, isPublicBot, disabled, onToggle }) {
             ) : (
                 <ChatBubbleLeftRightIcon className="-ml-0.5 h-4 w-4" aria-hidden />
             )}
-            {isEnabled ? 'Remove from widget' : 'Add to bot'}
+            {isEnabled ? 'Remove from bot' : 'Add to bot'}
         </button>
     )
 
@@ -4902,6 +4916,18 @@ function SkillWidgetButton({ skill, botId, isPublicBot, disabled, onToggle }) {
     )
 }
 
+const SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS = [
+    { value: SKILLS_LIBRARY_CAPABILITY_ALL, label: 'All capabilities' },
+    { value: SKILLS_LIBRARY_CAPABILITY_MARKDOWN, label: 'Instructions only' },
+    { value: SKILLS_LIBRARY_CAPABILITY_EXECUTABLE, label: 'Executable' },
+]
+
+const SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS = [
+    { value: SKILLS_LIBRARY_AUDIENCE_ALL, label: 'All audiences' },
+    { value: SKILLS_LIBRARY_AUDIENCE_CUSTOMER, label: 'Customer-facing' },
+    { value: SKILLS_LIBRARY_AUDIENCE_INTERNAL, label: 'Internal-only' },
+]
+
 function SkillsLibraryModal({
     open,
     onClose,
@@ -4914,6 +4940,8 @@ function SkillsLibraryModal({
     setCapabilityFilter,
     audienceFilter,
     setAudienceFilter,
+    categoryFilter,
+    setCategoryFilter,
     importingSkillId,
     deletingLibrarySkillId,
     isSuperAdminViewer,
@@ -4926,9 +4954,38 @@ function SkillsLibraryModal({
                 query: '',
                 capability: capabilityFilter,
                 audience: audienceFilter,
+                category: categoryFilter,
             }),
-        [audienceFilter, capabilityFilter, skills],
+        [audienceFilter, capabilityFilter, categoryFilter, skills],
     )
+
+    const categorySelectOptions = useMemo(
+        () => [
+            { value: SKILLS_LIBRARY_CATEGORY_ALL, label: 'All categories' },
+            ...SKILLS_LIBRARY_CATEGORIES.map((category) => ({
+                value: category,
+                label: category,
+            })),
+        ],
+        [],
+    )
+
+    const hasLibraryFiltersActive = useMemo(() => {
+        const q = String(search || '').trim()
+        return (
+            q.length > 0 ||
+            capabilityFilter !== SKILLS_LIBRARY_CAPABILITY_ALL ||
+            audienceFilter !== SKILLS_LIBRARY_AUDIENCE_ALL ||
+            categoryFilter !== SKILLS_LIBRARY_CATEGORY_ALL
+        )
+    }, [audienceFilter, capabilityFilter, categoryFilter, search])
+
+    const clearLibraryFilters = useCallback(() => {
+        setSearch('')
+        setCapabilityFilter(SKILLS_LIBRARY_CAPABILITY_ALL)
+        setAudienceFilter(SKILLS_LIBRARY_AUDIENCE_ALL)
+        setCategoryFilter(SKILLS_LIBRARY_CATEGORY_ALL)
+    }, [setAudienceFilter, setCapabilityFilter, setCategoryFilter, setSearch])
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -4955,7 +5012,7 @@ function SkillsLibraryModal({
                             leaveFrom="translate-y-0 opacity-100 sm:scale-100"
                             leaveTo="translate-y-2 opacity-0 sm:scale-95"
                         >
-                            <Dialog.Panel className="flex max-h-[85vh] w-full max-w-4xl flex-col overflow-hidden rounded-xl bg-white shadow-xl">
+                            <Dialog.Panel className="flex max-h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-xl bg-white shadow-xl">
                                 <div className="flex shrink-0 items-start justify-between gap-3 border-b border-gray-200 px-5 py-4">
                                     <div className="min-w-0">
                                         <Dialog.Title className="text-base font-semibold text-gray-900">
@@ -4989,25 +5046,61 @@ function SkillsLibraryModal({
                                                 className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none focus:border-cyan-600 focus:ring-0"
                                             />
                                         </label>
-                                        <div className="flex shrink-0 flex-wrap gap-2">
-                                            <select
+                                        <div className="flex shrink-0 flex-wrap items-end gap-2">
+                                            <Select
+                                                aria-label="Filter by capability"
+                                                className="min-w-[11rem]"
                                                 value={capabilityFilter}
-                                                onChange={(e) => setCapabilityFilter(e.target.value)}
-                                                className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
-                                            >
-                                                <option value={SKILLS_LIBRARY_CAPABILITY_ALL}>All capabilities</option>
-                                                <option value={SKILLS_LIBRARY_CAPABILITY_MARKDOWN}>Instructions only</option>
-                                                <option value={SKILLS_LIBRARY_CAPABILITY_EXECUTABLE}>Executable</option>
-                                            </select>
-                                            <select
+                                                onChange={setCapabilityFilter}
+                                                options={SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS}
+                                            />
+                                            <Select
+                                                aria-label="Filter by audience"
+                                                className="min-w-[10.5rem]"
                                                 value={audienceFilter}
-                                                onChange={(e) => setAudienceFilter(e.target.value)}
-                                                className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 focus:ring-0"
+                                                onChange={setAudienceFilter}
+                                                options={SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS}
+                                            />
+                                            <Select
+                                                aria-label="Filter by category"
+                                                className="min-w-[10rem]"
+                                                value={categoryFilter}
+                                                onChange={setCategoryFilter}
+                                                options={categorySelectOptions}
+                                            />
+                                            <Tooltip
+                                                content={
+                                                    hasLibraryFiltersActive
+                                                        ? 'Clear filters'
+                                                        : 'No filters applied'
+                                                }
+                                                zIndex={SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX}
                                             >
-                                                <option value={SKILLS_LIBRARY_AUDIENCE_ALL}>All audiences</option>
-                                                <option value={SKILLS_LIBRARY_AUDIENCE_CUSTOMER}>Customer-facing</option>
-                                                <option value={SKILLS_LIBRARY_AUDIENCE_INTERNAL}>Internal-only</option>
-                                            </select>
+                                                <span className="inline-flex shrink-0">
+                                                    <button
+                                                        type="button"
+                                                        aria-label={
+                                                            hasLibraryFiltersActive
+                                                                ? 'Clear filters'
+                                                                : 'No filters applied'
+                                                        }
+                                                        aria-disabled={!hasLibraryFiltersActive}
+                                                        tabIndex={hasLibraryFiltersActive ? 0 : -1}
+                                                        onClick={() => {
+                                                            if (!hasLibraryFiltersActive) return
+                                                            clearLibraryFilters()
+                                                        }}
+                                                        className={clsx(
+                                                            'inline-flex size-10 items-center justify-center rounded-lg border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2',
+                                                            hasLibraryFiltersActive
+                                                                ? 'border-cyan-200 text-cyan-800 hover:bg-cyan-50'
+                                                                : 'cursor-not-allowed border-gray-200 text-gray-400',
+                                                        )}
+                                                    >
+                                                        <XMarkIcon className="h-5 w-5 shrink-0" aria-hidden />
+                                                    </button>
+                                                </span>
+                                            </Tooltip>
                                         </div>
                                     </div>
                                 </div>
@@ -5020,7 +5113,7 @@ function SkillsLibraryModal({
                                             No library skills match the current search and filters.
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
                                             {filteredSkills.map((skill) => {
                                                 const isImporting = importingSkillId === skill.id
                                                 const isDeleting = deletingLibrarySkillId === skill.id
@@ -5044,6 +5137,11 @@ function SkillsLibraryModal({
                                                                     {skillListDescription(skill.description) ||
                                                                         'No description yet.'}
                                                                 </p>
+                                                                <div className="mt-2 inline-flex max-w-full items-center rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">
+                                                                    <span className="truncate">
+                                                                        {skill.category || SKILLS_LIBRARY_CATEGORY_DEFAULT}
+                                                                    </span>
+                                                                </div>
                                                                 <div className="mt-3 flex items-center justify-between gap-2">
                                                                     <div className="flex min-w-0 items-center gap-0.5">
                                                                         <SkillAudienceIcon
@@ -5162,6 +5260,7 @@ const PageConfigureSkills = ({
     const [librarySearch, setLibrarySearch] = useState('')
     const [libraryCapabilityFilter, setLibraryCapabilityFilter] = useState(SKILLS_LIBRARY_CAPABILITY_ALL)
     const [libraryAudienceFilter, setLibraryAudienceFilter] = useState(SKILLS_LIBRARY_AUDIENCE_ALL)
+    const [libraryCategoryFilter, setLibraryCategoryFilter] = useState(SKILLS_LIBRARY_CATEGORY_ALL)
     const [importingLibrarySkillId, setImportingLibrarySkillId] = useState(null)
     const [deletingLibrarySkillId, setDeletingLibrarySkillId] = useState(null)
     const [similarLibrarySkills, setSimilarLibrarySkills] = useState([])
@@ -6910,7 +7009,12 @@ const PageConfigureSkills = ({
                                         openExistingSkill(skill)
                                     }
                                 }}
-                                className="flex cursor-pointer flex-col rounded-xl border border-gray-200 bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md"
+                                className={clsx(
+                                    'flex cursor-pointer flex-col rounded-xl border bg-white p-5 text-left shadow-sm transition hover:border-cyan-300 hover:shadow-md',
+                                    skill?.enabledWidget === true
+                                        ? 'border-cyan-500 shadow-cyan-100/80'
+                                        : 'border-gray-200',
+                                )}
                             >
                                 <div className="flex items-start gap-3">
                                     <SkillListIcon
@@ -6997,7 +7101,10 @@ const PageConfigureSkills = ({
                                 start the builder with your message.
                             </p>
 
-                        <label className="mt-8 block text-xs font-medium uppercase tracking-wide text-gray-500">
+                        <label
+                            className="mt-8 block text-xs font-medium uppercase tracking-wide text-gray-500"
+                            htmlFor="skills-create-audience"
+                        >
                             Audience
                         </label>
                         {draftState.audience === 'internal' && bot?.privacy === 'public' ? (
@@ -7010,21 +7117,16 @@ const PageConfigureSkills = ({
                                 </p>
                             </Note>
                         ) : null}
-                        <select
+                        <Select
+                            id="skills-create-audience"
+                            className="mt-2"
                             value={draftState.audience}
-                            onChange={(e) =>
-                                setDraftState((prev) => ({ ...prev, audience: e.target.value }))
+                            onChange={(next) =>
+                                setDraftState((prev) => ({ ...prev, audience: next }))
                             }
                             disabled={createSkillComposerBusy}
-                            className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-cyan-600 disabled:opacity-50"
-                        >
-                            <option value="customer">
-                                Customer-facing — widget and public chats
-                            </option>
-                            <option value="internal">
-                                Internal-only — team and authenticated use
-                            </option>
-                        </select>
+                            options={CREATE_SKILL_AUDIENCE_OPTIONS}
+                        />
 
                         <form
                             noValidate
@@ -8208,6 +8310,8 @@ const PageConfigureSkills = ({
                 setCapabilityFilter={setLibraryCapabilityFilter}
                 audienceFilter={libraryAudienceFilter}
                 setAudienceFilter={setLibraryAudienceFilter}
+                categoryFilter={libraryCategoryFilter}
+                setCategoryFilter={setLibraryCategoryFilter}
                 importingSkillId={importingLibrarySkillId}
                 deletingLibrarySkillId={deletingLibrarySkillId}
                 isSuperAdminViewer={isSuperAdminViewer}

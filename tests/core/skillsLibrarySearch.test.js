@@ -41,6 +41,7 @@ const mocks = vi.hoisted(() => {
                       id: 'crm-sync',
                       name: 'crm-sync',
                       description: 'Sync CRM records.',
+                      category: 'Sales',
                       iconDomain: 'api.brand.dev',
                     },
                   },
@@ -54,6 +55,7 @@ const mocks = vi.hoisted(() => {
                       id: 'crm-sync',
                       name: 'crm-sync',
                       description: 'Sync CRM records.',
+                      category: 'Sales',
                       iconDomain: 'api.brand.dev',
                     },
                   },
@@ -63,6 +65,7 @@ const mocks = vi.hoisted(() => {
                       id: 'support-ticket',
                       name: 'support-ticket',
                       description: 'Create support tickets.',
+                      category: 'Customer Support',
                     },
                   },
                 ],
@@ -114,6 +117,7 @@ describe('skills-library-search', () => {
       id: 'crm-sync',
       name: 'crm-sync',
       description: 'Use when syncing CRM records.',
+      category: 'Sales',
       mode: 'executable',
       audience: 'internal',
       hasFunctions: true,
@@ -125,7 +129,7 @@ describe('skills-library-search', () => {
     expect(mocks.embeddingsCreate).toHaveBeenCalledWith(
       expect.objectContaining({
         model: 'text-embedding-3-large',
-        input: ['crm-sync', 'crm-sync', 'Use when syncing CRM records.'].join('\n'),
+        input: ['crm-sync', 'crm-sync', 'Use when syncing CRM records.', 'Sales'].join('\n'),
         dimensions: 1024,
       }),
     )
@@ -139,6 +143,7 @@ describe('skills-library-search', () => {
               id: 'crm-sync',
               name: 'crm-sync',
               description: 'Use when syncing CRM records.',
+              category: 'Sales',
               iconDomain: 'api.brand.dev',
               networkPolicyJson: JSON.stringify({
                 allowedDomains: ['api.brand.dev'],
@@ -152,6 +157,10 @@ describe('skills-library-search', () => {
     )
     expect(mocks.writes[0].body.upsert_rows[0]).not.toHaveProperty('text')
     expect(mocks.writes[0].body.schema).not.toHaveProperty('text')
+    expect(mocks.writes[0].body.schema.category).toEqual({
+      type: 'string',
+      full_text_search: true,
+    })
   })
 
   it('uses a separate default Turbopuffer namespace in production', async () => {
@@ -232,6 +241,7 @@ describe('skills-library-search', () => {
       expect.objectContaining({
         id: 'crm-sync',
         iconDomain: 'api.brand.dev',
+        category: 'Sales',
         networkPolicy: {
           allowedDomains: ['api.brand.dev'],
           allowedSchemes: ['https'],

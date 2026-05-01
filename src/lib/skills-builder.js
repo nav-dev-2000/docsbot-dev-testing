@@ -1,4 +1,5 @@
 import { FieldValue, getFirestore } from 'firebase-admin/firestore'
+import OpenAI from 'openai'
 
 import { configureFirebaseApp } from '@/config/firebase-server.config'
 import {
@@ -25,6 +26,37 @@ export const SKILL_MODE_MARKDOWN = 'markdown'
 export const SKILL_MODE_EXECUTABLE = 'executable'
 export const SKILL_AUDIENCE_INTERNAL = 'internal'
 export const SKILL_AUDIENCE_CUSTOMER = 'customer'
+export const SKILL_CATEGORY_DEFAULT = 'Default'
+export const SKILL_CATEGORIES = [
+  SKILL_CATEGORY_DEFAULT,
+  'Accounting & Finance',
+  'Analytics & BI',
+  'Application Development',
+  'Automation',
+  'Cloud Storage',
+  'Communications',
+  'Customer Support',
+  'Data Management',
+  'E-Commerce',
+  'Education & Training',
+  'Email',
+  'Events & Scheduling',
+  'HR & Recruiting',
+  'Identity & Access',
+  'Incident Management',
+  'Knowledge Management',
+  'Legal & Compliance',
+  'Marketing',
+  'Payments & Billing',
+  'Productivity',
+  'Project Management',
+  'Sales',
+  'Security & Verification',
+  'Subscriptions',
+  'Surveys & Feedback',
+  'Voice & Video',
+]
+export const SKILL_CATEGORY_CLASSIFIER_MODEL = 'gpt-5.4-nano'
 export const GENERATED_BUNDLE_ARTIFACT_PATH = '.docsbot/bundle/index.js'
 /** Stored on each skill Firestore doc for future builder/runtime compatibility. */
 export const SKILL_SCHEMA_VERSION = 1
@@ -346,6 +378,7 @@ export function buildSkillManifest({
   displayName,
   description = '',
   audience = SKILL_AUDIENCE_INTERNAL,
+  category = SKILL_CATEGORY_DEFAULT,
   enabled = false,
   enabledWidget = false,
   hasFunctions = false,
@@ -355,6 +388,7 @@ export function buildSkillManifest({
     name: skillName,
     displayName: safeSkillString(displayName, formatSkillNameDisplay(skillName, skillName)),
     description,
+    category: normalizeSkillCategory(category),
     internal: audience === SKILL_AUDIENCE_INTERNAL,
     enabled,
     enabledWidget,
@@ -378,6 +412,7 @@ export function createSkillDraftRecord({
   skillName,
   displayName,
   audience = SKILL_AUDIENCE_INTERNAL,
+  category = SKILL_CATEGORY_DEFAULT,
   mode = SKILL_MODE_MARKDOWN,
 }) {
   const files = createInitialSkillFiles({ skillName, mode, audience })
@@ -395,11 +430,13 @@ export function createSkillDraftRecord({
         frontmatter.description ||
         `Use when the user needs help with ${skillName.replace(/-/g, ' ')} tasks.`,
       audience,
+      category,
       enabled: false,
       hasFunctions,
     }),
     mode: inferredMode,
     audience,
+    category: normalizeSkillCategory(category),
     files,
     validation: null,
     liveTest: null,
@@ -425,6 +462,20 @@ export function safeSkillString(value, fallback = '') {
   if (typeof value === 'string') return value
   if (typeof value === 'number' || typeof value === 'boolean') return String(value)
   return fallback
+}
+
+export function normalizeSkillCategory(value, fallback = SKILL_CATEGORY_DEFAULT) {
+  const category = safeSkillString(value).trim()
+  return SKILL_CATEGORIES.includes(category) ? category : fallback
+}
+
+export function hasValidSkillCategory(value) {
+  return SKILL_CATEGORIES.includes(safeSkillString(value).trim())
+}
+
+function isRedactedPlaceholder(value) {
+  const s = safeSkillString(value).trim()
+  return s === '**REDACTED**' || s.replace(/\*/g, '').trim().toUpperCase() === 'REDACTED'
 }
 
 export function resolveSkillDisplayName(id, data = {}) {
@@ -483,10 +534,13 @@ export function normalizeEnvBindingForStorage(binding = {}, existing = {}) {
   const options = normalizeEnvBindingOptions(optionsSource)
   const optionValues = new Set(Object.keys(options))
   const existingValue = safeSkillString(existing.value).trim()
-  let value = hasScalarValue ? safeSkillString(binding.value).trim() : existingValue
+  const incomingValue = hasScalarValue ? safeSkillString(binding.value).trim() : ''
+  const shouldUseIncomingValue =
+    hasScalarValue && !isRedactedPlaceholder(incomingValue) && !existingValue
+  let value = shouldUseIncomingValue ? incomingValue : existingValue
 
   if (optionValues.size) {
-    if (hasScalarValue && value && !optionValues.has(value)) {
+    if (shouldUseIncomingValue && value && !optionValues.has(value)) {
       const error = new Error(
         `Env binding ${envVar} value must match one of its option keys.`,
       )
@@ -522,8 +576,10 @@ export function decryptSkillSecretStoredValue(stored) {
 }
 
 /** Encrypt plaintext secrets for storage; leave values that already decrypt with our key unchanged. */
-function normalizeSecretBindingSecretForStorage(secret) {
-  if (secret == null || secret === '') return secret
+function normalizeSecretBindingSecretForStorage(secret, existingSecret = '') {
+  const existing = safeSkillString(existingSecret).trim()
+  if (existing) return existing
+  if (secret == null || secret === '' || isRedactedPlaceholder(secret)) return ''
   const s = String(secret)
   try {
     decryptKey(s)
@@ -577,6 +633,7 @@ export function serializeSkillRecord(id, data = {}, files = []) {
     name: skillName,
     displayName,
     description,
+    category: normalizeSkillCategory(data.category),
     internal: Boolean(data.internal),
     enabled: Boolean(data.enabled),
     enabledWidget: Boolean(data.enabledWidget),
@@ -604,6 +661,7 @@ export function serializeSkillRecord(id, data = {}, files = []) {
     name: displayName,
     displayName,
     description,
+    category: manifest.category,
     icon: manifest.icon,
     internal: Boolean(data.internal),
     enabled: Boolean(data.enabled),
@@ -646,6 +704,7 @@ export function skillListItemFromRecord(record) {
     name: record.name,
     displayName: record.displayName,
     description: record.description,
+    category: record.category,
     mode: record.mode,
     internal: record.internal,
     enabled: record.enabled,
@@ -690,10 +749,12 @@ export function buildSkillContextSummary(record) {
     displayName: record.displayName,
     mode: record.mode,
     audience: record.audience,
+    category: record.category,
     manifest: {
       name: record.skillName,
       displayName: record.displayName,
       description: record.description,
+      category: record.category,
       internal: record.internal,
       enabled: record.enabled,
       enabledWidget: record.enabledWidget,
@@ -820,6 +881,7 @@ export async function ensureSkillDraft({
   skillName,
   displayName,
   audience = SKILL_AUDIENCE_CUSTOMER,
+  category = SKILL_CATEGORY_DEFAULT,
   mode = SKILL_MODE_MARKDOWN,
 }) {
   const db = getBuilderFirestore(firestore)
@@ -837,6 +899,7 @@ export async function ensureSkillDraft({
     skillName,
     displayName,
     audience,
+    category,
     mode,
   })
 
@@ -847,6 +910,7 @@ export async function ensureSkillDraft({
     version: SKILL_SCHEMA_VERSION,
     mode: record.mode,
     audience: record.audience,
+    category: record.category,
     status: 'draft',
     validation: record.validation,
     liveTest: record.liveTest,
@@ -898,6 +962,7 @@ export function serializeLibrarySkillRecord(id, data = {}) {
     displayName: name,
     skillName: id,
     description: safeSkillString(data.description),
+    category: normalizeSkillCategory(data.category),
     icon: normalizeWhitelistedHeroIcon(data.icon, DEFAULT_CUSTOM_BUTTON_ICON),
     internal: Boolean(data.internal),
     enabled: Boolean(data.enabled),
@@ -929,6 +994,7 @@ function libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId }) {
     name: draft.name,
     displayName: draft.name,
     description: safeSkillString(draft.description),
+    category: normalizeSkillCategory(draft.category),
     internal: Boolean(draft.internal),
     enabled: Boolean(draft.enabled),
     enabledWidget: Boolean(draft.enabledWidget),
@@ -960,6 +1026,94 @@ function libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId }) {
   }
 }
 
+function skillCategoryClassificationInput(draft = {}) {
+  return {
+    name: safeSkillString(draft.name || draft.displayName),
+    slug: safeSkillString(draft.skillName || draft.id),
+    description: safeSkillString(draft.description),
+    mode: safeSkillString(draft.mode),
+    audience: safeSkillString(draft.audience),
+    integrationDomains: Array.isArray(draft.networkPolicy?.allowedDomains)
+      ? draft.networkPolicy.allowedDomains.filter(Boolean).map(String)
+      : [],
+    authProviders: Array.isArray(draft.authProviders)
+      ? draft.authProviders
+          .map((provider) => ({
+            id: safeSkillString(provider?.id),
+            type: safeSkillString(provider?.type),
+            domains: Array.isArray(provider?.allowedDomains)
+              ? provider.allowedDomains.filter(Boolean).map(String)
+              : [],
+          }))
+          .filter((provider) => provider.id || provider.type || provider.domains.length > 0)
+      : [],
+  }
+}
+
+const SKILL_CATEGORY_JSON_SCHEMA = {
+  type: 'object',
+  properties: {
+    category: {
+      type: 'string',
+      enum: SKILL_CATEGORIES,
+      description: 'The single best broad DocsBot skill category.',
+    },
+  },
+  required: ['category'],
+  additionalProperties: false,
+}
+
+async function classifySkillCategoryWithOpenAi(draft) {
+  if (!process.env.OPENAI_API_KEY) return SKILL_CATEGORY_DEFAULT
+
+  try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+    const response = await openai.responses.create({
+      model: SKILL_CATEGORY_CLASSIFIER_MODEL,
+      store: false,
+      instructions:
+        'Classify the DocsBot skill into exactly one broad category. Prefer business-process categories over narrow vendor or channel labels. Return only JSON matching the schema.',
+      input: [
+        {
+          type: 'message',
+          role: 'user',
+          content: [
+            {
+              type: 'input_text',
+              text: JSON.stringify(skillCategoryClassificationInput(draft)),
+            },
+          ],
+        },
+      ],
+      text: {
+        format: {
+          type: 'json_schema',
+          name: 'skill_category_classification',
+          strict: true,
+          schema: SKILL_CATEGORY_JSON_SCHEMA,
+        },
+      },
+      max_output_tokens: 200,
+    })
+
+    const parsed = JSON.parse(response.output_text || '{}')
+    return normalizeSkillCategory(parsed.category)
+  } catch (error) {
+    console.warn('skills category classification failed:', error)
+    return SKILL_CATEGORY_DEFAULT
+  }
+}
+
+async function resolveLibrarySkillCategory(draft) {
+  if (
+    hasValidSkillCategory(draft?.category) &&
+    normalizeSkillCategory(draft.category) !== SKILL_CATEGORY_DEFAULT
+  ) {
+    return normalizeSkillCategory(draft.category)
+  }
+  return classifySkillCategoryWithOpenAi(draft)
+}
+
 export async function listLibrarySkills(firestore) {
   const db = getBuilderFirestore(firestore)
   const snapshot = await getSkillsLibraryCollection(db).orderBy('updatedAt', 'desc').get()
@@ -977,7 +1131,7 @@ export async function searchLibrarySkills(query, firestore, options = {}) {
   const skills = await listLibrarySkills(firestore)
   const filtered = q
     ? skills.filter((skill) =>
-        [skill.id, skill.name, skill.description]
+        [skill.id, skill.name, skill.description, skill.category]
           .map((value) => String(value || '').toLowerCase())
           .join(' ')
           .includes(q),
@@ -1027,7 +1181,11 @@ export async function promoteSkillDraftToLibrary({
   const collection = getSkillsLibraryCollection(db)
   const docRef = collection.doc(librarySkillName)
   const existing = await docRef.get()
-  const record = libraryDocFromSkillDraft(draft, { teamId, botId, skillName, userId })
+  const category = await resolveLibrarySkillCategory(draft)
+  const record = libraryDocFromSkillDraft(
+    { ...draft, category },
+    { teamId, botId, skillName, userId },
+  )
   await docRef.set({
     ...record,
     createdAt: existing.exists
@@ -1081,6 +1239,7 @@ export async function importLibrarySkillToBot({
     name: localSkillName,
     displayName: librarySkill.name,
     description: librarySkill.description,
+    category: librarySkill.category,
     internal: Boolean(librarySkill.internal),
     enabled: false,
     enabledWidget: false,
@@ -1192,6 +1351,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
     enabled: current.enabled,
     enabledWidget: current.enabledWidget,
     hasFunctions: current.hasFunctions,
+    category: current.category,
     icon: normalizeWhitelistedHeroIcon(current.icon, DEFAULT_CUSTOM_BUTTON_ICON),
     r2Prefix: current.r2Prefix || defaultR2Prefix(teamId, botId, skillName),
     networkPolicy: current.networkPolicy || {
@@ -1208,12 +1368,20 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
   nextManifest.icon = normalizeWhitelistedHeroIcon(nextManifest.icon, DEFAULT_CUSTOM_BUTTON_ICON)
 
   if (Array.isArray(nextManifest.secretBindings)) {
+    const currentSecretByName = new Map(
+      (current.secretBindings || []).map((binding) => [binding.envVar, binding]),
+    )
     nextManifest.secretBindings = nextManifest.secretBindings.map((binding) => ({
       envVar: binding.envVar,
-      secret: normalizeSecretBindingSecretForStorage(binding.secret),
+      secret: normalizeSecretBindingSecretForStorage(
+        binding.secret,
+        currentSecretByName.get(binding.envVar)?.secret,
+      ),
       ...(normalizeBindingDescription(binding.description)
         ? { description: normalizeBindingDescription(binding.description) }
-        : {}),
+        : normalizeBindingDescription(currentSecretByName.get(binding.envVar)?.description)
+          ? { description: normalizeBindingDescription(currentSecretByName.get(binding.envVar).description) }
+          : {}),
     }))
   }
 
@@ -1246,6 +1414,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
     current.displayName || formatSkillNameDisplay(skillName, skillName),
   )
   nextManifest.description = safeSkillString(nextManifest.description)
+  nextManifest.category = normalizeSkillCategory(nextManifest.category)
   nextManifest.r2Prefix = safeSkillString(
     nextManifest.r2Prefix,
     defaultR2Prefix(teamId, botId, skillName),
@@ -1273,6 +1442,7 @@ export async function updateSkillDraft(teamId, botId, skillName, updates = {}, f
       authProviders: nextManifest.authProviders,
       mode: nextMode,
       audience: updates.audience || current.audience,
+      category: normalizeSkillCategory(updates.category, nextManifest.category),
       validation: updates.validation ?? current.validation,
       liveTest: updates.liveTest ?? current.liveTest,
       chatMessages: updates.chatMessages ?? current.chatMessages,
@@ -1306,6 +1476,7 @@ const SKILL_DRAFT_SUMMARY_FIELDS = [
   'name',
   'displayName',
   'description',
+  'category',
   'internal',
   'enabled',
   'enabledWidget',
