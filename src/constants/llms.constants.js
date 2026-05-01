@@ -7315,6 +7315,132 @@ const LLMS = [
     },
   },
   {
+    model_name: 'DeepSeek-V4 Flash',
+    slug: 'deepseek-v4-flash',
+    provider: 'deepseek',
+    description:
+      'DeepSeek-V4 Flash is the smaller, faster model in the DeepSeek-V4 preview series, an open-weights 284B parameter Mixture-of-Experts model with 13B activated parameters and a 1M token context window. It shares the DeepSeek-V4 hybrid attention architecture, Manifold-Constrained Hyper-Connections, and Muon training stack, while offering non-thinking, thinking, and Think Max modes for cost-efficient reasoning, coding, and agentic workflows.',
+    input_context_window: '1M',
+    maximum_output_tokens: '384K',
+    open_source: true,
+    release_date: '2026-04-24',
+    knowledge_cut_off_date: null,
+    api_providers: 'DeepSeek API, HuggingFace, ModelScope, OpenRouter',
+    input_cost_per_million_tokens: 0.14,
+    output_cost_per_million_tokens: 0.28,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_context: true,
+      reasoning_mode: true,
+      function_calling: true,
+      structured_output: true,
+    },
+    benchmarks: {
+      MMLUPro: {
+        score: 86.2,
+        notes: 'EM, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      SimpleQA: {
+        score: 34.1,
+        notes: 'Verified, Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      GPQADiamond: {
+        score: 88.1,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      HumanitysLastExam: {
+        score: 34.8,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      LiveCodeBench: {
+        score: 91.6,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      Codeforces: {
+        score: 3052,
+        notes: 'Rating, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      HMMT2026: {
+        score: 94.8,
+        notes: 'February 2026, Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      IMOAnswerBench: {
+        score: 88.4,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      MathArenaApex: {
+        score: 33.0,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      MRCRv2_1M: {
+        score: 78.7,
+        notes: 'MRCR 1M, MMR, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      TerminalBench: {
+        score: 56.9,
+        notes: 'Terminal Bench 2.0, Acc, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      SWEBench: {
+        score: 79.0,
+        notes: 'Verified, Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      SWEBenchPro: {
+        score: 52.6,
+        notes: 'Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      SWEBenchMultilingual: {
+        score: 73.3,
+        notes: 'Resolved, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      BrowseComp: {
+        score: 73.2,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      HumanitysLastExamWithTools: {
+        score: 45.1,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      GDPvalAA: {
+        score: 1395,
+        notes: 'Elo, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      MCPAtlas: {
+        score: 69.0,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+      Toolathon: {
+        score: 47.8,
+        notes: 'Pass@1, Think Max',
+        source: 'https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash',
+      },
+    },
+  },
+  {
     model_name: 'DeepSeek-R1',
     slug: 'deepseek-r1',
     redirect_to: 'deepseek-v4-pro',

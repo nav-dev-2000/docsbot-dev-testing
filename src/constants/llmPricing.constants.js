@@ -369,6 +369,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 3.48,
     },
     {
+      model_name: 'DeepSeek-V4 Flash',
+      model_slug: 'deepseek-v4-flash',
+      page_slug: 'deepseek-v4-flash',
+      context: '1M/384K',
+      provider: 'DeepSeek',
+      input_token_cost_per_million: 0.14,
+      output_token_cost_per_million: 0.28,
+    },
+    {
       model_name: 'GLM-5.1',
       model_slug: 'glm-5-1',
       context: '200K/128K',
