@@ -234,13 +234,14 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 15         // $15 per million output tokens :contentReference[oaicite:3]{index=3}  
     },
     {
-      model_name: 'Grok 4',
-      model_slug: 'grok-4',
-      page_slug: 'grok-4',
-      context: '1M/256K',
+      model_name: 'Grok 4.3',
+      model_slug: 'grok-4.3',
+      page_slug: 'grok-4-3',
+      context: '1M',
       provider: 'xAI',
-      input_token_cost_per_million: 3.0,
-      output_token_cost_per_million: 15.0,
+      input_token_cost_per_million: 1.25,
+      cached_input_token_cost_per_million: 0.20,
+      output_token_cost_per_million: 2.50,
     },
 
     {
