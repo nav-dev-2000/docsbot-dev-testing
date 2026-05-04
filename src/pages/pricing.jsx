@@ -171,7 +171,9 @@ const formatActionsLimitLabel = (value) => {
   return `Up to ${limit} per bot`
 }
 
-
+const pageTitle = 'Pricing & Savings - DocsBot AI'
+const pageDescription =
+  'Compare DocsBot AI plans, estimate support savings, and choose the right chatbot plan for your team.'
 
 export default function PricingPage() {
   //const [user] = useAuthState(auth)
@@ -190,7 +192,32 @@ export default function PricingPage() {
 
   return (
     <>
-      <NextSeo title="Pricing & Savings - DocsBot AI" />
+      <NextSeo
+        title={pageTitle}
+        description={pageDescription}
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://docsbot.ai/pricing',
+          siteName: 'DocsBot AI',
+          title: pageTitle,
+          description: pageDescription,
+          images: [
+            {
+              url: 'https://docsbot.ai/og-pricing.jpeg',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI pricing and savings',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Head />
       <div className="bg-white">
         <div className="relative overflow-hidden">

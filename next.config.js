@@ -135,6 +135,11 @@ const nextConfig = {
         destination: 'https://www.producthunt.com/products/docsbot-ai',
         permanent: true,
       },
+      {
+        source: '/docsbot-week-2026',
+        destination: 'https://docsbot.ai/articles/tag/docsbot-week-2026',
+        permanent: true,
+      },
 
       {
         source: '/tools/ai-prompt-generator',
