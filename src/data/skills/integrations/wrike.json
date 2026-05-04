@@ -1,0 +1,168 @@
+{
+  "slug": "wrike",
+  "name": "Wrike",
+  "domain": "wrike.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Wrike",
+  "metaTitle": "Build AI Support and Team Agents for Wrike with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Wrike to look up work, update tasks, trigger workflows, prepare handoffs, and support teams with safe bounded actions.",
+  "intro": "Wrike is a work management platform for coordinating tasks, projects, workflows, and cross-team execution. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Wrike, and Skill Builder will design, secure, test, improve, and deploy that reusable ability for support or internal teams. The result is an AI agent that can answer questions and take approved action in Wrike instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Wrike task or project status during a website chat or support ticket reply and summarize the latest progress in plain language.",
+    "Enable the agent to create a Wrike task from a customer issue so support can capture follow-up work without leaving the conversation.",
+    "Allow the agent to update approved Wrike fields such as priority, assignee, due date, or status when a support workflow requires a safe record change.",
+    "Use Wrike data to prepare a clean escalation handoff that includes customer context, open action items, owners, deadlines, and the current project state.",
+    "Have the agent trigger a Wrike workflow for implementation, onboarding, bug follow-up, or account review after collecting the right details from the customer first."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Wrike tasks, folders, projects, owners, deadlines, and blockers without searching manually.",
+    "Team members can ask the agent to create new Wrike tasks, assign work, set dates, or move approved items through workflow stages while following internal SOPs.",
+    "Operations teams can use the agent to summarize project health across Wrike workspaces, identify overdue items, and prepare status updates for leadership.",
+    "Customer success or implementation teams can chat with the agent to generate standardized handoff tasks in Wrike after kickoff calls, renewals, or expansion conversations.",
+    "Employees can use the agent to follow repeatable workflows such as escalation intake, launch readiness checks, or post-incident follow-ups that create and update Wrike records safely."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Wrike task status before replying to customer questions.",
+    "An AI assistant that creates Wrike follow-up tasks from support chats or helpdesk tickets.",
+    "A private team agent that summarizes overdue Wrike work by account, owner, or project.",
+    "An escalation workflow that opens a Wrike task and attaches a structured customer handoff summary.",
+    "An onboarding assistant that creates Wrike implementation tasks after gathering required customer details.",
+    "A project coordination agent that updates approved Wrike task fields through bounded action rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Wrike in plain language, such as checking project status, creating tasks, updating approved fields, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, choosing the right workflow, defining the required configuration values, and setting up secure connection and authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes Wrike access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to the right DocsBot agent so your website chat, helpdesk bot, or private employee assistant can use Wrike safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Wrike?",
+      "answer": "With DocsBot Skill Builder, you describe the Wrike workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment. That lets your agent look up work, update approved records, trigger workflows, and summarize outcomes inside clear boundaries you control."
+    },
+    {
+      "question": "Can an AI support agent use Wrike during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Wrike Skill to check project or task status, create follow-up work, update approved fields, and prepare escalation handoffs while responding to customers. Skill Builder can also add approval limits and scoped permissions so the agent only performs the actions you allow."
+    },
+    {
+      "question": "What Wrike workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees search Wrike, create tasks, assign owners, summarize overdue work, move approved items through workflow stages, and follow repeatable SOPs. This is useful for operations, customer success, implementation, and project coordination teams that want faster execution through chat."
+    },
+    {
+      "question": "Can DocsBot safely update Wrike tasks and projects?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as updating status, assignee, due date, priority, or other approved fields in Wrike. Skill Builder defines secure authentication handling, keeps secrets out of conversations, scopes access, and can require approval boundaries for more sensitive changes."
+    },
+    {
+      "question": "Can I use Wrike data to improve support escalations and handoffs?",
+      "answer": "Yes, a DocsBot agent can pull relevant Wrike context and assemble a structured handoff summary with customer details, open tasks, owners, blockers, and next steps. This helps support teams escalate faster and gives downstream teams clearer context to act on."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Wrike?",
+      "answer": "You do not need to manually design the integration step by step. You describe the result you want, and Skill Builder handles workflow design, secure configuration values, secret protection, testing, improvements, and deployment to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "monday",
+    "clickup",
+    "jira",
+    "trello",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wrike",
+    "domain": "wrike.com",
+    "description": "Wrike is a work management platform that enables users to build, connect, automate, and scale workflows. With its intelligent platform, Wrike provides unmatched versatility, flexibility, scalability, and security, helping over 20,000 customers achieve success. It offers features like Work Intelligence, an AI-powered productivity solution, and has recently acquired Klaxoon, a visual collaboration platform, to enhance its capabilities.",
+    "slogan": "Where Work Flows – Connect, Automate, Scale with Wrike.",
+    "logoUrl": "https://media.brand.dev/c469972b-d0e9-4bc9-a166-c40d7585fae2.svg",
+    "iconUrl": "https://media.brand.dev/f3fb04fb-fd9f-4445-9dd1-ce17cc001614.jpg",
+    "primaryColor": "#0add60",
+    "accentColor": "#7aecac",
+    "colors": [
+      {
+        "hex": "#0add60",
+        "name": "Limonana"
+      },
+      {
+        "hex": "#7aecac",
+        "name": "Lime Soap"
+      },
+      {
+        "hex": "#142434",
+        "name": "Fog of War"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/121e02c2-ae21-4f33-a6e0-934427650a18.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.wrike.com/jobs/",
+      "terms": "https://www.wrike.com/security/terms/",
+      "contact": "https://www.wrike.com/contact-sales/",
+      "privacy": "https://www.wrike.com/security/privacy/",
+      "blog": "https://www.wrike.com/blog/",
+      "pricing": "https://www.wrike.com/use-cases/project-management/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f3fb04fb-fd9f-4445-9dd1-ce17cc001614.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c469972b-d0e9-4bc9-a166-c40d7585fae2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 124,
+        "height": 60,
+        "aspectRatio": 2.07
+      },
+      {
+        "url": "https://media.brand.dev/ad2c1692-bc5c-44a9-a870-97d2ba5375f9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c469972b-d0e9-4bc9-a166-c40d7585fae2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 124,
+      "height": 60,
+      "aspectRatio": 2.07
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f3fb04fb-fd9f-4445-9dd1-ce17cc001614.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

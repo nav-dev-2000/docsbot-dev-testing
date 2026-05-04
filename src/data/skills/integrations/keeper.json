@@ -1,0 +1,162 @@
+{
+  "slug": "keeper",
+  "name": "Keeper",
+  "domain": "keeper.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Keeper Security",
+  "metaTitle": "Build Keeper Security AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Keeper Security for secure lookups, controlled actions, workflow handoffs, and internal security support automation.",
+  "intro": "Keeper Security helps organizations protect passwords, secrets, privileged access, and related security workflows. With DocsBot Skill Builder, you can describe the Keeper-based workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve approved Keeper data, trigger bounded actions, and prepare secure handoffs without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved account or access status details in Keeper-related workflows and explain the next verified support step to the customer.",
+    "Let a support agent gather missing context from a helpdesk ticket, summarize relevant Keeper records or policy status, and prepare a secure escalation for an identity or security team.",
+    "Have the agent create or update approved support records tied to access issues, password reset processes, or privileged access requests while replying to customers.",
+    "Use the agent to trigger bounded remediation or review workflows connected to Keeper processes after collecting the required customer verification details.",
+    "Enable the agent to summarize access request progress, policy-driven requirements, or recent workflow outcomes so customers receive clearer status updates without exposing secrets."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up approved Keeper information such as access workflow status, policy guidance, or request history.",
+    "Give IT, security, and operations teams an internal AI assistant that gathers context across systems, summarizes Keeper-related records, and prepares least-privilege access handoffs for human review.",
+    "Enable team members to ask the agent to start standard operating procedures for onboarding, offboarding, password rotation, or privileged access review workflows that involve Keeper.",
+    "Use an internal agent to answer policy questions, retrieve documentation, and guide employees through secure access processes while keeping sensitive credentials out of conversations.",
+    "Allow managers or security staff to request approved updates, workflow triggers, or summary reports through chat, with the agent following scoped permissions and approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks access request status and explains secure next steps to customers.",
+    "An internal assistant that summarizes Keeper-related policy, request history, and operational context for employees.",
+    "A workflow Skill that prepares privileged access escalations with required details and approval routing.",
+    "An AI agent that triggers onboarding or offboarding access tasks under bounded approval controls.",
+    "A ticket assistant that collects missing verification details before starting a Keeper-connected workflow.",
+    "An internal security copilot that answers process questions and generates compliant handoff summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Keeper Security in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions the workflow needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits, approval boundaries, and safe decision rules so the agent can retrieve data, prepare updates, and trigger approved workflows without taking sensitive actions too broadly."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so it can assist customers in chat or helpdesk replies, or support employees in private chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Keeper Security?",
+      "answer": "With DocsBot Skill Builder, you describe the Keeper Security workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment. The finished agent can answer questions, perform approved lookups, trigger bounded actions, and create summaries or handoffs."
+    },
+    {
+      "question": "Can an AI support agent use Keeper Security data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Keeper-related data to look up status, summarize workflow context, and prepare secure next steps while responding in a chat widget or helpdesk. Skill Builder scopes permissions carefully so the agent only accesses the data and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Keeper Security?",
+      "answer": "Teams can build workflows for access request status checks, password or privileged access issue triage, escalation preparation, ticket enrichment, and secure handoff creation. The agent can gather missing context, summarize current state, and trigger approved follow-up actions inside your defined rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Keeper Security processes?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve policy guidance, check workflow status, start approved access-related processes, and follow SOPs through chat, Slack, or Microsoft Teams. This is useful for IT, security, operations, and employee support teams that need faster answers and safer workflow execution."
+    },
+    {
+      "question": "How does DocsBot keep Keeper Security credentials and secrets safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated Skill content, and proxies secrets through approved runtime settings. It also limits access to the minimum required records and actions and can add approval checkpoints for more sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Keeper Security instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as approved workflow triggers, record updates, handoff creation, and status summaries, not just informational replies. Skill Builder sets the boundaries so those actions stay controlled, reviewable, and appropriate for your process."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "duo",
+    "lastpass",
+    "1password"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Keeper Security",
+    "domain": "keepersecurity.com",
+    "description": "Keeper Security is a cybersecurity company that provides a unified, cloud‑native platform to protect users, devices, and infrastructure. Their flagship product KeeperPAM® uses AI, zero‑knowledge and zero‑trust principles to secure passwords, passkeys, secrets, remote connections and endpoints with role‑based policies, least‑privilege and just‑in‑time access. Trusted by Fortune 100 enterprises and recognized in the Gartner Magic Quadrant for Privileged Access Management, Keeper offers compliance certifications such as SOC 2, ISO 27001, FedRAMP, FIPS 140‑3 and PCI DSS. The company helps organizations achieve visibility, control and intelligence to defend against current and future cyber threats.",
+    "slogan": "Zero trust. Zero knowledge. Zero exceptions.",
+    "logoUrl": "https://media.brand.dev/83188255-1ec5-431f-9de1-1234c36fe4bf.jpg",
+    "iconUrl": "https://media.brand.dev/83188255-1ec5-431f-9de1-1234c36fe4bf.jpg",
+    "primaryColor": "#f1c212",
+    "accentColor": "#7c6c29",
+    "colors": [
+      {
+        "hex": "#f1c212",
+        "name": "Wisteria Yellow"
+      },
+      {
+        "hex": "#7c6c29",
+        "name": "Tarnished Brass"
+      },
+      {
+        "hex": "#0a0805",
+        "name": "Accursed Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e4aebcde-5fd0-4e44-82fb-ca60763b9909.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.keepersecurity.com/jobs.html",
+      "contact": "https://www.keepersecurity.com/contact.html",
+      "blog": "https://www.keepersecurity.com/blog/",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.keepersecurity.com/legal/terms-of-use/",
+      "privacy": "https://www.keepersecurity.com/legal/terms-of-use/",
+      "pricing": "https://www.keepersecurity.com/pricing/keeperpam/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/83188255-1ec5-431f-9de1-1234c36fe4bf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/12048173-f735-4d75-a660-8aebc680917c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/12048173-f735-4d75-a660-8aebc680917c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/12048173-f735-4d75-a660-8aebc680917c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "bizmerlinhr",
+  "name": "BizMerlinHR",
+  "domain": "bizmerlinhr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with BizMerlinHR and ClayHR",
+  "metaTitle": "Build BizMerlinHR and ClayHR AI Agents with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that securely look up HR data, trigger workflows, summarize records, and assist teams in BizMerlinHR or ClayHR.",
+  "intro": "BizMerlinHR, also known through the ClayHR platform, helps teams manage HR operations, hiring, employee records, onboarding, performance, and workforce workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use BizMerlinHR or ClayHR data and actions. That means customer-facing support agents and private internal assistants can answer questions, gather context, trigger approved workflows, and complete bounded actions instead of only explaining next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check application or interview status from BizMerlinHR and give candidates a clear update in chat or by helpdesk reply.",
+    "Use the agent to collect missing onboarding details from a new hire conversation, create a handoff summary, and route the case into the right HR workflow.",
+    "Allow the agent to confirm policy-driven onboarding steps, summarize outstanding tasks, and prepare an escalation for an HR specialist when approval is needed.",
+    "Have the agent look up training, orientation, or document completion status in ClayHR and respond with the next approved action for the employee or candidate.",
+    "Use the agent to create a structured support summary from a benefits, leave, or onboarding question so HR staff can review the issue with full context already captured."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat portal to look up employee lifecycle information, onboarding progress, or performance workflow status from BizMerlinHR.",
+    "HR teams can ask the agent to summarize candidate pipelines, open requisitions, interview activity, or pending approvals across ClayHR without manually pulling records.",
+    "Managers can chat with the agent to retrieve policy-guided answers, generate onboarding or offboarding checklists, and trigger the next approved workflow step for their team.",
+    "Operations teams can use the agent to gather data across HR records, attendance, compensation, learning, or performance processes and produce handoff notes or audit-ready summaries.",
+    "Employees can ask the agent to follow internal SOPs for common HR requests, with the agent gathering context, checking permissions, and routing sensitive updates for approval when required."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that checks candidate status and drafts recruiter handoff notes.",
+    "An employee onboarding agent that summarizes required tasks and flags missing documents.",
+    "A manager assistant that retrieves review-cycle status and prepares follow-up actions.",
+    "An HR help agent that answers policy questions and escalates sensitive cases safely.",
+    "A workflow agent that triggers onboarding, offboarding, or approval steps after confirmation.",
+    "A private employee assistant that summarizes attendance, training, or task completion information."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with BizMerlinHR or ClayHR, such as checking onboarding status, summarizing candidate records, or triggering an approved HR workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, asks for any missing business context, and defines the right instructions, data flow, configuration values, and safe action boundaries for the workflow."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection planning by identifying authentication needs, protecting and proxying secrets through runtime configuration, and keeping credentials out of chats, generated content, and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, users, and actions needed, and adds approval boundaries for sensitive updates so the agent only takes bounded actions you allow."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing checks, weak instructions, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BizMerlinHR or ClayHR?",
+      "answer": "With DocsBot Skill Builder, you describe the HR outcome you want in plain language, and Skill Builder creates a reusable Skill that can look up records, summarize status, trigger workflows, and route sensitive steps through approval controls. It also plans secure configuration, authentication handling, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use BizMerlinHR data to answer employee or candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use approved BizMerlinHR or ClayHR data to check status, summarize onboarding progress, prepare handoffs, and respond with policy-guided next steps. Access can be scoped so the agent only sees the records and actions allowed for that use case."
+    },
+    {
+      "question": "What internal HR workflows can a DocsBot AI assistant automate with ClayHR?",
+      "answer": "Internal agents can help with onboarding and offboarding steps, candidate pipeline summaries, approval routing, employee record lookups, performance workflow updates, and SOP-driven HR requests. Sensitive actions can be gated behind approvals or limited to specific teams and workflows."
+    },
+    {
+      "question": "Can DocsBot trigger HR workflows in BizMerlinHR instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as creating handoffs, updating allowed fields, triggering workflow steps, and generating summaries or artifacts for review. Skill Builder adds boundaries so those actions stay within the permissions and approval rules you define."
+    },
+    {
+      "question": "Is it possible to use a private AI assistant in Slack or Microsoft Teams with ClayHR?",
+      "answer": "Yes, DocsBot can power a private employee-facing agent that team members use in chat to retrieve HR information, research policy-guided answers, and complete approved workflows. Skill Builder designs the secure connection and scopes access to the right users, records, and actions."
+    },
+    {
+      "question": "How does DocsBot handle security for BizMerlinHR or ClayHR integrations?",
+      "answer": "Skill Builder identifies the required configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated copy. It also scopes permissions to the minimum necessary access and can require approval boundaries for sensitive HR actions."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "greenhouse",
+    "lever",
+    "personio",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ClayHR",
+    "domain": "clayhr.com",
+    "description": "ClayHR provides a modern, configurable human capital management platform that unifies core HR functions—employee records, time & attendance, benefits, compensation, and expense tracking—with talent acquisition, performance management, learning, and workforce planning. Powered by AI, the system delivers real-time analytics, skill-matrix insights, and automated workflows for onboarding, offboarding, and approvals. Available in over 15 languages across 160+ countries, ClayHR integrates with existing data sources and offers open APIs, mobile apps, and 24/7 support. The solution helps organizations of any size streamline HR operations, boost productivity, and make data-driven talent decisions.",
+    "slogan": "ClayHR: HR Without Limits — Align smart automation and AI-driven insight",
+    "logoUrl": "https://media.brand.dev/5bd96634-93d4-46fa-a92b-c9aacc11fef5.png",
+    "iconUrl": "https://media.brand.dev/5bd96634-93d4-46fa-a92b-c9aacc11fef5.png",
+    "primaryColor": "#3c6e99",
+    "accentColor": "#7aa4d0",
+    "colors": [
+      {
+        "hex": "#3c6e99",
+        "name": "Windsurfing"
+      },
+      {
+        "hex": "#7aa4d0",
+        "name": "Shipmate"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8e445913-cd67-481d-9865-2ba5cdef0543.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.clayhr.com/blog",
+      "careers": "https://www.clayhr.com/careers",
+      "privacy": "https://www.clayhr.com/policies/privacy-policy",
+      "terms": "https://www.clayhr.com/policies/terms-of-service",
+      "contact": "https://www.clayhr.com/contact-us",
+      "pricing": "https://www.clayhr.com/offer-letter"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5bd96634-93d4-46fa-a92b-c9aacc11fef5.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5bd96634-93d4-46fa-a92b-c9aacc11fef5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5bd96634-93d4-46fa-a92b-c9aacc11fef5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

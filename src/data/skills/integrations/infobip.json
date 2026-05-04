@@ -1,0 +1,176 @@
+{
+  "slug": "infobip",
+  "name": "Infobip",
+  "domain": "infobip.com",
+  "category": "Communications",
+  "trutoCategory": "WhatsApp",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Infobip",
+  "metaTitle": "Build Infobip AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Infobip for messaging lookups, workflow triggers, handoffs, and safe support or internal team actions.",
+  "intro": "Infobip helps businesses manage omnichannel customer communications, messaging, authentication, and engagement workflows. With DocsBot Skill Builder, you can describe the Infobip-powered agent behavior you want in plain language and have DocsBot build a reusable Skill for support or internal team use. The result is an AI agent that can answer questions and take bounded actions in Infobip while staying inside your approval rules and security controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check message delivery status in Infobip and explain the latest communication outcome to the customer in real time.",
+    "Enable the agent to look up whether a customer was sent a verification or notification message through Infobip before preparing the next support response.",
+    "Use the agent to summarize recent Infobip communication history so support teams can respond with better context in chat or tickets.",
+    "Allow the agent to trigger approved follow-up messaging workflows in Infobip after confirming the right customer record and support scenario.",
+    "Have the agent prepare escalation handoffs with Infobip message details, delivery results, and customer context for a human support team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Infobip messaging history, delivery outcomes, or engagement context without manually searching multiple tools.",
+    "Customer success or operations teams can ask the agent to summarize Infobip communication activity for an account before renewals, outreach, or incident follow-up.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to trigger approved Infobip notification workflows as part of documented SOPs.",
+    "Employees can ask the agent to collect Infobip communication details and prepare a clean handoff summary for support, compliance, or account teams.",
+    "Operations teams can chat with the agent to research messaging issues, compare communication outcomes, and identify the next approved action faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Infobip message delivery and explains status updates to customers.",
+    "A helpdesk assistant that summarizes Infobip communication history before drafting a ticket reply.",
+    "An internal agent that triggers approved Infobip notification workflows from Slack or Teams.",
+    "A customer verification support workflow that checks Infobip message events before escalation.",
+    "An operations assistant that compiles Infobip communication summaries for account reviews or incident follow-up.",
+    "A handoff Skill that packages Infobip delivery results and customer context for human teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Infobip-connected agent to do, such as checking message status, summarizing communication history, or triggering an approved workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes the Skill to only the records, actions, and users needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for higher-impact Infobip steps so the agent can assist confidently without exceeding the permissions and controls you define."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs or weak spots, checks permission handling, and identifies improvements before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Infobip?",
+      "answer": "With DocsBot Skill Builder, you describe the Infobip workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment. The finished agent can look up communication data, summarize activity, trigger approved workflows, and support handoffs inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Infobip data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use an Infobip Skill to retrieve message status, communication history, or other approved details while responding to customers in a chat widget or helpdesk context. You control what the agent is allowed to access, update, or trigger."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Infobip?",
+      "answer": "DocsBot can help automate delivery-status lookups, communication summaries, escalation prep, follow-up workflow triggers, and other bounded support actions that depend on Infobip data. This helps the agent move from answering questions to taking the next approved step."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Infobip?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve messaging context, summarize account communications, trigger approved notification workflows, and complete communication-related SOPs from chat, Slack, or Microsoft Teams. This reduces tool-switching and speeds up routine operations work."
+    },
+    {
+      "question": "How does DocsBot keep Infobip integrations secure?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets through secure runtime handling, and scopes permissions to the minimum access needed. It can also add approval boundaries for sensitive Infobip actions so the agent stays within safe operating limits."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Infobip instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as approved workflow triggers, handoff creation, status lookups, summaries, and limited record-related actions where appropriate. The actions are bounded by the controls, approvals, and permissions set during Skill design."
+    }
+  ],
+  "relatedSlugs": [
+    "twilio",
+    "messagebird",
+    "whatsapp",
+    "intercom",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Infobip",
+    "domain": "infobip.com",
+    "description": "Infobip is a global leader in omnichannel engagement, providing a wide range of messaging channels, tools, and solutions for advanced customer interaction, authentication, and security. The company helps clients and partners simplify consumer communications, grow their businesses, and improve customer experiences quickly, securely, and reliably. Quality engineering underpins all its offerings, with a focus on hiring, developing, and retaining top engineering talent worldwide. Over the past 20 years, Infobip has evolved into an engineering powerhouse, operating from more than 70 offices across six continents and employing over 3,700 experts. Its mission is to transform how the world communicates by delivering innovative, reliable, and scalable communication solutions.",
+    "slogan": "The best omnichannel marketing platform",
+    "logoUrl": "https://media.brand.dev/1daaddc7-ff5f-4f6e-b52c-3d91a3be9bdd.svg",
+    "iconUrl": "https://media.brand.dev/9774839e-d6fe-41c9-8e93-2672e6fa76f1.png",
+    "primaryColor": "#1c1c1c",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#f96425",
+        "name": "Sparrow’s Fire"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a92f2ddf-65d7-472a-944f-9bdc29f300c9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.infobip.com/careers",
+      "terms": "https://www.infobip.com/policies/service-terms-conditions",
+      "contact": "https://www.infobip.com/contact",
+      "privacy": "https://www.infobip.com/privacy-documents",
+      "blog": "https://www.infobip.com/blog",
+      "pricing": "https://www.infobip.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c770fa8b-1211-45f6-b4c1-105cc3c7c0fd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1daaddc7-ff5f-4f6e-b52c-3d91a3be9bdd.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 135,
+        "height": 40,
+        "aspectRatio": 3.38
+      },
+      {
+        "url": "https://media.brand.dev/9774839e-d6fe-41c9-8e93-2672e6fa76f1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f84476be-1393-4210-afac-34f2fafd8114.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 843,
+        "height": 248,
+        "aspectRatio": 3.4
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1daaddc7-ff5f-4f6e-b52c-3d91a3be9bdd.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 135,
+      "height": 40,
+      "aspectRatio": 3.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c770fa8b-1211-45f6-b4c1-105cc3c7c0fd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

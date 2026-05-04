@@ -1,0 +1,167 @@
+{
+  "slug": "mparticle",
+  "name": "mParticle",
+  "domain": "mparticle.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use mParticle Customer Data Safely",
+  "metaTitle": "Build AI Agents for mParticle with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use mParticle for customer data lookups, segmentation workflows, summaries, and safe internal or support actions.",
+  "intro": "mParticle helps teams unify and activate customer data in real time across channels and systems. With DocsBot Skill Builder, you can describe the mParticle-powered AI workflow you want in plain language, and DocsBot designs, secures, tests, and deploys the Skill for your support or internal agent. The result is an AI agent that can answer questions, look up customer context, trigger approved workflows, and prepare better handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer profile or audience context in mParticle and personalize support responses based on known lifecycle or product data.",
+    "Let the agent summarize recent customer data signals from mParticle so support teams can understand account context before replying to a ticket.",
+    "Have the agent gather customer identifiers during a chat, match the right record in mParticle, and prepare an informed handoff for billing, success, or technical support.",
+    "Enable the agent to trigger approved downstream workflows tied to mParticle audiences or events when a customer requests follow-up, onboarding help, or escalation.",
+    "Use the agent to confirm whether a customer has completed key activation steps reflected in mParticle data and then guide them to the next best action."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve customer profile context, event history summaries, or audience membership insights from mParticle.",
+    "Customer success and operations teams can ask the agent to research a segment, summarize behavioral signals, and suggest the next workflow based on approved mParticle data.",
+    "Teams can use the agent to complete SOPs that combine mParticle lookups with handoff notes, escalation summaries, or follow-up task preparation across connected systems.",
+    "Marketing, support, and product teams can chat with the agent to understand customer journey patterns in mParticle without manually navigating dashboards for every request."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks mParticle profile attributes before answering account or onboarding questions.",
+    "A ticket assistant that summarizes customer behavior signals from mParticle for faster escalations.",
+    "An internal agent that retrieves audience membership and lifecycle stage details for sales or success teams.",
+    "A workflow Skill that matches customer identifiers and prepares a clean support handoff using mParticle context.",
+    "An employee assistant that researches recent events in mParticle and drafts next-step recommendations.",
+    "A governed AI action that triggers approved follow-up workflows based on mParticle segments or profile conditions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with mParticle in plain language, and it turns that goal into a reusable Skill design for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to the minimum data, actions, users, and records required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow includes updates, triggers, or cross-system actions, Skill Builder adds approval boundaries and safe action limits so the agent only operates within your defined rules."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill before publishing it to the right DocsBot agent, so your website chatbot, helpdesk agent, or private team assistant is ready to use mParticle safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses mParticle customer data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up profile context, summarizing event data, or triggering approved workflows. Skill Builder then designs the Skill, secures the connection, tests realistic scenarios, and deploys it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use mParticle data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use mParticle as a source of customer context while replying in a website chat widget or helpdesk flow. It can look up approved profile details, summarize signals, and prepare cleaner handoffs or next steps for human teams."
+    },
+    {
+      "question": "What mParticle workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can retrieve customer data context, summarize audience or behavioral signals, support research, and help employees complete SOPs that depend on mParticle insights. It can also trigger bounded follow-up workflows when you allow those actions."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent is allowed to do in mParticle?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect credentials through runtime secrets handling, and scope permissions to the minimum necessary access. It can also add approval steps and action limits for sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent prepare escalations and handoffs using mParticle context?",
+      "answer": "Yes, the agent can gather identifiers, look up relevant customer data in mParticle, and generate a concise escalation summary for support, success, or operations teams. This helps human teams receive better context without manually collecting it from multiple systems."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to mParticle workflows?",
+      "answer": "No, the setup is framed around describing the result you want, not manually wiring APIs or writing implementation details yourself. Skill Builder handles the design, secure setup, testing, and improvement process for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "segment",
+    "mixpanel",
+    "amplitude",
+    "customer-io",
+    "braze",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "mParticle",
+    "domain": "mparticle.com",
+    "description": "mParticle is an end-to-end customer data platform that orchestrates customer data in real-time, combining data activation, security, and AI predictions to help global brands make data-driven decisions. They provide a powerfully-configurable platform for multi-channel consumer brands to deliver intelligent and adaptive customer experiences across any screen or device.",
+    "slogan": "Turn customer data into customer joy with real-time orchestration.",
+    "logoUrl": "https://media.brand.dev/60b38e8d-fb96-4f7a-85d8-0de0dac403a0.svg",
+    "iconUrl": "https://media.brand.dev/f5066ea2-b5ce-4653-b4c4-0906c6eaf2f6.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#ffffff",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      },
+      {
+        "hex": "#8c8c8c",
+        "name": "More Than A Week"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/aed14fe8-14be-4a05-8c76-519cd9de4788.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.mparticle.com/careers/",
+      "terms": "https://www.mparticle.com/legal/website-terms-of-service/",
+      "contact": "https://www.mparticle.com/contact/",
+      "privacy": "https://www.mparticle.com/privacypolicy/",
+      "blog": "https://www.mparticle.com/blog/",
+      "pricing": "https://www.mparticle.com/contact/quote/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f5066ea2-b5ce-4653-b4c4-0906c6eaf2f6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/60b38e8d-fb96-4f7a-85d8-0de0dac403a0.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 79,
+        "height": 16,
+        "aspectRatio": 4.94
+      },
+      {
+        "url": "https://media.brand.dev/597effd2-2d68-455c-8c48-f0ed24111cc6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1802,
+        "height": 466,
+        "aspectRatio": 3.87
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/597effd2-2d68-455c-8c48-f0ed24111cc6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1802,
+      "height": 466,
+      "aspectRatio": 3.87
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f5066ea2-b5ce-4653-b4c4-0906c6eaf2f6.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

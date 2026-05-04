@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-desk",
+  "name": "Zoho Desk",
+  "domain": "zoho.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Desk",
+  "metaTitle": "Build AI Support and Team Agents for Zoho Desk",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read and update Zoho Desk, automate support workflows, and assist employees with safe, approved actions.",
+  "intro": "Zoho Desk helps teams manage customer tickets, service workflows, and support operations across channels. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Desk, and DocsBot will design, secure, test, improve, and package that ability as a reusable Skill. The result is an AI support agent or internal team assistant that can answer questions and take bounded action inside Zoho Desk under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Zoho Desk ticket status, priority, assignee, or recent updates while replying in chat or over helpdesk tickets.",
+    "Enable the agent to create new Zoho Desk tickets from website conversations when a customer needs follow-up from a human team.",
+    "Allow the agent to add internal notes or structured conversation summaries to Zoho Desk so support reps receive cleaner handoffs.",
+    "Use the agent to update approved Zoho Desk fields such as category, product area, or contact details after collecting missing information from the customer.",
+    "Have the agent prepare escalations by summarizing the issue, listing troubleshooting already completed, and attaching the context to the Zoho Desk record for the next team member."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to find Zoho Desk ticket details, ownership, SLA status, and recent activity without manually searching the helpdesk.",
+    "Let support leads ask the agent for summaries of open Zoho Desk queues, escalated cases, or unresolved issues to speed up triage and team coordination.",
+    "Enable customer success or operations teams to chat with the agent to create tickets, add notes, or route cases through approved Zoho Desk workflows from Slack, Microsoft Teams, or a private chat workspace.",
+    "Help new support employees follow SOPs by asking the agent to gather Zoho Desk context, explain the next approved step, and complete bounded updates when appropriate.",
+    "Allow managers to request structured handoff summaries, escalation briefs, or case histories generated from Zoho Desk records for internal reviews and cross-team collaboration."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up Zoho Desk tickets and explains current case status to customers.",
+    "A support bot that creates Zoho Desk tickets from chat conversations with clean intake summaries.",
+    "An internal assistant that summarizes escalated Zoho Desk cases for team leads and specialists.",
+    "A DocsBot Skill that updates approved Zoho Desk fields after collecting missing customer details.",
+    "An AI handoff workflow that adds internal notes and troubleshooting history to Zoho Desk.",
+    "A private team agent that answers questions about ticket ownership, backlog, and SLA risk in Zoho Desk."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Zoho Desk, such as checking ticket status, creating cases, updating approved fields, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the needed configuration values, defines secure connection and authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes the Skill to the minimum Zoho Desk actions, records, and users required, and adds approval boundaries or safe action limits for sensitive updates, escalations, or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private employee agent for Slack, Microsoft Teams, or internal chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Desk?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Desk workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up tickets, update approved records, trigger handoffs, and support your agent safely. It also handles secure configuration, testing, and deployment details for you."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Desk data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Zoho Desk Skill to retrieve ticket details, status, ownership, recent notes, or other approved information while responding to customers in chat or through connected support channels. You control what data and actions are allowed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Desk?",
+      "answer": "Teams can build workflows for ticket creation, case lookups, field updates, escalation prep, internal note creation, handoff summaries, and other bounded service actions inside Zoho Desk. This helps the agent do useful work instead of only telling customers what a human should do next."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Zoho Desk?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve ticket context, summarize queues, follow SOPs, create records, and complete approved Zoho Desk actions from chat, Slack, or Microsoft Teams. That makes routine service work faster and easier across teams."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Desk actions safe?",
+      "answer": "Skill Builder defines secure authentication handling, protects secrets through runtime configuration, scopes access to the minimum needed permissions, and can add approval boundaries for sensitive actions. This lets your AI agent act inside clear rules instead of receiving unrestricted access."
+    },
+    {
+      "question": "Do I need developers to connect DocsBot to Zoho Desk workflows?",
+      "answer": "Not for the basic process described here, because Skill Builder is designed for non-technical users who can explain the desired outcome in plain language. It drafts the Skill, asks for missing context, tests scenarios, improves the workflow, and helps publish it to the right agent."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "hubspot",
+    "jira-service-management",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

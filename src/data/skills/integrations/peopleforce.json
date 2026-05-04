@@ -1,0 +1,160 @@
+{
+  "slug": "peopleforce",
+  "name": "PeopleForce",
+  "domain": "peopleforce.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with PeopleForce",
+  "metaTitle": "PeopleForce AI Agent Integration for Support and HR Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use PeopleForce for employee lookups, HR workflows, support handoffs, and internal team automation.",
+  "intro": "PeopleForce helps teams manage people data and HR workflows, and DocsBot Skill Builder helps you turn that system into safe AI Actions for support and internal operations. In plain language, you describe what the agent should do, and Skill Builder designs, secures, tests, improves, and deploys the Skill. The result is a DocsBot agent that can answer questions and take approved action in PeopleForce without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify whether a requester has an associated employee or candidate record in PeopleForce before preparing a support handoff.",
+    "Let the support agent gather onboarding or employment-related context from PeopleForce and summarize it for a human team member handling an account or access issue.",
+    "Have the agent create or update HR-related follow-up tasks in PeopleForce when a customer conversation reveals a payroll, onboarding, or employee record problem.",
+    "Use PeopleForce data during helpdesk replies so the agent can confirm status, summarize next steps, and route sensitive cases to the right internal owner.",
+    "Let the agent prepare escalation notes from a support chat or ticket and attach a structured summary for HR or operations teams working in PeopleForce."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up approved PeopleForce employee information, policies, or workflow status.",
+    "HR and operations teams can ask the agent to summarize onboarding progress, missing tasks, or employee record details from PeopleForce without opening multiple systems.",
+    "Managers can use an internal AI agent to collect required context, draft handoff notes, and trigger approved PeopleForce workflow steps with human approval where needed.",
+    "People teams can chat with the agent to research employee lifecycle questions, retrieve SOP guidance, and complete repeatable workflows that rely on PeopleForce data.",
+    "Internal support teams can use the agent to prepare account access or employment verification handoffs by combining PeopleForce lookups with structured summaries and next-step recommendations."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up employee onboarding status and summarizes missing steps.",
+    "A support assistant that prepares HR handoffs using PeopleForce record context.",
+    "An internal HR bot that answers policy questions and retrieves employee profile details.",
+    "A workflow agent that creates follow-up tasks when onboarding issues are reported.",
+    "A manager assistant that summarizes employee lifecycle status across approved PeopleForce records.",
+    "An operations agent that drafts escalation notes from chats and updates PeopleForce workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PeopleForce agent to do in plain language, and it turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the PeopleForce configuration it needs, and defines the safest connection and authentication approach without asking you to wire everything manually."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "An automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and sends those findings into a self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use PeopleForce actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with PeopleForce?",
+      "answer": "With DocsBot Skill Builder, you describe the PeopleForce workflow you want in plain language, such as employee lookups, onboarding updates, or workflow triggers. Skill Builder then designs the Skill, secures authentication, tests scenarios, improves the workflow, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use PeopleForce data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved PeopleForce data to look up status, gather context, prepare HR or operations handoffs, and summarize next steps while replying to a customer. Access can be limited to the exact records and actions you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with PeopleForce?",
+      "answer": "Internal assistants can help with employee record lookups, onboarding progress checks, task creation, escalation prep, SOP guidance, and workflow summaries tied to PeopleForce. DocsBot can also add approval boundaries before any sensitive update is completed."
+    },
+    {
+      "question": "Can DocsBot safely update PeopleForce records or trigger HR workflows?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating follow-up tasks, updating approved fields, or triggering workflow steps in PeopleForce. Skill Builder scopes permissions carefully and can require approval for higher-risk actions."
+    },
+    {
+      "question": "How does DocsBot keep PeopleForce credentials secure?",
+      "answer": "Skill Builder defines the required connection settings, stores secrets in secure runtime configuration, and proxies authentication so credentials stay out of chat transcripts and generated Skill content. It also limits access to the minimum systems, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a private AI assistant in Slack or Microsoft Teams use PeopleForce for employee questions?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve approved PeopleForce information, research HR processes, and complete guided workflows. The assistant can be restricted to internal users and specific PeopleForce actions."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "hibob",
+    "personio",
+    "gusto",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PeopleForce",
+    "domain": "peopleforce.com",
+    "description": "The company is a technology-driven business process outsourcing company that leverages the power of crowdsourcing to provide enterprise-grade solutions at lower costs. They combine innovative technology with the expertise of their crowd workforce to simplify complex business processes and deliver value to clients. With a focus on on-demand services, they are able to scale operations quickly and meet tight deadlines, offering a transaction-based pricing model where clients only pay for completed work. By tapping into the collective capabilities of their workforce, they can efficiently solve large-scale business processes faster and more cost-effectively compared to traditional BPO models.",
+    "slogan": "Crowdsourcing: Solving business processes faster and cheaper with PeopleForce",
+    "logoUrl": "https://media.brand.dev/1b9f75a2-f9a0-4b95-814b-a5e9e6efce93.jpg",
+    "iconUrl": "https://media.brand.dev/52445036-7739-46f6-830b-919a107bf6aa.png",
+    "primaryColor": "#ee640e",
+    "accentColor": "#373579",
+    "colors": [
+      {
+        "hex": "#ee640e",
+        "name": "Honey Teriyaki"
+      },
+      {
+        "hex": "#373579",
+        "name": "Good Karma"
+      },
+      {
+        "hex": "#e8cec0",
+        "name": "Malibu Coast"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b1b56296-a8de-44f6-960e-ce9f639a29e1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://peopleforce.com/careers-and-work-opportunities",
+      "terms": null,
+      "contact": "https://peopleforce.com/contact-us",
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/52445036-7739-46f6-830b-919a107bf6aa.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1b9f75a2-f9a0-4b95-814b-a5e9e6efce93.jpg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 48,
+        "aspectRatio": 4.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1b9f75a2-f9a0-4b95-814b-a5e9e6efce93.jpg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 48,
+      "aspectRatio": 4.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/52445036-7739-46f6-830b-919a107bf6aa.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

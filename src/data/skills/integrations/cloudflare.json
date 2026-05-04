@@ -1,0 +1,170 @@
+{
+  "slug": "cloudflare",
+  "name": "Cloudflare",
+  "domain": "cloudflare.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Cloudflare",
+  "metaTitle": "Build Cloudflare AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up Cloudflare data, trigger workflows, summarize incidents, and handle approved actions.",
+  "intro": "Cloudflare helps teams secure, accelerate, and manage their applications, networks, and online infrastructure. With DocsBot Skill Builder, you can describe the Cloudflare workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in Cloudflare for customer support, operations, and internal teams.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Cloudflare service status, DNS settings, cache behavior, or zone configuration details while answering support questions in chat or tickets.",
+    "Allow the agent to summarize recent Cloudflare events or configuration state so customers get a clear explanation before a human escalation.",
+    "Use the agent to prepare support handoffs that include relevant Cloudflare findings, affected zones, suspected causes, and the troubleshooting already completed.",
+    "Enable approved workflow triggers such as cache purge requests, rule checks, or diagnostic follow-up steps when a customer issue matches a defined support process.",
+    "Let the agent gather missing context from the customer, compare it to Cloudflare records, and guide the customer through the next safe troubleshooting step."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to look up Cloudflare zone details, security settings, routing information, or recent operational context without manually searching across dashboards.",
+    "Let operations or support teams ask the agent to summarize Cloudflare configuration changes, incident clues, or service posture before they begin an investigation or handoff.",
+    "Enable internal teams to use chat, Slack, or Microsoft Teams to trigger approved Cloudflare workflows such as cache-related actions, diagnostic checks, or escalation prep within defined guardrails.",
+    "Help employees follow SOPs by having the agent collect the right inputs, retrieve Cloudflare data, and produce a clean summary or next-step checklist for incident response.",
+    "Support cross-functional research by letting team members ask the agent questions that combine Cloudflare context with internal documentation, policies, and troubleshooting procedures."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Cloudflare zone and DNS details during customer troubleshooting.",
+    "A private operations assistant that summarizes Cloudflare security or performance context for employees.",
+    "A helpdesk agent that prepares Cloudflare-aware escalation notes with investigation findings and customer history.",
+    "An internal agent that triggers approved cache or diagnostics workflows with human approval boundaries.",
+    "A support assistant that gathers missing incident details and matches them to Cloudflare configuration records.",
+    "An employee AI assistant that follows Cloudflare troubleshooting SOPs and produces clean action summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Cloudflare agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right connection approach, defines the required configuration values, handles authentication securely, protects and proxies secrets, and scopes Cloudflare access to the minimum actions and records needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder sets approval boundaries, safe action limits, and user-specific permissions so sensitive Cloudflare changes stay controlled while routine lookups and approved actions remain fast."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, checks for bugs, missing instructions, weak permission handling, or workflow gaps, and feeds those findings into improvements."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder updates the Skill based on test results, strengthens the instructions and edge-case handling, and prepares a more reliable version before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Cloudflare?",
+      "answer": "With DocsBot Skill Builder, you describe the Cloudflare workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your DocsBot agent. The agent can then use Cloudflare for lookups, summaries, approved updates, and workflow triggers within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Cloudflare data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Cloudflare context to look up configuration details, summarize service state, gather troubleshooting signals, and prepare cleaner answers or handoffs for customer conversations. Access can be scoped so the agent only uses the Cloudflare data and actions that fit your support process."
+    },
+    {
+      "question": "What Cloudflare customer support workflows can DocsBot automate?",
+      "answer": "DocsBot can help automate Cloudflare-aware support workflows such as status lookups, configuration checks, cache or routing diagnostics, escalation prep, and approved follow-up actions. It can also gather missing customer details and produce structured summaries for human teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Cloudflare?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Cloudflare information, summarize operational context, and complete approved SOP-driven workflows. This helps teams reduce dashboard switching and standardize investigation steps."
+    },
+    {
+      "question": "How does DocsBot keep Cloudflare actions safe?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes access to the minimum users, records, and actions required. It can also add approval boundaries for sensitive Cloudflare changes before anything is executed."
+    },
+    {
+      "question": "Can DocsBot trigger Cloudflare workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be built for bounded AI Actions such as approved workflow triggers, record updates, escalation preparation, and generated summaries. The exact actions are controlled by the rules, permissions, and approval checkpoints you set during the Skill design process."
+    }
+  ],
+  "relatedSlugs": [
+    "fastly",
+    "akamai",
+    "aws",
+    "azure",
+    "google-cloud",
+    "datadog"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cloudflare",
+    "domain": "cloudflare.com",
+    "description": "Cloudflare is a leading connectivity cloud company that empowers organizations to make their employees, applications, and networks faster and more secure. With a global network spanning 300+ cities in 100+ countries, Cloudflare's unified platform delivers cloud-native products and developer tools to help businesses accelerate and protect their online presence, while reducing complexity and cost.",
+    "slogan": "The Cloud for the Better Internet",
+    "logoUrl": "https://media.brand.dev/8b67f468-8f7c-43ba-82e6-fc6aad846d84.svg",
+    "iconUrl": "https://media.brand.dev/460af96a-d8a1-44e1-9758-2dc3762841c8.png",
+    "primaryColor": "#040404",
+    "accentColor": "#f58b2c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#f58b2c",
+        "name": "Cadmium Orange"
+      },
+      {
+        "hex": "#f9c682",
+        "name": "Jackfruit"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/632bacbc-89e6-47e3-b177-24235d9c5108.png",
+    "industries": [],
+    "links": {
+      "blog": "https://blog.cloudflare.com/",
+      "careers": "https://www.cloudflare.com/careers/",
+      "terms": "https://www.cloudflare.com/website-terms/",
+      "contact": "https://www.cloudflare.com/plans/enterprise/contact/",
+      "privacy": "https://www.cloudflare.com/privacypolicy/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.cloudflare.com/plans/enterprise/externa/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d73384a3-3e88-43c9-8bdf-064adff335fe.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8b67f468-8f7c-43ba-82e6-fc6aad846d84.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 239,
+        "height": 54,
+        "aspectRatio": 4.43
+      },
+      {
+        "url": "https://media.brand.dev/460af96a-d8a1-44e1-9758-2dc3762841c8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8b67f468-8f7c-43ba-82e6-fc6aad846d84.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 239,
+      "height": 54,
+      "aspectRatio": 4.43
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d73384a3-3e88-43c9-8bdf-064adff335fe.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

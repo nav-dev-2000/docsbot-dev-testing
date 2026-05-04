@@ -1,0 +1,168 @@
+{
+  "slug": "veeva-vault",
+  "name": "Veeva Vault",
+  "domain": "veeva-vault.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Veeva Vault",
+  "metaTitle": "Build Veeva Vault AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Veeva Vault for support lookups, internal workflows, record updates, summaries, and controlled life sciences handoffs.",
+  "intro": "Veeva Vault helps life sciences teams manage regulated content, documents, and business processes across critical workflows. With DocsBot Skill Builder, you can describe the agent behavior you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely look up Vault information, summarize status, prepare handoffs, and take approved actions. This helps support teams and internal teams move faster while keeping workflows controlled and auditable.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved document or process status in Veeva Vault and give customers a clear progress update without exposing sensitive internal details.",
+    "Let the agent gather product, submission, or document context from Veeva Vault and prepare a support handoff with the right record references for regulated follow-up teams.",
+    "Allow the agent to summarize the latest approved information from Veeva Vault so support replies stay consistent with controlled content.",
+    "Have the agent create or update an internal follow-up record or workflow trigger in Veeva Vault when a customer issue requires formal review or escalation.",
+    "Use the agent in helpdesk ticket workflows to pull relevant Vault metadata, summarize the case state, and draft a compliant next-step response for the support team."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to find Veeva Vault documents, records, and status details faster.",
+    "Enable regulatory, quality, medical, or operations teams to ask the agent for a concise summary of a Vault record, approval stage, or related content before taking action.",
+    "Give internal teams an AI assistant that can prepare handoff notes, create follow-up tasks, or trigger approved Vault workflows while following company SOPs.",
+    "Help employees research controlled content across Veeva Vault and related systems, then return a structured summary with links, owners, and next steps.",
+    "Allow team members to ask the agent how to complete a process, and have it retrieve the right Vault context and guide the workflow using approved internal procedures."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Veeva Vault document or submission status for customer-facing replies.",
+    "A private team assistant that finds Vault records and explains approval stage, owner, and next action.",
+    "A regulated content lookup Skill that returns approved information and cites the related Vault record.",
+    "A handoff automation Skill that packages Vault context for quality, regulatory, or medical review teams.",
+    "A workflow trigger Skill that starts approved follow-up processes in Veeva Vault after agent triage.",
+    "A case summary Skill that combines helpdesk context with Veeva Vault metadata for faster escalation decisions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Veeva Vault agent to do in plain language, such as look up document status, summarize records, or trigger an approved internal handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, and plans how the agent should retrieve information or take bounded action inside Veeva Vault."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines safe authentication handling, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and limits access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds scoped permissions, approval boundaries, and action limits so sensitive updates, escalations, or workflow triggers only happen under the rules you approve."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Veeva Vault data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your AI agent securely look up Veeva Vault records, summarize status, and take approved actions. Skill Builder also handles connection design, secret protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Veeva Vault during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Veeva Vault Skill during website chat or helpdesk ticket workflows to retrieve approved context, summarize status, and prepare compliant handoffs. You control what information the agent can access and which actions require limits or approvals."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Veeva Vault?",
+      "answer": "Teams can automate status lookups, controlled content summaries, escalation preparation, internal follow-up creation, and workflow triggers tied to support cases. This helps the agent do more than answer questions by taking bounded action under your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Veeva Vault?",
+      "answer": "Yes, private DocsBot agents can help employees search for Vault records, summarize document or workflow status, prepare handoffs, and guide SOP-based processes. This is useful for regulatory, quality, medical, and operations teams that need faster access to controlled information."
+    },
+    {
+      "question": "How does DocsBot keep Veeva Vault integrations secure?",
+      "answer": "Skill Builder defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes access to the smallest necessary set of users, records, and actions and can add approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can DocsBot trigger updates or workflows in Veeva Vault safely?",
+      "answer": "Yes, DocsBot Skills can be designed to create records, update fields, or trigger approved workflows when those actions fit your process. Skill Builder adds the guardrails, permissions, and approval points needed so the agent acts only within your defined limits."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "servicenow",
+    "sharepoint",
+    "box",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Veeva",
+    "domain": "veeva.com",
+    "description": "Veeva Systems Inc. is a leading provider of cloud-based business solutions tailored specifically for the global life sciences industry. With a strong commitment to innovation and product excellence, Veeva supports over 1,100 customers, including some of the largest pharmaceutical companies and emerging biotech firms. Headquartered in the San Francisco Bay Area, Veeva has expanded its presence with offices across Canada, Europe, Asia, and Latin America. The company's focus on customer success sets it apart, as it continues to develop advanced software solutions that address the unique challenges of the life sciences sector.",
+    "slogan": "Cloud-Based Business Solutions for the Global Life Sciences Industry",
+    "logoUrl": "https://media.brand.dev/9eeaa951-88f4-4b33-a3bf-f680c2d6eb6f.png",
+    "iconUrl": "https://media.brand.dev/cba9ff79-2a15-49e3-93ac-d4358c8affdf.png",
+    "primaryColor": "#fc9c25",
+    "accentColor": "#82827b",
+    "colors": [
+      {
+        "hex": "#fc9c25",
+        "name": "Radiant Yellow"
+      },
+      {
+        "hex": "#82827b",
+        "name": "Going Grey"
+      },
+      {
+        "hex": "#aeab9e",
+        "name": "Big Band"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/20deacd3-2001-48f2-90c4-c18d8f0413e4.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.veeva.com/",
+      "terms": "https://www.veeva.com/terms/",
+      "contact": "https://veeva.com/contact-us/",
+      "privacy": "https://www.veeva.com/privacy/",
+      "blog": "https://www.veeva.com/news/",
+      "pricing": "https://www.veeva.com/products/veeva-submissions/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cba9ff79-2a15-49e3-93ac-d4358c8affdf.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9eeaa951-88f4-4b33-a3bf-f680c2d6eb6f.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 300,
+        "height": 69,
+        "aspectRatio": 4.35
+      },
+      {
+        "url": "https://media.brand.dev/fde8f533-dbd2-4fce-b468-6a5a325ecc4b.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 120,
+        "height": 39,
+        "aspectRatio": 3.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9eeaa951-88f4-4b33-a3bf-f680c2d6eb6f.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 300,
+      "height": 69,
+      "aspectRatio": 4.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cba9ff79-2a15-49e3-93ac-d4358c8affdf.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

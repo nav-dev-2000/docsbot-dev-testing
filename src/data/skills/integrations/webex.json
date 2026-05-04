@@ -1,0 +1,168 @@
+{
+  "slug": "webex",
+  "name": "Webex",
+  "domain": "webex.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Webex for Support and Team Workflows",
+  "metaTitle": "Build DocsBot AI Agents That Integrate with Webex",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Webex for support handoffs, meeting workflows, messaging lookups, summaries, and approved team actions.",
+  "intro": "Webex helps teams communicate through meetings, calling, messaging, events, and customer experience workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up Webex information, prepare handoffs, summarize conversations, and trigger approved actions. This helps customer support teams respond faster and helps internal teams complete communication and collaboration workflows from one AI assistant.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Webex meeting details, join instructions, or event status while answering customer questions in chat or over helpdesk tickets.",
+    "Use the agent to create a Webex-based handoff by preparing escalation notes, routing context, and approved follow-up actions for a live support or success team.",
+    "Have the agent summarize customer conversations and package the right context for a Webex meeting, callback, or internal support escalation.",
+    "Allow the agent to look up messaging or collaboration details tied to a support workflow so customers get accurate next steps without waiting for manual investigation.",
+    "Trigger approved Webex workflows such as scheduling a support session or preparing a meeting record after the customer confirms the request."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to find Webex meeting information, collaboration context, or communication history faster.",
+    "Customer success or operations teams can ask the agent to prepare meeting briefs, summarize Webex conversations, and generate follow-up notes for account reviews or escalations.",
+    "Internal teams can use the agent to coordinate SOPs around Webex sessions, including scheduling support calls, organizing handoff details, and producing recap summaries.",
+    "Managers and support leads can chat with the agent to gather Webex-related updates across meetings, messaging, and customer communication workflows without switching tools.",
+    "Employees can use the agent to trigger approved communication workflows in Webex while the agent follows scoped permissions and approval limits set for each team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that prepares Webex meeting handoffs from chat or ticket conversations.",
+    "A private team assistant that summarizes Webex meetings and drafts follow-up actions.",
+    "An agent that looks up Webex event details and answers attendee support questions.",
+    "A workflow assistant that schedules approved Webex sessions after customer confirmation.",
+    "An internal SOP agent that packages Webex context for escalations and cross-team handoffs.",
+    "A support assistant that creates concise Webex-ready briefing notes for live agents."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Webex in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder determines the safest way to connect Webex, defines the required configuration values, handles authentication through secure runtime configuration, and keeps secrets out of chats and Skill source by default."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder scopes the Skill to the minimum actions, users, records, and Webex workflows needed, and it adds approval boundaries anywhere a sensitive action should require confirmation."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and employee scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Webex?",
+      "answer": "With DocsBot Skill Builder, you describe the Webex workflow you want in plain language, such as looking up meeting details, preparing handoffs, or triggering approved collaboration actions. Skill Builder then designs the Skill, secures the connection, tests scenarios, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Webex during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Webex Skill to retrieve meeting or collaboration context, prepare escalation notes, summarize issues, and trigger approved follow-up workflows while replying to customers. The customer chat or helpdesk ticket triggers the DocsBot agent, and the Skill lets that agent act safely inside Webex."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Webex?",
+      "answer": "You can build workflows for meeting scheduling, escalation prep, support session handoffs, conversation summaries, event status lookups, and approved communication follow-ups. The exact actions are bounded by the permissions and approval rules you choose for the Skill."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Webex tasks?",
+      "answer": "Yes, teams can use a private DocsBot agent to retrieve Webex information, summarize meetings, generate follow-up notes, and complete communication SOPs through chat, Slack, or Microsoft Teams. This gives employees one place to ask questions and trigger approved workflows without jumping between tools."
+    },
+    {
+      "question": "How does DocsBot keep a Webex AI integration secure?",
+      "answer": "Skill Builder identifies the configuration and authentication needed, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated content. It also scopes access to the minimum needed actions and can require approvals before sensitive updates or workflow triggers run."
+    },
+    {
+      "question": "Can DocsBot create Webex handoffs and escalation summaries automatically?",
+      "answer": "Yes, you can build a Skill that gathers the right customer context, summarizes the issue, and prepares a clean handoff for a Webex meeting, callback, or internal escalation. This helps live teams start with the full picture instead of rebuilding context manually."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "microsoft-teams",
+    "slack",
+    "google-meet",
+    "ringcentral",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Webex",
+    "domain": "webex.com",
+    "description": "Webex by Cisco is a leading provider of cloud-based collaboration solutions, offering video meetings, calling, messaging, events, and customer experience solutions. They utilize AI and Machine Learning to deliver inclusive collaboration experiences, removing barriers of geography, language, and technology familiarity, all while prioritizing security and privacy by design.",
+    "slogan": "Webex: Powering Inclusive, AI-Enhanced Hybrid Collaboration Everywhere",
+    "logoUrl": "https://media.brand.dev/a988028c-0f4e-414e-ad52-8aa08606b4e2.svg",
+    "iconUrl": "https://media.brand.dev/ffe7fb68-7820-4739-bfa1-5e08fa4651fa.png",
+    "primaryColor": "#295ddb",
+    "accentColor": "#141515",
+    "colors": [
+      {
+        "hex": "#295ddb",
+        "name": "Bnei Brak Bay"
+      },
+      {
+        "hex": "#141515",
+        "name": "Matt Black"
+      },
+      {
+        "hex": "#165d7e",
+        "name": "Blue Sapphire"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a7d0f244-230e-4403-b851-e4ed152f0250.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.webex.com/company/careers.html",
+      "terms": null,
+      "contact": "https://www.webex.com/us/en/products/customer-experience/contact-center.html",
+      "privacy": "https://webex.com/",
+      "blog": "https://blog.webex.com/",
+      "pricing": "https://pricing.webex.com/us/en/hybrid-work/meetings/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ffe7fb68-7820-4739-bfa1-5e08fa4651fa.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 340,
+        "height": 340,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a988028c-0f4e-414e-ad52-8aa08606b4e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 108,
+        "height": 28,
+        "aspectRatio": 3.86
+      },
+      {
+        "url": "https://media.brand.dev/574c86ca-b47c-4dd0-a01b-e87173250fb0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a988028c-0f4e-414e-ad52-8aa08606b4e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 108,
+      "height": 28,
+      "aspectRatio": 3.86
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/574c86ca-b47c-4dd0-a01b-e87173250fb0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

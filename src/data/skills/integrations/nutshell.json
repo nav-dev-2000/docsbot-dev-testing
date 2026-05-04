@@ -1,0 +1,168 @@
+{
+  "slug": "nutshell",
+  "name": "Nutshell",
+  "domain": "nutshell.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Nutshell CRM",
+  "metaTitle": "Build AI Agents for Nutshell CRM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Nutshell to look up contacts, update deals, prepare handoffs, and automate safe support or internal sales workflows.",
+  "intro": "Nutshell helps B2B teams manage contacts, deals, and email marketing in one place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Nutshell data and actions. That means customer-facing support agents and internal team assistants can answer questions, retrieve CRM context, update records, prepare handoffs, and trigger approved follow-up workflows without leaving the conversation.",
+  "supportUseCases": [
+    "A DocsBot support agent can look up a customer, company, or deal in Nutshell during a website chat or helpdesk ticket and use that context to personalize the response.",
+    "A customer-facing agent can summarize recent sales activity, notes, and pipeline status from Nutshell before handing a conversation to a human rep.",
+    "A support agent can create or update a contact record in Nutshell when a customer shares new information such as job title, phone number, or company details.",
+    "A DocsBot agent can log a follow-up task or note in Nutshell after a support conversation so sales or customer success teams have a clean handoff.",
+    "A helpdesk-connected agent can check whether an account is tied to an active opportunity in Nutshell and route the ticket to the right owner or team accordingly."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up contacts, companies, leads, and deal status in Nutshell without opening the CRM.",
+    "Sales and success teams can ask the agent to summarize account history, recent notes, and open opportunities in Nutshell before a renewal call or customer meeting.",
+    "Employees can use the agent to create follow-up tasks, add notes, or update contact and deal fields in Nutshell within approved workflow boundaries.",
+    "Revenue operations teams can chat with the agent to prepare handoff summaries between marketing, sales, and customer success using live Nutshell records.",
+    "Managers can ask an internal AI assistant to retrieve pipeline details from Nutshell, generate account briefs, and support repeatable sales SOPs across the team."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves CRM context before answering customer questions.",
+    "An internal sales assistant that summarizes deals, contacts, and recent activity.",
+    "A handoff Skill that writes support notes into Nutshell for account owners.",
+    "A lead capture workflow that creates or enriches Nutshell contact records.",
+    "A renewal prep assistant that builds account summaries from live CRM data.",
+    "A routing Skill that checks deal ownership and sends issues to the right team."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Nutshell, such as look up deal history, create contact notes, or prepare a support-to-sales handoff, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Nutshell connection, defines the right configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive actions like updating deals or creating records, Skill Builder adds approval boundaries, safe action limits, and clear rules so the agent only takes bounded actions you want it to take."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is working well, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can start using Nutshell through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Nutshell CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Nutshell workflow you want in plain language, and DocsBot designs the Skill, handles secure connection details, tests the workflow, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Nutshell data during customer chats or tickets?",
+      "answer": "Yes, a DocsBot agent can use approved Nutshell data to look up contacts, companies, deal status, notes, and ownership details while responding to a customer in chat or through a helpdesk workflow."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Nutshell?",
+      "answer": "An internal DocsBot agent can retrieve CRM records, summarize account history, create notes, update fields, log follow-up tasks, and support repeatable sales or customer success workflows inside chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update Nutshell records safely?",
+      "answer": "Yes, Skill Builder can create workflows for bounded updates such as adding notes, creating contacts, or updating approved fields, while applying scoped permissions and approval steps for more sensitive changes."
+    },
+    {
+      "question": "Can a DocsBot agent create sales handoffs from support conversations using Nutshell?",
+      "answer": "Yes, the agent can gather conversation details, look up the related Nutshell account or contact, generate a clean handoff summary, and save that context for the right sales or success owner."
+    },
+    {
+      "question": "How does DocsBot keep Nutshell authentication and secrets secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and limits access to only the actions and records needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Nutshell",
+    "domain": "nutshell.com",
+    "description": "Nutshell is an all-in-one CRM and email marketing platform that helps B2B organizations work together to win more deals. It provides a simple yet sophisticated solution for teams tired of juggling separate sales and marketing tools, offering unlimited CRM contacts, customizable reporting, and world-class support at an affordable price.",
+    "slogan": "Simplify sales, boost growth with Nutshell's all-in-one CRM and marketing.",
+    "logoUrl": "https://media.brand.dev/f58ba874-62d1-4903-9c0e-856f0ad4a5dd.png",
+    "iconUrl": "https://media.brand.dev/18b7d46a-4a9a-4a8a-ae2d-421f47232728.jpg",
+    "primaryColor": "#0c0c34",
+    "accentColor": "#fb5c05",
+    "colors": [
+      {
+        "hex": "#0c0c34",
+        "name": "Grim Reaper"
+      },
+      {
+        "hex": "#fb5c05",
+        "name": "Maximum Orange"
+      },
+      {
+        "hex": "#f2ac7a",
+        "name": "Exciting Orange"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0f449601-701d-4290-b8c9-6adfcd1030d1.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.nutshell.com/careers",
+      "terms": null,
+      "contact": "https://www.nutshell.com/contact",
+      "privacy": "https://www.nutshell.com/privacy-policy",
+      "blog": "https://www.nutshell.com/blog",
+      "pricing": "https://www.nutshell.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/18b7d46a-4a9a-4a8a-ae2d-421f47232728.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/17f7320c-ee2e-40f9-a42d-221a205c7076.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f58ba874-62d1-4903-9c0e-856f0ad4a5dd.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 451,
+        "height": 69,
+        "aspectRatio": 6.54
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f58ba874-62d1-4903-9c0e-856f0ad4a5dd.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 451,
+      "height": 69,
+      "aspectRatio": 6.54
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/18b7d46a-4a9a-4a8a-ae2d-421f47232728.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

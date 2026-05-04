@@ -1,0 +1,167 @@
+{
+  "slug": "cats",
+  "name": "CATS",
+  "domain": "cats.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with CATS Recruiting Workflows",
+  "metaTitle": "CATS AI Agent Integration for Support and Recruiting Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up candidate data, update recruiting records, trigger workflows, and support internal teams with CATS.",
+  "intro": "CATS is used by recruiting teams to manage candidates, jobs, and hiring workflows. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language, and DocsBot helps create a reusable Skill that lets your AI agent securely work inside CATS. That means customer-facing or internal agents can answer questions, retrieve recruiting information, prepare handoffs, update approved records, and trigger next steps without exposing sensitive data or requiring manual busywork.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check application status details in CATS and respond with an approved progress summary for candidates asking where they are in the hiring process.",
+    "Use a support agent connected to your helpdesk to capture missing applicant information from a ticket and create or update the related candidate record in CATS.",
+    "Enable the agent to confirm whether an interview is scheduled, summarize the current stage, and prepare a clean escalation handoff for a recruiting coordinator when a candidate needs human follow-up.",
+    "Allow the agent to log candidate questions, attach support context, and trigger an approved follow-up workflow in CATS while replying to the candidate.",
+    "Have the agent summarize candidate history, recent recruiter notes, and open next steps from CATS so support teams can answer consistently across chat and email tickets."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Teams, or a web chat to look up candidate profiles, job requisitions, and pipeline stages from CATS without manually searching the ATS.",
+    "Recruiters can ask the agent to summarize a candidate record, draft an internal handoff note, and suggest the next approved workflow step based on CATS activity.",
+    "Hiring teams can use the agent to gather interview status, pull recent notes, and prepare concise candidate briefings before review meetings.",
+    "Operations staff can chat with the agent to create approved updates in CATS, such as adding notes, changing stages, or assigning follow-up tasks within defined permission limits.",
+    "Employees can use the agent to follow recruiting SOPs, collect missing context, and trigger bounded workflows across CATS and related business systems from one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that checks application status and summarizes candidate progress from CATS.",
+    "A support agent that creates candidate notes and prepares recruiter handoffs using ticket context.",
+    "An internal hiring assistant that pulls interview details and generates meeting-ready candidate summaries.",
+    "A workflow agent that updates approved candidate fields in CATS after collecting missing information.",
+    "A recruiting operations agent that triggers next-step tasks when candidates reach defined pipeline stages.",
+    "A private team assistant that answers CATS questions in Slack or Microsoft Teams with secure live lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in CATS, such as checking application status, updating candidate notes, or preparing recruiter handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive recruiting actions, Skill Builder adds approval boundaries and safe action limits so the agent can assist confidently without making unrestricted changes."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined candidate, recruiter, and support scenarios against the Skill, finds bugs or workflow gaps, and checks for missing permission safeguards before launch."
+    },
+    {
+      "title": "It improves before deployment",
+      "description": "Skill Builder uses those test results to refine instructions, strengthen edge-case handling, and improve the Skill so it is more reliable before publishing it to your DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for CATS recruiting workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting task you want in plain language, and Skill Builder designs the Skill, secures the connection to CATS, tests the workflow, and prepares it for deployment. The resulting agent can handle lookups, summaries, handoffs, and approved updates inside the rules you define."
+    },
+    {
+      "question": "Can an AI support agent use CATS data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use approved CATS data to check application progress, summarize hiring stages, collect missing details, and prepare escalations for human follow-up. Access can be scoped so the agent only retrieves and shares the information you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with CATS?",
+      "answer": "A private DocsBot agent can help recruiters and hiring teams retrieve candidate records, summarize recruiter notes, prepare interview briefings, update approved fields, and trigger next-step workflows. This helps employees complete recruiting SOPs faster through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update candidate records in CATS safely?",
+      "answer": "Yes, Skill Builder can create bounded actions for approved record updates such as adding notes, changing stages, or assigning tasks. It designs scoped permissions, secure authentication, and approval checks so the agent stays within your intended workflow."
+    },
+    {
+      "question": "How does DocsBot keep CATS credentials and recruiting data secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chat transcripts and Skill instructions, and proxies secrets through protected runtime configuration. It also limits access to the minimum records and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiter handoffs from CATS activity?",
+      "answer": "Yes, the agent can gather candidate context from CATS, summarize recent activity, collect missing details from the conversation, and generate a structured handoff for a recruiter or coordinator. This helps teams move faster while keeping follow-up consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cats",
+    "domain": "cats.com",
+    "description": "Cats.com is a community and resource hub for cat owners, providing expert-reviewed information and guidance on cat health, ownership, and care. Since 2016, they have been on a mission to empower cat owners with the knowledge they need to give their pets happier, healthier lives through free courses, helpful tools, and informative forums.",
+    "slogan": "Empowering cat owners with knowledge for happier, healthier feline lives.",
+    "logoUrl": "https://media.brand.dev/4019ea05-d811-4fca-b673-86ec4112ebd9.png",
+    "iconUrl": "https://media.brand.dev/4019ea05-d811-4fca-b673-86ec4112ebd9.png",
+    "primaryColor": "#aaa599",
+    "accentColor": "#53493c",
+    "colors": [
+      {
+        "hex": "#aaa599",
+        "name": "Abbey Stone"
+      },
+      {
+        "hex": "#53493c",
+        "name": "Metallic Bronze"
+      },
+      {
+        "hex": "#d3c2a9",
+        "name": "Baja"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bd874fcd-c538-471e-8460-d2655f2c853e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://cats.com/work-with-us",
+      "terms": "https://cats.com/terms-of-use",
+      "contact": "https://cats.com/about/contact-page",
+      "privacy": "https://cats.com/privacy-policy",
+      "blog": "https://cats.com/news/new-cat-microchipping-law",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4019ea05-d811-4fca-b673-86ec4112ebd9.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9bd3d16d-2d68-4344-a319-093a85fadc6c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 120,
+        "height": 120,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48f2f500-2fd3-4501-b37a-a8f7acf077e4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9bd3d16d-2d68-4344-a319-093a85fadc6c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 120,
+      "height": 120,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9bd3d16d-2d68-4344-a319-093a85fadc6c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 120,
+      "height": 120,
+      "aspectRatio": 1
+    }
+  }
+}

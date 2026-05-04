@@ -1,0 +1,160 @@
+{
+  "slug": "jotform",
+  "name": "Jotform",
+  "domain": "jotform.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Jotform for Support and Operations",
+  "metaTitle": "Build Jotform AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Jotform to capture submissions, review responses, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Jotform helps teams collect information, registrations, requests, payments, and survey responses through forms and automated workflows. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Jotform, and Skill Builder will design, secure, test, and package that ability for customer support or internal team use. The result is an AI agent that can answer questions and take bounded actions such as looking up submissions, creating records, summarizing responses, and preparing handoffs.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a Jotform submission was received and summarize the current status during a live chat or helpdesk reply.",
+    "Allow the agent to guide customers through the right form, capture missing details, and create a new Jotform submission as part of a support or intake workflow.",
+    "Use Jotform response data to help the agent verify registration details, application answers, or request history before responding to a customer.",
+    "Have the agent summarize complex form submissions for a support handoff so human teams can review the case faster.",
+    "Enable the agent to trigger approved follow-up workflows after a customer completes a support, feedback, refund, or onboarding form in Jotform."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find the right Jotform for a process, retrieve submission details, and get a concise summary without manually searching.",
+    "Allow internal teams to ask the agent to create Jotform entries for intake, approvals, incident reports, or service requests while following company workflow rules.",
+    "Help operations teams use a private AI agent in Slack or Microsoft Teams to review recent form activity, spot missing information, and prepare next-step summaries.",
+    "Enable employees to chat with the agent to research form responses across departments and complete SOP-driven workflows based on Jotform submissions.",
+    "Support customer success, HR, or operations teams by having the agent collect structured information through Jotform and then prepare internal handoffs or escalation notes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Jotform submission status before answering customer questions.",
+    "A private operations assistant that creates intake submissions from employee chat requests.",
+    "A handoff workflow that summarizes long Jotform responses for support or success teams.",
+    "An internal agent that finds the correct form and explains when to use it.",
+    "A customer-facing agent that captures missing case details into a Jotform workflow.",
+    "An employee assistant that reviews form responses and drafts escalation summaries for managers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Jotform-powered agent to do, such as checking submissions, creating entries, or preparing handoffs, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and Skill source, and scopes access to the minimum forms, actions, and records needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and safe action limits so the agent can look up data, create submissions, summarize responses, or trigger workflows only within your approved rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can start using Jotform actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Jotform data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as finding submissions, summarizing responses, or creating new entries, and Skill Builder designs and packages the workflow securely. It can then deploy that ability to a customer-facing support agent or a private internal assistant."
+    },
+    {
+      "question": "Can an AI support agent use Jotform during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Jotform Skill to look up submission details, confirm whether a form was received, capture missing information, and prepare handoffs while responding to customers. Sensitive actions can be limited with scoped permissions and approval boundaries."
+    },
+    {
+      "question": "What Jotform workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees find the right forms, retrieve submission data, create intake records, summarize responses, and move work into the next approved step. This is useful for operations, HR, customer success, and other teams that rely on structured form-based processes."
+    },
+    {
+      "question": "Can DocsBot create or update Jotform submissions safely?",
+      "answer": "DocsBot Skill Builder can design Skills that perform approved Jotform actions with tightly scoped access, secure runtime authentication, and optional approval steps for sensitive workflows. Secrets are protected by design and kept out of chat transcripts and generated Skill source."
+    },
+    {
+      "question": "How does setup work for a Jotform AI agent if I am not technical?",
+      "answer": "You do not need to map every technical step yourself. Skill Builder asks for the outcome, figures out the secure connection and configuration requirements, tests the workflow, improves it, and helps publish it to the right DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Jotform responses for support or operations teams?",
+      "answer": "Yes, a Jotform Skill can help an agent turn long or complex submissions into concise summaries, escalation notes, or internal handoff briefs. That helps teams move faster without reading every response manually."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "google-forms",
+    "formstack",
+    "airtable",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jotform",
+    "domain": "jotform.com",
+    "description": "Jotform is a leading online form creator and survey maker that simplifies data collection and automates workflows. With a user-friendly interface and powerful features, Jotform empowers over 25 million users worldwide to transform busywork into efficient processes. Its versatile platform supports conditional logic, payment acceptance, and automated reporting, making it suitable for both small businesses and large enterprises. Jotform offers an extensive library of 10,000 templates, hundreds of integrations, and nearly 400 widgets, allowing organizations to tailor their forms to their specific needs. With Jotform's intuitive drag-and-drop form builder, users can create forms and surveys for free, facilitating the collection of registrations, applications, orders, and payments with ease. Jotform is committed to enhancing productivity and providing comprehensive solutions for data management.",
+    "slogan": "Streamline your processes with Jotform's powerful no-code forms.",
+    "logoUrl": "https://media.brand.dev/346af168-e51e-41b4-b838-553182146c34.svg",
+    "iconUrl": "https://media.brand.dev/08b4e3d8-a43b-447c-979a-6d48da6c5b4c.jpg",
+    "primaryColor": "#0c1454",
+    "accentColor": "#fc5404",
+    "colors": [
+      {
+        "hex": "#0c1454",
+        "name": "Shadowdancer"
+      },
+      {
+        "hex": "#fc5404",
+        "name": "Mystic Red"
+      },
+      {
+        "hex": "#f7963f",
+        "name": "Chat Orange"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b0e74bb4-38e6-4743-af33-f3a1265efc95.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://jotform.com/terms/",
+      "contact": "https://www.jotform.com/contact/",
+      "privacy": "https://jotform.com/privacy/",
+      "blog": "https://www.jotform.com/blog/",
+      "pricing": "https://www.jotform.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/346af168-e51e-41b4-b838-553182146c34.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 367,
+        "height": 66,
+        "aspectRatio": 5.56
+      },
+      {
+        "url": "https://media.brand.dev/08b4e3d8-a43b-447c-979a-6d48da6c5b4c.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/346af168-e51e-41b4-b838-553182146c34.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 367,
+      "height": 66,
+      "aspectRatio": 5.56
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/08b4e3d8-a43b-447c-979a-6d48da6c5b4c.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "jumpcloud",
+  "name": "JumpCloud",
+  "domain": "jumpcloud.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JumpCloud",
+  "metaTitle": "Build JumpCloud AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use JumpCloud for secure identity lookups, access workflows, employee support, and approved IT actions in chat or tickets.",
+  "intro": "JumpCloud helps teams manage identities, devices, and access from one platform. With DocsBot Skill Builder, you can describe the JumpCloud workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. The result is an AI agent that can answer questions, look up identity and access details, prepare handoffs, and take bounded actions inside your approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a user's SSO, MFA, or account status in JumpCloud while helping resolve login and access questions.",
+    "Use a support agent to collect missing identity details from a customer, summarize the JumpCloud account state, and prepare a clean escalation for IT or support teams.",
+    "Allow the agent to trigger approved access recovery workflows, such as starting a password reset or account unlock process, when your policy allows it.",
+    "Have the agent review JumpCloud directory and authentication details to explain why a user may be blocked from a specific app or service.",
+    "Use the agent in helpdesk ticket replies to summarize relevant JumpCloud identity, device, or access information before handing the case to a human specialist."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up user, group, device, and access information from JumpCloud.",
+    "Enable IT and operations teams to ask the agent to summarize a user's identity posture, assigned access, and recent authentication context before following an SOP.",
+    "Allow helpdesk staff to use the agent to start approved account recovery, access review, or device-related workflows without leaving chat.",
+    "Help managers or team leads chat with the agent to confirm onboarding or offboarding access steps and generate handoff summaries for IT.",
+    "Give internal teams an AI assistant that can gather JumpCloud context, check policy-related status, and prepare escalation notes for sensitive identity issues that still require human approval."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks JumpCloud account and MFA status during login troubleshooting.",
+    "An internal IT assistant that looks up users, groups, devices, and access assignments in chat.",
+    "A helpdesk workflow that summarizes JumpCloud identity context before escalation to a human specialist.",
+    "An employee support bot that starts approved password reset or account recovery workflows.",
+    "An onboarding assistant that verifies access setup progress and prepares missing-step follow-ups.",
+    "An offboarding workflow assistant that reviews assigned access and generates secure handoff summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the JumpCloud agent to do, such as checking account status, starting approved recovery workflows, or preparing escalation summaries, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes JumpCloud access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive identity and access work, including approval boundaries, user scope, and safe action limits so the agent only performs the bounded tasks you allow."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing support bot or private internal agent so teams can use JumpCloud through chat, Slack, Microsoft Teams, or ticket workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses JumpCloud for login and access support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking MFA status or preparing a login troubleshooting summary, and Skill Builder creates a secure Skill for your agent. It can design the lookup and action flow, protect credentials, scope permissions, and add approval steps for sensitive access actions."
+    },
+    {
+      "question": "Can an AI support agent use JumpCloud data during customer chat or helpdesk tickets?",
+      "answer": "Yes, a DocsBot agent can use a JumpCloud Skill to retrieve approved identity and access details while responding to customers in chat or tickets. That helps the agent verify account state, summarize likely issues, and prepare cleaner handoffs without exposing broad administrative access."
+    },
+    {
+      "question": "What JumpCloud workflows can an internal AI assistant automate for employees and IT teams?",
+      "answer": "An internal DocsBot agent can help with user and group lookups, device and access summaries, approved recovery workflows, onboarding checks, offboarding reviews, and escalation prep. The exact actions are defined by the Skill you build and the permissions and approval boundaries you allow."
+    },
+    {
+      "question": "Can DocsBot safely trigger JumpCloud actions like password recovery or account unlock workflows?",
+      "answer": "DocsBot Skill Builder can create Skills that trigger bounded JumpCloud actions when your policies allow them. It handles secure connection design, keeps secrets out of chats, scopes access carefully, and can require approvals for higher-risk actions."
+    },
+    {
+      "question": "How does DocsBot keep a JumpCloud integration secure for AI agents?",
+      "answer": "Skill Builder defines secure configuration requirements, stores and proxies secrets through approved runtime settings, and limits access to the users, records, and actions needed for the workflow. It also adds approval boundaries and tests the Skill against realistic scenarios before deployment."
+    },
+    {
+      "question": "Can I use a private AI assistant with JumpCloud in Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot can power a private internal agent that employees or IT staff use in chat, Slack, or Microsoft Teams to retrieve JumpCloud information and complete approved workflows. This gives teams faster answers and guided action without requiring them to navigate every admin screen manually."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "azure-active-directory",
+    "google-workspace",
+    "auth0",
+    "microsoft-entra-id"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JumpCloud",
+    "domain": "jumpcloud.com",
+    "description": "JumpCloud delivers a unified open directory platform that enables IT teams and MSPs to securely manage identities, devices, and access across their organization from a single platform, supporting Windows, Apple, Linux, and Android devices, and providing features like SSO, MFA, and Zero Trust.",
+    "slogan": "IT Simplified: Securely Manage Identities, Devices, and Access Everywhere",
+    "logoUrl": "https://media.brand.dev/ce3f8781-9f0a-4191-96be-40d5f1add0a4.svg",
+    "iconUrl": "https://media.brand.dev/5a54fce2-4908-4036-b1e3-257a5da213a6.jpg",
+    "primaryColor": "#042c4c",
+    "accentColor": "#8494a2",
+    "colors": [
+      {
+        "hex": "#042c4c",
+        "name": "Royal Blue Metallic"
+      },
+      {
+        "hex": "#8494a2",
+        "name": "Coastal Vista"
+      },
+      {
+        "hex": "#efeff6",
+        "name": "Aircraft White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b3f03f7f-9b6f-4dd1-852a-32c4a34307f8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://jumpcloud.com/careers",
+      "terms": null,
+      "contact": "https://jumpcloud.com/contact-sales",
+      "privacy": "https://jumpcloud.com/privacy",
+      "blog": "https://jumpcloud.com/blog",
+      "pricing": "https://jumpcloud.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5a54fce2-4908-4036-b1e3-257a5da213a6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ce3f8781-9f0a-4191-96be-40d5f1add0a4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 600,
+        "height": 96,
+        "aspectRatio": 6.25
+      },
+      {
+        "url": "https://media.brand.dev/0bc74bf1-4bc8-4302-b9d9-311506aea720.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cb9e79c8-37c0-4ddc-a081-c9bd3f2d4fa1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ce3f8781-9f0a-4191-96be-40d5f1add0a4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 600,
+      "height": 96,
+      "aspectRatio": 6.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0bc74bf1-4bc8-4302-b9d9-311506aea720.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

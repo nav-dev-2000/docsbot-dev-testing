@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-sites",
+  "name": "Zoho Sites",
+  "domain": "zoho-sites.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Sites",
+  "metaTitle": "Build AI Agents for Zoho Sites with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Sites to answer questions, update website content workflows, and support employees with safe, approved actions.",
+  "intro": "Zoho Sites helps teams manage business websites, landing pages, and site content inside the broader Zoho ecosystem. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Sites, and Skill Builder designs, secures, tests, and deploys that reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve website information, prepare content changes, trigger handoffs, and complete approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check published Zoho Sites pages, policies, event details, or location information and answer visitor questions in real time.",
+    "Use the agent to guide customers to the right page, form, pricing section, knowledge resource, or campaign landing page based on their question.",
+    "Have the agent summarize what information is currently live on a Zoho Sites page before creating a support handoff for a content or web team.",
+    "Enable the agent to collect missing details from a customer and prepare an approved website update request when a visitor reports outdated content or a broken page.",
+    "Use the agent in helpdesk replies to confirm whether a page, announcement, or promotional section is live and provide a concise status summary to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Zoho Sites page details, published content, navigation structure, or campaign landing page information without searching manually.",
+    "Enable marketing or operations teams to ask the agent to prepare website update requests, content review summaries, or escalation notes tied to Zoho Sites content.",
+    "Give internal teams an AI assistant that walks them through website publishing SOPs, approval steps, and handoff workflows while retrieving relevant Zoho Sites context.",
+    "Allow employees in Slack or Microsoft Teams to ask the agent which pages mention a product, event, offer, or policy and receive a concise summary for faster research.",
+    "Use a private agent to coordinate Zoho Sites information with broader internal workflows, such as content reviews, launch checklists, and cross-team follow-up tasks."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers visitor questions using live Zoho Sites page content.",
+    "A website concierge that routes customers to the right page, form, or campaign landing experience.",
+    "An internal assistant that summarizes site structure and page content for marketing and operations teams.",
+    "A content issue intake workflow that collects reports and prepares website update handoffs.",
+    "A launch assistant that checks whether key pages and announcements are live before escalation.",
+    "A private AI agent that guides employees through website publishing and review SOPs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Sites agent to do, such as answer visitor questions, retrieve page details, prepare update requests, or support internal website workflows, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder figures out the safest way to connect Zoho Sites, defines the required configuration values, handles authentication and secret storage through secure runtime controls, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Permissions stay tightly scoped",
+      "description": "Skill Builder limits the Skill to the minimum pages, actions, users, and workflows needed, and it adds approval boundaries for sensitive steps like content changes, publishing requests, or cross-team handoffs."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee agent so teams can use Zoho Sites safely through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Sites?",
+      "answer": "With DocsBot Skill Builder, you describe the website tasks you want in plain language, and Skill Builder creates a secure Skill that can retrieve site information, prepare actions, and support approved workflows. It also handles configuration, authentication, testing, and deployment details for you."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Sites data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Sites as a trusted source for published page information, announcements, policies, landing pages, or navigation guidance while chatting with customers. You can also define safe limits around what the agent may look up or summarize."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Sites?",
+      "answer": "A DocsBot agent can answer questions about website content, direct visitors to the right pages, summarize what is currently published, collect missing details, and prepare handoffs when a content or web team needs to step in. This helps support teams resolve website-related questions faster without exposing broad site access."
+    },
+    {
+      "question": "Can DocsBot create safe website update or handoff workflows with Zoho Sites?",
+      "answer": "Yes, Skill Builder can design workflows where the agent gathers the needed context, drafts an update request or escalation summary, and routes it for approval instead of making unrestricted changes. Approval boundaries and scoped permissions help keep sensitive actions controlled."
+    },
+    {
+      "question": "How can an internal AI assistant help employees work with Zoho Sites?",
+      "answer": "Employees can chat with a private DocsBot agent to find page details, review content, follow publishing SOPs, and prepare launch or update tasks tied to Zoho Sites. This reduces manual searching and helps teams complete repeatable website workflows faster."
+    },
+    {
+      "question": "Is it possible to control what an AI agent can do inside Zoho Sites?",
+      "answer": "Yes, DocsBot Skill Builder is designed to scope access to the minimum records, actions, and users required for the workflow. It can also add approval steps, action limits, and secure secret handling so the agent stays within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "zoho-crm",
+    "zoho-desk",
+    "zoho-campaigns",
+    "webflow",
+    "wordpress",
+    "hubspot-cms"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

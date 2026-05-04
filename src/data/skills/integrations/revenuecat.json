@@ -1,0 +1,156 @@
+{
+  "slug": "revenuecat",
+  "name": "RevenueCat",
+  "domain": "revenuecat.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with RevenueCat",
+  "metaTitle": "Build RevenueCat AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use RevenueCat for subscription lookups, entitlement checks, support workflows, and safe internal team actions.",
+  "intro": "RevenueCat helps apps manage subscriptions, entitlements, purchases, and recurring revenue insights across mobile and web. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language and have DocsBot create a secure reusable Skill for your AI agent. The result is an AI support agent or internal assistant that can look up subscriber details, summarize subscription state, trigger approved workflows, and help teams resolve issues faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a subscriber’s RevenueCat entitlement status and explain whether premium access should be active.",
+    "Use a support agent to look up recent purchase, renewal, cancellation, or billing status details in RevenueCat while replying to customer chat or ticket requests.",
+    "Have the agent summarize a customer’s subscription history from RevenueCat so support teams can provide faster and more accurate handoffs.",
+    "Enable the agent to collect missing details from the customer, then prepare an escalation package with RevenueCat subscription context for a human support specialist.",
+    "Let the agent confirm whether a user’s app account appears linked to the correct RevenueCat customer record before escalating an access issue to engineering or billing operations."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve RevenueCat subscriber and entitlement information without manually digging through dashboards.",
+    "Customer success, support, or operations teams can ask the agent to summarize subscription trends, user account status, or renewal context from RevenueCat for faster research and follow-up.",
+    "Internal teams can use the agent to follow revenue and subscription support SOPs, including gathering account context, preparing escalation notes, and routing cases to the right owner.",
+    "Finance, operations, and support employees can chat with the agent to investigate cancellation patterns or billing-related cases using RevenueCat data and approved workflow steps.",
+    "Teams can use a private AI assistant to generate consistent internal case summaries that combine RevenueCat findings with next-step recommendations for handoffs or review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks RevenueCat entitlements before answering premium access questions.",
+    "A billing assistant that summarizes subscriber history and prepares handoff notes for complex cases.",
+    "An internal agent that helps teams research cancellations, renewals, and customer subscription context.",
+    "A support workflow that gathers missing customer details and matches them to RevenueCat records.",
+    "A private operations assistant that creates standardized escalation summaries using RevenueCat account data.",
+    "An AI agent that routes subscription issues based on entitlement status and account signals from RevenueCat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell DocsBot Skill Builder what you want the agent to do with RevenueCat in plain language, such as checking entitlements, summarizing subscription history, or preparing billing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, and sets up safe connection and authentication handling for RevenueCat without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum RevenueCat actions and records needed, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing support bot or private team assistant so the agent can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses RevenueCat for subscription support?",
+      "answer": "With DocsBot Skill Builder, you describe the subscription support outcome you want, and it creates a secure Skill that lets your AI agent look up RevenueCat subscriber data, entitlement status, and purchase context while responding to customers. It can also prepare escalations, summaries, and approved next steps inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use RevenueCat data to answer billing and access questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use RevenueCat data for safe lookups such as entitlement checks, subscriber status, renewal context, and purchase history summaries. You control what the agent is allowed to access, when it should hand off, and which actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with RevenueCat?",
+      "answer": "DocsBot can help automate workflows like checking whether premium access should be active, gathering missing customer details, summarizing subscription history, and preparing billing or engineering handoffs with RevenueCat context. It can also route issues based on subscription state and other approved account signals."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with RevenueCat?",
+      "answer": "Yes, private DocsBot agents can help support, operations, customer success, and finance teams retrieve RevenueCat account context, research subscription issues, and follow standard operating procedures through chat, Slack, or Microsoft Teams. This reduces dashboard switching and makes internal case handling more consistent."
+    },
+    {
+      "question": "How does DocsBot handle RevenueCat authentication and security for AI actions?",
+      "answer": "Skill Builder automatically defines the connection details needed, keeps secrets out of chat transcripts and generated content, proxies credentials through secure runtime configuration, and scopes access to the minimum actions required. It can also add approval boundaries and safe action limits for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows related to RevenueCat safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating handoff artifacts, triggering internal workflows, or updating connected systems when RevenueCat conditions are met. Skill Builder sets permission limits and approval rules so automation stays controlled and appropriate."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "recurly",
+    "paddle",
+    "zuora",
+    "appsflyer"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RevenueCat",
+    "domain": "revenuecat.com",
+    "description": "RevenueCat is a subscription management platform used by the world’s leading apps to build, analyze, and grow recurring revenue on iOS, Android, and web. It provides tools for handling in‑app purchases, real‑time analytics, and automated workflows, enabling developers to focus on product experience while RevenueCat takes care of the complex backend and insights needed to scale subscription businesses.",
+    "slogan": "Your subscription backend-in-a-box. Build and grow your app business.",
+    "logoUrl": "https://media.brand.dev/271e5032-0331-4ad3-8b0b-b9146e6caeb2.svg",
+    "iconUrl": "https://media.brand.dev/cda1b16a-eb9f-42f9-b427-16e12c30bc92.jpg",
+    "primaryColor": "#f4545c",
+    "accentColor": "#f0a4b4",
+    "colors": [
+      {
+        "hex": "#f4545c",
+        "name": "Khmer Curry"
+      },
+      {
+        "hex": "#f0a4b4",
+        "name": "Princess"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8b2b1c8f-37c7-4bdf-8666-f2fd898b6b8d.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.revenuecat.com/terms",
+      "contact": "https://www.revenuecat.com/contact/",
+      "privacy": "https://www.revenuecat.com/privacy",
+      "blog": "https://www.revenuecat.com/blog/",
+      "pricing": "https://www.revenuecat.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cda1b16a-eb9f-42f9-b427-16e12c30bc92.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/271e5032-0331-4ad3-8b0b-b9146e6caeb2.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 138,
+        "height": 40,
+        "aspectRatio": 3.45
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/271e5032-0331-4ad3-8b0b-b9146e6caeb2.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 138,
+      "height": 40,
+      "aspectRatio": 3.45
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cda1b16a-eb9f-42f9-b427-16e12c30bc92.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

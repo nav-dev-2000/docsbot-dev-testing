@@ -1,0 +1,168 @@
+{
+  "slug": "dashlane",
+  "name": "Dashlane",
+  "domain": "dashlane.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Dashlane",
+  "metaTitle": "Build Dashlane AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Dashlane for secure lookups, policy-aware workflows, internal assistance, and bounded support actions.",
+  "intro": "Dashlane helps businesses manage passwords, secrets, and credential security across teams. With DocsBot Skill Builder, you can describe the Dashlane workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, retrieve approved Dashlane information, trigger safe workflows, and prepare secure handoffs without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved account or access-status details from Dashlane-related workflows and explain the next step to the customer.",
+    "Let a support agent gather access issue context, summarize relevant Dashlane policy information, and prepare a clean escalation handoff for security or IT teams.",
+    "Enable a helpdesk-connected DocsBot agent to identify when a login or credential question requires human review and trigger an approved internal workflow.",
+    "Have the agent answer common customer questions about password manager setup, secure access steps, or account protection policies using Dashlane guidance and your internal procedures.",
+    "Use the agent to collect missing details during access-related support conversations and create structured summaries for follow-up teams without revealing secrets or vault contents."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to get Dashlane policy answers, access guidance, and step-by-step credential security procedures.",
+    "IT or security teams can ask the agent to summarize Dashlane alerts, policy status, or remediation context and turn that information into a handoff or follow-up task.",
+    "Employees can use the agent to complete onboarding or offboarding SOPs that include approved Dashlane checks, access reviews, and documented next steps.",
+    "Security operations teams can chat with the agent to research credential hygiene issues across connected processes and generate concise summaries for incident response.",
+    "Internal teams can ask the agent to collect required context for password reset, access recovery, or credential remediation workflows before routing the case to the right approver."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that answers employee questions about Dashlane policies and secure access procedures.",
+    "A support Skill that gathers login issue details and prepares a structured escalation summary.",
+    "An internal assistant that guides onboarding and offboarding steps involving Dashlane access controls.",
+    "A workflow agent that checks approved Dashlane status data and recommends the next action.",
+    "A security assistant that summarizes credential-risk context for IT and security teams.",
+    "An AI handoff builder that collects missing details before routing access-related cases for approval."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the Dashlane workflow you want in plain language, and Skill Builder turns that goal into a practical AI agent ability for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest way to connect Dashlane, defines the required configuration values, handles authentication through secure runtime setup, and keeps secrets out of chats and Skill source by design."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use it safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Dashlane?",
+      "answer": "With DocsBot Skill Builder, you describe the Dashlane workflow you want in plain language, such as policy lookups, access guidance, or escalation prep, and Skill Builder creates and secures the reusable Skill for you. It also handles configuration planning, secret protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Dashlane data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Dashlane-related information to answer access or security questions, gather context, summarize policy guidance, and prepare handoffs. Sensitive actions and data access can be restricted with scoped permissions and approval boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Dashlane?",
+      "answer": "DocsBot can help automate access troubleshooting intake, policy-based responses, escalation preparation, workflow triggers, and structured case summaries tied to Dashlane processes. This is especially useful when you want the agent to handle routine steps while routing sensitive cases for human review."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Dashlane procedures?",
+      "answer": "Yes, a private DocsBot agent can help employees find Dashlane policy information, follow credential security SOPs, complete onboarding or offboarding steps, and understand the next approved action. The agent can also collect required context before passing a request to IT or security."
+    },
+    {
+      "question": "How does DocsBot keep Dashlane credentials and secrets safe?",
+      "answer": "Skill Builder is designed to define secure connection settings, proxy secrets through protected runtime configuration, and keep credentials out of chat transcripts and generated Skill content. It also scopes access to only the users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot trigger Dashlane-related workflows without giving the AI unlimited access?",
+      "answer": "Yes, DocsBot Skills are designed with bounded actions, scoped permissions, and approval checkpoints so the agent only performs the specific tasks you allow. That makes it possible to automate lookups, handoffs, and approved workflow steps without opening broad uncontrolled access."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "1password",
+    "lastpass",
+    "jumpcloud",
+    "onelogin",
+    "duo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dashlane",
+    "domain": "dashlane.com",
+    "description": "Dashlane provides comprehensive credential security for businesses, combining password management with proactive threat intelligence on its Omnix™ platform. The solution unifies credential protection, real‑time response, and secure access, enabling security teams to detect and remediate human‑risk incidents before they lead to breaches. Powered by patented zero‑knowledge encryption, Dashlane delivers an intuitive user experience while safeguarding passwords, API keys, and other secrets across devices. Trusted by more than 25,000 brands worldwide—including Michelin, Air France, and Forrester—Dashlane helps enterprises scale security operations, enforce policies, and maintain compliance. The platform’s analytics and automated workflows give organizations actionable insights to continuously improve their security posture.",
+    "slogan": "Business password management, simplified.",
+    "logoUrl": "https://media.brand.dev/0c88e582-c995-4d8b-a01d-a16646521091.svg",
+    "iconUrl": "https://media.brand.dev/5a1be0fb-3323-4687-9a3e-a4bbaf82a322.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#938484",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#938484",
+        "name": "Exotica"
+      },
+      {
+        "hex": "#f0eeed",
+        "name": "Perfect White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f2413d85-d989-4008-897f-b66cc7024402.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.dashlane.com/about/careers",
+      "contact": "https://www.dashlane.com/business-password-manager/enterprise",
+      "blog": "https://www.dashlane.com/blog",
+      "pricing": "https://www.dashlane.com/pricing",
+      "terms": "https://www.dashlane.com/terms",
+      "privacy": "https://www.dashlane.com/privacy/overview"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5a1be0fb-3323-4687-9a3e-a4bbaf82a322.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/30e4d468-67b8-4d2a-bd7a-a328ee59b3b0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 109,
+        "height": 108,
+        "aspectRatio": 1.01
+      },
+      {
+        "url": "https://media.brand.dev/0c88e582-c995-4d8b-a01d-a16646521091.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 126,
+        "height": 32,
+        "aspectRatio": 3.94
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0c88e582-c995-4d8b-a01d-a16646521091.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 126,
+      "height": 32,
+      "aspectRatio": 3.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/30e4d468-67b8-4d2a-bd7a-a328ee59b3b0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 109,
+      "height": 108,
+      "aspectRatio": 1.01
+    }
+  }
+}

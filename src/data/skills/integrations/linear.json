@@ -1,0 +1,168 @@
+{
+  "slug": "linear",
+  "name": "Linear",
+  "domain": "linear.app",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Linear",
+  "metaTitle": "Build DocsBot AI Agents for Linear Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Linear to look up issues, update work items, trigger handoffs, and support customers or internal teams safely.",
+  "intro": "Linear helps product and engineering teams track issues, projects, and delivery work in one fast workspace. With DocsBot Skill Builder, you can describe the Linear workflow you want in plain language and have DocsBot create a reusable Skill for your support agent or internal AI assistant. That lets your AI agent answer questions, check issue status, prepare escalations, and take bounded actions in Linear without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a reported bug in Linear and respond with a clear progress summary.",
+    "Use a support agent to create a Linear issue from a customer chat or helpdesk ticket with the customer details, product area, and reproduction notes attached.",
+    "Have the agent search Linear for known incidents, bugs, or feature requests so it can give customers accurate updates without manual triage.",
+    "Enable the agent to add internal comments or labels in Linear to prepare a clean handoff from support to product or engineering.",
+    "Let the agent update a Linear issue with new customer evidence, screenshots, or urgency details gathered during the conversation, subject to approval rules when needed."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to find Linear issues, project status, owners, priorities, and recent updates without opening multiple tools.",
+    "Give product, support, or success teams an internal AI assistant that creates well-structured Linear issues from rough notes, meeting summaries, or escalation threads.",
+    "Help operations or leadership teams ask the agent for summaries of open bugs, blocked work, team workload, or release risks based on Linear data.",
+    "Enable employees to chat with the agent to follow triage SOPs, enrich issue records, assign owners, or trigger approved Linear workflow steps with clear guardrails.",
+    "Use an internal agent to research related Linear issues across teams and return a concise summary that helps employees make faster decisions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks bug status in Linear before replying to customers.",
+    "An AI assistant that creates Linear issues from support tickets with standardized fields.",
+    "A triage agent that searches Linear for duplicates and suggests the best escalation path.",
+    "An internal agent that summarizes sprint risks, blocked work, and ownership gaps from Linear.",
+    "A DocsBot workflow that updates Linear issues after approval when new customer evidence arrives.",
+    "An AI assistant that turns chat transcripts into polished Linear bug reports for engineering review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Linear, such as checking issue status, creating escalations, or updating approved fields, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a safe Skill design, identifies the needed Linear connection and configuration values, and chooses the right workflow, instructions, and actions for the agent."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak spots, permission gaps, or missing steps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once refined, Skill Builder helps publish the Skill to the right DocsBot agent so your website chatbot, helpdesk agent, or private team assistant can use Linear safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Linear?",
+      "answer": "With DocsBot Skill Builder, you describe the Linear workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up issues, summarize status, create records, or trigger approved updates. It also handles secure configuration, permission scoping, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Linear data when answering customers?",
+      "answer": "Yes, a DocsBot support agent can use a Linear Skill to search issues, check status, review known bugs, and prepare structured escalations while responding in a chat widget or helpdesk flow. You control which actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Linear?",
+      "answer": "A DocsBot agent can look for duplicate bugs, create Linear issues from support conversations, attach customer context, update approved fields, and summarize issue progress for customers or agents. This helps support teams respond faster without losing important details during handoff."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Linear?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find issue details, review project progress, create structured bug reports, and follow triage workflows that interact with Linear. This is useful in chat, Slack, or Microsoft Teams for teams that want faster answers and cleaner execution."
+    },
+    {
+      "question": "How does DocsBot keep Linear actions safe?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, protected secrets, scoped permissions, and approval boundaries for sensitive actions such as record updates or issue creation. That means the agent can take bounded action without exposing credentials or getting broad uncontrolled access."
+    },
+    {
+      "question": "Can DocsBot create Linear issues from support tickets or chat conversations?",
+      "answer": "Yes, you can build a Skill that turns customer conversations into structured Linear issues with titles, descriptions, priority hints, reproduction notes, and supporting context. The agent can also prepare the handoff before a human reviews or approves the final submission if you want that control."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "clickup",
+    "asana",
+    "trello",
+    "monday",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Linear",
+    "domain": "linear.app",
+    "description": "Linear is a software company that provides an issue tracking and project management tool designed for product teams, combining elegant UI with high performance. Founded in 2019, Linear aims to bring magic back to software development, helping thousands of high‑impact companies build better products.",
+    "slogan": "A new species of product tool for AI-era teams and agents",
+    "logoUrl": "https://media.brand.dev/dd16479b-62c6-4a3d-83b3-9c00535d4085.svg",
+    "iconUrl": "https://media.brand.dev/423302ae-389f-42e7-9c90-f61cb5b252ad.png",
+    "primaryColor": "#848488",
+    "accentColor": "#0c0c0d",
+    "colors": [
+      {
+        "hex": "#848488",
+        "name": "Victorian Pewter"
+      },
+      {
+        "hex": "#0c0c0d",
+        "name": "Black Wash"
+      },
+      {
+        "hex": "#e1e1e2",
+        "name": "Jupiter"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4d6477b7-af65-40bc-95a1-cf4c4763d79f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://linear.app/careers",
+      "terms": "https://linear.app/terms",
+      "contact": "https://linear.app/contact",
+      "privacy": "https://linear.app/privacy",
+      "blog": "https://linear.app/blog",
+      "pricing": "https://linear.app/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ef55b15d-012d-44e9-a446-e9f10f29cb0d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/423302ae-389f-42e7-9c90-f61cb5b252ad.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dd16479b-62c6-4a3d-83b3-9c00535d4085.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 88,
+        "height": 22,
+        "aspectRatio": 4
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dd16479b-62c6-4a3d-83b3-9c00535d4085.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 88,
+      "height": 22,
+      "aspectRatio": 4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ef55b15d-012d-44e9-a446-e9f10f29cb0d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

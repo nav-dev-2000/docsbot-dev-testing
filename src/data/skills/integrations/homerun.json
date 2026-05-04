@@ -1,0 +1,160 @@
+{
+  "slug": "homerun",
+  "name": "Homerun",
+  "domain": "homerun.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Homerun Hiring Workflows",
+  "metaTitle": "Build Homerun AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Homerun to answer hiring questions, update candidate records, trigger workflows, and support recruiting teams safely.",
+  "intro": "Homerun helps teams manage hiring workflows, candidate information, and recruiting activity. With DocsBot Skill Builder, you can describe the hiring tasks you want an AI agent to handle in plain language, and DocsBot helps design a secure reusable Skill for support or internal team use. The result is an AI agent that can answer questions, look up recruiting data, prepare handoffs, and take bounded actions inside your approved Homerun workflow.",
+  "supportUseCases": [
+    "Let a customer-facing or candidate-facing DocsBot agent check application status in Homerun and provide a clear next-step update without exposing private recruiting details.",
+    "Use the agent to capture missing applicant information during a chat or helpdesk conversation and create or update the appropriate candidate record in Homerun.",
+    "Have the agent summarize a candidate’s current stage, recent communication history, and required follow-up before handing the conversation to a recruiter.",
+    "Enable the agent to trigger approved recruiting workflows in Homerun, such as routing a candidate to the right team or flagging a record for review after a support conversation.",
+    "Use the agent to prepare escalation notes from a candidate chat or ticket so recruiters receive a clean handoff with context, questions, and relevant Homerun record details."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate status, interview progress, and hiring workflow details from Homerun.",
+    "Enable recruiting teams to ask the agent to summarize open roles, candidate pipelines, or delayed stages in Homerun so they can research bottlenecks faster.",
+    "Give hiring managers an internal agent that retrieves candidate context from Homerun and prepares interview briefs, follow-up reminders, or review summaries.",
+    "Allow operations or recruiting employees to chat with the agent to update approved candidate fields, add notes, or trigger next-step workflows in Homerun within defined limits.",
+    "Use a private AI assistant to guide employees through recruiting SOPs, gather missing information, and complete repeatable Homerun tasks with approval boundaries for sensitive actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI hiring assistant that checks candidate status and explains the next recruiting step.",
+    "A candidate support bot that captures missing application details and updates Homerun records safely.",
+    "An internal recruiting agent that summarizes pipelines, stages, and follow-up priorities on demand.",
+    "A hiring manager assistant that prepares interview briefs from Homerun candidate data.",
+    "A workflow agent that routes recruiting requests and prepares clean handoffs for recruiters.",
+    "A private team assistant that completes repeatable recruiting SOPs across Homerun workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Homerun agent to do in plain language, such as checking candidate status, updating records, or preparing recruiter handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the agent should look up data, take approved actions, and respond clearly."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and limits Homerun access to the minimum actions and records needed."
+    },
+    {
+      "title": "Safe boundaries are added",
+      "description": "Skill Builder scopes permissions, sets appropriate user and workflow limits, and adds approval boundaries anywhere the agent should ask before making a sensitive recruiting change."
+    },
+    {
+      "title": "An AI tester reviews it",
+      "description": "The automated testing agent runs imagined customer and internal recruiting scenarios, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Homerun hiring data?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring workflow you want in plain language, and it designs a Skill that can retrieve Homerun data, summarize recruiting context, and take approved actions safely. Skill Builder also handles secure connection setup, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Homerun to answer candidate application questions?",
+      "answer": "Yes, a DocsBot support agent can use Homerun to check application status, summarize stage information, gather missing details, and prepare recruiter handoffs within the rules you define. Sensitive actions can be limited or placed behind approval boundaries."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Homerun?",
+      "answer": "Internal agents can help recruiters and hiring managers look up candidate records, summarize pipelines, prepare interview briefs, add notes, update approved fields, and trigger next-step workflows. This is useful for repeatable recruiting SOPs that teams want to complete faster through chat."
+    },
+    {
+      "question": "Can DocsBot update candidate records in Homerun safely?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved record updates such as adding notes, capturing missing information, or moving a workflow forward. It scopes permissions carefully, protects authentication details, and can require approval for more sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Homerun credentials and recruiting data secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a private AI assistant in Slack or Microsoft Teams use Homerun for recruiting help?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal interface to retrieve candidate information, research pipeline status, and complete approved recruiting workflows. The Skill can be designed around team-specific permissions and approval controls."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "personio",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HomeRun",
+    "domain": "homerun.com",
+    "description": "Homerun is a digital media brand focused on running and broader sports lifestyle, delivering expert‑level articles, gear reviews, training tips, and injury‑prevention advice to runners of all levels. Through its website and newsletter, Homerun provides in‑depth guides on selecting the right running shoes, analyzing gait, building shoe rotations, and maintaining footwear, as well as coverage of race strategies, nutrition, and trail techniques. The platform partners with footwear manufacturers, biomechanics experts, and professional athletes to offer data‑driven recommendations and up‑to‑date product information. By combining practical how‑to content with the latest sport‑science insights, Homerun helps runners improve performance, stay injury‑free, and make informed purchasing decisions.",
+    "slogan": "Amazing deals. Local favorites.",
+    "logoUrl": "https://media.brand.dev/0a7cb078-18e0-4599-9828-071a00045431.png",
+    "iconUrl": "https://media.brand.dev/0a7cb078-18e0-4599-9828-071a00045431.png",
+    "primaryColor": "#f8b04e",
+    "accentColor": "#f1e0c7",
+    "colors": [
+      {
+        "hex": "#f8b04e",
+        "name": "Flare"
+      },
+      {
+        "hex": "#f1e0c7",
+        "name": "Cream Washed"
+      },
+      {
+        "hex": "#2db44e",
+        "name": "Spandex Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3fcfaa85-1514-423c-9596-66227cb9ea7a.png",
+    "industries": [],
+    "links": {
+      "blog": "https://homerun.com/topics/news.html",
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0a7cb078-18e0-4599-9828-071a00045431.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6ef28c41-46cb-49c9-9fcd-c98426127917.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0a7cb078-18e0-4599-9828-071a00045431.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0a7cb078-18e0-4599-9828-071a00045431.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

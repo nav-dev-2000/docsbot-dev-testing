@@ -1,0 +1,176 @@
+{
+  "slug": "paylocity",
+  "name": "Paylocity",
+  "domain": "paylocity.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Paylocity",
+  "metaTitle": "Build AI Agents for Paylocity with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Paylocity for HR lookups, employee workflows, approvals, and support handoffs with safe, tested actions.",
+  "intro": "Paylocity helps teams manage payroll, HR, and human capital workflows, and DocsBot Skill Builder helps you turn those workflows into practical AI agent actions. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill your support bot or internal AI assistant uses to retrieve information, prepare handoffs, trigger approved steps, and summarize outcomes. This makes it easier to give employees and teams fast answers while keeping actions bounded, secure, and auditable.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer benefits or payroll process questions by checking approved Paylocity information and returning a clear next-step summary.",
+    "Let a support bot gather onboarding or employment-related context from a customer conversation, then prepare a structured HR handoff using Paylocity-linked data and notes.",
+    "Have a helpdesk-connected DocsBot agent summarize employee status, recent workflow progress, or relevant HR records from Paylocity so support teams can respond faster.",
+    "Allow the agent to collect missing details from a user and trigger an approved follow-up workflow in Paylocity for payroll, benefits, or document review questions.",
+    "Use the agent to create consistent escalation notes for sensitive HR issues by combining the ticket context with allowed Paylocity record lookups and workflow status checks."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to get quick answers about HR processes, payroll timelines, and onboarding steps using approved Paylocity data.",
+    "HR and operations teams can ask the agent to look up employee workflow status, summarize missing tasks, and prepare next-step checklists based on Paylocity records.",
+    "Managers can chat with the agent to retrieve policy-linked guidance, review team onboarding progress, and generate handoff summaries before contacting HR.",
+    "Internal teams can use the agent to collect required information for leave, payroll, or profile update requests and then trigger bounded Paylocity workflows with approval controls where needed.",
+    "People operations staff can ask the agent to research a case across internal knowledge and Paylocity data, then produce a concise summary for follow-up or escalation."
+  ],
+  "whatYouCanBuild": [
+    "An AI HR assistant that answers payroll and benefits process questions using approved Paylocity lookups.",
+    "A manager support agent that summarizes onboarding progress and missing tasks for new hires.",
+    "An employee self-service agent that collects request details and prepares HR handoffs automatically.",
+    "A payroll helpdesk assistant that checks workflow status and drafts consistent ticket responses.",
+    "An internal operations agent that triggers approved Paylocity workflows after gathering required context.",
+    "A leave request assistant that explains next steps and creates structured escalation notes for HR teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Paylocity agent to do in plain language, such as answering payroll questions, checking onboarding status, or preparing HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Security is scoped automatically",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "An automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Paylocity without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Paylocity workflow you want in plain language, and Skill Builder creates the Skill, handles secure connection design, tests scenarios, and prepares it for deployment. It is designed for non-technical teams that want useful AI actions without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use Paylocity data to answer employee payroll or HR questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved Paylocity lookups to answer process questions, summarize status, gather missing context, and prepare escalations or follow-up workflows. Access can be scoped so the agent only retrieves the information and actions you allow."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Paylocity?",
+      "answer": "Internal agents can help with onboarding checks, payroll status questions, leave-related workflows, employee record research, handoff preparation, and approval-based HR tasks. The exact workflow is defined by the Skill you build and the permission boundaries you choose."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Paylocity instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be built for bounded actions such as creating follow-up workflows, updating allowed records, generating summaries, or preparing approval requests. Skill Builder adds controls so sensitive actions can require approval or stay limited to specific users and cases."
+    },
+    {
+      "question": "How does DocsBot keep Paylocity credentials and HR data secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and generated instructions, and proxies authentication through protected runtime settings. It also scopes permissions to the minimum records, users, and actions required for the workflow."
+    },
+    {
+      "question": "Can I use a Paylocity AI assistant for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees and teams so they can ask HR and operations questions, retrieve approved Paylocity information, and complete guided workflows from chat. This is useful for self-service support and consistent SOP execution across teams."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "gusto",
+    "ukg-pro",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Paylocity",
+    "domain": "paylocity.com",
+    "description": "Paylocity is a leading provider of cloud-based payroll and human capital management (HCM) software solutions. Established in 1997 and publicly traded since 2014, the company offers an easy-to-use product suite designed to automate and streamline HR and payroll processes. Paylocity helps businesses attract and retain talent while fostering a thriving workplace culture. Renowned for its unique company culture, Paylocity is consistently recognized as one of the best places to work, emphasizing its commitment to helping clients create exceptional workplaces. With a forward-thinking approach, Paylocity empowers organizations to focus on the future and enables employees to achieve their best. For more information, visit www.paylocity.com.",
+    "slogan": "Empowering great workplaces for a better tomorrow, together.",
+    "logoUrl": "https://media.brand.dev/13144d1a-802b-46eb-a67f-180d7c2d244e.png",
+    "iconUrl": "https://media.brand.dev/68efa23f-42fe-4dbc-84bb-744f313daa07.png",
+    "primaryColor": "#f05a27",
+    "accentColor": "#dc7c8c",
+    "colors": [
+      {
+        "hex": "#f05a27",
+        "name": "Durotar Fire"
+      },
+      {
+        "hex": "#dc7c8c",
+        "name": "I Love You Pink"
+      },
+      {
+        "hex": "#f4f0e8",
+        "name": "Antique Paper"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/186d2faa-1d6d-429c-a4f7-58df4eb9f93d.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.paylocity.com/company/careers/",
+      "terms": "https://www.paylocity.com/terms-and-conditions/",
+      "contact": "https://www.paylocity.com/contact/",
+      "privacy": "https://www.paylocity.com/company/protecting-our-clients/privacy-center/",
+      "blog": "https://www.paylocity.com/company/about-us/newsroom/in-the-news/",
+      "pricing": "https://www.paylocity.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/68efa23f-42fe-4dbc-84bb-744f313daa07.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/13144d1a-802b-46eb-a67f-180d7c2d244e.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1482,
+        "height": 401,
+        "aspectRatio": 3.7
+      },
+      {
+        "url": "https://media.brand.dev/de625eaa-ecf2-42bf-9669-75d9bddd104e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1aae9245-2f1a-4472-a529-cb2d4012642e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 347,
+        "height": 347,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/13144d1a-802b-46eb-a67f-180d7c2d244e.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1482,
+      "height": 401,
+      "aspectRatio": 3.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1aae9245-2f1a-4472-a529-cb2d4012642e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 347,
+      "height": 347,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "amply",
+  "name": "Amply",
+  "domain": "amply.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Amply",
+  "metaTitle": "Build AI Agents for Amply with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Amply for campaign lookups, reporting summaries, support workflows, and approved internal marketing actions.",
+  "intro": "Amply supports data-driven marketing, ad serving, audience targeting, analytics, and measurement workflows. With DocsBot Skill Builder, you can describe the Amply-powered agent you want in plain language, and DocsBot helps design, secure, test, and publish the Skill. The result is an AI support agent or internal assistant that can look up campaign information, summarize performance, prepare handoffs, and trigger approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up campaign, delivery, or measurement status in Amply and explain the latest state to advertisers or partners in chat or email support replies.",
+    "Use the agent to summarize advertising performance, pacing, or audience targeting details from Amply so customers get faster answers without waiting for manual report checks.",
+    "Have the agent gather missing account or campaign context from the conversation, retrieve the relevant Amply records, and prepare a clean handoff for an account manager or ad operations specialist.",
+    "Enable approved support workflows where the agent creates internal follow-up tasks or escalation notes based on Amply campaign issues, delivery questions, or reporting discrepancies.",
+    "Allow the agent to provide customer-safe explanations of privacy, measurement, or targeting status by combining DocsBot guidance with Amply data pulled for the specific account."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Amply campaign status, pacing details, targeting setup, and measurement summaries without logging into multiple tools.",
+    "Sales, customer success, and ad operations teams can ask the agent to research account activity in Amply and generate concise client-ready summaries, escalation notes, or renewal prep briefs.",
+    "Marketing and operations teams can use the agent to follow internal SOPs that collect campaign context from Amply, compare current status with expected delivery, and recommend the next approved action.",
+    "Internal teams can ask the agent to prepare cross-functional handoffs by summarizing Amply performance, highlighting anomalies, and attaching the right account details for review.",
+    "Managers can use the agent to answer routine internal questions about campaign health, reporting trends, and audience delivery while keeping actions scoped to approved records and workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Amply campaign status and explains delivery issues to customers.",
+    "A private assistant that summarizes ad performance and prepares account review notes from Amply data.",
+    "A helpdesk agent that gathers campaign context from Amply before routing complex issues to specialists.",
+    "An internal agent that creates escalation summaries for pacing, targeting, or measurement concerns.",
+    "An employee assistant that answers campaign health questions using Amply records and internal guidance.",
+    "A workflow agent that generates client-ready reporting summaries from approved Amply account data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Amply agent to do, such as checking campaign status, summarizing reporting, or preparing escalations, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow, identifies the required configuration values, and defines secure connection and authentication handling for Amply."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your customer-facing bot or private team assistant can use Amply safely in live workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Amply?",
+      "answer": "With DocsBot Skill Builder, you describe the Amply workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests scenarios, and prepares it for deployment. The agent can then use Amply for lookups, summaries, handoffs, and other approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Amply data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Amply data to check campaign status, summarize delivery or measurement details, and prepare escalation context while responding to customers in chat or through helpdesk tickets. You control what data and actions are allowed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Amply?",
+      "answer": "An internal DocsBot agent can help employees retrieve campaign information, generate client-ready summaries, prepare account reviews, and follow ad operations or customer success SOPs using Amply data. It can also trigger bounded internal workflows when you approve those actions."
+    },
+    {
+      "question": "Can DocsBot safely connect to Amply for approved AI actions?",
+      "answer": "DocsBot Skill Builder is designed to handle secure configuration by default, including required connection values, secret protection, credential proxying, scoped permissions, and approval boundaries. That helps your agent take useful actions without exposing sensitive access in chat or source content."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Amply reporting for customer success or account teams?",
+      "answer": "Yes, you can build an agent that pulls approved Amply reporting context and turns it into concise summaries for renewals, health checks, escalations, or client communications. This helps teams respond faster and with more consistent information."
+    },
+    {
+      "question": "How does testing work for an Amply AI agent?",
+      "answer": "Skill Builder includes an automated testing agent that runs realistic support and internal scenarios against the draft Skill, finds bugs or missing guardrails, and uses those findings in a self-improvement loop before deployment. This helps the final agent behave more reliably in live use."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "sendgrid",
+    "marketo",
+    "customer-io",
+    "braze"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Amply",
+    "domain": "amply.com",
+    "description": "Digimedia is a digital media and advertising technology company that helps brands reach audiences through data‑driven marketing solutions. It provides ad serving, analytics, audience targeting, and measurement tools while prioritizing user privacy and compliance with privacy regulations.",
+    "slogan": "Amply—more than sufficient for your needs",
+    "logoUrl": "https://media.brand.dev/25e1db36-ddba-4fbc-baef-55892d8559dc.webp",
+    "iconUrl": "https://media.brand.dev/25e1db36-ddba-4fbc-baef-55892d8559dc.webp",
+    "primaryColor": "#06df6a",
+    "accentColor": "#06af54",
+    "colors": [
+      {
+        "hex": "#06df6a",
+        "name": "Tealish Green"
+      },
+      {
+        "hex": "#06af54",
+        "name": "Rita Repulsa"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "http://www.amply.com/digimedia_privacy_policy.html",
+      "terms": "http://www.amply.com/digimedia-terms.html",
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/25e1db36-ddba-4fbc-baef-55892d8559dc.webp",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1500,
+        "height": 86,
+        "aspectRatio": 17.44
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/25e1db36-ddba-4fbc-baef-55892d8559dc.webp",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1500,
+      "height": 86,
+      "aspectRatio": 17.44
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/25e1db36-ddba-4fbc-baef-55892d8559dc.webp",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1500,
+      "height": 86,
+      "aspectRatio": 17.44
+    }
+  }
+}

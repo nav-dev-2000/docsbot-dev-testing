@@ -1,0 +1,148 @@
+{
+  "slug": "adobe-acrobat-sign",
+  "name": "Adobe Acrobat Sign",
+  "domain": "adobe-acrobat-sign.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Adobe Acrobat Sign",
+  "metaTitle": "Adobe Acrobat Sign AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up agreement status, prepare handoffs, trigger workflows, and support teams with Adobe Acrobat Sign.",
+  "intro": "Adobe Acrobat Sign helps teams manage e-signature agreements, document status, and approval workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions and take approved actions in Adobe Acrobat Sign instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check an agreement’s status and explain whether a document is sent, viewed, signed, canceled, or expired while replying in chat or a helpdesk ticket.",
+    "Allow the agent to look up recipient details, signing order, and key timestamps in Adobe Acrobat Sign so customers get fast progress updates without waiting for a human reply.",
+    "Use the agent to resend a signature reminder or trigger an approved follow-up workflow when a customer says they did not receive the agreement email.",
+    "Have the agent summarize incomplete or failed signing activity and prepare a clean handoff for support or sales when manual review is needed.",
+    "Enable the agent to confirm whether a signed agreement is complete and provide the next approved support step based on the current Adobe Acrobat Sign status."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find agreement status, recipient activity, and signature completion details in Adobe Acrobat Sign without leaving Slack, Teams, or internal chat.",
+    "Let sales, success, or operations teams ask the agent to summarize pending agreements, identify stalled signature requests, and prepare outreach tasks or escalation notes.",
+    "Allow internal teams to use the agent to resend reminders, check document audit details, or trigger approved follow-up workflows while staying within scoped permissions and approval rules.",
+    "Help employees complete SOPs by chatting with an internal DocsBot agent that gathers Acrobat Sign details, explains the current state, and drafts the next action for contracts or onboarding documents.",
+    "Support managers with an internal AI assistant that reviews Adobe Acrobat Sign activity across records and summarizes bottlenecks, exceptions, or documents needing attention."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks agreement status and explains the next signing step.",
+    "A private assistant that summarizes pending signature requests for sales and operations teams.",
+    "A DocsBot Skill that resends reminder workflows for unsigned agreements with approval controls.",
+    "An internal agent that drafts escalation notes for stalled or failed signature processes.",
+    "A support workflow that looks up recipient activity and prepares a human handoff summary.",
+    "An employee assistant that answers audit trail questions from Adobe Acrobat Sign records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Adobe Acrobat Sign in plain language, such as checking agreement status, summarizing delays, or sending approved reminders."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the configuration values it needs, and sets up secure connection and authentication handling without exposing credentials in chats or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or edge cases, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action in Adobe Acrobat Sign."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Adobe Acrobat Sign?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and Skill Builder creates a secure Skill that lets your AI agent look up agreement data, summarize status, and take approved actions in Adobe Acrobat Sign. It also handles configuration, secret protection, permission scoping, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Adobe Acrobat Sign data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Adobe Acrobat Sign data to check agreement progress, recipient activity, timestamps, and completion state while responding in a website chat widget or helpdesk ticket flow. You define the allowed actions and boundaries so the agent stays within approved support workflows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Adobe Acrobat Sign?",
+      "answer": "A DocsBot agent can look up agreement status, explain where a document is stuck, prepare escalation summaries, and trigger approved reminder or follow-up workflows. This helps customers get faster answers while giving human teams cleaner handoffs when review is needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Adobe Acrobat Sign?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve agreement details, summarize stalled documents, and complete internal follow-up steps. This is useful for sales, operations, customer success, and contract-related workflows."
+    },
+    {
+      "question": "How does DocsBot keep Adobe Acrobat Sign actions secure?",
+      "answer": "Skill Builder designs the Skill with secure configuration by default, keeps secrets out of conversations and generated content, proxies authentication through approved runtime settings, and scopes permissions to the minimum required actions and records. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger reminders or follow-up actions in Adobe Acrobat Sign?",
+      "answer": "DocsBot Skills can be designed to trigger approved reminders, updates, or downstream workflows based on your rules. Skill Builder helps define when the agent can act automatically and when it should pause for review or approval."
+    }
+  ],
+  "relatedSlugs": [
+    "docusign",
+    "dropbox-sign",
+    "box",
+    "google-drive",
+    "sharepoint",
+    "onedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adobe Learning Manager",
+    "domain": "business.adobe.com",
+    "description": "Adobe is a company that provides a cloud-based Learning Platform, Adobe Learning Manager, to train employees, customers, and partners. It offers a next-gen Learning Management System to develop skills, increase sales, and engage customers. Adobe also provides powerful digital marketing, analytics, commerce, AI, and automation tools to drive growth and deliver personalized experiences across channels.",
+    "slogan": "Empowering Learning and Engagement with Adobe’s Next-Gen Digital Solutions",
+    "logoUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "iconUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "primaryColor": "#ea1507",
+    "accentColor": "#dc8484",
+    "colors": [
+      {
+        "hex": "#ea1507",
+        "name": "Uproar Red"
+      },
+      {
+        "hex": "#dc8484",
+        "name": "Peaches of Immortality"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2a29d8d2-48b0-436e-80ef-c6a6ca0e3c12.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

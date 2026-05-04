@@ -1,0 +1,176 @@
+{
+  "slug": "baremetrics",
+  "name": "Baremetrics",
+  "domain": "baremetrics.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that use Baremetrics for subscription insights",
+  "metaTitle": "Build Baremetrics AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Baremetrics data for support, customer success, and internal revenue workflows with secure actions, testing, and approval controls.",
+  "intro": "Baremetrics gives subscription businesses real-time metrics, churn insights, recoveries, and revenue forecasting. With DocsBot Skill Builder, you can describe the Baremetrics-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, pull subscription analytics, summarize account health, and trigger approved follow-up actions inside your defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Baremetrics subscription status, recent MRR changes, and dunning state to answer billing and account health questions in chat or tickets.",
+    "Use Baremetrics data to help the agent explain cancellation trends, failed payment recovery progress, or trial-to-paid movement when a customer asks about account performance.",
+    "Have the agent summarize churn signals and subscription history from Baremetrics before preparing a handoff to billing, success, or retention teams.",
+    "Enable the agent to gather missing context from the customer, combine it with Baremetrics metrics, and create a more complete escalation summary for human follow-up.",
+    "Allow the agent to surface plan, revenue, and recovery insights from Baremetrics while responding to SaaS customers who need a quick explanation of their subscription performance."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Baremetrics MRR, ARR, churn, LTV, and recovery metrics without manually logging into dashboards.",
+    "Help customer success and finance teams ask the agent for account health summaries, cancellation patterns, or dunning performance across subscription cohorts.",
+    "Give operations teams an AI assistant that researches Baremetrics trends, compares periods, and prepares concise summaries for weekly revenue reviews.",
+    "Enable internal teams in Slack or Microsoft Teams to ask the agent for subscription forecasts, failed charge trends, and retention signals tied to standard operating workflows.",
+    "Support leadership with an internal AI assistant that pulls Baremetrics analytics, summarizes changes, and drafts handoff notes or follow-up tasks for the right teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains subscription health using live Baremetrics metrics.",
+    "A billing assistant that summarizes failed charge recovery status before escalating a ticket.",
+    "A customer success agent that surfaces churn signals and cancellation insights for renewals.",
+    "An internal finance assistant that answers MRR, ARR, and LTV questions in chat.",
+    "A revenue operations bot that prepares weekly Baremetrics performance summaries for leadership.",
+    "An AI workflow that gathers customer context and drafts retention handoff notes from Baremetrics data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Baremetrics-powered agent to do, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the required configuration values, secure connection method, and authentication approach, while keeping credentials out of chats and routing secrets through protected runtime settings."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, lookups, updates, and systems needed, and adds approval boundaries wherever a sensitive action should require extra control."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, reference material, and any approved actions the DocsBot agent needs to work with Baremetrics."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak spots, or missing checks, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Baremetrics data?",
+      "answer": "With DocsBot Skill Builder, you describe the Baremetrics workflow you want in plain language, such as answering subscription questions or summarizing churn trends, and Skill Builder designs, secures, tests, and prepares the Skill for deployment."
+    },
+    {
+      "question": "Can an AI support agent use Baremetrics to answer billing or subscription questions?",
+      "answer": "Yes, a DocsBot support agent can use Baremetrics data to look up subscription metrics, dunning status, recovery information, and account-level trends while responding in website chat or helpdesk tickets. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Baremetrics?",
+      "answer": "A Baremetrics Skill can help with live metric lookups, account health summaries, failed payment recovery context, churn-related explanations, and escalation handoff notes for billing or success teams. It can also gather missing information from the customer before preparing the next step."
+    },
+    {
+      "question": "Can an internal AI assistant answer Baremetrics questions for employees in Slack or Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Baremetrics metrics, compare performance periods, summarize churn or recovery trends, and support standard reporting or revenue review workflows from chat."
+    },
+    {
+      "question": "How does DocsBot keep Baremetrics access secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, keeps credentials out of conversations and generated content, and scopes access to the smallest set of approved actions and records. It can also add approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs or summaries using Baremetrics insights?",
+      "answer": "Yes, the agent can summarize subscription performance, churn signals, payment recovery status, or account health and then prepare a handoff for finance, support, or customer success teams. This helps human teams start with better context instead of rebuilding the case manually."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "recurly",
+    "profitwell",
+    "chartmogul",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Baremetrics",
+    "domain": "baremetrics.com",
+    "description": "Baremetrics is a subscription analytics platform that provides real-time metrics and insights for businesses using various payment gateways. They offer tools to help reduce churn and grow revenue, including automated recovery of failed charges, cancellation insights, and financial forecasting. Baremetrics provides valuable metrics and business insights for subscription companies, enabling them to make informed decisions and drive growth.",
+    "slogan": "Real-time subscription metrics and insights to grow your SaaS business.",
+    "logoUrl": "https://media.brand.dev/89a1ad2a-c0a2-4b8f-becc-47dab69701e2.svg",
+    "iconUrl": "https://media.brand.dev/86b5231e-cf8c-463e-a1bc-5064074fd6ad.png",
+    "primaryColor": "#5484fb",
+    "accentColor": "#a4c4ec",
+    "colors": [
+      {
+        "hex": "#5484fb",
+        "name": "Skinny Jeans"
+      },
+      {
+        "hex": "#a4c4ec",
+        "name": "Sky High"
+      },
+      {
+        "hex": "#f1f5f5",
+        "name": "Chef’s Hat"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ad6d7f4e-1dea-4e0c-8c5c-8e29d6cc1055.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://baremetrics.com/about",
+      "terms": "https://baremetrics.com/terms",
+      "contact": null,
+      "privacy": "https://baremetrics.com/privacy",
+      "blog": "https://baremetrics.com/blog",
+      "pricing": "https://baremetrics.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0b478628-95cf-4f12-8bb6-63c172134fdd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/89a1ad2a-c0a2-4b8f-becc-47dab69701e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 188,
+        "height": 28,
+        "aspectRatio": 6.71
+      },
+      {
+        "url": "https://media.brand.dev/86b5231e-cf8c-463e-a1bc-5064074fd6ad.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/313ba611-d2ee-4bf0-888c-2867a10f08d2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/89a1ad2a-c0a2-4b8f-becc-47dab69701e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 188,
+      "height": 28,
+      "aspectRatio": 6.71
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0b478628-95cf-4f12-8bb6-63c172134fdd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

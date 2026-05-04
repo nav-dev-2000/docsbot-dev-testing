@@ -1,0 +1,176 @@
+{
+  "slug": "quickbooks",
+  "name": "QuickBooks",
+  "domain": "quickbooks.intuit.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with QuickBooks",
+  "metaTitle": "Build QuickBooks AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use QuickBooks for secure lookups, approved updates, handoffs, and workflow automation in support and internal operations.",
+  "intro": "QuickBooks helps businesses manage accounting, invoices, payments, and financial records, and DocsBot Skill Builder can turn that data into safe, reusable AI agent actions. In plain language, you describe what you want the agent to do, and Skill Builder designs, secures, tests, and deploys the QuickBooks Skill for you. The result is a support or internal AI agent that can answer questions, gather context, and take bounded action inside your approved workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice status, payment history, or billing details in QuickBooks while replying in a website chat or helpdesk ticket.",
+    "Use an AI support agent to summarize a customer's account balance, open invoices, and recent transactions before preparing a billing handoff.",
+    "Allow the agent to create approved billing support tasks or escalation notes when a customer reports a payment problem or invoice dispute.",
+    "Have the agent collect missing billing details from the customer and prepare a structured handoff for finance or support teams.",
+    "Enable the agent to confirm whether a payment was recorded in QuickBooks and explain the next approved support step to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve QuickBooks invoice, customer, payment, or account details without switching tools.",
+    "Give finance, operations, or customer success teams an AI assistant that summarizes QuickBooks records and prepares follow-up steps for billing workflows or account reviews.",
+    "Help employees complete SOPs by chatting with an agent that gathers QuickBooks context, drafts notes, and triggers approved internal handoffs or exception workflows.",
+    "Allow internal teams to ask the agent for customer billing summaries, overdue invoice reports, or transaction snapshots before outreach or renewal conversations.",
+    "Use a private AI agent to research QuickBooks activity across records and generate clean summaries for finance reviews, support escalations, or leadership updates."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing support agent that checks invoice and payment status in QuickBooks.",
+    "A customer success assistant that summarizes account balances before renewal or collections outreach.",
+    "An internal finance copilot that retrieves customer transaction history and drafts escalation notes.",
+    "A support workflow that gathers billing details and creates structured handoff summaries.",
+    "An AI agent that confirms recorded payments and explains approved next steps.",
+    "A private team assistant that generates overdue invoice snapshots for operations reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the QuickBooks agent to do in plain language, such as checking invoice status, summarizing billing history, or preparing an escalation handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required QuickBooks configuration values, and defines secure connection and authentication handling for you."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or financial workflows."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and sends those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with QuickBooks?",
+      "answer": "With DocsBot Skill Builder, you describe the QuickBooks workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and helps deploy it to the right AI agent. That can include lookups, summaries, approved updates, handoffs, and workflow triggers inside the limits you define."
+    },
+    {
+      "question": "Can a DocsBot support agent use QuickBooks data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a QuickBooks Skill to look up billing information such as invoices, balances, or payment status while replying to customers in chat or helpdesk tickets. You can also define safe action limits and approval rules for any sensitive financial workflow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with QuickBooks?",
+      "answer": "A QuickBooks-connected agent can verify payment status, summarize open invoices, collect missing billing details, prepare escalation notes, and create structured handoffs for finance or support teams. This helps customers get faster answers while keeping higher-risk actions inside your approval boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with QuickBooks tasks?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve QuickBooks records, summarize account activity, prepare billing reviews, and complete internal SOPs faster. The Skill can be scoped so teams only access the records and actions appropriate for their role."
+    },
+    {
+      "question": "How does DocsBot handle QuickBooks authentication and secrets safely?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also designs scoped permissions and approval boundaries so the agent only performs allowed actions."
+    },
+    {
+      "question": "Can a QuickBooks AI agent update records or trigger workflows safely?",
+      "answer": "Yes, DocsBot Skills can be built for bounded actions such as approved record updates, task creation, handoff preparation, or workflow triggers. Skill Builder adds the right safeguards, including scoped access, action limits, and approvals for more sensitive steps."
+    }
+  ],
+  "relatedSlugs": [
+    "xero",
+    "stripe",
+    "netsuite",
+    "freshbooks",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "QuickBooks",
+    "domain": "quickbooks.intuit.com",
+    "description": "Intuit QuickBooks is a leading provider of accounting, bookkeeping, and tax solutions for professionals. They offer a range of smart business tools and AI-powered automation to help firms and clients succeed. Their products include QuickBooks Online, QuickBooks Online Advanced, and various tax software solutions. Intuit QuickBooks serves accounting professionals across the US, Canada, and the UK, providing resources and support through multiple websites and communities.",
+    "slogan": "Empowering accountants with smart tools to grow your business effortlessly.",
+    "logoUrl": "https://media.brand.dev/bd9615df-c15e-4346-94d9-d92e168ede24.svg",
+    "iconUrl": "https://media.brand.dev/21f479a7-ef2a-4bf2-93ed-0aeb6b0df5d6.png",
+    "primaryColor": "#040404",
+    "accentColor": "#2ea41e",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#2ea41e",
+        "name": "Dry Highlighter Green"
+      },
+      {
+        "hex": "#94d28c",
+        "name": "Dentist Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/48f03726-26d8-46e8-8c49-c1b0395c14e2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://quickbooks.intuit.com/contact/",
+      "privacy": null,
+      "blog": "https://quickbooks.intuit.com/r/",
+      "pricing": "https://quickbooks.intuit.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9ae73bee-b781-4b51-827e-89b04c86b1de.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6d86e22d-1dd1-4bc2-bca9-39017c5a8944.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 157,
+        "height": 40,
+        "aspectRatio": 3.93
+      },
+      {
+        "url": "https://media.brand.dev/21f479a7-ef2a-4bf2-93ed-0aeb6b0df5d6.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bd9615df-c15e-4346-94d9-d92e168ede24.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 116,
+        "height": 38,
+        "aspectRatio": 3.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6d86e22d-1dd1-4bc2-bca9-39017c5a8944.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 157,
+      "height": 40,
+      "aspectRatio": 3.93
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9ae73bee-b781-4b51-827e-89b04c86b1de.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

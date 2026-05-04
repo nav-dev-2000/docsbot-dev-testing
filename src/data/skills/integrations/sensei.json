@@ -1,0 +1,144 @@
+{
+  "slug": "sensei",
+  "name": "Sensei LMS",
+  "domain": "senseilms.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with Sensei LMS",
+  "metaTitle": "Build AI Agents for Sensei LMS with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sensei LMS to answer learner questions, check course status, trigger workflows, and support internal teams safely.",
+  "intro": "Sensei LMS helps businesses, educators, and training teams manage online courses on WordPress. With DocsBot Skill Builder, you can describe the learner support or internal workflow you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent safely look up course data, summarize learner status, and take approved actions. This makes it easier to deliver faster support to students and give employees a private AI assistant for training operations.",
+  "supportUseCases": [
+    "Answer student questions in a website chat widget by checking course enrollment, lesson progress, quiz completion, or access status in Sensei LMS.",
+    "Help customers troubleshoot course access issues by looking up enrollment details and preparing a clear support handoff when a billing or permissions problem needs review.",
+    "Respond to ticket-based support requests by summarizing a learner's course activity, recent progress, and likely next steps for the support team.",
+    "Guide students to the right next lesson or training path by using Sensei LMS course structure and progress data during the conversation.",
+    "Create approved follow-up tasks or escalation notes when a learner reports blocked progress, failed quizzes, or missing course content access."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up learner progress, course completion, and enrollment status without opening Sensei LMS manually.",
+    "Training, customer success, or operations teams can ask the agent to summarize course engagement trends and prepare handoff notes for instructors or support staff.",
+    "Internal teams can use the agent to follow training SOPs, such as checking whether a learner completed required modules before granting the next step in a program.",
+    "Support and education teams can chat with the agent to research course structures, lesson sequencing, quiz status, and common learner issues across Sensei LMS data.",
+    "Managers can use a private AI assistant to generate status summaries for cohorts, identify learners who may need outreach, and coordinate follow-up workflows."
+  ],
+  "whatYouCanBuild": [
+    "A student support agent that checks enrollment and course progress during live chat.",
+    "An AI assistant that summarizes quiz attempts and learner completion status for support teams.",
+    "A training operations agent that identifies blocked learners and prepares escalation notes.",
+    "A private employee assistant that answers course structure and lesson availability questions.",
+    "An agent that gathers learner context before creating a support handoff or follow-up task.",
+    "A cohort support workflow that summarizes progress for instructors or customer success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the learner support or training workflow you want in plain language, and Skill Builder turns that goal into a practical Sensei LMS Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and source, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Actions get safe limits",
+      "description": "Skill Builder adds the right runtime instructions, lookups, updates, workflow triggers, and approval boundaries so the AI agent can take bounded actions without exceeding your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined student support and internal team scenarios, finds bugs, weak spots, or missing permission checks, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to your customer-facing DocsBot agent or private team assistant so it can answer questions and take approved actions with Sensei LMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Sensei LMS?",
+      "answer": "With DocsBot Skill Builder, you describe the support or internal workflow you want, such as checking learner progress or summarizing course status, and Skill Builder creates a reusable Skill for your AI agent. It also handles secure configuration, scoped access, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Sensei LMS data to answer student questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved Sensei LMS information such as enrollments, lesson progress, quiz status, and course structure while replying in chat or helpdesk tickets. You control what data and actions are allowed so the agent stays within safe boundaries."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Sensei LMS?",
+      "answer": "A DocsBot agent can help verify course access, summarize learner progress, identify likely blockers, prepare escalation notes, and trigger approved follow-up workflows. This helps support teams resolve routine student questions faster while keeping sensitive actions controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help training teams work in Sensei LMS?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve learner status, research course content structure, summarize cohort progress, and follow training operations workflows from chat, Slack, or Microsoft Teams. This reduces manual searching and speeds up internal coordination."
+    },
+    {
+      "question": "How does DocsBot handle security for Sensei LMS actions?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, protected runtime secrets, scoped permissions, and approval boundaries for sensitive actions. Credentials stay out of chat transcripts and generated Skill content, and access can be limited to only the users, records, and workflows you approve."
+    },
+    {
+      "question": "Can DocsBot test a Sensei LMS Skill before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run realistic support and internal team scenarios against the planned workflow. It identifies bugs, missing instructions, or permission gaps and can feed those results into an automated improvement loop before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "moodle",
+    "learndash",
+    "teachable",
+    "thinkific",
+    "kajabi",
+    "wordpress"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sensei LMS",
+    "domain": "senseilms.com",
+    "description": "Sensei is the WordPress LMS plugin created by Automattic, the company behind WordPress.com, WooCommerce and Jetpack. It enables entrepreneurs, educators, coaches and agencies to build, manage and sell online courses directly on their WordPress sites. With drag‑and‑drop course editors, interactive blocks (videos, flashcards, quizzes), AI‑powered tutoring, cohort groups and seamless WooCommerce integration, Sensei lets users create immersive learning experiences without coding. The platform supports one‑time payments, subscriptions and memberships, offers customizable themes and templates, and provides open‑source portability for full control over content and hosting. In short, Sensei empowers anyone to design, deliver and monetize engaging e‑learning programs using the familiar WordPress ecosystem.",
+    "slogan": "Create and sell courses that your students will love.",
+    "logoUrl": "https://media.brand.dev/5ad2e937-223e-4adf-99a5-68f552071201.png",
+    "iconUrl": "https://media.brand.dev/5ad2e937-223e-4adf-99a5-68f552071201.png",
+    "primaryColor": "#24242c",
+    "accentColor": "#24242c",
+    "colors": [
+      {
+        "hex": "#24242c",
+        "name": "Black Russian"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5388294e-17a8-469b-acfe-8c3dfa179654.png",
+    "industries": [],
+    "links": {
+      "blog": "https://senseilms.com/blog/",
+      "careers": null,
+      "privacy": null,
+      "terms": "https://senseilms.com/terms/",
+      "contact": "https://senseilms.com/contact/",
+      "pricing": "https://senseilms.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5ad2e937-223e-4adf-99a5-68f552071201.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 494,
+        "height": 140,
+        "aspectRatio": 3.53
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ad2e937-223e-4adf-99a5-68f552071201.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 494,
+      "height": 140,
+      "aspectRatio": 3.53
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5ad2e937-223e-4adf-99a5-68f552071201.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 494,
+      "height": 140,
+      "aspectRatio": 3.53
+    }
+  }
+}

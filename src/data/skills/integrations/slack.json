@@ -1,0 +1,168 @@
+{
+  "slug": "slack",
+  "name": "Slack",
+  "domain": "slack.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Slack Using DocsBot Skills",
+  "metaTitle": "Build Slack AI Agents for Support and Internal Teams | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Slack for support handoffs, conversation summaries, alerts, approvals, and internal team workflows with secure Skill Builder setup.",
+  "intro": "Slack is where many teams coordinate support, operations, and internal work, making it a strong system for AI-assisted communication and workflow handoffs. With DocsBot Skill Builder, you can describe the Slack actions you want in plain language and have DocsBot create a reusable Skill for your support bot or private internal agent. That lets your AI agent answer questions, prepare escalations, send the right updates into Slack, and trigger approved workflows without making your team switch tools.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to post a Slack alert to the right support or success channel when a customer reports an urgent issue.",
+    "Let the agent create a structured Slack handoff message that summarizes the customer problem, account details, and troubleshooting steps already completed.",
+    "Have the agent send escalation requests into Slack for engineering, billing, or customer success teams while continuing the customer conversation.",
+    "Use the agent to check Slack channel history or pinned guidance for approved internal troubleshooting notes before replying to a customer.",
+    "Let the agent summarize a long customer ticket thread and share the summary in Slack so internal teams can coordinate faster on the next step."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack or another internal channel to find the right support process, escalation path, or team owner.",
+    "Let team members ask the agent to summarize long Slack threads, extract decisions, and turn them into clean internal updates or handoff notes.",
+    "Use an internal AI agent to post reminders, approval requests, or incident updates into specific Slack channels based on company workflows.",
+    "Help operations teams chat with the agent to gather context from multiple systems and then draft a Slack update for stakeholders.",
+    "Allow employees to ask the agent for SOP guidance and have it complete approved Slack communication steps during onboarding, incident response, or account review workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support escalation Skill that posts urgent customer cases into the right Slack channel.",
+    "A ticket summary Skill that turns long conversations into concise Slack handoff updates.",
+    "An incident communication Skill that drafts and sends status updates to internal Slack channels.",
+    "An approval workflow Skill that asks managers in Slack before sensitive actions are completed.",
+    "A private team assistant that answers process questions and posts follow-up messages in Slack.",
+    "A customer success coordination Skill that alerts account teams in Slack when risk signals appear."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Slack, such as posting escalation summaries or routing approval requests, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required Slack connection details, defines secure authentication and configuration values, keeps secrets out of chats and source, and scopes access to only the channels, actions, and users needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Slack messages, workflow triggers, or cross-team notifications so the agent acts only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks whether the Slack workflow behaves correctly, and finds bugs, missing instructions, or permission gaps."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder uses those test results to refine the Skill, strengthen instructions and safeguards, and then helps publish it to the right DocsBot support bot or private internal agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Slack for customer support?",
+      "answer": "You can use DocsBot Skill Builder to describe support workflows like Slack escalations, handoff summaries, and internal alerts in plain language. Skill Builder designs the Skill, secures the Slack connection, adds action limits or approvals, and prepares it for your support bot or helpdesk agent."
+    },
+    {
+      "question": "Can a DocsBot support agent send Slack alerts during customer conversations?",
+      "answer": "Yes, a DocsBot agent can be designed to send approved Slack alerts when customers report urgent issues, request escalation, or match defined support conditions. You control which channels, message formats, and approval boundaries the agent is allowed to use."
+    },
+    {
+      "question": "Can an AI agent summarize support tickets and post the summary to Slack?",
+      "answer": "Yes, DocsBot Skills can summarize customer chats or helpdesk tickets and format that information for Slack handoffs. This helps internal teams get fast context without reading the entire customer conversation."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Slack?",
+      "answer": "An internal DocsBot agent can summarize threads, post stakeholder updates, route requests to the right channel, prepare approvals, and guide employees through communication steps in SOPs. It can also combine Slack actions with lookups or updates in your other business systems."
+    },
+    {
+      "question": "How does DocsBot keep Slack actions secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated content. It also scopes permissions and can require approval boundaries for higher-risk Slack actions."
+    },
+    {
+      "question": "Can employees use a private AI assistant in Slack to complete workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve information, research next steps, and complete approved Slack communication tasks as part of broader workflows. The agent can be limited to the channels, message types, and actions you approve."
+    }
+  ],
+  "relatedSlugs": [
+    "microsoft-teams",
+    "discord",
+    "intercom",
+    "zendesk",
+    "jira",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Slack",
+    "domain": "slack.com",
+    "description": "Slack is an AI‑powered work platform that brings people, apps, and intelligent agents together in a single collaborative space. It offers chat‑based channels, video huddles, and Slack Connect for real‑time communication with teammates, clients, and vendors. Built‑in AI features like Slackbot, AI‑driven search, and automated workflows help users summarize conversations, retrieve files, and automate routine tasks without leaving the conversation. The open platform integrates thousands of tools—from Salesforce and GitHub Copilot to Google Drive and ChatGPT—allowing teams to customize their workflow and build custom agents. Slack’s secure, scalable infrastructure ensures data protection while enabling organizations to streamline project management, knowledge sharing, and decision‑making across the enterprise.",
+    "slogan": "Slack is your team's collective brain—move faster, work smarter with AI.",
+    "logoUrl": "https://media.brand.dev/29d054d3-1a59-45bf-8d09-f118b03ee4d3.png",
+    "iconUrl": "https://media.brand.dev/62f6e3f1-b9d5-4160-ab61-bbc241889039.svg",
+    "primaryColor": "#34c4f3",
+    "accentColor": "#2cb47c",
+    "colors": [
+      {
+        "hex": "#34c4f3",
+        "name": "Shovel Knight"
+      },
+      {
+        "hex": "#2cb47c",
+        "name": "Salsify Grass"
+      },
+      {
+        "hex": "#e76744",
+        "name": "Emergency Zone"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5e22b3cb-87fa-4be1-baa4-61e261ecae22.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://slack.com/careers",
+      "terms": "https://slack.com/legal",
+      "contact": "https://slack.com/contact-sales",
+      "privacy": "https://slack.com/trust/privacy/privacy-policy",
+      "blog": "https://slack.com/blog",
+      "pricing": "https://slack.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/29d054d3-1a59-45bf-8d09-f118b03ee4d3.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 200,
+        "height": 75,
+        "aspectRatio": 2.67
+      },
+      {
+        "url": "https://media.brand.dev/62f6e3f1-b9d5-4160-ab61-bbc241889039.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 54,
+        "height": 54,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/649a656d-87bb-4b2d-8676-87275d9fe2ff.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 105,
+        "height": 102,
+        "aspectRatio": 1.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/29d054d3-1a59-45bf-8d09-f118b03ee4d3.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 200,
+      "height": 75,
+      "aspectRatio": 2.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/62f6e3f1-b9d5-4160-ab61-bbc241889039.svg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 54,
+      "height": 54,
+      "aspectRatio": 1
+    }
+  }
+}

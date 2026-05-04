@@ -1,0 +1,159 @@
+{
+  "slug": "freshcaller",
+  "name": "Freshcaller",
+  "domain": "freshcaller.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Freshcaller",
+  "metaTitle": "Build Freshcaller AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshcaller to look up call details, trigger follow-ups, prepare handoffs, and support teams with safe automated actions.",
+  "intro": "Freshcaller helps teams manage customer calling workflows, call activity, and agent operations inside the Freshworks platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Freshcaller data and actions. The result is a customer support or internal team agent that can answer questions, prepare escalations, trigger approved follow-ups, and summarize call context without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent call activity in Freshcaller to confirm whether a customer already spoke with your team and summarize the outcome.",
+    "Use Freshcaller data during a support chat or helpdesk reply to identify missed calls, callback attempts, or routing history before responding to the customer.",
+    "Have the agent create a callback request or follow-up task based on the customer conversation while keeping the handoff context attached.",
+    "Enable the agent to summarize caller history, agent notes, and call outcomes from Freshcaller so escalations start with the right context.",
+    "Let the agent prepare a support handoff by collecting the customer’s phone details, issue summary, and preferred callback window, then sending that information into an approved workflow tied to Freshcaller."
+  ],
+  "internalUseCases": [
+    "Give support managers a private AI agent that employees can chat with to retrieve Freshcaller call activity, queue trends, and agent follow-up status without manually searching multiple screens.",
+    "Let employees ask an internal DocsBot agent to summarize a caller’s recent interactions across support workflows and prepare next-step recommendations for a callback or escalation.",
+    "Use a team-facing agent in Slack or Microsoft Teams to guide employees through call handling SOPs, gather missing details, and trigger approved Freshcaller-related follow-up workflows.",
+    "Enable operations teams to chat with the agent to research missed-call patterns, summarize callback backlogs, and generate handoff notes for supervisors.",
+    "Let customer success or support leads use an internal agent to prepare coaching summaries or escalation briefs based on Freshcaller call records and connected support context."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Freshcaller call history before answering a customer question.",
+    "A callback request workflow that captures issue details and prepares a complete handoff summary.",
+    "An internal agent that summarizes missed calls, call outcomes, and pending follow-up actions.",
+    "A support escalation assistant that gathers phone context and routes approved follow-up tasks.",
+    "A supervisor assistant that creates call activity summaries for coaching and operations reviews.",
+    "A private team agent that answers questions about caller history and recent support interactions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Freshcaller-connected agent to do, such as checking call history, preparing callback handoffs, or triggering approved follow-up actions, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and plans how the agent should retrieve information or take bounded action inside Freshcaller."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries and approval steps for sensitive actions so the agent can help with Freshcaller workflows without exceeding the rules you set."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing safeguards, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Freshcaller?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshcaller workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up call information, prepare handoffs, and trigger approved actions. It also handles secure connection design, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Freshcaller data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Freshcaller as a system of record for call activity, caller context, callback status, and routing history while responding to customers. That helps the agent answer with better context, prepare escalations, and trigger safe next steps."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Freshcaller?",
+      "answer": "You can build workflows for call history lookups, missed-call checks, callback request capture, escalation summaries, and handoff preparation tied to customer conversations. The agent can also generate structured notes and trigger approved follow-up actions within defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Freshcaller workflows?",
+      "answer": "Yes, private DocsBot agents can help employees research call activity, summarize caller history, follow call handling SOPs, and prepare supervisor or escalation handoffs. Teams can access that help through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Freshcaller access secure for AI agents?",
+      "answer": "Skill Builder designs the connection with secure configuration, protected authentication handling, secret proxying, scoped permissions, and approval boundaries for sensitive actions. This keeps credentials out of conversations and limits the agent to the specific Freshcaller actions you approve."
+    },
+    {
+      "question": "Can DocsBot trigger updates or follow-up actions related to Freshcaller instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as creating follow-up requests, preparing callback workflows, updating connected records, and generating escalation artifacts. Those actions can be limited by role, workflow scope, and approval rules."
+    }
+  ],
+  "relatedSlugs": [
+    "freshdesk",
+    "zendesk",
+    "intercom",
+    "aircall",
+    "twilio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshworks",
+    "domain": "freshcaller.com",
+    "description": "Freshworks is an AI‑first software company that delivers enterprise‑grade IT service management and customer service solutions without the typical complexity. Its product suite includes Freshservice for proactive ServiceOps, Freshdesk Omni for streamlined AI‑powered customer support, and Freddy, an agentic AI that can reason, act, and resolve issues autonomously. Trusted by over 74,000 businesses worldwide, Freshworks helps organizations boost loyalty, efficiency, and growth by automating ticketing, accelerating resolution times, and improving employee and customer experiences. The platform offers fast implementation, transparent pricing, and built‑in AI tools that simplify workflows, reduce friction, and drive higher satisfaction scores across both IT and customer‑facing teams.",
+    "slogan": "Enterprise-grade performance without enterprise complexity",
+    "logoUrl": "https://media.brand.dev/963895a6-6b5d-486c-b628-f8b4448ad69b.png",
+    "iconUrl": "https://media.brand.dev/963895a6-6b5d-486c-b628-f8b4448ad69b.png",
+    "primaryColor": "#d79a29",
+    "accentColor": "#21b1b6",
+    "colors": [
+      {
+        "hex": "#d79a29",
+        "name": "Glitzy Gold"
+      },
+      {
+        "hex": "#21b1b6",
+        "name": "Mermaid Treasure"
+      },
+      {
+        "hex": "#6eade1",
+        "name": "Greek Sea"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7b6e3bde-3262-4e3b-9559-f1573d103ca1.webp",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/963895a6-6b5d-486c-b628-f8b4448ad69b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a0c47ec-5d45-4761-a28c-fde6373f86b5.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 28,
+        "height": 28,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/963895a6-6b5d-486c-b628-f8b4448ad69b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/963895a6-6b5d-486c-b628-f8b4448ad69b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

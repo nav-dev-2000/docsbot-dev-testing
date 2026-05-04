@@ -1,0 +1,162 @@
+{
+  "slug": "copper",
+  "name": "Copper",
+  "domain": "copper.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Copper CRM",
+  "metaTitle": "Build DocsBot AI Agents for Copper CRM Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Copper to look up contacts, update deals, prepare handoffs, and support sales and service workflows with safe controls.",
+  "intro": "Copper helps teams manage leads, contacts, projects, and customer relationships inside a CRM that fits closely with Google Workspace. With DocsBot Skill Builder, you can describe the Copper workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, retrieve CRM context, take approved actions, and keep teams moving without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a DocsBot website chat agent to look up a customer or company in Copper and tailor responses based on account history, owner, lifecycle stage, or recent activity.",
+    "Let a helpdesk-connected DocsBot agent create or update Copper people, companies, or opportunities when a customer shares new business details during a support conversation.",
+    "Have the agent summarize relevant Copper notes, tasks, and pipeline context so support reps can prepare a faster handoff to sales or customer success.",
+    "Enable the agent to log follow-up tasks in Copper when a customer requests a callback, demo, renewal discussion, or account review.",
+    "Use Copper data to help the agent identify account ownership and route escalations to the right teammate with a clean summary of the conversation and CRM context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Copper contacts, company records, deal status, and recent activity without opening the CRM.",
+    "Give sales, success, and operations teams an AI assistant that can create follow-up tasks, update fields, and prepare next-step summaries in Copper through approved workflows.",
+    "Help employees research an account by combining Copper records, notes, and activity history into a concise briefing before a call, renewal conversation, or escalation.",
+    "Allow teams to ask the agent for pipeline snapshots, record summaries, or missing-data checks so they can complete SOPs faster and keep CRM data cleaner.",
+    "Use a private AI agent to prepare internal handoffs between marketing, sales, onboarding, and account management by reading Copper context and generating structured summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Copper account ownership before escalating a customer request.",
+    "An internal assistant that creates Copper tasks from chat requests with approval for sensitive changes.",
+    "A helpdesk agent that summarizes deal and relationship history from Copper before replying.",
+    "An AI assistant that updates contact details in Copper when employees confirm new information.",
+    "A customer-facing agent that captures lead details and creates Copper records for follow-up.",
+    "An internal workflow agent that prepares account briefings from Copper notes, activity, and open tasks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Copper in plain language, such as looking up account details, creating follow-up tasks, or preparing handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder plans the workflow, identifies the Copper connection details it needs, defines secure authentication and runtime configuration, and keeps secrets protected and out of chats or generated Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Copper records, actions, users, and systems needed for the job, and it adds approval boundaries for sensitive updates or triggers when appropriate."
+    },
+    {
+      "title": "It drafts and tests the Skill",
+      "description": "Skill Builder creates the Skill package, then its automated testing agent runs imagined support and internal team scenarios to catch bugs, weak instructions, missing checks, or workflow gaps."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder feeds testing results into a self-improvement loop so the Skill can be refined, made safer, and made clearer before it is published to your customer-facing or private DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Copper CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Copper workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your DocsBot agent. That agent can then look up CRM records, update approved fields, trigger follow-up workflows, and summarize account context within your rules."
+    },
+    {
+      "question": "Can a DocsBot support agent use Copper data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Copper as a source of account, contact, company, and opportunity context while responding in a website chat widget or helpdesk flow. This helps the agent personalize replies, prepare handoffs, and log approved follow-up actions without exposing unrestricted CRM access."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Copper?",
+      "answer": "A DocsBot agent can look up account ownership, summarize recent CRM activity, create follow-up tasks, update customer details after confirmation, and prepare escalation notes for sales or customer success. The exact actions stay bounded by the permissions and approval rules you choose."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Copper?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Copper records, research account history, create tasks, and complete CRM-related SOPs faster. This is useful for sales, customer success, operations, and leadership teams that need quick CRM access without manual searching."
+    },
+    {
+      "question": "How does DocsBot keep Copper actions safe?",
+      "answer": "Skill Builder defines secure connection handling, protects and proxies secrets through runtime configuration, and keeps credentials out of conversations and generated content. It also scopes access to the minimum necessary records and actions and can require approval boundaries for more sensitive updates."
+    },
+    {
+      "question": "Can DocsBot update Copper records instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as updating contact details, creating tasks, logging handoff notes, or triggering next-step workflows in Copper. Those actions are configured around your approval rules so the agent acts only where you allow it."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Copper",
+    "domain": "copper.com",
+    "description": "Copper is a client and project management tool that integrates with Gmail, Calendar, and Drive to help businesses manage their client journey, from lead generation to project delivery, and foster long-term customer relationships.",
+    "slogan": "Build stronger relationships with Copper, the CRM integrated with Google Workspace.",
+    "logoUrl": "https://media.brand.dev/f981785f-f113-4010-801c-4dc4e80b381d.png",
+    "iconUrl": "https://media.brand.dev/aab1a6ef-7ff7-4b5b-982b-d39046997b5c.png",
+    "primaryColor": "#1b0b34",
+    "accentColor": "#050407",
+    "colors": [
+      {
+        "hex": "#1b0b34",
+        "name": "Middle Red Purple"
+      },
+      {
+        "hex": "#050407",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#fc3464",
+        "name": "Chinese New Year"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1ac9123c-af2c-4031-8849-d294c3c5669d.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.copper.com/terms",
+      "contact": "https://www.copper.com/manage-contacts",
+      "privacy": "https://www.copper.com/privacy",
+      "blog": "https://www.copper.com/resources",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.copper.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aab1a6ef-7ff7-4b5b-982b-d39046997b5c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 384,
+        "height": 384,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f981785f-f113-4010-801c-4dc4e80b381d.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 410,
+        "height": 84,
+        "aspectRatio": 4.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f981785f-f113-4010-801c-4dc4e80b381d.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 410,
+      "height": 84,
+      "aspectRatio": 4.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/aab1a6ef-7ff7-4b5b-982b-d39046997b5c.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 384,
+      "height": 384,
+      "aspectRatio": 1
+    }
+  }
+}

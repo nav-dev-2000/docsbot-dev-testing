@@ -1,0 +1,160 @@
+{
+  "slug": "vanta",
+  "name": "Vanta",
+  "domain": "vanta.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Vanta",
+  "metaTitle": "Build AI Agents for Vanta with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Vanta to answer compliance questions, summarize security posture, route reviews, and support internal trust workflows safely.",
+  "intro": "Vanta helps teams automate compliance, monitor security posture, and organize trust and audit work in one place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up Vanta data, summarize status, prepare handoffs, and trigger approved workflows. This makes it easier to support customers, prospects, auditors, and internal teams with faster, more consistent answers and bounded actions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up approved Trust Center or compliance readiness details in Vanta and answer common security review questions in real time.",
+    "Use a support agent connected to your helpdesk to summarize the current status of relevant controls, evidence collection, or audit readiness before replying to a customer ticket.",
+    "Have the agent gather missing context for a security questionnaire request, create an internal handoff, and route the issue to the right compliance or security owner.",
+    "Enable the agent to prepare a concise security posture summary from Vanta for enterprise sales or customer success conversations that need fast follow-up.",
+    "Let the agent trigger an approved internal review workflow when a customer asks for documents, attestations, or answers that require human validation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to retrieve Vanta compliance status, control summaries, and audit readiness updates without searching manually.",
+    "Security, GRC, and customer-facing teams can ask the agent to summarize open gaps, evidence status, or vendor risk context from Vanta and prepare next-step recommendations.",
+    "Teams can use the agent to follow internal SOPs for questionnaire intake, audit preparation, trust request triage, and escalation handoffs across Vanta and related systems.",
+    "Customer success and sales teams can chat with the agent to get approved trust and compliance talking points based on current Vanta data before customer meetings.",
+    "Operations teams can use the agent to generate summaries, route tasks, and collect missing information for internal review workflows tied to compliance and risk management."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers security and compliance questions using approved Vanta data.",
+    "A private employee assistant that summarizes audit readiness and open control gaps from Vanta.",
+    "A workflow Skill that collects questionnaire context and routes requests for human review.",
+    "An agent action that prepares trust-center-related response drafts for customer-facing teams.",
+    "A compliance handoff Skill that creates escalation summaries with Vanta status and next steps.",
+    "An internal SOP assistant that guides teams through audit prep and evidence follow-up workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Vanta-powered agent to do, such as answer security questions, summarize compliance status, or route review requests, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required Vanta connection details, defines secure authentication and configuration values, keeps secrets out of chats and source, proxies credentials through protected runtime settings, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for your workflow, including approval boundaries, user scope, and safe action limits so the agent can look up data, draft summaries, and trigger only the actions you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or private internal assistant so teams can use Vanta through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Vanta for customer support or security review questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that lets your agent retrieve approved Vanta information, summarize status, prepare handoffs, and respond safely within your rules."
+    },
+    {
+      "question": "Can an AI support agent use Vanta data to answer compliance and trust questions from customers?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved Vanta data to answer common compliance, audit, and security posture questions, while routing sensitive or exceptional cases to human reviewers when needed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Vanta?",
+      "answer": "A private DocsBot agent can help employees retrieve compliance status, summarize control gaps, prepare audit updates, collect questionnaire context, and trigger bounded review or escalation workflows tied to trust operations."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Vanta workflows?",
+      "answer": "Yes, Skill Builder can design bounded actions such as routing requests, creating handoff summaries, or triggering approved review steps with scoped permissions, protected credentials, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does setup work for a Vanta AI agent if my team is not technical?",
+      "answer": "You describe the desired outcome, and Skill Builder handles the workflow design, connection planning, secure authentication handling, testing, improvements, and deployment without requiring you to manually wire the integration."
+    },
+    {
+      "question": "Can a DocsBot agent summarize security posture or audit readiness from Vanta for internal teams?",
+      "answer": "Yes, an internal DocsBot assistant can be built to pull together relevant Vanta context into concise summaries that help security, sales, support, and leadership teams make faster decisions."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jira",
+    "zendesk",
+    "salesforce",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Vanta",
+    "domain": "vanta.com",
+    "description": "Vanta is the #1 Agentic Trust Platform that helps businesses earn and prove trust. It provides an AI‑powered, single‑pane solution for automating compliance, managing risk, and demonstrating security posture to customers and auditors. Vanta continuously gathers evidence, runs hourly automated tests across 375+ integrations, and offers tools for audit collaboration, vendor risk reviews, and public Trust Centers. Its AI features automate control mapping, questionnaire responses, and remediation code snippets, while risk management dashboards centralize IT risk decisions. Trusted by over 15,000 customers—including Atlassian, Duolingo, and Icelandair—Vanta serves startups to enterprises across 58 countries from offices in Dublin, London, New York, San Francisco, and Sydney.",
+    "slogan": "The AI Trust Management Platform—prove trust continuously, simplify compliance.",
+    "logoUrl": "https://media.brand.dev/a180d425-7cf5-42ec-94e6-0a5903ba2993.svg",
+    "iconUrl": "https://media.brand.dev/90717366-aee0-4a0d-895d-3266cabbdf97.jpg",
+    "primaryColor": "#240444",
+    "accentColor": "#836b8f",
+    "colors": [
+      {
+        "hex": "#240444",
+        "name": "Your Darkness"
+      },
+      {
+        "hex": "#836b8f",
+        "name": "Beauty"
+      },
+      {
+        "hex": "#f5eef0",
+        "name": "Plastic Clouds"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b5a6a747-c309-43d5-9999-f90a7e938e27.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.vanta.com/company/careers",
+      "terms": "https://www.vanta.com/legal-archive/terms",
+      "contact": "https://www.vanta.com/demo",
+      "blog": "https://www.vanta.com/resourcetype/blogs",
+      "pricing": "https://www.vanta.com/pricing",
+      "privacy": "https://www.vanta.com/privacy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/90717366-aee0-4a0d-895d-3266cabbdf97.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a180d425-7cf5-42ec-94e6-0a5903ba2993.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 159,
+        "height": 39,
+        "aspectRatio": 4.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a180d425-7cf5-42ec-94e6-0a5903ba2993.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 159,
+      "height": 39,
+      "aspectRatio": 4.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/90717366-aee0-4a0d-895d-3266cabbdf97.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

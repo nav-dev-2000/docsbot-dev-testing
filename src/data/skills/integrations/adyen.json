@@ -1,0 +1,200 @@
+{
+  "slug": "adyen",
+  "name": "Adyen",
+  "domain": "adyen.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Adyen",
+  "metaTitle": "Build Adyen AI Agents for Support and Operations | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Adyen for payment lookups, status summaries, support handoffs, and approved finance workflows with secure controls.",
+  "intro": "Adyen helps businesses manage payments, financial operations, and transaction data across channels and regions. With DocsBot Skill Builder, you can describe the Adyen workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded actions in Adyen while staying within your approval rules, access limits, and security requirements.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up payment status in Adyen and explain whether a payment is authorized, captured, refunded, or still processing.",
+    "Allow the agent to summarize recent transaction activity from Adyen so customers get a clearer answer about charges, declines, or duplicate payment concerns.",
+    "Use Adyen data to prepare a support handoff with payment details, transaction references, and timeline context when a case needs human review.",
+    "Enable the agent to check refund progress in Adyen and give customers a current status update without exposing sensitive internal information.",
+    "Let the agent gather the right details from the customer, then trigger an approved escalation or review workflow for disputed or failed payments tied to Adyen records."
+  ],
+  "internalUseCases": [
+    "Let finance, support, or operations employees chat with a private DocsBot agent to retrieve Adyen payment details, settlement context, and transaction summaries without switching systems.",
+    "Enable team members in Slack, Microsoft Teams, or a private chat to ask the agent to research failed payments, compile relevant Adyen references, and prepare the next-step workflow.",
+    "Help support and customer success teams follow SOPs by chatting with an internal agent that uses Adyen data to assemble escalation notes, refund context, or case summaries.",
+    "Allow operations employees to use a private AI assistant to identify payment patterns, summarize account activity, and trigger approved follow-up workflows across connected systems.",
+    "Give internal teams a guided assistant that answers Adyen process questions, retrieves live records when allowed, and helps complete controlled payment-support tasks faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Adyen payment status and explains the result to customers.",
+    "A refund-status assistant that summarizes Adyen updates and prepares human review when needed.",
+    "An internal finance helper that retrieves transaction details and builds case summaries from Adyen data.",
+    "A support escalation Skill that collects customer context and attaches Adyen payment references automatically.",
+    "An operations assistant that researches failed payments and triggers approved follow-up workflows.",
+    "A billing support agent that summarizes payment timelines, settlement context, and refund progress."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Adyen-powered agent to do, such as check payment status, summarize refund progress, or prepare an escalation, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect to Adyen, defines the required configuration values, handles authentication and secret storage through secure runtime configuration, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Actions are scoped and bounded",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive updates, escalations, or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can start using it in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Adyen?",
+      "answer": "With DocsBot Skill Builder, you describe the Adyen workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your support or internal AI agent. It can support live lookups, summaries, approved updates, workflow triggers, and handoff preparation inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use Adyen data to answer payment questions?",
+      "answer": "Yes, a DocsBot support agent can use Adyen data to look up payment status, summarize transaction context, and help explain refund or decline situations to customers. You can also limit what the agent is allowed to view or do and require approval for sensitive actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Adyen?",
+      "answer": "A DocsBot agent can help with payment-status checks, refund-progress summaries, failed-payment research, dispute-related handoff prep, and approved escalation workflows tied to Adyen records. This helps customers get faster answers while human teams receive better context when escalation is needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Adyen?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Adyen transaction details, summarize settlement or refund context, and complete payment-support SOPs through chat, Slack, or Microsoft Teams. This is useful for support, finance, operations, and customer success teams that need quick, guided access to payment information."
+    },
+    {
+      "question": "How does DocsBot keep Adyen access secure in an AI workflow?",
+      "answer": "Skill Builder defines secure configuration values, stores and proxies secrets through approved runtime settings, and keeps credentials out of conversations and Skill source. It also scopes permissions to the minimum needed actions and can add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger actions related to Adyen instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating escalations, preparing handoffs, updating related records in other systems, or triggering approved follow-up workflows based on Adyen information. The exact actions are controlled by the workflow you ask Skill Builder to create and the limits you approve."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "braintree",
+    "checkout-com",
+    "chargebee",
+    "recurly",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adyen",
+    "domain": "adyen.com",
+    "description": "Adyen is a leading financial technology platform that empowers businesses to achieve their goals more efficiently. With a comprehensive suite of services that includes end-to-end payment solutions, data-driven insights, and a range of financial products, Adyen offers a global, unified solution designed for businesses of all sizes. Prominent companies such as Meta, Uber, H&M, eBay, and Microsoft rely on Adyen's innovative technology to streamline their financial operations and enhance customer experiences. Headquartered in Amsterdam with a worldwide presence, Adyen is committed to helping its clients navigate the complexities of payment processing and financial management, enabling them to focus on their core objectives and ambitions.",
+    "slogan": "Achieve your ambitions faster with Adyen's all-in-one financial technology solutions.",
+    "logoUrl": "https://media.brand.dev/15595e41-887c-45e9-b48f-f548dd91c1ba.png",
+    "iconUrl": "https://media.brand.dev/ea7ba756-2477-416d-9e7f-b14a30c50328.jpg",
+    "primaryColor": "#34b454",
+    "accentColor": "#82d4ac",
+    "colors": [
+      {
+        "hex": "#34b454",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#82d4ac",
+        "name": "Pharaoh’s Jade"
+      },
+      {
+        "hex": "#0bbc53",
+        "name": "Intoxicate"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/005ad2af-8c00-4ae8-8b3c-195eb434d7b2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://adyen.com/contact/sales",
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15595e41-887c-45e9-b48f-f548dd91c1ba.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 128,
+        "height": 41,
+        "aspectRatio": 3.12
+      },
+      {
+        "url": "https://media.brand.dev/ea7ba756-2477-416d-9e7f-b14a30c50328.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/733b71e2-f7b8-419b-aa8f-9e9c8a88fcc4.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 675,
+        "height": 350,
+        "aspectRatio": 1.93
+      },
+      {
+        "url": "https://media.brand.dev/a5bba141-3611-4e16-b5cc-2cf91ec5d0fb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bc632d45-1fcd-42f0-9288-40f2ba6a7457.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6062606a-f96b-4031-aec2-8c7885950d4e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/17cb4fa7-df24-4d70-84f5-d086301a7fe1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 90,
+        "height": 30,
+        "aspectRatio": 3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/17cb4fa7-df24-4d70-84f5-d086301a7fe1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 90,
+      "height": 30,
+      "aspectRatio": 3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ea7ba756-2477-416d-9e7f-b14a30c50328.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

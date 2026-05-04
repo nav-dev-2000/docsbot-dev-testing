@@ -1,0 +1,113 @@
+{
+  "slug": "factorial",
+  "name": "Factorial",
+  "domain": "factorial.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Factorial",
+  "metaTitle": "Build AI Agents for Factorial with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Factorial for HR support, employee self-service, approvals, record lookups, and internal workflow automation.",
+  "intro": "Factorial helps teams manage HR information, employee processes, and everyday people operations. With DocsBot Skill Builder, you can describe the HR task you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up data, summarize status, prepare handoffs, and trigger approved actions. This helps support teams and internal operations teams give faster answers while keeping access controlled and workflows bounded.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent answer employee portal questions by checking approved Factorial records such as time-off balances, policy assignments, or onboarding status before replying.",
+    "Use a DocsBot helpdesk agent to gather missing details from an employee ticket, summarize the relevant HR context from Factorial, and prepare a clean handoff for HR or People Ops.",
+    "Allow the agent to confirm whether a request has already been submitted in Factorial and guide the employee to the next approved step without making them wait for a manual lookup.",
+    "Have the agent create or update approved HR workflow records in Factorial, such as time-off requests or employee issue follow-ups, when the conversation meets your rules.",
+    "Use the agent to summarize an employee's HR status across relevant Factorial fields so support teams can respond consistently and escalate with context when needed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to check approved Factorial information such as leave balances, request status, or assigned documents.",
+    "Managers can ask the agent to retrieve team HR summaries from Factorial, review pending approvals, and follow the correct next-step workflow without opening multiple systems.",
+    "People Ops staff can chat with the agent to research employee records, generate case summaries, and complete repeatable SOPs that use Factorial alongside other internal tools.",
+    "HR teams can use the agent to collect missing context for onboarding, offboarding, or policy workflows, then create approved updates or handoffs in the right system.",
+    "Operations teams can ask the agent for structured summaries of Factorial activity, exceptions, or pending tasks so they can resolve work faster and keep an audit trail."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks employee leave balances and request status in Factorial.",
+    "A support assistant that summarizes HR ticket context using approved Factorial employee data.",
+    "An internal HR bot that prepares onboarding or offboarding workflow handoffs from Factorial records.",
+    "A manager assistant that reviews pending approvals and summarizes team HR tasks from Factorial.",
+    "An employee self-service agent that answers policy and request questions using Factorial context.",
+    "A People Ops workflow agent that creates approved follow-up records after employee conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the HR task you want in plain language, and Skill Builder turns that goal into a practical Factorial-enabled agent workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should retrieve data, summarize context, create updates, trigger approved actions, and ask for any missing business rules in simple language."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, handles authentication safely, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and Skill content."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum records, users, actions, and systems needed, and adds approval boundaries wherever a sensitive HR action should stay controlled."
+    },
+    {
+      "title": "It tests and improves",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal HR scenarios, finds bugs or workflow gaps, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Factorial without coding?",
+      "answer": "With DocsBot Skill Builder, you describe the HR workflow you want in plain language, and the builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. You do not need to manually write integration logic to create useful lookups, updates, summaries, or workflow actions."
+    },
+    {
+      "question": "Can an AI support agent use Factorial data to answer employee questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Factorial data to look up request status, leave information, onboarding progress, or other allowed HR context while responding in chat or through helpdesk tickets. The Skill can be limited to safe read actions or expanded to bounded updates based on your rules."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Factorial?",
+      "answer": "Internal agents can help employees, managers, HR, and operations teams retrieve HR information, summarize employee records, prepare onboarding and offboarding handoffs, review approvals, and complete repeatable SOPs. DocsBot can also combine Factorial actions with other systems so teams can finish multi-step workflows from one chat."
+    },
+    {
+      "question": "Can DocsBot safely update Factorial records or trigger HR workflows?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills for approved updates or workflow triggers while applying scoped permissions, approval checkpoints, and action limits. Sensitive HR actions can require explicit approval boundaries before anything is changed."
+    },
+    {
+      "question": "How does DocsBot keep Factorial credentials and employee data secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum data and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent escalate HR issues using Factorial context?",
+      "answer": "Yes, the agent can collect missing details, summarize relevant Factorial information, and prepare a structured handoff for HR or People Ops. This helps escalations move faster because the receiving team gets the important context immediately."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "gusto",
+    "hibob",
+    "workday",
+    "personio",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Factorial",
+    "domain": "factorial.com",
+    "description": "Factorial.com is a private, friend‑run hosting platform that provides virtual domain hosting for personal projects and internal use. Operated by a small group of friends, the site is intended solely for their own benefit and is not a public service. Access is restricted to authorized users, and visitors are politely asked to leave.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

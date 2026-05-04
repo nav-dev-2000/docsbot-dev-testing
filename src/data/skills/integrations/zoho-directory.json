@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-directory",
+  "name": "Zoho Directory",
+  "domain": "zoho-directory.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI agents that work with Zoho Directory",
+  "metaTitle": "Zoho Directory AI agent integration for DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up directory data, support identity workflows, and handle safe access-related actions with Zoho Directory.",
+  "intro": "Zoho Directory helps businesses manage identities, directory data, and access across their environment. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use Zoho Directory for lookups, approvals, updates, and workflow handoffs. That means customer-facing support agents and internal team assistants can answer questions and take bounded identity-related actions instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent verify account or organization directory details and summarize the current identity status before preparing a support handoff.",
+    "Use the agent in website chat or helpdesk replies to collect missing access information from a customer and create an internal escalation with the right Zoho Directory context attached.",
+    "Allow the agent to check whether a user exists in the directory, confirm basic account attributes, and explain next steps for login or access issues without exposing sensitive admin data.",
+    "Have the agent summarize relevant directory and access context for support teams when a customer reports sign-in trouble, account lockouts, or provisioning delays.",
+    "Enable the agent to trigger approved identity support workflows, such as notifying the right team or preparing a request for access review, while responding to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up users, groups, and directory details in Zoho Directory.",
+    "Help IT, security, and operations teams use an internal AI assistant to gather identity context, summarize account status, and follow access-related SOPs faster.",
+    "Allow team members to ask the agent to prepare onboarding, offboarding, or access review workflows using Zoho Directory data and approved downstream actions.",
+    "Enable employees to research group membership, directory relationships, and user records across identity workflows without manually switching between admin tools.",
+    "Use a private AI agent to create clean escalation notes, audit-ready summaries, or approval packets based on Zoho Directory information and company rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks directory records before escalating login or account access issues.",
+    "An internal assistant that looks up users, groups, and identity attributes from Zoho Directory.",
+    "A workflow agent that prepares onboarding and offboarding handoffs with directory context attached.",
+    "An AI agent that summarizes account status and access-related facts for IT or support teams.",
+    "A private assistant that helps employees follow identity SOPs and route requests correctly.",
+    "An agent that gathers missing access request details and prepares approval-ready summaries for reviewers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Directory agent to do in plain language, such as looking up user records, preparing access handoffs, or supporting onboarding workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, needed configuration values, and secure authentication handling."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes Zoho Directory access to the minimum required actions and records, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "Scenarios get tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing permission checks, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot agent or private team assistant so it can answer questions and take bounded identity actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zoho Directory?",
+      "answer": "With DocsBot Skill Builder, you describe the identity workflow you want in plain language, and Skill Builder creates a secure Skill that can look up directory information, summarize status, and take approved actions through your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Directory data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Directory as a trusted system for safe lookups, status summaries, escalation prep, and approved workflow triggers while replying in chat or helpdesk tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent handle with Zoho Directory?",
+      "answer": "Common workflows include checking whether a user exists, summarizing account or access context, collecting missing details for login issues, and preparing clean handoffs for identity or IT teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with identity and access workflows in Zoho Directory?",
+      "answer": "Yes, private DocsBot agents can help employees and internal teams research users, groups, and account context, then complete access-related SOPs or prepare approvals and escalation notes."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Directory connections secure?",
+      "answer": "Skill Builder defines the required configuration, protects and proxies secrets through secure runtime settings, keeps credentials out of chats, scopes permissions to the minimum needed, and adds approval limits for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger identity workflows in Zoho Directory?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved updates, workflow triggers, and handoff creation when those actions fit your rules, permissions, and review requirements."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "google-workspace",
+    "microsoft-entra-id",
+    "auth0"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

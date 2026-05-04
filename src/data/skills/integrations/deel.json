@@ -1,0 +1,160 @@
+{
+  "slug": "deel",
+  "name": "Deel",
+  "domain": "deel.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Deel",
+  "metaTitle": "Build AI Support and HR Agents That Work with Deel",
+  "metaDescription": "Create DocsBot AI agents that use Deel for secure HR lookups, workflow triggers, employee assistance, and approved support or operations actions.",
+  "intro": "Deel helps companies hire, pay, and manage global teams, which makes it a valuable system for employee support, HR operations, and onboarding workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Deel data and approved actions. The result is an AI support or internal team agent that can answer questions, gather context, trigger workflows, and complete bounded tasks instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of onboarding, hiring, or payroll-related requests in Deel and give customers or contractors a clear progress update.",
+    "Let a support agent collect missing details from a contractor or employee and create a structured handoff for HR or payroll teams based on Deel records.",
+    "Enable a helpdesk-connected DocsBot agent to summarize a worker's Deel profile, contract status, or compliance milestones before an agent responds to a ticket.",
+    "Use the agent to surface approved policy answers tied to Deel worker data, such as onboarding next steps, payment timing context, or required document reminders.",
+    "Let the agent trigger approved follow-up workflows, such as notifying an internal team when a contractor reports an issue with onboarding, payments, or employment documentation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Deel worker information, onboarding status, or payroll milestones without searching manually.",
+    "HR and people operations teams can ask the agent to summarize contractor or employee records from Deel and prepare next-step checklists for onboarding, renewals, or offboarding.",
+    "Managers can use the agent to gather approved status updates about global team members, contract timelines, or pending compliance items across Deel workflows.",
+    "Finance or operations employees can chat with the agent to research payment-related cases, retrieve relevant Deel context, and prepare clean handoffs for payroll specialists.",
+    "Internal teams can use the agent to follow SOPs by having it gather required Deel details, validate missing information, and trigger approved downstream workflows with human approval where needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding or contract progress in Deel and explains next steps.",
+    "A support workflow that summarizes Deel worker records before escalating payroll or HR tickets.",
+    "An internal HR assistant that retrieves employee or contractor status information from Deel.",
+    "A manager assistant that prepares onboarding, renewal, or offboarding checklists using Deel data.",
+    "A payroll support agent that gathers missing context and routes issues to the right team.",
+    "An AI workflow that creates structured handoff notes from Deel records for human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Deel, such as checking onboarding status, summarizing worker records, or preparing payroll handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Deel connection, defines the required configuration values, protects and proxies secrets through secure runtime handling, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets approval boundaries and safe action limits for sensitive Deel updates or workflow triggers so the agent can help without exceeding the rules you choose."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the Deel Skill, finds bugs or weak spots, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once reviewed, Skill Builder helps publish the Deel Skill to your customer-facing support bot or private employee agent so it can answer questions and take bounded action in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Deel?",
+      "answer": "With DocsBot Skill Builder, you describe the Deel workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up information, summarize records, trigger approved workflows, and support handoffs inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Deel data to answer onboarding or payroll questions?",
+      "answer": "Yes, a DocsBot support agent can use Deel as a source of truth for approved lookups and summaries when responding in a chat widget or helpdesk workflow. It can gather context, explain status, and prepare escalations while respecting scoped permissions and approval controls."
+    },
+    {
+      "question": "What can an internal AI assistant do with Deel for HR and operations teams?",
+      "answer": "An internal DocsBot agent can help employees retrieve worker details, summarize onboarding progress, research payroll-related context, and follow SOPs that depend on Deel data. It can also prepare handoffs or trigger approved next steps for HR, finance, or operations teams."
+    },
+    {
+      "question": "Can DocsBot take actions in Deel instead of only answering questions?",
+      "answer": "Yes, Skill Builder can create Skills that let the agent take bounded actions such as creating structured handoffs, updating approved records, or triggering workflows when those actions fit your rules. Sensitive steps can be placed behind approval boundaries so people stay in control."
+    },
+    {
+      "question": "How does DocsBot keep Deel access secure?",
+      "answer": "Skill Builder defines the connection settings, keeps credentials out of chats and Skill instructions, proxies secrets through secure runtime configuration, and scopes permissions to the smallest practical access level. It also helps set approval checks and action limits for higher-risk workflows."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Deel?",
+      "answer": "No, the setup is framed around describing the outcome you want, not manually building the integration yourself. Skill Builder handles the design, secure configuration approach, testing, and improvement process for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "rippling",
+    "gusto",
+    "personio",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Deel",
+    "domain": "deel.com",
+    "description": "Deel is a global people platform that provides an all-in-one payroll and HR solution for international teams. It offers a suite of tools and services that simplify managing a global workforce, including HR, payroll, mobility, and compliance. Deel serves over 35,000 companies worldwide, enabling them to hire, pay, and manage teams in 150+ countries on a single platform.",
+    "slogan": "Simplifying Global Workforce Management",
+    "logoUrl": "https://media.brand.dev/5c1ad9f7-df4a-4002-a66a-ef3296e53063.svg",
+    "iconUrl": "https://media.brand.dev/cb5098d6-5169-49d8-b555-399ff4e9084b.jpg",
+    "primaryColor": "#8c8c8c",
+    "accentColor": "#1d1d1d",
+    "colors": [
+      {
+        "hex": "#8c8c8c",
+        "name": "More Than A Week"
+      },
+      {
+        "hex": "#1d1d1d",
+        "name": "Dynamic Black"
+      },
+      {
+        "hex": "#d4d4d4",
+        "name": "Disco Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6941a9bb-b365-46a9-aabf-3b620036e72d.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.deel.com/careers",
+      "terms": null,
+      "contact": null,
+      "privacy": "https://www.deel.com/privacy",
+      "blog": "https://www.deel.com/blog/",
+      "pricing": "https://www.deel.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cb5098d6-5169-49d8-b555-399ff4e9084b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5c1ad9f7-df4a-4002-a66a-ef3296e53063.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 78,
+        "height": 28,
+        "aspectRatio": 2.79
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5c1ad9f7-df4a-4002-a66a-ef3296e53063.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 78,
+      "height": 28,
+      "aspectRatio": 2.79
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cb5098d6-5169-49d8-b555-399ff4e9084b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

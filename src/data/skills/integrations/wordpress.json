@@ -1,0 +1,176 @@
+{
+  "slug": "wordpress",
+  "name": "WordPress",
+  "domain": "wordpress.org",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with WordPress",
+  "metaTitle": "Build WordPress AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use WordPress to answer customers, update content workflows, prepare handoffs, and support internal teams with safe actions.",
+  "intro": "WordPress powers websites, blogs, help content, and online experiences that often sit at the center of customer questions and internal publishing work. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up WordPress content, summarize site state, trigger approved workflows, and support customers or employees. This helps teams move from simple answers to AI Actions that retrieve information, prepare updates, and complete bounded tasks inside WordPress-aware workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search WordPress pages, posts, or knowledge content to answer product, policy, or documentation questions in real time.",
+    "Use a support agent connected to your helpdesk to pull the latest WordPress article, release note, or help page and summarize it inside a ticket reply.",
+    "Have the agent identify outdated or missing WordPress support content during a customer conversation and create a draft handoff for your content or support team.",
+    "Enable the agent to collect missing context from a customer, then prepare a WordPress content update request with the affected page, issue summary, and recommended change.",
+    "Let the agent check whether a known announcement, outage notice, or FAQ update already exists in WordPress before escalating a customer issue unnecessarily."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a private interface to find the right WordPress page, post, policy article, or announcement without manually searching the site.",
+    "Enable marketing, support, or operations teams to ask the agent for summaries of WordPress content status, recent updates, or gaps across important help and website pages.",
+    "Help internal teams follow publishing SOPs by having the agent gather requirements, draft a content brief, and route an approved WordPress update request to the right owner.",
+    "Allow employees to ask the agent which public-facing WordPress content should be updated for a product change, policy revision, or recurring support issue.",
+    "Use the agent to research related WordPress content, compare overlapping pages, and prepare cleanup or consolidation recommendations for website owners and knowledge managers."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches WordPress help content and replies with the most relevant guidance.",
+    "A DocsBot Skill that summarizes related WordPress pages before drafting a support ticket response.",
+    "An internal agent that finds outdated WordPress articles and prepares structured update requests.",
+    "A publishing assistant that gathers context for new WordPress FAQ, announcement, or release note drafts.",
+    "A private team agent that compares multiple WordPress pages and recommends consolidation opportunities.",
+    "A support workflow that checks WordPress for known issue notices before creating an escalation handoff."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with WordPress, such as finding content, summarizing pages, preparing update requests, or supporting publishing workflows, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the WordPress connection approach, defines the required configuration values, handles authentication and secret protection through secure runtime configuration, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Actions are scoped carefully",
+      "description": "Skill Builder limits the Skill to the minimum WordPress data, actions, users, and records needed for the workflow and adds approval boundaries for sensitive steps such as creating or modifying content-related records or triggering downstream publishing actions."
+    },
+    {
+      "title": "The agent tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee agent so teams can use WordPress-aware AI Actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with WordPress?",
+      "answer": "With DocsBot Skill Builder, you describe the WordPress workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The resulting agent can look up content, summarize pages, prepare handoffs, and take other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use WordPress content to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a WordPress Skill to search relevant pages, posts, FAQs, or announcements and use that information while replying in a chat widget or helpdesk workflow. This helps customers get faster answers grounded in your current published content."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with WordPress?",
+      "answer": "Teams can build workflows that check for existing help content, summarize the best matching article, collect missing issue details, and prepare escalation or content-update handoffs when the published information is incomplete. Approval limits can be added for any action that should stay under human review."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with WordPress content?",
+      "answer": "Yes, private DocsBot agents can help employees find pages, compare articles, summarize site content, and follow publishing or documentation SOPs through chat, Slack, or Microsoft Teams. This reduces manual searching and helps teams work faster across support, marketing, and operations."
+    },
+    {
+      "question": "Can DocsBot safely trigger updates or publishing workflows related to WordPress?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with scoped permissions, secure secret handling, and approval boundaries for sensitive actions. That means your agent can support update requests or downstream workflows while staying within the limits you define."
+    },
+    {
+      "question": "How does setup work for a non-technical team using WordPress with DocsBot?",
+      "answer": "You do not need to map every implementation detail yourself. Skill Builder asks for the goal, figures out the safest design, defines the needed configuration, protects authentication details, tests likely scenarios, and helps publish the finished Skill to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "contentful",
+    "webflow",
+    "shopify",
+    "zendesk",
+    "intercom",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "WordPress",
+    "domain": "wordpress.org",
+    "description": "WordPress is an open-source web publishing platform that lets anyone create beautiful websites, blogs, and online stores without needing to code. Powered by a global community of contributors, it offers a flexible block-based editor, thousands of themes, and an extensive plugin ecosystem to extend functionality. Users can design, build, and customize sites in real time, add e-commerce, analytics, newsletters, and more, all under a free license. WordPress supports individuals, small businesses, and enterprises, providing resources, documentation, and community events to help users learn and grow. The platform’s open-source nature ensures continuous innovation and freedom to share and collaborate worldwide.",
+    "slogan": "WordPress is the open source publishing platform of choice.",
+    "logoUrl": "https://media.brand.dev/5ef1f7fd-cfc7-4aa9-b763-69281d9a6b2f.svg",
+    "iconUrl": "https://media.brand.dev/f6e9d447-fb3f-4402-81cd-b923d09c9ded.jpg",
+    "primaryColor": "#425dda",
+    "accentColor": "#8c8cdc",
+    "colors": [
+      {
+        "hex": "#425dda",
+        "name": "Warm Blue"
+      },
+      {
+        "hex": "#8c8cdc",
+        "name": "Perrywinkle"
+      },
+      {
+        "hex": "#f0f1f4",
+        "name": "Errigal White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/47644fd4-6b88-496d-8da0-a0ba025a6b96.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": "https://wordpress.org/about/privacy/",
+      "blog": "https://wordpress.org/news/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f6e9d447-fb3f-4402-81cd-b923d09c9ded.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5ef1f7fd-cfc7-4aa9-b763-69281d9a6b2f.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 188,
+        "height": 13,
+        "aspectRatio": 14.46
+      },
+      {
+        "url": "https://media.brand.dev/14a05fcd-1f9a-48bd-b975-18b36d1c7744.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fc5ad0dd-dc69-49c1-822c-dd0f3bb3f409.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 28,
+        "height": 28,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ef1f7fd-cfc7-4aa9-b763-69281d9a6b2f.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 188,
+      "height": 13,
+      "aspectRatio": 14.46
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/14a05fcd-1f9a-48bd-b975-18b36d1c7744.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

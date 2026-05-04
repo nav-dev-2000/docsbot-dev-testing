@@ -1,0 +1,178 @@
+{
+  "slug": "zendesk-sell",
+  "name": "Zendesk Sell",
+  "domain": "zendesk.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zendesk Sell",
+  "metaTitle": "Build AI Agents for Zendesk Sell with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that look up, update, summarize, and trigger workflows in Zendesk Sell safely.",
+  "intro": "Zendesk Sell helps teams manage leads, contacts, deals, and sales activity in one CRM. With DocsBot Skill Builder, you can describe the Zendesk Sell workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve CRM context, update approved records, prepare handoffs, and trigger next steps without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, contact, or deal details in Zendesk Sell so it can answer status questions with current CRM context.",
+    "Use Zendesk Sell data during support chats or ticket replies to summarize recent sales activity before handing a customer to an account manager or sales rep.",
+    "Allow the agent to create follow-up tasks or notes in Zendesk Sell after a customer asks for pricing, renewal, demo, or sales assistance.",
+    "Have the agent capture qualified lead details from a website conversation and create or update lead and contact records in Zendesk Sell for approved handoff workflows.",
+    "Let the agent prepare escalation summaries that combine the customer conversation with relevant Zendesk Sell deal history, owners, and next actions."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find leads, contacts, companies, deals, and recent activity in Zendesk Sell.",
+    "Let sales, support, and customer success teams ask the agent to create notes, log follow-up tasks, or update approved Zendesk Sell fields as part of everyday workflows.",
+    "Help account teams research CRM history by asking the agent for summaries of open deals, pipeline changes, stakeholder activity, and upcoming follow-ups.",
+    "Give operations teams an AI assistant that guides employees through CRM SOPs, checks required context, and completes approved Zendesk Sell record updates safely.",
+    "Allow managers to ask the agent for structured summaries of rep activity, deal progression, or handoff readiness based on Zendesk Sell data."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up deal status and owner details during customer conversations.",
+    "A support assistant that creates Zendesk Sell follow-up tasks after sales-related chat requests.",
+    "An internal CRM copilot that summarizes account activity before renewals or escalations.",
+    "A lead capture workflow that creates or updates Zendesk Sell records from chat conversations.",
+    "A handoff assistant that prepares sales-ready summaries with customer intent and CRM context.",
+    "An employee agent that guides teams through approved Zendesk Sell update procedures."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do in Zendesk Sell, such as finding deal details, creating tasks, updating records, or preparing a handoff summary, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed Zendesk Sell configuration values, and sets up safe authentication and secret handling through protected runtime configuration so credentials stay out of chats and source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum actions, records, and users needed for the workflow, and adds approval boundaries or action limits when a lookup, update, or trigger should stay controlled."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds weak instructions, bugs, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can start using Zendesk Sell actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zendesk Sell without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Zendesk Sell workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for your agent. It also defines the required configuration, handles secrets safely, and prepares the Skill for deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zendesk Sell data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Zendesk Sell Skill to look up approved CRM details like contacts, deal status, ownership, and recent activity while responding to customers. That helps the agent give better answers, collect context, and prepare smarter handoffs."
+    },
+    {
+      "question": "What Zendesk Sell workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve CRM records, summarize pipeline activity, create notes, log follow-up tasks, and complete approved record updates in Zendesk Sell. It can also guide teams through repeatable SOPs so work is more consistent."
+    },
+    {
+      "question": "Can DocsBot safely update Zendesk Sell records through an AI agent?",
+      "answer": "Yes, Skill Builder is designed to scope actions to approved users, fields, and workflows while protecting authentication through secure runtime configuration. It can also add approval boundaries for sensitive updates so the agent only takes bounded actions you allow."
+    },
+    {
+      "question": "Can a DocsBot agent create Zendesk Sell leads or tasks from website chat conversations?",
+      "answer": "Yes, you can build a Skill that captures customer details from a conversation and creates or updates approved lead, contact, or task records in Zendesk Sell. This is useful for demo requests, pricing questions, callback requests, and sales handoffs."
+    },
+    {
+      "question": "How does DocsBot test a Zendesk Sell Skill before deployment?",
+      "answer": "DocsBot includes an automated testing agent that runs realistic support and internal workflow scenarios to find bugs, missing permission checks, or weak instructions. Those findings are used in a self-improvement loop before the Skill is published to a live agent."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zoho-crm",
+    "zendesk",
+    "freshsales"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zendesk",
+    "domain": "zendesk.com",
+    "description": "Zendesk is a cloud‑based service platform that helps businesses deliver AI‑enhanced support for customers and employees. Its Resolution Platform combines AI agents, analytics, and a marketplace of 1,800+ integrations to automate ticketing, live chat, voice, and IT service management across all channels. Products include Customer Service, Employee Service, Contact Center, AI‑driven Copilot, Quality Assurance, and Workforce Management, all designed to improve resolution speed, quality, and scalability. Zendesk serves over 100,000 companies worldwide, offering enterprise‑grade security, AI governance, and self‑improving agents that learn from each interaction.",
+    "slogan": "Deliver beautifully simple service with Zendesk AI Agents",
+    "logoUrl": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+    "iconUrl": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+    "primaryColor": "#040404",
+    "accentColor": "#848480",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848480",
+        "name": "Tank Grey"
+      },
+      {
+        "hex": "#e6e6e3",
+        "name": "Pearl Brite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/39996815-cc09-4d55-8c52-14694631ee55.png",
+    "industries": [],
+    "links": {
+      "login": null,
+      "signup": null,
+      "careers": "http://www.zendesk.com/company/careers/",
+      "terms": "http://www.zendesk.com/company/agreements-and-terms/terms-of-use/",
+      "contact": "http://www.zendesk.com/service/contact-center/",
+      "privacy": "http://www.zendesk.com/company/agreements-and-terms/privacy-notice/",
+      "blog": "http://www.zendesk.com/blog/",
+      "pricing": "http://www.zendesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 56,
+        "aspectRatio": 1.39
+      },
+      {
+        "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 84,
+        "height": 16,
+        "aspectRatio": 5.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 84,
+      "height": 16,
+      "aspectRatio": 5.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "jiminny",
+  "name": "Jiminny",
+  "domain": "jiminny.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Jiminny Conversation Intelligence",
+  "metaTitle": "Build AI Agents for Jiminny with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Jiminny data for support, coaching, handoffs, summaries, and internal workflows with secure actions and approval controls.",
+  "intro": "Jiminny helps teams capture and analyze customer conversations, giving sales and revenue teams valuable insight into calls, meetings, and go-to-market performance. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Jiminny data and approved actions. The result is a support or internal AI agent that can answer questions, summarize conversation history, prepare handoffs, and trigger bounded workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to pull relevant Jiminny conversation summaries so it can answer account-history questions with better context.",
+    "Let a support agent review recent customer call notes in Jiminny and prepare a clean escalation handoff for human teams.",
+    "Have the agent summarize past sales or onboarding conversations from Jiminny when a customer asks about prior commitments or discussed next steps.",
+    "Use Jiminny insights to help the agent detect sentiment, objections, or unresolved topics and respond with a more informed support answer.",
+    "Let the agent collect ticket context, look up related Jiminny conversation records, and create an internal follow-up task or handoff package for the right team."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent to find key themes, objections, and action items across Jiminny conversations without manually reviewing recordings.",
+    "Let sales managers ask the agent for summaries of rep calls, coaching opportunities, and follow-up risks based on Jiminny conversation intelligence.",
+    "Give customer success teams an internal AI assistant that retrieves prior meeting context from Jiminny and prepares renewal, onboarding, or escalation briefs.",
+    "Allow revenue operations teams to ask the agent for conversation-based insights, trend summaries, and workflow-ready notes across accounts or teams.",
+    "Help employees follow SOPs by asking the agent to review Jiminny call context, gather missing details, and prepare next-step artifacts for Slack, CRM updates, or internal handoffs."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes relevant Jiminny calls before replying to a ticket.",
+    "An internal coaching assistant that surfaces call highlights, objections, and follow-up recommendations.",
+    "A handoff Skill that turns Jiminny conversation notes into structured escalation summaries.",
+    "A revenue insights assistant that answers natural-language questions about customer conversation trends.",
+    "A renewal prep agent that gathers account meeting context and creates an internal briefing.",
+    "A QA workflow that reviews conversation summaries and flags missing next steps or risks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Jiminny-powered agent to do, such as summarize customer conversations, prepare handoffs, or answer internal coaching questions, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the needed Jiminny connection details, defines secure configuration values, keeps secrets and authentication out of chats and source, and scopes the Skill to only the records, actions, and users required."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and action limits so the agent can perform approved lookups, summaries, updates, or workflow triggers without overreaching."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the finished Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using it in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Jiminny conversation data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as summarizing calls or preparing handoffs, and Skill Builder creates a secure reusable Skill that lets your AI agent use Jiminny data and approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Jiminny to answer customer questions more accurately?",
+      "answer": "Yes, a DocsBot support agent can use Jiminny conversation history and summaries to gather context, clarify what was previously discussed, and prepare better replies or escalations within the limits you approve."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Jiminny?",
+      "answer": "A DocsBot agent can look up relevant conversation context, summarize prior calls, prepare internal handoff notes, surface unresolved topics, and trigger follow-up workflows for human teams when needed."
+    },
+    {
+      "question": "Can an internal AI assistant help sales or customer success teams use Jiminny more effectively?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve call insights, coaching themes, account context, and next-step summaries from Jiminny without manually searching through conversations."
+    },
+    {
+      "question": "How does DocsBot keep Jiminny integrations secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, scopes access to the minimum needed, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Jiminny calls and create handoff notes for other teams?",
+      "answer": "Yes, the Skill can be designed to turn Jiminny conversation data into structured summaries, escalation briefs, follow-up notes, or other approved artifacts for support, success, or sales teams."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "salesloft",
+    "hubspot",
+    "zendesk",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jiminny",
+    "domain": "jiminny.com",
+    "description": "Jiminny is a Conversation Intelligence platform that helps businesses maximize their revenue by capturing and analyzing customer interactions. It provides critical go-to-market insights to sales teams, enabling them to win more deals. With AI-powered revenue and sales intelligence solutions, Jiminny unlocks conversation insights and unleashes the potential of sales teams.",
+    "slogan": "Unlock conversation insights and unleash your team's potential",
+    "logoUrl": "https://media.brand.dev/e5c3a798-122a-4f68-8bd7-f01f7ac3eb48.svg",
+    "iconUrl": "https://media.brand.dev/bf22093b-9ebc-4c82-a55d-66fc06cd05f6.png",
+    "primaryColor": "#ec2c6d",
+    "accentColor": "#f492bc",
+    "colors": [
+      {
+        "hex": "#ec2c6d",
+        "name": "Watermelon Sugar"
+      },
+      {
+        "hex": "#f492bc",
+        "name": "Pastel Magenta"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/78aa0a3c-80e9-45c5-baa5-9f35b26a705e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.jiminny.com/",
+      "terms": "https://jiminny.com/terms-and-conditions",
+      "contact": "https://jiminny.com/contact-us",
+      "privacy": "https://jiminny.com/privacy-policy",
+      "blog": "https://jiminny.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bf22093b-9ebc-4c82-a55d-66fc06cd05f6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fa923747-3f16-4839-98e5-9b6e911ff477.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 51,
+        "height": 51,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5c3a798-122a-4f68-8bd7-f01f7ac3eb48.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 142,
+        "height": 42,
+        "aspectRatio": 3.38
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5c3a798-122a-4f68-8bd7-f01f7ac3eb48.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 142,
+      "height": 42,
+      "aspectRatio": 3.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fa923747-3f16-4839-98e5-9b6e911ff477.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 51,
+      "height": 51,
+      "aspectRatio": 1
+    }
+  }
+}

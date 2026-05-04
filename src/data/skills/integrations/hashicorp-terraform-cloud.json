@@ -1,0 +1,184 @@
+{
+  "slug": "hashicorp-terraform-cloud",
+  "name": "Hashicorp Terraform Cloud",
+  "domain": "hashicorp-terraform-cloud.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with HashiCorp Terraform Cloud",
+  "metaTitle": "HashiCorp Terraform Cloud AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use HashiCorp Terraform Cloud for safe lookups, run summaries, approvals, ticket handoffs, and internal workflow automation.",
+  "intro": "HashiCorp Terraform Cloud helps teams manage infrastructure runs, workspaces, variables, policies, and deployment workflows across cloud environments. With DocsBot Skill Builder, you can describe the Terraform Cloud task you want in plain language and have DocsBot create a reusable Skill for support agents or private internal AI assistants. That lets your AI agent answer questions, summarize infrastructure state, prepare handoffs, and trigger approved actions inside clear security boundaries.",
+  "supportUseCases": [
+    "A customer-facing DocsBot agent can look up Terraform Cloud workspace status and summarize recent runs when customers ask about deployment progress or environment health.",
+    "A support agent can check whether a run is queued, planned, applied, or failed and give the customer a clear next-step update without exposing sensitive infrastructure details.",
+    "A DocsBot helpdesk agent can gather account, workspace, or run context from Terraform Cloud and prepare a faster escalation handoff for platform or DevOps teams.",
+    "A customer support agent can summarize policy check results or run outcomes in plain language so customers understand why a deployment is blocked or awaiting approval.",
+    "A DocsBot agent can trigger approved notification or follow-up workflows after detecting failed runs or repeated workspace issues tied to a customer ticket."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Terraform Cloud workspace details, run history, and deployment summaries without digging through dashboards.",
+    "Platform, support, and operations teams can ask the agent to research failed runs, summarize likely causes from available Terraform Cloud data, and prepare incident or escalation notes.",
+    "Internal teams can use the agent to follow deployment SOPs by gathering required context, checking policy or run status, and guiding the next approved action.",
+    "Engineers and customer success teams can chat with the agent to generate customer-safe status updates based on Terraform Cloud run information and workspace activity.",
+    "Operations teams can use the agent to trigger bounded workflows such as approved notifications, handoffs, or review requests when Terraform Cloud activity meets defined conditions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains Terraform Cloud run status in customer-friendly language.",
+    "A private DevOps assistant that summarizes workspace health across teams and environments.",
+    "A helpdesk Skill that prepares escalation notes from failed Terraform Cloud runs.",
+    "An internal agent that checks policy outcomes before recommending the next deployment step.",
+    "A support workflow that creates customer-safe deployment updates from live Terraform Cloud data.",
+    "An operations assistant that triggers approval requests when sensitive infrastructure actions need review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with HashiCorp Terraform Cloud, such as checking run status, summarizing workspace activity, or preparing an escalation handoff, and Skill Builder turns that goal into a working plan."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest workflow design, identifies the configuration values the Skill needs, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum Terraform Cloud actions, users, and records required."
+    },
+    {
+      "title": "Boundaries are added automatically",
+      "description": "Skill Builder adds approval limits and action boundaries for sensitive steps so the agent can look up data, draft updates, or trigger only the Terraform Cloud related workflows you approve."
+    },
+    {
+      "title": "DocsBot tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can use it through normal conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for HashiCorp Terraform Cloud?",
+      "answer": "With DocsBot Skill Builder, you describe the Terraform Cloud workflow you want in plain language, and DocsBot designs the Skill, handles secure connection requirements, tests scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use HashiCorp Terraform Cloud data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Terraform Cloud data to check workspace or run status, summarize outcomes, and prepare customer-safe responses or handoffs within the limits you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with HashiCorp Terraform Cloud?",
+      "answer": "Teams can build workflows for deployment status lookups, failed run summaries, escalation preparation, policy check explanations, and approved follow-up actions connected to support chats or helpdesk tickets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Terraform Cloud operations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve workspace details, review run history, summarize issues, and follow internal SOPs for infrastructure support and operations workflows."
+    },
+    {
+      "question": "How does DocsBot keep Terraform Cloud actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill content, proxies secrets through approved runtime settings, scopes permissions tightly, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger Terraform Cloud related workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating handoffs, sending review requests, generating status artifacts, or triggering approved follow-up workflows based on Terraform Cloud information."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jira",
+    "pagerduty",
+    "datadog",
+    "aws-cloudformation"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HashiCorp",
+    "domain": "hashicorp.com",
+    "description": "HashiCorp is a remote-first company dedicated to solving the development, security, and operational challenges associated with infrastructure. By providing a suite of multi-cloud infrastructure automation products — all rooted in open source — HashiCorp empowers organizations to automate their multi-cloud and hybrid environments. With a focus on Infrastructure and Security Lifecycle Management, their solutions enable businesses, from established brands to growing startups, to effectively provision, secure, connect, and manage critical applications. As organizations transition to cloud-based operations, HashiCorp's tools facilitate the delivery of essential services, communication tools, and entertainment platforms globally, driving innovation through efficient infrastructure management.",
+    "slogan": "Automating multi-cloud environments for innovation and essential services worldwide.",
+    "logoUrl": "https://media.brand.dev/23a37818-da96-49c7-bd23-4fab67df4115.png",
+    "iconUrl": "https://media.brand.dev/32887929-305a-41ce-ae76-c71cb13fc375.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#090909",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#090909",
+        "name": "Badab Black Wash"
+      },
+      {
+        "hex": "#c2c2c2",
+        "name": "Magnesium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/aa24a9d4-a977-4fc9-9676-14a9a3447048.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://hashicorp.com/en/careers",
+      "terms": "https://hashicorp.com/terms-of-service",
+      "contact": "https://www.hashicorp.com/contact-sales",
+      "privacy": "https://www.hashicorp.com/privacy",
+      "blog": "https://hashicorp.com/en/blog",
+      "pricing": "https://hashicorp.com/en/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/32887929-305a-41ce-ae76-c71cb13fc375.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/84fd6b55-34d1-408e-8c4b-073489ed8fe4.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/35c895ec-aeb8-4942-8bfb-db0b87503092.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cd82b20c-1a2a-4f72-be29-75ebba89ae7f.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 254,
+        "height": 72,
+        "aspectRatio": 3.53
+      },
+      {
+        "url": "https://media.brand.dev/23a37818-da96-49c7-bd23-4fab67df4115.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 254,
+        "height": 72,
+        "aspectRatio": 3.53
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cd82b20c-1a2a-4f72-be29-75ebba89ae7f.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 254,
+      "height": 72,
+      "aspectRatio": 3.53
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/35c895ec-aeb8-4942-8bfb-db0b87503092.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

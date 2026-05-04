@@ -1,0 +1,113 @@
+{
+  "slug": "jostle-scim",
+  "name": "Jostle SCIM",
+  "domain": "jostle.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Jostle SCIM",
+  "metaTitle": "Build AI Agents for Jostle SCIM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that securely use Jostle SCIM for employee lookups, account updates, onboarding workflows, and internal HR support actions.",
+  "intro": "Jostle SCIM helps teams manage employee identity and HR-related records, making it a strong system for automated lookups and controlled account workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Jostle SCIM data and actions. This makes it easier to power both internal employee assistants and customer-facing support agents with approved lookups, updates, handoffs, and workflow triggers.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to confirm whether an employee onboarding or access request is already in progress before preparing a support response or handoff.",
+    "Let a support agent gather account and workforce status details from Jostle SCIM so it can summarize the situation for a customer or helpdesk ticket.",
+    "Allow the agent to collect required context from a customer conversation, then create or update an approved employee provisioning request in Jostle SCIM.",
+    "Use the agent to prepare escalation notes for HR or IT teams by pulling relevant employee identity and status details from Jostle SCIM.",
+    "Let the agent trigger approved follow-up workflows tied to employee access, profile corrections, or onboarding support after a customer or manager request is validated."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up employee profile, status, or provisioning information from Jostle SCIM without switching systems.",
+    "HR or operations teams can ask the agent to guide onboarding and offboarding workflows, collect missing details, and complete approved Jostle SCIM updates inside defined rules.",
+    "Managers can use the agent to summarize employee account state, staffing changes, or pending access steps before escalating to HR or IT.",
+    "Internal teams can chat with the agent to follow SOPs for profile corrections, workforce record reviews, and identity-related task handoffs across systems.",
+    "Operations employees can ask the agent to prepare structured summaries or workflow-ready notes based on Jostle SCIM records for audits, handoffs, or follow-up tasks."
+  ],
+  "whatYouCanBuild": [
+    "An AI assistant that looks up employee identity and provisioning status from Jostle SCIM.",
+    "A support workflow that creates approved onboarding or access-related requests after collecting missing details.",
+    "An internal HR agent that updates employee profile fields within scoped approval rules.",
+    "A manager assistant that summarizes workforce record status before escalation or handoff.",
+    "An offboarding workflow that triggers safe downstream actions after validation and approval.",
+    "A helpdesk agent that prepares Jostle SCIM context for IT or HR ticket routing."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Jostle SCIM in plain language, such as looking up employee records, updating approved fields, or triggering onboarding steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the configuration values it needs, and plans the safest workflow, runtime instructions, and action boundaries for your agent."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles connection planning, defines authentication and secret requirements, keeps credentials out of chats and Skill content, and proxies secure values through protected runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum users, records, and actions needed, and it adds approval boundaries or safe-action limits for sensitive Jostle SCIM updates and workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and sends improvements back into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Jostle SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the Jostle SCIM workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to the right AI agent. The result can support live lookups, bounded updates, summaries, and workflow triggers inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Jostle SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Jostle SCIM Skill to retrieve approved employee or provisioning context while responding in a chat widget or helpdesk flow. It can summarize status, collect missing information, and prepare clean handoffs or escalation notes without exposing sensitive credentials."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Jostle SCIM?",
+      "answer": "An internal DocsBot agent can help employees and teams look up records, follow onboarding or offboarding SOPs, update approved fields, and trigger workflow steps tied to identity and workforce operations. It can also generate summaries and handoff notes for HR, IT, or operations teams."
+    },
+    {
+      "question": "Can DocsBot safely update records in Jostle SCIM?",
+      "answer": "DocsBot Skill Builder is designed to scope permissions, protect secrets, and add approval boundaries so record updates only happen within the limits you define. This helps teams allow useful automation while keeping sensitive HR and identity actions controlled."
+    },
+    {
+      "question": "Can I use DocsBot with Jostle SCIM for onboarding and offboarding requests?",
+      "answer": "Yes, you can build Skills that let an AI agent gather required context, validate the request path, and then create or update approved onboarding and offboarding steps in Jostle SCIM. The agent can also prepare downstream handoffs for IT, HR, or managers."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Jostle SCIM with DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the design, secure configuration planning, secret handling, testing, and deployment guidance for the Skill. You do not need to manually write code or map every implementation detail yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "okta-scim",
+    "azure-active-directory",
+    "bamboohr",
+    "workday",
+    "rippling",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jostle",
+    "domain": "jostle.com",
+    "description": "Jostle is an employee management platform that offers tools for workforce scheduling, benefits administration, and other HR functions. Designed to help organizations streamline employee coordination, Jostle provides a centralized system for managing staff shifts, tracking benefits, and simplifying everyday HR tasks, enabling businesses to improve efficiency and employee experience.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "http://jostle.com/_pp",
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

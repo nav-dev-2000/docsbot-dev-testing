@@ -1,0 +1,184 @@
+{
+  "slug": "richpanel",
+  "name": "Richpanel",
+  "domain": "richpanel.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Richpanel",
+  "metaTitle": "Build Richpanel AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Richpanel to resolve support questions, update tickets, prepare handoffs, and automate safe customer service workflows.",
+  "intro": "Richpanel helps ecommerce teams manage customer conversations, automate service, and unify support work across channels. With DocsBot Skill Builder, you can describe the Richpanel workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up live support context, trigger approved actions, and help teams move faster without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer's Richpanel conversation history and summarize open issues before responding.",
+    "Use a DocsBot helpdesk agent to create or update Richpanel tickets, add notes, and keep support records current during customer conversations.",
+    "Have the agent pull Richpanel order support context, shipping complaints, or return-related history to give customers faster and more accurate answers.",
+    "Enable the agent to prepare a clean Richpanel handoff with issue summary, customer details, prior actions, and recommended next steps for a human agent.",
+    "Let the agent tag or route Richpanel conversations into approved queues when a customer asks for billing help, returns support, or escalation assistance.]."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Richpanel conversation history, ticket status, and customer support summaries without opening multiple tools.",
+    "Customer success or operations teams can ask the agent to review Richpanel cases, identify unresolved patterns, and generate concise follow-up briefs for manual outreach.",
+    "Support managers can use an internal AI assistant in Slack or Microsoft Teams to prepare escalation summaries from Richpanel and route them to the right team.",
+    "Team members can chat with the agent to follow support SOPs, collect the right troubleshooting details, and create approved Richpanel updates from one guided conversation.",
+    "Internal teams can use the agent to research repeat ecommerce support issues across Richpanel records and produce summaries for training, QA, or workflow improvement."
+  ],
+  "whatYouCanBuild": [
+    "A Richpanel lookup Skill that finds customer conversations and summarizes recent support activity.",
+    "A ticket update Skill that adds notes, tags, routing details, or status changes with approval controls.",
+    "A support handoff Skill that drafts escalation summaries for refunds, returns, shipping, or account issues.",
+    "An internal QA Skill that reviews Richpanel case details and creates coaching-ready support summaries.",
+    "A workflow trigger Skill that routes high-risk or urgent customer issues into the correct support queue.",
+    "A private team assistant that answers questions about Richpanel records inside Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Richpanel agent to do, such as look up ticket history, prepare escalations, or update records during support conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and connection approach."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes Richpanel access to the minimum actions and records needed."
+    },
+    {
+      "title": "Safety limits are added",
+      "description": "Skill Builder adds permission boundaries, user scope, and approval steps for sensitive actions so the agent can help with Richpanel workflows without overreaching."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing instructions, and weak permission handling, then feeds improvements back into the Skill."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Richpanel?",
+      "answer": "With DocsBot Skill Builder, you describe the Richpanel workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Richpanel data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use a Richpanel Skill to look up support context, summarize ticket history, and help respond with more accurate answers while staying inside the permissions and action limits you define."
+    },
+    {
+      "question": "Can DocsBot update Richpanel tickets or create support handoffs?",
+      "answer": "DocsBot Skill Builder can create Skills that add approved notes, update statuses, apply tags, route issues, or draft structured handoffs so human agents receive complete context."
+    },
+    {
+      "question": "What customer support workflows can I automate with Richpanel and DocsBot?",
+      "answer": "Common workflows include conversation lookups, escalation prep, queue routing, ticket summaries, note creation, and guided updates that help website chat or helpdesk agents resolve customer issues faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Richpanel?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Richpanel information, research support history, and complete approved support workflows or SOP steps."
+    },
+    {
+      "question": "How does DocsBot keep Richpanel actions safe?",
+      "answer": "Skill Builder defines secure connection handling, protects and proxies secrets, scopes access to the smallest practical set of actions and records, and can add approval boundaries for sensitive updates or routing decisions."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "gorgias",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "shopify"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Richpanel",
+    "domain": "richpanel.com",
+    "description": "Richpanel is the Customer Support and Experience Platform for Ecommerce, providing AI-powered customer service solutions to over 2,000 ecommerce brands. They help businesses automate customer service, manage emails, chats, and socials from one dashboard, and offer effortless setup, 24/7 support, and seamless integrations.",
+    "slogan": "Automate and elevate ecommerce customer service with AI-powered solutions.",
+    "logoUrl": "https://media.brand.dev/fb707184-381c-4295-9459-89e052d64ee5.png",
+    "iconUrl": "https://media.brand.dev/e53bf716-26b4-4895-a389-d1382ed46c0d.jpg",
+    "primaryColor": "#0f5593",
+    "accentColor": "#d1e3ea",
+    "colors": [
+      {
+        "hex": "#0f5593",
+        "name": "Yale Blue"
+      },
+      {
+        "hex": "#d1e3ea",
+        "name": "Goddess"
+      },
+      {
+        "hex": "#80adc1",
+        "name": "Arabella"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/72b0be14-5b03-48b5-b79b-5269985bfcdd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.richpanel.com/careers",
+      "terms": "https://www.richpanel.com/terms-conditions",
+      "contact": null,
+      "privacy": "https://www.richpanel.com/privacy-policy",
+      "blog": "https://www.richpanel.com/blog",
+      "pricing": "https://www.richpanel.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e53bf716-26b4-4895-a389-d1382ed46c0d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fb707184-381c-4295-9459-89e052d64ee5.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 899,
+        "height": 211,
+        "aspectRatio": 4.26
+      },
+      {
+        "url": "https://media.brand.dev/899b0d24-c166-48ce-8cca-e31fdd25d77a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/38a8a785-204c-4c32-b472-ce4cff6abf69.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/96da575c-3846-4a66-8b60-cd9a9836880a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 159,
+        "height": 37,
+        "aspectRatio": 4.3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fb707184-381c-4295-9459-89e052d64ee5.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 899,
+      "height": 211,
+      "aspectRatio": 4.26
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e53bf716-26b4-4895-a389-d1382ed46c0d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

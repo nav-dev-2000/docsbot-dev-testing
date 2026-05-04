@@ -1,0 +1,200 @@
+{
+  "slug": "snowflake",
+  "name": "Snowflake",
+  "domain": "snowflake.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Snowflake data",
+  "metaTitle": "Build Snowflake AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Snowflake for secure data lookups, summaries, workflow support, and approved actions in support and internal operations.",
+  "intro": "Snowflake helps teams centralize governed data for analytics, reporting, and AI-driven workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely query Snowflake, summarize results, trigger downstream workflows, and support both customer conversations and internal team requests.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up account, usage, billing, or product history stored in Snowflake and answer customer questions with current data.",
+    "Let a support agent summarize recent customer activity from Snowflake tables so it can explain issues, spot patterns, and prepare a faster handoff to a human agent.",
+    "Enable the agent to retrieve order, subscription, or entitlement data from Snowflake when customers ask about status, access, or renewal details.",
+    "Have the agent pull trend or incident context from Snowflake-backed support analytics to explain known issues and set accurate expectations for customers.",
+    "Use Snowflake data to help the agent prepare escalation notes, ticket summaries, and structured handoff details for your helpdesk team."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve KPIs, customer trends, pipeline summaries, or operational metrics from Snowflake without writing SQL.",
+    "Enable customer success, support, or operations teams to ask the agent for account health summaries, product usage snapshots, or renewal risk signals pulled from Snowflake.",
+    "Give internal teams an AI assistant that researches data across governed Snowflake tables and returns concise explanations, comparisons, and action-ready summaries.",
+    "Allow employees to use a private agent to follow reporting or investigation SOPs, where the agent gathers Snowflake data, summarizes findings, and prepares next-step recommendations.",
+    "Help analysts and operators use a DocsBot agent to assemble decision support artifacts from Snowflake data, such as weekly summaries, escalation briefs, or executive-ready snapshots."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks customer usage and account status from Snowflake before answering questions.",
+    "An internal assistant that returns KPI summaries and trend explanations from governed Snowflake datasets.",
+    "A ticket triage Skill that gathers Snowflake history and prepares a structured escalation handoff.",
+    "An operations agent that compares current metrics to prior periods and summarizes unusual changes.",
+    "A customer success assistant that surfaces health signals, adoption patterns, and renewal risk indicators.",
+    "A reporting workflow that turns Snowflake query results into concise summaries for teams and leadership."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Snowflake in plain language, such as answering account questions, summarizing metrics, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure Snowflake connection and authentication handling for you."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to only the necessary data and actions, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After review, Skill Builder refines the Skill and helps publish it to the right DocsBot agent so it can safely answer questions and take bounded action in your support or internal workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Snowflake data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and it designs a Skill that can query Snowflake, summarize results, and return answers or workflow outputs through your AI agent. Skill Builder also handles secure configuration, scoped access, and testing before deployment."
+    },
+    {
+      "question": "Can a customer support AI agent use Snowflake to answer account or usage questions?",
+      "answer": "Yes, a DocsBot support agent can use Snowflake as a governed data source for live lookups, summaries, and escalation prep while responding in a chat widget or helpdesk flow. You can define what data the agent may access and where approvals are required for sensitive actions."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Snowflake?",
+      "answer": "Internal DocsBot agents can retrieve KPIs, compare trends, research account history, prepare summaries, and support SOP-driven investigations using Snowflake data. This is useful for support, customer success, operations, and leadership reporting workflows."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent does inside Snowflake workflows?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect secrets, scope permissions, and set approval boundaries around sensitive data access or downstream actions. That helps teams give the agent useful access without making it broadly unrestricted."
+    },
+    {
+      "question": "Can an AI agent summarize Snowflake query results for support or operations teams?",
+      "answer": "Yes, DocsBot can turn Snowflake results into concise customer-ready answers, internal summaries, escalation notes, or reporting snapshots. This helps teams move from raw data to clear next steps much faster."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Snowflake?",
+      "answer": "No, the setup is centered on describing the workflow you want, and Skill Builder handles the design, secure connection planning, testing, and deployment path. If executable logic is needed, DocsBot packages it into the Skill for you."
+    }
+  ],
+  "relatedSlugs": [
+    "bigquery",
+    "redshift",
+    "databricks",
+    "postgresql",
+    "google-bigquery",
+    "tableau"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Snowflake",
+    "domain": "snowflake.com",
+    "description": "Snowflake is a cutting-edge cloud data platform that specializes in providing data warehouse-as-a-service tailored for the cloud environment. Their flagship offering, the AI Data Cloud, enables organizations to share data, build applications, and harness the power of AI to drive business success. Serving thousands of organizations globally, Snowflake allows users to integrate siloed data, discover and securely share governed data, and perform a wide range of analytic tasks. With a focus on seamless performance across multiple public clouds, Snowflake’s platform acts as a powerful engine for various data needs, including data warehousing, data lakes, data engineering, data science, data application development, and data sharing. By fostering a collaborative ecosystem, Snowflake empowers organizations to learn, innovate, and connect within the data-driven landscape, enabling them to achieve new heights in their endeavors.",
+    "slogan": "Empower your business with the AI Data Cloud by Snowflake.",
+    "logoUrl": "https://media.brand.dev/3d68ad57-4c25-4cc8-9518-599d60458728.jpg",
+    "iconUrl": "https://media.brand.dev/3d68ad57-4c25-4cc8-9518-599d60458728.jpg",
+    "primaryColor": "#24b2e3",
+    "accentColor": "#75cae2",
+    "colors": [
+      {
+        "hex": "#24b2e3",
+        "name": "Royal Peacock"
+      },
+      {
+        "hex": "#75cae2",
+        "name": "Hawaiian Breeze"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/11d38780-3fcd-48d8-8225-50c24c43cbc9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.snowflake.com/us/en",
+      "terms": "https://snowflake.com/en/legal/snowflake-site-terms/",
+      "contact": "https://www.snowflake.com/en/contact/",
+      "privacy": "https://www.snowflake.com/en/legal/privacy/privacy-policy/",
+      "blog": "https://snowflake.com/en/blog/",
+      "pricing": "https://snowflake.com/en/pricing-options/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3d68ad57-4c25-4cc8-9518-599d60458728.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b8a76561-df1d-494e-9458-b52f91239806.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d8cb4bdf-ca8e-4a1a-8af1-27c47a198873.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/124c2df3-9645-4392-84e8-4c6c67aba53e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5f87e306-49e9-4a6d-b798-c78398fd2769.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c243f886-4283-4fbf-8b2c-3f5ee7d8c407.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a23a2b43-6f2c-4017-8245-8c60c6d24649.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a23a2b43-6f2c-4017-8245-8c60c6d24649.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a23a2b43-6f2c-4017-8245-8c60c6d24649.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

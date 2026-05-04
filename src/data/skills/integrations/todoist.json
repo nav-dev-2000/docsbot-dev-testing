@@ -1,0 +1,164 @@
+{
+  "slug": "todoist",
+  "name": "Todoist",
+  "domain": "todoist.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Todoist",
+  "metaTitle": "Build AI Support and Internal Agents for Todoist",
+  "metaDescription": "Create DocsBot AI agents that use Todoist to look up tasks, create follow-ups, trigger workflows, and coordinate support or internal team actions safely.",
+  "intro": "Todoist helps teams capture, organize, and prioritize work, which makes it a strong system for AI-driven task follow-up and workflow coordination. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent work with Todoist safely. The result is a support or internal AI agent that can answer questions, create tasks, update progress, prepare handoffs, and trigger approved next steps instead of only suggesting them.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to create Todoist follow-up tasks when a customer reports an issue that needs manual review or a promised callback.",
+    "Let the agent look up the status of a support-related Todoist task and summarize the next expected step while replying to a customer in chat or by ticket.",
+    "Have the agent add labels, due dates, priorities, or comments to Todoist tasks based on the customer conversation so internal teams receive cleaner handoffs.",
+    "Use the agent to turn unresolved support conversations into Todoist action items for customer success, onboarding, billing, or product specialists.",
+    "Let the agent summarize a customer issue and create a Todoist task with the relevant context, reducing manual copy and paste for escalations."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to create Todoist tasks from meeting notes, requests, or operational follow-ups.",
+    "Teams can ask the agent to find open Todoist tasks by project, label, assignee, due date, or priority and return a quick status summary.",
+    "Managers can use the agent to turn recurring SOP steps into Todoist task creation workflows for onboarding, launch checklists, and customer renewals.",
+    "Operations teams can chat with the agent to update Todoist tasks, append notes, and prepare next-step summaries without switching tools.",
+    "Employees can ask the agent to gather context from internal docs and convert that research into organized Todoist tasks for execution."
+  ],
+  "whatYouCanBuild": [
+    "A support escalation Skill that creates Todoist follow-up tasks from customer conversations.",
+    "A task status lookup Skill that summarizes open Todoist work during ticket replies.",
+    "A handoff Skill that sends customer issue context into Todoist with labels and due dates.",
+    "An internal assistant that turns chat requests into structured Todoist tasks and checklists.",
+    "A project summary Skill that reviews Todoist tasks and reports blockers or overdue work.",
+    "A workflow Skill that updates Todoist task details after approvals or operational milestones."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Todoist-powered agent to do, such as creating follow-up tasks, checking task status, or preparing handoffs, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes Todoist access to only the users, actions, projects, and records required."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits where needed so sensitive updates, escalations, or high-impact task changes stay within the rules you define."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Todoist workflow, finds bugs, unclear instructions, missing checks, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder uses those test results to refine prompts, logic, permissions, and workflow behavior so the Skill is more reliable before it reaches a live DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Todoist?",
+      "answer": "With DocsBot Skill Builder, you describe the task workflow you want in plain language and it designs a reusable Skill that lets your AI agent look up tasks, create follow-ups, update task details, and summarize work in Todoist. Skill Builder also handles secure configuration, authentication, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Todoist to manage customer follow-ups?",
+      "answer": "Yes, a DocsBot support agent can use Todoist as the system for approved follow-up actions such as creating escalation tasks, adding due dates, attaching customer context, and summarizing the status of existing work. This helps the agent move issues forward while staying inside your action limits and approval rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Todoist?",
+      "answer": "An internal DocsBot agent can help employees create tasks from chats, organize work by project or label, update task status, prepare summaries of open items, and support SOP-driven follow-up processes. It is useful for operations, customer success, onboarding, and project coordination workflows."
+    },
+    {
+      "question": "Can DocsBot safely create or update Todoist tasks through AI Actions?",
+      "answer": "Yes, Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets, and limiting actions to approved users, projects, and task operations. It can also add approval boundaries for sensitive workflows before the agent makes changes."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Todoist task status for employees or customers?",
+      "answer": "Yes, the agent can retrieve relevant Todoist task information and turn it into a clean status summary, next-step update, or handoff note. That is useful for both customer support replies and internal team coordination."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Todoist with DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the design of the Skill, secure connection details, runtime configuration, testing, and improvement loop. The process is built for non-technical teams that want an AI agent to take safe, bounded action instead of manually wiring every step."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "clickup",
+    "jira",
+    "monday-com",
+    "trello",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Todoist",
+    "domain": "todoist.com",
+    "description": "Todoist is a task‑management platform that lets individuals and teams capture, organize, and prioritize their work and personal to‑do lists across any device. The app provides a simple, powerful interface for creating tasks, setting due dates, assigning labels, and collaborating on projects, helping users clear mental clutter and maintain focus. Recognized by Apple, Google, The Verge, and Forbes, Todoist serves over 35 million users who have completed more than two billion tasks worldwide.",
+    "slogan": "A to-do list app that turns thinking into doing.",
+    "logoUrl": "https://media.brand.dev/5990eb86-43bb-498f-b6e0-320401e8daaa.svg",
+    "iconUrl": "https://media.brand.dev/de687a1b-7d5d-4b65-b213-ef07c2ad6ed6.png",
+    "primaryColor": "#e44636",
+    "accentColor": "#f49c92",
+    "colors": [
+      {
+        "hex": "#e44636",
+        "name": "Alizarin"
+      },
+      {
+        "hex": "#f49c92",
+        "name": "Vinaceous"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7c3549cc-1b17-46b3-a5dc-4ad5fa3587ad.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": "https://www.todoist.com/templates/blog-post",
+      "pricing": "https://www.todoist.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/de687a1b-7d5d-4b65-b213-ef07c2ad6ed6.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bedb2577-8e63-475b-ac00-305551d1edd8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5990eb86-43bb-498f-b6e0-320401e8daaa.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 128,
+        "height": 32,
+        "aspectRatio": 4
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5990eb86-43bb-498f-b6e0-320401e8daaa.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 128,
+      "height": 32,
+      "aspectRatio": 4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bedb2577-8e63-475b-ac00-305551d1edd8.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

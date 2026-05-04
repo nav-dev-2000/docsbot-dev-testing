@@ -1,0 +1,178 @@
+{
+  "slug": "apple-developer",
+  "name": "Apple Developer",
+  "domain": "apple-developer.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Apple Developer",
+  "metaTitle": "Build AI Agents for Apple Developer with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Apple Developer data, guide support conversations, and automate internal workflows.",
+  "intro": "Apple Developer contains important app, account, documentation, and release information that support and operations teams often need during customer and internal conversations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up details, summarize status, trigger approved workflows, and prepare handoffs. The result is an AI support or internal assistant that can answer questions and take bounded action inside your Apple Developer processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check app availability, known platform requirements, or release-related status while answering customer questions in chat or tickets.",
+    "Let the agent summarize Apple Developer documentation, policy guidance, or platform compatibility details so customers get faster and more consistent answers.",
+    "Have the agent gather missing context about an app issue, match it to relevant Apple Developer resources, and prepare a clean escalation summary for your support team.",
+    "Enable the agent to guide customers through account, testing, or submission-related questions by pulling approved Apple Developer references into the conversation.",
+    "Use the agent to create structured handoff notes for app review, distribution, or technical support cases when a human specialist needs to step in."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Apple Developer documentation, policy changes, release notes, and platform guidance without searching manually.",
+    "Give operations or support teams an internal AI assistant that summarizes app status, release readiness, or account-related context across Apple Developer workflows.",
+    "Enable team members in Slack or Microsoft Teams to ask the agent for help with submission checklists, testing steps, and escalation SOPs tied to Apple Developer processes.",
+    "Use an internal agent to draft handoff summaries, research answers, and next-step recommendations for app launch, review, or compliance workflows.",
+    "Help customer success, product, and engineering teams chat with the agent to collect Apple Developer context and coordinate approved follow-up actions faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that answers app release and platform compatibility questions using Apple Developer information.",
+    "A support assistant that prepares escalation summaries for app review, testing, or submission issues.",
+    "An internal agent that retrieves Apple Developer documentation and turns it into team-friendly guidance.",
+    "A workflow assistant that checks release readiness and suggests the next approved operational step.",
+    "An AI helper that drafts handoff notes for support, product, and engineering collaboration.",
+    "A private team agent that answers policy and account questions with bounded Apple Developer lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Apple Developer agent to do in plain language, such as answering release questions, summarizing documentation, or preparing escalations for your team."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, defines the safest workflow, identifies the needed configuration values, and sets up secure connection and authentication handling without exposing credentials in chat or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to only the records and actions the workflow requires, and adds approval boundaries for any sensitive updates or triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat, helpdesk agent, or private employee assistant so it can answer questions and take approved actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Apple Developer?",
+      "answer": "With DocsBot Skill Builder, you describe the Apple Developer workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can retrieve information, summarize status, prepare handoffs, and trigger approved next steps inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Apple Developer data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Apple Developer Skill to look up approved information, summarize relevant context, and help answer customer questions in a website chat widget or helpdesk flow. It can also prepare escalation notes or handoff summaries when a human team member should take over."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Apple Developer?",
+      "answer": "A DocsBot agent can help with documentation lookups, platform guidance, release-related questions, escalation preparation, and structured support summaries tied to Apple Developer processes. The goal is to give customers faster answers while keeping sensitive actions bounded and reviewable."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Apple Developer workflows?",
+      "answer": "Yes, private DocsBot agents can help employees research Apple Developer documentation, summarize release or account context, and follow internal SOPs through chat, Slack, or Microsoft Teams. This helps support, operations, product, and engineering teams complete repetitive workflow steps faster."
+    },
+    {
+      "question": "How does DocsBot keep Apple Developer actions secure?",
+      "answer": "Skill Builder designs secure configuration by default, including the required connection settings, protected secret handling, proxied authentication, scoped permissions, and approval boundaries for sensitive tasks. Credentials stay out of chat transcripts and Skill source while the agent is limited to the actions and records you approve."
+    },
+    {
+      "question": "Can DocsBot test an Apple Developer Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs through imagined support and internal scenarios to catch bugs, missing instructions, or permission gaps before deployment. Those test findings can feed an automated improvement loop so the Skill is stronger before your team publishes it."
+    }
+  ],
+  "relatedSlugs": [
+    "app-store-connect",
+    "jira",
+    "slack",
+    "zendesk",
+    "intercom",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Apple",
+    "domain": "developer.apple.com",
+    "description": "RevenueCat is a company that supports developers building apps for Apple platforms. They provide news and updates related to Apple's developer and design community.",
+    "slogan": "Think Different",
+    "logoUrl": "https://media.brand.dev/788c2eb1-14a1-4129-bd5a-f17e908058ed.png",
+    "iconUrl": "https://media.brand.dev/51a86301-0bca-400d-b99f-83177f5b2708.png",
+    "primaryColor": "#f4565d",
+    "accentColor": "#faa4ac",
+    "colors": [
+      {
+        "hex": "#f4565d",
+        "name": "Khmer Curry"
+      },
+      {
+        "hex": "#faa4ac",
+        "name": "Simple Pink"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5246b581-406e-401d-8566-5be87c5d27e7.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "privacy": null,
+      "pricing": null,
+      "terms": "https://developer.apple.com/support/terms/",
+      "contact": "https://developer.apple.com/contact/",
+      "blog": "https://developer.apple.com/news/",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3b671651-b604-4d95-aa14-1fb6f70a6212.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/788c2eb1-14a1-4129-bd5a-f17e908058ed.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 1200,
+        "height": 630,
+        "aspectRatio": 1.9
+      },
+      {
+        "url": "https://media.brand.dev/51a86301-0bca-400d-b99f-83177f5b2708.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/194b312c-b2df-4f21-ac88-b8ecb4186dc3.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 73,
+        "height": 73,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/788c2eb1-14a1-4129-bd5a-f17e908058ed.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 1200,
+      "height": 630,
+      "aspectRatio": 1.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/194b312c-b2df-4f21-ac88-b8ecb4186dc3.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 73,
+      "height": 73,
+      "aspectRatio": 1
+    }
+  }
+}

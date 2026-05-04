@@ -1,0 +1,200 @@
+{
+  "slug": "figma-scim",
+  "name": "Figma SCIM",
+  "domain": "figma.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely with Figma SCIM",
+  "metaTitle": "Build Figma SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Figma SCIM for safe identity lookups, provisioning workflows, access updates, and internal support automation.",
+  "intro": "Figma SCIM helps teams manage identity and access lifecycle workflows for Figma users and groups. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language, and DocsBot can design a reusable Skill that lets an AI agent look up provisioning details, prepare updates, trigger approved actions, and summarize outcomes safely. This helps customer support, IT, operations, and internal teams move faster with AI agents that do more than answer questions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user's Figma account provisioning status is active, pending, or needs internal review before replying in chat or over a helpdesk ticket.",
+    "Allow the agent to gather missing identity details from the customer, then prepare a clean handoff with Figma SCIM user and group context for your support or IT team.",
+    "Use the agent to confirm whether a reported access issue is likely caused by provisioning, deprovisioning, or group assignment state and explain the next approved step.",
+    "Enable the agent to summarize recent account access context from Figma SCIM so support teams can respond faster to login or seat-related questions.",
+    "Let the agent trigger approved internal workflows when a customer requests access help, such as creating an escalation record or starting a review process tied to Figma SCIM data."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Figma user provisioning status, group membership, or identity details without leaving the conversation.",
+    "Enable IT or operations teams to ask the agent to prepare or perform approved access lifecycle steps in Figma SCIM, such as onboarding checks, offboarding reviews, or group assignment updates.",
+    "Use an internal AI assistant to follow SOPs for access troubleshooting by researching Figma SCIM records, summarizing likely causes, and guiding the next action.",
+    "Allow managers or admins to ask the agent for summaries of provisioning gaps, unusual access states, or users who may need review before a broader identity audit.",
+    "Help employee support teams create faster handoffs by having the agent collect request details, attach relevant Figma SCIM context, and draft escalation notes automatically."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Figma user provisioning status before answering access-related questions.",
+    "A support assistant that gathers account details and drafts identity escalation handoffs with SCIM context.",
+    "An internal IT agent that reviews group membership and recommends the next approved access step.",
+    "A private employee assistant that summarizes onboarding or offboarding status across Figma SCIM records.",
+    "An AI workflow that flags possible deprovisioning issues and prepares a review for administrators.",
+    "A DocsBot agent that answers seat and access questions using approved Figma identity lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Figma SCIM in plain language, such as checking provisioning status, preparing handoffs, or triggering an approved access workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, defines the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and adds approval boundaries for sensitive changes like access updates or provisioning actions."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing permission checks, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot agent or your private internal assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Figma SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, scopes permissions, tests scenarios, and prepares it for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and bounded actions around Figma identity workflows."
+    },
+    {
+      "question": "Can an AI support agent use Figma SCIM data to help with access issues?",
+      "answer": "Yes, a DocsBot support agent can use approved Figma SCIM lookups to check provisioning state, gather missing identity details, summarize account context, and prepare escalations. You control what data the agent can access and what actions require approval."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Figma SCIM?",
+      "answer": "Internal agents can help with onboarding checks, offboarding reviews, group membership research, access troubleshooting, and escalation preparation. They can also follow team SOPs and summarize identity status so employees get answers and next steps faster."
+    },
+    {
+      "question": "Can DocsBot safely trigger updates or provisioning-related actions in Figma SCIM?",
+      "answer": "DocsBot Skill Builder can create Skills for approved actions with clear limits, scoped permissions, and approval boundaries for sensitive changes. Secrets and authentication are handled through secure runtime configuration so credentials stay out of chats and generated content."
+    },
+    {
+      "question": "How does testing work for a Figma SCIM AI Skill?",
+      "answer": "DocsBot includes an automated testing agent that runs realistic support and internal scenarios to find workflow gaps, instruction issues, or missing safeguards. Those findings can be used in an automated self-improvement loop before the Skill is deployed."
+    },
+    {
+      "question": "Can a private employee AI assistant answer Figma access questions in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent for employees and teams so they can ask for Figma identity and access context directly in chat. The agent can retrieve approved information, summarize status, and help complete internal workflows without exposing sensitive credentials."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "azure-active-directory",
+    "google-workspace",
+    "figma"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Figma",
+    "domain": "figma.com",
+    "description": "Figma is a company that develops a browser-based tool for designing user interfaces, helping design and development teams build various products. They offer a range of collaborative design tools, including Figma Design, Dev Mode, FigJam, Figma Slides, Figma Draw, Figma Buzz, Figma Sites, and Figma Make, enabling teams to design, prototype, and build products faster while gathering feedback in one place.",
+    "slogan": "Design, prototype, and build faster with Figma's collaborative platform.",
+    "logoUrl": "https://media.brand.dev/580812f2-714d-40ac-925a-f121b06278d3.png",
+    "iconUrl": "https://media.brand.dev/8ba022ac-8711-415d-9714-99e8cdb668ca.png",
+    "primaryColor": "#f76040",
+    "accentColor": "#13c5be",
+    "colors": [
+      {
+        "hex": "#f76040",
+        "name": "Vermilion Orange"
+      },
+      {
+        "hex": "#13c5be",
+        "name": "Exquisite Turquoise"
+      },
+      {
+        "hex": "#a35cfb",
+        "name": "Lighter Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/377b9061-ff94-44ed-bf3a-81289a06469f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.figma.com/careers/",
+      "terms": null,
+      "contact": "https://www.figma.com/contact/",
+      "privacy": "https://www.figma.com/legal/",
+      "blog": "https://www.figma.com/blog/",
+      "pricing": "https://www.figma.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c219dc98-9ece-432d-a19a-173b64c97c8f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b68fb600-5011-44b4-b123-7187e25f17e1.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 410,
+        "height": 512,
+        "aspectRatio": 0.8
+      },
+      {
+        "url": "https://media.brand.dev/8ba022ac-8711-415d-9714-99e8cdb668ca.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bd751be8-414a-4c6a-8d24-55d73d456383.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/580812f2-714d-40ac-925a-f121b06278d3.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 540,
+        "height": 304,
+        "aspectRatio": 1.78
+      },
+      {
+        "url": "https://media.brand.dev/1b4fa905-2184-4433-baa9-bd52fe8dba7b.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 480,
+        "height": 720,
+        "aspectRatio": 0.67
+      },
+      {
+        "url": "https://media.brand.dev/e90d762b-bcf9-479a-a6bd-1a2a00badab7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 120,
+        "height": 44,
+        "aspectRatio": 2.73
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e90d762b-bcf9-479a-a6bd-1a2a00badab7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 120,
+      "height": 44,
+      "aspectRatio": 2.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c219dc98-9ece-432d-a19a-173b64c97c8f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

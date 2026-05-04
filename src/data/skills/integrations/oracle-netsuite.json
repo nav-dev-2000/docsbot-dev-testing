@@ -1,0 +1,170 @@
+{
+  "slug": "oracle-netsuite",
+  "name": "Oracle Netsuite",
+  "domain": "oracle-netsuite.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Oracle NetSuite",
+  "metaTitle": "Build AI Agents for Oracle NetSuite with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up, update, summarize, and trigger NetSuite workflows.",
+  "intro": "Oracle NetSuite gives teams a unified system for finance, ERP, CRM, inventory, and operations. With DocsBot Skill Builder, you can describe the NetSuite workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in NetSuite while staying inside your approval rules and access limits.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check order, invoice, subscription, or fulfillment status in NetSuite while replying in a website chat widget or helpdesk ticket.",
+    "Use the agent to look up customer account details, billing history, or open balances in NetSuite so support can answer account questions faster.",
+    "Allow the agent to create or update approved NetSuite records such as support follow-up tasks, case notes, or customer contact details after confirming the right context.",
+    "Have the agent summarize account activity, payment issues, or fulfillment history from NetSuite to prepare a clean handoff to billing, operations, or customer success.",
+    "Enable the agent to trigger approved NetSuite workflows, such as routing a refund review, flagging an invoice dispute, or starting an order exception process."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve NetSuite customer, order, invoice, inventory, or vendor information without searching manually.",
+    "Finance and operations teams can ask the agent to summarize account status, transaction history, overdue balances, or purchasing activity across NetSuite records for faster decision-making.",
+    "Customer success, billing, and support employees can use the agent to prepare escalation notes, draft follow-up summaries, and complete SOP-driven handoffs using NetSuite data.",
+    "Approved internal users can ask the agent to create tasks, update record fields, attach standardized notes, or trigger bounded NetSuite workflows with approval checks where needed.",
+    "Teams can use the agent as a guided operations assistant that gathers missing context, follows company rules, and completes repeatable NetSuite workflows consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing assistant that checks invoice status and explains next steps to customers.",
+    "A support agent that summarizes orders, returns, and fulfillment issues from NetSuite records.",
+    "An internal finance assistant that answers balance, payment, and transaction questions in chat.",
+    "A case handoff Skill that prepares structured escalation notes using NetSuite account history.",
+    "A workflow Skill that flags invoice disputes and routes them for human approval.",
+    "An operations assistant that checks inventory or order exceptions before triggering follow-up tasks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in NetSuite, such as checking invoices, summarizing account history, or routing a billing exception, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes NetSuite access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Actions get clear limits",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and action limits so the agent can look up data, prepare updates, or trigger workflows without exceeding the rules you want enforced."
+    },
+    {
+      "title": "Tests run automatically",
+      "description": "The automated testing agent exercises imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent for employees in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Oracle NetSuite without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the NetSuite workflow you want in plain language and Skill Builder designs the Skill for you. It handles secure configuration, authentication, testing, improvement, and deployment so your agent can safely work with NetSuite data and approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Oracle NetSuite data to answer customer billing or order questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up NetSuite account, invoice, order, or fulfillment details while responding in a website chat widget or helpdesk ticket. You control what records and actions are allowed, and Skill Builder can add approval boundaries for sensitive steps."
+    },
+    {
+      "question": "What NetSuite workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can retrieve records, summarize account history, prepare escalation notes, update approved fields, create follow-up tasks, and trigger bounded finance or operations workflows. This helps teams complete SOPs faster from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update Oracle NetSuite records safely?",
+      "answer": "DocsBot Skills can be designed for approved updates such as adding notes, creating tasks, or changing specific fields under scoped permissions. Skill Builder defines secure access rules, protects secrets, and can require approvals before sensitive actions are executed."
+    },
+    {
+      "question": "How does a DocsBot agent hand off NetSuite issues to finance or operations teams?",
+      "answer": "The agent can gather the relevant NetSuite context, summarize the issue, and create a structured handoff with account history, transaction details, and next-step recommendations. That gives human teams a faster and more consistent escalation path."
+    },
+    {
+      "question": "How does DocsBot keep Oracle NetSuite connections secure for AI agents?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated content. It also scopes access to the minimum records, users, and actions required for the task."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "sage-intacct",
+    "stripe",
+    "salesforce",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "NetSuite",
+    "domain": "netsuite.com",
+    "description": "Oracle NetSuite is a cloud‑based business management platform that delivers an AI‑powered, unified suite of applications for finance, ERP, inventory, HR, professional services automation, CRM, and omnichannel commerce. Founded in 1998, the company helps over 43,000 customers in 219 countries gain real‑time insight, control, and agility to grow their businesses. By consolidating data into a single source of truth, NetSuite’s AI features—such as conversational intelligence, agentic workflows, and natural‑language search—automate repetitive tasks, improve decision‑making, and streamline operations across the enterprise.",
+    "slogan": "The #1 AI Cloud ERP",
+    "logoUrl": "https://media.brand.dev/dfc74cc7-8ab0-4d38-9913-1098b9bc3cc4.svg",
+    "iconUrl": "https://media.brand.dev/d3baa9dd-2d87-4c74-a762-9aa4bf2a20e2.jpg",
+    "primaryColor": "#94acaa",
+    "accentColor": "#2d4c5c",
+    "colors": [
+      {
+        "hex": "#94acaa",
+        "name": "Grey Mist"
+      },
+      {
+        "hex": "#2d4c5c",
+        "name": "Celtic Rush"
+      },
+      {
+        "hex": "#cfdcdf",
+        "name": "Polar Soft Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/50e13128-2cac-4ace-a819-3683a1b3b1c1.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "privacy": null,
+      "login": null,
+      "signup": null,
+      "careers": "http://www.netsuite.com/portal/company/career.shtml",
+      "contact": "http://www.netsuite.com/portal/company/contactus.shtml",
+      "blog": "http://www.netsuite.com/portal/company/newsroom.shtml",
+      "pricing": "http://www.netsuite.com/portal/products/erp/financial-management/financial-planning.shtml"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d3baa9dd-2d87-4c74-a762-9aa4bf2a20e2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dfc74cc7-8ab0-4d38-9913-1098b9bc3cc4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 200,
+        "height": 73,
+        "aspectRatio": 2.74
+      },
+      {
+        "url": "https://media.brand.dev/c400a19a-4262-4eb0-93d4-e07fc0f227dc.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dfc74cc7-8ab0-4d38-9913-1098b9bc3cc4.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 200,
+      "height": 73,
+      "aspectRatio": 2.74
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c400a19a-4262-4eb0-93d4-e07fc0f227dc.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

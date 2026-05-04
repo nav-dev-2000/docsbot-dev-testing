@@ -1,0 +1,152 @@
+{
+  "slug": "sesame",
+  "name": "Sesame",
+  "domain": "sesame.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Sesame",
+  "metaTitle": "Build AI Agents for Sesame with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sesame data and workflows for customer support, employee help, summaries, handoffs, and approved actions.",
+  "intro": "Sesame helps teams deliver voice-driven companion experiences and related operations, while DocsBot Skill Builder helps you turn those workflows into reusable AI agent abilities. In plain language, you describe what the agent should do with Sesame, and Skill Builder designs, secures, tests, and deploys the Skill. The result is a support or internal AI agent that can answer questions, look up information, prepare handoffs, and take bounded actions inside your approved Sesame workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer’s Sesame beta enrollment, access status, or support history and respond with a clear summary.",
+    "Let the support agent gather missing details from a customer conversation and create or update an approved Sesame-related support record for human follow-up.",
+    "Have the agent summarize a customer’s reported voice, device, or onboarding issue using Sesame context and prepare a clean escalation handoff for the support team.",
+    "Enable the agent to check approved account or program state in Sesame and explain next steps to customers without exposing internal-only details.",
+    "Use a helpdesk-connected DocsBot agent to pull relevant Sesame information into ticket replies, reducing manual research for common account and access questions."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Sesame account, program, or workflow information without switching between systems.",
+    "Give customer success or operations teams an internal agent that summarizes Sesame records, recent activity, and open follow-up items before outreach.",
+    "Enable recruiting, people, or operations staff to ask the agent for Sesame-related process guidance and have it complete approved workflow steps across connected systems.",
+    "Help internal support teams use chat, Slack, or Microsoft Teams to create structured handoffs, escalation notes, or case summaries based on Sesame data.",
+    "Allow employees to ask the agent to research a Sesame record, gather missing context, and guide the next SOP step with safe action limits and approvals where needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Sesame access or enrollment status during customer conversations.",
+    "A private employee assistant that summarizes Sesame records and recommends the next approved action.",
+    "A helpdesk agent that prepares Sesame-based escalation notes and internal handoff summaries.",
+    "An operations assistant that gathers missing details and updates approved Sesame workflow records.",
+    "A Slack or Teams agent that answers staff questions using live Sesame lookups and summaries.",
+    "An internal SOP assistant that guides employees through Sesame-related review and follow-up tasks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Sesame in plain language, such as looking up account details, preparing handoffs, or updating approved records."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a reusable DocsBot Skill, defines the needed configuration values, and plans the safest way for the agent to communicate with Sesame."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through protected runtime configuration, scopes access to the minimum required actions and records, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team agent in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Sesame with DocsBot?",
+      "answer": "You describe the outcome you want in plain language, and DocsBot Skill Builder designs the Skill, secures the connection to Sesame, tests likely scenarios, improves the workflow, and helps publish it to the right agent. This makes it possible to create lookup, summary, handoff, and approved action workflows without turning setup into a manual development project."
+    },
+    {
+      "question": "Can an AI support agent use Sesame data during customer chats or tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Sesame Skill to retrieve approved information, summarize status, gather missing details, and prepare handoffs while responding to customers. You control what data the agent can access and which actions are allowed inside the workflow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Sesame?",
+      "answer": "A Sesame Skill can help with account or access lookups, issue summaries, escalation prep, follow-up record updates, and ticket response support. The agent can answer questions and take bounded actions when those steps fit your approval rules and permission scope."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Sesame in Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Sesame information, summarize records, research next steps, and complete approved SOP workflows from chat, Slack, or Microsoft Teams. This is useful for operations, support, customer success, and other internal teams that need faster answers and cleaner execution."
+    },
+    {
+      "question": "How does DocsBot keep Sesame connections and credentials secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of conversations and generated Skill content, and proxies authentication through protected runtime settings. It also scopes access to the minimum users, records, and actions required, with approval boundaries for more sensitive changes."
+    },
+    {
+      "question": "Can DocsBot update Sesame records or trigger workflows safely?",
+      "answer": "DocsBot Skills can be designed for approved updates, workflow triggers, and record creation when those actions fit your rules. Skill Builder adds safe action limits, permission scope, and approval checkpoints so the agent stays within the boundaries you define."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "ukg",
+    "gusto",
+    "greenhouse",
+    "lever"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sesame",
+    "domain": "sesame.com",
+    "description": "Sesame is an interdisciplinary product and research team dedicated to creating lifelike computer companions that see, hear, and collaborate with users. Their focus is on two core innovations: a personal voice‑driven agent that acts as an ever‑present, conversational friend to keep you informed, organized, and improving yourself; and lightweight, all‑day eyewear that delivers high‑quality audio while allowing the companion to observe the world alongside you. By advancing natural‑voice interaction and seamless integration into daily life, Sesame aims to cross the uncanny valley and make voice companions useful for everyday tasks. The team offers a research preview of their personal agent and invites users to join the beta, while also recruiting talent to further their vision of truly lifelike computers.",
+    "slogan": "Bringing computers to life with natural voice and human-like collaboration",
+    "logoUrl": "https://media.brand.dev/d9fca2bf-d482-4a83-a4ae-b7580ba2b9c7.jpg",
+    "iconUrl": "https://media.brand.dev/d9fca2bf-d482-4a83-a4ae-b7580ba2b9c7.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#070707",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#070707",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dadada",
+        "name": "Porpoise"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c1c37dc8-cb4e-42be-ac27-4c69c74d585f.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.sesame.com/terms",
+      "contact": null,
+      "privacy": "https://www.sesame.com/privacy",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d9fca2bf-d482-4a83-a4ae-b7580ba2b9c7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d9fca2bf-d482-4a83-a4ae-b7580ba2b9c7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d9fca2bf-d482-4a83-a4ae-b7580ba2b9c7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

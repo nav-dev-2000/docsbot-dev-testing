@@ -28,12 +28,26 @@ ${urls.map(url => addPage(url, changefreq)).join('\n')}
 }
 
 async function generateSitemap() {
+  const {
+    getSkillsIndexRecords,
+    skillCategorySlug,
+    getSkillIntegrationPath,
+  } = await import('../src/lib/skillsIntegrations.js')
+  const skillRecords = getSkillsIndexRecords()
+  const skillIntegrationUrls = skillRecords.map((record) => getSkillIntegrationPath(record))
+  const skillCategoryUrls = [
+    ...new Set(skillRecords.map((record) => `/skills/${skillCategorySlug(record.category)}`)),
+  ]
+  const skillUrls = [...skillCategoryUrls, ...skillIntegrationUrls]
+
   // Ignore Next.js specific files (e.g., _app.js) and specific directories/files
   const pages = await globby([
     'src/pages/**/*{.js,.jsx,.mdx,.md}',
     '!src/pages/_*{.jsx,.js}',
     '!src/pages/**/[*{.jsx,.js}',
     '!src/pages/prompts/[category]/**.jsx',
+    // Skills category + integration pages are emitted in sitemap-skills.xml (see skillUrls).
+    '!src/pages/skills/\\[category\\]/**',
     '!src/pages/prompts/tags/index.jsx',
     '!src/pages/api/**/*',
     '!src/pages/app/**/*',
@@ -66,6 +80,7 @@ async function generateSitemap() {
     generateSectionSitemap(prompts, 'sitemap-prompts.xml'),
     generateSectionSitemap(models, 'sitemap-models.xml', 'weekly'),
     generateSectionSitemap(modelComparisons, 'sitemap-model-comparisons.xml', 'weekly'),
+    generateSectionSitemap(skillUrls, 'sitemap-skills.xml', 'weekly'),
   ]
 
   // Create sitemap index

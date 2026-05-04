@@ -1,0 +1,144 @@
+{
+  "slug": "sps-commerce",
+  "name": "SPS Commerce",
+  "domain": "sps-commerce.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work With SPS Commerce",
+  "metaTitle": "Build SPS Commerce AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SPS Commerce to answer questions, retrieve account details, trigger approved workflows, and support internal teams safely.",
+  "intro": "SPS Commerce helps teams manage important business and account workflows, and DocsBot Skill Builder can turn those workflows into reusable AI agent abilities. In plain language, you describe what the agent should do, and Skill Builder designs, secures, tests, improves, and deploys the Skill for customer support or internal operations. The result is an AI agent that can answer questions and take bounded action inside SPS Commerce without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up SPS Commerce account, order, or partner status details and answer customer questions with current information.",
+    "Let the agent summarize fulfillment, transaction, or integration status from SPS Commerce before replying in a support chat or helpdesk ticket.",
+    "Have the agent create a structured support handoff with SPS Commerce context, recent activity, and the next recommended action for a human team member.",
+    "Allow the agent to collect missing order or partner details from the customer and trigger an approved SPS Commerce workflow when specific conditions are met.",
+    "Enable the agent to check whether a requested update has been completed in SPS Commerce and explain the current state to the customer in plain language."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve SPS Commerce account, order, or workflow information without logging into multiple systems.",
+    "Operations teams can ask the agent to summarize exceptions, partner activity, or fulfillment status from SPS Commerce and prepare the next-step recommendations for review.",
+    "Customer success and support leaders can use the agent to generate escalation notes, handoff summaries, and case-ready context pulled from SPS Commerce records.",
+    "Team members can chat with the agent to complete standard operating procedures that involve approved SPS Commerce lookups, record updates, and workflow triggers.",
+    "Internal teams can use the agent to research a partner or customer situation across SPS Commerce and produce a concise summary for sales, support, or operations follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks SPS Commerce status details before answering customer questions.",
+    "A private operations assistant that summarizes SPS Commerce records and recommends next steps.",
+    "A helpdesk Skill that prepares escalations using SPS Commerce account and workflow context.",
+    "An internal agent that gathers missing details and triggers approved SPS Commerce workflows.",
+    "A customer success assistant that creates concise partner or order summaries from SPS Commerce.",
+    "An AI agent that performs safe SPS Commerce lookups and drafts follow-up messages for teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SPS Commerce, such as answering status questions, preparing handoffs, or triggering an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder secures it",
+      "description": "Skill Builder determines the required connection details, sets up secure authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum SPS Commerce data, actions, users, and systems needed, and adds approval boundaries or safe action limits for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer questions and take approved action inside SPS Commerce."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SPS Commerce without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the SPS Commerce workflow you want in plain language and the builder designs the Skill, handles secure connection requirements, tests it, improves it, and prepares it for deployment. This makes it practical for non-technical teams to create AI agents that can look up information or take bounded actions safely."
+    },
+    {
+      "question": "Can an AI support agent use SPS Commerce data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve approved SPS Commerce details, summarize the current state, and use that context to answer customers in chat widgets or helpdesk replies. You can also define safe limits around what the agent may update or trigger."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with SPS Commerce?",
+      "answer": "A DocsBot agent can help with live lookups, status summaries, escalation preparation, handoff creation, missing-information collection, and approved workflow triggers tied to SPS Commerce records. The goal is to help the agent resolve more conversations while keeping sensitive actions controlled."
+    },
+    {
+      "question": "What can an internal AI assistant do with SPS Commerce for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve SPS Commerce information, summarize records, research account situations, and complete repeatable workflows or SOP steps through chat, Slack, or Microsoft Teams. This gives teams faster access to operational context without manual system switching."
+    },
+    {
+      "question": "How does DocsBot keep SPS Commerce actions secure?",
+      "answer": "Skill Builder defines the required configuration, secures authentication handling, keeps secrets out of chats and generated content, and scopes access to the minimum records and actions needed. It can also add approval boundaries for higher-risk updates or workflow triggers before the Skill is deployed."
+    },
+    {
+      "question": "Can DocsBot test and improve an SPS Commerce Skill before launch?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run realistic support and internal usage scenarios, identify bugs or workflow gaps, and feed those results into a self-improvement loop. This helps you launch a more reliable SPS Commerce agent with safer instructions and clearer action boundaries."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "netsuite",
+    "zendesk",
+    "freshdesk",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SPS Commerce",
+    "domain": "sps-commerce.com",
+    "description": "SPS Commerce is an AI‑powered design platform that lets anyone create professional logos quickly and easily, without any design skills. Using advanced machine‑learning algorithms, the service generates custom logo concepts in seconds, offering a range of styles, colors, and typography options. Users simply input their brand name and preferences, and the AI produces polished, ready‑to‑use logos that can be downloaded for immediate use. SPS Commerce’s intuitive interface and fast turnaround make branding accessible for startups, small businesses, and individuals seeking high‑quality visual identities without the cost of a traditional designer.",
+    "slogan": "Fast & professional AI logos—no design skills needed",
+    "logoUrl": "https://media.brand.dev/ff905849-eed1-4e34-b51d-fee37d675f1b.svg",
+    "iconUrl": "https://media.brand.dev/ff905849-eed1-4e34-b51d-fee37d675f1b.svg",
+    "primaryColor": "#141414",
+    "accentColor": "#141414",
+    "colors": [
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/12bd9b63-e503-407e-9529-182eeefef717.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ff905849-eed1-4e34-b51d-fee37d675f1b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 98,
+        "height": 20,
+        "aspectRatio": 4.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ff905849-eed1-4e34-b51d-fee37d675f1b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 98,
+      "height": 20,
+      "aspectRatio": 4.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ff905849-eed1-4e34-b51d-fee37d675f1b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 98,
+      "height": 20,
+      "aspectRatio": 4.9
+    }
+  }
+}

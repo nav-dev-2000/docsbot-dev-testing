@@ -1,0 +1,176 @@
+{
+  "slug": "dyte",
+  "name": "Dyte",
+  "domain": "dyte.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dyte for Support and Operations",
+  "metaTitle": "Build Dyte AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that work with Dyte for meeting lookups, session support, handoffs, and internal operations workflows.",
+  "intro": "Dyte helps companies power real-time audio, video, and streaming experiences inside their products. With DocsBot Skill Builder, you can describe the Dyte-related workflow you want in plain language and have DocsBot create a secure reusable Skill for a customer support agent or an internal team assistant. The result is an AI agent that can answer questions, look up meeting or session details, trigger approved actions, and summarize outcomes instead of only giving static guidance.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Dyte meeting or session details when a user reports trouble joining a call, then explain the current status in plain language.",
+    "Use a support agent to gather missing context about a failed or delayed video session and prepare a clean handoff summary for human support or engineering teams.",
+    "Allow the agent to look up approved call, room, or participant information from Dyte while responding to helpdesk tickets about audio, video, or livestream issues.",
+    "Have the agent trigger bounded support workflows related to Dyte sessions, such as escalating urgent live event problems or notifying an operations team during an active incident.",
+    "Enable the agent to summarize recent Dyte activity tied to a customer issue so support teams can respond faster with clearer context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Dyte meeting, room, participant, or session information without opening multiple dashboards.",
+    "Give customer success or operations teams an internal AI assistant that researches video delivery issues, summarizes session history, and prepares escalation notes for engineering.",
+    "Help support managers and technical teams use a private agent to follow standard operating procedures for live event triage, incident coordination, and post-incident summaries using Dyte data.",
+    "Allow internal teams to ask the agent for a concise status view of active or recent Dyte sessions and get structured answers that support faster decisions.",
+    "Enable employees to trigger approved Dyte-related workflows through chat, such as creating handoff notes, notifying the right team, or preparing follow-up tasks after a session issue."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Dyte meeting status when customers cannot join a session.",
+    "A helpdesk assistant that summarizes Dyte session context before escalating complex audio or video issues.",
+    "A customer-facing bot that answers livestream support questions using live Dyte room data.",
+    "An internal assistant that retrieves participant and session details for operations and customer success teams.",
+    "An AI workflow that prepares incident summaries from Dyte activity for engineering handoffs.",
+    "A private team agent that follows live event triage steps and triggers approved escalation actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Dyte in plain language, such as checking session details, summarizing issues, or triggering an approved escalation workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Dyte."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill based on test results, then helps publish it to the right DocsBot agent so your website bot, helpdesk agent, or private team assistant can use Dyte safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Dyte?",
+      "answer": "With DocsBot Skill Builder, you describe the Dyte workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up information, summarize session state, trigger approved actions, and create handoff notes inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Dyte data to help customers with call or livestream issues?",
+      "answer": "Yes, a DocsBot support agent can use a Dyte Skill to look up approved meeting, room, participant, or session details while responding in a chat widget or helpdesk ticket. That helps the agent explain current status, gather missing context, and prepare faster escalations when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Dyte?",
+      "answer": "Teams can build workflows for session lookups, issue triage, incident summaries, escalation prep, and approved notifications tied to Dyte events or support cases. The agent can respond to customers while also taking bounded actions that move the case forward."
+    },
+    {
+      "question": "Can an internal AI assistant use Dyte for operations or customer success teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Dyte session information, research live event problems, and complete SOP-driven triage or handoff workflows. This makes it easier for teams to get answers and take the next approved step from one chat interface."
+    },
+    {
+      "question": "How does DocsBot keep Dyte access secure for AI agents?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets securely, keeps credentials out of conversations and generated content, and scopes permissions to the minimum required access. It can also add approval boundaries so sensitive updates or workflow triggers only happen within your rules."
+    },
+    {
+      "question": "Can a DocsBot agent escalate Dyte-related incidents to human teams?",
+      "answer": "Yes, the Skill can be designed to prepare escalation summaries, route issues to the right team, and trigger approved workflows when a live session problem needs human intervention. This helps support and operations teams move faster without giving the agent unlimited access."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "twilio-video",
+    "daily",
+    "whereby",
+    "webex",
+    "aircall"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dyte",
+    "domain": "dyte.io",
+    "description": "Dyte is a video‑infra‑as‑a‑service platform that equips developers with real‑time audio, video, and live‑streaming SDKs. Their ready‑to‑launch tools let businesses quickly integrate high‑quality communication features into web and mobile applications, handling scaling, reliability, and performance so teams can focus on their core product.",
+    "slogan": "Seamless real-time audio, video, and streaming SDKs to launch effortlessly.",
+    "logoUrl": "https://media.brand.dev/9743752c-6c14-45bd-8a52-d989d7d2375e.svg",
+    "iconUrl": "https://media.brand.dev/3d16a0f4-4c35-48c5-92f8-8721a8019c4d.jpg",
+    "primaryColor": "#2463fc",
+    "accentColor": "#242424",
+    "colors": [
+      {
+        "hex": "#2463fc",
+        "name": "Bluerocratic"
+      },
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      },
+      {
+        "hex": "#8bb4da",
+        "name": "Periwinkle Sky"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4e77df7f-1977-46b7-b933-167d97102d9c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://dyte.io/terms-of-service",
+      "contact": "https://dyte.io/contact",
+      "privacy": "https://dyte.io/privacy-policy",
+      "blog": "https://dyte.io/blog/",
+      "pricing": "https://dyte.io/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3d16a0f4-4c35-48c5-92f8-8721a8019c4d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9743752c-6c14-45bd-8a52-d989d7d2375e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 100,
+        "height": 40,
+        "aspectRatio": 2.5
+      },
+      {
+        "url": "https://media.brand.dev/c89c62e4-2287-4939-8e61-04e9da751a24.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f9dee4ec-94b0-47a1-ad5c-a73a0a759a8e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9743752c-6c14-45bd-8a52-d989d7d2375e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 100,
+      "height": 40,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c89c62e4-2287-4939-8e61-04e9da751a24.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

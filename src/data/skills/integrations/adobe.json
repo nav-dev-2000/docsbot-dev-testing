@@ -1,0 +1,156 @@
+{
+  "slug": "adobe",
+  "name": "Adobe",
+  "domain": "adobe.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that work with Adobe using DocsBot Skills",
+  "metaTitle": "Build Adobe AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Adobe data and workflows for customer support, internal requests, summaries, approvals, and safe automated actions.",
+  "intro": "Adobe powers creative, document, and digital experience workflows across many teams, which makes it a strong system for AI-assisted lookups, updates, and handoffs. With DocsBot Skill Builder, you can describe the Adobe workflow you want in plain language and have DocsBot design a reusable Skill around it. The result is an AI support agent or internal AI assistant that can safely use Adobe information and approved actions while staying within your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up order, subscription, document, or experience context from Adobe-connected workflows and answer support questions with more complete account history.",
+    "Let the agent create support handoff notes that summarize a customer issue, relevant Adobe asset or document details, and the next approved action for a human team.",
+    "Enable the agent to trigger approved Adobe-related workflows, such as document follow-up, content review routing, or experience issue escalation, while responding to a customer in chat or over email tickets.",
+    "Have the agent summarize the status of Adobe-managed creative, document, or campaign work so customers get a clear update without waiting for manual research.",
+    "Use the agent to collect missing details from the customer, validate the request against Adobe workflow rules, and prepare a clean escalation package for billing, account, or technical teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Adobe asset, document, or workflow information without manually searching across multiple systems.",
+    "Marketing, creative, and operations teams can ask the agent to summarize campaign, content, or document status from Adobe-connected processes and prepare the next-step recommendations.",
+    "Teams can use the agent in Slack or Microsoft Teams to start approved Adobe workflows, generate handoff summaries, and follow standard operating procedures with less manual coordination.",
+    "Customer success or support managers can ask the agent to compile Adobe-related account context, recent activity, and open issues before renewals, escalations, or executive reviews.",
+    "Internal teams can use the agent to gather information from Adobe workflows and combine it with other business systems for research, audit prep, and cross-functional decision support."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Adobe document or asset status for customer inquiries.",
+    "A private team assistant that finds Adobe workflow details and prepares escalation notes.",
+    "An agent that collects request details and triggers approved Adobe review or routing workflows.",
+    "A support Skill that creates clean handoff summaries from Adobe-related customer issues.",
+    "An internal assistant that answers questions about campaign, content, or document progress.",
+    "An agent that checks Adobe-linked activity and prepares account context for success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Adobe agent to do, such as answer status questions, gather context, update records, or trigger an approved workflow, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Adobe connection details, defines secure configuration values, handles authentication safely, keeps secrets out of chats and Skill source, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right guardrails for Adobe lookups, updates, workflow triggers, and handoffs, including approval boundaries and action limits for anything sensitive or high impact."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Adobe Skill, finds bugs, missing instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can use Adobe-powered AI Actions in the places they already work."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Adobe?",
+      "answer": "With DocsBot Skill Builder, you describe the Adobe workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, defines the allowed actions, tests the workflow, and prepares it for deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use Adobe data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use an Adobe Skill to look up relevant context, summarize status, gather missing details, and prepare handoffs or approved follow-up actions while replying to customers in chat or tickets."
+    },
+    {
+      "question": "What Adobe workflows can an internal AI assistant help automate?",
+      "answer": "An internal DocsBot agent can help employees retrieve Adobe-related information, summarize creative or document workflows, trigger approved processes, and complete repeatable SOPs across teams from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can an AI agent safely update records or trigger workflows in Adobe-connected processes?",
+      "answer": "Yes, DocsBot Skill Builder is designed to add scoped permissions, secure authentication handling, approval boundaries, and action limits so Adobe-related updates and workflow triggers stay within the rules you define."
+    },
+    {
+      "question": "How does DocsBot handle Adobe credentials and authentication securely?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content by design."
+    },
+    {
+      "question": "Can DocsBot test an Adobe Skill before teams or customers use it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal scenarios, identifies bugs or workflow gaps, and helps improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "figma",
+    "canva",
+    "dropbox",
+    "box",
+    "google-drive",
+    "onedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adobe",
+    "domain": "adobe.com",
+    "description": "Adobe is a leading software company specializing in digital marketing and media solutions. Renowned globally, Adobe empowers individuals and organizations—from budding artists to international brands—by providing innovative tools that enable them to craft, deliver, and enhance compelling digital experiences. With a strong focus on creativity and efficiency, Adobe’s comprehensive suite of creative, marketing, and document solutions helps users when they need it most, ensuring their digital creations resonate with the right audience at the right moment. Through its cutting-edge technology and unwavering commitment to enhancing digital experiences, Adobe is at the forefront of transforming how content is created and shared worldwide.",
+    "slogan": "Changing the world through digital experiences.",
+    "logoUrl": "https://media.brand.dev/ac5f048c-a679-46b8-b527-f206ed86588e.png",
+    "iconUrl": "https://media.brand.dev/ac5f048c-a679-46b8-b527-f206ed86588e.png",
+    "primaryColor": "#fc0c04",
+    "accentColor": "#fc7c7c",
+    "colors": [
+      {
+        "hex": "#fc0c04",
+        "name": "Shocking Crimson"
+      },
+      {
+        "hex": "#fc7c7c",
+        "name": "Forbidden Fruit"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/956b75b4-659b-4481-93eb-851f29a62064.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": "https://adobe.com/homepage/fragments/loggedout/pods/news/news-pod-10-25-23-104498",
+      "pricing": "https://www.adobe.com/creativecloud/plans.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6e95e998-802a-4e4e-9192-e8a73bd356e2.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ac5f048c-a679-46b8-b527-f206ed86588e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6e95e998-802a-4e4e-9192-e8a73bd356e2.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6e95e998-802a-4e4e-9192-e8a73bd356e2.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

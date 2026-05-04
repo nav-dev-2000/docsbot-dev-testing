@@ -1,0 +1,176 @@
+{
+  "slug": "gitlab",
+  "name": "GitLab",
+  "domain": "gitlab.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with GitLab",
+  "metaTitle": "Build AI Support and Internal Agents for GitLab",
+  "metaDescription": "Create DocsBot AI agents that use GitLab for issue lookups, status summaries, handoffs, workflow updates, and safe internal DevSecOps actions.",
+  "intro": "GitLab gives teams a single place for source code, issues, merge requests, pipelines, and security workflows. With DocsBot Skill Builder, you can describe the GitLab action you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up live GitLab data, prepare handoffs, and take bounded actions inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check GitLab issue or incident status and respond with a clear progress summary in chat or email tickets.",
+    "Have the agent create a GitLab issue from a customer bug report, attach the conversation context, and confirm that the report was logged.",
+    "Use the agent to update an existing GitLab issue with new reproduction details, customer impact notes, or priority information gathered during support conversations.",
+    "Enable the agent to summarize recent merge request, deployment, or pipeline activity related to a reported problem so customers get a concise status update.",
+    "Let the agent prepare an escalation handoff by collecting the customer’s environment details, linking the right GitLab records, and routing the case to engineering or operations."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to find GitLab issues, merge requests, pipeline runs, or project activity without searching manually.",
+    "Engineering, support, and customer success teams can ask the agent to create GitLab issues from internal reports and follow the team’s workflow for labels, assignments, and required fields.",
+    "Team members can use the agent to summarize release readiness, open blockers, failed pipelines, or security findings across GitLab projects before standups or customer meetings.",
+    "Operations or support employees can chat with the agent to collect troubleshooting context, link related GitLab records, and complete escalation SOPs faster.",
+    "Managers and cross-functional teams can ask the agent for plain-language summaries of development or remediation progress pulled from GitLab records and workflow history."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that creates GitLab issues from customer bug reports with structured reproduction details.",
+    "An internal assistant that summarizes failed pipelines and recent deployment activity for non-technical teams.",
+    "A DocsBot workflow that updates GitLab issues with customer impact, urgency, and account context.",
+    "An AI handoff agent that links support conversations to GitLab issues and engineering workflows.",
+    "A release-status assistant that explains merge request, pipeline, and issue progress in plain language.",
+    "A security escalation workflow that summarizes GitLab findings and routes cases for human approval."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the GitLab-enabled agent to do, such as creating bug issues from support chats or summarizing pipeline status for employees, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the configuration values the Skill needs, handles authentication and secret proxying securely, and keeps credentials out of chats and generated Skill content by default."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum GitLab permissions, project scope, action limits, and approval boundaries needed so the agent can only view or change the records and workflows you approve."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or missing safeguards, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once approved, Skill Builder helps deploy the finished Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using GitLab actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with GitLab?",
+      "answer": "With DocsBot Skill Builder, you describe the GitLab workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. That can include live lookups, issue creation, record updates, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use GitLab data during customer conversations?",
+      "answer": "Yes. A DocsBot support agent can use GitLab to look up issue status, summarize engineering progress, create or update bug reports, and prepare escalation handoffs while responding to customers through chat or helpdesk tickets."
+    },
+    {
+      "question": "What GitLab workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees find issues, merge requests, pipeline runs, and security-related records, then summarize status or complete approved workflows such as creating issues, adding notes, or routing work. This is useful for engineering, support, success, and operations teams that need fast answers without manual searching."
+    },
+    {
+      "question": "Can DocsBot safely create or update GitLab issues with AI?",
+      "answer": "Yes, with the controls you define. Skill Builder sets up secure authentication handling, scopes permissions to the right projects and actions, and can add approval boundaries for sensitive updates so the agent acts within clear limits."
+    },
+    {
+      "question": "Can a DocsBot agent summarize GitLab pipelines, merge requests, or release progress for customers or teams?",
+      "answer": "Yes. A Skill can gather relevant GitLab records and turn them into plain-language summaries for customer updates, internal standups, escalation notes, or release-readiness reviews."
+    },
+    {
+      "question": "How does setup work if my team is not technical?",
+      "answer": "You do not need to manually wire the workflow step by step. You explain the outcome you want, and Skill Builder handles the workflow design, secure configuration, testing, improvements, and deployment guidance for the agent."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "github",
+    "zendesk",
+    "intercom",
+    "clickup"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "GitLab",
+    "domain": "gitlab.com",
+    "description": "GitLab is a unified DevSecOps platform that combines AI‑driven orchestration with end‑to‑end software lifecycle tools. It lets teams define custom workflows where AI agents automate repetitive tasks—turning issues into merge requests, remediating vulnerabilities, and reviewing code—while keeping human control. All source code, CI/CD pipelines, security testing (SAST, SCA, DAST, secret detection), and compliance data reside in a single data plane, providing a single source of truth. GitLab serves enterprises across finance, public sector, telecom, automotive, education, and aerospace, offering secure, auditable, and scalable solutions that accelerate development, reduce cycle times, and improve developer productivity.",
+    "slogan": "AI-driven DevSecOps platform for faster, secure, and efficient software delivery.",
+    "logoUrl": "https://media.brand.dev/7dd21241-e0ff-4f3a-9726-8e860bb4298b.svg",
+    "iconUrl": "https://media.brand.dev/d30ba7c4-c009-4989-955f-148c05fec87b.png",
+    "primaryColor": "#fb6c24",
+    "accentColor": "#fba224",
+    "colors": [
+      {
+        "hex": "#fb6c24",
+        "name": "Burning Orange"
+      },
+      {
+        "hex": "#fba224",
+        "name": "Radiant Yellow"
+      },
+      {
+        "hex": "#2f2e6d",
+        "name": "Blue Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a53739a7-ff6b-47fe-a17a-0840048c2e5e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://about.gitlab.com/jobs/",
+      "terms": "https://about.gitlab.com/terms/",
+      "contact": "https://about.gitlab.com/company/contact/",
+      "privacy": "https://about.gitlab.com/privacy/",
+      "blog": "https://about.gitlab.com/blog/",
+      "pricing": "https://about.gitlab.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d30ba7c4-c009-4989-955f-148c05fec87b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2b8dfec-538c-4347-88db-48ebae42aae1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 256,
+        "height": 178,
+        "aspectRatio": 1.44
+      },
+      {
+        "url": "https://media.brand.dev/4a1de34e-062d-42cc-8fab-4012abfab6b7.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7dd21241-e0ff-4f3a-9726-8e860bb4298b.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 134,
+        "height": 32,
+        "aspectRatio": 4.19
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a2b8dfec-538c-4347-88db-48ebae42aae1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 256,
+      "height": 178,
+      "aspectRatio": 1.44
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d30ba7c4-c009-4989-955f-148c05fec87b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

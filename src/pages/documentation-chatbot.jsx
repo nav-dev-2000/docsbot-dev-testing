@@ -20,6 +20,7 @@ import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import SentryQuote from '@/components/SentryQuote'
+import AIActionContextSection from '@/components/AIActionContextSection'
 import JsonLd from '@/components/seo/JsonLd'
 import {
   buildFaqEntities,
@@ -811,6 +812,10 @@ export default function DocumentationChatbot() {
 
             <SectionReveal direction="down" amount={0.25}>
               <Features { ...propsFeatures } />
+            </SectionReveal>
+
+            <SectionReveal direction="down" amount={0.25}>
+              <AIActionContextSection variant="docs" className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

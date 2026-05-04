@@ -1,0 +1,176 @@
+{
+  "slug": "peoplehr",
+  "name": "PeopleHR",
+  "domain": "peoplehr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with PeopleHR",
+  "metaTitle": "Build AI Agents for PeopleHR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use PeopleHR for HR lookups, employee workflows, approvals, summaries, and internal support actions.",
+  "intro": "PeopleHR helps teams manage core HR, payroll, recruitment, performance, time tracking, and employee data in one place. With DocsBot Skill Builder, you can describe the HR workflow you want in plain language and have DocsBot create a secure reusable Skill for it. The result is an AI agent that can answer questions, retrieve PeopleHR data, prepare handoffs, update approved records, and support employees or HR teams with bounded actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant or candidate questions by checking PeopleHR recruiting or application status data and summarizing the next step.",
+    "Let a helpdesk-connected DocsBot agent look up employee-facing HR details in PeopleHR, such as leave balances or policy-linked status information, before drafting a support reply.",
+    "Have the agent gather missing context from a requester, then create or update an approved HR-related record in PeopleHR for follow-up by your team.",
+    "Use the agent to summarize absence, onboarding, or performance workflow status from PeopleHR and prepare a clean handoff for an HR specialist.",
+    "Allow the agent to trigger approved internal workflows tied to PeopleHR records, such as escalation, review preparation, or case routing, while responding to a ticket."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to check leave balances, basic employee record details, or the status of an HR request stored in PeopleHR.",
+    "HR team members can ask the agent to summarize an employee profile, recent absences, appraisal history, or recruitment progress from PeopleHR before taking action.",
+    "Managers can use the agent to collect context for onboarding, performance review, or absence workflows and have it prepare the next approved step inside PeopleHR.",
+    "Operations and HR staff can chat with the agent to follow SOPs that span PeopleHR and other systems, with the agent retrieving records, drafting updates, and routing tasks.",
+    "Internal teams can use the agent to generate case summaries, approval packets, or escalation notes based on PeopleHR data so work moves faster with less manual admin."
+  ],
+  "whatYouCanBuild": [
+    "An AI HR assistant that checks leave balances and explains the next approval step.",
+    "A recruiting support agent that summarizes candidate status and prepares recruiter handoffs.",
+    "An employee help agent that gathers missing details before creating an HR follow-up case.",
+    "A manager assistant that prepares performance review summaries from PeopleHR records.",
+    "An onboarding workflow agent that tracks progress and routes approved next steps.",
+    "A payroll support assistant that summarizes relevant PeopleHR data for internal follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PeopleHR agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then keeps credentials out of chats and Skill content by protecting and proxying secrets through secure runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum PeopleHR actions, records, users, and systems needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, reference material, and approved actions your DocsBot agent needs to work with PeopleHR."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal HR scenarios, checks for bugs, weak guidance, missing permission controls, or workflow gaps, and reports what should improve."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for PeopleHR?",
+      "answer": "With DocsBot Skill Builder, you describe the PeopleHR workflow you want in plain language, such as answering leave questions or preparing onboarding handoffs, and Skill Builder designs, secures, tests, and packages the Skill for deployment."
+    },
+    {
+      "question": "Can an AI support agent use PeopleHR data during employee help requests?",
+      "answer": "Yes, a DocsBot agent can use approved PeopleHR data to look up status, summarize relevant HR information, gather missing context, and prepare a response or handoff while staying within scoped permissions."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with PeopleHR?",
+      "answer": "An internal DocsBot agent can help with leave checks, onboarding progress, recruitment status, appraisal preparation, HR case summaries, and other guided workflows that use safe lookups, updates, and routing actions."
+    },
+    {
+      "question": "Can DocsBot update PeopleHR records safely?",
+      "answer": "DocsBot Skill Builder can create bounded PeopleHR actions for approved record updates, but it also defines scoped access and approval boundaries so sensitive changes only happen within your rules."
+    },
+    {
+      "question": "Can a DocsBot agent prepare HR handoffs and escalations from PeopleHR?",
+      "answer": "Yes, the agent can collect the right context from PeopleHR, summarize the current state, and generate a clean handoff or escalation package for HR, payroll, or management review."
+    },
+    {
+      "question": "How does DocsBot keep PeopleHR credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of chats and generated content, and scopes access to the minimum workflow needs."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "personio",
+    "ukg",
+    "hibob",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PeopleHR",
+    "domain": "peoplehr.com",
+    "description": "PeopleHR provides a cloud‑based, AI‑enhanced HR platform that unifies core HR, payroll, recruitment, learning, employee benefits, and performance management. Designed for small to large UK businesses, the suite offers tools for absence and time‑tracking, applicant tracking, appraisal and performance reviews, workflow automation, and AI‑driven insights to streamline admin, ensure compliance, and boost employee engagement. Their Paycircle payroll solution simplifies payroll processing and outsourcing, while the Engage More benefits module helps companies design and manage comprehensive employee perks. Integrated mobile apps and extensive third‑party integrations give HR teams real‑time access to data and analytics, enabling smarter decisions and a happier workforce.",
+    "slogan": "Supporting the world of HR, payroll and learning together",
+    "logoUrl": "https://media.brand.dev/b8a5fe69-033f-44d3-8d3f-ac37d3b18e62.svg",
+    "iconUrl": "https://media.brand.dev/27743b5d-93ba-4c0a-8ac3-2fdfd62ab7a5.jpg",
+    "primaryColor": "#e3163e",
+    "accentColor": "#6c555a",
+    "colors": [
+      {
+        "hex": "#e3163e",
+        "name": "Red Potion"
+      },
+      {
+        "hex": "#6c555a",
+        "name": "Grand Plum"
+      },
+      {
+        "hex": "#cebec2",
+        "name": "Ancestral"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "https://www.peoplehr.com/en-gb/resources/blog/",
+      "careers": null,
+      "privacy": null,
+      "terms": "https://www.peoplehr.com/en-gb/resources/customer-stories/yue-energy/",
+      "contact": "https://www.peoplehr.com/en-gb/contact-us/",
+      "pricing": "https://www.peoplehr.com/en-gb/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/27743b5d-93ba-4c0a-8ac3-2fdfd62ab7a5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b8a5fe69-033f-44d3-8d3f-ac37d3b18e62.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 34,
+        "aspectRatio": 8.82
+      },
+      {
+        "url": "https://media.brand.dev/7fec2b5a-5dbf-4299-a7ff-f31881f7d947.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6fdc58bf-8d4c-4515-abff-ca3ba1e98c24.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b8a5fe69-033f-44d3-8d3f-ac37d3b18e62.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 34,
+      "aspectRatio": 8.82
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7fec2b5a-5dbf-4299-a7ff-f31881f7d947.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    }
+  }
+}

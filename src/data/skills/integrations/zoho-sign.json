@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-sign",
+  "name": "Zoho Sign",
+  "domain": "zoho-sign.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build Zoho Sign AI agents with DocsBot Skill Builder",
+  "metaTitle": "Build Zoho Sign AI agents for support and teams | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Sign to check document status, guide signers, trigger workflows, and support secure internal approval processes.",
+  "intro": "Zoho Sign helps businesses send, sign, and track digital documents across customer and internal workflows. With DocsBot Skill Builder, you can describe the Zoho Sign task you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. That lets your AI agent do more than answer questions by safely looking up document status, preparing handoffs, and triggering approved next steps inside Zoho Sign.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a Zoho Sign document and explain whether it is sent, viewed, signed, declined, or expired.",
+    "Use the agent to help customers find the right signing request by email, reference number, or recent activity before giving a clear status update.",
+    "Have the agent resend a signing reminder or trigger an approved follow-up workflow in Zoho Sign when a customer says they did not receive the document.",
+    "Enable the agent to summarize signer progress and prepare a clean handoff for human support when a document issue needs manual review.",
+    "Let the agent answer common signing questions by combining your help content with live Zoho Sign document status and recipient details where permitted."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up Zoho Sign document status without opening multiple systems.",
+    "Sales, finance, or operations teams can ask the agent to find outstanding signature requests, summarize delays, and recommend the next approved follow-up step.",
+    "Team members can use the agent to trigger document reminders, collect context for escalations, and prepare internal handoff notes for contract or compliance reviews.",
+    "Employees can ask the agent to walk them through internal signing SOPs while it checks Zoho Sign records and surfaces the right document details in context.",
+    "Managers can use the agent to summarize signing bottlenecks across pending documents and generate updates for internal stakeholders."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Zoho Sign envelope or document status during customer chats.",
+    "A private assistant that finds pending signature requests and summarizes signer progress for employees.",
+    "A workflow Skill that resends reminders after agent confirmation and logs the outcome.",
+    "An escalation helper that gathers Zoho Sign context and prepares a handoff for human review.",
+    "A compliance support assistant that explains signing status and next steps using approved document data.",
+    "An operations agent that summarizes overdue signature requests and recommends follow-up actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Sign, such as checking document status, sending reminders, or preparing an escalation, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, connection method, and authentication approach, then keeps secrets protected through secure runtime handling so credentials never need to appear in chats or Skill instructions."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the smallest practical permissions for the workflow, limits which actions and records the agent can use, and adds approval boundaries for sensitive updates like reminders, document actions, or internal escalations."
+    },
+    {
+      "title": "The Skill is drafted and refined",
+      "description": "Skill Builder creates the instructions, runtime behavior, and any approved actions the agent needs to work with Zoho Sign, then reviews the workflow for gaps, safer patterns, and clearer outcomes."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team conversations, checks for bugs, weak guidance, missing permission controls, or workflow issues, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Sign?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Sign workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Sign data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved Zoho Sign document details such as signing status, recipient progress, or reminder history so it can answer customers more accurately and prepare handoffs when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Sign?",
+      "answer": "A DocsBot agent can help with document status lookups, signer guidance, reminder actions, escalation summaries, and approved follow-up workflows that reduce manual work for support teams."
+    },
+    {
+      "question": "What can an internal AI assistant do with Zoho Sign for employees?",
+      "answer": "An internal DocsBot agent can help employees find pending documents, summarize delays, trigger approved reminders, explain SOPs, and gather document context for finance, sales, legal, or operations workflows."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Zoho Sign instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as reminders, workflow triggers, summaries, and handoff preparation, with scoped permissions and approval checks for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Sign credentials and access secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, keeps credentials out of chat transcripts and generated content, and scopes access to the minimum actions and records required."
+    }
+  ],
+  "relatedSlugs": [
+    "docusign",
+    "dropbox-sign",
+    "google-drive",
+    "box",
+    "onedrive",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

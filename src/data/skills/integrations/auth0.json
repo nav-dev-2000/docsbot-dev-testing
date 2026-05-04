@@ -1,0 +1,184 @@
+{
+  "slug": "auth0",
+  "name": "Auth0",
+  "domain": "auth0.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Auth0",
+  "metaTitle": "Build Auth0 AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Auth0 for secure identity lookups, account workflows, and approved support or internal team actions.",
+  "intro": "Auth0 helps organizations manage authentication, authorization, and secure access across applications. With DocsBot Skill Builder, you can describe the Auth0 workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, check identity-related status, prepare handoffs, and take approved actions inside clear security boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a user's Auth0 profile, account status, or linked identity details while responding to login and access questions.",
+    "Let the agent summarize recent authentication-related context from Auth0 so support teams can explain likely causes of failed login or access issues.",
+    "Have the agent collect missing verification details from the customer, then prepare a secure handoff for a human agent with the relevant Auth0 account context attached.",
+    "Enable the agent to trigger approved account recovery or access workflow steps in Auth0 after required checks and within defined approval boundaries.",
+    "Use the agent in helpdesk ticket workflows to summarize identity-related issues, attach Auth0 findings, and route the case to the right escalation team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Auth0 user, application, role, or tenant information without digging through admin screens.",
+    "Support, success, or operations teams can ask the agent to research login trends, summarize account access issues, and prepare escalation notes using Auth0 data.",
+    "IT or security teams can use the agent to follow approved SOPs for identity troubleshooting, including gathering context, checking user status, and recommending the next safe step.",
+    "Employees can ask the agent to generate handoff summaries for account access reviews or onboarding investigations while keeping actions scoped to approved users and workflows.",
+    "Internal teams can use the agent to answer common identity and access questions by combining company documentation with live Auth0 lookups in one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Auth0 user status during login troubleshooting.",
+    "A helpdesk assistant that summarizes Auth0 identity context for escalations and handoffs.",
+    "An internal IT agent that looks up users, applications, roles, and access details.",
+    "A secure workflow assistant for approved password reset or account recovery steps.",
+    "An employee agent that follows identity troubleshooting SOPs across DocsBot and Auth0.",
+    "A customer support agent that gathers verification details before escalating sensitive access issues."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Auth0-enabled agent to do in plain language, such as checking account status, preparing access-related handoffs, or triggering an approved recovery workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, decides what Auth0 data or actions are needed, and defines the required configuration values without making you map every technical step yourself."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder sets up safe authentication handling, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes Auth0 access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds approval points, safe action limits, and routing guidance so sensitive identity actions stay controlled and the agent only performs the tasks you authorize."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Auth0?",
+      "answer": "With DocsBot Skill Builder, you describe the Auth0 workflow you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for your support or internal AI agent. The result can include live lookups, summaries, handoffs, and approved actions inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Auth0 data to help customers with login issues?",
+      "answer": "Yes, a DocsBot support agent can use Auth0 data to check account status, review identity-related context, summarize likely issues, and prepare secure escalations while replying in chat or helpdesk tickets. Sensitive actions can be limited behind approvals and scoped permissions."
+    },
+    {
+      "question": "What Auth0 workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve user or application details, summarize access issues, follow identity troubleshooting SOPs, and prepare onboarding or escalation workflows. You can keep access tightly scoped so teams only see and do what they are allowed to handle."
+    },
+    {
+      "question": "Can DocsBot take actions in Auth0 instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, status checks, record updates, or escalation preparation. Skill Builder helps define those actions safely with approval boundaries and minimum necessary permissions."
+    },
+    {
+      "question": "Is it safe to connect Auth0 to an AI agent?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining secure configuration values, protecting and proxying secrets, and keeping credentials out of chats and generated content. It also scopes access and adds approval controls for sensitive identity workflows."
+    },
+    {
+      "question": "Can a DocsBot agent help support teams escalate Auth0-related access problems faster?",
+      "answer": "Yes, the agent can gather customer context, retrieve relevant Auth0 details, summarize the issue, and create a cleaner handoff for human specialists. That reduces repetitive triage work and helps escalations start with the right identity context."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "microsoft-entra-id",
+    "ping-identity",
+    "jumpcloud",
+    "duo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Auth0",
+    "domain": "auth0.com",
+    "description": "Auth0 is a modern identity platform that provides secure access to applications for organizations. As part of Okta, Inc., it offers a highly customizable solution for authentication and authorization across web, mobile, and legacy applications. Safeguarding billions of login transactions monthly, Auth0 delivers convenience, privacy, and security, allowing customers to focus on innovation and core business.",
+    "slogan": "Rapidly integrate authentication and authorization, focus on your core business",
+    "logoUrl": "https://media.brand.dev/e2bb2dac-9e78-4655-85ae-d504062cfa78.svg",
+    "iconUrl": "https://media.brand.dev/385e86a6-6796-4dfc-8f2b-b3394051498c.png",
+    "primaryColor": "#7c7474",
+    "accentColor": "#0a0a09",
+    "colors": [
+      {
+        "hex": "#7c7474",
+        "name": "Soft Fur"
+      },
+      {
+        "hex": "#0a0a09",
+        "name": "Existential Angst"
+      },
+      {
+        "hex": "#fafafa",
+        "name": "Dr. White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/73e3f1a8-4319-483c-afec-fa22ae2d7459.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://auth0.com/contact-us",
+      "privacy": "https://auth0.com/privacy",
+      "blog": "https://developer.auth0.com/newsletter",
+      "pricing": "https://auth0.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/385e86a6-6796-4dfc-8f2b-b3394051498c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7509ec95-be96-4a85-a468-3bc06e2c3c09.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1164,
+        "height": 344,
+        "aspectRatio": 3.38
+      },
+      {
+        "url": "https://media.brand.dev/8cee818f-0119-45b2-abdf-2b637da1491b.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dac7c8cc-bcee-4319-9b69-ef7657276bb9.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e2bb2dac-9e78-4655-85ae-d504062cfa78.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 106,
+        "height": 40,
+        "aspectRatio": 2.65
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7509ec95-be96-4a85-a468-3bc06e2c3c09.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1164,
+      "height": 344,
+      "aspectRatio": 3.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8cee818f-0119-45b2-abdf-2b637da1491b.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

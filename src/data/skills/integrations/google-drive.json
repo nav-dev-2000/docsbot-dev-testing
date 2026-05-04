@@ -1,0 +1,160 @@
+{
+  "slug": "google-drive",
+  "name": "Google Drive",
+  "domain": "drive.google.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Google Drive With DocsBot Skills",
+  "metaTitle": "Build Google Drive AI Agents With DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Google Drive for file lookups, summaries, handoffs, and approved workflow actions in support and internal operations.",
+  "intro": "Google Drive stores the files, documents, and shared resources your teams and customers rely on every day. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Google Drive, and DocsBot helps design, secure, test, and publish that Skill for customer support or internal team workflows. The result is an AI agent that can answer questions and take bounded action with Drive content instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent find help documents, policy files, onboarding PDFs, or product guides stored in Google Drive and answer customer questions with the most relevant content.",
+    "Use Google Drive to retrieve the latest troubleshooting worksheet, warranty instructions, or setup checklist and summarize it inside a live chat or helpdesk reply.",
+    "Have the agent create a customer-specific handoff folder or document from an approved template when a support case needs follow-up from a human team.",
+    "Allow the agent to collect files a customer needs, summarize what is already available in Google Drive, and prepare a clean escalation package for support staff.",
+    "Use the agent to verify whether a signed form, uploaded document, or shared file exists in Google Drive before guiding the customer to the next support step."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right file, folder, SOP, or shared document in Google Drive without manual searching.",
+    "Enable internal teams to ask the agent for summaries of long Google Docs, meeting notes, policy files, or project folders so they can get answers faster.",
+    "Help operations or customer success teams generate standardized folders, copy approved templates, and organize follow-up documents through guided workflows in Google Drive.",
+    "Allow employees to ask the agent which files are needed for a process, retrieve the current versions from Google Drive, and complete SOP-driven work with fewer handoff delays.",
+    "Support research workflows where team members ask the agent to gather related files from Google Drive, summarize them, and prepare a brief for the next decision or meeting."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and summarizes customer-facing guides stored in Google Drive.",
+    "A private team assistant that retrieves SOPs, policies, and shared files from Drive.",
+    "A workflow Skill that creates case folders and copies approved document templates.",
+    "An escalation helper that gathers Drive files and prepares a support handoff summary.",
+    "A document verification Skill that checks whether required files exist before next-step guidance.",
+    "A research assistant that collects related Drive documents and produces concise internal briefs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Google Drive, such as finding documents, summarizing files, creating folders, or preparing handoffs, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required connection details, secure authentication flow, and configuration values, then keeps secrets out of chats and Skill source by protecting and proxying them through approved runtime settings."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum Drive permissions, file access scope, user boundaries, and approval steps needed so the agent can take helpful action without getting broad or unnecessary access."
+    },
+    {
+      "title": "The workflow is drafted",
+      "description": "Skill Builder creates the Skill instructions, runtime behavior, reference material, and any approved actions the agent needs to look up files, summarize content, create records, or trigger bounded document workflows."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "An automated testing agent runs imagined customer support and internal team conversations, checks for weak spots or missing safeguards, identifies bugs or improvements, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google Drive for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as finding guides, verifying files, or preparing an escalation packet, and Skill Builder creates a secure Skill for your support agent. The agent can then use Google Drive during live chats or ticket replies to retrieve, summarize, and organize approved content."
+    },
+    {
+      "question": "Can an AI support agent use Google Drive files to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use a Google Drive Skill to locate relevant documents, extract the needed information, and respond with grounded answers. You can also limit which folders, file types, or actions are allowed so the agent stays within defined support boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Google Drive?",
+      "answer": "Internal DocsBot agents can help employees find SOPs, summarize shared documents, gather files for a process, create structured folders from templates, and prepare research or meeting briefs. This is useful for operations, customer success, onboarding, and cross-functional documentation workflows."
+    },
+    {
+      "question": "Can DocsBot safely create or organize files in Google Drive?",
+      "answer": "Yes, DocsBot Skill Builder can define approved actions such as creating folders, copying templates, or preparing handoff documents while scoping access and adding approval boundaries where needed. Skill Builder also handles secure configuration and secret protection so credentials are not exposed in chats or generated content."
+    },
+    {
+      "question": "How does DocsBot keep a Google Drive AI workflow secure?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, protected secrets, scoped permissions, and action limits based on the workflow you describe. It can also include approvals for sensitive actions and test the workflow against imagined scenarios before deployment."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Google Docs or files stored in Drive for employees?",
+      "answer": "Yes, a private DocsBot agent can retrieve allowed files from Google Drive and summarize them for employees in chat, Slack, or Microsoft Teams. This helps teams get the key points from long documents without manually opening and reviewing every file."
+    }
+  ],
+  "relatedSlugs": [
+    "google-docs",
+    "google-sheets",
+    "dropbox",
+    "box",
+    "onedrive",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "drive.google.com",
+    "description": "Google is a multinational technology company that offers a wide range of internet services and products, including Google Drive—a cloud storage platform that lets users store, sync, and share files securely online. Through its integrated ecosystem, Google enables seamless collaboration, document editing, and access to personal and professional data from any device, all backed by robust security and AI-driven features.",
+    "slogan": "Organize your life with Google Accounts—simple, secure, and always accessible.",
+    "logoUrl": "https://media.brand.dev/8792cd8a-f0f9-4033-8d76-0b2ba3c65902.png",
+    "iconUrl": "https://media.brand.dev/8792cd8a-f0f9-4033-8d76-0b2ba3c65902.png",
+    "primaryColor": "#ef7025",
+    "accentColor": "#eec9bc",
+    "colors": [
+      {
+        "hex": "#ef7025",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#eec9bc",
+        "name": "Baked Ham"
+      },
+      {
+        "hex": "#4fa1ab",
+        "name": "Blue Racer"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8792cd8a-f0f9-4033-8d76-0b2ba3c65902.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/56ef13ae-313f-4eb3-972d-ecff6c480b44.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8792cd8a-f0f9-4033-8d76-0b2ba3c65902.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8792cd8a-f0f9-4033-8d76-0b2ba3c65902.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

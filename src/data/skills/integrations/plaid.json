@@ -1,0 +1,192 @@
+{
+  "slug": "plaid",
+  "name": "Plaid",
+  "domain": "plaid.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build Plaid AI agents with DocsBot Skill Builder",
+  "metaTitle": "Build Plaid AI agents for support and operations | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Plaid for account lookups, workflow actions, support replies, and internal operations.",
+  "intro": "Plaid helps companies securely access financial account and transaction data across thousands of institutions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Plaid for support and internal workflows. The result is an AI agent that can answer questions, retrieve approved financial context, trigger bounded actions, and prepare clean handoffs without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent use Plaid data to check account connection status and explain the next approved troubleshooting step in chat or ticket replies.",
+    "Enable a support agent to summarize recent linked-account activity or verification state from Plaid so customers get faster, more accurate answers.",
+    "Use Plaid lookups to help a support bot identify common bank-linking failures and prepare a clear escalation handoff for human review.",
+    "Allow the agent to gather missing context about an account-link issue, then create an internal handoff summary with relevant Plaid details for the support team.",
+    "Have the agent confirm whether a financial institution is available or experiencing connection issues before responding to customer questions about linking their bank account."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve approved Plaid account, item, or institution information without switching between tools.",
+    "Enable operations or customer success teams to use an internal AI agent to investigate connection failures, summarize account-link histories, and follow standard troubleshooting workflows.",
+    "Help risk, finance, or support teams ask the agent for transaction or account context from Plaid and receive structured summaries for internal review.",
+    "Allow team members in Slack or Microsoft Teams to trigger approved Plaid-related checks, gather missing details, and prepare escalation notes for complex cases.",
+    "Use a private AI assistant to guide employees through repeatable SOPs for account connection review, exception handling, and cross-team handoff preparation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Plaid item status before replying to customers.",
+    "A private operations assistant that summarizes linked account issues for employee review.",
+    "A support workflow that identifies likely bank connection failures and drafts escalations.",
+    "An internal assistant that retrieves institution availability details during troubleshooting conversations.",
+    "A customer support agent that prepares handoff notes with approved Plaid account context.",
+    "An employee AI assistant that follows account-link investigation SOPs across teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Plaid-enabled agent to do, such as check connection status, summarize account context, or prepare escalation handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, defines safe authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right guardrails for Plaid workflows, including approval boundaries, allowed action limits, and clear instructions for when the agent should look up data, summarize findings, update records, or hand work to a person."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so teams can use Plaid actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Plaid data with DocsBot?",
+      "answer": "You can describe the Plaid workflow you want in plain language, and DocsBot Skill Builder can create a Skill that lets your agent perform approved lookups, summaries, handoffs, and bounded actions. Skill Builder also handles secure configuration, secret protection, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Plaid to help customers with bank connection issues?",
+      "answer": "Yes, a DocsBot support agent can use a Plaid Skill to check approved account-link or institution details, explain likely issues, and prepare escalation notes for support teams. This helps customers get faster answers while keeping actions inside the rules you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Plaid?",
+      "answer": "DocsBot can help automate connection-status lookups, institution availability checks, troubleshooting summaries, handoff preparation, and other bounded support actions tied to Plaid data. The exact workflow depends on what your team wants the agent to retrieve, summarize, or trigger safely."
+    },
+    {
+      "question": "Can an internal AI assistant use Plaid for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve approved Plaid information, investigate issues, and follow standard operating procedures. This is useful for operations, finance, support, and customer success teams that need faster access to account-link context."
+    },
+    {
+      "question": "How does DocsBot keep Plaid credentials and access secure?",
+      "answer": "Skill Builder is designed to define secure connection settings, keep credentials out of chats and generated Skill content, and proxy secrets through protected runtime configuration. It also scopes access to the minimum needed permissions and can add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows based on Plaid information?",
+      "answer": "Yes, DocsBot Skills can be designed to take bounded actions such as updating related records, creating handoffs, or triggering approved follow-up workflows after retrieving Plaid context. You control what the agent is allowed to do and where a human approval step is required."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "freshbooks",
+    "wise"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Plaid",
+    "domain": "plaid.com",
+    "description": "Plaid is a financial data network that enables companies to build fintech solutions, connecting millions of people to the apps and services they use. Founded in 2013, Plaid works with thousands of companies, including Venmo, SoFi, and major banks, to provide secure and reliable access to financial accounts across 12,000+ institutions in the US, Canada, UK, and Europe.",
+    "slogan": "Unlock financial freedom for everyone",
+    "logoUrl": "https://media.brand.dev/4dd9deba-baef-4d79-92df-19d4a58cd68a.svg",
+    "iconUrl": "https://media.brand.dev/3f3ea3f9-5210-4224-b58a-599f0f208b34.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#5ac6e0",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#5ac6e0",
+        "name": "Watercourse"
+      },
+      {
+        "hex": "#07395f",
+        "name": "Marine"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1ba0d0f6-31a4-420f-9ce3-408e8b0ba450.png",
+    "industries": [],
+    "links": {
+      "careers": "https://plaid.com/careers/",
+      "terms": null,
+      "contact": "https://plaid.com/en-gb/contact/",
+      "privacy": "https://plaid.com/en-gb/legal/",
+      "blog": "https://plaid.com/blog/",
+      "pricing": "https://plaid.com/en-gb/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3f3ea3f9-5210-4224-b58a-599f0f208b34.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9e1a4e9d-4da2-4548-9599-bde1f98f4b56.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4dd9deba-baef-4d79-92df-19d4a58cd68a.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 126,
+        "height": 48,
+        "aspectRatio": 2.63
+      },
+      {
+        "url": "https://media.brand.dev/39f72008-4fba-4bce-bdaa-99c08da981fb.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7e909a9c-0941-494a-ba8f-1150f059c235.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/56eb7605-e245-4b1f-95aa-e21a7cb03d08.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 127,
+        "height": 48,
+        "aspectRatio": 2.65
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/56eb7605-e245-4b1f-95aa-e21a7cb03d08.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 127,
+      "height": 48,
+      "aspectRatio": 2.65
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9e1a4e9d-4da2-4548-9599-bde1f98f4b56.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

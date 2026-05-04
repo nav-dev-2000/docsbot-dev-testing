@@ -1,0 +1,178 @@
+{
+  "slug": "promptwatch",
+  "name": "Promptwatch",
+  "domain": "promptwatch.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that use Promptwatch",
+  "metaTitle": "Build AI agents for Promptwatch with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Promptwatch data for support insights, brand visibility research, reporting, and safe internal workflow automation.",
+  "intro": "Promptwatch helps brands understand how they appear across AI search engines and AI-driven conversations. With DocsBot Skill Builder, you can describe the Promptwatch-powered workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. That lets your agent answer questions, pull visibility insights, prepare summaries, and trigger approved follow-up actions without exposing technical complexity to your team.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up Promptwatch visibility trends for a brand, product, or topic and explain recent changes during a support conversation.",
+    "Let a support agent summarize AI search mention performance from Promptwatch when customers ask why a campaign, product line, or brand topic is gaining or losing visibility.",
+    "Have the agent gather Promptwatch insights and prepare a clear handoff note for customer success when a customer reports weak AI search presence or inconsistent brand mentions.",
+    "Enable a helpdesk-connected DocsBot agent to attach Promptwatch-based context to tickets so support teams can route brand visibility issues faster.",
+    "Use the agent to compare Promptwatch reporting periods and give customers a concise explanation of what changed, what may need review, and what team should follow up next."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Promptwatch visibility insights for brands, products, competitors, or campaigns.",
+    "Marketing, SEO, and customer success teams can ask the agent to summarize Promptwatch findings into executive-ready updates, weekly reports, or account review notes.",
+    "Teams can use the agent to research AI search performance trends in Promptwatch and combine those findings with internal SOPs for escalation, optimization, or follow-up planning.",
+    "Operations or account teams can chat with the agent to prepare handoff packages that include Promptwatch summaries, recommended next steps, and structured notes for the right owner.",
+    "Internal teams can ask the agent to monitor Promptwatch conditions and trigger approved workflows when visibility drops, new opportunities appear, or priority accounts need review."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes Promptwatch brand visibility for support or account conversations.",
+    "A private assistant that turns Promptwatch data into weekly AI search performance briefs.",
+    "A workflow that drafts customer handoff notes using Promptwatch trends and account context.",
+    "An internal agent that compares Promptwatch reporting windows and explains meaningful visibility changes.",
+    "A support assistant that routes tickets based on Promptwatch insight categories and urgency rules.",
+    "An employee agent that generates executive summaries from Promptwatch data for account reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Promptwatch-enabled agent to do, and it turns that plain-language goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should connect to Promptwatch, defines the required configuration values, protects and proxies secrets through secure runtime handling, and scopes access to the minimum data and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive steps, including approval boundaries, allowed actions, user scope, and safe workflow limits so the agent only acts within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined support and internal scenarios against the new Skill, finds bugs, weak instructions, or permission gaps, and feeds improvements into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using Promptwatch-powered AI Actions immediately."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Promptwatch?",
+      "answer": "With DocsBot Skill Builder, you describe the Promptwatch workflow you want in plain language, such as pulling visibility insights, creating summaries, or triggering follow-up steps. Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Promptwatch data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Promptwatch data to look up visibility trends, summarize changes, and prepare handoffs or ticket context while replying to customers. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Promptwatch?",
+      "answer": "An internal DocsBot agent can help employees retrieve Promptwatch insights, generate reports, compare periods, prepare account review notes, and trigger approved follow-up workflows. This is useful for marketing, SEO, operations, customer success, and leadership reporting."
+    },
+    {
+      "question": "Can DocsBot create summaries and reports from Promptwatch insights?",
+      "answer": "Yes, DocsBot can turn Promptwatch findings into concise summaries, account notes, executive briefings, and structured internal updates. The Skill can also format outputs for the teams and channels you use most."
+    },
+    {
+      "question": "How does DocsBot keep Promptwatch connections secure?",
+      "answer": "Skill Builder identifies the configuration values needed, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes permissions to approved records and actions. It can also add approval steps for more sensitive workflows."
+    },
+    {
+      "question": "Can a Promptwatch AI agent trigger handoffs or escalation workflows?",
+      "answer": "Yes, a DocsBot agent can use Promptwatch findings to prepare escalation notes, route issues, and trigger bounded follow-up workflows when your rules are met. This helps teams respond faster when visibility drops or high-priority accounts need review."
+    }
+  ],
+  "relatedSlugs": [
+    "google-analytics",
+    "mixpanel",
+    "amplitude",
+    "looker",
+    "tableau",
+    "power-bi"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Promptwatch",
+    "domain": "promptwatch.com",
+    "description": "Promptwatch is an analytics platform that helps brands understand and improve their visibility in AI-driven searches and conversations. They provide insights and optimization tools for companies to boost their presence in AI-generated content from platforms like ChatGPT, Perplexity, Claude, and Gemini, allowing brands to reach millions of consumers who use AI search engines to discover new brands and products.",
+    "slogan": "Boost Visibility in AI Search Engines",
+    "logoUrl": "https://media.brand.dev/2ea5e595-13f2-40fa-acdc-c23a2e7a53b8.svg",
+    "iconUrl": "https://media.brand.dev/884caccb-4445-46ad-8e25-8f9af4fe26ed.png",
+    "primaryColor": "#040404",
+    "accentColor": "#1a5fed",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1a5fed",
+        "name": "Azul"
+      },
+      {
+        "hex": "#84b5f2",
+        "name": "Fly Away"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fb1e79d5-c542-427d-95f3-0be4c8fa80c2.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://promptwatch.com/terms-and-conditions",
+      "contact": "https://promptwatch.com/contact-sales",
+      "privacy": "https://promptwatch.com/privacy-policy",
+      "blog": "https://promptwatch.com/blog/track-brand-mentions-ai-models-real-time-guide",
+      "login": null,
+      "signup": null,
+      "pricing": "https://promptwatch.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/884caccb-4445-46ad-8e25-8f9af4fe26ed.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2ea5e595-13f2-40fa-acdc-c23a2e7a53b8.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 747,
+        "height": 132,
+        "aspectRatio": 5.66
+      },
+      {
+        "url": "https://media.brand.dev/f4774eb7-6036-4d0e-84ff-3bdff5157980.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 1179,
+        "height": 1179,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/32b2f191-db6a-45a0-b3c0-181de7e25814.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2ea5e595-13f2-40fa-acdc-c23a2e7a53b8.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 747,
+      "height": 132,
+      "aspectRatio": 5.66
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/884caccb-4445-46ad-8e25-8f9af4fe26ed.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

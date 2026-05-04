@@ -1,0 +1,160 @@
+{
+  "slug": "coda",
+  "name": "Coda",
+  "domain": "coda.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Coda",
+  "metaTitle": "Build AI Support and Internal Agents for Coda with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Coda to look up information, update docs, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Coda brings docs, tables, and workflows together, which makes it a strong system for AI-powered lookups, updates, and guided actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent work with Coda safely. The result is an AI agent that can answer questions, retrieve live information, prepare handoffs, update approved records, and trigger bounded actions instead of only giving static replies.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order notes, account details, or product status stored in Coda while responding in a website chat or helpdesk ticket.",
+    "Use a support agent to create or update Coda rows for bug reports, feature requests, onboarding issues, or follow-up tasks during a customer conversation.",
+    "Have the agent summarize a customer's history from Coda tables and docs so it can provide faster answers or prepare a clean escalation handoff.",
+    "Enable the agent to collect missing context from the customer, write it into a structured Coda workflow tracker, and route the case to the right team.",
+    "Let the agent check knowledge captured in Coda docs and combine it with DocsBot answers to provide more current and contextual support responses."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to find information across Coda docs, tables, and linked workflows.",
+    "Use an internal AI assistant to create project notes, update task trackers, log operating issues, or draft status summaries into Coda from a simple chat request.",
+    "Help customer success, operations, or support teams follow SOPs by having the agent retrieve the right Coda checklist, ask for missing details, and complete approved workflow steps.",
+    "Enable team members to ask the agent for summarized program status, account health notes, meeting follow-ups, or open action items pulled from Coda.",
+    "Allow employees to research internal process documentation in Coda and have the agent turn it into concise answers, action plans, or handoff summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that reads Coda account trackers and answers customer status questions with live context.",
+    "An AI assistant that creates Coda rows for escalations, follow-ups, and structured support handoffs.",
+    "An internal operations agent that finds SOPs in Coda and guides employees through each required step.",
+    "A customer success assistant that summarizes onboarding progress from Coda and drafts next-step updates.",
+    "A helpdesk agent that logs feature requests or bug details into Coda during support conversations.",
+    "An internal reporting assistant that pulls Coda table data and generates concise team summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Coda-powered agent to do in plain language, such as answering support questions from live Coda data or updating a workflow table after approval."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chats or Skill instructions."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes the Skill to the minimum Coda actions and records needed, and adds approval boundaries for sensitive updates, handoffs, or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios, finds bugs, unclear instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, the Skill is deployed to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action inside Coda."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Coda data to answer customer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, and it creates a Skill that lets your agent look up approved Coda docs or table data while replying in chat or tickets. The workflow can also gather missing details, summarize findings, and prepare handoffs when a human team needs to step in."
+    },
+    {
+      "question": "Can an AI support agent update Coda during a customer conversation?",
+      "answer": "Yes, DocsBot can be configured to let the agent create or update approved Coda records such as support logs, escalations, bug reports, or follow-up tasks. Skill Builder designs those actions with scoped permissions and approval boundaries so updates stay controlled."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Coda?",
+      "answer": "An internal DocsBot agent can retrieve SOPs, search docs, update trackers, create meeting notes, summarize project status, and guide employees through repeatable workflows stored in Coda. Teams can use it in private chat, Slack, or Microsoft Teams to complete work faster from one conversation."
+    },
+    {
+      "question": "Can DocsBot use Coda for live lookups and structured summaries?",
+      "answer": "Yes, a Coda Skill can help an agent retrieve current information from docs and tables, then turn that information into concise answers, summaries, or next-step recommendations. This is useful for support, operations, customer success, and project coordination workflows."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Coda?",
+      "answer": "Skill Builder defines the needed configuration, keeps secrets out of chat and generated content, proxies authentication through secure runtime settings, and scopes access to the minimum actions required. It can also add approval checkpoints for sensitive updates or workflow triggers before the Skill is deployed."
+    },
+    {
+      "question": "Do I need to write code to create a Coda AI workflow in DocsBot?",
+      "answer": "No, the setup is designed for non-technical users who describe the outcome they want in plain language. Skill Builder handles the design, secure connection setup, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "notion",
+    "airtable",
+    "confluence",
+    "google-drive",
+    "sharepoint",
+    "slab"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Unit4",
+    "domain": "coda.com",
+    "description": "Unit4 is a global enterprise software company that delivers cloud‑based solutions for finance, human resources, procurement and project management. Its integrated platform combines ERP, financial planning & analysis, HCM, and source‑to‑pay tools, enabling organizations to automate processes, improve reporting, and make data‑driven decisions. Unit4 serves a wide range of industries—including professional services, public sector, higher education, and nonprofits—by offering flexible, people‑first applications that adapt to changing work patterns. The company emphasizes AI‑driven insights, seamless integrations, and a partnership approach to customer success, helping clients accelerate ROI, simplify operations, and enhance employee experiences across the enterprise.",
+    "slogan": "Simplify processes, control costs, enhance people’s experience of work.",
+    "logoUrl": "https://media.brand.dev/75890025-dbd3-486d-b19f-5f6f9662e72f.svg",
+    "iconUrl": "https://media.brand.dev/a2959933-390a-4704-b1b3-2fdb467a14cf.png",
+    "primaryColor": "#cae5bb",
+    "accentColor": "#81a284",
+    "colors": [
+      {
+        "hex": "#cae5bb",
+        "name": "Iced Avocado"
+      },
+      {
+        "hex": "#81a284",
+        "name": "Vineyard"
+      },
+      {
+        "hex": "#e5ebe6",
+        "name": "Lightning Bolt"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/080e5335-a4ab-4781-aadf-3d5951d2fbda.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/75890025-dbd3-486d-b19f-5f6f9662e72f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 164,
+        "height": 40,
+        "aspectRatio": 4.1
+      },
+      {
+        "url": "https://media.brand.dev/a2959933-390a-4704-b1b3-2fdb467a14cf.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/75890025-dbd3-486d-b19f-5f6f9662e72f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 164,
+      "height": 40,
+      "aspectRatio": 4.1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2959933-390a-4704-b1b3-2fdb467a14cf.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

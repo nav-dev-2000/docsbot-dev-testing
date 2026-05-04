@@ -1,0 +1,168 @@
+{
+  "slug": "accelo",
+  "name": "Accelo",
+  "domain": "accelo.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Accelo",
+  "metaTitle": "Build AI Agents for Accelo with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Accelo to look up client, project, ticket, and billing details, update records safely, and automate support or internal workflows.",
+  "intro": "Accelo helps service businesses manage clients, projects, tickets, time, billing, and operations in one place. With DocsBot Skill Builder, you can describe the Accelo-powered agent you want in plain language and have DocsBot design, secure, test, and publish the Skill for you. The result is an AI support agent or internal AI assistant that can answer questions and take approved actions inside Accelo instead of only pointing people to manual steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up client, ticket, project, retainer, or invoice status in Accelo and reply with a clear real-time summary.",
+    "Use the agent to create or update Accelo tickets from website chat conversations so support and service teams receive structured handoffs without manual re-entry.",
+    "Allow the agent to collect missing troubleshooting details from customers and append them to the matching Accelo record before escalating the issue.",
+    "Have the agent summarize open work, recent updates, deadlines, and assigned team members from Accelo when customers ask for project progress.",
+    "Enable the agent to trigger approved follow-up workflows in Accelo, such as creating a service request, scheduling next steps, or preparing an internal handoff note."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to pull up Accelo client histories, project health, ticket queues, and billing context without switching tools.",
+    "Give customer success, services, or operations teams an AI assistant that summarizes account activity across Accelo and prepares renewal, escalation, or project review notes.",
+    "Allow employees to ask the agent to create tickets, update project notes, log structured follow-ups, or prepare handoff records in Accelo using approved workflows.",
+    "Help finance or operations staff use the agent to research invoice, retainer, time entry, and work status details in Accelo before responding to internal questions.",
+    "Support SOP-driven workflows where employees chat with the agent to gather context from Accelo, confirm required information, and complete repeatable service delivery steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Accelo ticket, project, and invoice status for customers.",
+    "A website chat assistant that creates structured Accelo service requests from customer conversations.",
+    "An internal assistant that summarizes account health, open work, and recent activity from Accelo.",
+    "A team agent that prepares escalation notes and handoff summaries using live Accelo records.",
+    "An AI workflow that collects missing details and updates matching Accelo tickets safely.",
+    "A private operations assistant that researches time entries, retainers, and billing context in Accelo."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Accelo agent to do, such as checking project status, creating service requests, or preparing handoff summaries, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right workflow, identifies the configuration values the Skill needs, sets up secure authentication handling, protects and proxies secrets, and scopes Accelo access to the minimum records and actions required."
+    },
+    {
+      "title": "Actions get clear boundaries",
+      "description": "Skill Builder adds runtime instructions, safe action limits, and approval boundaries so the agent can look up data, update records, or trigger workflows only within the rules you approve."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing checks, or weak steps, and feeds those findings into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Accelo Skill to your customer-facing DocsBot, helpdesk agent, or internal team assistant so people can start using it in chat right away."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Accelo without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Accelo workflow you want in plain language, and the builder designs the Skill, handles secure connection details, tests it, improves it, and prepares it for deployment. That lets non-technical teams create AI agents that can use Accelo data and approved actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Accelo data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up relevant Accelo records such as tickets, projects, account details, or invoices and return a clear customer-friendly response. It can also gather missing context, summarize status, and prepare escalations based on the rules you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Accelo?",
+      "answer": "You can build workflows for status lookups, service request creation, ticket updates, escalation preparation, follow-up task triggering, and conversation summaries tied to Accelo records. The agent responds to the customer in chat or through a helpdesk while using Accelo in the background for approved actions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Accelo?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve client, project, service, and billing information from Accelo, summarize account activity, and complete repeatable workflows through chat, Slack, or Microsoft Teams. This is useful for services, customer success, operations, and finance teams that need fast answers and bounded actions."
+    },
+    {
+      "question": "How does DocsBot keep Accelo actions secure and controlled?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and scopes access to the minimum users, records, and actions needed. It can also add approval boundaries for sensitive updates or workflow triggers before the agent takes action."
+    },
+    {
+      "question": "Can DocsBot update Accelo records as part of an AI workflow?",
+      "answer": "Yes, the Skill can be designed to create or update approved records such as tickets, notes, handoff details, or project updates in Accelo. Those actions are bounded by the permissions, workflow rules, and approval steps set during Skill Builder’s design process."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zendesk",
+    "freshdesk",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Accelo",
+    "domain": "accelo.com",
+    "description": "Accelo is an all-in-one Professional Services Automation (PSA) software that helps service-based businesses work efficiently and scale successfully. It unifies client management, project tracking, resource planning, and financial automation into a single system, providing tools for CRM, invoicing, and analytics to improve profitability and visibility into operations.",
+    "slogan": "Streamline, automate, and grow your professional services with Accelo.",
+    "logoUrl": "https://media.brand.dev/1277479d-5c4d-40a1-889e-f035ef82cbeb.jpg",
+    "iconUrl": "https://media.brand.dev/1277479d-5c4d-40a1-889e-f035ef82cbeb.jpg",
+    "primaryColor": "#0f2495",
+    "accentColor": "#a63b4b",
+    "colors": [
+      {
+        "hex": "#0f2495",
+        "name": "Deepsea Kraken"
+      },
+      {
+        "hex": "#a63b4b",
+        "name": "Valentine"
+      },
+      {
+        "hex": "#f2ac88",
+        "name": "Peach Quartz"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6e0d46bd-5c8a-4af9-9d92-7f6bf6136535.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "pricing": "https://www.accelo.com/post/accelo-acquires-forecast-an-ai-enabled-saas-platform",
+      "careers": "https://www.accelo.com/company/careers",
+      "terms": "https://www.accelo.com/company/terms-of-service",
+      "privacy": "https://www.accelo.com/company/privacy-policy",
+      "blog": "https://www.accelo.com/blog"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1277479d-5c4d-40a1-889e-f035ef82cbeb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cfbb70f3-84e7-4990-b076-2b18a9915b73.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dff72cfc-be01-4ee2-addd-232660645f2b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1277479d-5c4d-40a1-889e-f035ef82cbeb.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1277479d-5c4d-40a1-889e-f035ef82cbeb.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

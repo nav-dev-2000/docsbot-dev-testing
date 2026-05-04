@@ -1,0 +1,160 @@
+{
+  "slug": "jfrog",
+  "name": "JFrog",
+  "domain": "jfrog.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JFrog",
+  "metaTitle": "Build JFrog AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use JFrog for secure lookups, release summaries, workflow triggers, and internal software delivery support.",
+  "intro": "JFrog helps teams manage binaries, artifacts, software releases, and software supply chain workflows across development and delivery. With DocsBot Skill Builder, you can describe the JFrog-powered agent behavior you want in plain language and have DocsBot design, secure, test, and package the Skill for you. The result is an AI support agent or internal team assistant that can safely look up release information, summarize artifact status, prepare handoffs, and trigger approved actions inside your JFrog environment.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check JFrog artifact or package availability and answer download, version, or release-status questions in chat or support tickets.",
+    "Use a DocsBot support agent to summarize release readiness from JFrog data so customers get a clear status update without waiting for an engineer.",
+    "Have the agent look up repository, build, or distribution details in JFrog and prepare a support handoff with the exact release context for your technical team.",
+    "Enable the agent to confirm whether a fix, package version, or patched build has been published in JFrog before replying to a customer.",
+    "Let the agent trigger an approved internal follow-up workflow when a customer needs escalation related to a missing artifact, delayed release, or version mismatch."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that checks JFrog repositories, builds, and artifact metadata when they chat in DocsBot, Slack, or Microsoft Teams.",
+    "Let release, support, or operations teams ask the agent for a summary of package versions, promotion status, or distribution state across JFrog workflows.",
+    "Enable engineers and customer success teams to use a private agent to prepare incident context, release notes, or internal handoffs based on JFrog records.",
+    "Help internal teams follow software delivery SOPs by chatting with an agent that gathers JFrog details, confirms required conditions, and triggers approved next steps.",
+    "Allow employees to ask an internal DocsBot agent to compare artifact versions, trace build outputs, and surface the right JFrog references for research or troubleshooting."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks whether a package or binary version is available in JFrog.",
+    "A support assistant that summarizes build, repository, or release status for customer-facing responses.",
+    "An internal release bot that retrieves artifact metadata and promotion details from JFrog.",
+    "A handoff workflow that packages JFrog build context for engineering escalation.",
+    "An approval-based agent action that triggers a bounded release follow-up workflow.",
+    "A troubleshooting assistant that compares versions and traces artifact history across repositories."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the JFrog-powered agent to do, such as checking artifact availability, summarizing release status, or preparing an escalation, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the right configuration values, connection method, and authentication approach, keeps secrets out of chats and Skill source, proxies credentials through secure runtime settings, and scopes access to only the JFrog actions and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right action limits, user scope, and approval boundaries so sensitive updates, release-related workflows, or internal triggers stay under your control."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations against the Skill, finds bugs, missing instructions, or permission gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot agent or your private internal assistant so teams can start using JFrog data and actions through natural language."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with JFrog?",
+      "answer": "With DocsBot Skill Builder, you describe the JFrog workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment. The finished agent can perform bounded lookups, summaries, handoffs, and approved actions inside your JFrog environment."
+    },
+    {
+      "question": "Can an AI support agent use JFrog data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use JFrog data to check artifact availability, version details, build status, or release context while responding in a chat widget or helpdesk flow. You control what the agent is allowed to read, summarize, or trigger."
+    },
+    {
+      "question": "What customer support workflows can a DocsBot agent automate with JFrog?",
+      "answer": "A JFrog-connected DocsBot agent can look up package or release information, confirm whether a fix has been published, summarize repository or build state, and prepare escalation handoffs with the right technical context. It can also trigger approved follow-up workflows when a case needs internal action."
+    },
+    {
+      "question": "What can an internal AI assistant do with JFrog for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve build and artifact details, compare versions, summarize promotion or distribution status, and support release or incident workflows through chat, Slack, or Microsoft Teams. This reduces manual searching and helps teams follow consistent SOPs."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in JFrog-based workflows?",
+      "answer": "Yes, DocsBot Skill Builder is designed to define secure configuration, protect and proxy secrets, scope permissions, and add approval boundaries for sensitive actions. That lets your agent take bounded action without exposing credentials or overreaching access."
+    },
+    {
+      "question": "Do I need developers to set up a JFrog AI workflow in DocsBot?",
+      "answer": "Not necessarily. You describe the result you want, and Skill Builder handles the workflow design, secure connection details, testing, and deployment guidance so non-technical teams can move forward more easily."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "bitbucket",
+    "jira",
+    "pagerduty",
+    "opsgenie"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JFrog",
+    "domain": "jfrog.com",
+    "description": "JFrog is a leading provider of binary repository management solutions for software developers. With a commitment to a 'Liquid Software' vision, the JFrog Software Supply Chain Platform enables organizations to build, manage, and distribute software quickly and securely. It offers an end-to-end platform that ensures visibility, security, and control, automating the delivery of trusted software releases. The massively scalable and hybrid JFrog Platform is designed to be open, flexible, and fully integrated with various package technologies and tools that make up the software supply chain. This allows organizations to achieve complete traceability across diverse release types and deployment environments, including machine learning models and software utilized at the edge. JFrog's solution facilitates the efficient management of binaries from development to production, empowering seamless software updates and deployments.",
+    "slogan": "Deliver Trusted Software with Speed and Complete Control",
+    "logoUrl": "https://media.brand.dev/a1aa7ad1-4391-4045-bbe6-51e1f0705f08.png",
+    "iconUrl": "https://media.brand.dev/a1aa7ad1-4391-4045-bbe6-51e1f0705f08.png",
+    "primaryColor": "#3cbc44",
+    "accentColor": "#69a944",
+    "colors": [
+      {
+        "hex": "#3cbc44",
+        "name": "Matt Green"
+      },
+      {
+        "hex": "#69a944",
+        "name": "Caterpillar"
+      },
+      {
+        "hex": "#b4d39c",
+        "name": "In Good Taste"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5f1dcd91-9702-4f59-ad26-7abc595dd6c7.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://join.jfrog.com/",
+      "terms": "https://jfrog.com/terms-of-use/",
+      "contact": "https://jfrog.com/contact-us/",
+      "privacy": "https://jfrog.com/privacy-notice/",
+      "blog": "https://jfrog.com/blog/",
+      "pricing": "https://jfrog.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a1aa7ad1-4391-4045-bbe6-51e1f0705f08.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 740,
+        "height": 698,
+        "aspectRatio": 1.06
+      },
+      {
+        "url": "https://media.brand.dev/3a610371-6920-4706-aed4-010894953a54.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a1aa7ad1-4391-4045-bbe6-51e1f0705f08.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 740,
+      "height": 698,
+      "aspectRatio": 1.06
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a1aa7ad1-4391-4045-bbe6-51e1f0705f08.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 740,
+      "height": 698,
+      "aspectRatio": 1.06
+    }
+  }
+}

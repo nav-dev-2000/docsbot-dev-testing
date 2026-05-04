@@ -1,0 +1,168 @@
+{
+  "slug": "zesty-io",
+  "name": "Zesty.io",
+  "domain": "zesty-io.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zesty.io",
+  "metaTitle": "Build AI Agents for Zesty.io with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zesty.io to look up content, summarize publishing state, prepare handoffs, and trigger approved CMS workflows safely.",
+  "intro": "Zesty.io helps teams manage website and content operations across hybrid and headless experiences. With DocsBot Skill Builder, you can describe the Zesty.io workflow you want in plain language and have DocsBot create a reusable Skill for a customer support agent or internal team assistant. That means your AI agent can answer questions, check content status, prepare handoffs, and take bounded actions in Zesty.io while staying inside your approval and security rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a help article, product page, or campaign landing page is published in Zesty.io before answering a customer question.",
+    "Use Zesty.io content data to help a support agent pull the latest policy, feature, or documentation copy and respond with more accurate website-backed answers.",
+    "Have the agent summarize the current status of a page, content item, or publishing workflow in Zesty.io and include that context in a helpdesk reply or escalation.",
+    "Allow the agent to create an internal handoff when a customer reports outdated or incorrect website content, including the affected URL, issue summary, and customer impact.",
+    "Enable the agent to trigger an approved content review or publishing workflow in Zesty.io when a support case reveals an urgent documentation or website update is needed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Zesty.io content records, page status, and publishing details without switching tools.",
+    "Marketing, support, and web teams can ask the agent to summarize what changed across selected Zesty.io content items and prepare a handoff for review or approval.",
+    "Team members can use the agent to follow content operations SOPs, such as checking localization status, identifying outdated pages, and routing follow-up work to the right owner.",
+    "Internal teams can ask the agent to gather website content context from Zesty.io before drafting responses, launch checklists, campaign updates, or stakeholder summaries.",
+    "Employees can use the agent to trigger bounded Zesty.io workflows for content review, publishing preparation, or issue escalation while approval controls remain in place."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Zesty.io page or article publishing status during customer conversations.",
+    "A private team assistant that retrieves content details and summarizes website changes from Zesty.io.",
+    "A DocsBot workflow that creates content issue handoffs when customers report inaccurate website information.",
+    "An internal agent that checks localization or campaign page readiness before launch decisions are made.",
+    "A support assistant that pulls approved website copy from Zesty.io for consistent customer replies.",
+    "A team agent that prepares review packets and escalation summaries using Zesty.io content context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zesty.io in plain language, such as checking page status, summarizing content changes, or triggering a review workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a reusable Skill, defines the needed configuration values, and plans the safest way for the agent to read data or take approved actions in Zesty.io."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill instructions, proxies credentials through protected runtime configuration, and scopes access to the minimum content, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits so sensitive updates, publishing steps, or workflow triggers only happen when you want them to and only within the records and permissions you allow."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, missing instructions, or weak permission checks, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zesty.io without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Zesty.io outcome you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. It handles connection planning, secret protection, scoped permissions, and deployment steps for you."
+    },
+    {
+      "question": "Can an AI support agent use Zesty.io data to answer customer questions?",
+      "answer": "Yes, you can create a DocsBot Skill that lets a support agent look up approved Zesty.io content, check publishing status, summarize page details, and use that context while replying in a website chat widget or helpdesk workflow. Actions can be limited to safe lookups or expanded to approved handoffs and workflow triggers."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zesty.io?",
+      "answer": "A DocsBot agent can verify whether content is live, pull approved website copy, summarize page or article status, create internal handoffs for outdated content, and trigger bounded review workflows tied to customer-reported issues. This helps support teams resolve questions faster while keeping content operations aligned."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Zesty.io content operations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve content information, research publishing status, summarize changes, and follow content governance or launch SOPs connected to Zesty.io. The agent can also prepare review requests, escalation notes, and workflow summaries for cross-functional teams."
+    },
+    {
+      "question": "How does DocsBot keep Zesty.io actions safe for AI agents?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, scopes access to the smallest set of records and actions needed, and adds approval boundaries where updates or workflow triggers could be sensitive. Automated testing also checks for permission gaps and weak workflow behavior before the Skill is deployed."
+    },
+    {
+      "question": "Can DocsBot trigger updates or workflows in Zesty.io instead of only answering questions?",
+      "answer": "Yes, Skills can be designed for bounded AI Actions such as creating content issue handoffs, starting review flows, preparing publishing-related summaries, or triggering approved next steps in Zesty.io. You control which actions are allowed and where human approval is required."
+    }
+  ],
+  "relatedSlugs": [
+    "contentful",
+    "sanity",
+    "strapi",
+    "webflow",
+    "contentstack",
+    "storyblok"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zesty",
+    "domain": "zesty.io",
+    "description": "Zesty.io is a leading SaaS platform for brand marketing teams, offering a robust hybrid & headless content management system (CMS) that allows for easy creation, previewing, and publishing of content using visual drag-and-drop tools. Trusted by global brands, Zesty.io empowers mid-market and enterprise organizations to efficiently manage digital content and enhance their global content reach with secure customer interactions. Marketers benefit from visual tools, automated SEO, and localization capabilities, enabling them to create and manage content effortlessly. Developers can leverage headless APIs and a hybrid environment to craft unique digital experiences, while managers can streamline digital strategies on a secure, scalable cloud platform. With features like business analytics, AI assistance, and content APIs, Zesty.io is the go-to solution for teams seeking to engage customers and drive sales through dynamic websites.",
+    "slogan": "Experience digital freedom with Zesty.io",
+    "logoUrl": "https://media.brand.dev/ec47f7b1-c78c-4a98-a020-cc98f543a38a.svg",
+    "iconUrl": "https://media.brand.dev/0f111845-97fd-4e8a-86f0-2f284f751c05.jpg",
+    "primaryColor": "#fa5f10",
+    "accentColor": "#f2b684",
+    "colors": [
+      {
+        "hex": "#fa5f10",
+        "name": "Orange Tiger"
+      },
+      {
+        "hex": "#f2b684",
+        "name": "Camel Hair Coat"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/615e33d5-3ab8-4305-a14a-9e62553af165.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://zesty.io/contact/",
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://www.zesty.io/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0f111845-97fd-4e8a-86f0-2f284f751c05.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ec47f7b1-c78c-4a98-a020-cc98f543a38a.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 960,
+        "height": 268,
+        "aspectRatio": 3.58
+      },
+      {
+        "url": "https://media.brand.dev/fcaf92dc-a518-4aa9-a1b7-18e3955ec00e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1251,
+        "height": 1251,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ec47f7b1-c78c-4a98-a020-cc98f543a38a.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 960,
+      "height": 268,
+      "aspectRatio": 3.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0f111845-97fd-4e8a-86f0-2f284f751c05.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

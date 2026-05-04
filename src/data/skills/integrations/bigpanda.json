@@ -1,0 +1,113 @@
+{
+  "slug": "bigpanda",
+  "name": "BigPanda",
+  "domain": "bigpanda.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with BigPanda",
+  "metaTitle": "Build BigPanda AI Agents for Support and Operations",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read incident context in BigPanda, trigger safe workflows, prepare handoffs, and support teams faster.",
+  "intro": "BigPanda helps teams manage and correlate incident activity across their operations stack. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely look up incident data, summarize status, trigger approved actions, and prepare escalations. That gives customer-facing support teams and internal operations teams an AI agent that can answer questions and take bounded action inside BigPanda.",
+  "supportUseCases": [
+    "Let a DocsBot support agent check BigPanda incident status while replying to a customer in chat or a helpdesk ticket.",
+    "Have the agent summarize active incidents, likely impact, and current severity so customers get a clearer status update.",
+    "Enable the agent to create an internal escalation or handoff note tied to a BigPanda incident when a customer reports a service disruption.",
+    "Let the agent gather missing context from the customer, then attach or route that context into an approved incident workflow.",
+    "Use the agent to prepare consistent incident update messages for customers based on current BigPanda state and internal response progress."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up BigPanda incidents, alerts, and related status without switching tools.",
+    "Operations teams can ask the agent to summarize incident timelines, likely impact, ownership, and next steps using BigPanda context and internal documentation.",
+    "Support and customer success teams can use the agent to generate escalation handoffs, incident briefs, and follow-up summaries for cross-functional response workflows.",
+    "Team members can ask the agent to follow SOPs around incident triage, gather missing details, and trigger approved BigPanda-related workflows with clear approval boundaries.",
+    "Leaders can use the agent to produce plain-language summaries of incident activity for internal updates, stakeholder communications, and post-incident coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks BigPanda incident status before answering outage-related customer questions.",
+    "A private operations assistant that summarizes open incidents, owners, severity, and recommended next steps.",
+    "An escalation Skill that gathers customer impact details and prepares a BigPanda-ready handoff summary.",
+    "A workflow action that triggers approved incident routing or notification steps from an employee chat request.",
+    "A status communication Skill that turns BigPanda incident context into clear customer-safe update messages.",
+    "An internal triage assistant that follows incident SOPs and asks for missing context before acting."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in BigPanda, such as checking incident status, preparing escalations, or triggering an approved workflow, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, authentication handling, and secret protection automatically, keeping credentials out of chats and Skill source while scoping access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe runtime instructions, permission limits, and approval boundaries so the agent can look up data, summarize incidents, and take only the approved BigPanda actions you want it to perform."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use BigPanda actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BigPanda?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and it creates a Skill that lets your AI agent safely read BigPanda context, summarize incidents, and trigger approved workflows. Skill Builder also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use BigPanda data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use a BigPanda Skill to check incident status, summarize impact, and prepare better customer responses from live incident context. You can keep those actions bounded so the agent only accesses the data and workflows you approve."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with BigPanda?",
+      "answer": "A DocsBot agent can help with outage status lookups, escalation preparation, impact summaries, customer update drafting, and routing details into approved incident workflows. This helps support teams respond faster without giving the agent unlimited operational control."
+    },
+    {
+      "question": "Can an internal AI assistant help operations teams with BigPanda?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve incident details, summarize timelines, review ownership, and follow triage SOPs tied to BigPanda. The agent can also trigger approved next steps when your rules allow it."
+    },
+    {
+      "question": "How does DocsBot keep BigPanda actions secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated content. It also scopes permissions and can add approval boundaries for sensitive updates or workflow actions."
+    },
+    {
+      "question": "Can DocsBot test a BigPanda workflow before we deploy it?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs realistic support and internal scenarios to find bugs, missing checks, or unclear instructions. Those results can be used in an automated self-improvement loop before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "pagerduty",
+    "opsgenie",
+    "servicenow",
+    "jira-service-management",
+    "datadog",
+    "new-relic"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bigpanda",
+    "domain": "bigpanda.com",
+    "description": "",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "slug": "yotpo",
+  "name": "Yotpo",
+  "domain": "yotpo.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Yotpo",
+  "metaTitle": "Build Yotpo AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Yotpo for support lookups, loyalty and reviews workflows, summaries, and internal team actions.",
+  "intro": "Yotpo helps commerce teams manage reviews, loyalty, referrals, and customer retention programs across the buying journey. With DocsBot Skill Builder, you can describe the Yotpo workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in Yotpo with secure configuration, testing, and approval controls built in.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up loyalty point balances, VIP tier status, or referral eligibility in Yotpo while answering account questions in chat or helpdesk tickets.",
+    "Use the agent to summarize a shopper’s Yotpo review history, rewards activity, and recent retention context so support can respond with accurate next steps.",
+    "Allow the agent to create or prepare approved support handoffs when a loyalty, referral, or review issue needs a specialist to investigate further.",
+    "Enable the agent to trigger approved Yotpo workflows such as review follow-up requests or loyalty support processes after confirming the customer’s request and policy rules.",
+    "Have the agent gather missing details from the customer, then update allowed Yotpo records or notes so the support team has a complete case history."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Yotpo loyalty, reviews, and referral program information without digging through multiple dashboards.",
+    "Give customer success or operations teams an internal AI assistant that summarizes review trends, loyalty status questions, and retention activity for faster decision-making.",
+    "Help support managers research escalations by asking the agent to collect Yotpo context, prepare a case summary, and follow internal handoff steps.",
+    "Enable marketing or retention teams to chat with the agent to check program status, gather campaign context, and complete approved Yotpo-related SOPs across connected systems.",
+    "Support internal audit and operations workflows by having the agent retrieve Yotpo data, explain policy rules, and prepare structured summaries for team review."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Yotpo loyalty balances and explains reward eligibility to shoppers.",
+    "An AI assistant that summarizes reviews, referrals, and loyalty activity before human escalation.",
+    "A helpdesk agent that prepares Yotpo case notes and structured handoff summaries automatically.",
+    "An internal operations agent that retrieves Yotpo program data and follows team SOPs.",
+    "A retention support assistant that triggers approved Yotpo workflows after confirmation and policy checks.",
+    "A private team agent that answers questions about customer rewards and review history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Yotpo agent to do in plain language, and it translates that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder decides the safest way to connect Yotpo, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for updates, workflow triggers, or other sensitive steps so the agent acts only within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill, prepares it for deployment, and helps publish it to the right DocsBot support agent or internal AI assistant without making you manually wire the implementation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Yotpo?",
+      "answer": "With DocsBot Skill Builder, you describe the Yotpo workflow you want in plain language, such as checking loyalty status or preparing a review-related handoff, and Skill Builder creates a reusable Skill with secure configuration, testing, and deployment guidance. The finished agent can answer questions and take approved actions inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use Yotpo data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Yotpo Skill to look up allowed customer and program information, summarize relevant context, and prepare next steps while responding in a website chat widget or helpdesk flow. You can also limit which records and actions the agent is allowed to access."
+    },
+    {
+      "question": "What Yotpo customer support workflows can DocsBot automate?",
+      "answer": "DocsBot can help automate loyalty balance lookups, rewards eligibility explanations, review and referral context gathering, escalation prep, structured handoff notes, and approved workflow triggers. The exact actions are shaped around your policies, approval needs, and support process."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Yotpo?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Yotpo information, research account context, summarize retention activity, and complete approved workflows or SOPs through chat, Slack, or Microsoft Teams. This reduces dashboard switching and speeds up cross-team coordination."
+    },
+    {
+      "question": "How does DocsBot keep Yotpo actions safe?",
+      "answer": "Skill Builder is designed to define secure connection settings, keep credentials out of chats and generated content, proxy secrets through approved runtime configuration, and scope permissions to the minimum needed. It can also add approval boundaries for sensitive updates or triggers before the agent is deployed."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Yotpo?",
+      "answer": "No, the setup is framed around describing the outcome you want, not manually building the integration yourself. Skill Builder handles the design, secure configuration, testing, improvement cycle, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "klaviyo",
+    "gorgias",
+    "zendesk",
+    "recharge",
+    "bigcommerce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Yotpo",
+    "domain": "yotpo.com",
+    "description": "Yotpo is a leading eCommerce retention marketing platform that helps brands such as Steve Madden, Princess Polly, Brooklinen, and Moroccanoil turn shoppers into lifelong customers. The platform combines data‑driven solutions for reviews, visual user‑generated content, loyalty programs, and referrals, allowing merchants to maximize customer value. Yotpo integrates seamlessly with everyday tools like Google, Instagram, major eCommerce platforms, and broader marketing technology stacks. Recognized as a Forbes Cloud 100 company, Yotpo operates globally with offices in New York, London, Sydney, and Tel Aviv, supporting thousands of forward‑thinking brands in driving growth and engagement.",
+    "slogan": "Drive more revenue with Loyalty, Reviews, and AI Visibility",
+    "logoUrl": "https://media.brand.dev/aa9c107b-64f8-4af0-9220-9671cca6b9f9.svg",
+    "iconUrl": "https://media.brand.dev/72470867-a6f0-4f94-b7c2-80d208b0a3c0.jpg",
+    "primaryColor": "#34343c",
+    "accentColor": "#0544e2",
+    "colors": [
+      {
+        "hex": "#34343c",
+        "name": "Hawk’s Eye"
+      },
+      {
+        "hex": "#0544e2",
+        "name": "Merchant Marine Blue"
+      },
+      {
+        "hex": "#76a5d6",
+        "name": "Kindred"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9eacd908-3274-4efd-a125-797c6c923181.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.yotpo.com/terms-of-service/",
+      "privacy": "https://www.yotpo.com/privacy-policy/",
+      "careers": "https://www.yotpo.com/careers/",
+      "contact": "https://www.yotpo.com/contact-us/",
+      "blog": "https://www.yotpo.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.yotpo.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/72470867-a6f0-4f94-b7c2-80d208b0a3c0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aa9c107b-64f8-4af0-9220-9671cca6b9f9.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 184,
+        "height": 51,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/507b33de-4347-4fa7-b2fc-ba7fb61e7b79.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/aa9c107b-64f8-4af0-9220-9671cca6b9f9.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 184,
+      "height": 51,
+      "aspectRatio": 3.61
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/507b33de-4347-4fa7-b2fc-ba7fb61e7b79.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

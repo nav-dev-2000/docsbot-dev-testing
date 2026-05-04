@@ -1,0 +1,156 @@
+{
+  "slug": "smartlead",
+  "name": "Smartlead",
+  "domain": "smartlead.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build Smartlead AI agents with DocsBot Skill Builder",
+  "metaTitle": "Build Smartlead AI agents for support and sales with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Smartlead for lead lookups, campaign updates, handoffs, and internal workflow automation with secure, tested Skills.",
+  "intro": "Smartlead helps teams capture, qualify, and distribute leads, and DocsBot Skill Builder helps you turn that data and workflow access into practical AI actions. In plain language, you can describe the outcome you want, and Skill Builder creates a reusable Skill that lets a DocsBot support agent or internal AI assistant safely look up records, update campaign context, trigger workflows, and summarize results. The result is an AI agent that does more than answer questions by taking bounded action inside your Smartlead processes.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Smartlead lead or campaign status while answering questions about outreach progress, assigned owner, or next follow-up step.",
+    "Use a DocsBot helpdesk agent to create or update lead notes in Smartlead based on customer replies, then summarize the interaction for a human handoff.",
+    "Have the agent verify whether a prospect has already been captured or routed in Smartlead before collecting duplicate information from the customer.",
+    "Let the agent prepare escalation context by pulling Smartlead activity history, recent campaign state, and ownership details into a clean support handoff.",
+    "Use the agent to trigger an approved Smartlead workflow, such as assigning a lead or flagging it for follow-up, while keeping the customer conversation moving."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Smartlead lead records, campaign activity, and ownership without opening multiple tools.",
+    "Let sales or operations teams ask the agent to summarize Smartlead outreach status for an account, identify gaps, and suggest the next approved step.",
+    "Help employees update Smartlead notes, assignments, or lead routing fields through chat while the agent follows your workflow rules and approval boundaries.",
+    "Give revops and customer success teams an internal assistant that researches Smartlead activity alongside other business context to prepare handoffs, follow-up tasks, and account summaries.",
+    "Support internal SOPs by letting team members ask the agent to gather Smartlead data, confirm required fields, and complete approved multi-step lead management workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Smartlead lead status before answering qualification or routing questions.",
+    "A helpdesk assistant that writes Smartlead notes from ticket context and prepares escalation summaries.",
+    "An internal sales assistant that finds campaign activity and summarizes next steps for reps.",
+    "A lead routing agent that updates ownership fields after collecting missing context in chat.",
+    "A revops assistant that flags duplicate leads and suggests approved cleanup actions.",
+    "A handoff workflow that packages Smartlead history for sales, support, or success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Smartlead agent to do in plain language, such as checking lead status, updating notes, routing records, or preparing handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, chooses the right workflow steps, identifies the required configuration values, and defines safe authentication and connection handling for Smartlead."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so it can answer questions and take approved Smartlead actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Smartlead?",
+      "answer": "With DocsBot Skill Builder, you describe the Smartlead workflow you want in plain language, and the builder creates a reusable Skill that can look up data, update records, trigger approved actions, and summarize outcomes. It also designs secure configuration, authentication handling, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Smartlead data while chatting with customers?",
+      "answer": "Yes, a DocsBot support agent can use a Smartlead Skill to retrieve lead or campaign context, avoid duplicate data collection, prepare handoffs, and take approved follow-up actions while responding to website chats or helpdesk tickets. Access can be limited to the specific records and actions you allow."
+    },
+    {
+      "question": "What Smartlead workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees look up lead records, summarize outreach activity, update notes or ownership, and complete lead routing or follow-up SOPs through chat. Skill Builder can also add approval steps for actions that should not run automatically."
+    },
+    {
+      "question": "Can DocsBot safely update Smartlead records through AI actions?",
+      "answer": "Yes, Skill Builder is designed to define bounded actions such as note updates, assignment changes, or workflow triggers with scoped permissions and approval boundaries. Secrets and authentication are handled through secure runtime configuration rather than exposed in chats or prompts."
+    },
+    {
+      "question": "Can an AI agent create Smartlead handoffs and escalation summaries?",
+      "answer": "Yes, DocsBot can gather Smartlead activity, ownership details, and conversation context to generate clean summaries for sales, support, or operations handoffs. This helps teams move faster while keeping the final action inside your approved process."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Smartlead with DocsBot?",
+      "answer": "You explain the result you want, and Skill Builder handles the design, secure connection details, testing, improvement, and publishing steps for the Skill. That keeps setup focused on business outcomes instead of manual integration work."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "apollo",
+    "outreach",
+    "pipedrive",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SmartLead",
+    "domain": "smartlead.com",
+    "description": "Atom (formerly Squadhelp) is a comprehensive branding and domain services platform that helps businesses find, acquire, and protect premium domain names and brand identities. Offering a curated marketplace of over 400,000 brandable domains—including ultra‑premium, one‑word, and modern extensions like .ai, .io, and .xyz—Atom also provides AI‑powered naming contests, human brainstorming, domain appraisal, WHOIS lookup, and trademark services. Additional tools include logo design, brand monitoring, audience research, and a white‑label marketplace for partners. Through its API, MCP server, and AtomConnect ecosystem, the company enables agencies, resellers, and enterprises to integrate premium domain access, availability checks, and trademark data directly into their workflows, delivering end‑to‑end naming, branding, and domain management solutions.",
+    "slogan": "Capture, qualify, and distribute leads—ensure sales teams work them.",
+    "logoUrl": "https://media.brand.dev/4dd91e2f-1823-4df6-8bea-3a98cd2b44a4.svg",
+    "iconUrl": "https://media.brand.dev/45ec3efa-085d-4ed3-a1d0-235cc78ebe23.png",
+    "primaryColor": "#1c1c4c",
+    "accentColor": "#637cf5",
+    "colors": [
+      {
+        "hex": "#1c1c4c",
+        "name": "Fly by Night"
+      },
+      {
+        "hex": "#637cf5",
+        "name": "Pan Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9400bffa-2743-47eb-8adb-57adaa17224a.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4dd91e2f-1823-4df6-8bea-3a98cd2b44a4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 139,
+        "height": 26,
+        "aspectRatio": 5.35
+      },
+      {
+        "url": "https://media.brand.dev/45ec3efa-085d-4ed3-a1d0-235cc78ebe23.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4dd91e2f-1823-4df6-8bea-3a98cd2b44a4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 139,
+      "height": 26,
+      "aspectRatio": 5.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/45ec3efa-085d-4ed3-a1d0-235cc78ebe23.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

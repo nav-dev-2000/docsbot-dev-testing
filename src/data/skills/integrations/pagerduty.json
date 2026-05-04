@@ -1,0 +1,178 @@
+{
+  "slug": "pagerduty",
+  "name": "PagerDuty",
+  "domain": "pagerduty.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with PagerDuty",
+  "metaTitle": "Build PagerDuty AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use PagerDuty for incident lookups, escalations, summaries, and approved actions in support and internal operations workflows.",
+  "intro": "PagerDuty helps teams detect, manage, and respond to incidents across critical systems and services. With DocsBot Skill Builder, you can describe the PagerDuty workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. That lets your agent answer questions, check incident status, prepare escalations, and trigger bounded operational actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check PagerDuty incident status and share safe real-time updates during an outage or service disruption.",
+    "Use a helpdesk-connected DocsBot agent to create a structured escalation note in PagerDuty when a customer reports a critical issue that matches your escalation rules.",
+    "Allow the agent to summarize impacted services, current incident priority, and recent responder activity from PagerDuty before replying to a customer ticket.",
+    "Have the agent collect missing troubleshooting details from the customer and prepare a clean PagerDuty handoff for human responders.",
+    "Enable the agent to add approved customer-impact context to an existing PagerDuty incident so operations teams see what users are experiencing in real time."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up PagerDuty incidents, on-call schedules, escalation policies, and current response status.",
+    "Help IT, support, and operations teams ask the agent for a summary of active incidents, impacted services, and recommended next escalation steps pulled from PagerDuty.",
+    "Allow internal teams to use the agent to create incident drafts, attach business context, and route handoffs into PagerDuty using approval boundaries for sensitive actions.",
+    "Support post-incident workflows by having employees ask the agent to gather PagerDuty timelines, summarize responder notes, and prepare follow-up artifacts for reviews.",
+    "Give customer success or account teams a private agent that checks PagerDuty before communicating with customers about known outages or degraded service."
+  ],
+  "whatYouCanBuild": [
+    "An outage status lookup Skill for customer chat and support tickets.",
+    "A PagerDuty escalation handoff Skill that packages customer impact details clearly.",
+    "An internal incident summary Skill for Slack or Microsoft Teams.",
+    "An on-call schedule lookup Skill for employee help and routing.",
+    "A controlled incident creation Skill with approvals for high-severity events.",
+    "A service health explanation Skill that turns PagerDuty details into customer-safe language."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PagerDuty agent to do in plain language, such as checking incident status, preparing escalations, or creating safe internal summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill design, decides what PagerDuty data or actions are needed, and defines the secure configuration values and authentication approach automatically."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder keeps secrets and credentials out of chats and source by proxying them through secure runtime configuration, while scoping access to only the users, records, actions, and systems required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive PagerDuty workflows so the agent can take bounded action without exceeding the permissions you intend."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses PagerDuty for incident response workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the PagerDuty workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use PagerDuty data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use PagerDuty to look up incident status, summarize impacted services, prepare escalations, and add approved customer-impact context while replying in chat or tickets."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with PagerDuty?",
+      "answer": "You can build workflows for outage status lookups, incident-aware ticket replies, escalation handoffs, customer-impact summaries, and bounded updates that help responders act faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with PagerDuty in Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to check incidents, review on-call details, gather responder notes, summarize timelines, and complete controlled operational workflows connected to PagerDuty."
+    },
+    {
+      "question": "How does DocsBot keep PagerDuty actions safe and controlled?",
+      "answer": "Skill Builder defines secure authentication handling, keeps secrets out of conversations, scopes permissions to the minimum required access, and can require approvals or action limits for sensitive PagerDuty updates."
+    },
+    {
+      "question": "Can DocsBot create incident handoffs and escalation summaries from customer conversations?",
+      "answer": "Yes, a Skill can collect relevant details from a customer conversation, organize them into a clean operational summary, and send that context into PagerDuty for faster triage and escalation."
+    }
+  ],
+  "relatedSlugs": [
+    "opsgenie",
+    "servicenow",
+    "jira-service-management",
+    "zendesk",
+    "freshservice",
+    "statuspage"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PagerDuty",
+    "domain": "pagerduty.com",
+    "description": "PagerDuty is a digital operations management platform that collects data from software-enabled systems and devices, using machine learning to identify issues and opportunities in real-time. They help teams across businesses, including developers, IT Ops, and DevOps, provide an optimal digital experience to customers. PagerDuty serves various industries and is trusted by over 18,000 businesses to improve their digital operations, responding to problems faster and preventing them in the future.",
+    "slogan": "Transform critical operations with AI first Operations Platform",
+    "logoUrl": "https://media.brand.dev/aacbae78-f86a-4bde-9e78-27a0827b8142.png",
+    "iconUrl": "https://media.brand.dev/dce4ea15-01b0-40a9-ae89-1ffa562b38a2.jpg",
+    "primaryColor": "#05ac3c",
+    "accentColor": "#7cd49c",
+    "colors": [
+      {
+        "hex": "#05ac3c",
+        "name": "Poison Ivy"
+      },
+      {
+        "hex": "#7cd49c",
+        "name": "Enchanted Emerald"
+      },
+      {
+        "hex": "#af847c",
+        "name": "Night Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0afa758a-a04c-4213-9cf6-61955e5cd422.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.pagerduty.com/home",
+      "terms": "https://www.pagerduty.com/website-terms-of-use/",
+      "privacy": "https://www.pagerduty.com/privacy-policy/",
+      "contact": "https://www.pagerduty.com/contact-us/",
+      "blog": "https://www.pagerduty.com/blog/aiops/we-built-an-sre-agent-with-memory-and-its-transforming-incident-response",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.pagerduty.com/pricing/incident-management/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/dce4ea15-01b0-40a9-ae89-1ffa562b38a2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 360,
+        "height": 360,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6f6e6ac2-9fae-418c-b4ce-d80ff5f25db0.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 450,
+        "height": 450,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aacbae78-f86a-4bde-9e78-27a0827b8142.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 429,
+        "aspectRatio": 1.68
+      },
+      {
+        "url": "https://media.brand.dev/cc834ec5-2d74-46a3-ac9c-9ead75bc0800.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 975,
+        "height": 200,
+        "aspectRatio": 4.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cc834ec5-2d74-46a3-ac9c-9ead75bc0800.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 975,
+      "height": 200,
+      "aspectRatio": 4.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/dce4ea15-01b0-40a9-ae89-1ffa562b38a2.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 360,
+      "height": 360,
+      "aspectRatio": 1
+    }
+  }
+}

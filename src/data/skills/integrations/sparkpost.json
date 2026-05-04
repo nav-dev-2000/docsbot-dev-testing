@@ -1,0 +1,176 @@
+{
+  "slug": "sparkpost",
+  "name": "SparkPost",
+  "domain": "sparkpost.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with SparkPost",
+  "metaTitle": "Build AI Agents for SparkPost with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SparkPost to check email activity, summarize delivery issues, trigger workflows, and support teams with safe, approved actions.",
+  "intro": "SparkPost helps teams manage and optimize high-volume email delivery, engagement, and inbox performance. With DocsBot Skill Builder, you can describe the SparkPost workflow you want in plain language and have DocsBot create a reusable Skill for it. That lets your AI support agent or internal AI assistant look up email data, summarize issues, prepare handoffs, and take bounded actions inside SparkPost.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check recent delivery, bounce, or engagement status for a specific transactional email while replying in chat or through a helpdesk ticket.",
+    "Use the agent to summarize likely reasons a customer did not receive an email and prepare a clean escalation handoff for your support or deliverability team.",
+    "Have the agent look up recipient-level activity tied to an order confirmation, password reset, or billing message so support can answer faster.",
+    "Enable the agent to gather missing context from the customer, then trigger an approved internal follow-up workflow when SparkPost activity suggests a delivery problem.",
+    "Use the agent to summarize email event history from SparkPost in plain language so customers receive a clear status update without exposing raw logs."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a chat workspace to retrieve SparkPost delivery and engagement data without logging into multiple tools.",
+    "Enable marketing, support, or operations teams to ask the agent for summaries of bounce patterns, failed sends, or recipient activity during investigations.",
+    "Help internal teams follow email incident SOPs by having the agent gather SparkPost context, summarize findings, and prepare escalation notes for deliverability specialists.",
+    "Allow employees to ask the agent to generate account or campaign health summaries based on SparkPost activity for reviews, handoffs, or recurring reporting.",
+    "Use a private AI assistant to coordinate SparkPost lookups with other business systems so teams can research customer communication issues in one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks whether a transactional email was delivered, opened, deferred, or bounced.",
+    "A helpdesk assistant that summarizes SparkPost event history before handing cases to a deliverability specialist.",
+    "An internal agent that investigates missing email complaints and gathers the right context for escalation.",
+    "A team assistant that prepares plain-language summaries of recipient activity for support and success teams.",
+    "An AI workflow that triggers approved follow-up tasks when SparkPost signals delivery trouble.",
+    "A private agent that combines SparkPost lookup results with customer or order context from other systems."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SparkPost, such as checking delivery status, summarizing recipient activity, or triggering a follow-up workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes SparkPost access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and action limits so the agent can perform approved lookups, summaries, updates, or workflow triggers without overreaching."
+    },
+    {
+      "title": "The testing agent exercises scenarios",
+      "description": "DocsBot automatically runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot agent or your private employee assistant so teams can use SparkPost through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SparkPost?",
+      "answer": "With DocsBot Skill Builder, you describe the SparkPost task you want in plain language, such as checking email delivery events or summarizing recipient activity, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can then be added to a support bot or a private internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use SparkPost data to answer customer email delivery questions?",
+      "answer": "Yes, a DocsBot support agent can use a SparkPost Skill to look up approved delivery and engagement data, summarize what happened, and respond clearly to customers in chat or in helpdesk replies. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with SparkPost?",
+      "answer": "A DocsBot agent can check whether key emails were sent or delivered, summarize bounce or deferral issues, gather missing details from the customer, and prepare a structured escalation for your internal team. It can also trigger bounded follow-up workflows when a case meets your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees investigate email issues in SparkPost?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve SparkPost activity, review recipient history, summarize delivery problems, and follow incident or escalation SOPs faster. This is useful for support, operations, customer success, and marketing teams."
+    },
+    {
+      "question": "How does DocsBot keep SparkPost integrations secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated content, proxies secrets through approved runtime settings, and scopes permissions to the minimum needed for the workflow. It can also add approval steps and action boundaries for sensitive operations."
+    },
+    {
+      "question": "Can DocsBot combine SparkPost with other systems in one AI workflow?",
+      "answer": "Yes, a Skill can be designed so the agent uses SparkPost alongside your helpdesk, CRM, order platform, or internal tools to research issues and complete workflows in one conversation. That helps teams avoid jumping between systems during support or operations work."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "mailgun",
+    "postmark",
+    "customer-io",
+    "braze",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bird",
+    "domain": "sparkpost.com",
+    "description": "SparkPost is a leading email optimization platform that helps enterprise senders reliably reach the inbox. It provides powerful solutions to plan, execute, and optimize email programs, leveraging the industry's largest data network and a team of email experts. Trusted by top brands like The New York Times and Adobe, SparkPost delivers 4-5 trillion emails annually and offers a robust security and compliance posture for regulated industries.",
+    "slogan": "The industry's most trusted email optimization platform",
+    "logoUrl": "https://media.brand.dev/9fc12daf-e6fb-4b13-a1c7-006fba5233eb.jpg",
+    "iconUrl": "https://media.brand.dev/9fc12daf-e6fb-4b13-a1c7-006fba5233eb.jpg",
+    "primaryColor": "#f4692c",
+    "accentColor": "#e6b48a",
+    "colors": [
+      {
+        "hex": "#f4692c",
+        "name": "Basketball"
+      },
+      {
+        "hex": "#e6b48a",
+        "name": "Trick or Treat"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3b3034b3-6be9-4df5-b15d-ad6c4ebf8ddf.png",
+    "industries": [],
+    "links": {
+      "careers": "https://sparkpost.com/careers",
+      "terms": "https://sparkpost.com/legal/website-terms-of-use",
+      "contact": "https://sparkpost.com/demo",
+      "privacy": null,
+      "blog": "https://sparkpost.com/blog",
+      "pricing": "https://sparkpost.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9fc12daf-e6fb-4b13-a1c7-006fba5233eb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/91d08c85-73df-4dc7-95ea-35f3f3cef691.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4228835b-4a09-4b7f-993d-201ac521ffed.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e07c5bed-227f-4420-9d20-a64c5381edb0.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 40,
+        "height": 40,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9fc12daf-e6fb-4b13-a1c7-006fba5233eb.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9fc12daf-e6fb-4b13-a1c7-006fba5233eb.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

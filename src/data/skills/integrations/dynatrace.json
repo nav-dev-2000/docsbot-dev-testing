@@ -1,0 +1,183 @@
+{
+  "slug": "dynatrace",
+  "name": "Dynatrace",
+  "domain": "dynatrace.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Dynatrace for Support and Operations",
+  "metaTitle": "Build AI Agents for Dynatrace with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Dynatrace for observability lookups, incident summaries, safe workflow actions, and internal operations support.",
+  "intro": "Dynatrace helps teams monitor applications, infrastructure, digital experiences, and security signals across complex systems. With DocsBot Skill Builder, you can describe the Dynatrace-powered agent ability you want in plain language, and DocsBot will design, secure, test, and package it as a reusable Skill. The result is an AI support or internal operations agent that can answer questions, investigate issues, summarize platform state, and take bounded actions inside approved workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check Dynatrace health signals, recent incidents, or service status when a customer reports slowness or outages.",
+    "Let the agent summarize relevant Dynatrace traces, logs, or performance anomalies from the affected service before replying to a support ticket.",
+    "Have the agent gather environment context from Dynatrace and prepare a clean escalation handoff for engineering or site reliability teams.",
+    "Allow the agent to confirm whether a known issue is already being observed in Dynatrace and respond with an informed status update.",
+    "Enable the agent to trigger an approved incident workflow or internal alert when customer conversations indicate a widespread production problem."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Dynatrace service health, anomaly summaries, and incident context without switching tools.",
+    "Operations and support teams can ask the agent to investigate a service, compare current behavior to recent incidents, and produce a concise summary for triage meetings.",
+    "Engineering, DevOps, and customer success teams can use the agent to follow incident SOPs, gather monitoring evidence, and prepare escalation notes across systems.",
+    "Team members can ask the agent to generate status updates from Dynatrace findings for leaders, account teams, or customer communications within approved boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Dynatrace service health before answering outage or latency questions.",
+    "An internal incident assistant that summarizes anomalies, traces, and impacted services for faster triage.",
+    "A handoff Skill that turns Dynatrace findings into structured escalation notes for engineering teams.",
+    "A workflow Skill that triggers approved alerts when customer chats suggest a broad production issue.",
+    "A status summary agent that converts Dynatrace observations into plain-language updates for non-technical teams.",
+    "An operations assistant that helps employees follow monitoring and escalation SOPs through chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Dynatrace-enabled agent to do, such as investigate performance complaints, summarize incidents, or trigger an approved escalation workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, choosing the right instructions, runtime behavior, required configuration values, and safe Dynatrace connection approach without making you map every technical detail."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder defines how authentication and secrets should be handled, keeps credentials out of chats and Skill source, proxies sensitive values through secure runtime configuration, and scopes access to the minimum actions, services, and records needed."
+    },
+    {
+      "title": "Boundaries are applied",
+      "description": "Skill Builder adds approval checkpoints and action limits where needed so the agent can look up observability data, prepare summaries, and trigger only the Dynatrace-related workflows you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for weak instructions, bugs, missing permission controls, or workflow gaps, and feeds those findings back into improvements."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Dynatrace data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a secure Skill that can retrieve Dynatrace context, summarize findings, and take approved actions through your DocsBot agent. Skill Builder also defines configuration, protects secrets, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Dynatrace to help answer customer incident questions?",
+      "answer": "Yes, a DocsBot support agent can use Dynatrace to look up health signals, recent anomalies, affected services, and monitoring context while replying to website chats or helpdesk tickets. It can then summarize what is happening, prepare an escalation, or trigger an approved internal workflow."
+    },
+    {
+      "question": "What Dynatrace workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help teams retrieve observability context, investigate service issues, summarize incidents, prepare status updates, and guide employees through monitoring or escalation SOPs. It can also perform bounded actions such as triggering approved alerts or handoff workflows."
+    },
+    {
+      "question": "Can DocsBot safely limit what an AI agent can do in Dynatrace?",
+      "answer": "Yes, Skill Builder is designed to apply scoped access, secure authentication handling, and approval boundaries so the agent only performs the allowed lookups or actions you define. This helps teams use live Dynatrace data without giving the agent open-ended access."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Dynatrace incidents for support and operations teams?",
+      "answer": "Yes, the agent can turn Dynatrace observations into concise summaries for support replies, engineering escalations, internal triage, or leadership updates. This is especially useful when teams need plain-language incident context quickly."
+    },
+    {
+      "question": "What is the setup process for a Dynatrace AI agent in DocsBot?",
+      "answer": "You explain the workflow you want, and Skill Builder handles the design, secure connection approach, testing, improvement loop, and deployment path for the Skill. Non-technical teams can focus on the business outcome while DocsBot manages the implementation details safely."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "pagerduty",
+    "opsgenie",
+    "servicenow",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dynatrace",
+    "domain": "dynatrace.com",
+    "description": "Dynatrace is a technology company that specializes in delivering advanced observability and security solutions through its unified platform. Focused on making software operate flawlessly, Dynatrace provides precise insights and intelligent automation from vast data sources. Their platform integrates observability, business, and security metrics at scale, utilizing innovative technologies like hypermodal AI to predict future behaviors and automate decision-making processes. With features such as Smartscape for real-time topology mapping and Davis for AI-driven analytics, Dynatrace enables organizations to modernize cloud operations, accelerate software delivery, and enhance digital experiences. By combining observability, automation, AI, and application security in one cohesive platform, Dynatrace helps businesses innovate more efficiently and achieve superior outcomes.",
+    "slogan": "Make software work perfectly with unified observability and intelligent automation.",
+    "logoUrl": "https://media.brand.dev/8bf6c9ff-5248-4d5d-84fc-12159f8668fe.png",
+    "iconUrl": "https://media.brand.dev/8bf6c9ff-5248-4d5d-84fc-12159f8668fe.png",
+    "primaryColor": "#94cc1a",
+    "accentColor": "#5d2b8b",
+    "colors": [
+      {
+        "hex": "#94cc1a",
+        "name": "Thick Green"
+      },
+      {
+        "hex": "#5d2b8b",
+        "name": "Lucid Dream"
+      },
+      {
+        "hex": "#dceab0",
+        "name": "Fresh Up"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/18a90d99-63a0-45a7-a50f-7dc1c37adf7f.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8bf6c9ff-5248-4d5d-84fc-12159f8668fe.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8399231b-4186-46f1-98e1-190a2f664c5b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f9063647-0952-4f2a-8c29-7f22cf99435f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 482,
+        "height": 482,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e8f1799c-3fbd-4985-b798-47c3d24d843e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e872f4a0-3776-457e-bdc4-aeadb23b29ed.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e872f4a0-3776-457e-bdc4-aeadb23b29ed.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e872f4a0-3776-457e-bdc4-aeadb23b29ed.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

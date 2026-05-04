@@ -1,0 +1,167 @@
+{
+  "slug": "amplitude-scim",
+  "name": "Amplitude SCIM",
+  "domain": "amplitude.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Amplitude SCIM",
+  "metaTitle": "Build AI Agents for Amplitude SCIM with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Amplitude SCIM for safe user lookups, provisioning workflows, access updates, and internal support automation.",
+  "intro": "Amplitude SCIM helps teams manage user provisioning and identity-related changes connected to Amplitude. With DocsBot Skill Builder, you can describe the workflow you want in plain language and have DocsBot create a secure reusable Skill for your support or internal AI agent. That lets your agent answer questions, check user status, prepare handoffs, and take bounded actions in Amplitude SCIM without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user's Amplitude account provisioning status is active, pending, or deprovisioned while responding in chat or a helpdesk ticket.",
+    "Use the agent to gather missing identity details from the customer, look up the matching Amplitude SCIM user record, and summarize the current access state for faster support resolution.",
+    "Have the agent prepare an escalation handoff with the user's provisioning details, recent status, and any missing fields when a human admin needs to review the request.",
+    "Allow the agent to trigger an approved access update or deprovisioning workflow after collecting the required context and routing sensitive actions through an approval boundary.",
+    "Enable the agent to confirm whether a user was successfully added to the right workspace or group and explain the next support step based on the result."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up Amplitude SCIM user status, group membership, or provisioning history.",
+    "Help IT, operations, or support teams ask the agent to summarize access issues, identify missing user attributes, and follow the right provisioning SOP across systems.",
+    "Allow internal teams to use the agent to prepare onboarding or offboarding workflows that check Amplitude SCIM records and trigger approved follow-up tasks.",
+    "Give managers or workspace admins a private AI assistant that can collect account details, draft access-change requests, and route sensitive updates for approval.",
+    "Support internal research by letting employees ask the agent why a user cannot access Amplitude and receive a concise summary built from SCIM record checks and policy-aware workflow steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Amplitude SCIM provisioning status during customer account access conversations.",
+    "A private IT assistant that looks up users and summarizes onboarding or offboarding readiness.",
+    "An internal workflow agent that prepares access-change requests and routes sensitive updates for approval.",
+    "A helpdesk assistant that gathers identity details before escalating Amplitude access issues to admins.",
+    "An employee AI agent that checks group membership and explains next steps for access problems.",
+    "A support workflow that verifies whether deprovisioning completed and creates a clear resolution summary."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Amplitude SCIM, such as checking provisioning status, summarizing access problems, or routing approved updates, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder secures the connection",
+      "description": "Skill Builder determines the configuration values the Skill needs, sets up secure authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime settings by default."
+    },
+    {
+      "title": "Skill Builder sets safe limits",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, then adds approval boundaries and action limits for sensitive changes such as access updates or deprovisioning."
+    },
+    {
+      "title": "Skill Builder tests scenarios",
+      "description": "Its automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded action with Amplitude SCIM."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Amplitude SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking a user's provisioning status or preparing an access-change workflow, and Skill Builder designs, secures, tests, and packages the Skill for your agent. It can then be deployed to a customer support bot or a private internal assistant with scoped permissions and approval controls."
+    },
+    {
+      "question": "Can an AI support agent use Amplitude SCIM data during customer account access conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Amplitude SCIM Skill to look up user provisioning details, confirm account state, gather missing context, and summarize the next step while replying in chat or through a helpdesk. Sensitive actions can be limited to approved workflows so the agent stays within your rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Amplitude SCIM?",
+      "answer": "Internal agents can help employees check user access status, review onboarding or offboarding readiness, summarize identity issues, prepare escalation notes, and trigger approved access workflows. This is useful for IT, support, operations, and workspace administrators who want faster answers and safer process execution."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger provisioning workflows in Amplitude SCIM?",
+      "answer": "DocsBot Skill Builder is designed to create bounded actions with secure authentication handling, scoped permissions, and approval boundaries for sensitive changes. That means your agent can be allowed to perform specific updates or workflow triggers without exposing credentials or granting broad unchecked access."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Amplitude SCIM with DocsBot?",
+      "answer": "Non-technical teams describe the desired workflow, and Skill Builder handles the design details, required configuration values, secret protection, testing, and deployment guidance. You do not need to manually write integration code or figure out security controls on your own."
+    },
+    {
+      "question": "Can a DocsBot agent prepare handoffs and escalation summaries from Amplitude SCIM checks?",
+      "answer": "Yes, the agent can gather the relevant user record details, explain the current provisioning state, note missing information, and create a clean handoff summary for a human admin or another team. This helps reduce back-and-forth and makes escalations much faster to resolve."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "google-workspace",
+    "microsoft-entra-id",
+    "amplitude"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Amplitude",
+    "domain": "amplitude.com",
+    "description": "Amplitude is a leading AI analytics platform that helps companies build better products and digital experiences. They provide a suite of tools that enable teams to analyze, test, and optimize user experiences, turning user data into meaningful insights. With a strong presence in the industry, serving over 4,500 customers, Amplitude is a go-to solution for product, data, and marketing teams looking to unlock the power of their products.",
+    "slogan": "Unlock the power of your products with Amplitude's analytics platform.",
+    "logoUrl": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+    "iconUrl": "https://media.brand.dev/daf67d14-2538-4fd0-b892-6bfb8b632d5c.jpg",
+    "primaryColor": "#1d64f3",
+    "accentColor": "#8cb4f4",
+    "colors": [
+      {
+        "hex": "#1d64f3",
+        "name": "Azul"
+      },
+      {
+        "hex": "#8cb4f4",
+        "name": "Fly Away"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4b9a7b32-495e-48b3-8f34-3fc2c0f00853.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.amplitude.com/careers",
+      "terms": "https://amplitude.com/glossary/terms",
+      "contact": "https://www.amplitude.com/contact",
+      "privacy": "https://www.amplitude.com/privacy/archive/2025-12",
+      "blog": "https://www.amplitude.com/blog",
+      "pricing": "https://www.amplitude.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/daf67d14-2538-4fd0-b892-6bfb8b632d5c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e284bd55-a8f6-4ce5-b700-4dff34d4c3b0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 154,
+        "height": 32,
+        "aspectRatio": 4.81
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 154,
+      "height": 32,
+      "aspectRatio": 4.81
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e284bd55-a8f6-4ce5-b700-4dff34d4c3b0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

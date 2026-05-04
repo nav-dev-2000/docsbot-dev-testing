@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-workdrive",
+  "name": "Zoho WorkDrive",
+  "domain": "zoho-workdrive.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho WorkDrive",
+  "metaTitle": "Build AI Agents for Zoho WorkDrive with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that search, summarize, organize, and act on Zoho WorkDrive content for support teams and internal operations.",
+  "intro": "Zoho WorkDrive helps teams store, organize, and share business files in the cloud. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent search WorkDrive content, summarize documents, organize files, and trigger approved actions. That means customer-facing support agents and private internal assistants can do more than answer questions—they can take bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer support agent search Zoho WorkDrive for product guides, policy documents, onboarding files, or troubleshooting references while replying in a website chat or helpdesk ticket.",
+    "Enable the agent to summarize the latest shared document or folder contents from Zoho WorkDrive so customers get a clear answer without waiting for a manual file review.",
+    "Use Zoho WorkDrive content to prepare accurate escalation notes, including linked files, document summaries, and relevant attachments for a support handoff.",
+    "Allow the agent to create or organize customer-specific folders in Zoho WorkDrive when an approved workflow needs onboarding documents, signed forms, or implementation files.",
+    "Let the agent check whether a required file exists in Zoho WorkDrive before telling a customer the next step for onboarding, renewals, or compliance-related requests."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that searches Zoho WorkDrive and returns the right SOPs, playbooks, contracts, templates, or training documents in chat, Slack, or Microsoft Teams.",
+    "Let team members chat with the agent to summarize long documents or folder contents in Zoho WorkDrive before meetings, renewals, audits, or project handoffs.",
+    "Help operations teams use the agent to create organized folders, prepare document collections, and follow standard file-management workflows without leaving chat.",
+    "Enable customer success or support leaders to ask the agent for the latest enablement materials in Zoho WorkDrive and receive a concise answer with links and context.",
+    "Allow employees to use the agent to gather files from Zoho WorkDrive and assemble a handoff summary or checklist for internal workflows and approvals."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds customer-facing guides and summarizes the right answer from Zoho WorkDrive.",
+    "A private team assistant that retrieves SOPs, policies, and templates stored in Zoho WorkDrive.",
+    "A workflow Skill that creates folders and organizes onboarding documents after an approved support event.",
+    "A handoff assistant that gathers relevant files and prepares escalation summaries for support teams.",
+    "A document lookup Skill that checks whether required files exist before the agent confirms next steps.",
+    "An internal research assistant that compares multiple WorkDrive files and returns a concise summary with links."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho WorkDrive, such as finding documents, summarizing files, creating folders, or preparing handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest workflow, defines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the files, actions, users, and folders needed."
+    },
+    {
+      "title": "It adds safe action limits",
+      "description": "Skill Builder builds in approval boundaries and action limits for sensitive changes so your DocsBot agent can search, summarize, organize, or update WorkDrive content only within the rules you approve."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant for ongoing monitored use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho WorkDrive?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and the builder creates a Skill that can search files, summarize documents, organize folders, or trigger approved WorkDrive workflows. It also handles secure configuration, authentication, permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zoho WorkDrive data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho WorkDrive as a trusted document source for guides, policies, onboarding files, and troubleshooting content while responding in chat or through helpdesk tickets. You can also define safe actions such as preparing handoffs or checking whether required files exist."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho WorkDrive?",
+      "answer": "A DocsBot agent can look up support documents, summarize relevant files, prepare escalation packets, verify document availability, and organize customer-related files in bounded workflows. Approval controls can be added for actions that should not happen automatically."
+    },
+    {
+      "question": "Can an internal AI assistant search and summarize Zoho WorkDrive for employees?",
+      "answer": "Yes, private DocsBot agents for employees can search WorkDrive folders, retrieve SOPs, summarize long documents, and assemble file-based handoff notes inside chat, Slack, or Microsoft Teams. This helps teams complete routine research and document-heavy workflows faster."
+    },
+    {
+      "question": "How does DocsBot keep Zoho WorkDrive connections secure?",
+      "answer": "Skill Builder defines the required configuration values, keeps credentials out of chats and generated Skill content, proxies secrets through secure runtime configuration, and scopes permissions to the minimum required access. It can also add approval boundaries for sensitive actions such as record changes or file organization workflows."
+    },
+    {
+      "question": "Can DocsBot update or organize files in Zoho WorkDrive, not just read them?",
+      "answer": "Yes, if you want the agent to take bounded action, Skill Builder can create workflows that organize folders, prepare document sets, or support approved file-management steps. The allowed actions, users, and approval rules are defined as part of the Skill design."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "dropbox",
+    "box",
+    "onedrive",
+    "sharepoint",
+    "egnyte"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

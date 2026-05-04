@@ -1,0 +1,192 @@
+{
+  "slug": "linksquares",
+  "name": "LinkSquares",
+  "domain": "linksquares.com",
+  "category": "Legal & Compliance",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with LinkSquares",
+  "metaTitle": "Build LinkSquares AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LinkSquares to look up contract details, summarize legal status, trigger workflows, and support teams with safe, approved actions.",
+  "intro": "LinkSquares helps legal teams manage contracts, approvals, and agreement workflows across the business. With DocsBot Skill Builder, you can describe the LinkSquares workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve contract information, prepare handoffs, and take bounded actions inside your approved legal processes.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check agreement status, renewal timing, or signature progress in LinkSquares while replying in chat or over helpdesk tickets.",
+    "Use the agent to summarize contract milestones, approval state, or missing steps from LinkSquares so customers get fast updates without waiting for a manual lookup.",
+    "Have the agent collect customer details, create a legal or contract review handoff, and attach a clear LinkSquares-ready summary for your internal team.",
+    "Enable the agent to trigger approved follow-up workflows related to contract requests, amendment reviews, or escalation intake when a support conversation requires legal involvement.",
+    "Let the agent prepare a concise record of contract-related questions, customer commitments, and next steps based on LinkSquares data before escalating to a human teammate."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to find contract status, clause information, renewal dates, and approval history from LinkSquares.",
+    "Give legal, procurement, sales, and customer success teams an AI assistant that summarizes agreements and surfaces the next required workflow step without switching tools.",
+    "Allow employees to ask the agent to prepare contract review handoffs, generate internal summaries, and assemble the context needed for legal escalation workflows in LinkSquares.",
+    "Use a private agent to guide teams through contract-related SOPs, gather missing context, and trigger approved LinkSquares workflow steps with the right approval boundaries.",
+    "Help operations or leadership teams research agreement trends, summarize legal workload context, and retrieve contract lifecycle information from LinkSquares through natural language chat."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks contract or agreement status before responding to customers.",
+    "An internal legal assistant that summarizes agreements and approval history from LinkSquares.",
+    "A procurement workflow agent that gathers missing context and prepares contract review handoffs.",
+    "A renewal assistant that finds upcoming dates and drafts next-step summaries for account teams.",
+    "An escalation agent that packages customer issues with contract context for legal review.",
+    "A cross-functional assistant that answers employee questions about agreement progress and obligations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LinkSquares agent to do in plain language, such as checking contract status, summarizing approvals, or preparing a legal handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed LinkSquares configuration values, and defines how the agent should retrieve information or take approved actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication safely, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder sets approval boundaries and action limits for sensitive legal workflows so the agent can assist confidently without exceeding the permissions and controls you want."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LinkSquares?",
+      "answer": "With DocsBot Skill Builder, you describe the LinkSquares workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The agent can then use LinkSquares for lookups, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use LinkSquares data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use LinkSquares to look up contract-related information, summarize status, and prepare escalation context while replying in a website chat widget or helpdesk workflow. You define which data and actions are allowed so the agent stays within approved support and legal boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with LinkSquares?",
+      "answer": "An internal DocsBot agent can help employees retrieve contract details, summarize approval progress, prepare legal handoffs, and follow contract-related SOPs across legal, procurement, sales, and customer success teams. It can also trigger approved workflow steps when those actions fit your rules and permissions."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in LinkSquares?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect authentication details, and add approval boundaries for sensitive actions. That lets your agent perform useful lookups and workflow steps while staying inside the access limits and controls you define."
+    },
+    {
+      "question": "Can a DocsBot agent create legal handoffs or escalation summaries from LinkSquares?",
+      "answer": "Yes, the agent can gather relevant LinkSquares context, summarize contract status, capture the customer or employee request, and prepare a clean handoff for legal review. This helps teams move faster while keeping the final workflow structured and auditable."
+    },
+    {
+      "question": "Does setting up a LinkSquares AI agent require technical implementation work?",
+      "answer": "No, the setup is framed around describing the business outcome you want. Skill Builder handles the workflow design, secure configuration, testing, improvements, and deployment details so non-technical teams can move forward more easily."
+    }
+  ],
+  "relatedSlugs": [
+    "ironclad",
+    "docusign",
+    "salesforce",
+    "hubspot",
+    "zendesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LinkSquares",
+    "domain": "linksquares.com",
+    "description": "LinkSquares is a leading provider of AI-powered contract lifecycle management tools for in-house legal teams. They offer a comprehensive platform that streamlines contract management, delivering advanced analytics, minimizing risk, and enhancing workflow efficiency. By leveraging a proprietary blend of predictive and generative AI, LinkSquares enables businesses to draft, review, and execute agreements with precision and speed, unlocking greater strategic value across the organization.",
+    "slogan": "Unlock the full potential of your in-house legal team",
+    "logoUrl": "https://media.brand.dev/b39f673a-f1fe-4c70-909b-cf8ed6926598.png",
+    "iconUrl": "https://media.brand.dev/ac2a542d-f210-4cda-ac9b-5934acec5137.jpg",
+    "primaryColor": "#fb7e36",
+    "accentColor": "#f0c894",
+    "colors": [
+      {
+        "hex": "#fb7e36",
+        "name": "Beniukon Bronze"
+      },
+      {
+        "hex": "#f0c894",
+        "name": "Lunch Box"
+      },
+      {
+        "hex": "#a46330",
+        "name": "Mai Tai"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d9619383-fbb7-4cb8-bba8-63ccea81c10e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://linksquares.com/careers/",
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": "https://blog.linksquares.com/",
+      "pricing": "https://linksquares.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ac2a542d-f210-4cda-ac9b-5934acec5137.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/268eac21-f3fd-4d09-b111-af96991cc54b.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/de688294-30fd-4a91-8817-08883263e0cb.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f84af20a-5e50-46ff-8751-825b7de77e90.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 432,
+        "height": 432,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b39f673a-f1fe-4c70-909b-cf8ed6926598.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1080,
+        "height": 212,
+        "aspectRatio": 5.09
+      },
+      {
+        "url": "https://media.brand.dev/091b96a0-7705-47d9-b112-8a56cbd8ea6d.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 2132,
+        "height": 384,
+        "aspectRatio": 5.55
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b39f673a-f1fe-4c70-909b-cf8ed6926598.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1080,
+      "height": 212,
+      "aspectRatio": 5.09
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ac2a542d-f210-4cda-ac9b-5934acec5137.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "slug": "zoho-inventory",
+  "name": "Zoho Inventory",
+  "domain": "zoho-inventory.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Inventory",
+  "metaTitle": "Build AI Agents for Zoho Inventory with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Inventory for support lookups, order updates, stock checks, workflow triggers, and internal operations help.",
+  "intro": "Zoho Inventory helps businesses manage orders, inventory, shipments, and related operations across the customer lifecycle. With DocsBot Skill Builder, you can describe the Zoho Inventory workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, look up live inventory or order details, take approved actions, and hand off clean summaries when needed.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check order, shipment, or fulfillment status in Zoho Inventory while replying to website chat or helpdesk tickets.",
+    "Use the agent to confirm product availability or backorder status from Zoho Inventory before promising delivery dates to customers.",
+    "Allow the agent to create or update approved order notes, tags, or fulfillment-related records in Zoho Inventory during a support conversation.",
+    "Have the agent summarize item availability, shipping progress, and recent order activity from Zoho Inventory to speed up escalations and handoffs.",
+    "Enable the agent to trigger approved follow-up workflows based on Zoho Inventory order or stock conditions while keeping the customer informed in real time."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Zoho Inventory order, shipment, and stock information without opening multiple tools.",
+    "Operations and customer success teams can ask the agent to summarize inventory exceptions, delayed shipments, or fulfillment issues from Zoho Inventory for faster decision-making.",
+    "Warehouse, support, or sales employees can use the agent to complete SOP-driven workflows that look up records, update approved fields, and prepare handoff notes tied to Zoho Inventory activity.",
+    "Internal teams can ask the agent to research order history and inventory context across systems, then produce a clear next-step summary for finance, support, or fulfillment teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks live stock levels before answering availability questions.",
+    "A helpdesk assistant that summarizes order and shipment status from Zoho Inventory for ticket replies.",
+    "An internal operations agent that flags fulfillment issues and prepares escalation notes for human review.",
+    "A team assistant that updates approved order metadata after employees confirm the requested change.",
+    "A workflow agent that triggers replenishment or follow-up processes when inventory thresholds are reached.",
+    "A customer service agent that gathers order context and creates clean handoff summaries for complex cases."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Inventory, such as checking stock, summarizing shipment status, or updating approved order details, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect Zoho Inventory, identifies the required configuration values, handles authentication through secure runtime settings, protects and proxies secrets, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, and users needed for the workflow and adds approval boundaries wherever sensitive Zoho Inventory updates or triggers should require extra control."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds weak instructions, bugs, missing checks, or workflow gaps, and feeds those findings into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so employees or customers can use the Zoho Inventory workflow safely in conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Inventory without writing integration code?",
+      "answer": "You can describe the Zoho Inventory outcome you want in plain language, and DocsBot Skill Builder can design the Skill, define secure configuration, handle authentication safely, test scenarios, and prepare it for deployment. This lets non-technical teams launch AI actions without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Inventory data to answer customer order and stock questions?",
+      "answer": "Yes, a DocsBot support agent can use a Zoho Inventory Skill to look up order status, shipment progress, item availability, and related inventory context while responding in chat or through helpdesk tickets. You can also define safe limits around which records it can access and what actions it may take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Inventory?",
+      "answer": "DocsBot can help automate stock checks, order-status lookups, fulfillment summaries, approved record updates, escalation prep, and follow-up workflow triggers connected to Zoho Inventory. The agent can answer the customer, gather missing context, and complete bounded actions inside your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Zoho Inventory?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve order, shipment, and inventory information, summarize exceptions, and complete approved SOP-based actions tied to Zoho Inventory. This reduces tool switching and speeds up operations, support, and customer success workflows."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Inventory actions safe and controlled?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure secret handling, protected authentication flows, and approval boundaries for sensitive actions. It also keeps credentials out of conversations and uses automated testing to catch permission gaps or risky workflow behavior before deployment."
+    },
+    {
+      "question": "Can DocsBot create handoffs and summaries from Zoho Inventory for human teams?",
+      "answer": "Yes, a Zoho Inventory Skill can generate clear summaries of orders, stock conditions, shipment progress, and prior actions so human agents receive better handoffs. This is useful for escalations, exception handling, and cross-team coordination."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "woocommerce",
+    "stripe",
+    "shipstation",
+    "quickbooks"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho-inventory.com",
+    "description": "Zoho Inventory is a business management solution that provides a comprehensive suite of tools for companies of all sizes. With a wide range of applications, Zoho Inventory helps businesses manage their operations end-to-end, trusted by over 130 million users worldwide.",
+    "slogan": "Powering Business Success with 55+ Applications for Every Need",
+    "logoUrl": "https://media.brand.dev/965ce101-9777-4c8c-a27a-13ab1385740e.svg",
+    "iconUrl": "https://media.brand.dev/155209e8-884b-4b67-be37-efb7e1cad94f.png",
+    "primaryColor": "#e85022",
+    "accentColor": "#168679",
+    "colors": [
+      {
+        "hex": "#e85022",
+        "name": "Scorpio Scarlet Seal"
+      },
+      {
+        "hex": "#168679",
+        "name": "Green Ink"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/965ce101-9777-4c8c-a27a-13ab1385740e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1024,
+        "height": 450,
+        "aspectRatio": 2.28
+      },
+      {
+        "url": "https://media.brand.dev/155209e8-884b-4b67-be37-efb7e1cad94f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/965ce101-9777-4c8c-a27a-13ab1385740e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1024,
+      "height": 450,
+      "aspectRatio": 2.28
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/155209e8-884b-4b67-be37-efb7e1cad94f.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

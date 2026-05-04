@@ -1,0 +1,176 @@
+{
+  "slug": "liveagent",
+  "name": "LiveAgent",
+  "domain": "liveagent.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with LiveAgent",
+  "metaTitle": "Build LiveAgent AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LiveAgent to look up tickets, update cases, prepare handoffs, and support teams with safe, tested actions.",
+  "intro": "LiveAgent helps teams manage customer conversations across chat, email, phone, and social channels. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent safely use LiveAgent data and actions. The result is an AI support agent or internal assistant that can answer questions, retrieve ticket context, prepare escalations, and complete approved helpdesk workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up LiveAgent ticket status, conversation history, or assigned owner while responding in your website chat widget or helpdesk workflow.",
+    "Enable the agent to create new LiveAgent tickets from customer chats when an issue needs formal follow-up, including a clean summary of the problem and key details gathered from the conversation.",
+    "Allow the agent to update approved LiveAgent fields such as priority, tags, category, or internal notes based on customer responses and support rules you define.",
+    "Use the agent to prepare escalation handoffs by summarizing the customer issue, recent messages, attempted troubleshooting, and urgency before sending the case to a human team member.",
+    "Let the agent retrieve multi-channel interaction context from LiveAgent so customers do not need to repeat themselves across chat, email, or other support channels."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that can search LiveAgent tickets, conversation history, tags, and ownership details when they chat with the agent in Slack, Microsoft Teams, or a private DocsBot interface.",
+    "Let support managers chat with the agent to summarize open ticket queues, identify aging cases, and surface patterns in recent LiveAgent conversations for faster operational review.",
+    "Enable customer success or operations teams to use the agent to prepare escalation summaries, follow-up notes, and SOP-driven handoff records based on LiveAgent ticket context.",
+    "Help internal teams complete repeatable workflows by asking the agent to find related LiveAgent cases, collect missing context, and recommend the next approved support step.",
+    "Allow employees to chat with the agent to research prior customer issues in LiveAgent before responding, escalating, or coordinating with another team."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks LiveAgent ticket status and summarizes the latest customer conversation.",
+    "A support bot that creates LiveAgent tickets from website chats with structured issue summaries.",
+    "An assistant that updates approved LiveAgent ticket fields after collecting missing customer details.",
+    "An AI handoff workflow that prepares escalation notes and routes cases to the right team.",
+    "An internal support assistant that searches LiveAgent history for similar cases and prior resolutions.",
+    "A queue summary agent that reviews open LiveAgent tickets and highlights urgent follow-up needs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the LiveAgent workflow you want in plain language, and Skill Builder turns that goal into a practical AI agent ability for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the required LiveAgent configuration values, and defines secure connection and authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum LiveAgent actions and records needed, and adds approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and employee scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant in a controlled way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LiveAgent?",
+      "answer": "With DocsBot Skill Builder, you describe the LiveAgent workflow you want in plain language, such as checking ticket status, creating cases, or preparing handoffs. Skill Builder then designs, secures, tests, and packages that ability as a reusable Skill for your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use LiveAgent data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up LiveAgent ticket details, conversation history, ownership, tags, or status while replying to customers. You control what the agent is allowed to read, update, summarize, or trigger."
+    },
+    {
+      "question": "Can DocsBot create or update LiveAgent tickets safely?",
+      "answer": "DocsBot Skill Builder can create Skills for approved LiveAgent actions such as opening tickets, adding notes, updating fields, or preparing escalations. It also defines scoped permissions, secure authentication handling, and approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LiveAgent?",
+      "answer": "Common workflows include ticket lookups, case creation from chat conversations, triage updates, escalation summaries, internal note preparation, and routing support cases with structured context. The goal is to help the agent resolve issues or move them forward safely instead of only suggesting next steps."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside LiveAgent?",
+      "answer": "Yes, private DocsBot agents can help employees search ticket history, summarize queues, research prior cases, and complete SOP-based support workflows using LiveAgent context. Teams can access that assistant through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot handle LiveAgent credentials and API access securely?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of conversations and generated content, and proxies authentication through secure runtime configuration. It also scopes access to the minimum records and actions needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "salesforce-service-cloud",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LiveAgent",
+    "domain": "liveagent.com",
+    "description": "LiveAgent is a customer service software that provides a multi-channel platform for businesses to interact with their customers. It enables companies to connect with customers across various channels such as Facebook, Twitter, email, and phone, offering over 175 help desk and live chat features. The software aims to improve customer service by providing an easy-to-use and interactive help desk solution, allowing businesses to get started in just 5 minutes.",
+    "slogan": "Enhance Customer Service with LiveAgent’s Multi-Channel Help Desk Software",
+    "logoUrl": "https://media.brand.dev/084372a2-2435-40c1-bf7f-4f5cffdd853a.svg",
+    "iconUrl": "https://media.brand.dev/3169b962-8910-4e3f-adf8-f8553074bfc7.png",
+    "primaryColor": "#f4941c",
+    "accentColor": "#242424",
+    "colors": [
+      {
+        "hex": "#f4941c",
+        "name": "Miami Marmalade"
+      },
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      },
+      {
+        "hex": "#f3bc77",
+        "name": "Amber Dawn"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/307f38af-633e-4952-ae21-d28f3427bb0c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": null,
+      "terms": "https://www.liveagent.com/terms-and-conditions/",
+      "privacy": "https://www.liveagent.com/privacy-policy/",
+      "blog": "https://www.liveagent.com/blog/",
+      "pricing": "https://www.liveagent.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e83ffed0-a724-46d5-83cf-cc26fb1703a8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/084372a2-2435-40c1-bf7f-4f5cffdd853a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 121,
+        "height": 30,
+        "aspectRatio": 4.03
+      },
+      {
+        "url": "https://media.brand.dev/c4afce56-9b2b-4874-8065-5b5f9f61eee4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1365,
+        "height": 1365,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3169b962-8910-4e3f-adf8-f8553074bfc7.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/084372a2-2435-40c1-bf7f-4f5cffdd853a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 121,
+      "height": 30,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c4afce56-9b2b-4874-8065-5b5f9f61eee4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1365,
+      "height": 1365,
+      "aspectRatio": 1
+    }
+  }
+}

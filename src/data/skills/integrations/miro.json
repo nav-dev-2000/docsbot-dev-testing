@@ -1,0 +1,160 @@
+{
+  "slug": "miro",
+  "name": "Miro",
+  "domain": "miro.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Miro",
+  "metaTitle": "Build Miro AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read, update, and organize Miro content for customer support and internal team workflows.",
+  "intro": "Miro helps teams plan, collaborate, and turn ideas into action on a shared visual workspace. With DocsBot Skill Builder, you can describe the Miro-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up board context, prepare handoffs, update approved content, and trigger next steps inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull relevant Miro board details, timelines, or workshop outputs to answer product rollout, onboarding, or project status questions more accurately.",
+    "Have the agent summarize a Miro board or specific planning area and turn that context into a clear customer update inside a chat conversation or support ticket reply.",
+    "Enable the agent to create a structured handoff from a customer conversation into Miro so account managers, onboarding teams, or product specialists can continue the work with full context.",
+    "Allow the agent to add approved notes, feedback items, or support findings to a Miro board so customer-reported issues are captured in the team’s planning workspace.",
+    "Use the agent to gather missing information from a customer, then organize that information into a Miro artifact for escalation, implementation planning, or workshop preparation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to find the right Miro board, section, or planning artifact without searching manually.",
+    "Enable team members to ask the agent for a summary of a Miro workshop, retrospective, roadmap board, or discovery board before meetings or status reviews.",
+    "Have employees use the agent to create approved Miro notes, planning frames, or follow-up artifacts from standard operating procedures, meeting outcomes, or project requests.",
+    "Support cross-functional teams by letting the agent gather information from conversations and turn it into structured Miro content for research, launch planning, or process improvement.",
+    "Allow internal teams to use the agent for workflow guidance, where it retrieves Miro context, explains the next approved step, and completes bounded updates when the process allows it."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes customer project boards before replying to a ticket.",
+    "A private team assistant that finds the right Miro board and explains its latest planning context.",
+    "A handoff Skill that turns support conversations into structured Miro notes for onboarding teams.",
+    "An escalation workflow that creates a Miro planning artifact from customer-reported implementation issues.",
+    "A meeting prep assistant that summarizes workshop boards and highlights open actions for employees.",
+    "A project intake agent that gathers missing details and creates approved Miro planning entries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Miro-enabled agent to do in plain language, and it turns that goal into a practical workflow for customer support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum boards, actions, users, and records needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and employee scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to the right DocsBot agent so it can safely answer questions and take bounded action in your website chat, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Miro?",
+      "answer": "With DocsBot Skill Builder, you describe the Miro workflow you want in plain language, such as summarizing boards, creating handoff notes, or updating approved planning content. Skill Builder then designs, secures, tests, and prepares the Skill for deployment to a support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Miro data when replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Miro Skill to look up relevant board context, summarize planning information, and prepare customer-ready responses or internal handoffs. Actions can be limited to approved lookups and updates so the agent stays within your rules."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Miro?",
+      "answer": "Teams can automate board lookups, project-status summaries, escalation prep, onboarding handoffs, feedback capture, and structured note creation based on customer conversations. This helps support agents respond faster while keeping planning artifacts up to date."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Miro?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find Miro boards, summarize workshop outputs, create approved planning artifacts, and follow workflow steps tied to internal SOPs. This is useful for operations, product, success, and cross-functional planning teams."
+    },
+    {
+      "question": "How does DocsBot keep Miro actions secure?",
+      "answer": "Skill Builder defines secure connection requirements, keeps secrets out of chats and source content, proxies authentication through secure runtime configuration, and scopes permissions to the smallest practical set of actions and records. It can also add approval checkpoints for sensitive changes."
+    },
+    {
+      "question": "Can DocsBot create or update content in Miro, not just read it?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating notes, adding structured content, updating approved records, or triggering follow-up workflows in Miro. The exact actions are controlled by the workflow design, permissions, and approval rules you choose."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "jira",
+    "notion",
+    "airtable",
+    "trello",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Miro",
+    "domain": "miro.com",
+    "description": "Miro is an AI‑powered visual collaboration platform that provides an infinite, multiplayer canvas for teams to plan, co‑create, and deliver projects faster. Serving over 100 million users across 250 000 organizations, Miro combines online whiteboarding with collaborative AI workflows, templates, and integrations with 250+ apps. The platform lets cross‑functional teams move from discovery to launch on a shared AI‑first canvas, shortening planning cycles and accelerating time‑to‑market. Enterprise‑grade security and scalable infrastructure support Fortune 100 companies, while built‑in tools such as Docs, Tables, Slides, and Blueprints automate repeatable processes. In short, Miro enables any team to visualize ideas, align instantly, and turn concepts into outcomes in one unified workspace.",
+    "slogan": "Move faster—and move the needle—with Miro’s AI innovation workspace",
+    "logoUrl": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+    "iconUrl": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+    "primaryColor": "#f7da3a",
+    "accentColor": "#fbfae5",
+    "colors": [
+      {
+        "hex": "#f7da3a",
+        "name": "Dandelion Yellow"
+      },
+      {
+        "hex": "#fbfae5",
+        "name": "Clearview"
+      },
+      {
+        "hex": "#221f19",
+        "name": "Petroleum"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cbecae4e-4dd8-4c0f-8816-55d73787ff36.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://miro.com/careers/",
+      "terms": "https://miro.com/legal/terms-of-service/",
+      "contact": "https://miro.com/contact/sales/",
+      "privacy": "https://miro.com/legal/privacy-policy/",
+      "pricing": "https://miro.com/pricing/",
+      "blog": "https://miro.com/blog/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

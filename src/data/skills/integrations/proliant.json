@@ -1,0 +1,175 @@
+{
+  "slug": "proliant",
+  "name": "Proliant",
+  "domain": "proliant.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ProLiant",
+  "metaTitle": "Build AI Agents for ProLiant with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ProLiant for payroll, HR lookups, employee workflows, approvals, and support handoffs with secure, tested Skills.",
+  "intro": "ProLiant helps businesses manage payroll, HR, workforce, and talent processes in one cloud platform. With DocsBot Skill Builder, you can describe the ProLiant workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That gives your team an AI agent that can answer questions, retrieve HR or payroll information, prepare handoffs, and take bounded actions inside your approved rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify payroll or HR support details in ProLiant and summarize the next approved step for the employee or manager.",
+    "Let a support agent pull relevant employee or account context from ProLiant while replying to payroll, benefits, onboarding, or workforce management questions in chat or tickets.",
+    "Have the agent create a structured handoff for HR or payroll specialists with ProLiant record details, customer-reported issues, and a summary of prior troubleshooting.",
+    "Enable the agent to collect missing information from the customer, check ProLiant status data, and route the case to the correct team with a complete support summary.",
+    "Allow the agent to trigger approved follow-up workflows tied to ProLiant processes, such as escalation preparation, document requests, or internal review steps."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up ProLiant policy information, payroll process guidance, and HR workflow steps without searching across systems manually.",
+    "HR, payroll, and operations teams can ask the agent to retrieve ProLiant record context, summarize employee lifecycle status, and prepare next-step recommendations for sensitive cases.",
+    "Managers can use an internal AI assistant in Slack, Microsoft Teams, or chat to follow onboarding, timekeeping, or workforce administration SOPs that reference ProLiant data and rules.",
+    "Internal teams can have the agent generate handoff notes, escalation summaries, or checklist-based artifacts using ProLiant information and company documentation together.",
+    "Operations employees can chat with the agent to complete approved multi-step workflows that involve ProLiant lookups, internal validation, and routed approvals."
+  ],
+  "whatYouCanBuild": [
+    "An AI payroll support agent that checks ProLiant case context and prepares specialist handoffs.",
+    "An HR assistant that summarizes employee onboarding status and next required actions from ProLiant.",
+    "A manager help agent that answers workforce administration questions using ProLiant and internal policies.",
+    "An internal payroll operations agent that gathers missing details and routes issues for approval.",
+    "A benefits support assistant that creates structured summaries from ProLiant data and employee questions.",
+    "An SOP-driven HR agent that guides employees through compliant ProLiant-related workflows safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ProLiant agent to do, such as answer payroll questions, look up HR details, prepare handoffs, or trigger an approved workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the configuration values it needs, and plans how the DocsBot agent should look up information or take bounded action in ProLiant."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes access to the minimum users, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive HR or payroll workflows, Skill Builder adds approval boundaries, action limits, and permission checks so the agent can assist confidently without exceeding the rules you set."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ProLiant without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the ProLiant workflow you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. It handles connection planning, secret protection, scoped permissions, and deployment guidance so non-technical teams can move faster."
+    },
+    {
+      "question": "Can an AI support agent use ProLiant data to help employees with payroll or HR questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved ProLiant information, summarize account or employee context, collect missing details, and prepare escalations or handoffs while responding in chat or tickets. The actions and data access can be limited to the records and workflows you approve."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with ProLiant?",
+      "answer": "An internal DocsBot agent can help HR, payroll, operations, and managers retrieve ProLiant context, follow SOPs, generate summaries, route issues, and trigger approved next steps. This is useful for onboarding, payroll investigations, workforce administration, and handoff-heavy internal processes."
+    },
+    {
+      "question": "Can DocsBot take actions in ProLiant as well as answer questions?",
+      "answer": "Yes, Skills can be built for bounded AI Actions such as approved lookups, record updates, workflow triggers, summary generation, and handoff creation. Skill Builder helps define what the agent is allowed to do and where approvals are required before sensitive actions proceed."
+    },
+    {
+      "question": "How does DocsBot keep a ProLiant integration secure for HR and payroll workflows?",
+      "answer": "Skill Builder is designed to define secure configuration automatically, protect and proxy secrets, keep credentials out of chat transcripts, and scope access to the minimum users, records, and actions needed. It can also add approval boundaries and permission checks for sensitive payroll or employee workflows."
+    },
+    {
+      "question": "Can a DocsBot agent prepare HR or payroll escalations using ProLiant information?",
+      "answer": "Yes, the agent can gather customer or employee details, pull approved ProLiant context, summarize the issue, and create a clean handoff for a specialist or internal team. That reduces back-and-forth and helps escalations start with the right information."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "paylocity",
+    "adp-workforce-now",
+    "gusto",
+    "workday"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ProLiant",
+    "domain": "proliant.com",
+    "description": "ProLiant is a human resources company that simplifies payroll and HR processes for businesses through a cloud-based human capital management solution. They offer a fully integrated platform that streamlines workforce and talent management, ensuring industry compliance and accuracy. With a dedicated team of account managers and experienced industry experts, ProLiant provides a balance of technology and services to over 4,000 companies nationwide.",
+    "slogan": "Simplifying payroll & HR with technology and service",
+    "logoUrl": "https://media.brand.dev/7b5b6be8-eb80-4b5b-a601-8dc2e46f5d1f.svg",
+    "iconUrl": "https://media.brand.dev/bbf5bfc6-e10c-4a5f-83a5-23f957d6f72d.jpg",
+    "primaryColor": "#145991",
+    "accentColor": "#7cacc4",
+    "colors": [
+      {
+        "hex": "#145991",
+        "name": "Baleine Blue"
+      },
+      {
+        "hex": "#7cacc4",
+        "name": "Arabella"
+      },
+      {
+        "hex": "#e5edf0",
+        "name": "Morning Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ea9ff56c-fb36-420d-8965-f3e01bd584c1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.proliant.com/careers",
+      "terms": "https://www.proliant.com/terms-of-use",
+      "contact": "https://www.proliant.com/contact-us",
+      "privacy": "https://www.proliant.com/privacy-policy",
+      "blog": "https://blog.proliant.com/inthenews",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bbf5bfc6-e10c-4a5f-83a5-23f957d6f72d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/be29cd47-7a75-4076-885e-01b3145e8b70.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4ae09ada-4db9-4560-88af-b34f4998e007.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 2160,
+        "height": 2160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7b5b6be8-eb80-4b5b-a601-8dc2e46f5d1f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1080,
+        "height": 210,
+        "aspectRatio": 5.14
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7b5b6be8-eb80-4b5b-a601-8dc2e46f5d1f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1080,
+      "height": 210,
+      "aspectRatio": 5.14
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4ae09ada-4db9-4560-88af-b34f4998e007.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 2160,
+      "height": 2160,
+      "aspectRatio": 1
+    }
+  }
+}

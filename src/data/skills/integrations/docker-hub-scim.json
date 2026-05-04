@@ -1,0 +1,152 @@
+{
+  "slug": "docker-hub-scim",
+  "name": "Docker Hub SCIM",
+  "domain": "docker-hub.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Docker Hub SCIM",
+  "metaTitle": "Build Docker Hub SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Docker Hub SCIM for support lookups, identity workflows, team access requests, and internal operational automation.",
+  "intro": "Docker Hub SCIM helps teams manage identity and provisioning workflows connected to Docker Hub access. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up provisioning status, prepare access handoffs, and trigger approved identity-related actions. This helps customer support and internal teams move faster with an AI agent that can answer questions and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a user provisioning or access sync issue is reflected in Docker Hub SCIM data before replying to a support chat or ticket.",
+    "Let the agent summarize a customer's reported Docker Hub access problem, gather missing identity details, and prepare a clean handoff for an IT or identity team.",
+    "Allow the agent to verify whether an account membership or provisioning state appears up to date and explain the next approved support step to the customer.",
+    "Have the agent create an internal escalation record with the relevant Docker Hub SCIM context when a customer reports missing team access or delayed deprovisioning.",
+    "Enable the agent to trigger an approved access review or follow-up workflow when support identifies a Docker Hub organization membership problem that needs internal action."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Docker Hub SCIM provisioning status for a user or group without opening admin tools.",
+    "Help IT, security, or platform teams use an internal AI agent to summarize access changes, investigate sync issues, and follow standard operating procedures for Docker Hub identity management.",
+    "Allow managers or team leads to ask the agent about onboarding or offboarding status for Docker Hub access and receive a clear summary with the next required action.",
+    "Enable employees to request approved Docker Hub access workflows through the agent, with the Skill gathering required context and routing sensitive actions behind approval boundaries.",
+    "Use an internal DocsBot agent to generate incident notes or audit-ready summaries from Docker Hub SCIM activity and provisioning outcomes for operations and security teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Docker Hub user provisioning and membership sync status.",
+    "A support assistant that gathers account access details before escalating identity issues.",
+    "An internal access request agent with approval steps for Docker Hub team membership changes.",
+    "A workflow assistant that summarizes onboarding and offboarding status across Docker Hub access records.",
+    "An operations agent that prepares audit summaries from Docker Hub SCIM provisioning activity.",
+    "A helpdesk agent that creates structured handoff notes for Docker Hub access incidents."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Docker Hub SCIM, such as checking provisioning status, preparing escalations, or supporting access workflows, using plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and decides how the agent should look up data or take approved actions without exposing technical setup complexity."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive workflows so the agent can help with Docker Hub access operations without overreaching beyond the rules you set."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, finds bugs, missing instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Docker Hub SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and the builder creates a secure Skill that can look up provisioning data, summarize identity issues, and trigger approved Docker Hub access workflows. It also handles configuration design, secret protection, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Docker Hub SCIM data to help with access problems?",
+      "answer": "Yes, a DocsBot support agent can use Docker Hub SCIM data to check provisioning or membership status, gather missing context, and prepare a clearer response or escalation for access-related issues. Sensitive actions can be limited behind approval steps and scoped permissions."
+    },
+    {
+      "question": "What Docker Hub SCIM workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees and operations teams review provisioning status, investigate sync issues, prepare onboarding or offboarding summaries, and route access requests through approved workflows. It can also create structured handoff notes and operational summaries for IT or security teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger identity and access actions related to Docker Hub?",
+      "answer": "DocsBot Skill Builder is designed to define secure configuration, protect and proxy secrets, and scope actions to the smallest necessary set of users, records, and workflows. You can also require approvals for higher-risk changes so the agent only takes bounded action."
+    },
+    {
+      "question": "Can a DocsBot agent escalate Docker Hub access issues to internal teams?",
+      "answer": "Yes, the agent can collect the right details from a support conversation, summarize the provisioning or membership issue, and create a structured handoff for the appropriate internal team. This speeds up escalation while keeping the workflow consistent."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Docker Hub SCIM with DocsBot?",
+      "answer": "You explain the business outcome you want, and Skill Builder handles the Skill design, secure connection plan, permissions model, testing scenarios, and improvement cycle. That lets non-technical teams launch useful AI actions without manually wiring every integration detail."
+    }
+  ],
+  "relatedSlugs": [
+    "docker-hub",
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "azure-active-directory",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Docker Hub",
+    "domain": "docker-hub.com",
+    "description": "Docker Hub is a cloud‑based registry and collaboration platform for Docker container images, enabling developers to store, share, and manage containerized applications and services. It offers public and private repositories, automated builds, vulnerability scanning, and integration with CI/CD pipelines, helping teams streamline development, testing, and deployment of Dockerized workloads.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/acdcd9cb-a50d-4659-9864-0aa33958feee.png",
+    "iconUrl": "https://media.brand.dev/acdcd9cb-a50d-4659-9864-0aa33958feee.png",
+    "primaryColor": "#2a8088",
+    "accentColor": "#90c4c4",
+    "colors": [
+      {
+        "hex": "#2a8088",
+        "name": "Cranach Blue"
+      },
+      {
+        "hex": "#90c4c4",
+        "name": "Chuff Blue"
+      },
+      {
+        "hex": "#d3e5e7",
+        "name": "Aqua Sparkle"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/acdcd9cb-a50d-4659-9864-0aa33958feee.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/acdcd9cb-a50d-4659-9864-0aa33958feee.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/acdcd9cb-a50d-4659-9864-0aa33958feee.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

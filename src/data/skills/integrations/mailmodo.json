@@ -1,0 +1,160 @@
+{
+  "slug": "mailmodo",
+  "name": "Mailmodo",
+  "domain": "mailmodo.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Mailmodo",
+  "metaTitle": "Build Mailmodo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mailmodo to look up campaign data, trigger email workflows, summarize engagement, and support teams with safe actions.",
+  "intro": "Mailmodo helps teams create interactive email campaigns, automate journeys, and drive conversions. With DocsBot Skill Builder, you can describe the Mailmodo-powered agent you want in plain language and have DocsBot design a reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve campaign data, trigger approved actions, and summarize outcomes inside the rules you set.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a subscriber is enrolled in a Mailmodo journey and explain the current email sequence status during a support chat.",
+    "Use a DocsBot helpdesk agent to look up recent Mailmodo campaign engagement for a customer account and prepare a concise handoff for success or marketing teams.",
+    "Allow the agent to capture newsletter preferences from a customer conversation and trigger an approved Mailmodo subscription or segment update.",
+    "Have the agent summarize whether a customer received a product update, onboarding, or reminder campaign in Mailmodo before suggesting the next support step.",
+    "Enable the agent to create a follow-up request that adds a contact to a Mailmodo campaign after support approval for onboarding, renewal, or re-engagement outreach."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Mailmodo campaign results, subscriber activity summaries, or journey status without opening the marketing platform.",
+    "Enable sales, success, or operations teams to ask the agent to add approved contacts to Mailmodo lists, journeys, or segments using bounded workflow rules.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to summarize Mailmodo performance for a campaign, audience segment, or lifecycle email series.",
+    "Help marketing employees research engagement trends by asking the agent to pull Mailmodo data, compare campaign snapshots, and produce a brief summary for planning.",
+    "Support team SOPs by letting employees chat with the agent to prepare campaign handoffs, collect missing launch details, and trigger approved Mailmodo follow-up workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks subscriber journey status before answering campaign-related customer questions.",
+    "An internal assistant that summarizes Mailmodo campaign performance for marketers, customer success teams, or executives.",
+    "A DocsBot action that adds approved contacts to segments, journeys, or follow-up email workflows.",
+    "A helpdesk agent that prepares escalation notes using Mailmodo engagement and subscription context.",
+    "A private team assistant that gathers launch details and drafts campaign handoff summaries.",
+    "An AI workflow that captures customer email preferences and updates Mailmodo records safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want in plain language, such as checking Mailmodo journey status, updating subscriber preferences, or triggering a follow-up campaign from a support conversation."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the Mailmodo connection details it needs, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Mailmodo actions, records, users, and workflow paths required, and adds approval boundaries wherever updates or sensitive actions should be reviewed before execution."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds weak instructions, permission gaps, or workflow bugs, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take approved Mailmodo actions in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Mailmodo?",
+      "answer": "With DocsBot Skill Builder, you describe the Mailmodo workflow you want in plain language and Skill Builder creates a reusable Skill for lookups, summaries, approved updates, and workflow triggers. It also handles secure connection design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Mailmodo data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Mailmodo Skill to look up subscriber status, campaign context, journey enrollment, or recent engagement while responding to customers. You can also define safe limits so the agent only performs approved actions and escalates sensitive requests."
+    },
+    {
+      "question": "What Mailmodo workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can retrieve campaign performance, summarize subscriber activity, add approved contacts to journeys or segments, and prepare handoff notes for marketing or customer success teams. The workflow can be scoped to specific teams, records, and actions based on your rules."
+    },
+    {
+      "question": "Can DocsBot trigger Mailmodo email journeys or subscriber updates safely?",
+      "answer": "Yes, Skill Builder can create bounded actions for Mailmodo updates or workflow triggers with scoped permissions and approval steps where needed. This helps your agent act inside defined limits instead of making broad unreviewed changes."
+    },
+    {
+      "question": "How does DocsBot keep Mailmodo credentials and API access secure?",
+      "answer": "Skill Builder identifies the required configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and Skill source. It also scopes access to the smallest set of Mailmodo permissions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot helpdesk agent use Mailmodo to prepare escalations or follow-up tasks?",
+      "answer": "Yes, the agent can collect Mailmodo campaign and subscriber context, summarize the current state, and prepare a clean escalation or handoff for another team. It can also trigger approved follow-up workflows when your process allows it."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "shopify",
+    "zapier",
+    "klaviyo",
+    "mailchimp",
+    "activecampaign"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mailmodo",
+    "domain": "mailmodo.com",
+    "description": "Mailmodo is an AI‑powered email marketing platform that lets businesses create app‑like, interactive emails without coding. Using a drag‑and‑drop editor and a library of AMP templates, users can embed forms, quizzes, polls, games and other widgets directly inside the message, eliminating redirects and boosting conversion rates up to three‑fold. The solution includes automated journeys, conditional triggers, API and webhook integrations, and AI‑generated subject lines and copy. Mailmodo connects with popular CRMs and tools such as HubSpot, Zapier, Shopify and Calendly, enabling seamless data flow. Its mission is to simplify email marketing and maximize ROI for brands, helping over 10,000 companies achieve higher engagement and sales.",
+    "slogan": "Create AI-powered interactive emails, automate journeys, boost conversions 3x.",
+    "logoUrl": "https://media.brand.dev/1e58219f-c614-48e0-bcfc-3af42d2a92ca.svg",
+    "iconUrl": "https://media.brand.dev/f3e5eb0d-6bcd-4e78-9db5-c120b42e6f4d.jpg",
+    "primaryColor": "#2fc293",
+    "accentColor": "#5a5bdc",
+    "colors": [
+      {
+        "hex": "#2fc293",
+        "name": "Mountain Meadow"
+      },
+      {
+        "hex": "#5a5bdc",
+        "name": "Exodus Fruit"
+      },
+      {
+        "hex": "#edf4f7",
+        "name": "Aircraft White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/44d22006-11a1-4978-95a1-ddf098e08a1b.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.mailmodo.com/gdpr/termsandconditions/",
+      "contact": "https://www.mailmodo.com/contact-us/",
+      "privacy": "https://www.mailmodo.com/gdpr/privacypolicy/",
+      "blog": "https://www.mailmodo.com/newsletter/",
+      "pricing": "https://www.mailmodo.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f3e5eb0d-6bcd-4e78-9db5-c120b42e6f4d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1e58219f-c614-48e0-bcfc-3af42d2a92ca.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 211,
+        "height": 39,
+        "aspectRatio": 5.41
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1e58219f-c614-48e0-bcfc-3af42d2a92ca.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 211,
+      "height": 39,
+      "aspectRatio": 5.41
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f3e5eb0d-6bcd-4e78-9db5-c120b42e6f4d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "qlik-sense",
+  "name": "Qlik Sense",
+  "domain": "qlik-sense.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Qlik Sense Data and Insights",
+  "metaTitle": "Build AI Agents for Qlik Sense with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Qlik Sense for live data lookups, dashboard summaries, guided support responses, and safe internal workflow actions.",
+  "intro": "Qlik Sense helps teams explore dashboards, metrics, and analytics that drive decisions across the business. With DocsBot Skill Builder, you can describe in plain language how an AI agent should use Qlik Sense data, and Skill Builder creates, secures, tests, and deploys that reusable ability for support or internal teams. The result is an AI agent that can answer questions, summarize analytics, prepare handoffs, and take bounded actions using trusted business data.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, product, usage, or service metrics from Qlik Sense and explain them in plain language during a chat or ticket reply.",
+    "Use Qlik Sense dashboard data to help the agent answer billing, adoption, performance, or SLA questions with current metrics instead of static help content.",
+    "Have the agent summarize trends from Qlik Sense before creating a support handoff so human teams receive the key numbers, recent changes, and likely next steps.",
+    "Enable the agent to compare a customer's current usage or activity against historical patterns in Qlik Sense and suggest approved troubleshooting steps.",
+    "Let the agent gather analytics evidence from Qlik Sense when preparing an escalation for customer success, support, or operations teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Qlik Sense dashboard answers without manually searching across reports.",
+    "Revenue, support, and operations teams can ask the agent to summarize KPI changes, explain trend shifts, and prepare a concise update from Qlik Sense for a meeting or handoff.",
+    "Team members can use the agent to research performance questions across Qlik Sense data and generate a structured summary with follow-up actions for internal workflows.",
+    "Managers can chat with the agent to retrieve approved metrics, compare periods, and turn Qlik Sense insights into status notes, incident context, or executive briefings.",
+    "Internal teams can use the agent to follow SOPs that combine Qlik Sense lookups with handoffs, approvals, or next-step recommendations across business systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains customer usage trends from Qlik Sense during live chats and tickets.",
+    "A private analytics assistant that answers KPI questions from Slack using Qlik Sense dashboards and measures.",
+    "A handoff Skill that summarizes Qlik Sense account health metrics for support or customer success escalations.",
+    "An internal briefing agent that turns Qlik Sense trend data into meeting notes and action summaries.",
+    "A support workflow that checks Qlik Sense metrics before suggesting approved troubleshooting or escalation paths.",
+    "An operations assistant that compares current and historical Qlik Sense performance data and flags meaningful changes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Qlik Sense in plain language, such as answering usage questions, summarizing dashboards, or preparing escalations from analytics data."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and automatically decides the safest workflow, required configuration values, and runtime behavior."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to only the data, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive lookups, updates, or downstream workflow steps happen only within the rules you approve."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Qlik Sense data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your AI agent safely query Qlik Sense, summarize findings, and respond with the right context. Skill Builder also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Qlik Sense to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Qlik Sense data during a website chat or helpdesk ticket reply to explain usage, trends, service metrics, or account health in a customer-friendly way. You can also define boundaries so the agent only uses approved dashboards, measures, and actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Qlik Sense?",
+      "answer": "A DocsBot agent can look up analytics, summarize dashboard changes, prepare escalation notes, gather evidence for handoffs, and guide the next support step based on current Qlik Sense data. This helps support teams respond faster with more accurate context."
+    },
+    {
+      "question": "Can an internal AI assistant answer KPI questions from Qlik Sense in Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve approved Qlik Sense insights, compare periods, and generate summaries without manually opening multiple reports. This is useful for operations, leadership, support, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep Qlik Sense access secure for AI agents?",
+      "answer": "Skill Builder is designed to define secure connection settings, protect and proxy secrets, keep credentials out of conversations, and scope the agent to the minimum data and actions required. It can also add approval boundaries for sensitive workflows before anything is deployed."
+    },
+    {
+      "question": "Can DocsBot test a Qlik Sense AI workflow before launch?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal scenarios against the Skill, identifies bugs or gaps, and improves the workflow before deployment. This helps you launch with stronger instructions, safer permissions, and better outcomes."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "power-bi",
+    "looker",
+    "google-bigquery",
+    "snowflake",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Qlik",
+    "domain": "qlik-sense.com",
+    "description": "Qlik is a data analytics and integration platform that helps organizations turn raw data into actionable business outcomes. Through its cloud‑based Qlik Cloud Analytics and on‑premise Qlik Sense solutions, the company provides AI‑powered visualizations, dashboards, predictive insights, and embedded analytics. Qlik’s portfolio also includes data integration and quality tools—such as Qlik Replicate, Qlik Compose, and Talend Data Fabric—that unify, govern, and automate data movement across hundreds of sources, enabling trusted data foundations for AI, ML, and decision‑making. The platform supports a wide range of industries and roles, offering partner ecosystems, training, support, and consulting services to accelerate digital transformation and drive data‑driven performance.",
+    "slogan": "Turn your data into real business outcomes",
+    "logoUrl": "https://media.brand.dev/620bceba-aef1-4698-9ca3-cc282dff1b3a.svg",
+    "iconUrl": "https://media.brand.dev/620bceba-aef1-4698-9ca3-cc282dff1b3a.svg",
+    "primaryColor": "#049444",
+    "accentColor": "#53545b",
+    "colors": [
+      {
+        "hex": "#049444",
+        "name": "Green Revolution"
+      },
+      {
+        "hex": "#53545b",
+        "name": "Coal Mine"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2c43af3c-d1ba-4048-88ad-93d6d83eb356.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/620bceba-aef1-4698-9ca3-cc282dff1b3a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 71,
+        "height": 30,
+        "aspectRatio": 2.37
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/620bceba-aef1-4698-9ca3-cc282dff1b3a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 71,
+      "height": 30,
+      "aspectRatio": 2.37
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/620bceba-aef1-4698-9ca3-cc282dff1b3a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 71,
+      "height": 30,
+      "aspectRatio": 2.37
+    }
+  }
+}

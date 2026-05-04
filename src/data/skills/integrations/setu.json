@@ -1,0 +1,113 @@
+{
+  "slug": "setu",
+  "name": "SETU",
+  "domain": "setu.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with SETU Using DocsBot Skills",
+  "metaTitle": "Build AI Agents for SETU with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SETU for payment and billing lookups, updates, workflow triggers, and internal operations with secure, tested Skills.",
+  "intro": "SETU can support payment, billing, and enterprise workflow use cases where an AI agent needs to look up records, summarize status, or trigger approved actions. With DocsBot Skill Builder, you describe the outcome you want in plain language, and DocsBot helps design, secure, test, and publish a reusable Skill for customer support or internal team workflows. The result is an AI agent that can answer questions and take bounded action inside your approved SETU processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check payment or billing status in SETU and explain the current state to a customer in plain language.",
+    "Let a support agent retrieve transaction details from SETU while responding to a helpdesk ticket so it can speed up verification and reduce manual back-and-forth.",
+    "Enable the agent to create an internal handoff with a SETU record summary when a payment issue needs finance or operations review.",
+    "Allow the agent to collect missing customer details in chat and trigger an approved SETU workflow for billing follow-up or exception handling.",
+    "Use the agent to summarize recent SETU activity related to a customer account before escalating a dispute, failed payment, or reconciliation issue."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve SETU payment, billing, or workflow information without switching systems.",
+    "Finance or operations teams can ask the agent to summarize SETU transaction activity, identify next steps, and prepare handoff notes for exception handling workflows.",
+    "Customer success or support managers can use the agent to research account status across SETU-backed processes and generate consistent internal case summaries.",
+    "Internal teams can chat with the agent to complete standard operating procedures that involve SETU lookups, approved updates, and workflow triggers with the right permission boundaries.",
+    "Employees can use the agent to gather context from SETU and related systems before contacting a customer, reviewing a dispute, or routing a case to another team."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks payment or billing status in SETU during customer conversations.",
+    "An internal finance assistant that summarizes SETU transaction records and flags exceptions for review.",
+    "A ticket enrichment Skill that adds SETU account context before a human agent takes over.",
+    "A dispute triage workflow that gathers SETU details and prepares an escalation summary.",
+    "A billing follow-up Skill that collects missing information and triggers approved SETU workflows.",
+    "An operations assistant that guides employees through SETU-related SOPs in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with SETU, such as checking payment status, creating a handoff, or triggering a billing workflow, and it asks for any missing business context in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns your goal into a reusable Skill, chooses the safest workflow design, defines the required configuration values, and plans how the agent should look up information or take approved action inside SETU."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection design by defining authentication and secret handling, keeping credentials out of chats and Skill source, proxying secrets through protected runtime configuration, and scoping access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible permission boundaries, approval steps, and action limits so sensitive SETU updates or workflow triggers only happen within the rules your team approves."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SETU?",
+      "answer": "With DocsBot Skill Builder, you describe the SETU workflow you want in plain language, and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use SETU data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a SETU Skill to look up approved payment, billing, or account information, summarize it for the customer, and prepare handoffs or next steps when escalation is needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with SETU?",
+      "answer": "A SETU-connected agent can help with payment status lookups, billing context retrieval, dispute triage summaries, case enrichment, internal handoff creation, and approved workflow triggers based on customer conversations or tickets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with SETU?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve SETU information, summarize transactions, follow SOPs, trigger approved internal workflows, and prepare consistent notes for finance, operations, or support teams."
+    },
+    {
+      "question": "How does DocsBot keep SETU actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum required access, and adds approval boundaries or action limits for sensitive updates and workflow triggers."
+    },
+    {
+      "question": "Do I need technical staff to connect DocsBot to SETU workflows?",
+      "answer": "No, the process is designed for non-technical users to describe the desired outcome while Skill Builder handles the design, secure setup, testing, and improvement details behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "razorpay",
+    "cashfree",
+    "billdesk",
+    "paypal",
+    "adyen"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Setu",
+    "domain": "setu.com",
+    "description": "Setu Software Consultants Pvt. Ltd. is a Business‑to‑Technology (B2T) consulting firm founded in 1993 that creates innovative enterprise solutions using proprietary methodologies and tools. The company captures and formalizes client business processes, then rapidly builds configurable, cost‑effective applications for sectors such as financial services, insurance, real estate, telecom, e‑marketing and healthcare. Setu’s S2DLC™ framework and SMART™ solutions accelerate development cycles, enable seamless migration to outsourcing partners, and bridge the gap between operational and technology teams. With development centers in Pune, India and a global delivery hub in Boston, USA, Setu combines domain expertise, process engineering, and software development to deliver point‑solution validation and full‑scale enterprise implementations.",
+    "slogan": "Bridge the gap between business operations and technology with Setu",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://setu.com/contact.htm",
+      "pricing": "https://setu.com/benefits.htm"
+    }
+  }
+}

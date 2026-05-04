@@ -1,0 +1,148 @@
+{
+  "slug": "google-contacts",
+  "name": "Google Contacts",
+  "domain": "google-contacts.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Contacts",
+  "metaTitle": "Build AI Agents for Google Contacts with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Google Contacts for safe lookups, contact updates, handoffs, and internal workflow automation.",
+  "intro": "Google Contacts stores the people and relationship data teams rely on across sales, support, and operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely look up contacts, update records, and support approved workflows. This helps customer-facing and internal AI agents move from answering questions to taking bounded action with Google Contacts.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer or company contact in Google Contacts to confirm the right owner, callback details, or escalation path during a live chat or support ticket.",
+    "Enable the support agent to create or update contact notes, labels, or basic details in Google Contacts after a customer provides corrected information.",
+    "Use Google Contacts data to help the agent prepare a clean handoff summary for human support, including the right internal contact or team to involve.",
+    "Allow the agent to find alternate contact records when a customer asks who manages their account, billing relationship, or onboarding process.",
+    "Help the agent verify and summarize saved contact information before triggering an approved follow-up workflow or escalation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to find the right person, team alias, or external stakeholder stored in Google Contacts.",
+    "Enable internal teams to ask the agent to create or update Google Contacts entries as part of onboarding, vendor management, or account handoff workflows.",
+    "Help operations staff use an internal AI agent to summarize duplicate, outdated, or incomplete contact records and prepare cleanup actions.",
+    "Allow customer success or support leaders to ask the agent for contact research across Google Contacts before routing a case, renewal issue, or executive escalation.",
+    "Support SOP-driven workflows where employees chat with the agent to retrieve contact details, log updates, and generate next-step summaries across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the correct account contact during customer conversations.",
+    "A private team assistant that creates new Google Contacts records from approved chat requests.",
+    "A workflow Skill that updates contact details after a support case or onboarding session.",
+    "An escalation assistant that retrieves the right internal or external contact for urgent issues.",
+    "A contact cleanup helper that summarizes missing fields, duplicates, and outdated records for review.",
+    "A handoff Skill that prepares notes and routes cases using Google Contacts relationship data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google Contacts in plain language, such as finding account contacts, updating details, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or source."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes access to the minimum records, actions, and users required, and adds approval boundaries or action limits for sensitive contact changes or workflow triggers."
+    },
+    {
+      "title": "Tests run automatically",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill has been reviewed and improved, Skill Builder helps deploy it to the right DocsBot agent so it can answer questions and take approved action inside your support or internal workflow."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Google Contacts?",
+      "answer": "With DocsBot Skill Builder, you describe the Google Contacts workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. The resulting agent can perform safe lookups, updates, summaries, and workflow steps based on the rules you approve."
+    },
+    {
+      "question": "Can an AI support agent use Google Contacts during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Google Contacts to find the right contact record, confirm ownership details, prepare escalations, or update approved contact information while responding to customers. This helps the agent resolve questions faster and produce cleaner handoffs when a human needs to step in."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Google Contacts?",
+      "answer": "An internal DocsBot agent can help employees find the right people, create or update contact records, summarize relationship data, and support SOPs for onboarding, vendor management, or escalation routing. Teams can access this through private chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update Google Contacts records?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect and proxy secrets, and scope permissions so the agent only performs approved actions. You can also require approval boundaries for sensitive updates before changes are made."
+    },
+    {
+      "question": "Can a DocsBot agent use Google Contacts data for handoffs and escalations?",
+      "answer": "Yes, the agent can retrieve relevant contact details, summarize the current situation, and prepare a structured handoff for the next team or owner. This is useful for support escalations, account management follow-up, and internal routing workflows."
+    },
+    {
+      "question": "How does setup work for non-technical teams that want to connect Google Contacts?",
+      "answer": "Non-technical teams can describe the outcome they want, and Skill Builder handles the workflow design, secure connection details, testing, and improvement process. That means you do not need to manually plan every integration step to get a useful AI agent live."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "gmail",
+    "google-calendar",
+    "hubspot",
+    "salesforce",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "contacts.google.com",
+    "description": "Google is a multinational technology company that provides a wide range of Internet‑related services and products. It operates the world’s leading search engine, offers online advertising platforms, cloud computing, productivity tools such as Gmail, Google Contacts, Drive, and Maps, and develops hardware and operating systems like Android and Pixel devices. Through its ecosystem, Google enables users to find information, communicate, collaborate, and manage personal data securely across web and mobile platforms.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/8b3f8022-6d6f-4fd7-aebf-422c5881462c.png",
+    "iconUrl": "https://media.brand.dev/8b3f8022-6d6f-4fd7-aebf-422c5881462c.png",
+    "primaryColor": "#bd8236",
+    "accentColor": "#dad2cb",
+    "colors": [
+      {
+        "hex": "#bd8236",
+        "name": "Fresh Clay"
+      },
+      {
+        "hex": "#dad2cb",
+        "name": "Moth Grey"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8b3f8022-6d6f-4fd7-aebf-422c5881462c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8b3f8022-6d6f-4fd7-aebf-422c5881462c.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8b3f8022-6d6f-4fd7-aebf-422c5881462c.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

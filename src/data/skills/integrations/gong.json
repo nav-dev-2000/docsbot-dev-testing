@@ -1,0 +1,148 @@
+{
+  "slug": "gong",
+  "name": "Gong",
+  "domain": "gong.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that use Gong identity workflows",
+  "metaTitle": "Build AI agents with Gong identity workflows using DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Gong to verify device-backed identity, check authorization state, prepare handoffs, and trigger approved security workflows safely.",
+  "intro": "Gong provides hardware-anchored identity and cryptographic authorization for agents and devices. With DocsBot Skill Builder, you can describe the identity or verification workflow you want in plain language and have DocsBot create a reusable Skill for customer support or internal team agents. The result is an AI agent that can answer questions, look up authorization state, prepare secure handoffs, and trigger bounded identity actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user or device has an active Gong-backed identity enrollment and explain the next approved recovery or verification step.",
+    "Use the agent to gather missing context from a customer, summarize a failed authentication or signing issue, and create a clean escalation handoff for your security or support team.",
+    "Allow the agent to look up device or identity status in Gong during a support chat so customers get accurate guidance without waiting for a manual review.",
+    "Have the agent trigger approved recovery, revocation, or re-enrollment workflows after collecting the required details and respecting human approval boundaries for sensitive actions.",
+    "Use the agent in helpdesk replies to summarize Gong identity events or verification outcomes and add a structured internal note for follow-up teams."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to check Gong identity status for a device, agent, or user before continuing an operational workflow.",
+    "Enable security and IT teams to use an internal agent to prepare revocation, re-issuance, or enrollment workflows with the right context, approvals, and summarized evidence.",
+    "Help support and operations staff ask a private agent why an authentication flow failed and receive a grounded explanation based on Gong data and your internal SOPs.",
+    "Give employees a single chat interface that can research identity-related incidents, retrieve the latest status from Gong, and assemble handoff notes for security review.",
+    "Use an internal AI agent to guide teams through hardware-backed identity recovery steps while following company rules about who can request, approve, or complete each action."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Gong enrollment and identity verification status during customer chats.",
+    "An internal security assistant that prepares device revocation and re-issuance workflows with approval gates.",
+    "A helpdesk agent that summarizes failed signing or authentication events for faster escalations.",
+    "An employee-facing agent that explains Gong-backed identity recovery steps using your internal SOPs.",
+    "A private operations assistant that validates authorization state before triggering downstream workflows.",
+    "A DocsBot agent that gathers incident context and creates structured security handoff notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Gong in plain language, such as checking identity status, preparing a recovery handoff, or triggering an approved revocation workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and defines how the agent should retrieve data or take bounded action in Gong."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure connection planning by keeping credentials out of chats and Skill source, proxying secrets through approved runtime configuration, and defining safe authentication handling by default."
+    },
+    {
+      "title": "Access is tightly scoped",
+      "description": "Skill Builder limits the Skill to the minimum users, records, actions, and systems required, and it adds approval boundaries wherever identity, recovery, revocation, or other sensitive steps should require review."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gong identity workflows?",
+      "answer": "You can describe the outcome you want in DocsBot Skill Builder, such as checking enrollment status, summarizing authorization issues, or preparing a recovery workflow. Skill Builder designs the Skill, secures the connection, scopes permissions, tests scenarios, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Gong data during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use a Gong Skill to look up approved identity or device status, explain the next step, and prepare escalations or follow-up workflows. Sensitive actions can be limited behind approval boundaries so the agent only takes the actions you allow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Gong?",
+      "answer": "A DocsBot agent can gather verification details, check identity or device state, summarize failed authentication events, create structured handoffs, and trigger approved recovery or revocation workflows. This helps support teams resolve security-related issues faster without exposing credentials or over-broad access."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Gong-based identity operations?",
+      "answer": "Yes, private DocsBot agents can help employees check authorization state, research failed identity flows, follow SOPs for recovery or revocation, and prepare requests for security review. Teams can use the agent in chat, Slack, or Microsoft Teams to complete identity workflows with clear guardrails."
+    },
+    {
+      "question": "How does DocsBot keep Gong-related AI actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of conversations and generated content, proxies authentication through approved runtime settings, and scopes the Skill to the smallest necessary permissions. It can also add approval steps for high-risk actions such as revocation, re-issuance, or other identity changes."
+    },
+    {
+      "question": "Do I need to manually wire APIs or write code to connect DocsBot with Gong?",
+      "answer": "No, the setup is framed around describing what you want the agent to accomplish. Skill Builder handles the workflow design, secure connection approach, testing, improvement, and deployment details for you."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "duo",
+    "onelogin",
+    "auth0",
+    "jumpcloud",
+    "cloudflare-zero-trust"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gong",
+    "domain": "gong.com",
+    "description": "Gong (gong.com) provides hardware‑anchored cryptographic identity for autonomous agents and devices. Using Shamir Secret Sharing, a user’s private key is split into three shares across devices, with any two able to reconstruct it for signing. The system employs P‑256 ECDSA signatures performed inside a secure nRF54L15 MCU, ensuring the master key never leaves the hardware. No passwords, OAuth tokens, or server‑side storage of private keys are required, eliminating single points of failure. Signatures serve as proof of authorization, enabling password‑less login, SSH key management, and agent identity infrastructure. Lost devices can be revoked and new shares issued without compromising the identity. Gong offers an API and waitlist for early access to its decentralized, auditable authentication platform.",
+    "slogan": "No secrets stored. Hardware-anchored identity for AI agents.",
+    "logoUrl": "https://media.brand.dev/31477e08-f1a1-4c92-b7d5-69f930e2cb30.png",
+    "iconUrl": "https://media.brand.dev/31477e08-f1a1-4c92-b7d5-69f930e2cb30.png",
+    "primaryColor": "#941bd7",
+    "accentColor": "#2175fc",
+    "colors": [
+      {
+        "hex": "#941bd7",
+        "name": "Prom Queen"
+      },
+      {
+        "hex": "#2175fc",
+        "name": "Clouded Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9509419b-6fdd-491b-b4ec-3203fef62184.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/31477e08-f1a1-4c92-b7d5-69f930e2cb30.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/31477e08-f1a1-4c92-b7d5-69f930e2cb30.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/31477e08-f1a1-4c92-b7d5-69f930e2cb30.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

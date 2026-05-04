@@ -1,0 +1,186 @@
+{
+  "slug": "trello",
+  "name": "Trello",
+  "domain": "trello.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Trello",
+  "metaTitle": "Build Trello AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read and update Trello, automate handoffs, and help support teams and employees complete work safely.",
+  "intro": "Trello helps teams organize work visually across boards, lists, cards, and checklists. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create an AI Skill that lets your support or internal agent look up Trello data, update work, trigger workflows, and summarize progress. The result is an AI agent that can answer questions and take bounded action inside your Trello processes instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Trello for the status of a reported issue and reply with a clear progress summary.",
+    "Create Trello cards from support chats or helpdesk tickets so the agent can open follow-up work without leaving the conversation.",
+    "Update an existing Trello card with customer details, reproduction steps, priority notes, or links gathered during a support interaction.",
+    "Have the agent search Trello boards for known issues, feature requests, or incident tasks and use that context to answer customers more accurately.",
+    "Generate a clean support handoff by summarizing the customer conversation and attaching it to a Trello card for the product or operations team to review.."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a private interface to find Trello cards, board activity, and task ownership without opening Trello manually.",
+    "Help customer success, operations, or product teams ask the agent to create cards, assign work, add due dates, or move cards through approved workflow stages.",
+    "Enable team members to ask the agent for board summaries, overdue work reports, or checklist progress so they can prepare updates faster.",
+    "Support internal SOPs by letting employees chat with the agent to turn intake notes, meeting decisions, or issue reports into structured Trello tasks.",
+    "Give managers an AI assistant that can research Trello activity across boards and summarize blockers, handoffs, and next actions for the team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates Trello cards from customer bug reports with structured summaries.",
+    "A private team assistant that finds card owners, due dates, and blockers across Trello boards.",
+    "A support workflow that updates Trello cards when customers add new issue details or attachments.",
+    "An internal AI agent that summarizes board status before standups, reviews, or leadership check-ins.",
+    "A handoff Skill that converts support conversations into Trello tasks for product or engineering.",
+    "An approval-based workflow that lets the agent move cards only after a manager confirms the action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Trello-connected agent to do, such as look up card status, create follow-up work, or prepare handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure setup, defines the required configuration values, handles Trello connection details, and keeps credentials protected through secure runtime configuration instead of exposing secrets in chats or Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Trello boards, actions, users, and records needed for the workflow and adds approval boundaries for sensitive updates like moving cards or creating escalations."
+    },
+    {
+      "title": "Scenarios get tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into a self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take approved action in Trello."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Trello?",
+      "answer": "With DocsBot Skill Builder, you describe the Trello workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, improves it, and prepares it for deployment. The finished agent can look up Trello data, create or update cards, summarize board state, and trigger approved next steps."
+    },
+    {
+      "question": "Can an AI support agent use Trello to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Trello during a live chat or helpdesk reply to check issue status, find related tasks, summarize progress, and create follow-up cards when needed. You control what boards and actions the agent can access so responses stay accurate and bounded."
+    },
+    {
+      "question": "What Trello workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees search boards, create tasks, assign owners, update cards, summarize deadlines, and prepare handoffs across teams. This is useful for operations, customer success, product, and support teams that want faster execution through chat."
+    },
+    {
+      "question": "Can DocsBot safely update Trello cards instead of only reading them?",
+      "answer": "Yes, Skill Builder can create Skills for approved write actions such as creating cards, adding comments, updating fields, or moving cards between lists. It also designs scoped permissions and approval boundaries so sensitive changes happen within rules you define."
+    },
+    {
+      "question": "Can a DocsBot agent turn support conversations into Trello tasks?",
+      "answer": "Yes, the agent can collect the key details from a customer conversation, generate a structured summary, and create or update a Trello card for the right team. This helps reduce manual handoffs and keeps follow-up work tied to the original support context."
+    },
+    {
+      "question": "How does security work when connecting DocsBot to Trello?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated instructions. It also scopes access to the specific Trello actions, users, and records needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "jira",
+    "monday",
+    "clickup",
+    "notion",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Trello",
+    "domain": "trello.com",
+    "description": "Trello is the visual productivity platform that helps individuals and teams capture, organize, and complete tasks. Users collect ideas, to‑dos, and responsibilities in an Inbox, arrange them on customizable Boards, and schedule work with a Planner that syncs to calendars. Integrated AI turns emails and messages from Slack, Teams, and other apps into actionable cards with summaries and links. Built‑in no‑code automation and Power‑Ups let users streamline workflows, mirror cards across boards, and connect to hundreds of apps. Available as a free tier and paid Premium/Enterprise plans, Trello supports remote, hybrid, and on‑site collaboration, giving millions worldwide a clear, visual overview of work and boosting communication and efficiency.",
+    "slogan": "Capture, organize, and tackle your to-dos from anywhere.",
+    "logoUrl": "https://media.brand.dev/6c35c65a-fd2c-407c-8cb5-b744556fc420.svg",
+    "iconUrl": "https://media.brand.dev/51fda801-01c4-4326-af82-a2078cca563a.png",
+    "primaryColor": "#0453ce",
+    "accentColor": "#243a5a",
+    "colors": [
+      {
+        "hex": "#0453ce",
+        "name": "Pacific Bridge"
+      },
+      {
+        "hex": "#243a5a",
+        "name": "Estate Blue"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a5242fd1-d937-4d51-b400-096ebf1d4f25.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "blog": "https://blog.trello.com/women-who-code",
+      "contact": "https://trello.com/contact",
+      "login": null,
+      "signup": null,
+      "pricing": "https://trello.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/51fda801-01c4-4326-af82-a2078cca563a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/20a9a6c7-f267-48b8-af3f-e26e78f7674f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5a811cfc-a58b-4f26-a9c5-60447961158b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 111,
+        "height": 38,
+        "aspectRatio": 2.92
+      },
+      {
+        "url": "https://media.brand.dev/ed8dfaf8-3e94-419b-9c40-8cfc25c1a386.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6c35c65a-fd2c-407c-8cb5-b744556fc420.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 312,
+        "height": 105,
+        "aspectRatio": 2.97
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5a811cfc-a58b-4f26-a9c5-60447961158b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 111,
+      "height": 38,
+      "aspectRatio": 2.92
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ed8dfaf8-3e94-419b-9c40-8cfc25c1a386.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

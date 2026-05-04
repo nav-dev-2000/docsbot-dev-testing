@@ -1,0 +1,148 @@
+{
+  "slug": "peakon-scim",
+  "name": "Peakon SCIM",
+  "domain": "peakon.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Peakon SCIM",
+  "metaTitle": "Build Peakon SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Peakon SCIM for safe identity lookups, user lifecycle actions, employee support workflows, and internal HR operations.",
+  "intro": "Peakon SCIM helps manage identity and user lifecycle data that often matters in employee support and internal operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up records, prepare updates, trigger approved actions, and summarize results. This helps teams deploy support and internal AI agents that do more than answer questions by taking bounded action inside Peakon SCIM workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify whether a user provisioning or access request has been submitted, summarize status, and prepare a handoff for the right team.",
+    "Let a helpdesk-connected DocsBot agent gather missing identity details from a requester, look up matching Peakon SCIM user records, and draft an escalation with the relevant context.",
+    "Enable the agent to confirm whether an employee onboarding or offboarding identity action appears complete before guiding the requester on next steps.",
+    "Have the agent summarize account lifecycle status from Peakon SCIM during support conversations so customers get faster, clearer updates without waiting for a manual check.",
+    "Use the agent to create a structured handoff for sensitive access or identity issues, including user details, request history, and approved follow-up steps."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up Peakon SCIM user lifecycle information without digging through admin tools.",
+    "HR, IT, and operations teams can ask the agent to gather onboarding or offboarding context, summarize user status, and prepare the next approved workflow step.",
+    "Managers and support staff can chat with the agent to confirm whether identity records exist, what state they are in, and what action should happen next based on internal SOPs.",
+    "Internal teams can use the agent to collect required details for access requests, route exceptions for approval, and create clean handoffs to HR or IT administrators.",
+    "Operations employees can ask the agent to generate summaries of provisioning issues, incomplete user records, or pending lifecycle tasks across Peakon SCIM workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up Peakon SCIM user records during employee support chats.",
+    "A helpdesk assistant that summarizes provisioning status and drafts identity escalation handoffs.",
+    "An internal HR assistant that gathers onboarding details and routes requests for approval.",
+    "An operations agent that checks offboarding progress and prepares next-step task summaries.",
+    "A private team assistant that answers lifecycle questions using scoped Peakon SCIM data.",
+    "An AI workflow that collects missing user details before creating an approved handoff."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Peakon SCIM agent to do in plain language, such as checking user lifecycle status, preparing an escalation, or triggering an approved workflow step."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and plans how the agent should look up data, take bounded actions, and respond clearly in support or internal conversations."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling by design, keeps credentials out of chats and Skill instructions, proxies secrets through approved runtime configuration, and scopes Peakon SCIM access to the minimum actions and records required."
+    },
+    {
+      "title": "Safety rules are applied",
+      "description": "Skill Builder adds permission boundaries, approval checks, and action limits so sensitive identity updates, lifecycle steps, and escalations only happen within the rules you approve."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Peakon SCIM without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Peakon SCIM workflow you want in plain language and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It handles connection planning, secret protection, scoped access, and safe action boundaries behind the scenes."
+    },
+    {
+      "question": "Can an AI support agent use Peakon SCIM data during helpdesk conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Peakon SCIM Skill to look up user lifecycle details, summarize record status, gather missing information, and prepare handoffs or escalations while responding to tickets or chat requests. You control what data and actions are allowed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Peakon SCIM?",
+      "answer": "Internal AI assistants can help employees check onboarding and offboarding status, verify user records, collect request details, route approvals, and summarize identity-related tasks for HR, IT, and operations teams. The workflows can follow your existing SOPs and permission rules."
+    },
+    {
+      "question": "Can DocsBot take actions in Peakon SCIM instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved lookups, record updates, workflow triggers, handoff creation, and status summaries. Skill Builder adds approval boundaries and scoped permissions so the agent only takes actions you authorize."
+    },
+    {
+      "question": "How does DocsBot keep Peakon SCIM credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I use a Peakon SCIM AI agent for employee onboarding and offboarding questions?",
+      "answer": "Yes, that is a strong internal use case for DocsBot. An employee or manager can ask the agent about lifecycle progress, required next steps, missing information, or pending approvals, and the agent can summarize the situation or prepare the right follow-up workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "azure-active-directory",
+    "workday",
+    "bamboohr"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Peakon",
+    "domain": "peakon.com",
+    "description": "Peakon is a cutting-edge company that offers a unified platform for managing HR and finance through an open, AI-driven ERP system, revolutionizing the way businesses operate.",
+    "slogan": "Building engaged teams with insights that drive great company cultures.",
+    "logoUrl": "https://media.brand.dev/bd9231f0-a220-41a0-9c61-01ee5f5d6d40.svg",
+    "iconUrl": "https://media.brand.dev/bd9231f0-a220-41a0-9c61-01ee5f5d6d40.svg",
+    "primaryColor": "#fc5c04",
+    "accentColor": "#0454ac",
+    "colors": [
+      {
+        "hex": "#fc5c04",
+        "name": "Maximum Orange"
+      },
+      {
+        "hex": "#0454ac",
+        "name": "Blue Lobster"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/05be9805-036d-438c-a2ad-b0b7aa19827d.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://peakon.com/",
+      "contact": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bd9231f0-a220-41a0-9c61-01ee5f5d6d40.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 4230,
+        "height": 2000,
+        "aspectRatio": 2.12
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bd9231f0-a220-41a0-9c61-01ee5f5d6d40.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 4230,
+      "height": 2000,
+      "aspectRatio": 2.12
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bd9231f0-a220-41a0-9c61-01ee5f5d6d40.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 4230,
+      "height": 2000,
+      "aspectRatio": 2.12
+    }
+  }
+}

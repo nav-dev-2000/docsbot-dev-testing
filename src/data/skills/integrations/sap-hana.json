@@ -1,0 +1,164 @@
+{
+  "slug": "sap-hana",
+  "name": "SAP HANA",
+  "domain": "sap-hana.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with SAP HANA",
+  "metaTitle": "Build AI Agents for SAP HANA with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SAP HANA for secure data lookups, summaries, updates, and workflow actions in support and internal operations.",
+  "intro": "SAP HANA helps teams work with critical business data across operations, finance, customer processes, and analytics. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use SAP HANA, and DocsBot helps design, secure, test, and publish that Skill. The result is a support or internal AI agent that can answer questions and take approved actions using live SAP HANA data.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order, account, product, or service status stored in SAP HANA and respond with a current summary in chat or tickets.",
+    "Use SAP HANA data to help the agent verify entitlement, contract status, or customer record details before providing support guidance or next steps.",
+    "Enable the agent to create a structured support handoff that includes relevant SAP HANA account data, recent activity, and issue context for human teams.",
+    "Allow the agent to update approved case-related fields or workflow markers in connected SAP HANA-backed processes after a customer confirms key details.",
+    "Have the agent summarize transaction history, usage patterns, or operational status from SAP HANA so customers receive faster, clearer answers without waiting for manual research."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve SAP HANA records, metrics, or account context without manually searching across business systems.",
+    "Operations teams can ask the agent to summarize SAP HANA data for investigations, recurring reviews, or handoff preparation across support and customer success workflows.",
+    "Finance, service, or account teams can use the agent to complete approved SOP steps such as checking status, updating bounded fields, and documenting outcomes in related workflows.",
+    "Managers can ask the agent in Slack or Microsoft Teams for concise summaries of SAP HANA-backed business data before customer calls, escalations, or internal decisions.",
+    "Internal teams can use the agent to gather missing context from SAP HANA and generate structured notes, action plans, or escalation briefs for cross-functional follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks live order or account status from SAP HANA before replying.",
+    "A customer service workflow that summarizes SAP HANA transaction history for faster ticket resolution.",
+    "An internal assistant that retrieves SAP HANA data and drafts escalation briefs for employees.",
+    "A private operations agent that updates approved workflow fields based on chat instructions.",
+    "An AI agent that verifies customer entitlement or contract context using SAP HANA records.",
+    "A handoff automation that packages SAP HANA data into structured notes for human teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SAP HANA agent to do in plain language, such as look up records, summarize business data, update approved fields, or prepare escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill and automatically defines the safest workflow, required configuration values, connection method, and runtime behavior for the SAP HANA interaction."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, scopes access to the minimum required data and actions, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds the results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer questions and take bounded SAP HANA actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses SAP HANA data?",
+      "answer": "With DocsBot Skill Builder, you describe the business outcome you want in plain language, and Skill Builder designs the SAP HANA Skill for lookups, summaries, approved updates, and workflow actions. It also handles secure configuration, permission scoping, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use SAP HANA to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use SAP HANA data to look up status, summarize account or transaction details, and prepare handoffs while responding in a website chat widget or helpdesk workflow. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SAP HANA?",
+      "answer": "DocsBot can help automate live record lookups, customer context gathering, issue summaries, escalation preparation, bounded record updates, and approved workflow triggers that depend on SAP HANA data. This helps support teams respond faster with current business context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with SAP HANA?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve SAP HANA information, summarize business context, research records, and complete approved SOP steps through chat, Slack, or Microsoft Teams. This is useful for operations, support, customer success, and finance teams that need fast access to trusted data."
+    },
+    {
+      "question": "How does DocsBot keep SAP HANA actions safe?",
+      "answer": "Skill Builder is designed to define secure connection settings, protect and proxy secrets, scope permissions to the minimum necessary records and actions, and add approval boundaries for sensitive workflows. That means the agent can take useful action without getting unrestricted access."
+    },
+    {
+      "question": "Can DocsBot update SAP HANA records or trigger workflows?",
+      "answer": "DocsBot Skills can be designed for approved updates and workflow triggers when those actions fit your process and permissions. Skill Builder helps set action limits, identify where approvals are needed, and test those flows before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "sap",
+    "snowflake",
+    "databricks",
+    "postgresql",
+    "mysql",
+    "oracle"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SAP SE",
+    "domain": "sap.com",
+    "description": "SAP is a leading company in enterprise application software, catering to diverse industries such as consumer goods, discrete manufacturing, and public services. By integrating business and technology, SAP delivers innovative solutions that address real-world business challenges. Their comprehensive portfolio includes tools that streamline processes across organizations, encompassing workforce management, financial oversight, customer relations, and supply chain logistics. SAP's offerings empower businesses to become intelligent and sustainable enterprises through advanced cloud solutions and platforms, ensuring they remain competitive in today's complex market. With a commitment to driving progress, SAP supports organizations of all sizes in achieving their operational goals and maximizing their potential.",
+    "slogan": "Bringing out the best in every business.",
+    "logoUrl": "https://media.brand.dev/8c6a4fa1-b595-4f20-a2bd-5613ef33fadb.png",
+    "iconUrl": "https://media.brand.dev/7bae2c84-299b-4e16-ab8c-6693ee9290b3.png",
+    "primaryColor": "#1296dc",
+    "accentColor": "#84d4f4",
+    "colors": [
+      {
+        "hex": "#1296dc",
+        "name": "Structural Blue"
+      },
+      {
+        "hex": "#84d4f4",
+        "name": "Kul Sharif Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/86db22fa-6165-45dc-aa96-3fa2152eec33.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://jobs.sap.com/",
+      "terms": "https://www.sap.com/about/legal/terms-of-use.html",
+      "contact": "https://www.sap.com/registration/contact.html",
+      "privacy": "https://www.sap.com/about/legal/privacy.html",
+      "blog": "https://news.sap.com/",
+      "pricing": "https://www.sap.com/products/business-suite/pricing.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7bae2c84-299b-4e16-ab8c-6693ee9290b3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d96163c8-f238-460f-afd2-d8a133d48a5d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8c6a4fa1-b595-4f20-a2bd-5613ef33fadb.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 412,
+        "height": 204,
+        "aspectRatio": 2.02
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8c6a4fa1-b595-4f20-a2bd-5613ef33fadb.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 412,
+      "height": 204,
+      "aspectRatio": 2.02
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7bae2c84-299b-4e16-ab8c-6693ee9290b3.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

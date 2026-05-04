@@ -1,0 +1,156 @@
+{
+  "slug": "sage-hr",
+  "name": "Sage HR",
+  "domain": "sage-hr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sage HR",
+  "metaTitle": "Build Sage HR AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sage HR for employee lookups, HR workflow support, approvals, summaries, and safe internal or support actions.",
+  "intro": "Sage HR helps businesses manage employee data, timesheets, scheduling, expenses, and performance in one HR platform. With DocsBot Skill Builder, you can describe the Sage HR workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve HR context, prepare handoffs, and take approved actions inside Sage HR while staying within secure limits you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to confirm the status of a job application or interview stage by looking up approved recruiting records in Sage HR and replying with a clear update.",
+    "Let a support or candidate-facing agent collect missing details from an applicant, create an internal handoff, and summarize the issue for your recruiting or HR team using Sage HR context.",
+    "Enable a helpdesk-connected DocsBot agent to check approved employee directory or manager information in Sage HR so it can route payroll or HR questions to the right team.",
+    "Have the agent summarize leave policy context, time-off balances, or shift-related information from approved Sage HR data before preparing a support response or escalation.",
+    "Use the agent to create follow-up tasks or HR case notes tied to an employee or applicant record in Sage HR after a support conversation or ticket review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up employee profiles, reporting lines, time-off details, or schedule context from Sage HR without searching manually.",
+    "HR and operations teams can ask the agent to summarize timesheets, attendance patterns, expense records, or performance information from Sage HR for faster internal reviews.",
+    "Managers can chat with the agent to prepare leave approvals, onboarding checklists, or escalation summaries that use Sage HR data and follow company workflow rules.",
+    "Recruiting and people teams can use the agent to gather candidate or employee context from Sage HR, draft handoff notes, and complete repeatable HR SOPs across connected systems.",
+    "Internal teams can ask the agent to generate status summaries, exception lists, or follow-up action items based on approved Sage HR records while keeping sensitive actions within review boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up employee profiles, managers, and department details from Sage HR.",
+    "A private HR assistant that summarizes leave balances, requests, and approval status for employees.",
+    "A manager assistant that prepares onboarding, offboarding, or policy handoff summaries using Sage HR records.",
+    "A recruiting support agent that checks application progress and drafts candidate response notes.",
+    "An operations agent that reviews timesheet or shift data and flags missing information for follow-up.",
+    "An AI workflow that creates HR case notes or internal tasks after support conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Sage HR in plain language, and it turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should connect to Sage HR, defines the required configuration values, handles authentication securely, and keeps secrets protected and out of chats or generated source."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive HR updates."
+    },
+    {
+      "title": "The workflow is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back into improvements."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill through its self-improvement loop, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can use Sage HR safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Sage HR without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Sage HR task you want in plain language, and the builder designs the workflow, secure connection, testing plan, and deployment steps for you. It can create Skills for lookups, summaries, handoffs, and approved HR actions without making setup feel like a developer project."
+    },
+    {
+      "question": "Can an AI support agent use Sage HR data to answer employee or candidate questions?",
+      "answer": "Yes, a DocsBot agent can use approved Sage HR data to look up status details, summarize context, prepare handoffs, and route questions more accurately. Access can be scoped so the agent only sees the records and fields that fit your support workflow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Sage HR?",
+      "answer": "An internal DocsBot agent can help employees and managers retrieve profiles, leave details, timesheet information, schedule context, expense data, and performance-related summaries from Sage HR. It can also prepare checklists, create notes, trigger follow-up workflows, and support repeatable HR SOPs within defined approval rules."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Sage HR?",
+      "answer": "DocsBot Skill Builder can create bounded actions such as adding notes, preparing handoffs, updating approved fields, or triggering related workflows when you allow them. It designs the Skill with scoped permissions, protected authentication, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot protect Sage HR credentials and sensitive HR data?",
+      "answer": "Skill Builder defines the connection settings it needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum records and actions required for the workflow."
+    },
+    {
+      "question": "Can a Sage HR AI assistant work in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees in chat, Slack, or Microsoft Teams so they can ask HR-related questions and complete approved workflows using Sage HR data. This is useful for manager self-service, HR operations, and internal support requests."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "workday",
+    "greenhouse",
+    "lever",
+    "deputy"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SageHR",
+    "domain": "sage.hr",
+    "description": "SageHR is a comprehensive HR software solution designed to streamline human resource management for businesses. Committed to removing obstacles through valuable insights and effective tools, SageHR empowers organizations to operate more efficiently. Their user-friendly Payroll, HR, and Finance software is trusted by customers for its simplicity and reliability. SageHR offers a fully-featured platform including modules for timesheets, shift scheduling, expense management, and performance tracking. With a network of local experts and strategic partnerships, SageHR is dedicated to providing the support and insights necessary for businesses to thrive. Potential users can experience SageHR's capabilities through a 30-day free trial, allowing them to understand the value it brings to HR processes.",
+    "slogan": "Empowering business flow with simple software and trusted insights.",
+    "logoUrl": "https://media.brand.dev/16ce2e88-8ae5-4833-864f-9a07ffd98216.png",
+    "iconUrl": "https://media.brand.dev/16ce2e88-8ae5-4833-864f-9a07ffd98216.png",
+    "primaryColor": "#0bc63c",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#0bc63c",
+        "name": "Whole Nine Yards"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dd3bffa4-2361-46b0-a4eb-e16e9863ccd6.png",
+    "industries": [],
+    "links": {
+      "careers": "https://sage.hr/en-gb/company/careers/",
+      "terms": null,
+      "contact": "https://sage.hr/en-gb/about-us/contact-us/",
+      "privacy": "https://sage.hr/en-gb/legal/privacy/",
+      "blog": "https://sage.hr/en-gb/company/digital-newsroom/",
+      "pricing": "https://sage.hr/en-gb/sage-business-cloud/hr/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/16ce2e88-8ae5-4833-864f-9a07ffd98216.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/afb43170-6a34-4ce2-86fa-7046678d3671.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/16ce2e88-8ae5-4833-864f-9a07ffd98216.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/16ce2e88-8ae5-4833-864f-9a07ffd98216.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

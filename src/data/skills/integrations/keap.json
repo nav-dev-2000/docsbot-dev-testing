@@ -1,0 +1,184 @@
+{
+  "slug": "keap",
+  "name": "Keap",
+  "domain": "keap.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Keap",
+  "metaTitle": "Build AI Support and Internal Agents for Keap",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Keap data, update records, trigger workflows, and support customers or internal teams.",
+  "intro": "Keap helps small businesses manage contacts, sales, and marketing automation in one place. With DocsBot Skill Builder, you can describe the Keap workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take approved action in Keap while staying within the rules you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a contact, lead status, recent activity, or tagged history in Keap while answering account or sales-related questions.",
+    "Let the agent create or update Keap contact records when a customer shares new phone numbers, company details, or onboarding information in chat or a helpdesk ticket.",
+    "Have the agent add notes, tags, or follow-up context in Keap so human reps receive a cleaner handoff with the full conversation summary attached.",
+    "Enable the agent to trigger approved Keap automations after a customer requests a demo, pricing follow-up, callback, or nurture sequence enrollment.",
+    "Use the agent to summarize a customer's Keap history, recent campaigns, and open follow-up tasks before escalating the conversation to sales or customer success."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Keap contact details, lead ownership, campaign history, tags, and recent activity without manually searching the CRM.",
+    "Enable sales or success teams to ask the agent to create follow-up notes, update contact fields, or apply tags in Keap using approved workflows.",
+    "Help operations teams use the agent in Slack or Microsoft Teams to trigger Keap automations, assign follow-up steps, and confirm that required CRM updates were completed.",
+    "Allow managers to ask the agent for summaries of lead pipeline activity, contact records, and campaign engagement pulled from Keap for faster internal reviews.",
+    "Support SOP execution by letting employees ask the agent to prepare handoff summaries, gather missing CRM context, and complete repeatable Keap record maintenance tasks."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that looks up Keap contacts and summarizes relationship history during live customer chats.",
+    "An AI assistant that creates or updates Keap contact records from customer-provided information.",
+    "A sales support bot that applies Keap tags and logs conversation notes after qualified inquiries.",
+    "An internal agent that triggers approved Keap automations for demos, callbacks, and nurture workflows.",
+    "A handoff assistant that prepares Keap-based summaries for sales, support, or customer success teams.",
+    "A private team agent that answers CRM questions and completes repeatable Keap record update workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Keap agent to do, and it turns that plain-language goal into a practical Skill design for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right Keap connection, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps such as record updates, workflow triggers, or escalations so the agent stays within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, missing instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using Keap actions through chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Keap?",
+      "answer": "With DocsBot Skill Builder, you describe the Keap workflow you want in plain language, and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up data, update records, trigger approved automations, and summarize outcomes inside your defined boundaries."
+    },
+    {
+      "question": "Can an AI support agent use Keap data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Keap as a live system of record for approved lookups such as contact details, lead status, tags, notes, and recent activity. It can also prepare handoffs or complete bounded updates when those actions fit your support process."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Keap?",
+      "answer": "Teams can build workflows for contact lookups, note creation, tag updates, follow-up triggers, escalation prep, and conversation summaries tied to Keap records. This helps the agent answer faster while keeping CRM context organized for human teams."
+    },
+    {
+      "question": "Can an internal AI assistant update Keap records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees update contact fields, add notes, apply tags, and trigger approved workflows in Keap. Skill Builder scopes permissions and can add approval steps for sensitive changes so actions remain controlled."
+    },
+    {
+      "question": "Is it possible to trigger Keap automations from a DocsBot agent?",
+      "answer": "DocsBot Skills can be designed to trigger approved Keap automations when a customer or employee request matches your workflow rules. Common examples include demo follow-ups, nurture enrollment, callback processes, and post-conversation tasks."
+    },
+    {
+      "question": "How does DocsBot keep Keap access secure?",
+      "answer": "Skill Builder defines the connection requirements, keeps secrets out of chats and Skill content, proxies authentication through secure runtime configuration, and limits access to the minimum users, records, and actions needed. It can also add approval boundaries for higher-risk actions before the agent is deployed."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "activecampaign",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Keap",
+    "domain": "keap.com",
+    "description": "Keap is an all-in-one CRM and business automation platform that helps small businesses grow by capturing, organizing, and nurturing leads. With expert coaching, training, and support, Keap provides a comprehensive solution for business owners to scale their business while keeping customers happy and teams thriving. For 20 years, Keap has empowered small businesses, pioneering the sales and marketing automation software market, and is now on a mission to simplify growth for 1 million small businesses worldwide by 2030.",
+    "slogan": "Grow without the growing pains",
+    "logoUrl": "https://media.brand.dev/05d611b6-7d70-4aab-b47a-6e68d4337f28.svg",
+    "iconUrl": "https://media.brand.dev/0827eaa8-2ea7-4beb-838b-baeebfb1245d.png",
+    "primaryColor": "#35ab35",
+    "accentColor": "#94d09c",
+    "colors": [
+      {
+        "hex": "#35ab35",
+        "name": "Wageningen Green"
+      },
+      {
+        "hex": "#94d09c",
+        "name": "Fennel"
+      },
+      {
+        "hex": "#dfefde",
+        "name": "Hill Giant"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4a8d68ce-5e73-4944-98f2-1ec402470457.png",
+    "industries": [],
+    "links": {
+      "careers": "https://keap.com/about/careers",
+      "terms": null,
+      "contact": "https://keap.com/contact",
+      "privacy": "https://keap.com/legal/privacy-policy",
+      "blog": "https://keap.com/newsroom",
+      "pricing": "https://keap.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/25968ba3-202d-43ad-b56e-2ebe8522c2ec.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3241c20c-7830-443f-806d-05f966587236.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f9adf8d2-512a-40a5-a673-0f502bde99f4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0827eaa8-2ea7-4beb-838b-baeebfb1245d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/05d611b6-7d70-4aab-b47a-6e68d4337f28.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 86,
+        "height": 42,
+        "aspectRatio": 2.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05d611b6-7d70-4aab-b47a-6e68d4337f28.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 86,
+      "height": 42,
+      "aspectRatio": 2.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f9adf8d2-512a-40a5-a673-0f502bde99f4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

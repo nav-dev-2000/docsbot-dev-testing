@@ -1,0 +1,160 @@
+{
+  "slug": "google-ads",
+  "name": "Google Ads",
+  "domain": "google-ads.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Ads",
+  "metaTitle": "Build Google Ads AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Google Ads for campaign lookups, reporting summaries, safe workflow actions, and internal marketing support.",
+  "intro": "Google Ads helps teams manage campaigns, budgets, keywords, and performance data across paid search and display programs. With DocsBot Skill Builder, you can describe the Google Ads workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, summarize campaign state, trigger approved actions, and support teams without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Google Ads campaign status details and explain promotion availability or ad timing questions during a website chat.",
+    "Use a helpdesk-connected agent to summarize ad delivery issues, budget constraints, or campaign pauses before handing the case to a marketing or account team.",
+    "Allow the agent to collect missing campaign context from a customer or partner and create a structured internal handoff for ad operations review.",
+    "Enable the agent to reference approved Google Ads performance summaries when responding to advertiser questions about clicks, impressions, conversions, or campaign activity.",
+    "Let the agent trigger a bounded workflow such as requesting campaign review or escalation when a customer reports a promotion, tracking, or visibility concern."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Google Ads campaign performance summaries without opening multiple dashboards.",
+    "Marketing and customer success teams can ask the agent to compare campaign trends, explain recent changes, and prepare concise summaries for stakeholders.",
+    "Team members can use the agent to gather missing details for campaign investigations and follow documented ad operations workflows or SOPs.",
+    "Managers can chat with the agent to generate structured handoff notes for budget reviews, campaign pause requests, or escalation approvals.",
+    "Operations teams can use the agent to coordinate Google Ads lookups with other business systems so research and follow-up happen in one guided conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes campaign, ad group, and keyword performance for support or marketing teams.",
+    "A support assistant that prepares escalation notes when customers report ad visibility or promotion issues.",
+    "An internal agent that gathers campaign context and routes review requests to the right team.",
+    "A reporting assistant that explains clicks, impressions, conversions, and spend in plain language.",
+    "An AI workflow that flags unusual campaign changes and prepares a human approval handoff.",
+    "A private marketing assistant that answers Google Ads questions in Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Google Ads agent to do, such as summarize campaign performance, investigate ad issues, or trigger a review workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime settings, and scopes access to only the campaigns, actions, users, and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for your workflow, including approval boundaries, action limits, and instructions that let the agent look up data, prepare updates, or trigger approved workflows without taking sensitive actions too broadly."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Google Ads Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can use Google Ads actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google Ads?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as campaign summaries, issue investigation, or review requests, and Skill Builder designs, secures, tests, and prepares the Google Ads Skill for deployment. It can define safe lookups, workflow triggers, summaries, and bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Google Ads data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Google Ads Skill to retrieve approved campaign information, summarize status, gather missing context, and prepare handoffs while responding in a website chat or helpdesk ticket. The agent acts within scoped permissions and approval limits that Skill Builder defines for the workflow."
+    },
+    {
+      "question": "What Google Ads workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve campaign metrics, compare performance trends, prepare review notes, route approval requests, and follow ad operations SOPs across chat, Slack, or Microsoft Teams. This reduces dashboard switching and gives teams one guided place to research and act."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Google Ads workflows?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills that trigger approved downstream workflows, such as review requests, escalation handoffs, or reporting tasks, with clear boundaries around what the agent is allowed to do. Skill Builder handles secure configuration, secret protection, and scoped permissions by default."
+    },
+    {
+      "question": "How does DocsBot keep Google Ads credentials and access secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum actions, users, and records required and can add approval checkpoints for sensitive workflows."
+    },
+    {
+      "question": "Can a Google Ads AI agent generate summaries for non-technical teams?",
+      "answer": "Yes, DocsBot can turn campaign data and workflow state into plain-language summaries for support, success, sales, or leadership teams. That makes it easier for non-specialists to understand performance, issues, and next steps without reading raw ad platform reports."
+    }
+  ],
+  "relatedSlugs": [
+    "google-analytics",
+    "google-business-profile",
+    "hubspot",
+    "salesforce",
+    "shopify",
+    "mailchimp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "business.google.com",
+    "description": "Google Business Profile (business.google.com) is a free service from Google that enables businesses of all sizes to create and manage a public listing on Google Search and Maps. By setting up a Business Profile, owners can showcase essential information such as address, phone number, hours, photos, logos, and attributes (e.g., women‑owned, veteran‑led, LGBTQ+ friendly). The platform also lets businesses publish posts, offers, events, and answer FAQs, while responding to customer reviews to build trust. Integrated tools support product listings, online ordering, reservations, and quote requests, helping customers engage directly with the business. In short, Google Business Profile helps businesses stand out online, attract new customers, and control their first impression on Google.",
+    "slogan": "Turn searches into customers with your free Google Business Profile",
+    "logoUrl": "https://media.brand.dev/53b137d4-016c-45ee-aaa6-0a50e53b740a.png",
+    "iconUrl": "https://media.brand.dev/53b137d4-016c-45ee-aaa6-0a50e53b740a.png",
+    "primaryColor": "#ed973b",
+    "accentColor": "#28a2b2",
+    "colors": [
+      {
+        "hex": "#ed973b",
+        "name": "Gorse Yellow Orange"
+      },
+      {
+        "hex": "#28a2b2",
+        "name": "Sparkling Cove"
+      },
+      {
+        "hex": "#dbe4e8",
+        "name": "Pearl City"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "blog": null,
+      "contact": "https://business.google.com/us/support/ads-expert/",
+      "privacy": "https://business.google.com/us/privacy/",
+      "pricing": "https://business.google.com/us/ad-tools/keyword-planner/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/88d6158d-4228-4cc9-9399-edf369f0029e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/53b137d4-016c-45ee-aaa6-0a50e53b740a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/88d6158d-4228-4cc9-9399-edf369f0029e.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/88d6158d-4228-4cc9-9399-edf369f0029e.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

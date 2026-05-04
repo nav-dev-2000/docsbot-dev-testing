@@ -1,0 +1,192 @@
+{
+  "slug": "brevo",
+  "name": "Brevo",
+  "domain": "brevo.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Brevo",
+  "metaTitle": "Build Brevo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Brevo for customer support, CRM lookups, campaign context, contact updates, and safe internal workflow automation.",
+  "intro": "Brevo brings email, SMS, CRM, chat, automation, and customer engagement data into one platform, making it a strong system for AI agents that need customer context and approved actions. With DocsBot Skill Builder, you can describe the Brevo workflow you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support agent or internal team assistant that can answer questions and take bounded action inside Brevo.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact in Brevo, summarize recent campaigns or conversation history, and answer account or communication status questions in real time.",
+    "Use a DocsBot helpdesk agent to create or update Brevo contacts when customers share new details, keeping CRM records current during support conversations.",
+    "Have the agent check whether a customer is subscribed to email or SMS communications in Brevo and explain the current communication status during a support chat.",
+    "Enable the agent to prepare a clean handoff summary using Brevo contact data, recent engagement history, and captured customer context before escalation to a human team member.",
+    "Let the agent trigger an approved Brevo automation or follow-up workflow after a support interaction, such as sending a confirmation message or adding the contact to a service sequence."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Brevo contact details, recent engagement activity, and CRM context without manually searching across campaigns and records.",
+    "Sales, success, and operations teams can ask the agent to create or update Brevo contacts, append notes, and standardize follow-up steps through approved internal workflows.",
+    "Marketing and support teams can use an internal AI assistant to summarize Brevo campaign activity, contact segments, or communication history before outreach or renewal conversations.",
+    "Team members can chat with the agent in Slack or Microsoft Teams to prepare Brevo-based handoff notes, outreach drafts, and next-step recommendations for customer-facing teams.",
+    "Operations teams can use the agent to follow SOPs that depend on Brevo data, including checking communication preferences, validating customer records, and triggering bounded follow-up automations."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Brevo contact records before answering account and communication questions.",
+    "An AI assistant that updates Brevo CRM fields from approved customer or employee chat inputs.",
+    "A handoff workflow that summarizes Brevo activity and prepares escalation notes for human teams.",
+    "An internal agent that retrieves campaign engagement context before sales or success outreach.",
+    "A workflow assistant that triggers approved Brevo automations after support conversations or internal requests.",
+    "A private team agent that verifies contact subscription status and communication preferences in Brevo."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Brevo, and Skill Builder turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through runtime configuration, and scopes Brevo access to the minimum actions, records, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive Brevo changes so the agent can look up data freely while escalating or requesting approval for higher-risk updates when appropriate."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, checks for bugs, weak instructions, missing permission controls, and workflow gaps, and records what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds those findings into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Brevo?",
+      "answer": "With DocsBot Skill Builder, you describe the Brevo workflow you want in plain language, such as looking up contact data, updating CRM fields, or triggering a follow-up sequence. Skill Builder then designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Brevo data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Brevo Skill to retrieve approved customer context like contact details, engagement history, subscription status, or recent communication activity while responding to chat or ticket conversations. The actions and records it can access are scoped to the workflow you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Brevo?",
+      "answer": "DocsBot can help automate contact lookups, CRM updates, communication-status checks, escalation summaries, and approved follow-up triggers that rely on Brevo data. This lets the agent answer faster and prepare cleaner handoffs without giving it unlimited access."
+    },
+    {
+      "question": "Can an internal AI assistant update Brevo records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees create or update Brevo contacts, add notes, standardize follow-up actions, and retrieve campaign or CRM context through controlled workflows. Skill Builder can also add approval boundaries for sensitive updates or segment changes."
+    },
+    {
+      "question": "How does DocsBot keep Brevo authentication and secrets secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill instructions, and proxies secrets through secure runtime configuration. It also scopes permissions so the agent only gets the minimum Brevo access needed for the approved workflow."
+    },
+    {
+      "question": "Can DocsBot trigger Brevo automations safely?",
+      "answer": "Yes, DocsBot Skills can be designed to trigger approved Brevo workflows, messages, or follow-up actions within customer-defined limits. Skill Builder can require explicit approvals or restrict which automations the agent may run."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "intercom",
+    "zendesk",
+    "mailchimp",
+    "klaviyo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Brevo",
+    "domain": "brevo.com",
+    "description": "Brevo is a Paris‑based all‑in‑one customer engagement platform that helps businesses and nonprofits manage and grow their relationships. The suite combines email, SMS, WhatsApp, chat, marketing automation, CRM, meetings and transactional messaging into a single, intuitive dashboard, giving users a unified view of the customer journey. Founded in 2012, Brevo serves over 600,000 customers in 180 countries, complies with GDPR, and operates in six languages. The platform is designed for scalable, sustainable growth, offering tools for campaigns, live chat, and data‑driven automation while monitoring its carbon footprint. Brevo’s award‑winning solution enables companies to attract, retain, and nurture customers across the digital lifecycle.",
+    "slogan": "Most intuitive all-in-one customer engagement platform: email, SMS, CRM, automation",
+    "logoUrl": "https://media.brand.dev/01f65e2a-1bec-4292-9dc0-1181487a1e3f.webp",
+    "iconUrl": "https://media.brand.dev/7d8f3409-5e65-4582-87fb-7f69303396a0.svg",
+    "primaryColor": "#0c9c6c",
+    "accentColor": "#bee3d9",
+    "colors": [
+      {
+        "hex": "#0c9c6c",
+        "name": "Prairie"
+      },
+      {
+        "hex": "#bee3d9",
+        "name": "Serendipity"
+      },
+      {
+        "hex": "#80ccbc",
+        "name": "Booty Bay"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f0b5e73e-ee09-4e21-8c9d-d75b2febf0cb.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.brevo.com/careers/",
+      "terms": "https://www.brevo.com/legal/termsofuse/",
+      "contact": "https://www.brevo.com/contact/",
+      "privacy": "https://www.brevo.com/legal/privacypolicy/",
+      "blog": "https://www.brevo.com/blog/",
+      "pricing": "https://www.brevo.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/02b5d902-7d68-4dd0-afff-931e9617e6a9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d8f3409-5e65-4582-87fb-7f69303396a0.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/01f65e2a-1bec-4292-9dc0-1181487a1e3f.webp",
+        "type": "logo",
+        "mode": "light",
+        "width": 172,
+        "height": 288,
+        "aspectRatio": 0.6
+      },
+      {
+        "url": "https://media.brand.dev/b5585140-fa1b-41e8-81f7-145f9ea71080.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d26196dc-b018-470f-aada-68bd66fd7234.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/993b73eb-3103-401f-8d85-a39f95683496.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 82,
+        "height": 24,
+        "aspectRatio": 3.42
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/993b73eb-3103-401f-8d85-a39f95683496.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 82,
+      "height": 24,
+      "aspectRatio": 3.42
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b5585140-fa1b-41e8-81f7-145f9ea71080.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

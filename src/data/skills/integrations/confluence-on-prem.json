@@ -1,0 +1,216 @@
+{
+  "slug": "confluence-on-prem",
+  "name": "Confluence On Prem",
+  "domain": "confluence-on-prem.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Confluence On Prem",
+  "metaTitle": "Confluence On Prem AI Agent Skills for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that securely use Confluence On Prem for knowledge lookups, article guidance, handoffs, summaries, and internal team workflows.",
+  "intro": "Confluence On Prem helps teams store and organize internal knowledge, product documentation, process guides, and troubleshooting content. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use that Confluence content, and DocsBot helps design, secure, test, and publish the Skill. The result is a support or internal AI agent that can answer questions, retrieve the right pages, summarize documentation, and take bounded follow-up actions based on your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Confluence On Prem pages to answer product, setup, policy, or troubleshooting questions with knowledge grounded in your internal documentation.",
+    "Use Confluence On Prem content during helpdesk replies so the agent can summarize the most relevant runbooks, known issue notes, or how-to articles for faster customer responses.",
+    "Have the agent gather the best matching Confluence troubleshooting steps, then prepare a clean escalation summary for a human support rep when the issue needs handoff.",
+    "Enable the agent to pull version-specific documentation or policy pages from Confluence On Prem so customers receive guidance aligned to the right product or account context.",
+    "Let the agent create a draft follow-up note or support handoff that cites the Confluence pages used, giving teams a clearer audit trail of what knowledge informed the response."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right Confluence On Prem pages, summarize long documentation, and retrieve SOPs without manually searching multiple spaces.",
+    "Support, success, and operations teams can ask the agent to assemble step-by-step procedures from Confluence On Prem for onboarding, incident response, billing questions, or escalation workflows.",
+    "New team members can use an internal AI assistant in chat, Slack, or Microsoft Teams to get policy answers and guided process help based on approved Confluence documentation.",
+    "Managers and operations teams can ask the agent to compare multiple Confluence pages, summarize differences, and produce a concise brief for planning or process reviews.",
+    "Internal teams can use the agent to turn Confluence knowledge into reusable checklists, handoff notes, and workflow summaries for day-to-day execution."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches Confluence On Prem and summarizes the best troubleshooting guidance for customers.",
+    "A helpdesk assistant that pulls relevant runbooks from Confluence and prepares escalation-ready ticket summaries.",
+    "An internal knowledge assistant that finds SOPs, policies, and product documentation across Confluence spaces.",
+    "A team chatbot that turns long Confluence pages into concise answers, checklists, or onboarding guides.",
+    "A support workflow agent that cites the Confluence pages used in each reply or handoff.",
+    "An operations assistant that retrieves process documentation and guides employees through approved internal procedures."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Confluence On Prem in plain language, such as finding the right pages, summarizing guidance, or preparing handoffs for support and internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, deciding the safest workflow, the required configuration values, and how the agent should search, retrieve, summarize, and act within Confluence-based processes."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to only the users, spaces, actions, and records needed."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder applies permission limits and approval boundaries for sensitive actions so the agent can help with knowledge lookups, summaries, and approved follow-up steps without exceeding the rules you set."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations, checks for weak instructions or permission gaps, and finds bugs or workflow improvements before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Confluence On Prem knowledge?",
+      "answer": "With DocsBot Skill Builder, you describe the knowledge workflow you want in plain language, and it designs a Skill that can search, retrieve, summarize, and use Confluence On Prem content safely. It also defines secure connection handling, scoped permissions, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Confluence On Prem to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Confluence On Prem as a knowledge source during website chat or helpdesk conversations to retrieve relevant documentation, summarize guidance, and prepare handoffs when needed. You control what content and actions are allowed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Confluence On Prem?",
+      "answer": "Teams can build workflows for article lookup, troubleshooting guidance, version-specific documentation retrieval, escalation summary creation, and support handoff preparation based on Confluence content. These workflows can be bounded to approved spaces, page types, and response rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find SOPs in Confluence On Prem?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve SOPs, policy pages, onboarding guides, and process documentation from Confluence On Prem. The agent can also summarize long pages into clear next steps."
+    },
+    {
+      "question": "How does DocsBot keep Confluence On Prem access secure for AI agents?",
+      "answer": "Skill Builder handles secure configuration by identifying required connection values, protecting and proxying secrets, and keeping credentials out of conversations and generated content. It also scopes access to the minimum users, spaces, and actions required and can add approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot test a Confluence On Prem AI workflow before teams use it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run through imagined support and internal scenarios, identify bugs, weak prompts, and missing permission checks, and feed those findings into an improvement loop before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "confluence",
+    "jira",
+    "sharepoint",
+    "notion",
+    "guru",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Atlassian Corporation",
+    "domain": "atlassian.com",
+    "description": "Atlassian is a global software company dedicated to enhancing team collaboration and productivity. With a robust portfolio that includes popular tools like Jira, Confluence, and Trello, Atlassian helps over 300,000 customers streamline their project management and issue tracking. Employing a diverse team of over 10,000 professionals, Atlassian is committed to building innovative software that empowers teams to work together effectively. The company believes in the transformative power of teamwork to create a more open, authentic, and inclusive world, driving them to continuously develop next-generation solutions that unlock the full potential of teams. Whether organizing tasks, facilitating discussions, or completing shared projects, Atlassian's tools are designed to foster collaboration and creativity among teams worldwide.",
+    "slogan": "Unleash team potential with Atlassian's collaboration tools.",
+    "logoUrl": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+    "iconUrl": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+    "primaryColor": "#1c6cdb",
+    "accentColor": "#8cbcdc",
+    "colors": [
+      {
+        "hex": "#1c6cdb",
+        "name": "Flickr Blue"
+      },
+      {
+        "hex": "#8cbcdc",
+        "name": "Frozen Whisper"
+      },
+      {
+        "hex": "#0c1414",
+        "name": "Ruined Smores"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c62dcddc-8c20-4ff5-ad33-b9e6ee90b48f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://atlassian.com/company/careers",
+      "terms": "https://atlassian.com/legal/cloud-terms-of-service",
+      "contact": "https://atlassian.com/company/contact",
+      "privacy": "https://atlassian.com/legal/privacy-policy",
+      "blog": "https://atlassian.com/blog",
+      "pricing": "https://atlassian.com/software/jira/align"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ac87536f-b22c-4b28-af86-d824f87a8842.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 541,
+        "height": 150,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/10af4e49-8ef0-4556-8256-3ff11ed55617.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/295e212e-8a85-455d-9774-807a82f65937.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/d9220038-27df-4c36-ba76-d10be4cf2380.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/513146ad-0fe1-41f3-8857-61407f8d805d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 540,
+      "height": 150,
+      "aspectRatio": 3.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

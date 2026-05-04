@@ -1,0 +1,156 @@
+{
+  "slug": "canny",
+  "name": "Canny",
+  "domain": "canny.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Canny",
+  "metaTitle": "Build Canny AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Canny to look up feedback, summarize requests, update statuses, and support customers or internal teams with safe actions.",
+  "intro": "Canny helps teams collect product feedback, manage feature requests, and communicate roadmap progress. With DocsBot Skill Builder, you can describe the Canny workflow you want in plain language and have DocsBot create a reusable AI Skill for support or internal operations. The result is an AI agent that can answer questions, look up feedback records, summarize demand, prepare handoffs, and take approved actions inside Canny.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a requested feature already exists in Canny and respond with a clear summary of current status or roadmap context.",
+    "Use the agent to create new feedback entries in Canny from chat conversations or helpdesk tickets so customer requests are captured without manual re-entry.",
+    "Have the agent append customer details, account context, or ticket links to existing Canny posts while replying to the customer with a helpful update.",
+    "Enable the agent to summarize related Canny requests, vote counts, and recent comments so support teams can give customers a more informed response.",
+    "Let the agent prepare escalation notes for product or success teams by turning a customer conversation into a structured Canny handoff with supporting context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find matching Canny posts, review feedback trends, and understand which requests are gaining momentum across accounts.",
+    "Product, support, and success teams can ask the agent to create or update Canny records from Slack, Microsoft Teams, or internal chat without switching tools.",
+    "Team members can use the agent to summarize feedback by segment, account, topic, or feature area so planning discussions start with cleaner evidence.",
+    "Internal teams can ask the agent to gather related Canny posts, recent comments, and customer impact notes to support roadmap reviews or escalation workflows.",
+    "Operations or support leaders can use the agent to follow a consistent SOP for logging product feedback, linking source conversations, and preparing handoffs for product teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Canny for existing feature requests before replying to customers.",
+    "A feedback capture Skill that turns support chats and tickets into structured Canny posts.",
+    "An internal assistant that summarizes top Canny requests by account, segment, or product area.",
+    "A handoff workflow that creates Canny updates with linked ticket context and customer details.",
+    "A roadmap status assistant that explains whether feedback is under review, planned, or completed.",
+    "A triage agent that merges duplicate request context into existing Canny records safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Canny in plain language, such as checking feature requests, logging feedback, updating records, or preparing product handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Canny connection details, and defines the safest workflow, instructions, and action limits for the agent."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and runtime configuration safely by keeping credentials out of chats and Skill source, proxying secrets securely, and scoping access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals are added",
+      "description": "For sensitive updates, Skill Builder can add approval boundaries and user-specific permissions so the agent only creates, changes, or shares Canny data within the rules you define."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing safeguards, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Canny?",
+      "answer": "With DocsBot Skill Builder, you describe the Canny workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The resulting agent can look up feedback, summarize requests, create records, update approved fields, and trigger handoff workflows."
+    },
+    {
+      "question": "Can an AI support agent use Canny data to answer customer feature request questions?",
+      "answer": "Yes, a DocsBot support agent can use Canny to check whether feedback already exists, summarize request status, and provide customer-friendly updates based on approved data. It can also create or enrich Canny records from the support conversation when that action is allowed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Canny?",
+      "answer": "Teams can automate feedback lookups, duplicate request checks, new post creation, structured escalation notes, and status summaries pulled from Canny while responding in chat widgets or helpdesk tickets. This helps support teams capture product feedback without slowing down customer conversations."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage feedback in Canny?",
+      "answer": "Yes, private DocsBot agents can help employees search Canny, summarize trends, create or update records, and prepare roadmap or escalation briefs from Slack, Microsoft Teams, or internal chat. This gives teams faster access to product feedback without requiring them to open Canny for every task."
+    },
+    {
+      "question": "Can DocsBot safely update Canny records through AI actions?",
+      "answer": "DocsBot Skill Builder is designed to define scoped permissions, protect secrets, and add approval boundaries for sensitive actions before deployment. That means your agent can be limited to the right users, records, and update types instead of receiving broad uncontrolled access."
+    },
+    {
+      "question": "Can a DocsBot agent turn support tickets into Canny feedback entries?",
+      "answer": "Yes, the agent can convert ticket details into structured Canny submissions, attach relevant customer context, and prepare a clean handoff for product teams. This reduces manual copy and paste while preserving the original support context."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "jira",
+    "linear",
+    "productboard",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Canny",
+    "domain": "canny.com",
+    "description": "Atom (formerly Squadhelp) is a comprehensive branding and domain marketplace platform that helps businesses find, acquire, and protect premium web addresses. It offers a curated catalog of over 400,000 brandable domains—including ultra‑premium, one‑word, and country‑specific names—plus AI‑powered naming contests, human brainstorming, and instant domain generators. Atom also provides trademark search and filing, logo design, brand monitoring, and audience testing tools. Through its AtomPay, domain broker, and auction services, users can buy, sell, or transfer domains securely. Partners can integrate the marketplace via API, white‑label solutions, or MCP server access. In short, Atom streamlines the entire naming lifecycle—from idea generation to registration and brand protection—enabling companies to secure memorable, market‑ready domain names quickly and affordably.",
+    "slogan": "Need a domain? We've got you covered.",
+    "logoUrl": "https://media.brand.dev/025aa0dc-0a11-46b6-83e6-977f89b304eb.svg",
+    "iconUrl": "https://media.brand.dev/bae7bf5a-c9fa-4324-ab4e-820771649156.png",
+    "primaryColor": "#1c1c4c",
+    "accentColor": "#637cf5",
+    "colors": [
+      {
+        "hex": "#1c1c4c",
+        "name": "Fly by Night"
+      },
+      {
+        "hex": "#637cf5",
+        "name": "Pan Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/54cc732a-2bd1-4e6e-b1ad-8cbb48efc02d.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/025aa0dc-0a11-46b6-83e6-977f89b304eb.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 139,
+        "height": 26,
+        "aspectRatio": 5.35
+      },
+      {
+        "url": "https://media.brand.dev/bae7bf5a-c9fa-4324-ab4e-820771649156.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/025aa0dc-0a11-46b6-83e6-977f89b304eb.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 139,
+      "height": 26,
+      "aspectRatio": 5.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bae7bf5a-c9fa-4324-ab4e-820771649156.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

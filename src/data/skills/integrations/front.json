@@ -1,0 +1,167 @@
+{
+  "slug": "front",
+  "name": "Front",
+  "domain": "front.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Front",
+  "metaTitle": "Build AI Agents for Front with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Front to look up conversations, update records, prepare handoffs, and automate safe support workflows.",
+  "intro": "Front helps teams manage customer conversations, collaboration, and service workflows in one place. With DocsBot Skill Builder, you can describe the Front-powered agent ability you want in plain language, and DocsBot will design, secure, test, and package it as a reusable Skill. The result is an AI support agent or internal team assistant that can answer questions and take approved action in Front while keeping humans in control.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer’s recent Front conversation history and summarize open issues before replying.",
+    "Use a DocsBot helpdesk agent to create a Front conversation or draft a handoff when a customer needs human follow-up.",
+    "Enable the agent to add approved notes, tags, or status updates in Front while keeping sensitive changes behind review boundaries.",
+    "Have the agent summarize a long Front thread into a clear escalation brief for billing, technical, or account teams.",
+    "Let the agent check conversation ownership, inbox status, or latest reply state in Front so customers get accurate next-step updates."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Front conversations, inbox details, and ownership status without searching manually.",
+    "Customer success or support leaders can ask the agent to summarize Front trends, recent escalations, or unresolved conversations for faster team reviews.",
+    "Operations teams can use the agent to prepare Front handoffs, draft follow-up notes, and guide employees through support SOPs with the right context already gathered.",
+    "Internal teams can ask the agent to research a customer situation across Front and connected systems, then produce a concise action plan for the next human step."
+  ],
+  "whatYouCanBuild": [
+    "A Front conversation lookup skill for live customer status and thread summaries.",
+    "A safe escalation skill that drafts Front handoffs with customer context and next steps.",
+    "An inbox triage skill that checks ownership, tags, status, and response history.",
+    "A support note skill that adds approved internal notes to Front conversations.",
+    "A conversation summary skill that turns long Front threads into clean escalation briefs.",
+    "A follow-up workflow skill that creates or updates Front records after customer requests."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Front, such as finding a conversation, updating a tag, drafting a handoff, or summarizing a thread, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, defines the needed configuration values, plans the safest workflow, and sets secure connection and authentication handling for Front automatically."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes Front access to the minimum actions and records required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot chat agent or your private internal assistant for Slack, Microsoft Teams, or web chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Front?",
+      "answer": "With DocsBot Skill Builder, you describe the Front workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up conversations, summarize threads, update approved fields, and trigger handoffs safely."
+    },
+    {
+      "question": "Can an AI support agent use Front data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Front Skill to retrieve conversation context, inbox status, ownership details, and other approved information so it can answer more accurately and prepare the right next step."
+    },
+    {
+      "question": "Can DocsBot update Front records automatically?",
+      "answer": "DocsBot Skills can be designed to perform bounded Front actions such as adding notes, updating tags, changing statuses, or creating handoff drafts, with scoped permissions and approval controls for sensitive changes."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate in Front?",
+      "answer": "Common workflows include conversation lookups, ticket and thread summaries, escalation preparation, internal note creation, follow-up drafting, and workflow triggers that help human agents respond faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Front?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find Front conversations, summarize customer history, prepare handoffs, and follow support SOPs without jumping across multiple tools."
+    },
+    {
+      "question": "How does DocsBot keep a Front integration secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, scopes access to the minimum required Front actions, and adds approval boundaries where human review should stay in place."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "helpscout",
+    "freshdesk",
+    "salesforce-service-cloud",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Front",
+    "domain": "front.com",
+    "description": "Front is an AI-powered customer service platform that helps companies deliver smarter, safer automation and exceptional customer experiences. By putting humans in control of AI, Front enables businesses to scale their customer service, streamline team collaboration, and gain valuable insights to improve customer satisfaction.",
+    "slogan": "Smarter, safer customer service with human-AI collaboration at scale.",
+    "logoUrl": "https://media.brand.dev/ecf3c389-b0bf-47ea-a856-4dabe4a79c86.svg",
+    "iconUrl": "https://media.brand.dev/9a5468dc-469c-4030-8df0-66a2c7a534e5.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#9647d9",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#9647d9",
+        "name": "Morado Purple"
+      },
+      {
+        "hex": "#cc96ee",
+        "name": "Dream Vapor"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/22bd2d7d-7349-4277-9f56-3259768e2407.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://front.com/jobs",
+      "terms": null,
+      "contact": "https://help.front.com/en/contact-us",
+      "privacy": "https://front.com/legal/privacy-notice",
+      "blog": "https://front.com/blog",
+      "pricing": "https://front.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9a5468dc-469c-4030-8df0-66a2c7a534e5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/25bbf3d4-c3b5-41de-b28a-363b8c976644.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ecf3c389-b0bf-47ea-a856-4dabe4a79c86.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 283,
+        "height": 65,
+        "aspectRatio": 4.35
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ecf3c389-b0bf-47ea-a856-4dabe4a79c86.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 283,
+      "height": 65,
+      "aspectRatio": 4.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9a5468dc-469c-4030-8df0-66a2c7a534e5.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

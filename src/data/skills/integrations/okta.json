@@ -1,0 +1,160 @@
+{
+  "slug": "okta",
+  "name": "Okta",
+  "domain": "okta.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI Agents That Work with Okta",
+  "metaTitle": "Build AI Support and Internal Agents for Okta with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Okta for secure identity lookups, access workflows, approvals, and internal support actions with safe controls.",
+  "intro": "Okta helps organizations manage identity, authentication, single sign-on, and access across business systems. With DocsBot Skill Builder, you can describe the Okta workflow you want in plain language and have DocsBot create a reusable Skill for a customer support agent or private internal AI assistant. That lets your AI agent answer questions, check identity-related status, prepare access handoffs, and trigger approved workflows while staying inside secure boundaries you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check a customer's sign-in or MFA enrollment status in Okta and guide them through the next approved support step.",
+    "Let a support agent look up whether an account is active, locked, or awaiting activation in Okta so it can respond faster in chat or helpdesk tickets.",
+    "Have the agent collect missing verification details from the customer, summarize the issue, and prepare a secure handoff for an identity or access support team.",
+    "Enable the agent to trigger approved password reset or account recovery workflows through Okta when your support policy allows it.",
+    "Use the agent to confirm whether a user has access to the right application assignment in Okta and explain the next step if access is missing or restricted."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Okta user status, application assignments, group membership, or MFA enrollment during internal support work.",
+    "Give IT or operations teams an AI assistant that gathers identity context from Okta, summarizes access issues, and follows internal SOPs before escalating to an admin.",
+    "Allow helpdesk employees to use an internal agent to prepare onboarding or offboarding access checklists based on Okta groups, app assignments, and account state.",
+    "Enable security or support teams to ask the agent for a concise Okta-based summary of a user's access posture before deciding the next approved action.",
+    "Let managers or operations staff use a private agent to request guided access-review workflows that collect context, route approvals, and document outcomes for the right internal teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Okta account status and explains approved recovery options.",
+    "A private IT assistant that summarizes user access, group membership, and app assignments from Okta.",
+    "A helpdesk Skill that prepares identity troubleshooting handoffs with verified context from Okta.",
+    "An employee assistant that guides onboarding and offboarding workflows using Okta user lifecycle data.",
+    "An AI agent that routes access requests to human approval before any sensitive Okta action runs.",
+    "A support workflow that verifies MFA enrollment status before escalating authentication issues to specialists."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Okta-connected agent to do, such as checking account status, guiding access troubleshooting, or preparing an approval-based handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes Okta access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive identity tasks so the agent can look up information freely while higher-risk Okta changes require the right review or confirmation."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Okta?",
+      "answer": "With DocsBot Skill Builder, you describe the Okta workflow you want in plain language, and the builder designs a secure Skill that can look up identity data, summarize context, and trigger approved actions. It also handles connection setup, secret protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Okta data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Okta within approved boundaries to check account state, MFA status, app assignment details, or recovery workflow status while responding to customers. This helps the agent resolve common identity questions faster and prepare better handoffs when a human team must step in."
+    },
+    {
+      "question": "What Okta workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees or IT teams retrieve user status, review app access, summarize identity issues, support onboarding and offboarding steps, and route access-related requests into the right approval flow. The goal is to complete repeatable identity workflows safely from chat instead of forcing staff to switch tools."
+    },
+    {
+      "question": "Can DocsBot safely trigger Okta actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as starting approved recovery flows, preparing access requests, or routing lifecycle tasks, while placing sensitive changes behind approval checks. Skill Builder defines those limits up front so the agent acts only within your rules."
+    },
+    {
+      "question": "How does DocsBot protect Okta credentials and permissions?",
+      "answer": "Skill Builder identifies the needed connection values, keeps secrets out of chat transcripts and Skill source, and uses secure runtime configuration to proxy authentication safely. It also scopes permissions to the minimum records and actions required for the workflow and can add approval boundaries for higher-risk operations."
+    },
+    {
+      "question": "Can DocsBot help with Okta access request handoffs and escalations?",
+      "answer": "Yes, the agent can gather missing details, verify relevant Okta context, summarize the issue clearly, and create a structured handoff for IT, security, or identity administrators. That shortens triage time and makes escalations more complete and consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "onelogin",
+    "auth0",
+    "microsoft-entra-id",
+    "google-workspace",
+    "jumpcloud",
+    "ping-identity"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Okta",
+    "domain": "okta.com",
+    "description": "Okta is a leading identity solutions provider, offering a range of products and services to secure access, authentication, and automation for enterprises, businesses, and organizations worldwide. The company's Okta Identity Cloud and Auth0 platforms enable secure identity management, single sign-on, multi-factor authentication, and more, putting identity at the heart of business security and growth.",
+    "slogan": "Identity belongs to you",
+    "logoUrl": "https://media.brand.dev/cbf08b20-c2c9-407a-a2fe-807848c177c0.svg",
+    "iconUrl": "https://media.brand.dev/644b9ab4-c2c1-4bed-a165-6400f0ebff5e.png",
+    "primaryColor": "#040404",
+    "accentColor": "#8c8c8c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#8c8c8c",
+        "name": "More Than A Week"
+      },
+      {
+        "hex": "#1d1d1d",
+        "name": "Dynamic Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c5373d99-dc64-4e14-affe-460a72beec5d.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.okta.com/company/careers/",
+      "terms": "https://www.okta.com/terms-of-service/",
+      "contact": "https://okta.com/contact-sales/",
+      "privacy": "https://www.okta.com/privacy-policy/",
+      "blog": "https://www.okta.com/newsroom/",
+      "pricing": "https://www.okta.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/644b9ab4-c2c1-4bed-a165-6400f0ebff5e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cbf08b20-c2c9-407a-a2fe-807848c177c0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 109,
+        "height": 36,
+        "aspectRatio": 3.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cbf08b20-c2c9-407a-a2fe-807848c177c0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 109,
+      "height": 36,
+      "aspectRatio": 3.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/644b9ab4-c2c1-4bed-a165-6400f0ebff5e.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    }
+  }
+}

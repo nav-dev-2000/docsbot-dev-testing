@@ -1,0 +1,160 @@
+{
+  "slug": "height",
+  "name": "Height",
+  "domain": "height.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work With Height",
+  "metaTitle": "Build Height AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Height to look up records, update workflows, prepare handoffs, and support teams with safe, approved actions.",
+  "intro": "Height helps teams track work, issues, and project progress, and DocsBot Skill Builder helps you turn that data into useful AI Actions. In plain language, you describe what your agent should do with Height, and Skill Builder designs, secures, tests, and deploys the workflow for you. The result is a support or internal AI agent that can answer questions, retrieve live project context, update approved records, and keep work moving without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a bug report, feature request, or implementation task in Height and reply with a clear progress summary.",
+    "Use a support agent to create a Height task from a customer conversation so product or engineering teams receive a structured handoff with the right details.",
+    "Enable the agent to add approved notes, labels, or follow-up context to Height records while responding to support tickets.",
+    "Have the agent summarize related Height tasks or project activity before escalating a customer issue to a human team member.",
+    "Let the agent gather missing information from the customer, then open or update a Height item for investigation using a controlled workflow."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find Height tasks, owners, deadlines, priorities, and recent updates without searching manually.",
+    "Let team members ask the agent to create project tasks, log follow-ups, or update approved fields in Height as part of standard operating procedures.",
+    "Help operations, customer success, or product teams chat with the agent to summarize open work in Height before meetings, escalations, or planning reviews.",
+    "Enable employees in Slack or Microsoft Teams to ask the agent for a concise project status digest pulled from Height records and activity.",
+    "Use an internal agent to collect context across conversations and turn it into a ready-to-review Height task, escalation brief, or follow-up checklist."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Height task status and explains next steps to customers.",
+    "A ticket handoff Skill that creates structured Height tasks from support conversations.",
+    "An internal project assistant that summarizes owners, deadlines, blockers, and recent task changes.",
+    "A workflow Skill that updates approved Height fields after customer or team confirmations.",
+    "An escalation agent that gathers missing details and prepares a Height issue for review.",
+    "A meeting prep assistant that turns Height activity into concise status summaries and action lists."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Height, such as checking task status, creating handoffs, or updating approved records, and it turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, handles secure connection and authentication setup, protects and proxies secrets outside chats and Skill source, and scopes Height access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive updates by defining approval boundaries, safe action limits, and clear rules for when the agent can look up information, prepare changes, or ask for human review."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, workflow gaps, or permission issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can start using Height through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Height?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up tasks, creating project handoffs, or updating approved records in Height. Skill Builder then designs the workflow, secures the connection, tests scenarios, and prepares the Skill for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Height data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Height Skill to retrieve live task or issue context, summarize progress, and create structured handoffs while replying to customers. You can also define boundaries so the agent only performs approved lookups or updates."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Height?",
+      "answer": "A DocsBot agent can check issue status, create Height tasks from support chats, add approved follow-up notes, gather missing details before escalation, and summarize related work for a human handoff. This helps support teams respond faster while keeping product and engineering work organized."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Height from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to find tasks, review owners and deadlines, summarize project activity, and complete approved workflows in Height. This reduces manual searching and helps teams follow standard processes more consistently."
+    },
+    {
+      "question": "How does DocsBot keep Height actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated content, proxies secrets through approved runtime settings, and limits access to the users, records, and actions needed for the workflow. It can also add approval steps or action limits for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot create Height tasks from support tickets or chat transcripts?",
+      "answer": "Yes, you can build a Skill that turns a customer conversation or helpdesk ticket into a structured Height task with the right summary, context, and next steps. This gives internal teams a cleaner handoff and reduces manual copy-paste work."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "trello",
+    "clickup",
+    "monday-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Height",
+    "domain": "height.com",
+    "description": "Height.com is a premium domain marketplace that connects buyers and sellers of high‑value web addresses. The platform offers a simple, secure way to purchase or lease the \"height.com\" domain, providing instant price quotes, fast transfers, and hassle‑free payments. With a user‑friendly contact form, dedicated support, and worldwide availability, Height.com streamlines the domain acquisition process for individuals, businesses, and investors seeking memorable, brand‑ready URLs.",
+    "slogan": "The simple, safe way to buy domain names",
+    "logoUrl": "https://media.brand.dev/e22dee91-365b-44c1-a155-2f76b7c99692.svg",
+    "iconUrl": "https://media.brand.dev/f8789f99-651e-4d7e-a61b-84e3605ce40a.png",
+    "primaryColor": "#f55308",
+    "accentColor": "#0f0a09",
+    "colors": [
+      {
+        "hex": "#f55308",
+        "name": "Trout Caviar"
+      },
+      {
+        "hex": "#0f0a09",
+        "name": "Stout"
+      },
+      {
+        "hex": "#e6d8d2",
+        "name": "Sentimental"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f8789f99-651e-4d7e-a61b-84e3605ce40a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 470,
+        "height": 512,
+        "aspectRatio": 0.92
+      },
+      {
+        "url": "https://media.brand.dev/e22dee91-365b-44c1-a155-2f76b7c99692.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 38,
+        "aspectRatio": 4.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e22dee91-365b-44c1-a155-2f76b7c99692.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f8789f99-651e-4d7e-a61b-84e3605ce40a.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 470,
+      "height": 512,
+      "aspectRatio": 0.92
+    }
+  }
+}

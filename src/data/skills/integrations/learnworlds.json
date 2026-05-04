@@ -1,0 +1,184 @@
+{
+  "slug": "learnworlds",
+  "name": "LearnWorlds",
+  "domain": "learnworlds.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with LearnWorlds",
+  "metaTitle": "LearnWorlds AI Agent Integration for Support and Team Workflows",
+  "metaDescription": "Build DocsBot AI agents that use LearnWorlds to answer questions, check learner status, trigger workflows, and support employees with safe, approved actions.",
+  "intro": "LearnWorlds helps businesses train employees, educate customers, and deliver online courses through a customizable learning platform. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use LearnWorlds, and Skill Builder designs, secures, tests, and packages that ability for your support bot or internal assistant. The result is an AI agent that can do more than answer questions by looking up learning data, preparing handoffs, updating approved records, and triggering defined workflows inside LearnWorlds.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a learner’s enrollment, course access, or progress in LearnWorlds while answering support questions in chat or tickets.",
+    "Use the agent to summarize a student’s training history from LearnWorlds so support teams can respond faster and personalize troubleshooting.",
+    "Have the agent create or prepare course-related support handoffs by collecting the customer’s issue, relevant learner details, and current LearnWorlds status.",
+    "Allow the agent to trigger approved follow-up workflows, such as routing a training access problem to the right team after gathering the needed context.",
+    "Enable the agent to answer common training and onboarding questions by combining your knowledge base with live LearnWorlds lookups when account-specific context matters."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up learner enrollments, course progress, and training completion details in LearnWorlds.",
+    "Use an internal AI assistant to summarize course performance, learner activity, or training gaps from LearnWorlds so teams can research issues faster.",
+    "Help customer success, enablement, or HR teams complete training workflows by asking the agent to gather LearnWorlds details and prepare the next approved step.",
+    "Give operations teams an agent that can retrieve LearnWorlds records, create structured summaries, and support SOPs for onboarding, compliance, or customer education programs.",
+    "Allow managers or support leads to ask the agent for learner status updates and escalation context without manually digging through LearnWorlds records."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks learner enrollment and course access before replying to a customer.",
+    "An AI assistant that summarizes student progress and training history for faster ticket resolution.",
+    "A private team agent that helps HR or enablement teams verify employee course completion.",
+    "An escalation workflow that gathers LearnWorlds context and prepares a clean support handoff.",
+    "A training support bot that answers account questions using live learner and course data.",
+    "An internal assistant that creates structured progress summaries for managers or customer success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LearnWorlds agent to do in plain language, such as checking enrollments, summarizing learner progress, or preparing course support handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, choosing the safest workflow, defining the needed configuration values, and planning how the agent should look up information or take approved actions in LearnWorlds."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection design by defining authentication needs, protecting and proxying secrets through runtime configuration, keeping credentials out of chats and Skill content, and scoping access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible permission boundaries, user scoping, and approval steps for sensitive updates or workflow triggers so the agent stays within the rules you define."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LearnWorlds?",
+      "answer": "With DocsBot Skill Builder, you describe the LearnWorlds workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support bot or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use LearnWorlds data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use LearnWorlds for approved lookups such as learner status, enrollments, course access, or progress details while responding to customers in chat or tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LearnWorlds?",
+      "answer": "You can build workflows for live learner lookups, course access checks, ticket context summaries, escalation preparation, and approved follow-up actions that help support teams resolve training-related issues faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside LearnWorlds?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve LearnWorlds information, summarize training records, support onboarding or compliance SOPs, and complete approved internal workflows more efficiently."
+    },
+    {
+      "question": "How does DocsBot keep LearnWorlds actions safe?",
+      "answer": "Skill Builder defines secure configuration, keeps secrets out of conversations, scopes permissions to the right records and actions, and can add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Do I need to manually set up the LearnWorlds workflow or write code?",
+      "answer": "No, the setup is centered on describing the outcome you want. Skill Builder handles the workflow design, secure connection details, testing, improvements, and deployment path for you."
+    }
+  ],
+  "relatedSlugs": [
+    "talentlms",
+    "thinkific",
+    "teachable",
+    "moodle",
+    "kajabi",
+    "docebo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LearnWorlds",
+    "domain": "learnworlds.com",
+    "description": "LearnWorlds is a cloud-based e-learning platform that provides a customizable, white-label solution for individuals and enterprises to train employees, educate customers, and sell online courses. It offers a range of features including a social community, modular pages builder, assessment engine, and advanced analytics to create a holistic online learning experience. LearnWorlds empowers trainers, educators, and content authors to create unique and engaging learning experiences, and provides everything needed to build a profitable online business in one scalable platform.",
+    "slogan": "Create, sell, and empower with customizable online learning solutions.",
+    "logoUrl": "https://media.brand.dev/0b7eb2cd-7041-42d8-ad5e-c0ab97119d92.svg",
+    "iconUrl": "https://media.brand.dev/963d01b4-e6fa-4a56-bc81-c927ae4438bb.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#8c8c8a",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#8c8c8a",
+        "name": "Wild Dove"
+      },
+      {
+        "hex": "#212120",
+        "name": "Lead"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/71e20e8b-a499-4618-84d9-2a708aeebdca.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.learnworlds.com/careers",
+      "terms": "https://www.learnworlds.com/terms",
+      "contact": "https://www.learnworlds.com/contact",
+      "privacy": "https://www.learnworlds.com/privacy-policy",
+      "blog": "https://www.learnworlds.com/blog",
+      "pricing": "https://www.learnworlds.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/963d01b4-e6fa-4a56-bc81-c927ae4438bb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0b7eb2cd-7041-42d8-ad5e-c0ab97119d92.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 40,
+        "aspectRatio": 5
+      },
+      {
+        "url": "https://media.brand.dev/531c1a66-080d-4b3b-8792-6359f9a24a3a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/025cd813-6634-4d20-ad35-04dd300e8c13.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 260,
+        "height": 260,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2b073740-9108-4620-8dde-40b5ea5ebf6b.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 26,
+        "height": 26,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0b7eb2cd-7041-42d8-ad5e-c0ab97119d92.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 40,
+      "aspectRatio": 5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/531c1a66-080d-4b3b-8792-6359f9a24a3a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

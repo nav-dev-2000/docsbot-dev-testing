@@ -1,0 +1,168 @@
+{
+  "slug": "servicenow",
+  "name": "ServiceNow",
+  "domain": "servicenow.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ServiceNow",
+  "metaTitle": "Build ServiceNow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ServiceNow for support lookups, ticket updates, workflow triggers, employee help, and safe internal automation.",
+  "intro": "ServiceNow helps teams manage tickets, services, requests, and enterprise workflows across the business. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up records, update approved fields, trigger workflows, and summarize status. This gives support teams and internal employees an AI agent that can answer questions and take bounded action inside ServiceNow.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up ServiceNow incident, case, or request status and explain the latest updates in plain language.",
+    "Use a support agent to create a ServiceNow incident or request from a customer chat after gathering the required details.",
+    "Allow the agent to add approved notes, update key fields, or attach customer-provided context to an existing ServiceNow record.",
+    "Have the agent summarize a long ServiceNow ticket history for faster customer replies and smoother human handoffs.",
+    "Trigger approved ServiceNow workflows or escalation paths when a customer reports a high-priority issue or outage symptoms."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find ServiceNow incidents, requests, changes, and knowledge-related record details without searching manually.",
+    "Enable internal teams to ask the agent to create ServiceNow tickets, route requests, or prepare escalation handoffs while following company workflow rules.",
+    "Help service desk staff use an internal AI agent to summarize record history, gather missing details, and suggest the next SOP step before they respond.",
+    "Allow operations teams to chat with the agent to check workflow state, identify blockers, and trigger approved ServiceNow actions with clear approval boundaries.",
+    "Support employee self-service by letting a private AI assistant answer policy or request-status questions using ServiceNow context and then create or update the right record when needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks ServiceNow incident status and explains next steps to customers.",
+    "A customer chat workflow that creates ServiceNow cases after collecting required troubleshooting details.",
+    "An internal assistant that summarizes ServiceNow ticket history for faster triage and escalations.",
+    "A service desk agent that updates approved ServiceNow fields and adds structured case notes.",
+    "An employee help assistant that creates ServiceNow requests from Slack or Microsoft Teams conversations.",
+    "An operations assistant that triggers approved ServiceNow workflows after confirming intent and permissions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ServiceNow agent to do, such as checking ticket status, creating incidents, updating approved fields, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, secure connection method, authentication handling, and secret protection automatically, keeping credentials out of chats and Skill source while scoping access to only the records, actions, and users required."
+    },
+    {
+      "title": "It adds guardrails",
+      "description": "Skill Builder defines approval boundaries, action limits, and routing rules so the agent can take helpful bounded actions in ServiceNow without overreaching into sensitive workflows or unrestricted record changes."
+    },
+    {
+      "title": "It tests realistic scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal employee scenarios, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private team assistant for employees in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ServiceNow?",
+      "answer": "With DocsBot Skill Builder, you describe the ServiceNow workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your AI agent. The result can support lookups, approved updates, workflow triggers, summaries, and handoffs inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use ServiceNow data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a ServiceNow Skill to look up incidents, requests, cases, or workflow status while replying to customer chats or helpdesk tickets. It can also summarize record history and prepare escalations so customers get clearer and faster answers."
+    },
+    {
+      "question": "Can DocsBot create or update ServiceNow tickets during customer support conversations?",
+      "answer": "DocsBot Skill Builder can create workflows where the agent gathers the needed details from the customer and then creates or updates approved ServiceNow records. Skill Builder also adds scoped permissions and approval boundaries so actions stay within your rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with ServiceNow?",
+      "answer": "A private DocsBot agent can help employees search records, summarize ticket history, create requests, route work, prepare handoffs, and trigger approved ServiceNow workflows from chat, Slack, or Microsoft Teams. This helps teams complete SOPs faster without manually navigating every system screen."
+    },
+    {
+      "question": "How does DocsBot keep a ServiceNow AI agent secure?",
+      "answer": "Skill Builder automatically plans secure configuration, handles authentication safely, proxies secrets through approved runtime settings, and keeps credentials out of conversations and generated content. It also scopes access to the minimum records and actions needed and can require approvals for sensitive updates."
+    },
+    {
+      "question": "Can a ServiceNow AI agent escalate issues or prepare human handoffs?",
+      "answer": "Yes, DocsBot can be designed to detect escalation conditions, collect missing context, summarize the current situation, and create a clean handoff into ServiceNow or to a human team. This reduces back-and-forth and helps responders start with better context."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "zendesk",
+    "freshservice",
+    "salesforce-service-cloud",
+    "linear",
+    "asana"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ServiceNow",
+    "domain": "servicenow.com",
+    "description": "ServiceNow is a cloud-based platform that helps organizations digitize and unify their operations, enabling them to work more efficiently and effectively. With a focus on innovation and agility, ServiceNow's solutions streamline enterprise workflows and empower customers and employees alike. As a leader in the industry, ServiceNow aims to make the world work better for everyone.",
+    "slogan": "The world works with ServiceNow",
+    "logoUrl": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+    "iconUrl": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+    "primaryColor": "#62ca5b",
+    "accentColor": "#0d3c51",
+    "colors": [
+      {
+        "hex": "#62ca5b",
+        "name": "Drop Green"
+      },
+      {
+        "hex": "#0d3c51",
+        "name": "Duskwood"
+      },
+      {
+        "hex": "#d3dde0",
+        "name": "Blue Nuance"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/009e788a-3668-480c-97fb-e5188cf6f8e7.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.servicenow.com/careers",
+      "terms": "https://servicenow.com/terms-of-use.html",
+      "contact": "https://servicenow.com/contact-us.html",
+      "privacy": "https://servicenow.com/products/privacy-management.html",
+      "blog": "https://servicenow.com/blogs/category/company-news",
+      "pricing": "https://servicenow.com/impact.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b0a0a5d5-2f7c-4f02-b4ec-45c151601893.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed3bea8f-41a6-4a46-8be2-a4a55b7328bf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

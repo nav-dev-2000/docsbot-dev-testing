@@ -1,0 +1,216 @@
+{
+  "slug": "jira",
+  "name": "Jira",
+  "domain": "atlassian.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Jira Using DocsBot Skills",
+  "metaTitle": "Build Jira AI Agents for Support and Internal Teams | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up Jira issues, update records, prepare handoffs, and automate safe workflows for support and internal teams.",
+  "intro": "Jira helps teams track issues, projects, and work in progress across support, product, and operations. With DocsBot Skill Builder, you can describe the Jira workflow you want in plain language and have DocsBot create a reusable Skill for a customer-facing support agent or a private internal AI assistant. The result is an AI agent that can answer questions and take bounded action in Jira with the permissions, approvals, and safeguards you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Jira issue status, priority, assignee, or resolution details while replying in a website chat widget or helpdesk ticket.",
+    "Allow the agent to create Jira issues from customer-reported bugs, feature requests, or onboarding blockers and capture the conversation as structured context.",
+    "Enable the agent to add approved comments or internal notes to existing Jira issues so support and engineering teams receive cleaner handoffs.",
+    "Use the agent to summarize related Jira tickets, linked issues, and recent updates before escalating a customer conversation to a human agent.",
+    "Let the agent identify whether a known Jira incident or bug matches the customer's problem and provide an accurate status update without exposing internal-only details to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Jira issues by customer, account, product area, label, or sprint.",
+    "Product, support, and operations teams can ask the agent to create Jira issues from meeting notes, bug reports, or postmortems using a standardized workflow.",
+    "Team members can use the agent to summarize issue history, blockers, assignee changes, and linked work items before standups, escalations, or incident reviews.",
+    "Managers can chat with the agent to gather Jira status across projects, prepare handoff notes, and trigger approved follow-up workflows for internal SOPs.",
+    "Employees can ask the agent to research open work, overdue tickets, or unresolved escalation items and return a concise action plan based on Jira data."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Jira bug status and explains the latest customer-safe update.",
+    "An AI assistant that creates Jira issues from chat conversations with structured fields and tags.",
+    "A handoff Skill that summarizes the customer problem and appends it to the right Jira issue.",
+    "An internal agent that finds blockers, overdue tickets, and sprint risks across Jira projects.",
+    "A workflow that adds approved Jira comments after support escalations or engineering reviews.",
+    "An AI assistant that turns incident notes into Jira follow-up tasks and action items."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Jira agent to do in plain language, such as checking issue status, creating tickets, or preparing escalation summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a secure Jira workflow, identifies the needed configuration values, and sets up the right instructions, actions, and data handling without making you map the technical details yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes Jira access to only the projects, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries and approval steps for sensitive Jira actions such as issue creation, updates, comments, or cross-team escalations so the agent operates within your rules."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing checks, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Jira?",
+      "answer": "With DocsBot Skill Builder, you describe the Jira workflow you want in plain language and Skill Builder creates the Skill, secure connection design, action boundaries, and deployment path for your agent. The finished agent can look up issues, summarize work, create records, or trigger approved Jira actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Jira data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use Jira to check issue status, review linked work, summarize progress, and prepare escalations while responding in a chat widget or helpdesk context. You control what Jira data the agent can access and which updates or creations require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Jira?",
+      "answer": "Teams can automate issue lookups, bug report creation, escalation summaries, incident matching, and structured handoffs from support conversations into Jira. This helps agents resolve more requests without forcing staff to manually re-enter the same context across systems."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Jira?",
+      "answer": "Yes, private DocsBot agents can help employees search Jira, summarize issue history, create tasks from notes, review blockers, and complete SOP-driven workflows from chat, Slack, or Microsoft Teams. This makes Jira easier to use without exposing broad permissions or requiring employees to navigate every project manually."
+    },
+    {
+      "question": "How does DocsBot keep Jira actions safe?",
+      "answer": "Skill Builder designs Jira Skills with secure authentication handling, secret protection, scoped permissions, and approval boundaries for sensitive actions. It also tests likely scenarios before launch so the agent follows the intended workflow and respects the limits you set."
+    },
+    {
+      "question": "Can DocsBot create Jira issues from customer conversations?",
+      "answer": "Yes, DocsBot can be configured to turn customer chats or tickets into structured Jira issues with the right fields, summaries, labels, and handoff notes. You can also require approval before issue creation or limit creation to certain projects and issue types."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "clickup",
+    "trello",
+    "linear",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Atlassian Corporation",
+    "domain": "atlassian.com",
+    "description": "Atlassian is a global software company dedicated to enhancing team collaboration and productivity. With a robust portfolio that includes popular tools like Jira, Confluence, and Trello, Atlassian helps over 300,000 customers streamline their project management and issue tracking. Employing a diverse team of over 10,000 professionals, Atlassian is committed to building innovative software that empowers teams to work together effectively. The company believes in the transformative power of teamwork to create a more open, authentic, and inclusive world, driving them to continuously develop next-generation solutions that unlock the full potential of teams. Whether organizing tasks, facilitating discussions, or completing shared projects, Atlassian's tools are designed to foster collaboration and creativity among teams worldwide.",
+    "slogan": "Unleash team potential with Atlassian's collaboration tools.",
+    "logoUrl": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+    "iconUrl": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+    "primaryColor": "#1c6cdb",
+    "accentColor": "#8cbcdc",
+    "colors": [
+      {
+        "hex": "#1c6cdb",
+        "name": "Flickr Blue"
+      },
+      {
+        "hex": "#8cbcdc",
+        "name": "Frozen Whisper"
+      },
+      {
+        "hex": "#0c1414",
+        "name": "Ruined Smores"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c62dcddc-8c20-4ff5-ad33-b9e6ee90b48f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://atlassian.com/company/careers",
+      "terms": "https://atlassian.com/legal/cloud-terms-of-service",
+      "contact": "https://atlassian.com/company/contact",
+      "privacy": "https://atlassian.com/legal/privacy-policy",
+      "blog": "https://atlassian.com/blog",
+      "pricing": "https://atlassian.com/software/jira/align"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ac87536f-b22c-4b28-af86-d824f87a8842.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 541,
+        "height": 150,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/10af4e49-8ef0-4556-8256-3ff11ed55617.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/295e212e-8a85-455d-9774-807a82f65937.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/d9220038-27df-4c36-ba76-d10be4cf2380.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/513146ad-0fe1-41f3-8857-61407f8d805d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 540,
+      "height": 150,
+      "aspectRatio": 3.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

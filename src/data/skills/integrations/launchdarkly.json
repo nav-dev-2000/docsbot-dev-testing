@@ -1,0 +1,162 @@
+{
+  "slug": "launchdarkly",
+  "name": "LaunchDarkly",
+  "domain": "launchdarkly.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with LaunchDarkly",
+  "metaTitle": "Build LaunchDarkly AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LaunchDarkly for safe flag lookups, rollout status summaries, approvals, and internal workflow actions.",
+  "intro": "LaunchDarkly helps teams control feature releases, rollouts, targeting, and rollback decisions without redeploying code. With DocsBot Skill Builder, you can describe the LaunchDarkly-powered agent you want in plain language, and DocsBot designs, secures, tests, and packages that ability as a reusable Skill. The result is an AI support agent or internal AI assistant that can answer questions, summarize flag state, prepare handoffs, and take bounded actions inside your approved LaunchDarkly workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a feature flag is enabled for a product area or customer segment before answering rollout-related questions.",
+    "Use a support agent to summarize recent flag changes, rollout status, or environment differences so customers get clearer explanations during incidents or launches.",
+    "Have the agent prepare an escalation handoff with LaunchDarkly flag details, affected environments, and customer context for engineering or product teams.",
+    "Enable a helpdesk-connected agent to confirm whether a rollback or progressive rollout is in progress and explain the current state to the customer.",
+    "Let the agent gather missing context from the customer, then package a safe internal request to review a flag targeting issue or unexpected feature exposure."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up feature flag status across projects and environments without switching tools.",
+    "Support, product, and engineering teams can ask the agent to summarize rollout history, targeting rules, and likely customer impact before making release decisions.",
+    "Team members can use the agent to prepare incident response handoffs that include LaunchDarkly state, recent changes, and recommended next steps for the right owners.",
+    "Operations or customer success employees can chat with the agent to research whether a customer issue may be tied to a staged rollout, experiment, or environment-specific flag setting.",
+    "Authorized teams can use the agent to trigger bounded LaunchDarkly workflows, such as creating a review request or preparing an approval step for sensitive rollout changes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that explains feature availability using live LaunchDarkly flag and environment data.",
+    "A support assistant that summarizes rollout progress before replying to customer tickets about missing features.",
+    "An internal agent that researches whether a bug report matches a recent flag change or rollback.",
+    "A handoff workflow that packages customer context with relevant LaunchDarkly targeting and flag details.",
+    "An approval-based agent action for requesting review of sensitive feature release or rollback decisions.",
+    "A release summary assistant that compares flag states across staging, production, or customer segments."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with LaunchDarkly in plain language, such as checking flag status, summarizing rollout state, or preparing an approval-based handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure authentication handling without exposing credentials in chat or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes LaunchDarkly access to the minimum actions, projects, environments, and users needed, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot agent or private team assistant so it can answer questions and take bounded LaunchDarkly actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LaunchDarkly?",
+      "answer": "With DocsBot Skill Builder, you describe the LaunchDarkly workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up flag data, summarize rollout state, prepare handoffs, and take approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use LaunchDarkly data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use LaunchDarkly data to check feature availability, summarize rollout progress, and provide clearer responses about staged releases or rollbacks. You control what data the agent can access and whether any actions require approval."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LaunchDarkly?",
+      "answer": "A DocsBot agent can help verify whether a feature is enabled, summarize environment or rollout status, gather customer context, and prepare escalation handoffs for product or engineering teams. It can also support bounded internal requests related to flag review or rollout investigation."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research feature flag issues in LaunchDarkly?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to look up feature flag status, compare environments, review rollout history, and summarize likely customer impact. This helps support, success, product, and engineering teams investigate issues faster from one chat interface."
+    },
+    {
+      "question": "How do safe approvals and permissions work for LaunchDarkly AI actions?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure secret handling, and approval boundaries for sensitive actions. That means your agent can be limited to specific projects, environments, records, and workflows instead of getting broad unrestricted access."
+    },
+    {
+      "question": "Can DocsBot create LaunchDarkly handoffs and escalation summaries automatically?",
+      "answer": "Yes, the agent can generate structured handoffs that include customer context, flag state, affected environments, rollout notes, and suggested next steps. This gives engineering or product teams a faster starting point for investigation and resolution."
+    }
+  ],
+  "relatedSlugs": [
+    "featurebase",
+    "jira",
+    "pagerduty",
+    "slack",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LaunchDarkly",
+    "domain": "launchdarkly.com",
+    "description": "LaunchDarkly is a runtime control platform that lets engineering, DevOps, and product teams separate code deployment from feature release, enabling real‑time, no‑redeploy changes to software and AI‑driven features. Its cloud‑based control plane lets organizations progressively roll out, target, monitor, and instantly roll back features for any user segment or environment, reducing risk while scaling globally. The platform processes tens of trillions of feature‑flag evaluations daily and serves over a quarter of the Fortune 500. Founded in 2014 in Oakland, California, LaunchDarkly pioneered feature management and is recognized on the Forbes Cloud 100, Inc. 5000, and Fast Company’s Most Innovative Companies lists.",
+    "slogan": "Move at AI speed. Stay in control.",
+    "logoUrl": "https://media.brand.dev/15626688-0f6b-4ef9-9b59-90db106a50f9.jpg",
+    "iconUrl": "https://media.brand.dev/15626688-0f6b-4ef9-9b59-90db106a50f9.jpg",
+    "primaryColor": "#1c1c1c",
+    "accentColor": "#949494",
+    "colors": [
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#949494",
+        "name": "Grey Shingle"
+      },
+      {
+        "hex": "#dddddd",
+        "name": "Steam"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6ef134b8-18b3-4c00-a7b3-86eebe356f04.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://launchdarkly.com/careers/",
+      "terms": "https://launchdarkly.com/policies/subscription-terms/",
+      "contact": "https://launchdarkly.com/contact-us/",
+      "blog": "https://launchdarkly.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://launchdarkly.com/pricing/",
+      "privacy": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15626688-0f6b-4ef9-9b59-90db106a50f9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8da8f6c3-6aba-4db5-a50f-c9334b855213.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8da8f6c3-6aba-4db5-a50f-c9334b855213.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8da8f6c3-6aba-4db5-a50f-c9334b855213.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

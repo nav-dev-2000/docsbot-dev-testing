@@ -1,0 +1,143 @@
+{
+  "slug": "outlook-mail",
+  "name": "Outlook Mail",
+  "domain": "outlook-mail.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Scheduling",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Outlook Mail",
+  "metaTitle": "Outlook Mail AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Outlook Mail for email lookups, ticket context, handoffs, summaries, and approved workflow actions in support and internal teams.",
+  "intro": "Outlook Mail can be a powerful system of record for customer conversations, escalations, and internal coordination. With DocsBot Skill Builder, you can describe the email-based workflow you want in plain language and have DocsBot create a secure reusable Skill for your support bot or internal AI agent. That lets your agent not only answer questions, but also look up message history, summarize threads, prepare handoffs, and trigger approved email-driven actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent Outlook Mail conversations with a customer and summarize the thread before replying in chat or a helpdesk ticket.",
+    "Let the support agent check whether a confirmation, onboarding, renewal, or follow-up email was already sent so it can answer status questions more accurately.",
+    "Have the agent draft a handoff email or escalation summary in Outlook Mail for a human support specialist when an issue needs review.",
+    "Enable the agent to create a follow-up email task or send an approved templated response through Outlook Mail after collecting the right customer details.",
+    "Use the agent to summarize long multi-message email chains from Outlook Mail and turn them into a clean support timeline for faster case resolution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find specific Outlook Mail threads, summarize mailbox activity, and retrieve the latest decisions from customer or vendor emails.",
+    "Enable customer success or operations teams to ask the agent to draft follow-up emails, renewal reminders, or escalation messages based on internal SOPs and approved templates.",
+    "Give team members an AI assistant that reviews Outlook Mail conversations and prepares handoff notes, status summaries, or next-step recommendations inside Slack, Teams, or private chat.",
+    "Help employees use a private agent to monitor shared mailbox activity, identify unanswered messages, and surface emails that need action according to team workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks whether a customer already received a billing or onboarding email.",
+    "An internal Skill that summarizes a long Outlook Mail thread into key decisions and next steps.",
+    "An AI agent action that drafts escalation emails using approved language and ticket context.",
+    "A mailbox lookup Skill that finds recent customer correspondence before the bot answers.",
+    "A shared inbox monitoring Skill that identifies unanswered emails and prepares follow-up tasks.",
+    "An email handoff Skill that turns a support conversation into a clean internal summary."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Outlook Mail, such as checking sent messages, summarizing threads, or drafting follow-up emails, and it turns that request into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder identifies the required Outlook Mail connection details, defines secure authentication and configuration values, keeps secrets out of chats and Skill source, and scopes the Skill to only the mailboxes, actions, and users needed for the workflow."
+    },
+    {
+      "title": "Add rules and approvals",
+      "description": "Skill Builder sets clear runtime instructions, safe action limits, and approval boundaries so sensitive actions like sending emails or updating shared workflows only happen within your chosen controls."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, permission gaps, or risky behavior, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can use Outlook Mail actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Outlook Mail for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support workflow in plain language and it creates a Skill that can look up email history, summarize threads, draft handoffs, or trigger approved email actions while your support agent responds to customers."
+    },
+    {
+      "question": "Can an AI support agent use Outlook Mail data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can be designed to safely read relevant Outlook Mail context such as recent messages, follow-up status, or escalation history so responses are more accurate and better informed."
+    },
+    {
+      "question": "What Outlook Mail workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal agents can help employees retrieve message history, summarize shared inbox activity, draft follow-up emails, prepare escalations, and surface emails that need action based on your team workflows."
+    },
+    {
+      "question": "Can DocsBot control who is allowed to send emails or perform actions in Outlook Mail?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, limit actions to approved workflows, and add approval boundaries for sensitive steps like sending messages or working with specific mailboxes."
+    },
+    {
+      "question": "How does DocsBot connect to Outlook Mail securely?",
+      "answer": "Skill Builder handles the secure design by defining the needed connection settings, protecting and proxying secrets through runtime configuration, and keeping credentials out of chat transcripts and generated content."
+    },
+    {
+      "question": "Can a DocsBot agent summarize long Outlook Mail threads for support or operations teams?",
+      "answer": "Yes, a Skill can be created to condense long email chains into concise timelines, decisions, unresolved issues, and next steps so agents and employees can act faster."
+    }
+  ],
+  "relatedSlugs": [
+    "gmail",
+    "microsoft-teams",
+    "zendesk",
+    "hubspot",
+    "intercom",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Outlook Mail",
+    "domain": "outlook-mail.com",
+    "description": "Domain Marketplace is a domain name reseller that simplifies buying, leasing, and transferring premium web addresses. The company offers instant price quotes, secure transactions, and hassle‑free payments for domains like outlook‑mail.com. Customers can request a price within 24 hours, speak with sales representatives via toll‑free or international phone lines, and complete transfers through a safe, streamlined process. By providing a user‑friendly interface, AI‑powered assistance, and worldwide support, Domain Marketplace helps individuals and businesses acquire the exact domain they need without complications.",
+    "slogan": "The simple, safe way to buy and transfer domain names.",
+    "logoUrl": "https://media.brand.dev/b576387a-9e6c-4886-898a-35e9209832fd.svg",
+    "iconUrl": "https://media.brand.dev/b576387a-9e6c-4886-898a-35e9209832fd.svg",
+    "primaryColor": "#141414",
+    "accentColor": "#141414",
+    "colors": [
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b576387a-9e6c-4886-898a-35e9209832fd.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 38,
+        "aspectRatio": 4.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b576387a-9e6c-4886-898a-35e9209832fd.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b576387a-9e6c-4886-898a-35e9209832fd.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    }
+  }
+}

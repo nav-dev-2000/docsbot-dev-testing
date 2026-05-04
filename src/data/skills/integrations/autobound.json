@@ -1,0 +1,168 @@
+{
+  "slug": "autobound",
+  "name": "Autobound",
+  "domain": "autobound.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Autobound",
+  "metaTitle": "Build AI Agents for Autobound with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Autobound for personalized outreach lookups, workflow support, summaries, and safe internal sales actions.",
+  "intro": "Autobound helps revenue teams create hyper-personalized sales outreach using real-time insights. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up Autobound data, prepare outreach context, trigger approved workflows, and summarize results. That means better support and smarter internal AI agents that can answer questions and take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved outreach status or account engagement context from Autobound to answer customer questions about sales follow-up and next steps.",
+    "Use a DocsBot helpdesk agent to summarize Autobound personalization insights alongside ticket context so support or success teams can prepare a smoother handoff to sales.",
+    "Have the agent create a structured escalation note for revenue teams when a customer requests pricing, expansion, or a sales conversation, including relevant Autobound context.",
+    "Enable the agent to trigger an approved internal follow-up workflow in Autobound after a qualified customer inquiry is captured through chat or a support ticket.",
+    "Let the agent gather missing details from the customer conversation and prepare a clean account summary that sales or success teams can use for personalized outreach in Autobound."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Autobound account insights before drafting outreach or planning follow-up.",
+    "Sales and success teams can ask the agent to summarize personalization signals, firmographic context, and outreach recommendations from Autobound for a target account or contact.",
+    "Revenue operations teams can use the agent to follow internal SOPs that qualify inbound leads, prepare handoff notes, and trigger approved outreach support workflows connected to Autobound.",
+    "Managers can ask the agent to generate account briefs, prospecting prep, or meeting summaries that combine Autobound insights with internal context from other systems.",
+    "Employees can use the agent to research a prospect or customer, compare outreach context across accounts, and get the next recommended action without manually switching between tools."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that retrieves Autobound account insights during customer or prospect conversations.",
+    "A private sales assistant that prepares personalized outreach briefs from Autobound data.",
+    "A support-to-sales handoff workflow that packages customer context with Autobound personalization signals.",
+    "An internal agent that summarizes prospect research and recommends the next outreach step.",
+    "An AI workflow that captures qualified interest and triggers approved revenue follow-up actions.",
+    "A team assistant that generates account prep notes for meetings, demos, or renewals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Autobound in plain language, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, defines secure authentication handling, protects and proxies secrets, and scopes Autobound access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder sets approval boundaries and safe action limits for sensitive updates, handoffs, or workflow triggers so the agent can help without exceeding the rules you define."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is validated, DocsBot helps publish it to your customer-facing chat widget, helpdesk agent, or private team assistant so people can start using Autobound-powered AI actions immediately."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Autobound?",
+      "answer": "With DocsBot Skill Builder, you describe the Autobound workflow you want in plain language, such as pulling account insights, preparing outreach context, or triggering an approved handoff. Skill Builder then designs, secures, tests, and packages that ability as a reusable Skill for your DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot AI agent use Autobound data during customer support conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use approved Autobound lookups to add account context, summarize outreach status, or prepare a sales handoff while responding to a chat or ticket. Access can be scoped so the agent only retrieves the records and fields you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Autobound?",
+      "answer": "A private DocsBot agent can help employees research accounts, summarize personalization signals, prepare prospect briefs, create handoff notes, and trigger bounded follow-up workflows. This is useful for sales, customer success, and revenue operations teams that want faster execution with fewer manual steps."
+    },
+    {
+      "question": "Can an AI agent generate sales handoff notes from Autobound insights?",
+      "answer": "Yes, DocsBot can create a Skill that gathers relevant conversation details and Autobound context, then generates a structured handoff summary for your sales team. You can also require approvals before any downstream workflow is triggered."
+    },
+    {
+      "question": "How does DocsBot keep Autobound actions secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes permissions to the smallest practical access level. It can also add approval boundaries for sensitive actions so the agent stays within your rules."
+    },
+    {
+      "question": "Can DocsBot test an Autobound Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run through imagined support and internal scenarios to find bugs, weak prompts, missing permission checks, or workflow gaps. Those findings can be used in an automated improvement loop before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "salesloft",
+    "apollo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Autobound",
+    "domain": "autobound.ai",
+    "description": "Autobound is a go-to-market (GTM) platform that leverages real-time insights to generate hyper-personalized sales outreach at scale. It analyzes 2,500+ data points across 50M+ companies and 250M+ contacts to create tailored messaging, integrating seamlessly with popular tools like Salesforce and HubSpot. Autobound offers AI-powered sales outreach solutions, enabling teams to boost productivity, save time, and fill their pipeline 24/7.",
+    "slogan": "AI-powered hyper-personalized sales outreach at scale.",
+    "logoUrl": "https://media.brand.dev/c57d7b21-bb3e-49aa-8a10-f671fbbcb181.png",
+    "iconUrl": "https://media.brand.dev/10a357f5-a5b3-47cf-b7ee-015dafe8f794.jpg",
+    "primaryColor": "#4eb6e1",
+    "accentColor": "#a4e4ec",
+    "colors": [
+      {
+        "hex": "#4eb6e1",
+        "name": "Sail Away"
+      },
+      {
+        "hex": "#a4e4ec",
+        "name": "Blizzard Blue"
+      },
+      {
+        "hex": "#55dcfc",
+        "name": "Ionized-air Glow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/de7fe7f9-c2f4-431a-91bd-d377af56fce2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.autobound.ai/master-services-agreement",
+      "contact": "https://www.autobound.ai/contact-sales",
+      "privacy": "https://www.autobound.ai/privacy-policy",
+      "blog": "https://www.autobound.ai/blog",
+      "pricing": "https://www.autobound.ai/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/10a357f5-a5b3-47cf-b7ee-015dafe8f794.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/06cdc86b-e0b5-4657-9a3a-c582c6f0c3b6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c57d7b21-bb3e-49aa-8a10-f671fbbcb181.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1920,
+        "height": 359,
+        "aspectRatio": 5.35
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c57d7b21-bb3e-49aa-8a10-f671fbbcb181.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1920,
+      "height": 359,
+      "aspectRatio": 5.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/10a357f5-a5b3-47cf-b7ee-015dafe8f794.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

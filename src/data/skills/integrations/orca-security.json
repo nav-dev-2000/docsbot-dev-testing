@@ -1,0 +1,168 @@
+{
+  "slug": "orca-security",
+  "name": "Orca Security",
+  "domain": "orca-security.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Orca Security",
+  "metaTitle": "Build AI Agents for Orca Security with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up Orca Security data, summarize findings, trigger workflows, and prepare escalations.",
+  "intro": "Orca Security can power AI agents that do more than answer questions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent securely look up findings, summarize risk context, prepare handoffs, and trigger approved workflows. This helps customer-facing and employee-facing agents turn security information into faster answers and bounded action.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Orca Security findings related to a customer environment or service and explain the current issue status in plain language.",
+    "Use the agent to summarize relevant risk, exposure, or alert context from Orca Security when responding to customer tickets about incidents, outages, or compliance concerns.",
+    "Have the agent gather Orca Security details and prepare a clean escalation handoff for security or engineering teams without making the customer repeat the problem.",
+    "Allow the agent to trigger an approved internal review or follow-up workflow when a customer report appears tied to a known security finding or exposure.",
+    "Use the agent to create ticket-ready summaries that combine the customer question with Orca Security context, recommended next steps, and ownership notes."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Orca Security findings, asset exposure, and alert summaries without leaving the conversation.",
+    "Let security, support, and operations teams ask the agent to summarize Orca Security issues by account, environment, severity, or service so they can research faster.",
+    "Allow employees to use the agent to prepare incident handoffs, investigation notes, and cross-team updates based on Orca Security data and internal SOPs.",
+    "Help analysts chat with the agent to trigger approved remediation, review, or escalation workflows when Orca Security findings meet defined conditions.",
+    "Give internal teams an agent that can retrieve Orca Security context, compare it with documented procedures, and guide the next approved workflow step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Orca Security findings for customer incident replies.",
+    "An internal security assistant that looks up exposure details and prepares escalation notes.",
+    "A triage Skill that gathers Orca Security context and routes cases to the right team.",
+    "An agent workflow that triggers approved security review requests from customer-reported issues.",
+    "A Slack or Teams assistant that summarizes cloud risk posture for internal teams.",
+    "A helpdesk agent that adds Orca Security context to ticket handoffs and follow-ups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Orca Security in plain language, and it translates that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the needed configuration values, and defines secure connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so the agent can answer questions and take bounded action with Orca Security."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Orca Security?",
+      "answer": "With DocsBot Skill Builder, you describe the Orca Security workflow you want in plain language, such as looking up findings, summarizing risk context, or preparing escalations. Skill Builder then designs, secures, tests, improves, and helps deploy the Skill to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Orca Security data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Orca Security Skill to retrieve approved security context, summarize relevant findings, and prepare handoffs while replying to customers. Access can be scoped so the agent only retrieves the records and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Orca Security?",
+      "answer": "DocsBot can help automate finding lookups, ticket summaries, escalation prep, incident context gathering, and approved follow-up workflow triggers tied to Orca Security information. This helps support teams respond faster with more complete and consistent security context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Orca Security?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Orca Security information, summarize findings, research issues, and complete approved workflows. This is useful for security, operations, support, and incident response teams."
+    },
+    {
+      "question": "How does DocsBot keep Orca Security actions safe?",
+      "answer": "Skill Builder is designed to define secure configuration values, keep secrets out of transcripts and Skill source, proxy authentication through approved runtime settings, and limit access to the minimum required scope. It can also add approval boundaries for sensitive actions so the agent stays within your rules."
+    },
+    {
+      "question": "Can DocsBot trigger workflows based on Orca Security findings?",
+      "answer": "Yes, a Skill can be designed to trigger approved internal workflows such as reviews, escalations, remediation requests, or handoff creation when Orca Security conditions are met. Those actions can be bounded by permissions, approvals, and clear operating rules."
+    }
+  ],
+  "relatedSlugs": [
+    "crowdstrike",
+    "wiz",
+    "snyk",
+    "datadog",
+    "pagerduty",
+    "servicenow"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Orca Security",
+    "domain": "orca-security.com",
+    "description": "Orca Security is a premium, verified domain name offered for sale through GoDaddy's marketplace. The listing provides options to purchase outright for $1,975, lease‑to‑own at $330 per month, or make an offer. GoDaddy handles secure payments, local‑currency checkout, and fast transfers, ensuring a hassle‑free transaction. The service emphasizes safety, simple domain acquisition, and AI assistance for buyers.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/8d877e7d-2750-4cbf-a320-48b3b986ddd2.svg",
+    "iconUrl": "https://media.brand.dev/1808ded6-0502-4531-bb4f-dec8e8e640d4.png",
+    "primaryColor": "#040404",
+    "accentColor": "#51bfc7",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#51bfc7",
+        "name": "Gem Turquoise"
+      },
+      {
+        "hex": "#347474",
+        "name": "Myrtle Green"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fece0298-20cb-4ffc-b5d9-91ae84fa6b50.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 833,
+        "height": 833,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1808ded6-0502-4531-bb4f-dec8e8e640d4.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8d877e7d-2750-4cbf-a320-48b3b986ddd2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 38,
+        "aspectRatio": 4.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8d877e7d-2750-4cbf-a320-48b3b986ddd2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fece0298-20cb-4ffc-b5d9-91ae84fa6b50.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 833,
+      "height": 833,
+      "aspectRatio": 1
+    }
+  }
+}

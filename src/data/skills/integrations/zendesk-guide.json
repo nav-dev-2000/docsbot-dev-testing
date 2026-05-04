@@ -1,0 +1,178 @@
+{
+  "slug": "zendesk-guide",
+  "name": "Zendesk Guide",
+  "domain": "zendesk-guide.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Zendesk Guide Knowledge",
+  "metaTitle": "Build AI Agents for Zendesk Guide with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that search Zendesk Guide content, summarize answers, prepare handoffs, and support employees with secure, tested Skills.",
+  "intro": "Zendesk Guide helps teams manage and deliver knowledge at scale for customers and employees. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zendesk Guide content, and DocsBot turns that into a secure, reusable Skill. The result is a support or internal AI agent that can search articles, summarize guidance, prepare escalations, and take approved knowledge-related actions while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Zendesk Guide articles in real time and answer product or policy questions with grounded knowledge.",
+    "Have the agent summarize the most relevant Zendesk Guide content for a customer and present a clearer, shorter answer in chat or in a helpdesk reply.",
+    "Use Zendesk Guide knowledge to prepare a support handoff that cites related articles, known limitations, and recommended next steps for a human agent.",
+    "Let the agent identify when a customer question is not fully covered in Zendesk Guide and create a structured escalation summary for the support team.",
+    "Enable the agent to suggest the best matching help center content during a live support conversation so customers can self-serve faster."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that chats with Zendesk Guide content to quickly find internal policies, SOPs, troubleshooting steps, and service guidance.",
+    "Let support managers and enablement teams ask the agent to compare multiple Zendesk Guide articles and summarize gaps, overlap, or outdated guidance.",
+    "Enable team members in Slack, Microsoft Teams, or internal chat to retrieve the right Zendesk Guide article and get a concise answer without manual searching.",
+    "Help onboarding and operations teams use a private DocsBot agent to follow knowledge-based workflows and retrieve the exact internal instructions needed for each step.",
+    "Allow employees to chat with the agent to prepare consistent responses, internal notes, or escalation summaries based on approved Zendesk Guide knowledge."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches Zendesk Guide and answers customer questions with grounded article summaries.",
+    "A private employee assistant that finds internal help center content and explains the correct SOP.",
+    "A handoff Skill that pulls related Zendesk Guide articles and drafts escalation context for human agents.",
+    "A knowledge gap review workflow that summarizes missing or conflicting guidance across selected Zendesk Guide articles.",
+    "A response assistant that suggests relevant Zendesk Guide content for tickets, chat replies, and follow-up messages.",
+    "An internal research assistant that compares policy articles and returns a concise summary for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Zendesk Guide in plain language, such as finding articles, summarizing guidance, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a safe Skill design, defines the required configuration values, and plans how the agent should retrieve information or take approved knowledge-related actions."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection and authentication design, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to the minimum content and actions required."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds permission limits, user scope, and approval boundaries where needed so the agent can assist with Zendesk Guide content without exceeding the actions or records you allow."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for weak answers, workflow gaps, and permission issues, then feeds those findings back into improvement."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zendesk Guide knowledge?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as searching articles, summarizing answers, or preparing escalations. Skill Builder then designs, secures, tests, and packages a reusable Skill your DocsBot agent can use with Zendesk Guide."
+    },
+    {
+      "question": "Can an AI support agent use Zendesk Guide to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zendesk Guide content to find relevant articles, summarize the best answer, and respond in chat or tickets with grounded knowledge. You can also define safe boundaries for when the agent should hand off to a human."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zendesk Guide?",
+      "answer": "DocsBot can help automate article lookups, answer summaries, escalation prep, handoff notes, and knowledge-based reply drafting. It can also identify when knowledge is missing or unclear and prepare a structured next-step summary for your support team."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find Zendesk Guide content?",
+      "answer": "Yes, private DocsBot agents can help employees search Zendesk Guide, retrieve internal documentation, and follow SOPs through chat, Slack, or Microsoft Teams. This makes it easier for teams to get fast answers without digging through multiple articles manually."
+    },
+    {
+      "question": "How does DocsBot keep Zendesk Guide connections secure?",
+      "answer": "Skill Builder defines the connection settings needed for the workflow, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also scopes access and action limits so the agent only uses the records and permissions you approve."
+    },
+    {
+      "question": "Can DocsBot test a Zendesk Guide Skill before deployment?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs support and internal scenarios against the Skill. It looks for bugs, weak instructions, missing checks, and improvement opportunities before the Skill is deployed to your live agent."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "confluence",
+    "notion",
+    "help-scout-docs",
+    "intercom-articles",
+    "guru"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zendesk",
+    "domain": "zendesk.com",
+    "description": "Zendesk is a cloud‑based service platform that helps businesses deliver AI‑enhanced support for customers and employees. Its Resolution Platform combines AI agents, analytics, and a marketplace of 1,800+ integrations to automate ticketing, live chat, voice, and IT service management across all channels. Products include Customer Service, Employee Service, Contact Center, AI‑driven Copilot, Quality Assurance, and Workforce Management, all designed to improve resolution speed, quality, and scalability. Zendesk serves over 100,000 companies worldwide, offering enterprise‑grade security, AI governance, and self‑improving agents that learn from each interaction.",
+    "slogan": "Deliver beautifully simple service with Zendesk AI Agents",
+    "logoUrl": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+    "iconUrl": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+    "primaryColor": "#040404",
+    "accentColor": "#848480",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848480",
+        "name": "Tank Grey"
+      },
+      {
+        "hex": "#e6e6e3",
+        "name": "Pearl Brite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/39996815-cc09-4d55-8c52-14694631ee55.png",
+    "industries": [],
+    "links": {
+      "login": null,
+      "signup": null,
+      "careers": "http://www.zendesk.com/company/careers/",
+      "terms": "http://www.zendesk.com/company/agreements-and-terms/terms-of-use/",
+      "contact": "http://www.zendesk.com/service/contact-center/",
+      "privacy": "http://www.zendesk.com/company/agreements-and-terms/privacy-notice/",
+      "blog": "http://www.zendesk.com/blog/",
+      "pricing": "http://www.zendesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 56,
+        "aspectRatio": 1.39
+      },
+      {
+        "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 84,
+        "height": 16,
+        "aspectRatio": 5.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 84,
+      "height": 16,
+      "aspectRatio": 5.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

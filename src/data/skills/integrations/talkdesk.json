@@ -1,0 +1,168 @@
+{
+  "slug": "talkdesk",
+  "name": "Talkdesk",
+  "domain": "talkdesk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Talkdesk",
+  "metaTitle": "Build Talkdesk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Talkdesk for support lookups, handoffs, updates, and internal workflows with secure setup, testing, and approval controls.",
+  "intro": "Talkdesk helps teams manage customer experience data, conversations, and service workflows across channels. With DocsBot Skill Builder, you can describe the Talkdesk-powered action you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions and take approved action in Talkdesk while staying inside your rules, permissions, and review boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot chat widget or helpdesk agent to look up Talkdesk interaction history, case context, notes, or conversation summaries before replying to a customer.",
+    "Let the agent create or update Talkdesk records, add notes, attach issue details, or prepare a clean escalation handoff when a support case needs a human team.",
+    "Have the agent summarize recent Talkdesk activity across calls, chats, tickets, and notes so customers receive faster and more consistent answers.",
+    "Trigger approved Talkdesk follow-up workflows, queue routing steps, or callback preparation after the agent gathers missing details from the customer.",
+    "Use Talkdesk data to confirm support status, explain the next step, and generate a handoff summary for agents handling high-value or time-sensitive conversations."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Talkdesk conversation history, summaries, dispositions, and customer context without opening multiple tools.",
+    "Enable support operations teams to ask the agent to compile Talkdesk case notes, summarize queue trends, and prepare escalation packages for supervisors or specialist teams.",
+    "Help customer success or service leaders use an internal AI agent to research Talkdesk interactions alongside SOPs and generate follow-up briefs, coaching notes, or workflow checklists.",
+    "Allow employees to chat with the agent to complete approved Talkdesk updates, add standardized notes, trigger handoff workflows, or follow internal resolution steps safely.",
+    "Give QA and operations teams an AI assistant that summarizes Talkdesk transcripts and notes into consistent internal reports, review packets, or next-step recommendations."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that fetches Talkdesk interaction history before answering a support question.",
+    "A Skill that creates escalation notes and handoff summaries inside Talkdesk automatically.",
+    "A Skill that updates approved Talkdesk record fields after customer identity and intent are confirmed.",
+    "A Skill that summarizes calls, chats, tickets, and notes into a single support snapshot.",
+    "A Skill that triggers callback, routing, or follow-up workflows after the bot gathers required details.",
+    "A Skill that helps internal teams research Talkdesk activity and generate supervisor-ready case briefs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Talkdesk, such as looking up conversation history, updating records, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required Talkdesk configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime settings, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound the actions",
+      "description": "Skill Builder adds the right guardrails for your workflow, including approval boundaries, user scoping, and safe action limits so the agent can retrieve information or take approved actions without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, permission gaps, or missing edge cases, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill based on testing results and helps publish it to the right DocsBot agent for your website chat widget, helpdesk workflow, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Talkdesk?",
+      "answer": "With DocsBot Skill Builder, you describe the Talkdesk workflow you want in plain language, such as looking up conversation history or creating escalation notes, and Skill Builder creates, secures, tests, and prepares the Skill for deployment. The finished agent can then use Talkdesk data or approved actions during support or internal conversations."
+    },
+    {
+      "question": "Can an AI support agent use Talkdesk data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Talkdesk Skill to retrieve relevant interaction history, notes, status details, or summaries while responding in a chat widget or helpdesk context. You define what the agent is allowed to access and when it can take additional actions such as creating notes or preparing a handoff."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Talkdesk?",
+      "answer": "DocsBot can help automate lookups, status summaries, note creation, escalation preparation, callback workflows, routing support steps, and other bounded Talkdesk actions you approve. This helps the agent answer faster and move the case forward instead of only telling the customer what to do next."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Talkdesk?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Talkdesk context, summarize interactions, generate follow-up briefs, and complete approved workflows or SOP steps. This is useful for support operations, customer success, QA, and supervisors who need faster access to service activity."
+    },
+    {
+      "question": "How does DocsBot keep Talkdesk actions secure?",
+      "answer": "Skill Builder designs the connection securely by defining required configuration values, protecting and proxying secrets through runtime settings, and keeping credentials out of chats and generated content. It also scopes permissions, limits actions to approved workflows, and can add approval checkpoints for sensitive updates."
+    },
+    {
+      "question": "Can a DocsBot agent update Talkdesk records automatically?",
+      "answer": "Yes, if you want that workflow, Skill Builder can create a Skill that updates approved Talkdesk fields, adds notes, or triggers follow-up actions under rules you define. Sensitive actions can be limited to certain users, records, or approval paths before anything is changed."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "salesforce-service-cloud",
+    "hubspot",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Talkdesk",
+    "domain": "talkdesk.com",
+    "description": "Talkdesk is a cloud‑based platform that powers Customer Experience Automation (CXA), unifying data from CRMs, tickets, transcripts and notes into the Talkdesk Data Cloud. By replacing fragmented, human‑coordinated workflows with autonomous, multi‑agent AI orchestration, Talkdesk enables enterprises to automate service, sales and support across the entire customer journey. The platform offers pre‑built AI agents, modular tools and a continuous automation cycle—Discover, Build, Orchestrate, Measure—delivering rapid time‑to‑value, reduced cost‑to‑serve and revenue growth. It supports cross‑industry and vertical‑specific use cases in healthcare, finance, retail, utilities, travel and government, and is trusted by global brands to modernize operations without a full rip‑and‑replace.",
+    "slogan": "AI customer experience automation—autonomous agents, real CX outcomes.",
+    "logoUrl": "https://media.brand.dev/61490294-b3ae-4933-b8cc-765788e66d73.svg",
+    "iconUrl": "https://media.brand.dev/9b64d8b5-5104-49db-8e48-45b4a9774784.jpg",
+    "primaryColor": "#580dbe",
+    "accentColor": "#a479dc",
+    "colors": [
+      {
+        "hex": "#580dbe",
+        "name": "Purplue"
+      },
+      {
+        "hex": "#a479dc",
+        "name": "Lavender Blossom"
+      },
+      {
+        "hex": "#ede4f1",
+        "name": "Sheer Lavender"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/90e5b62f-9de7-4158-a08a-5fe9f9af082b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.talkdesk.com/",
+      "terms": "https://www.talkdesk.com/terms-of-service/privacy-notice/",
+      "contact": "https://www.talkdesk.com/contact-sales/",
+      "privacy": "https://www.talkdesk.com/terms-of-service/privacy-notice/",
+      "blog": "https://www.talkdesk.com/blog/",
+      "pricing": "https://www.talkdesk.com/pricing-cxa/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9b64d8b5-5104-49db-8e48-45b4a9774784.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9aeeb142-a8ca-4659-8861-5ec1445e48ec.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/61490294-b3ae-4933-b8cc-765788e66d73.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 124,
+        "height": 20,
+        "aspectRatio": 6.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/61490294-b3ae-4933-b8cc-765788e66d73.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 124,
+      "height": 20,
+      "aspectRatio": 6.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9b64d8b5-5104-49db-8e48-45b4a9774784.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "looker",
+  "name": "Looker",
+  "domain": "looker.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use Looker for Support and Internal Analytics",
+  "metaTitle": "Build AI Agents for Looker with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Looker for data lookups, report summaries, handoffs, and approved analytics workflows in support and internal team chats.",
+  "intro": "Looker helps teams explore business data, track metrics, and answer operational questions across the company. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Looker inside customer support conversations or private employee chats. The result is an AI agent that can answer questions, summarize data, prepare handoffs, and take bounded analytics-related actions instead of only telling people where to look.",
+  "supportUseCases": [
+    "Use a customer chat or helpdesk agent to look up account, product, usage, or billing trends from Looker and explain the findings in plain language during a support conversation.",
+    "Let the agent summarize recent customer health or activity metrics from Looker so support teams can give faster, more informed responses.",
+    "Have the agent compare current and historical metrics in Looker to help explain outages, feature adoption changes, or unusual account behavior to customers.",
+    "Use Looker data to prepare escalation notes, including relevant KPIs, trend summaries, and supporting context for handoff to success, billing, or technical teams.",
+    "Let the agent answer customer questions about service performance, order volumes, subscription activity, or other approved reporting data pulled from Looker dashboards or explores."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Looker metrics, dashboard summaries, and business trend explanations without switching tools.",
+    "Customer success, support, and operations teams can ask the agent to research account performance in Looker and assemble a concise handoff or renewal risk summary.",
+    "Leaders can use an internal AI agent to compare KPI changes across time periods, regions, products, or segments and receive an easy-to-read explanation of the results.",
+    "Teams can chat with the agent to follow reporting SOPs, gather the right Looker findings, and generate consistent summaries for escalations, weekly reviews, or account check-ins.",
+    "Operations employees can use the agent to combine Looker insights with other approved systems so they can investigate issues and complete multi-step workflows from one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains customer usage trends from approved Looker reports.",
+    "A helpdesk assistant that adds Looker-based KPI summaries to escalation handoff notes.",
+    "An internal analytics copilot that answers natural language questions using Looker data.",
+    "A customer success assistant that reviews account health metrics before renewal outreach.",
+    "An operations agent that summarizes dashboard changes and flags unusual business patterns.",
+    "A private team assistant that follows reporting SOPs and produces consistent metric summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Looker, such as answering metric questions, summarizing dashboards, or preparing escalation context, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through approved runtime settings, and scopes access to the minimum Looker data and actions needed."
+    },
+    {
+      "title": "Boundaries are built in",
+      "description": "Skill Builder adds the right usage rules, user scope, and approval boundaries so sensitive analytics actions, broad data access, or high-impact workflows stay within customer-defined limits."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can use Looker through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Looker data?",
+      "answer": "With DocsBot Skill Builder, you describe the reporting or analytics task you want in plain language, and Skill Builder creates a Skill that lets your AI agent safely query, summarize, and use approved Looker data. It also defines secure configuration, protects credentials, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Looker to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Looker data to explain trends, summarize account activity, and add analytics context to customer replies or ticket handoffs. The agent operates inside the support conversation while Looker serves as the system of record for reporting insights."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Looker?",
+      "answer": "A DocsBot agent can look up relevant metrics, summarize dashboard findings, compare recent versus historical performance, prepare escalation notes, and generate clear explanations for support teams or customers. Sensitive actions and data access can be limited with scoped permissions and approval boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant answer business questions from Looker in Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve KPI summaries, compare periods, review account trends, and follow reporting workflows using Looker data. This gives teams faster access to analytics without requiring them to navigate dashboards for every question."
+    },
+    {
+      "question": "Is it possible to control what the AI agent can access in Looker?",
+      "answer": "Yes, Skill Builder is designed to scope the Skill to the minimum data, actions, and users required for the workflow. It also handles authentication securely, keeps secrets out of chat and source content, and can add approval steps for more sensitive use cases."
+    },
+    {
+      "question": "Can DocsBot create Looker-based handoff and escalation summaries automatically?",
+      "answer": "Yes, a DocsBot agent can pull approved analytics context from Looker and turn it into structured handoff notes, escalation summaries, or internal briefings. This helps support, success, and operations teams move faster with more complete context."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "power-bi",
+    "google-bigquery",
+    "snowflake",
+    "mode",
+    "metabase"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Looker",
+    "domain": "looker.com",
+    "description": "Looker is a business intelligence and data analytics platform that is now part of Google Cloud. They provide cloud computing services, including data management, hybrid and multi-cloud solutions, and artificial intelligence and machine learning capabilities to help businesses meet their challenges.",
+    "slogan": "Unlock the power of data for insightful, discovery-driven business success.",
+    "logoUrl": "https://media.brand.dev/197fcfc9-c14c-42e6-be00-78220600b6a0.png",
+    "iconUrl": "https://media.brand.dev/197fcfc9-c14c-42e6-be00-78220600b6a0.png",
+    "primaryColor": "#ec4434",
+    "accentColor": "#34ac54",
+    "colors": [
+      {
+        "hex": "#ec4434",
+        "name": "Cascara"
+      },
+      {
+        "hex": "#34ac54",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#4484f4",
+        "name": "Seljuk Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/071f32b2-d16d-4176-ab04-d43d82fff8f3.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3734612b-cb77-40d7-8047-920c88abf7f5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/197fcfc9-c14c-42e6-be00-78220600b6a0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7e6512f7-7d46-479f-8605-335d3fbea603.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 138,
+        "height": 24,
+        "aspectRatio": 5.75
+      },
+      {
+        "url": "https://media.brand.dev/910255de-7440-4994-aa7e-b98383a2151e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/197fcfc9-c14c-42e6-be00-78220600b6a0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/197fcfc9-c14c-42e6-be00-78220600b6a0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

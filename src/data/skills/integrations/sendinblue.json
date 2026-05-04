@@ -1,0 +1,176 @@
+{
+  "slug": "sendinblue",
+  "name": "SendInBlue",
+  "domain": "sendinblue.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build DocsBot AI Agents That Work with Brevo and Sendinblue",
+  "metaTitle": "Build AI Agents for Brevo and Sendinblue with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Brevo and Sendinblue for support lookups, campaign workflows, contact updates, and internal team automation with safe controls.",
+  "intro": "Brevo, formerly Sendinblue, gives teams email, SMS, CRM, automation, chat, and transactional messaging in one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Brevo during support conversations or internal workflows. That means your support bot or private team assistant can look up contact context, trigger approved actions, summarize customer activity, and help complete work instead of only answering questions.",
+  "supportUseCases": [
+    "Use a customer chat widget or helpdesk agent to look up a customer's Brevo contact profile, subscription status, recent campaigns, and message history while responding to support questions.",
+    "Let the AI agent create or update Brevo contacts, apply tags, and record support-related attributes after collecting the right details from the customer.",
+    "Have the agent check whether transactional emails or SMS messages were sent, then summarize delivery context for order, onboarding, or account-related inquiries.",
+    "Trigger approved Brevo automation workflows such as onboarding sequences, re-engagement flows, or follow-up messages when a customer requests help or confirms a next step.",
+    "Prepare clean support handoffs by summarizing the customer's conversation and writing the relevant Brevo contact or campaign context into the escalation notes."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Brevo contact, campaign, automation, and CRM information without manually searching multiple screens.",
+    "Enable customer success or marketing teams to ask the agent to segment contacts, summarize campaign engagement, and prepare follow-up workflows based on customer activity.",
+    "Help operations teams use the agent to update contact fields, apply tags, or trigger approved messaging workflows while following internal SOPs and approval rules.",
+    "Give internal teams an assistant that researches a customer record across Brevo activity and produces a concise summary for renewals, outreach, or escalation prep.",
+    "Allow employees to chat with the agent to complete recurring workflows such as campaign QA checks, contact cleanup tasks, and post-support follow-up preparation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Brevo contact records before answering account or messaging questions.",
+    "A helpdesk assistant that verifies transactional email status and prepares escalation summaries for human agents.",
+    "A customer-facing bot that updates opt-in preferences or support tags with approval boundaries.",
+    "An internal marketing assistant that summarizes campaign engagement and recommends the next follow-up step.",
+    "A customer success agent that triggers approved onboarding or re-engagement automations from chat.",
+    "A private team assistant that retrieves CRM context and drafts handoff notes for account reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Brevo in plain language, such as checking contact activity, updating records, or triggering an approved follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and automatically defines the safest workflow design, required configuration values, and runtime behavior."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication setup, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes Brevo access to the minimum actions, records, and users needed."
+    },
+    {
+      "title": "Approval rules are added",
+      "description": "For sensitive actions like changing contact data or launching workflows, Skill Builder adds approval boundaries and safe action limits so the agent only takes bounded actions you allow."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Brevo or Sendinblue?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and DocsBot designs a Skill that lets your AI agent safely look up Brevo data, update records, trigger approved automations, and summarize outcomes. Skill Builder also handles secure connection details, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Brevo data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Brevo Skill to retrieve contact details, campaign history, messaging status, or automation context while replying to customers. It can also prepare handoffs, update approved fields, or trigger bounded follow-up workflows when your rules allow it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Brevo?",
+      "answer": "Teams can build workflows for contact lookups, subscription or opt-in checks, transactional message status reviews, support tagging, escalation prep, and approved onboarding or re-engagement triggers. The AI agent can answer the customer and take the next safe action in the same conversation."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Brevo?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve CRM and campaign context, summarize engagement, update approved records, and complete routine SOPs through chat, Slack, or Microsoft Teams. This reduces manual searching and helps teams finish repetitive work faster."
+    },
+    {
+      "question": "How does DocsBot keep Brevo actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration, protects and proxies credentials, scopes access to the minimum required permissions, and adds approval boundaries for sensitive actions. That lets the agent work inside clear limits instead of having unrestricted access."
+    },
+    {
+      "question": "Can DocsBot trigger Brevo automations from an AI conversation?",
+      "answer": "DocsBot can be configured to trigger approved Brevo automations such as onboarding, nurture, or follow-up flows when the conversation meets the rules you define. Skill Builder helps design those triggers with guardrails, scoped permissions, and testing before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "activecampaign",
+    "klaviyo",
+    "intercom",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Brevo",
+    "domain": "sendinblue.com",
+    "description": "Brevo is an all-in-one customer engagement platform that offers a suite of tools including email and SMS marketing, automation, CRM, live chat, and transactional email. Formerly known as Sendinblue, Brevo provides an intuitive platform for businesses to manage their customer interactions. With Brevo, businesses can try the platform for free and experience the benefits of having multiple customer engagement tools in one place.",
+    "slogan": "Empowering businesses with intuitive all-in-one digital marketing solutions.",
+    "logoUrl": "https://media.brand.dev/a674c23e-d9bb-4ee5-8df1-22e24f0f1daa.webp",
+    "iconUrl": "https://media.brand.dev/59e1adad-3202-4de3-9118-799d6e4a4e40.jpg",
+    "primaryColor": "#3a86bf",
+    "accentColor": "#7cb0d2",
+    "colors": [
+      {
+        "hex": "#3a86bf",
+        "name": "King Triton"
+      },
+      {
+        "hex": "#7cb0d2",
+        "name": "Meadow Blossom Blue"
+      },
+      {
+        "hex": "#dfedf1",
+        "name": "Dissolved Denim"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/33d214ca-d17e-42d4-b6c0-d40acf9d39d1.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/59e1adad-3202-4de3-9118-799d6e4a4e40.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ffcc3b58-05b2-4a7a-8801-888914e1d82f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a674c23e-d9bb-4ee5-8df1-22e24f0f1daa.webp",
+        "type": "logo",
+        "mode": "light",
+        "width": 172,
+        "height": 288,
+        "aspectRatio": 0.6
+      },
+      {
+        "url": "https://media.brand.dev/8f541c18-ceff-4a9f-8375-625e1da91f6e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 82,
+        "height": 24,
+        "aspectRatio": 3.42
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8f541c18-ceff-4a9f-8375-625e1da91f6e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 82,
+      "height": 24,
+      "aspectRatio": 3.42
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/59e1adad-3202-4de3-9118-799d6e4a4e40.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

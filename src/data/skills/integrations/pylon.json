@@ -1,0 +1,184 @@
+{
+  "slug": "pylon",
+  "name": "Pylon",
+  "domain": "pylon.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Pylon",
+  "metaTitle": "Build AI Agents for Pylon with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Pylon to look up conversation data, prepare handoffs, update records, and support teams with safe automated actions.",
+  "intro": "Pylon helps teams manage customer conversations and support workflows, and DocsBot Skill Builder can turn that system into a practical AI agent capability. Describe the outcome you want in plain language, and Skill Builder designs, secures, tests, and deploys a reusable Skill for your support bot or internal team agent. The result is an AI agent that can answer questions and take bounded action in Pylon instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up relevant Pylon conversation history and account context before answering a support question.",
+    "Use the agent to create or update Pylon tickets, notes, or follow-up records while it chats with customers on your website or responds in helpdesk workflows.",
+    "Have the agent summarize an active Pylon thread, identify unresolved issues, and prepare a clean handoff for a human support rep.",
+    "Enable the agent to collect missing troubleshooting details from the customer and save them into Pylon so the support team has complete context.",
+    "Allow the agent to trigger approved escalation or follow-up workflows in Pylon when a conversation meets your support or success criteria."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent that can search Pylon conversations, summarize account history, and surface open issues without leaving chat, Slack, or Microsoft Teams.",
+    "Let customer success or support operations teams chat with the agent to create standardized handoff notes, escalation summaries, and follow-up tasks based on Pylon records.",
+    "Help managers ask the agent for trends across recent Pylon conversations so they can spot recurring issues and improve support workflows.",
+    "Enable team members to use a private AI assistant to retrieve Pylon context during SOPs such as account reviews, renewal prep, or incident follow-up.",
+    "Allow internal teams to chat with the agent to update approved Pylon fields or notes while keeping actions scoped to the right users and workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Pylon conversation history before replying to customers.",
+    "A ticket enrichment Skill that gathers missing customer details and saves them into Pylon.",
+    "An escalation assistant that summarizes Pylon threads and prepares human handoff notes.",
+    "A customer success agent that creates follow-up tasks from important Pylon conversations.",
+    "An internal assistant that finds open issues and summarizes account activity from Pylon.",
+    "A workflow Skill that triggers approved Pylon updates after customer verification steps are completed."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Pylon in plain language, such as looking up conversation history, updating records, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and plans how the agent should interact with Pylon safely and effectively."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes access to the minimum actions and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Pylon updates so the agent can help without exceeding the workflow rules you set."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings back into improvements."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Pylon?",
+      "answer": "With DocsBot Skill Builder, you describe the Pylon workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up information, update approved records, summarize conversations, and trigger bounded actions. It also handles secure connection design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Pylon data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Pylon Skill to retrieve relevant conversation history, account context, and open issue details while responding in a chat widget or helpdesk flow. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Pylon?",
+      "answer": "Teams can build workflows for conversation lookups, ticket or note updates, escalation prep, handoff summaries, missing-detail collection, and approved follow-up triggers. The goal is to help the agent resolve more requests with complete context and cleaner transitions to human reps when needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Pylon?",
+      "answer": "Yes, private DocsBot agents can help employees search Pylon records, summarize account history, prepare renewal or escalation notes, and complete repeatable support operations workflows from chat, Slack, or Microsoft Teams. This makes Pylon knowledge easier to use without forcing teams to switch tools constantly."
+    },
+    {
+      "question": "How does DocsBot keep Pylon actions safe?",
+      "answer": "Skill Builder is designed to define secure configuration values, protect and proxy secrets, and keep authentication details out of conversations and generated content. It also scopes permissions to the minimum required access and can add approval steps or action limits for sensitive updates."
+    },
+    {
+      "question": "Do I need to manually wire APIs or write code to connect DocsBot to Pylon?",
+      "answer": "No, the setup is framed around the outcome you want rather than manual implementation steps. Skill Builder handles the workflow design, secure connection plan, testing scenarios, improvement loop, and deployment details for non-technical teams."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "front",
+    "helpscout",
+    "freshdesk",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Pylon AI",
+    "domain": "pylon.com",
+    "description": "Pylon is an artificial intelligence company that enables human topic experts to build AI products for customers. They develop conversational UI for platforms like Amazon Alexa, Google Assistant, Facebook Messenger, and Slack, providing customers with access to expert information. With their Pylon Conversation Companion technology, users can navigate visual information hands-free using voice technologies. Founded in 2016, Pylon has worked with top brands like CNET Networks, OpenTable, and Stubhub, with a team based in Boston, Chattanooga, New York, and San Francisco.",
+    "slogan": "Empowering experts to build intelligent, voice-enabled AI for every platform.",
+    "logoUrl": "https://media.brand.dev/41af3814-6c11-44cf-9ad2-b183fa2e0ab6.svg",
+    "iconUrl": "https://media.brand.dev/c6c922f6-2683-4ba5-9b62-beac1e8007d2.png",
+    "primaryColor": "#7ea5c6",
+    "accentColor": "#244152",
+    "colors": [
+      {
+        "hex": "#7ea5c6",
+        "name": "Seaborne"
+      },
+      {
+        "hex": "#244152",
+        "name": "Reflecting Pond"
+      },
+      {
+        "hex": "#dbeaf2",
+        "name": "Azureish White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a66da64b-feec-4c73-990e-77e51e3cb095.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/979a3e8e-1df1-47d7-abef-5c652784d263.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dcc39b6f-2996-4707-9c68-38b7ad7411db.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aafcf738-3669-4a03-93ae-3bd3c79b856d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 164,
+        "height": 28,
+        "aspectRatio": 5.86
+      },
+      {
+        "url": "https://media.brand.dev/c6c922f6-2683-4ba5-9b62-beac1e8007d2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/41af3814-6c11-44cf-9ad2-b183fa2e0ab6.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 164,
+        "height": 28,
+        "aspectRatio": 5.86
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/aafcf738-3669-4a03-93ae-3bd3c79b856d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 164,
+      "height": 28,
+      "aspectRatio": 5.86
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/979a3e8e-1df1-47d7-abef-5c652784d263.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

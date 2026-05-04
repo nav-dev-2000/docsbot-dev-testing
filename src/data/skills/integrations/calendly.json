@@ -1,0 +1,168 @@
+{
+  "slug": "calendly",
+  "name": "Calendly",
+  "domain": "calendly.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Scheduling",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Calendly",
+  "metaTitle": "Build AI Agents for Calendly with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Calendly to check bookings, answer scheduling questions, trigger follow-ups, and support internal scheduling workflows safely.",
+  "intro": "Calendly helps teams automate scheduling, and DocsBot Skill Builder helps you turn that scheduling data and workflow into a reusable AI Skill. With a plain-language request, you can create a customer support agent or internal AI assistant that looks up meetings, summarizes booking status, creates handoffs, and triggers approved scheduling actions. The result is an AI agent that does more than answer questions because it can take bounded action inside your Calendly workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a customer’s upcoming Calendly booking and confirm the event type, date, time, and status during a chat or ticket reply.",
+    "Enable the agent to help customers reschedule or cancel appointments by triggering an approved Calendly workflow and then summarizing the outcome clearly.",
+    "Use the agent to answer scheduling questions such as booking availability, meeting types, host assignment rules, and reminder expectations based on your Calendly setup.",
+    "Have the agent create a clean support handoff when a meeting problem needs a human team member, including the booking details, customer context, and requested next step.",
+    "Let the agent review a ticket thread and summarize whether a customer already booked, missed, rescheduled, or still needs a valid scheduling link."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that can look up Calendly events, invitee details, host availability, and booking activity while they chat in DocsBot, Slack, or Microsoft Teams.",
+    "Let sales, success, or recruiting teams ask the agent to summarize recent scheduling activity and prepare follow-up notes for missed meetings or high-priority bookings.",
+    "Enable employees to chat with the agent to complete scheduling SOPs such as checking whether a handoff meeting was booked, confirming ownership, and preparing the next action.",
+    "Use an internal agent to research scheduling issues across teams, compare event patterns, and surface useful context before managers intervene.",
+    "Allow operations teams to use the agent to trigger approved follow-up workflows after bookings, cancellations, or no-shows without leaving their chat workspace."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks a customer’s Calendly booking status during live chat.",
+    "A ticket assistant that summarizes missed meetings and prepares follow-up handoff notes.",
+    "An internal scheduling assistant that finds invitee details and recent event activity.",
+    "A recruiting assistant that confirms interview bookings and flags reschedule needs.",
+    "A customer success agent that identifies no-shows and triggers approved follow-up workflows.",
+    "A sales assistant that checks whether prospects booked demos and summarizes scheduling history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want in plain language, such as helping customers check bookings or helping employees track scheduling follow-ups, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required Calendly connection details, defines secure authentication and configuration values, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime settings by default."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Calendly data, users, records, and actions needed for the workflow, and it adds approval boundaries when a reschedule, cancellation, or other sensitive action should stay controlled."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing instructions, weak permission boundaries, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so the right people can use it safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Calendly?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling outcome you want in plain language, and it designs a reusable Skill that can look up bookings, summarize scheduling status, and trigger approved Calendly actions. Skill Builder also handles secure connection setup, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Calendly data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Calendly to check booking status, confirm meeting details, explain scheduling outcomes, and prepare handoffs when a human needs to step in. The agent responds to the customer conversation or ticket while using Calendly as the underlying system for approved lookups and actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Calendly?",
+      "answer": "Teams can automate workflows such as checking whether a customer booked a call, summarizing cancellations or no-shows, sharing the right next scheduling option, and creating escalation notes with meeting context. These workflows can stay bounded by approval rules and the exact access you allow."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Calendly workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve invitee details, review recent booking activity, confirm whether follow-up meetings were scheduled, and complete internal scheduling SOPs faster. This is useful for sales, recruiting, customer success, and operations teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger Calendly actions like cancellations or follow-ups?",
+      "answer": "DocsBot Skill Builder can create Skills that trigger approved actions, but it also designs safe limits around those actions. It can scope who can use the Skill, what records it can affect, and where approval steps are required before sensitive changes happen."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Calendly with DocsBot?",
+      "answer": "You do not need to manually write code or map every integration step yourself. You explain the desired workflow, and Skill Builder handles the secure design, required configuration values, authentication handling, testing, improvement, and publishing process."
+    }
+  ],
+  "relatedSlugs": [
+    "google-calendar",
+    "outlook-calendar",
+    "hubspot",
+    "zoom",
+    "microsoft-teams",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Calendly",
+    "domain": "calendly.com",
+    "description": "Calendly is a scheduling automation platform that removes the back‑and‑forth of arranging meetings. It lets individuals, teams, and enterprises connect their calendars, set availability, and share booking links, while integrating with video‑conferencing and productivity tools. Users can create custom event types, sync up to six calendars, and automate reminders, helping businesses close deals, hire talent, and improve collaboration. With over 20 million users in 230 countries and adoption by many Fortune 500 companies, Calendly streamlines appointment scheduling for personal and enterprise use, offering free, standard, teams, and enterprise plans.",
+    "slogan": "Modern scheduling platform—make finding time a breeze",
+    "logoUrl": "https://media.brand.dev/4bd41831-98b1-4e77-9d57-13985fb5c0cf.svg",
+    "iconUrl": "https://media.brand.dev/831c26dc-e4ec-4c98-b9ed-561d19e1f18a.jpg",
+    "primaryColor": "#107ff1",
+    "accentColor": "#7eace3",
+    "colors": [
+      {
+        "hex": "#107ff1",
+        "name": "Deep Sky Blue"
+      },
+      {
+        "hex": "#7eace3",
+        "name": "Pool Floor"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/76809de7-cbd0-4ac5-9883-7ee45127937e.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "contact": "https://calendly.com/contact-us",
+      "privacy": "https://calendly.com/legal/privacy-notice",
+      "blog": "https://calendly.com/blog",
+      "pricing": "https://calendly.com/pricing",
+      "careers": "https://calendly.com/careers"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/831c26dc-e4ec-4c98-b9ed-561d19e1f18a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4bd41831-98b1-4e77-9d57-13985fb5c0cf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1581,
+        "height": 382,
+        "aspectRatio": 4.14
+      },
+      {
+        "url": "https://media.brand.dev/70ddc1d9-c450-4b03-aeab-469269df01ba.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 15,
+        "height": 8,
+        "aspectRatio": 1.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4bd41831-98b1-4e77-9d57-13985fb5c0cf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1581,
+      "height": 382,
+      "aspectRatio": 4.14
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/831c26dc-e4ec-4c98-b9ed-561d19e1f18a.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

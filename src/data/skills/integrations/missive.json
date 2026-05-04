@@ -1,0 +1,152 @@
+{
+  "slug": "missive",
+  "name": "Missive",
+  "domain": "missive.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Missive",
+  "metaTitle": "Build Missive AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read Missive context, update conversations, prepare handoffs, and automate safe support or team workflows.",
+  "intro": "Missive helps teams manage shared conversations, collaborate on replies, and coordinate inbox workflows. With DocsBot Skill Builder, you can describe the Missive-powered AI behavior you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support agent or internal team assistant that can look up conversation context, prepare updates, trigger handoffs, and take approved actions inside Missive.",
+  "supportUseCases": [
+    "When a customer starts a chat or submits a ticket, the DocsBot agent can look up related Missive conversations and summarize the latest status before responding.",
+    "The agent can create a new Missive conversation or draft an internal handoff so support teams receive full customer context without retyping details.",
+    "The agent can add notes, tags, or conversation updates in Missive after a customer interaction to keep inbox workflows current.",
+    "The agent can prepare escalation summaries from the live customer conversation and route them into Missive for billing, technical, or account review.",
+    "The agent can check whether a customer issue already has an active Missive thread and avoid duplicate support work by responding with the right next step."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to find Missive conversation history, owners, and current status without opening every thread manually.",
+    "Support leaders can ask the agent to summarize Missive inbox activity, identify unresolved conversations, and prepare follow-up task lists for the team.",
+    "Customer success or operations teams can use the agent to create Missive handoffs, add internal notes, and document next steps as part of repeatable workflows.",
+    "Team members can ask the agent to gather context from Missive and other approved systems so they can complete escalations, renewals, or account reviews faster.",
+    "Managers can use the agent to research communication patterns in Missive and generate concise summaries for standups, reviews, or incident follow-through."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that finds related Missive conversations and returns a concise customer history summary.",
+    "A Skill that creates Missive handoff drafts with issue details, urgency, and recommended next actions.",
+    "A Skill that adds internal notes to Missive after DocsBot resolves or escalates a support request.",
+    "A Skill that checks for open Missive threads before creating duplicate tickets or follow-up conversations.",
+    "A Skill that tags or routes Missive conversations based on customer issue type or priority.",
+    "A Skill that summarizes Missive inbox activity for managers at the start or end of each day."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Missive in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the needed Missive connection details, defines secure authentication and runtime configuration, keeps secrets out of chats and source, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds safe action limits, routing rules, and approval boundaries for sensitive updates so the agent can help confidently without exceeding the permissions you want it to have."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "An automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds fixes into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can start taking bounded action with Missive."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Missive?",
+      "answer": "With DocsBot Skill Builder, you describe the Missive workflow you want in plain language, such as finding conversation context, creating handoffs, or adding notes. Skill Builder then designs the Skill, secures the connection, tests it across scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Missive conversation data while replying to customers?",
+      "answer": "Yes, a DocsBot agent can use a Missive Skill to retrieve approved conversation context, summarize open threads, and prepare internal updates while it responds to customers in chat or through a helpdesk workflow. Access can be limited to the inboxes, records, and actions you choose."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Missive?",
+      "answer": "Common workflows include conversation lookups, duplicate-thread checks, escalation summaries, internal note creation, tagging, routing, and handoff preparation. The goal is to let the AI answer the customer and complete the next approved support step at the same time."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Missive?",
+      "answer": "Yes, private DocsBot agents can help employees search Missive context, summarize inbox activity, prepare handoffs, and document follow-up steps from chat, Slack, or Microsoft Teams. This helps teams complete inbox workflows faster without switching between tools as often."
+    },
+    {
+      "question": "How does DocsBot keep Missive actions safe and controlled?",
+      "answer": "Skill Builder handles secure configuration by defining required connection values, protecting and proxying secrets through runtime settings, and keeping credentials out of transcripts and generated content. It also scopes permissions and can add approval boundaries for sensitive actions such as updates, routing changes, or escalation workflows."
+    },
+    {
+      "question": "Do I need to write code to connect Missive to a DocsBot agent?",
+      "answer": "No, the setup is centered on describing the result you want rather than manually building the integration yourself. Skill Builder handles the workflow design, secure connection approach, testing, improvement, and deployment guidance for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "help-scout",
+    "front",
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "gorgias"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Missive",
+    "domain": "missive.com",
+    "description": "Missive.com is a domain marketplace offering the premium web address missive.com (along with missive.biz and missive.info) for purchase. Interested buyers can contact the seller via the provided email (123soleil@gmail.com) to negotiate an offer and acquire the domain for their branding, online presence, or business projects.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/714c2649-c385-4710-ac73-b931d924ecdc.png",
+    "iconUrl": "https://media.brand.dev/714c2649-c385-4710-ac73-b931d924ecdc.png",
+    "primaryColor": "#e5bcc4",
+    "accentColor": "#b37e85",
+    "colors": [
+      {
+        "hex": "#e5bcc4",
+        "name": "Ice Hot Pink"
+      },
+      {
+        "hex": "#b37e85",
+        "name": "Retro Pink"
+      },
+      {
+        "hex": "#f2e6e8",
+        "name": "Mont Blanc Peak"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/714c2649-c385-4710-ac73-b931d924ecdc.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/714c2649-c385-4710-ac73-b931d924ecdc.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/714c2649-c385-4710-ac73-b931d924ecdc.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

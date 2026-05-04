@@ -1,0 +1,160 @@
+{
+  "slug": "invision-community",
+  "name": "Invision Community",
+  "domain": "invision-community.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI agents that work with Invision Community",
+  "metaTitle": "Build AI agents for Invision Community with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up community data, summarize activity, route issues, and trigger approved workflows in Invision Community.",
+  "intro": "Invision Community helps brands run secure, engaging customer communities with forums, content areas, feedback, and events. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Invision Community data and actions. That means customer-facing support bots and internal team assistants can answer questions, check community activity, prepare escalations, and complete approved workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a member's forum activity, recent posts, or account-related community status while answering support questions in chat or tickets.",
+    "Use the agent to summarize long discussion threads, feature requests, or support topics from Invision Community so customers get fast, clear answers.",
+    "Have the agent create or update community topics, moderation handoffs, or internal follow-up notes when a customer report needs review.",
+    "Enable the agent to check whether a known issue, announcement, or product update has already been discussed in the community before responding to the customer.",
+    "Let the agent gather relevant community posts and prepare an escalation summary for a human support teammate when a case needs deeper investigation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to research community sentiment, trending topics, and unresolved member issues in Invision Community.",
+    "Support and community teams can ask the agent to find relevant threads, summarize moderator activity, and prepare handoff notes for ongoing investigations or VIP member follow-up.",
+    "Customer success teams can use the agent to review account-related community engagement, identify active advocates, and assemble concise relationship summaries before outreach.",
+    "Operations or community managers can chat with the agent to follow SOPs for moderation review, content escalation, or event follow-up using approved actions inside Invision Community.",
+    "Product teams can ask the agent to gather recurring feedback themes from community discussions and turn them into summaries for roadmap or incident review meetings."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks community discussions before answering product questions.",
+    "A private assistant that summarizes trending topics and unresolved member concerns for staff.",
+    "A workflow that creates moderator handoffs when customers report abusive or risky content.",
+    "An agent that turns long forum threads into concise support-ready response summaries.",
+    "A customer support bot that links members to relevant announcements, guides, and community posts.",
+    "An internal assistant that gathers product feedback themes from community conversations for team reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in plain language, such as checking member activity, summarizing threads, or creating a moderation handoff in Invision Community."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and chooses how the agent should look up data, take approved actions, and stay within safe workflow limits."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure connection planning by defining authentication needs, protecting and proxying secrets through runtime configuration, and keeping credentials out of chats, prompts, and Skill source."
+    },
+    {
+      "title": "Permissions are scoped",
+      "description": "Skill Builder narrows access to the minimum users, records, actions, and systems required, and it adds approval boundaries when a workflow could create, modify, escalate, or publish sensitive community information."
+    },
+    {
+      "title": "It tests and improves",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Invision Community?",
+      "answer": "With DocsBot Skill Builder, you describe the community workflow you want in plain language and Skill Builder creates a reusable Skill for lookups, summaries, handoffs, and approved actions in Invision Community. It also plans secure configuration, authentication handling, scoped permissions, testing, and deployment for the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Invision Community data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Invision Community data to find relevant discussions, announcements, member activity, or known issue threads while responding in a website chat widget or helpdesk ticket flow. The workflow can be limited to the records and actions you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Invision Community?",
+      "answer": "You can build workflows for thread lookups, post summaries, issue research, moderation handoffs, escalation prep, and approved record updates that help support teams respond faster. The agent can also collect context from community activity before passing a case to a human teammate."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research community trends in Invision Community?",
+      "answer": "Yes, private DocsBot agents can help employees review sentiment, summarize popular discussions, identify recurring requests, and prepare internal summaries for support, customer success, or product teams. Team members can access those workflows through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Invision Community actions safe?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, protected secrets, scoped access, and approval boundaries for sensitive actions. That lets your agent retrieve or update only the information and workflows you intentionally allow."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Invision Community activity?",
+      "answer": "Yes, you can build Skills that gather relevant posts, member context, moderation history, or discussion links and turn them into clean summaries for support, community, or product teams. This helps human reviewers step into a case with the right context already prepared."
+    }
+  ],
+  "relatedSlugs": [
+    "discourse",
+    "zendesk",
+    "intercom",
+    "slack",
+    "microsoft-teams",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Invision Community",
+    "domain": "invisioncommunity.com",
+    "description": "Invision Community is a platform that enables brands to create secure and engaging online communities for their customers. It provides a range of tools, including discussion forums, content hubs, and live events, to foster connection, feedback, and support. Used by companies of all sizes, from startups to global brands, the platform is designed to be scalable, reliable, and secure, driving customer engagement and strengthening relationships.",
+    "slogan": "Building Communities that Drive Engagement and Loyalty",
+    "logoUrl": "https://media.brand.dev/ba42567f-60ef-4340-8e6a-d2f889d1fa60.svg",
+    "iconUrl": "https://media.brand.dev/9cd1e3a8-9eca-4be0-8897-51388a8da6a8.png",
+    "primaryColor": "#51a0d3",
+    "accentColor": "#96d4eb",
+    "colors": [
+      {
+        "hex": "#51a0d3",
+        "name": "Sub-Zero"
+      },
+      {
+        "hex": "#96d4eb",
+        "name": "Blue Effervescence"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f3d810a1-acf0-461d-af05-e0c2b0cfce81.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://invisioncommunity.com/contact-us/",
+      "privacy": "https://invisioncommunity.com/legal/privacy",
+      "blog": "https://invisioncommunity.com/solutions/blogs-and-news",
+      "pricing": "https://invisioncommunity.com/buy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9cd1e3a8-9eca-4be0-8897-51388a8da6a8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ba42567f-60ef-4340-8e6a-d2f889d1fa60.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 4996,
+        "height": 432,
+        "aspectRatio": 11.56
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ba42567f-60ef-4340-8e6a-d2f889d1fa60.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 4996,
+      "height": 432,
+      "aspectRatio": 11.56
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9cd1e3a8-9eca-4be0-8897-51388a8da6a8.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

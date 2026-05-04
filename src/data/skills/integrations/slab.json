@@ -1,0 +1,183 @@
+{
+  "slug": "slab",
+  "name": "Slab",
+  "domain": "slab.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Slab for Support and Team Knowledge",
+  "metaTitle": "Build AI Agents for Slab with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Slab to find knowledge, summarize answers, prepare handoffs, and support employees with secure, tested workflows.",
+  "intro": "Slab helps teams organize and share knowledge, and DocsBot Skill Builder helps you turn that knowledge into practical AI actions. In plain language, you can describe the support or internal workflow you want, and Skill Builder designs, secures, tests, improves, and deploys a reusable Skill for your DocsBot agent. The result is an AI support agent or employee assistant that can retrieve trusted Slab content, summarize guidance, and trigger approved knowledge workflows instead of only pointing people to documents.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to search Slab for product guides, policy answers, and troubleshooting steps, then return a concise response in chat or a helpdesk ticket reply.",
+    "Let the agent summarize multiple Slab posts into a single customer-friendly answer when information is spread across onboarding, billing, and technical documentation.",
+    "Have the agent gather the most relevant Slab articles for a case and prepare a clean escalation handoff for a human support rep with links and summary context.",
+    "Enable the agent to suggest the latest approved process from Slab when customers ask about account changes, renewals, or feature availability.",
+    "Use Slab as the source for support macros, internal troubleshooting notes, and escalation criteria so the agent can answer consistently across web chat and ticket channels."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right Slab post, compare related documentation, and get a summarized answer without searching manually.",
+    "Customer success, support, and operations teams can ask the agent to retrieve SOPs from Slab and walk them through the next approved steps for recurring workflows.",
+    "New team members can use an internal agent in chat, Slack, or Microsoft Teams to get onboarding answers drawn from Slab knowledge and linked source material.",
+    "Managers and enablement teams can ask the agent to summarize changes across Slab documentation and highlight what employees need to know before following a process.",
+    "Teams can use the agent to prepare internal handoffs, meeting briefs, or task summaries based on Slab content and other approved business context."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that answers customer questions using approved Slab knowledge articles.",
+    "An internal assistant that retrieves SOPs from Slab and summarizes the required next steps.",
+    "A ticket triage workflow that matches cases to relevant Slab documentation and escalation rules.",
+    "A handoff helper that compiles Slab references and case context for human support teams.",
+    "An onboarding assistant that answers employee questions from Slab and points to source documents.",
+    "A documentation summary tool that turns multiple Slab posts into one concise answer or brief."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Slab in plain language, such as answering support questions, finding SOPs, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable DocsBot Skill, decides the safest workflow design, and identifies the Slab connection details and configuration values required behind the scenes."
+    },
+    {
+      "title": "Secure access is defined",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to only the knowledge, users, and actions needed."
+    },
+    {
+      "title": "Boundaries and approvals are added",
+      "description": "Skill Builder adds permission limits and approval boundaries where needed so the agent can retrieve or act on Slab content within the safe rules you define."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Slab knowledge for customer support?",
+      "answer": "With DocsBot Skill Builder, you can describe the support outcome you want in plain language, and it can create a Skill that searches Slab content, summarizes the right guidance, and returns customer-ready answers in chat or tickets. Skill Builder also defines secure access, permission scope, and testing before you deploy it."
+    },
+    {
+      "question": "Can an AI support agent use Slab as a trusted source of help center and internal support knowledge?",
+      "answer": "Yes, a DocsBot agent can use Slab as a knowledge source for approved support workflows, helping it retrieve articles, summarize procedures, and prepare escalation context. This is useful when support teams keep product guidance, policies, or troubleshooting notes in Slab."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Slab?",
+      "answer": "An internal DocsBot agent can help employees find SOPs, summarize documentation, compare related posts, prepare handoffs, and guide teams through recurring processes using Slab content. It can also combine Slab knowledge with other approved systems to support broader team workflows."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent can do with Slab?",
+      "answer": "Yes, Skill Builder is designed to create Skills with scoped permissions, secure authentication handling, protected secret storage, and approval boundaries for sensitive actions. That helps your agent stay within the records, users, and workflows you want it to access."
+    },
+    {
+      "question": "Can an AI agent summarize multiple Slab pages into one answer for employees or customers?",
+      "answer": "Yes, a DocsBot Skill can retrieve relevant Slab content and turn it into a concise summary, answer, or handoff brief. This is especially helpful when guidance is spread across several posts or teams."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Slab?",
+      "answer": "You describe the result you want, and Skill Builder handles the design, secure connection plan, testing, improvements, and deployment path for the Skill. You do not need to manually write code or map every integration step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "confluence",
+    "notion",
+    "guru",
+    "document360",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Slab",
+    "domain": "slab.com",
+    "description": "Slab is a knowledge-sharing platform that aims to make the workplace a source of learning and purpose. It offers an intuitive and delightful experience for both tech-savvy and non-technical teams, allowing for easy creation, organization, and integration with numerous tools.",
+    "slogan": "Empowering Teams with Seamless Knowledge Sharing and Innovative Design",
+    "logoUrl": "https://media.brand.dev/496de2f3-8bfa-4058-b824-3e6664b0f990.png",
+    "iconUrl": "https://media.brand.dev/715dc9ab-718d-42c1-8316-6cb73f28217c.png",
+    "primaryColor": "#5c5751",
+    "accentColor": "#d0bba2",
+    "colors": [
+      {
+        "hex": "#5c5751",
+        "name": "Peppery"
+      },
+      {
+        "hex": "#d0bba2",
+        "name": "Country Rubble"
+      },
+      {
+        "hex": "#f6b51e",
+        "name": "Golden Lock"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/42674a48-34fd-4723-a588-a2cdd1437f52.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://slab.com/careers/",
+      "terms": "https://slab.com/terms/",
+      "contact": null,
+      "privacy": "https://slab.com/privacy/",
+      "blog": "https://slab.com/blog/",
+      "pricing": "https://slab.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f106060e-8d1e-4329-bf95-be784bf45527.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/897d5ad8-3316-4481-8bae-f043f96d7ac7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/496de2f3-8bfa-4058-b824-3e6664b0f990.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 978,
+        "height": 512,
+        "aspectRatio": 1.91
+      },
+      {
+        "url": "https://media.brand.dev/715dc9ab-718d-42c1-8316-6cb73f28217c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f7909cb9-5c69-4182-bcae-f9ea1dc33b41.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/496de2f3-8bfa-4058-b824-3e6664b0f990.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 978,
+      "height": 512,
+      "aspectRatio": 1.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f106060e-8d1e-4329-bf95-be784bf45527.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

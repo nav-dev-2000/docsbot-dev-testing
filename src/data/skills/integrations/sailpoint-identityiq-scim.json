@@ -1,0 +1,164 @@
+{
+  "slug": "sailpoint-identityiq-scim",
+  "name": "SailPoint IdentityIQ SCIM",
+  "domain": "sailpoint-identityiq.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with SailPoint IdentityIQ SCIM",
+  "metaTitle": "Build AI Agents for SailPoint IdentityIQ SCIM with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use SailPoint IdentityIQ SCIM for identity lookups, access workflows, approvals, summaries, and secure internal automation.",
+  "intro": "SailPoint IdentityIQ SCIM helps organizations manage identities, access, and provisioning across enterprise systems. With DocsBot Skill Builder, you can describe the identity task you want in plain language and have DocsBot create a secure reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, gather context, look up identity data, trigger approved workflows, and prepare handoffs without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent verify account identity status or provisioning progress in SailPoint IdentityIQ SCIM before answering access-related support questions.",
+    "Use the agent to summarize a user's access or account lifecycle state from SailPoint IdentityIQ SCIM and explain the next approved support step in plain language.",
+    "Have the agent collect missing information from a customer, then prepare an access-related handoff or escalation with relevant SailPoint IdentityIQ SCIM details attached for the support team.",
+    "Enable the agent to trigger approved access request or remediation workflows in SailPoint IdentityIQ SCIM when a customer support conversation meets defined rules and approval limits.",
+    "Use the agent in helpdesk ticket replies to check identity records in SailPoint IdentityIQ SCIM and provide a concise status update without forcing an analyst to switch systems."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up user identity details, account state, or provisioning status from SailPoint IdentityIQ SCIM.",
+    "Help IT, security, or operations teams ask the agent to gather identity context across requests and prepare access review summaries or escalation notes using SailPoint IdentityIQ SCIM data.",
+    "Enable managers or service desk staff to use the agent to start approved access request workflows, with the Skill enforcing scoped permissions and approval boundaries.",
+    "Give employees a guided assistant for identity-related SOPs, where the agent checks SailPoint IdentityIQ SCIM data, asks follow-up questions, and walks the team through the right next action.",
+    "Support internal audits and investigations by letting teams ask the agent for role, entitlement, or account summaries pulled from SailPoint IdentityIQ SCIM and formatted for review."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks user identity and provisioning status before responding to access questions.",
+    "A support workflow that gathers customer details and prepares identity-related escalations automatically.",
+    "An internal assistant that starts approved access request or remediation workflows with guardrails.",
+    "A private AI agent that summarizes SailPoint account, role, and entitlement information for employees.",
+    "A workflow assistant that turns identity lookup results into ticket notes or handoff summaries.",
+    "An operations bot that follows identity security SOPs and asks for approvals when needed."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SailPoint IdentityIQ SCIM, such as checking identity status, summarizing access, or triggering an approved workflow, and it translates that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime settings so credentials stay out of chats and generated Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum actions, users, records, and systems required, and it adds approval boundaries or safe action limits wherever an identity workflow should not run freely."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so the agent can take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SailPoint IdentityIQ SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity workflow you want in plain language, and the builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up identity data, summarize status, and trigger approved actions within the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use SailPoint IdentityIQ SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved identity or provisioning information from SailPoint IdentityIQ SCIM while responding in a website chat or helpdesk ticket flow. This helps the agent answer status questions, gather context, and prepare escalations without giving broad uncontrolled access."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with SailPoint IdentityIQ SCIM?",
+      "answer": "A private DocsBot agent can help employees look up account status, summarize roles or entitlements, start access-related workflows, and assemble audit or escalation notes. Skill Builder can also add approval boundaries and scoped permissions so the assistant only performs allowed actions."
+    },
+    {
+      "question": "Can DocsBot trigger access request or remediation workflows in SailPoint IdentityIQ SCIM?",
+      "answer": "DocsBot Skill Builder can create Skills that trigger approved workflows when your rules allow it, such as starting an access request, routing a remediation step, or preparing a handoff for review. Sensitive actions can be gated behind explicit approvals and limited to the right users or conditions."
+    },
+    {
+      "question": "How does DocsBot keep SailPoint IdentityIQ SCIM connections secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and generated copy, and proxies authentication through secure runtime configuration. It also scopes access to the minimum records and actions needed and can enforce approval checks for higher-risk identity operations."
+    },
+    {
+      "question": "Can an AI agent summarize identity and access information from SailPoint IdentityIQ SCIM for support or audit teams?",
+      "answer": "Yes, a DocsBot agent can turn SailPoint IdentityIQ SCIM data into concise summaries for ticket replies, internal investigations, access reviews, or escalation handoffs. This is useful when teams need fast context without manually reading through multiple records."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "servicenow",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SailPoint",
+    "domain": "sailpoint.com",
+    "description": "SailPoint is a leading provider of identity and access management solutions, dedicated to helping organizations manage user access across various devices. As a pioneer in identity security, SailPoint ensures that employees have appropriate access to perform their jobs effectively, without excess permissions. The company specializes in delivering a unified, intelligent platform that allows enterprises to secure and manage access to critical applications and data, addressing today’s identity-centric cyber threats while enhancing productivity. By offering a robust identity security framework, SailPoint empowers complex enterprises to create a secure technology ecosystem that drives business transformation. Their innovative approach continuously reinvents identity security, establishing it as a cornerstone of modern enterprise security.",
+    "slogan": "Identity security for the modern enterprise, empowering secure access and efficiency.",
+    "logoUrl": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+    "iconUrl": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+    "primaryColor": "#0944ad",
+    "accentColor": "#d87fcf",
+    "colors": [
+      {
+        "hex": "#0944ad",
+        "name": "Indian Peafowl"
+      },
+      {
+        "hex": "#d87fcf",
+        "name": "Lavender Pink"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/51bf70bc-4d5d-4eb6-a0aa-a01cfdd1369c.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://sailpoint.com/company/careers",
+      "terms": "https://sailpoint.com/legal/terms-of-use",
+      "contact": "https://sailpoint.com/contact-us",
+      "privacy": "https://sailpoint.com/legal/privacy",
+      "blog": "https://sailpoint.com/news-room",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 160,
+        "height": 64,
+        "aspectRatio": 2.5
+      },
+      {
+        "url": "https://media.brand.dev/9979291d-33a3-41b0-ab11-9ee8a87d8b9c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 403,
+        "height": 399,
+        "aspectRatio": 1.01
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 160,
+      "height": 64,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "slug": "figma",
+  "name": "Figma",
+  "domain": "figma.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Figma Using DocsBot Skills",
+  "metaTitle": "Build Figma AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Figma for design lookups, feedback workflows, handoffs, and internal team assistance.",
+  "intro": "Figma helps teams design, review, and collaborate on product work in one place. With DocsBot Skill Builder, you can describe the Figma workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, look up design context, summarize work, prepare handoffs, and trigger approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up relevant Figma files, prototypes, comments, or status details when customers ask about product changes or upcoming UI updates.",
+    "Use the agent to summarize design decisions or feedback threads from Figma so support can give customers a clear status update without manual digging.",
+    "Have the agent collect a customer-reported UX issue from chat or a helpdesk ticket and create a structured handoff for product or design review linked to the right Figma context.",
+    "Enable the agent to prepare escalation notes that combine the customer problem, affected flow, screenshots or references, and related Figma artifacts for faster internal follow-up.",
+    "Let the agent answer approved questions about feature availability, navigation changes, or onboarding updates by referencing the latest design documentation stored in Figma-related workflows."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the latest Figma file, component reference, prototype, or feedback summary without searching manually.",
+    "Product, support, and success teams can ask the agent to summarize design changes between versions so they can prepare release notes, training, or customer communications faster.",
+    "Design and operations teams can use the agent to turn requests into structured review workflows, route them to the right stakeholders, and keep handoff context consistent.",
+    "Support managers can chat with the agent to collect recurring customer UX complaints, group them by flow, and prepare a design-ready brief tied to relevant Figma work.",
+    "Internal teams can ask the agent to follow SOPs for design handoffs, bug intake, launch readiness checks, or documentation updates across Figma and related systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the right Figma prototype for a customer-reported issue.",
+    "A private team assistant that summarizes recent design feedback and open review items.",
+    "A workflow that turns support conversations into structured UX handoff notes for designers.",
+    "An internal agent that retrieves component guidance for support, success, and training teams.",
+    "A release-readiness assistant that compares planned UI updates and drafts internal summaries.",
+    "A triage agent that groups recurring customer pain points by product flow and design area."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Figma-enabled agent to do, such as finding prototypes, summarizing feedback, or preparing design handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through runtime configuration, and scopes Figma access to the minimum users, actions, and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right limits for lookups, updates, workflow triggers, and sensitive actions, including approval boundaries when a human should confirm a step before it runs."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing the results, Skill Builder refines the Skill, prepares it for the correct DocsBot agent, and helps publish it for your customer chat widget, helpdesk agent, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Figma for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as looking up design context or preparing a product handoff, and Skill Builder creates a secure Skill for your customer-facing agent. The agent can then use approved Figma data to answer questions, summarize updates, and package escalation context without broad unrestricted access."
+    },
+    {
+      "question": "Can an AI support agent use Figma data to answer customer questions about product changes?",
+      "answer": "Yes, a DocsBot agent can be designed to reference approved Figma files, prototypes, comments, or related design context when customers ask about interface changes or upcoming workflows. Skill Builder scopes that access carefully and can add approval controls where needed."
+    },
+    {
+      "question": "What internal AI assistant workflows can connect Figma with DocsBot?",
+      "answer": "Internal agents can help employees find design files, summarize design reviews, collect recurring UX issues, prepare handoffs, and support SOP-driven collaboration between support, product, and design teams. These workflows can be delivered through a private DocsBot chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot create Figma-based handoffs from support tickets or chat conversations?",
+      "answer": "Yes, you can build a Skill that gathers customer issue details, formats them into a structured handoff, links the relevant design context, and sends the case into your internal review workflow. This helps support teams escalate UX issues with better context and less manual work."
+    },
+    {
+      "question": "How does DocsBot keep Figma actions secure when building an AI Skill?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill instructions, proxies secrets through secure runtime configuration, and limits the Skill to the smallest set of actions and records needed. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can an internal DocsBot agent summarize design feedback from Figma for non-design teams?",
+      "answer": "Yes, a private DocsBot agent can summarize design discussions, review comments, and project context into plain-language updates for support, customer success, or operations teams. That helps non-design employees stay aligned without needing to manually inspect every file or thread."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "notion",
+    "slack",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Figma",
+    "domain": "figma.com",
+    "description": "Figma is a company that develops a browser-based tool for designing user interfaces, helping design and development teams build various products. They offer a range of collaborative design tools, including Figma Design, Dev Mode, FigJam, Figma Slides, Figma Draw, Figma Buzz, Figma Sites, and Figma Make, enabling teams to design, prototype, and build products faster while gathering feedback in one place.",
+    "slogan": "Design, prototype, and build faster with Figma's collaborative platform.",
+    "logoUrl": "https://media.brand.dev/580812f2-714d-40ac-925a-f121b06278d3.png",
+    "iconUrl": "https://media.brand.dev/8ba022ac-8711-415d-9714-99e8cdb668ca.png",
+    "primaryColor": "#f76040",
+    "accentColor": "#13c5be",
+    "colors": [
+      {
+        "hex": "#f76040",
+        "name": "Vermilion Orange"
+      },
+      {
+        "hex": "#13c5be",
+        "name": "Exquisite Turquoise"
+      },
+      {
+        "hex": "#a35cfb",
+        "name": "Lighter Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/377b9061-ff94-44ed-bf3a-81289a06469f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.figma.com/careers/",
+      "terms": null,
+      "contact": "https://www.figma.com/contact/",
+      "privacy": "https://www.figma.com/legal/",
+      "blog": "https://www.figma.com/blog/",
+      "pricing": "https://www.figma.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c219dc98-9ece-432d-a19a-173b64c97c8f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b68fb600-5011-44b4-b123-7187e25f17e1.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 410,
+        "height": 512,
+        "aspectRatio": 0.8
+      },
+      {
+        "url": "https://media.brand.dev/8ba022ac-8711-415d-9714-99e8cdb668ca.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bd751be8-414a-4c6a-8d24-55d73d456383.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/580812f2-714d-40ac-925a-f121b06278d3.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 540,
+        "height": 304,
+        "aspectRatio": 1.78
+      },
+      {
+        "url": "https://media.brand.dev/1b4fa905-2184-4433-baa9-bd52fe8dba7b.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 480,
+        "height": 720,
+        "aspectRatio": 0.67
+      },
+      {
+        "url": "https://media.brand.dev/e90d762b-bcf9-479a-a6bd-1a2a00badab7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 120,
+        "height": 44,
+        "aspectRatio": 2.73
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e90d762b-bcf9-479a-a6bd-1a2a00badab7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 120,
+      "height": 44,
+      "aspectRatio": 2.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c219dc98-9ece-432d-a19a-173b64c97c8f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

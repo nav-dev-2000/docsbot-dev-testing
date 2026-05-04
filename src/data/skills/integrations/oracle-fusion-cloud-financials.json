@@ -1,0 +1,156 @@
+{
+  "slug": "oracle-fusion-cloud-financials",
+  "name": "Oracle Fusion Cloud Financials",
+  "domain": "oracle-fusion-cloud-financials.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for Oracle Fusion Cloud Financials",
+  "metaTitle": "AI Agents for Oracle Fusion Cloud Financials | DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Oracle Fusion Cloud Financials for secure lookups, summaries, approvals, handoffs, and finance workflow actions.",
+  "intro": "Oracle Fusion Cloud Financials helps teams manage enterprise finance data, transactions, approvals, and reporting. With DocsBot Skill Builder, you can describe the finance tasks you want an AI agent to handle in plain language, and DocsBot helps design, secure, test, and deploy that Skill. The result is a support or internal AI agent that can answer questions, retrieve live financial context, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check invoice or payment status in Oracle Fusion Cloud Financials and give customers a current, policy-aligned update.",
+    "Let the agent look up billing account details, open balances, or transaction summaries so it can answer finance-related support questions without forcing customers to wait for manual research.",
+    "Have the agent collect missing billing details from a customer, create a structured finance case or escalation handoff, and pass the right context to your accounting team.",
+    "Enable the agent to summarize disputes, payment issues, or account history from Oracle Fusion Cloud Financials before routing a ticket to a human specialist.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying finance operations or preparing a review request, when a customer reports a billing problem."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve invoice, payment, ledger, or customer account details from Oracle Fusion Cloud Financials without digging through multiple screens.",
+    "Let finance, support, or operations teams ask the agent to summarize account status, payment exceptions, or outstanding balances before following internal SOPs.",
+    "Enable employees in Slack, Microsoft Teams, or private chat to generate handoff notes, escalation summaries, or case-ready finance context drawn from Oracle Fusion Cloud Financials.",
+    "Help collections, billing, or customer success teams use a private agent to gather the right records, identify next steps, and complete approved workflows faster.",
+    "Allow internal teams to request bounded updates or workflow triggers through the agent, with approvals and permission limits applied to sensitive finance actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing support agent that checks invoice and payment status before replying to customers.",
+    "A finance operations assistant that summarizes account balances, exceptions, and transaction history on demand.",
+    "An internal collections assistant that prepares follow-up notes and next-step recommendations from live records.",
+    "A support escalation Skill that gathers billing context and creates structured handoff summaries for finance teams.",
+    "An AI agent that triggers approved review or approval workflows for disputed charges or payment issues.",
+    "A team assistant that answers employee questions about customer financial records using scoped live lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Oracle Fusion Cloud Financials agent to do, such as checking invoice status, preparing billing handoffs, or triggering an approved finance workflow, using plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the needed configuration values, and plans how the agent should look up data or take bounded actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive finance updates so the agent can assist confidently without exceeding the permissions and controls you set."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Oracle Fusion Cloud Financials?",
+      "answer": "With DocsBot Skill Builder, you describe the finance workflow you want in plain language, and the builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Oracle Fusion Cloud Financials data to answer billing questions?",
+      "answer": "Yes, a DocsBot agent can use approved Oracle Fusion Cloud Financials lookups to retrieve invoice, payment, balance, or account context so it can answer customers more accurately and prepare human handoffs when needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Oracle Fusion Cloud Financials?",
+      "answer": "Teams can build Skills for invoice status lookups, payment issue summaries, billing dispute intake, escalation preparation, and approved workflow triggers that help resolve finance-related support conversations faster."
+    },
+    {
+      "question": "What can an internal AI assistant do with Oracle Fusion Cloud Financials?",
+      "answer": "A private DocsBot agent can help employees retrieve financial records, summarize account status, prepare escalation notes, support SOP-based research, and trigger bounded finance workflows across billing and operations teams."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Oracle Fusion Cloud Financials?",
+      "answer": "DocsBot Skill Builder can create bounded actions with scoped permissions, secure authentication handling, and approval boundaries so updates or workflow triggers happen only within the rules you define."
+    },
+    {
+      "question": "How does DocsBot keep Oracle Fusion Cloud Financials credentials secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts, prompts, and generated Skill content."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "stripe",
+    "bill-com",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Oracle Corporation",
+    "domain": "oracle.com",
+    "description": "Oracle is a leading cloud technology company that provides an integrated suite of cloud applications and platform services to organizations globally. Specializing in enterprise IT solutions, Oracle empowers businesses to innovate, enhance operational efficiencies, and effectively manage their data with pioneering tools, including the world's first autonomous database. Their cloud infrastructure is designed for high performance, security, and cost savings, facilitating seamless transitions between on-premises and cloud systems. Oracle's applications support business leaders in achieving sustainable growth and resilience, impacting diverse sectors such as government, science, and healthcare. With a commitment to diversity and professional development, Oracle fosters a culture of innovation within a passionate global workforce. Millions of users leverage Oracle’s solutions to streamline processes, enhance collaboration, and tackle real-world challenges. For those interested in a rewarding career or seeking financial insights, Oracle provides additional resources on its careers and investor pages.",
+    "slogan": "Unlock insights and endless possibilities with Oracle Cloud technology.",
+    "logoUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "iconUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "primaryColor": "#c44434",
+    "accentColor": "#e39c91",
+    "colors": [
+      {
+        "hex": "#c44434",
+        "name": "Mexican Red Papaya"
+      },
+      {
+        "hex": "#e39c91",
+        "name": "Strawberry Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ef3e2ab7-5c9b-46e5-a47f-8b60b5d10fcd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://oracle.com/careers/",
+      "terms": null,
+      "contact": "https://oracle.com/corporate/contact/",
+      "privacy": "https://oracle.com/legal/privacy/",
+      "blog": "https://oracle.com/news/",
+      "pricing": "https://oracle.com/ai-world/register/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "hr-cloud",
+  "name": "HR Cloud",
+  "domain": "hr-cloud.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with HR Cloud Payroll Workflows",
+  "metaTitle": "DocsBot AI Agents for HR Cloud Payroll and HR Operations",
+  "metaDescription": "Build DocsBot AI agents that use HR Cloud data and actions for payroll support, employee service workflows, internal HR requests, summaries, and approved updates.",
+  "intro": "HR Cloud supports payroll, time, absence, and related HR operations that often require fast, accurate answers and carefully controlled actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up information, summarize status, prepare handoffs, and trigger approved HR Cloud workflows. That helps customer support teams, HR teams, and operations teams give faster answers while keeping sensitive payroll and employee processes under clear control.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up payroll processing status or approved case details in HR Cloud while answering employee or client questions in chat or tickets.",
+    "Let the agent summarize time, absence, or payroll-related records from HR Cloud so customers get a clear status update without waiting for a manual review.",
+    "Have the agent collect missing details from the customer, then create a structured handoff or escalation record tied to the relevant HR Cloud workflow.",
+    "Enable the agent to trigger approved follow-up workflows in HR Cloud, such as routing a payroll investigation or requesting HR team review, when a customer issue meets defined rules.",
+    "Use the agent to prepare a concise case summary from the conversation and relevant HR Cloud data so human teams can take over with full context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to retrieve payroll, time, and absence process information connected to HR Cloud.",
+    "Enable HR or operations staff to ask the agent for status summaries, exception overviews, or next-step guidance based on HR Cloud records and internal SOPs.",
+    "Help payroll teams use the agent to gather required context, create internal follow-up tasks, and route requests across approval-based HR workflows.",
+    "Allow employee service teams to chat with the agent to prepare case notes, draft responses, and generate handoff summaries using HR Cloud data and policy documents.",
+    "Support multinational operations teams by using the agent to combine HR Cloud workflow status with internal documentation for faster research and compliant process execution."
+  ],
+  "whatYouCanBuild": [
+    "An AI payroll support agent that checks HR Cloud case or processing status before replying.",
+    "An employee service assistant that summarizes absence or time-related workflow information for internal teams.",
+    "A handoff Skill that gathers missing details and creates structured escalations for payroll investigations.",
+    "An HR operations agent that prepares case summaries and recommended next steps from live records.",
+    "A private team assistant that answers workflow questions using HR Cloud data and internal SOPs.",
+    "An approval-based action Skill that triggers follow-up processes only within defined limits."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in plain language, such as checking payroll status, summarizing a case, or routing an HR request through HR Cloud."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for HR Cloud."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for HR Cloud payroll and HR operations?",
+      "answer": "You can describe the workflow you want in plain language, and DocsBot Skill Builder can create a Skill that lets your agent look up HR Cloud data, summarize status, prepare handoffs, and trigger approved actions. Skill Builder also handles secure configuration, scoped access, testing, and deployment guidance for the finished agent."
+    },
+    {
+      "question": "Can an AI support agent use HR Cloud data to answer employee or client questions?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve relevant HR Cloud information, summarize case status, and respond with clearer answers in web chat or helpdesk tickets. You can also limit what data is exposed and require approvals for sensitive actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with HR Cloud?",
+      "answer": "A DocsBot agent can help with status lookups, missing-information collection, escalation preparation, case summaries, and approved workflow triggers tied to payroll or HR service processes. The exact actions are defined by the Skill you build and the limits you approve."
+    },
+    {
+      "question": "Can an internal AI assistant help HR and payroll teams work faster with HR Cloud?",
+      "answer": "Yes, private DocsBot agents can help employees research workflow status, retrieve internal process guidance, create handoff summaries, and complete parts of HR or payroll SOPs using HR Cloud alongside your own documentation. This is especially useful for repetitive employee service and operations tasks."
+    },
+    {
+      "question": "How does DocsBot keep HR Cloud connections secure for AI agents?",
+      "answer": "Skill Builder is designed to define secure connection settings, protect and proxy secrets through runtime configuration, keep credentials out of chats and generated Skill content, and scope permissions to only the users, records, and actions needed. It can also add approval boundaries for high-sensitivity steps before anything is changed."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in HR Cloud safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating a handoff, routing a request, or starting an approved follow-up workflow when your rules allow it. Skill Builder sets action limits, permission scope, and approval checks so the agent operates within controlled boundaries."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "ukg",
+    "adp",
+    "paylocity",
+    "gusto"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Applic8",
+    "domain": "hr-cloud.com",
+    "description": "Applic8 is a Swiss‑based cloud‑software company that provides end‑to‑end payroll solutions. Its flagship As1® platform delivers cloud‑based Swiss payroll processing, fully compliant with Swissdec regulations, and offers payroll outsourcing, time‑and‑absence management, and unified global payroll visibility for multinational firms. The solution automates calculations, provides real‑time analytics, and ensures fortress‑level security with multi‑factor authentication and encryption. With over 20 years of payroll expertise, Applic8 helps organizations reduce payroll administration time, lower staffing costs, and maintain compliance across 160 countries, all without disrupting existing systems.",
+    "slogan": "Payroll, made simple",
+    "logoUrl": "https://media.brand.dev/de919823-bb96-405e-b592-0dc34e776f75.svg",
+    "iconUrl": "https://media.brand.dev/84306306-5fa8-47ed-891d-9989eef1aae7.png",
+    "primaryColor": "#040404",
+    "accentColor": "#fc5259",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#fc5259",
+        "name": "Fluorescent Red"
+      },
+      {
+        "hex": "#0c59b6",
+        "name": "Bottled Sea"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ebe7fa28-f977-4b53-9d38-ed3427989237.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 222,
+        "height": 48,
+        "aspectRatio": 4.63
+      },
+      {
+        "url": "https://media.brand.dev/de919823-bb96-405e-b592-0dc34e776f75.svg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 18,
+        "height": 12,
+        "aspectRatio": 1.5
+      },
+      {
+        "url": "https://media.brand.dev/84306306-5fa8-47ed-891d-9989eef1aae7.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ebe7fa28-f977-4b53-9d38-ed3427989237.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 222,
+      "height": 48,
+      "aspectRatio": 4.63
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/84306306-5fa8-47ed-891d-9989eef1aae7.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "azure-storage",
+  "name": "Azure Storage",
+  "domain": "azure-storage.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Azure Storage",
+  "metaTitle": "Build AI Agents for Azure Storage with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely search, summarize, route, and take approved actions in Azure Storage for support and internal teams.",
+  "intro": "Azure Storage holds files, blobs, and other business content that support teams and employees often need to find fast. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely use Azure Storage during customer support conversations or internal workflows. The result is an AI agent that can answer questions, gather files or storage details, prepare handoffs, and take bounded actions instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up files, blobs, or storage metadata in Azure Storage to answer product, billing, or document access questions during chat or ticket replies.",
+    "Enable the agent to summarize the status, location, or recent updates of customer-related files stored in Azure Storage before responding with the next best step.",
+    "Use the agent to gather troubleshooting artifacts from approved storage containers and prepare a clean escalation handoff for human support teams.",
+    "Allow the agent to create or update approved support-related files in Azure Storage, such as generated reports, transcripts, or case summaries, when a workflow requires documentation.",
+    "Help the agent verify whether a requested file, export, or customer document exists in Azure Storage and explain any missing information needed to continue the request."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find files, blobs, and storage details in Azure Storage without manually navigating containers.",
+    "Operations or support teams can ask the agent to collect storage-based evidence, summarize relevant documents, and package the findings for incident review or customer follow-up.",
+    "Team members can use the agent to generate approved internal artifacts, such as summaries or status reports, and store them in Azure Storage as part of a repeatable workflow.",
+    "Employees can ask the agent to follow SOPs that involve checking Azure Storage for expected uploads, validating file presence, and reporting exceptions across teams.",
+    "Internal teams can use the agent to retrieve content from Azure Storage alongside other business systems so they can research issues and complete multi-step workflows from one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks whether a customer file or export exists in Azure Storage.",
+    "A helpdesk assistant that collects storage metadata and writes escalation summaries for support tickets.",
+    "A private employee agent that searches approved containers and explains what files are available.",
+    "An operations assistant that validates expected uploads and flags missing files for follow-up.",
+    "A workflow agent that generates case summaries and saves them to Azure Storage.",
+    "A support bot that gathers troubleshooting artifacts from storage before escalating an issue."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Azure Storage in plain language, and it translates that goal into a reusable Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to only the containers, actions, users, and records needed for the workflow."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right boundaries for sensitive actions so lookups can stay automatic while updates, file creation, or other higher-impact steps can require approval when appropriate."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The built-in testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can take safe, logged actions inside Azure Storage."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Azure Storage?",
+      "answer": "With DocsBot Skill Builder, you describe the Azure Storage workflow you want in plain language, such as finding files, summarizing storage contents, or saving approved artifacts. Skill Builder then designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Azure Storage data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Azure Storage to look up approved files, blob details, or related metadata while responding in a website chat widget or helpdesk ticket flow. You can also define limits so the agent only accesses the storage locations and actions relevant to customer support."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Azure Storage?",
+      "answer": "Teams can build workflows for file existence checks, troubleshooting artifact collection, customer document verification, escalation summaries, and approved storage-based report generation. This helps the agent answer faster and prepare cleaner handoffs when a human needs to step in."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Azure Storage?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to search approved storage locations, retrieve file context, summarize stored content, and complete SOPs that depend on Azure Storage. This is especially useful for operations, support, and cross-functional teams that need quick access to cloud-stored artifacts."
+    },
+    {
+      "question": "Can DocsBot safely update or create files in Azure Storage?",
+      "answer": "DocsBot Skill Builder can create Skills for bounded write actions such as saving summaries, reports, or workflow outputs to approved storage locations. It also defines safe permissions and approval boundaries so sensitive actions are controlled before deployment."
+    },
+    {
+      "question": "How does DocsBot handle Azure Storage credentials and secrets?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chat transcripts and generated content, and uses secure runtime configuration to proxy authentication safely. It also scopes access so the agent only gets the minimum permissions needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "sharepoint",
+    "box",
+    "dropbox",
+    "onedrive",
+    "amazon-s3"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft Azure",
+    "domain": "azure.microsoft.com",
+    "description": "Microsoft Azure is Microsoft’s comprehensive cloud computing platform that delivers a wide range of services—including compute, storage, databases, networking, AI, and analytics—to help organizations build, deploy, and scale applications and workloads. It offers flexible, enterprise‑grade solutions such as managed databases, AI‑ready services, hybrid and multicloud capabilities, and tools for modernizing legacy systems. Azure enables developers and businesses to innovate faster, migrate securely, and run intelligent, data‑driven applications at global scale.",
+    "slogan": "Empowering innovation with limitless cloud solutions from Microsoft Azure.",
+    "logoUrl": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+    "iconUrl": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+    "primaryColor": "#08a8e7",
+    "accentColor": "#cf9b0b",
+    "colors": [
+      {
+        "hex": "#08a8e7",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#cf9b0b",
+        "name": "Yellow Ochre"
+      },
+      {
+        "hex": "#fc5124",
+        "name": "Smashing Pumpkins"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "contact": "https://azure.microsoft.com/en-us/contact",
+      "blog": "https://azure.microsoft.com/en-us/blog/",
+      "pricing": "https://azure.microsoft.com/en-us/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      },
+      {
+        "url": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

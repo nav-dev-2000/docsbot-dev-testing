@@ -1,0 +1,161 @@
+{
+  "slug": "zoho-crm",
+  "name": "Zoho CRM",
+  "domain": "zoho.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho CRM",
+  "metaTitle": "Build AI Support and Internal Agents for Zoho CRM",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Zoho CRM data, update records, trigger workflows, and support customers or internal teams.",
+  "intro": "Zoho CRM helps teams manage leads, contacts, deals, and customer relationships across the sales process. With DocsBot Skill Builder, you can describe the Zoho CRM workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in Zoho CRM while following your rules for security, approvals, and record access.",
+  "supportUseCases": [
+    "A DocsBot support agent can look up a customer, contact, account, or deal in Zoho CRM while responding in a website chat widget or helpdesk ticket.",
+    "The agent can summarize open opportunities, recent activity, and account ownership in Zoho CRM so customers get faster and more informed replies.",
+    "The agent can create new leads or contact records in Zoho CRM from qualified customer conversations and capture the context automatically.",
+    "The agent can update approved Zoho CRM fields such as contact details, lifecycle notes, or follow-up status after confirming the right information.",
+    "The agent can prepare a clean handoff for sales or customer success by attaching a summary of the customer conversation to the relevant Zoho CRM record."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Zoho CRM account history, deal details, and recent activity without switching tools.",
+    "Sales, success, and operations teams can ask the agent to create leads, update records, log call notes, or trigger next-step workflows in Zoho CRM using approved actions.",
+    "Team members can use the agent to research pipeline status, summarize account changes, and assemble handoff notes across Zoho CRM records for daily workflows or SOPs.",
+    "Managers can ask an internal AI assistant to summarize deal risk, missing fields, stale follow-ups, or ownership gaps in Zoho CRM so teams can act faster."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that finds Zoho CRM contacts and summarizes account context during live chats.",
+    "An AI assistant that creates new Zoho CRM leads from qualified inbound conversations.",
+    "A private team agent that updates approved contact and deal fields after employee confirmation.",
+    "A handoff Skill that writes conversation summaries back to Zoho CRM records.",
+    "An internal sales assistant that surfaces recent activities and next steps for any account.",
+    "A workflow Skill that flags stale deals and prepares follow-up tasks for human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho CRM agent to do in plain language, such as looking up records, updating approved fields, creating leads, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Zoho CRM actions, records, users, and workflows needed, and it adds approval boundaries wherever sensitive updates or escalations should require extra control."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the Skill to your customer-facing DocsBot agent or your private employee assistant so it can answer questions and take approved action inside Zoho CRM."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho CRM workflow you want in plain language and Skill Builder creates a reusable Skill for lookups, updates, workflow triggers, summaries, and handoffs. It also handles secure configuration, secret protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zoho CRM data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho CRM access to look up contacts, accounts, deals, and recent activity while replying in a chat widget or helpdesk flow. That helps the agent give more accurate answers and prepare cleaner handoffs when a human should take over."
+    },
+    {
+      "question": "What Zoho CRM actions can a DocsBot AI agent safely perform?",
+      "answer": "A Skill can be designed for bounded actions such as retrieving records, creating leads, updating approved fields, adding notes, summarizing account state, or triggering defined follow-up workflows. Skill Builder adds scoped access and approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "Can I use DocsBot with Zoho CRM for internal sales or customer success teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Zoho CRM information, research account history, update records, and complete repeatable workflows from chat, Slack, or Microsoft Teams. This reduces tool switching and helps teams follow consistent processes."
+    },
+    {
+      "question": "How does DocsBot keep Zoho CRM credentials and data secure?",
+      "answer": "Skill Builder identifies the connection details the Skill needs and keeps secrets out of chats and Skill source by routing them through secure runtime configuration. It also scopes permissions to the minimum required records and actions and can add approvals for sensitive changes."
+    },
+    {
+      "question": "Can a Zoho CRM AI agent create handoffs and escalation summaries?",
+      "answer": "Yes, a DocsBot Skill can collect conversation context, summarize the issue, identify the right owner, and attach structured notes to the relevant Zoho CRM record. That gives sales, support, or success teams a clearer starting point when they step in."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zendesk",
+    "intercom",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

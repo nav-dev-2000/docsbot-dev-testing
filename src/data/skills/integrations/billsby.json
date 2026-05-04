@@ -1,0 +1,184 @@
+{
+  "slug": "billsby",
+  "name": "Billsby",
+  "domain": "billsby.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Billsby Subscription Billing",
+  "metaTitle": "Build DocsBot AI Agents for Billsby Subscription Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Billsby to answer billing questions, check subscription status, update records, trigger workflows, and support internal teams safely.",
+  "intro": "Billsby helps businesses manage recurring billing, subscriptions, and payment operations. With DocsBot Skill Builder, you can describe the billing workflow you want in plain language and have DocsBot create a reusable AI Skill that connects your agent to Billsby. The result is a support or internal AI agent that can look up subscription details, prepare handoffs, trigger approved actions, and summarize account state while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a subscriber’s plan, billing status, renewal date, or payment history in Billsby while answering billing questions in chat or tickets.",
+    "Use an AI support agent to gather missing account details from the customer, look up the matching Billsby subscription, and prepare a clean escalation summary for your billing team.",
+    "Allow the agent to confirm whether a subscription is active, canceled, paused, or overdue so customers get fast status updates without waiting for a human reply.",
+    "Have the agent summarize recent billing events from Billsby and explain the next expected payment, renewal, or account action in plain language.",
+    "Enable the agent to trigger approved subscription support workflows, such as creating a handoff request or flagging a billing issue for human review when a conversation needs escalation."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to retrieve Billsby subscription details, review account status, and summarize billing activity without switching tools.",
+    "Let customer success or finance teams ask the agent to research payment issues across Billsby records and return a concise timeline for follow-up.",
+    "Help support managers use an internal AI agent in Slack or Microsoft Teams to prepare billing escalations, handoff notes, and case summaries based on Billsby data.",
+    "Enable operations teams to chat with the agent to complete recurring subscription workflows or SOPs, such as checking account state before outreach or confirming renewal-related details.",
+    "Allow internal teams to use a private agent to gather Billsby information alongside other systems and produce clear next-step recommendations for customer or finance follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing status checker for customer chat and support tickets.",
+    "A subscription lookup Skill that explains plan, renewal, and payment status.",
+    "A handoff preparation workflow that summarizes Billsby account activity for human agents.",
+    "An internal finance assistant that researches subscriber billing timelines and exceptions.",
+    "A safe workflow trigger for billing escalations that requires approval before sensitive actions.",
+    "A customer success assistant that reviews subscription state before renewal outreach."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Billsby agent to do, such as checking subscription status, summarizing billing activity, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Billsby actions, records, users, and workflow boundaries needed, and it adds approval steps for any sensitive updates or higher-risk actions."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so teams can use Billsby safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Billsby subscription billing workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the billing tasks you want in plain language, and Skill Builder creates a secure Skill that lets your AI agent look up Billsby data, summarize account status, and trigger approved workflows. It also defines configuration, protects credentials, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Billsby data to answer customer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use Billsby to check subscription status, renewal timing, payment-related details, and other approved account information while responding in chat or helpdesk tickets. You control what the agent can access and when it should hand off to a human."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Billsby?",
+      "answer": "A DocsBot agent can automate subscription lookups, billing status explanations, issue intake, escalation preparation, handoff summaries, and approved workflow triggers based on Billsby account data. This helps customers get faster answers while keeping sensitive actions bounded by your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Billsby?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Billsby records, research billing timelines, summarize subscription activity, and complete internal SOPs through chat, Slack, or Microsoft Teams. This reduces tool switching and gives teams faster access to billing context."
+    },
+    {
+      "question": "How does DocsBot keep Billsby actions safe and controlled?",
+      "answer": "Skill Builder designs the Skill with secure authentication handling, protected runtime secrets, scoped permissions, and approval boundaries for sensitive steps. It also tests realistic scenarios to catch permission gaps, instruction issues, and workflow risks before the Skill goes live."
+    },
+    {
+      "question": "Can a DocsBot agent update Billsby records or trigger subscription workflows?",
+      "answer": "DocsBot can be configured for bounded actions such as approved record updates or workflow triggers when those actions fit your process and permissions. Skill Builder helps define exactly which actions are allowed, who can use them, and when approvals are required."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe-billing",
+    "chargebee",
+    "recurly",
+    "zuora",
+    "paddle",
+    "shopify-subscriptions"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Billsby",
+    "domain": "billsby.com",
+    "description": "Billsby is a leading subscription billing software that provides a feature-rich recurring payment platform. They help businesses go live quickly, often within 1-2 hours, with the support of their knowledgeable advisors. Billsby specializes in providing great customer service at an affordable price, with a well-documented API for developers. Their platform optimizes payments, simplifies billing processes, and enhances payment management, making it easy to integrate and transform businesses.",
+    "slogan": "Simplify and optimize recurring payments with Billsby’s powerful, easy-to-integrate platform.",
+    "logoUrl": "https://media.brand.dev/8608cdff-5e6a-442d-a67d-0413488fb8d0.svg",
+    "iconUrl": "https://media.brand.dev/a5920430-91ae-4620-8f63-d68c7ffd4cf9.svg",
+    "primaryColor": "#283f5e",
+    "accentColor": "#8c9cab",
+    "colors": [
+      {
+        "hex": "#283f5e",
+        "name": "Antarctic Blue"
+      },
+      {
+        "hex": "#8c9cab",
+        "name": "Blank Stare"
+      },
+      {
+        "hex": "#c4c1c2",
+        "name": "Stonewall Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/45cb643f-d3b3-4aad-b041-960e2bd00962.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.billsby.com/terms",
+      "contact": null,
+      "privacy": "https://www.billsby.com/privacy",
+      "blog": "https://www.billsby.com/blog",
+      "pricing": "https://www.billsby.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/14e0a389-d991-4d6a-b3cf-33ee0813efa5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/742d4601-0932-468b-a168-97c0bb0cf8d4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8608cdff-5e6a-442d-a67d-0413488fb8d0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 165,
+        "height": 42,
+        "aspectRatio": 3.93
+      },
+      {
+        "url": "https://media.brand.dev/0b8113a4-9b1e-4e0d-a5c4-f6dddc243e39.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a5920430-91ae-4620-8f63-d68c7ffd4cf9.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8608cdff-5e6a-442d-a67d-0413488fb8d0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 165,
+      "height": 42,
+      "aspectRatio": 3.93
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0b8113a4-9b1e-4e0d-a5c4-f6dddc243e39.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 64,
+      "height": 64,
+      "aspectRatio": 1
+    }
+  }
+}

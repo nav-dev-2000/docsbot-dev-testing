@@ -1,0 +1,176 @@
+{
+  "slug": "close",
+  "name": "Close",
+  "domain": "close.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Close CRM",
+  "metaTitle": "Build Close CRM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Close to look up leads, update records, prepare handoffs, and automate sales-support workflows with secure controls.",
+  "intro": "Close helps teams manage leads, conversations, and sales activity in one fast-moving CRM. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Close data and actions. That means customer-facing support agents and internal team assistants can answer questions, retrieve CRM context, update records, trigger workflows, and prepare handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer or lead in Close and summarize account context while responding in chat or over helpdesk tickets.",
+    "Have the agent create or update Close leads, contacts, or notes when a customer shares new information during a support conversation.",
+    "Use the agent to log call-back requests, qualification details, or follow-up tasks in Close so sales and success teams receive clean handoffs.",
+    "Enable the agent to check deal or outreach status in Close and give customers an approved progress update without exposing internal-only details.",
+    "Have the agent prepare escalation summaries from a support conversation and save them to the relevant Close record for faster human follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find leads, contacts, opportunities, and recent activity from Close.",
+    "Give sales, support, and success teams an internal AI assistant that summarizes account history in Close before renewals, onboarding calls, or escalation reviews.",
+    "Enable employees to ask the agent to create tasks, add notes, update lead details, or log follow-up outcomes in Close through controlled workflows.",
+    "Use an internal agent to research pipeline activity across Close records and produce concise summaries for managers, reps, or operations teams.",
+    "Help teams complete repeatable SOPs by having the agent gather Close context, draft next-step recommendations, and trigger approved follow-up actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the right Close contact and summarizes recent outreach activity.",
+    "A handoff Skill that creates Close notes from customer conversations and routes them to sales.",
+    "An internal assistant that updates lead details in Close after a rep confirms changes.",
+    "A workflow that creates follow-up tasks in Close from support escalations or chat requests.",
+    "A private AI agent that summarizes deal history before account reviews or renewal meetings.",
+    "A qualification assistant that captures customer answers and logs approved fields into Close records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Close, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, defines the needed configuration values, handles connection and authentication setup securely, and keeps secrets protected and proxied through secure runtime controls instead of exposing them in chats or Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Close actions, records, users, and systems required, and adds approval boundaries or safe action limits for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios against the Close workflow, finds bugs, weak instructions, or missing checks, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Close Skill to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so the agent can answer questions and take bounded action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Close CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Close workflow you want in plain language, such as looking up contacts, updating notes, or creating follow-up tasks. Skill Builder then designs, secures, tests, and prepares the Skill for deployment to a support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Close data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot agent can use a Close Skill to retrieve approved CRM context, summarize account history, log notes, and prepare handoffs while responding to customers. Access can be scoped so the agent only sees and updates the fields and records you allow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Close?",
+      "answer": "A DocsBot agent can look up leads or contacts, add conversation notes, create follow-up tasks, prepare escalation summaries, and share approved status updates based on Close records. This helps support teams capture clean CRM data without making customers wait for manual follow-up."
+    },
+    {
+      "question": "Can an internal AI assistant update Close records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees find records, summarize activity, create notes, update approved fields, and trigger follow-up workflows in Close. Skill Builder can add approval boundaries for sensitive actions so changes stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Close authentication and API access secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated instructions. It also scopes permissions to the minimum actions and records needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot test a Close AI workflow before we roll it out?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run imagined support and internal team scenarios, detect bugs or workflow gaps, and improve the Skill before deployment. That helps teams launch Close-connected AI actions with more confidence and better guardrails."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "intercom",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Close",
+    "domain": "close.com",
+    "description": "Close is a sales platform designed to help small businesses grow faster by combining CRM, communication, automation, coaching, and reporting tools. The platform prioritizes speed and ease of use, enabling teams to manage and win more deals in less time. As a bootstrapped and profitable company, Close values autonomy, impact, and discipline, with a 100% remote team of over 100 individuals.",
+    "slogan": "Close: The no-BS CRM that helps small businesses grow faster.",
+    "logoUrl": "https://media.brand.dev/66a1c46a-cd96-4898-bcdd-4feaac00013e.svg",
+    "iconUrl": "https://media.brand.dev/f1a7dc11-665b-4a95-b3f5-53fb15da55c4.png",
+    "primaryColor": "#efbe17",
+    "accentColor": "#e4efe2",
+    "colors": [
+      {
+        "hex": "#efbe17",
+        "name": "Radiant Sunrise"
+      },
+      {
+        "hex": "#e4efe2",
+        "name": "Molly Green"
+      },
+      {
+        "hex": "#0e1b12",
+        "name": "Nightmare"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a5a986d7-af85-4683-bb8a-04d550091b96.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.close.com/careers",
+      "terms": "https://www.close.com/tos",
+      "contact": null,
+      "privacy": "https://www.close.com/privacy",
+      "blog": "https://www.close.com/blog",
+      "pricing": "https://www.close.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1f15e234-98eb-48e9-946c-2d02f0a456e4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c5cf2883-11f1-4c52-8490-8444930163c3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/66a1c46a-cd96-4898-bcdd-4feaac00013e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 94,
+        "height": 26,
+        "aspectRatio": 3.62
+      },
+      {
+        "url": "https://media.brand.dev/f1a7dc11-665b-4a95-b3f5-53fb15da55c4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/66a1c46a-cd96-4898-bcdd-4feaac00013e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 94,
+      "height": 26,
+      "aspectRatio": 3.62
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1f15e234-98eb-48e9-946c-2d02f0a456e4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

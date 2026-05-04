@@ -15,6 +15,7 @@ import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MattCromwellQuote from '@/components/MattCromwellQuote'
+import AIActionContextSection from '@/components/AIActionContextSection'
 import JsonLd from '@/components/seo/JsonLd'
 import {
   buildFaqEntities,
@@ -769,6 +770,10 @@ export default function Home() {
 
             <SectionReveal direction="down" amount={0.25}>
               <Tiers { ...propsTiers } />
+            </SectionReveal>
+
+            <SectionReveal direction="down" amount={0.25}>
+              <AIActionContextSection variant="support" className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

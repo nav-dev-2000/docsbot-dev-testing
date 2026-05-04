@@ -1,0 +1,160 @@
+{
+  "slug": "freshdesk",
+  "name": "Freshdesk",
+  "domain": "freshdesk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Freshdesk",
+  "metaTitle": "Build AI Agents for Freshdesk with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshdesk to look up tickets, update records, prepare handoffs, and automate support or internal service workflows safely.",
+  "intro": "Freshdesk helps teams manage customer conversations, tickets, and service workflows across channels. With DocsBot Skill Builder, you can describe the Freshdesk-powered agent you want in plain language and have DocsBot create a reusable Skill for customer support or internal team use. The result is an AI agent that can answer questions and take approved actions in Freshdesk while staying inside your rules, permissions, and review boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Freshdesk ticket status, priority, assigned agent, and recent activity while replying in chat or through connected helpdesk tickets.",
+    "Enable the agent to create new Freshdesk tickets from website conversations when an issue needs follow-up beyond the live chat session.",
+    "Allow the agent to add structured notes to an existing Freshdesk ticket so human agents receive a clear summary of the customer issue, steps already tried, and requested outcome.",
+    "Use the agent to update approved Freshdesk ticket fields such as category, urgency, or tags based on customer-provided details and your routing rules.",
+    "Have the agent prepare escalation handoffs in Freshdesk by summarizing the conversation, capturing missing context, and routing the case to the right queue or team for review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Freshdesk ticket details, customer history, and current case ownership without opening the helpdesk manually.",
+    "Enable support leads to ask the agent for summaries of open Freshdesk queues, aging tickets, or escalation patterns so they can triage work faster.",
+    "Allow team members to use the agent to create Freshdesk tickets for internal service requests, partner issues, or customer follow-up workflows using guided prompts.",
+    "Help employees follow support SOPs by chatting with an internal agent that gathers the right details, updates Freshdesk records in approved ways, and documents the next steps automatically.",
+    "Give operations or customer success teams an internal assistant that summarizes related Freshdesk activity before renewals, escalations, or executive reviews."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Freshdesk ticket status during customer chat conversations.",
+    "An AI assistant that creates Freshdesk tickets from website support requests with structured summaries.",
+    "A handoff Skill that writes internal Freshdesk notes after troubleshooting steps are completed.",
+    "A routing Skill that updates Freshdesk tags, categories, or priorities within approved limits.",
+    "An internal queue assistant that summarizes overdue Freshdesk tickets for team leads.",
+    "A private employee agent that retrieves Freshdesk conversation history for account research."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Freshdesk agent to do in plain language, such as checking ticket status, creating tickets, updating fields, or preparing escalations for review."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the Freshdesk connection details it needs, defines the right configuration values, and sets up safe authentication handling without exposing credentials in chat or Skill content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes the Skill to the minimum Freshdesk actions and records required, and adds approval boundaries wherever updates, escalations, or other sensitive actions should be reviewed."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Freshdesk Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can use Freshdesk actions safely in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Freshdesk?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshdesk workflow you want in plain language and it creates a reusable Skill that can look up tickets, update approved fields, create records, summarize cases, and route handoffs safely."
+    },
+    {
+      "question": "Can an AI support agent use Freshdesk data during live customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Freshdesk Skill to retrieve ticket details, recent activity, status updates, and other approved context while responding to customers in chat or through connected ticket workflows."
+    },
+    {
+      "question": "Can DocsBot create or update Freshdesk tickets automatically?",
+      "answer": "DocsBot Skill Builder can create workflows where the agent opens new Freshdesk tickets, adds notes, updates selected fields, or prepares escalation records within the permissions, limits, and approval boundaries you define."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Freshdesk?",
+      "answer": "Common workflows include ticket lookups, ticket creation, categorization, note-taking, status summaries, escalation prep, queue routing, and collecting missing details before handing a case to a human agent."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Freshdesk?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Freshdesk case information, summarize queues, create internal service tickets, and follow support SOPs from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Freshdesk actions secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps secrets out of conversations and generated source, proxies authentication through protected runtime configuration, scopes access to the minimum required actions, and can require approval for sensitive changes."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "helpscout",
+    "salesforce-service-cloud",
+    "jira-service-management",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshworks",
+    "domain": "freshdesk.com",
+    "description": "Freshdesk is a cloud‑based customer support platform that helps businesses manage tickets, automate workflows, and deliver seamless service across email, chat, phone, and social channels. In addition to its core help‑desk software, Freshdesk runs the Freshdesk Academy – an online learning hub that offers free courses on essential support skills such as email writing, empathy, handling difficult customers, and more. New video lessons are released every other Thursday, and participants can download resources and join peer discussions by enrolling through the Academy portal.",
+    "slogan": "Uncomplicate your service with AI-powered solutions for faster, smarter support.",
+    "logoUrl": "https://media.brand.dev/595fbb1c-2317-4b8b-8e50-1df5cee30b15.png",
+    "iconUrl": "https://media.brand.dev/595fbb1c-2317-4b8b-8e50-1df5cee30b15.png",
+    "primaryColor": "#d79a29",
+    "accentColor": "#21b1b6",
+    "colors": [
+      {
+        "hex": "#d79a29",
+        "name": "Glitzy Gold"
+      },
+      {
+        "hex": "#21b1b6",
+        "name": "Mermaid Treasure"
+      },
+      {
+        "hex": "#6eade1",
+        "name": "Greek Sea"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d2f84903-6472-4edb-8fd0-a02194fd3b55.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/595fbb1c-2317-4b8b-8e50-1df5cee30b15.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/810108c7-bb17-4ec3-8236-32c28cde804e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/810108c7-bb17-4ec3-8236-32c28cde804e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/810108c7-bb17-4ec3-8236-32c28cde804e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

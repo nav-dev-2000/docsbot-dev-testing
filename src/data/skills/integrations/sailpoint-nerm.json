@@ -1,0 +1,164 @@
+{
+  "slug": "sailpoint-nerm",
+  "name": "SailPoint NERM",
+  "domain": "sailpoint-nerm.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with SailPoint NERM",
+  "metaTitle": "Build AI Agents for SailPoint NERM with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up identity access data, summarize status, route approvals, and support internal teams with SailPoint NERM.",
+  "intro": "SailPoint NERM helps organizations manage identity security, access, and permissions across complex systems. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely work with SailPoint NERM. The result is a support or internal AI agent that can answer questions, retrieve identity details, prepare handoffs, and trigger bounded actions under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an access-related request and explain the current stage without exposing sensitive identity data.",
+    "Use a helpdesk-connected AI agent to gather the details needed for an access issue, summarize the request, and prepare a clean handoff for the identity or IT team.",
+    "Enable the agent to look up approved access policy information so it can explain common login, provisioning, or entitlement questions in customer or partner support conversations.",
+    "Have the agent trigger an approved follow-up workflow for identity support cases, such as creating an internal review task or escalation package when a request needs human approval.",
+    "Allow the agent to summarize prior identity-related activity connected to a support case so teams can respond faster and with better context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to check identity request status, review relevant access details, and understand next steps.",
+    "Help IT, security, or operations teams use an internal AI agent to collect the right context for access problems, summarize the issue, and move the case through the correct SOP.",
+    "Enable managers or service desk teams to ask the agent for approved access policy guidance, entitlement context, or request history without manually searching across systems.",
+    "Let employees chat with the agent to start a bounded identity workflow, such as preparing an access review handoff or routing a request to the right approver.",
+    "Give internal teams an AI assistant that can summarize SailPoint NERM records and related notes into clear updates for audits, escalations, or shift handovers."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks access request status and explains the next approved step.",
+    "An internal assistant that summarizes identity records for IT, security, and service desk teams.",
+    "A helpdesk agent that gathers missing access issue details and prepares escalation handoffs.",
+    "An employee AI assistant that routes identity questions to the correct approval workflow.",
+    "A DocsBot Skill that turns SailPoint NERM data into audit-ready summaries and case notes.",
+    "A private team agent that retrieves entitlement context before a human approves sensitive changes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with SailPoint NERM, such as checking request status, summarizing access details, or preparing an approval handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder identifies the configuration values the workflow needs, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through approved runtime settings by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder defines the minimum records, actions, users, and systems the Skill should touch, and adds approval boundaries or safe action limits for sensitive identity and access workflows."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for weak instructions, missing permission checks, bugs, or workflow gaps, and feeds fixes into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal AI assistant so teams can use SailPoint NERM actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SailPoint NERM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your AI agent. It can support lookups, summaries, handoffs, and approved workflow actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use SailPoint NERM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved identity request details, summarize status, and prepare internal escalations while responding to chat or ticket conversations. Access can be scoped so the agent only sees and uses the records and actions you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with SailPoint NERM?",
+      "answer": "Internal agents can help employees check request status, retrieve access context, summarize records, route approval tasks, and prepare escalation or audit notes. This is especially useful for IT, security, operations, and service desk teams that handle identity-related workflows every day."
+    },
+    {
+      "question": "Can DocsBot trigger approvals or handoffs related to identity access workflows?",
+      "answer": "Yes, Skill Builder can create Skills that route requests, prepare handoff summaries, and trigger approved next-step workflows in a controlled way. For higher-risk actions, it can add approval boundaries so the agent stays within the limits you define."
+    },
+    {
+      "question": "Is it safe to connect an AI agent to SailPoint NERM?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration, handling authentication securely, proxying secrets through protected runtime settings, and keeping credentials out of chats and generated content. It also scopes permissions and action limits to fit the workflow."
+    },
+    {
+      "question": "Do I need to write code to create a SailPoint NERM Skill for DocsBot?",
+      "answer": "No, the process is designed for non-technical users who describe the outcome they want. Skill Builder handles the workflow design, secure setup decisions, testing, improvement, and deployment steps for you."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "servicenow",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SailPoint",
+    "domain": "sailpoint.com",
+    "description": "SailPoint is a leading provider of identity and access management solutions, dedicated to helping organizations manage user access across various devices. As a pioneer in identity security, SailPoint ensures that employees have appropriate access to perform their jobs effectively, without excess permissions. The company specializes in delivering a unified, intelligent platform that allows enterprises to secure and manage access to critical applications and data, addressing today’s identity-centric cyber threats while enhancing productivity. By offering a robust identity security framework, SailPoint empowers complex enterprises to create a secure technology ecosystem that drives business transformation. Their innovative approach continuously reinvents identity security, establishing it as a cornerstone of modern enterprise security.",
+    "slogan": "Identity security for the modern enterprise, empowering secure access and efficiency.",
+    "logoUrl": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+    "iconUrl": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+    "primaryColor": "#0944ad",
+    "accentColor": "#d87fcf",
+    "colors": [
+      {
+        "hex": "#0944ad",
+        "name": "Indian Peafowl"
+      },
+      {
+        "hex": "#d87fcf",
+        "name": "Lavender Pink"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/51bf70bc-4d5d-4eb6-a0aa-a01cfdd1369c.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://sailpoint.com/company/careers",
+      "terms": "https://sailpoint.com/legal/terms-of-use",
+      "contact": "https://sailpoint.com/contact-us",
+      "privacy": "https://sailpoint.com/legal/privacy",
+      "blog": "https://sailpoint.com/news-room",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 160,
+        "height": 64,
+        "aspectRatio": 2.5
+      },
+      {
+        "url": "https://media.brand.dev/9979291d-33a3-41b0-ab11-9ee8a87d8b9c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 403,
+        "height": 399,
+        "aspectRatio": 1.01
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7a03840a-196a-4e49-95ee-070ce85be77e.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 160,
+      "height": 64,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f7405207-d30f-48b9-bc7d-29cdb17b9394.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "slug": "adaptive",
+  "name": "Adaptive",
+  "domain": "adaptive.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for Adaptive with DocsBot Skill Builder",
+  "metaTitle": "Build Adaptive AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Adaptive data and workflows for customer support, governance lookups, summaries, and internal operations.",
+  "intro": "Adaptive helps organizations govern metadata, data flows, business terms, and reporting assurance. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Adaptive for lookups, summaries, updates, and governed workflow actions. The result is a support or internal AI agent that can answer questions and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up approved business term definitions, metric lineage, or reporting ownership in Adaptive while answering customer or partner questions.",
+    "Use an AI support agent to summarize governance status, known data quality context, or impacted reporting assets from Adaptive before handing a complex issue to a human team.",
+    "Allow the agent to create a structured escalation or handoff record based on Adaptive metadata so support teams receive the right system, owner, and dependency context.",
+    "Enable the agent to gather missing details from a customer conversation and trigger an approved workflow related to data governance review or reporting investigation through Adaptive.",
+    "Have a helpdesk-connected DocsBot agent use Adaptive context to prepare clearer ticket replies about report definitions, trusted sources, and downstream impacts."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Adaptive metadata, lineage details, governance ownership, and approved business definitions without leaving the conversation.",
+    "Operations, BI, and governance teams can ask the agent to summarize how a metric is defined, where it flows, and which reports or systems may be affected by a proposed change.",
+    "Internal teams can use the agent to prepare incident handoffs, change review summaries, and governance documentation drafts using Adaptive as the source of truth.",
+    "Employees can ask the agent to follow a standard operating procedure that checks Adaptive for dependencies, identifies owners, and prepares the next approved action for data or reporting issues.",
+    "Team members can use the agent to research data assurance questions across Adaptive and receive concise summaries with linked context for faster decision-making."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains trusted metric definitions using Adaptive governance data.",
+    "A helpdesk assistant that summarizes lineage, owners, and reporting impact before escalation.",
+    "An internal AI agent that answers metadata and enterprise architecture questions from employees.",
+    "A workflow assistant that gathers issue details and triggers approved governance review steps.",
+    "A change-impact agent that identifies dependent reports, systems, and owners from Adaptive.",
+    "A reporting assurance assistant that drafts handoff notes using Adaptive context and ticket details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Adaptive, such as answer governance questions, summarize lineage, prepare handoffs, or trigger an approved review workflow, and it turns that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the best workflow, identifies the required Adaptive connection details, defines secure authentication and configuration values, and keeps credentials protected and out of chats and Skill source by proxying secrets through secure runtime settings."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive updates, workflow triggers, or escalations."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Adaptive Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can use Adaptive through natural language."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Adaptive data and governance workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as answering metadata questions or preparing governance escalations, and Skill Builder creates a secure Skill that connects your agent to Adaptive. It handles workflow design, connection setup, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Adaptive to answer customer or partner questions?",
+      "answer": "Yes, a DocsBot support agent can use Adaptive as a governed source for business term definitions, lineage context, ownership details, and reporting impact summaries while responding in chat or through helpdesk tickets. You can also define bounded actions such as creating a handoff or triggering an approved review step."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Adaptive?",
+      "answer": "Internal agents can help employees research metadata, trace report dependencies, identify owners, summarize change impacts, and prepare documentation or escalation notes based on Adaptive records. This is useful for BI, operations, governance, and architecture teams that need faster answers and cleaner handoffs."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Adaptive instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating a review request, preparing a governed handoff, or updating approved records when your workflow allows it. Skill Builder adds scoped permissions, secure authentication handling, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep Adaptive credentials and access secure?",
+      "answer": "Skill Builder defines the required configuration values, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum actions and records needed for the workflow."
+    },
+    {
+      "question": "Can an AI agent summarize Adaptive lineage and impact analysis for faster escalations?",
+      "answer": "Yes, you can build an agent that gathers lineage, owner, and downstream dependency context from Adaptive and turns it into a concise escalation summary. That helps support and internal teams route issues faster and give specialists the right context on first handoff."
+    }
+  ],
+  "relatedSlugs": [
+    "snowflake",
+    "tableau",
+    "power-bi",
+    "looker",
+    "atlan",
+    "collibra"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adaptive",
+    "domain": "adaptive.com",
+    "description": "Adaptive is a leading analytics development platform specializing in metadata management, data governance, and enterprise architecture services. They offer Information Supply Chain Assurance solutions, focusing on integrating and assuring data flow in organizations. With a core objective to address challenges brought by compliance requirements, regulatory pressures, and governance issues, Adaptive ensures reliable and efficient BI reporting processes. By providing clarity and a shared understanding of data, business terms, and metrics, Adaptive empowers businesses to make informed decisions based on accurate information. Contact Adaptive at marketing@adaptive.com to explore their services further, or visit their blog at http://blog.adaptive.com for valuable insights.",
+    "slogan": "Integrate, assure, and govern your data with Adaptive for success.",
+    "logoUrl": "https://media.brand.dev/6f0fb8d1-4e0f-437c-9cc9-3a28a10b37c3.png",
+    "iconUrl": "https://media.brand.dev/c20ea6d3-686e-4c0b-9e91-8287b87513a2.png",
+    "primaryColor": "#48567b",
+    "accentColor": "#063f4c",
+    "colors": [
+      {
+        "hex": "#48567b",
+        "name": "Deep Indigo"
+      },
+      {
+        "hex": "#063f4c",
+        "name": "Incubi Darkness"
+      },
+      {
+        "hex": "#0883c7",
+        "name": "Water Raceway"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d907a1d1-33cd-44d1-92e0-6f0a5435cd86.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c20ea6d3-686e-4c0b-9e91-8287b87513a2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bfe1f12a-ac6d-4e21-9c34-60e01754522c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 886,
+        "height": 945,
+        "aspectRatio": 0.94
+      },
+      {
+        "url": "https://media.brand.dev/6f0fb8d1-4e0f-437c-9cc9-3a28a10b37c3.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 180,
+        "height": 80,
+        "aspectRatio": 2.25
+      },
+      {
+        "url": "https://media.brand.dev/0c91f53e-ea4d-48c0-aa98-6acc79ed6553.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 180,
+        "height": 80,
+        "aspectRatio": 2.25
+      },
+      {
+        "url": "https://media.brand.dev/9369bb52-881e-4c0d-8115-100afc02b9be.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 180,
+        "height": 80,
+        "aspectRatio": 2.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6f0fb8d1-4e0f-437c-9cc9-3a28a10b37c3.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 180,
+      "height": 80,
+      "aspectRatio": 2.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c20ea6d3-686e-4c0b-9e91-8287b87513a2.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

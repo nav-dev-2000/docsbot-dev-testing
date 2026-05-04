@@ -1,0 +1,176 @@
+{
+  "slug": "puzzel",
+  "name": "Puzzel",
+  "domain": "puzzel.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Puzzel",
+  "metaTitle": "Build AI Support and Internal Agents for Puzzel",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Puzzel for support lookups, handoffs, workflow actions, and internal contact centre assistance.",
+  "intro": "Puzzel helps teams deliver smarter contact centre experiences across customer service operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Puzzel data and actions. The result is a support or internal AI agent that can answer questions, prepare handoffs, update records, and trigger approved workflows instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Puzzel contact or case context during a website chat and give faster, more informed answers.",
+    "Use a DocsBot helpdesk agent to summarize a customer's conversation history from Puzzel before drafting a reply or escalation.",
+    "Allow the AI agent to create or update approved Puzzel records when a customer requests a callback, follow-up, or routing change.",
+    "Have the agent prepare a clean handoff into Puzzel with issue summaries, customer details, and the next recommended action for human agents.",
+    "Enable the agent to trigger approved Puzzel workflows for escalation, queue routing, or contact centre follow-up while staying within defined limits."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Puzzel interaction details, queue status, or contact history without leaving the conversation.",
+    "Help support leaders and operations teams ask an internal AI agent for summaries of Puzzel cases, escalations, and customer experience patterns for faster research.",
+    "Enable supervisors to chat with the agent to prepare handoff notes, escalation packages, and follow-up tasks based on Puzzel activity and internal SOPs.",
+    "Give internal teams an AI assistant that walks through contact centre workflows, gathers missing context, and completes approved Puzzel actions with the right boundaries.",
+    "Allow employee-facing agents to combine Puzzel information with internal documentation so teams can resolve cases and follow process steps more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Puzzel context before answering customer questions.",
+    "A handoff Skill that creates structured escalation notes from live customer conversations.",
+    "A workflow Skill that requests callbacks or follow-up actions inside approved Puzzel processes.",
+    "An internal assistant that summarizes queue activity and recent customer interactions for supervisors.",
+    "A private team agent that combines Puzzel records with SOP guidance for faster resolutions.",
+    "An approval-based Skill for sensitive routing or record updates initiated by the AI agent."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Puzzel in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to the minimum Puzzel actions, records, and users required."
+    },
+    {
+      "title": "Boundaries are built in",
+      "description": "Skill Builder adds approval steps and safe action limits where needed so sensitive updates, escalations, or workflow triggers stay within your rules before the Skill is published."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or internal team assistant for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Puzzel customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as looking up customer context, preparing escalations, or triggering follow-up workflows, and Skill Builder creates and secures the reusable Skill for that agent. It can then be deployed to a website chat widget or helpdesk-connected DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Puzzel data during live customer conversations?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved Puzzel data for live lookups, conversation summaries, routing context, and handoff preparation while it responds to customers. Skill Builder defines the safe access scope and keeps authentication details protected through secure runtime configuration."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Puzzel?",
+      "answer": "DocsBot Skills can support workflows such as retrieving customer interaction history, preparing escalation notes, creating follow-up tasks, requesting callbacks, or triggering approved routing and handoff actions. You control what the agent is allowed to do and where approvals are required."
+    },
+    {
+      "question": "Can I create an internal AI assistant that works with Puzzel for employees?",
+      "answer": "Yes, you can build a private DocsBot agent for support teams, supervisors, or operations staff to retrieve Puzzel information, summarize activity, and complete approved workflows through chat, Slack, or Microsoft Teams. This helps employees get answers and take action without jumping between systems."
+    },
+    {
+      "question": "How does DocsBot keep Puzzel actions safe for AI agents?",
+      "answer": "Skill Builder designs the Skill with secure configuration, protected secret handling, scoped permissions, and approval boundaries for sensitive actions. It keeps credentials out of chat transcripts and generated content while limiting the agent to the records and workflows you approve."
+    },
+    {
+      "question": "Can a DocsBot agent hand off conversations into Puzzel?",
+      "answer": "Yes, a Skill can be designed to prepare structured handoff summaries, attach the right customer details, and trigger approved escalation or follow-up workflows in Puzzel. That helps human agents receive cleaner context and continue the conversation faster."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "salesforce-service-cloud",
+    "aircall",
+    "twilio-flex"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Puzzel",
+    "domain": "puzzel.com",
+    "description": "Puzzel is a leading European provider of cloud contact centre solutions, offering a comprehensive platform that enables organisations to deliver smart customer experiences. With a suite of tools that include forecasting, scheduling, and employee engagement, Puzzel empowers contact centres to serve customers efficiently and effectively. Leveraging artificial intelligence, Puzzel's platform automates tasks, provides insight, and personalises service and support, creating rich journeys for customers. With over 20 years of experience, Puzzel is a trusted CCaaS provider helping agents deliver faster and more human service at scale.",
+    "slogan": "Empowering Contact Centers with Smart, Human, and Seamless Customer Experiences",
+    "logoUrl": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+    "iconUrl": "https://media.brand.dev/4a02d496-9100-4542-988d-b0a5f2c3c777.svg",
+    "primaryColor": "#0c1434",
+    "accentColor": "#fc9c04",
+    "colors": [
+      {
+        "hex": "#0c1434",
+        "name": "Liberty Blue"
+      },
+      {
+        "hex": "#fc9c04",
+        "name": "Jack-O"
+      },
+      {
+        "hex": "#fc345c",
+        "name": "Radical Red"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8d973a79-e33f-4d0e-8acb-00e55462f76e.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.puzzel.com/products/contact-centre",
+      "privacy": "https://www.puzzel.com/privacy-policy",
+      "blog": "https://www.puzzel.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/27354324-a054-433c-bfb9-62a8ce582019.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 600,
+        "height": 159,
+        "aspectRatio": 3.77
+      },
+      {
+        "url": "https://media.brand.dev/4a02d496-9100-4542-988d-b0a5f2c3c777.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3faad858-8b3c-46b9-aab5-187da99940bc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 600,
+      "height": 159,
+      "aspectRatio": 3.77
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/27354324-a054-433c-bfb9-62a8ce582019.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

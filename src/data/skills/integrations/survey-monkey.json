@@ -1,0 +1,176 @@
+{
+  "slug": "survey-monkey",
+  "name": "Survey Monkey",
+  "domain": "survey-monkey.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SurveyMonkey",
+  "metaTitle": "Build SurveyMonkey AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SurveyMonkey to collect feedback, check responses, trigger follow-ups, and support teams with safe, tested actions.",
+  "intro": "SurveyMonkey helps teams collect and analyze feedback, forms, and survey responses across customer experience, research, and internal operations. With DocsBot Skill Builder, you can describe the SurveyMonkey workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up survey status, summarize results, trigger approved follow-ups, and support better decisions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer satisfaction survey was sent or completed and answer follow-up questions in chat or by helpdesk ticket.",
+    "Use a support agent to create a survey invitation after a resolved case so the customer can provide feedback without a manual handoff.",
+    "Have the agent summarize recent survey responses tied to a product issue so support can respond with better context and empathy.",
+    "Allow the agent to log a request for a feedback form or registration survey when a customer needs a structured follow-up.",
+    "Use SurveyMonkey data to help the agent prepare an escalation summary when repeated survey feedback points to a service problem or feature gap."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the latest SurveyMonkey response trends for a team, campaign, or customer segment.",
+    "Help customer success or operations teams ask the agent to summarize open-text survey responses and highlight the most common themes before a meeting.",
+    "Enable internal teams to trigger approved survey distribution workflows by describing the audience and purpose in plain language.",
+    "Support HR, research, or operations employees who need the agent to retrieve survey status, compare response counts, or prepare a quick findings summary.",
+    "Allow team members to use an internal AI assistant to follow survey-related SOPs, such as collecting post-event feedback, escalating low scores, or sharing summaries with stakeholders."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks survey send status and completion for customer feedback follow-ups.",
+    "A helpdesk assistant that creates post-resolution survey requests after approved support case outcomes.",
+    "An internal agent that summarizes SurveyMonkey responses by campaign, team, or time period.",
+    "A private AI assistant that highlights low-score trends and prepares escalation notes for managers.",
+    "An agent that routes negative feedback into a follow-up workflow with approvals and handoff context.",
+    "A research assistant that pulls response counts and summarizes open-ended comments for internal stakeholders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the SurveyMonkey-powered agent to do, such as checking survey status, summarizing responses, or triggering a follow-up workflow, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the needed configuration values, chooses how the agent should interact with SurveyMonkey, and keeps the setup focused on the business outcome instead of technical steps."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines safe authentication handling, stores and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes access to the minimum actions and records required."
+    },
+    {
+      "title": "Boundaries are applied",
+      "description": "Skill Builder adds permission limits, user scope, and approval boundaries for sensitive actions so the agent can take helpful bounded actions without exceeding the rules you set."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SurveyMonkey?",
+      "answer": "With DocsBot Skill Builder, you describe the SurveyMonkey task you want in plain language, and Skill Builder designs, secures, tests, and packages the workflow as a reusable Skill for your AI agent. That Skill can support live lookups, summaries, workflow triggers, and approved actions inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use SurveyMonkey data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use SurveyMonkey data to check survey status, summarize response patterns, or trigger approved follow-up actions while replying in a website chat widget or helpdesk context. This helps support teams answer with more context and close the loop on customer feedback faster."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SurveyMonkey?",
+      "answer": "Teams can build workflows for post-case survey invitations, feedback-status checks, low-score follow-up preparation, issue trend summaries, and escalation notes based on survey responses. The agent stays within configured permissions and approval limits for any action it takes."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with SurveyMonkey?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve survey status, summarize results, compare response trends, and follow feedback-related SOPs from chat, Slack, or Microsoft Teams. This makes survey insights easier to access without requiring employees to manually navigate every report."
+    },
+    {
+      "question": "How does DocsBot keep SurveyMonkey actions secure?",
+      "answer": "Skill Builder handles secure connection design by defining required configuration values, protecting and proxying secrets through runtime settings, and keeping credentials out of transcripts and generated content. It also scopes permissions to the minimum records and actions needed and can add approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot summarize SurveyMonkey responses for teams and managers?",
+      "answer": "Yes, a DocsBot Skill can let an agent summarize quantitative results, highlight trends, and synthesize open-text responses into a quick briefing for support, customer success, research, or operations teams. This is especially useful for handoffs, recurring reviews, and executive updates."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "qualtrics",
+    "google-forms",
+    "zendesk",
+    "intercom",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SurveyMonkey",
+    "domain": "surveymonkey.com",
+    "description": "SurveyMonkey is a leading online platform that enables businesses to create, distribute, and analyze surveys and forms. Combining powerful capabilities with an intuitive design, it supports a wide range of use cases—including customer experience, employee engagement, market research, and payment or registration forms. Built‑in research expertise and AI‑assisted technology give users the insight of a professional research team, helping them gather actionable data quickly and efficiently.",
+    "slogan": "We value your privacy.",
+    "logoUrl": "https://media.brand.dev/1a0d65ad-6b2a-4544-92b0-99b24d90a60d.svg",
+    "iconUrl": "https://media.brand.dev/e8548d21-c276-4bc6-8993-95797e361ec9.svg",
+    "primaryColor": "#11842e",
+    "accentColor": "#edf7f1",
+    "colors": [
+      {
+        "hex": "#11842e",
+        "name": "Verdant Vale"
+      },
+      {
+        "hex": "#edf7f1",
+        "name": "Heavy Sugar"
+      },
+      {
+        "hex": "#8dc49d",
+        "name": "Delltone"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0ee51b36-be4f-48dc-b3b5-d5a1815989cd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.surveymonkey.com/careers/",
+      "terms": "https://www.surveymonkey.com/mp/legal/terms-of-use/",
+      "contact": "https://www.surveymonkey.com/mp/contact-sales/",
+      "privacy": "https://www.surveymonkey.com/mp/legal/privacy/",
+      "blog": "https://www.surveymonkey.com/newsroom/",
+      "pricing": "https://www.surveymonkey.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f1f4cdf9-1b66-4ed1-acbc-515cc53406be.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e8548d21-c276-4bc6-8993-95797e361ec9.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 102,
+        "height": 102,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a6a65b8-aa41-4922-a27b-10aabecdf7d4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1a0d65ad-6b2a-4544-92b0-99b24d90a60d.svg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 40,
+        "aspectRatio": 5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1a0d65ad-6b2a-4544-92b0-99b24d90a60d.svg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 40,
+      "aspectRatio": 5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f1f4cdf9-1b66-4ed1-acbc-515cc53406be.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "jobsoid",
+  "name": "Jobsoid",
+  "domain": "jobsoid.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Jobsoid",
+  "metaTitle": "Build AI Agents for Jobsoid with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Jobsoid to answer hiring questions, summarize candidate status, trigger recruiting workflows, and support internal teams safely.",
+  "intro": "Jobsoid helps recruiting teams manage candidates, job postings, and hiring workflows in one applicant tracking system. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language and have DocsBot create a reusable Skill for your AI agent. The result is a customer-facing or internal AI agent that can look up hiring information, prepare handoffs, update approved records, and trigger bounded actions in Jobsoid while staying within your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant questions by looking up job opening details, application status, or next-step guidance from Jobsoid.",
+    "Let a helpdesk-connected DocsBot agent summarize a candidate or applicant record from Jobsoid so support teams can respond faster and with better context.",
+    "Have the agent collect missing applicant details in chat and create a structured recruiting handoff for a human hiring team to review in Jobsoid.",
+    "Allow the agent to confirm interview stage, recruiter ownership, or job posting status from Jobsoid when candidates ask for updates.",
+    "Use the agent to prepare escalation notes that summarize the applicant conversation, relevant Jobsoid records, and the recommended next action for a recruiter."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate status, open roles, interview progress, and recruiter assignments from Jobsoid.",
+    "Recruiting teams can ask the agent to summarize a candidate pipeline, compare applicants against a role, and prepare structured handoff notes for human review.",
+    "Hiring managers can use the agent to retrieve job posting information, application activity, and stage updates from Jobsoid without navigating the ATS manually.",
+    "Operations or talent teams can chat with the agent to trigger approved recruiting workflows, such as routing a candidate review request or preparing an interview coordination summary.",
+    "Employees can use the agent to follow recruiting SOPs, with the agent gathering context from Jobsoid and guiding the next approved step across hiring workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that answers applicant status questions using live Jobsoid records.",
+    "A private hiring team agent that summarizes candidate pipelines and stage progression on demand.",
+    "A support agent that prepares recruiter handoff notes from applicant chats and ticket context.",
+    "An internal assistant that retrieves open role details and recruiter ownership from Jobsoid.",
+    "A workflow agent that gathers missing candidate context before creating an approved follow-up task.",
+    "An AI agent that summarizes interview progress for hiring managers in chat or Slack."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Jobsoid, such as answering applicant questions, summarizing candidate progress, or preparing recruiter handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the right workflow, defines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes Jobsoid access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow could update records, trigger follow-ups, or expose sensitive recruiting data, Skill Builder adds approval boundaries, user limits, and clear action rules so the agent operates within safe business controls."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal recruiting scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings back into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use Jobsoid through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Jobsoid without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or support workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. It can create bounded Jobsoid actions such as lookups, summaries, handoffs, and approved updates without requiring manual technical setup from your team."
+    },
+    {
+      "question": "Can an AI support agent use Jobsoid data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Jobsoid as the system of record for approved applicant and job-related lookups, then respond with status updates, next steps, or escalation context. You control what data the agent can access and what actions it can take."
+    },
+    {
+      "question": "What Jobsoid workflows can an internal AI assistant automate for recruiting teams?",
+      "answer": "An internal DocsBot agent can retrieve candidate status, summarize interview progress, surface recruiter ownership, prepare handoff notes, and trigger approved recruiting workflows. It can also guide employees through recruiting SOPs while using Jobsoid data as context."
+    },
+    {
+      "question": "Can DocsBot update records or trigger actions in Jobsoid safely?",
+      "answer": "DocsBot Skills can be designed for approved actions such as updating selected fields, creating structured handoffs, or triggering recruiting follow-ups, with approval boundaries where needed. Skill Builder scopes permissions carefully and keeps credentials protected through secure runtime configuration."
+    },
+    {
+      "question": "How does DocsBot keep Jobsoid credentials and hiring data secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets securely, and keeps credentials out of chats and generated content by design. It also limits access to the right users, records, and actions so the agent only does what you approve."
+    },
+    {
+      "question": "Can a DocsBot agent summarize candidate pipelines and recruiting activity from Jobsoid?",
+      "answer": "Yes, a DocsBot agent can pull Jobsoid context and generate concise summaries of candidate progress, interview stages, recruiter assignments, or open role activity. This helps hiring managers and recruiting teams get fast answers in chat without searching manually."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jobsoid",
+    "domain": "jobsoid.com",
+    "description": "Jobsoid is an Online Applicant Tracking System (ATS) that simplifies the recruitment process for organizations. It automates tasks such as screening candidate applications, suggesting top candidates, and managing job postings, allowing businesses to streamline their hiring process and make smarter decisions. With customizable plans, including a free option, Jobsoid acts as a recruitment helper from start to finish, enabling companies to source, engage, and hire top talent faster.",
+    "slogan": "Streamline recruitment, save time, and hire top talent with Jobsoid.",
+    "logoUrl": "https://media.brand.dev/d02eaada-8aed-4761-a4e0-b78483763a05.svg",
+    "iconUrl": "https://media.brand.dev/df5ad159-4fa4-4548-bccf-02e3625c8725.jpg",
+    "primaryColor": "#faca0a",
+    "accentColor": "#edf3ec",
+    "colors": [
+      {
+        "hex": "#faca0a",
+        "name": "Toucan Gentleman"
+      },
+      {
+        "hex": "#edf3ec",
+        "name": "Mineral Spring"
+      },
+      {
+        "hex": "#3c3c3c",
+        "name": "Shisha Coal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dc7ce34e-e62e-445f-8ddb-70cbf8fbb301.png",
+    "industries": [],
+    "links": {
+      "careers": "https://jobsoid.com/",
+      "terms": "https://www.jobsoid.com/terms-of-service/",
+      "contact": "https://www.jobsoid.com/contact-us/",
+      "privacy": null,
+      "blog": "https://www.jobsoid.com/blog/",
+      "pricing": "https://www.jobsoid.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/df5ad159-4fa4-4548-bccf-02e3625c8725.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/35843b61-316e-4707-bc49-c8c4fe0ddbb9.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d02eaada-8aed-4761-a4e0-b78483763a05.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 327,
+        "height": 100,
+        "aspectRatio": 3.27
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d02eaada-8aed-4761-a4e0-b78483763a05.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 327,
+      "height": 100,
+      "aspectRatio": 3.27
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/df5ad159-4fa4-4548-bccf-02e3625c8725.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "slug": "recruitee",
+  "name": "Recruitee",
+  "domain": "recruitee.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Recruitee",
+  "metaTitle": "Build Recruitee AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Recruitee for candidate lookups, hiring updates, handoffs, and internal recruiting workflows with secure controls.",
+  "intro": "Recruitee helps hiring teams manage candidate pipelines, collaboration, and recruiting workflows. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely look up data, update records, trigger workflows, and summarize hiring activity. This helps teams deploy AI agents for recruiter support, employee assistance, and approved customer-facing conversations where hiring status or application guidance is needed.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent answer applicant questions by checking Recruitee for application stage, interview progress, or next-step status when that information is approved to share.",
+    "Use a DocsBot helpdesk agent to summarize a candidate's current Recruitee record and prepare a clean handoff for a recruiting coordinator or hiring manager.",
+    "Allow a customer-facing careers chat agent to create or enrich candidate inquiry records based on applicant conversations before routing them into the recruiting process.",
+    "Have a DocsBot support agent trigger approved recruiting follow-up workflows in Recruitee after collecting missing application details from a candidate.",
+    "Use a DocsBot agent to explain application requirements, then log the conversation outcome and suggested next action alongside the recruiting workflow in Recruitee."
+  ],
+  "internalUseCases": [
+    "Let recruiters and hiring managers chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve candidate status, open roles, pipeline summaries, and interview progress from Recruitee.",
+    "Enable employees to ask an internal AI agent for a summary of a candidate record, recent activity, feedback status, and recommended next recruiting step pulled from Recruitee.",
+    "Allow recruiting teams to use a private agent to draft handoff notes, interview prep summaries, and follow-up tasks based on Recruitee pipeline data.",
+    "Help talent operations teams complete recruiting SOPs by chatting with an AI agent that checks Recruitee, gathers missing context, and triggers approved updates or notifications.",
+    "Give leadership and recruiting operations a private AI assistant that summarizes hiring pipeline health, stalled candidates, and role-by-role activity using Recruitee data."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that looks up candidate status and summarizes next steps from Recruitee.",
+    "A careers chat agent that answers applicant questions and logs qualified follow-up details safely.",
+    "An internal hiring copilot that prepares recruiter handoffs and interview briefing summaries.",
+    "A recruiting workflow agent that updates approved candidate fields after human review.",
+    "A pipeline summary agent that highlights stalled candidates and pending hiring actions.",
+    "An employee assistant that retrieves open role details and hiring progress from Recruitee."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Recruitee agent to do in plain language, and it turns that goal into a practical AI workflow for support or internal recruiting teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, defines secure connection and authentication handling, and keeps credentials protected and out of chats and Skill source by proxying secrets through secure runtime settings."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive recruiting updates before anything is deployed."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined applicant, recruiter, hiring manager, and operations scenarios to find bugs, weak instructions, missing checks, or workflow gaps before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test results to refine the Skill, improve reliability and guidance, and then helps publish it to the right DocsBot agent for your website chat, helpdesk, Slack, Teams, or private internal chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Recruitee?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow or question-answering outcome you want in plain language, and Skill Builder designs a reusable Skill that can read Recruitee data, summarize records, and take approved actions. It also handles secure configuration, authentication, testing, and deployment for you."
+    },
+    {
+      "question": "Can an AI support agent use Recruitee to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Recruitee data to help answer approved questions about application progress, next steps, or recruiting process details. You can define exactly what the agent is allowed to look up, share, update, or escalate."
+    },
+    {
+      "question": "What internal recruiting workflows can a DocsBot AI assistant automate with Recruitee?",
+      "answer": "Internal agents can retrieve candidate status, summarize pipelines, draft recruiter handoffs, prepare interview briefings, and trigger approved recruiting workflows. They can also help employees follow recruiting SOPs across chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update candidate records in Recruitee safely?",
+      "answer": "Yes, Skill Builder can create bounded actions for approved record updates, such as adding notes, advancing a workflow step, or preparing follow-up actions. It scopes permissions carefully and can require approvals for sensitive changes."
+    },
+    {
+      "question": "Can an AI agent summarize hiring pipeline activity from Recruitee?",
+      "answer": "Yes, DocsBot can summarize candidate movement, stalled stages, pending feedback, and role-level hiring progress using Recruitee data. This is useful for recruiters, hiring managers, and operations leaders who need fast status visibility."
+    },
+    {
+      "question": "How does DocsBot keep Recruitee credentials and access secure?",
+      "answer": "Skill Builder defines the connection settings it needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum data and actions required for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "ashby",
+    "bamboohr",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Recruitee",
+    "domain": "recruitee.com",
+    "description": "Recruitee is the leading collaborative hiring software and award-winning Applicant Tracking System that enables companies to build exceptional teams together. With an easy-to-use interface, thousands of businesses, including well-known brands like Asus, Taco Bell, and M&S, have utilized Recruitee to streamline their recruitment process from sourcing to hiring. With over 181,000 users from 5,000 companies, Recruitee provides an intuitive UX for creating customized pipelines, sourcing top talent, evaluating candidates, and bringing onboard new team members. Recruitment teams can effortlessly manage the entire hiring process and engage hiring managers and colleagues effectively. This modern applicant tracking system offers easy setup, a great UI, and top-rated customer support. Discover the power of collaborative hiring with Recruitee - try it free for 18 days!",
+    "slogan": "#HireBetterTogether with Recruitee - Collaborative hiring software for hiring success.",
+    "logoUrl": "https://media.brand.dev/673f94ef-57c6-4018-be05-6f04dd2d736b.png",
+    "iconUrl": "https://media.brand.dev/12586dab-696f-4882-8528-513eeaa2aa84.png",
+    "primaryColor": "#04a3fb",
+    "accentColor": "#12317b",
+    "colors": [
+      {
+        "hex": "#04a3fb",
+        "name": "Krishna Blue"
+      },
+      {
+        "hex": "#12317b",
+        "name": "Below the Surface"
+      },
+      {
+        "hex": "#dfe7f1",
+        "name": "Moon Dust"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fdb7095e-a616-4586-ae67-0c3325705532.png",
+    "industries": [],
+    "links": {
+      "careers": "https://recruitee.com/careershub",
+      "terms": "https://recruitee.com/terms",
+      "contact": "https://recruitee.com/contact-sales",
+      "privacy": "https://recruitee.com/privacy-policy",
+      "blog": "https://recruitee.com/blog",
+      "pricing": "https://recruitee.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/12586dab-696f-4882-8528-513eeaa2aa84.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2a671f58-4bfd-4088-8e36-282f2581c7e4.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1500,
+        "height": 1167,
+        "aspectRatio": 1.29
+      },
+      {
+        "url": "https://media.brand.dev/673f94ef-57c6-4018-be05-6f04dd2d736b.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 564,
+        "height": 169,
+        "aspectRatio": 3.34
+      },
+      {
+        "url": "https://media.brand.dev/c0dc32ed-c112-470b-a7cd-7664bf87cffd.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 460,
+        "height": 460,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ba3bb34f-d1c4-4156-8eb1-436dd23b2e65.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 564,
+        "height": 169,
+        "aspectRatio": 3.34
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2a671f58-4bfd-4088-8e36-282f2581c7e4.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1500,
+      "height": 1167,
+      "aspectRatio": 1.29
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c0dc32ed-c112-470b-a7cd-7664bf87cffd.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 460,
+      "height": 460,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "slug": "google-docs",
+  "name": "Google Docs",
+  "domain": "docs.google.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Google Docs",
+  "metaTitle": "Build AI Agents for Google Docs with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that can read, summarize, update, and generate Google Docs content for customer support and internal team workflows.",
+  "intro": "Google Docs often holds playbooks, customer-ready explanations, policies, troubleshooting steps, and internal operating procedures that teams need fast. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely work with Google Docs. That means support agents can answer with up-to-date document knowledge, while internal agents can retrieve, summarize, draft, and maintain approved documentation inside everyday workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to pull the latest troubleshooting steps or policy language from Google Docs before replying in chat or helpdesk tickets.",
+    "Let the agent summarize long internal knowledge documents into clear customer-safe answers tailored to the issue described in the conversation.",
+    "Have the agent create a draft follow-up document or case summary in Google Docs for escalations, handoffs, or account reviews.",
+    "Enable the agent to gather information from multiple Google Docs and prepare a concise support handoff for a human team member.",
+    "Let the agent update approved support logs, investigation notes, or shared issue documents in Google Docs after a customer interaction when the workflow allows it."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right procedure, policy, or playbook stored in Google Docs without searching through folders manually.",
+    "Teams can ask the agent to summarize long Google Docs into action items, decision briefs, onboarding notes, or meeting-ready answers.",
+    "Customer success, operations, and support teams can use the agent to draft new Google Docs from approved templates for QBRs, incident summaries, or process documentation.",
+    "Employees can ask the agent to compare information across multiple Google Docs and produce a clean summary for research, planning, or SOP execution.",
+    "Internal teams can use the agent in Slack, Microsoft Teams, or private chat to update approved shared documents as part of recurring workflows with the right boundaries in place."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads approved troubleshooting documents and answers customers with current guidance.",
+    "A private team assistant that finds the right SOP in Google Docs and summarizes the next steps.",
+    "A workflow agent that drafts escalation summaries in Google Docs after complex support conversations.",
+    "An internal research assistant that compares multiple Google Docs and produces a concise decision brief.",
+    "A documentation agent that updates approved process docs after a completed workflow or policy change.",
+    "A customer success assistant that generates account review notes in Google Docs from structured inputs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google Docs, and it turns that plain-language goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to only the documents, actions, and users required."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps such as updating documents, creating drafts, or writing shared notes."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, and permission gaps, and identifies improvements before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into a self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for customer support or internal team use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google Docs?",
+      "answer": "With DocsBot Skill Builder, you describe the document workflow you want in plain language, and Skill Builder designs a reusable Skill that lets your agent safely read, summarize, draft, or update Google Docs. It also handles secure configuration, authentication, permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Google Docs to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Google Docs as live reference material to retrieve policy details, troubleshooting steps, and product guidance while responding in chat or helpdesk tickets. It can also summarize long documents into concise customer-ready answers."
+    },
+    {
+      "question": "Can DocsBot create or update Google Docs as part of a workflow?",
+      "answer": "DocsBot Skill Builder can create workflows where an agent drafts documents, writes summaries, or updates approved Google Docs when that action fits your rules. Sensitive write actions can be limited by scoped permissions and approval boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Google Docs?",
+      "answer": "A private DocsBot agent can help employees retrieve SOPs, summarize long documents, compare documents, generate decision briefs, and draft process documentation inside chat, Slack, or Microsoft Teams. It can also support recurring documentation steps in operations, support, and customer success workflows."
+    },
+    {
+      "question": "How does DocsBot keep Google Docs access secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and generated content, proxies secrets through secure runtime configuration, and scopes access to the minimum documents and actions needed. It can also require approval for higher-risk actions such as editing shared documents."
+    },
+    {
+      "question": "Can an AI agent summarize multiple Google Docs into one answer?",
+      "answer": "Yes, DocsBot can be configured to gather information from multiple Google Docs and produce a single summary, handoff note, or research brief. This is useful for support escalations, policy reviews, and internal decision-making."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "confluence",
+    "notion",
+    "sharepoint",
+    "slab",
+    "dropbox"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "docs.google.com",
+    "description": "Google is a multinational technology company that provides a broad suite of internet services and products. Its Google Account system lets users securely sign in with an email or phone number to access Gmail, Drive, Docs, and other Google services. The platform includes features such as account recovery, guest mode for private browsing, and options for personal, family, or business accounts, enabling seamless authentication across Google’s ecosystem.",
+    "slogan": "Organize your life with Google Accounts—simple, secure, and always accessible.",
+    "logoUrl": "https://media.brand.dev/5f83ece5-cd2a-4869-bce5-60b22afbcd49.png",
+    "iconUrl": "https://media.brand.dev/5f83ece5-cd2a-4869-bce5-60b22afbcd49.png",
+    "primaryColor": "#ef7025",
+    "accentColor": "#eec9bc",
+    "colors": [
+      {
+        "hex": "#ef7025",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#eec9bc",
+        "name": "Baked Ham"
+      },
+      {
+        "hex": "#4fa1ab",
+        "name": "Blue Racer"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5f83ece5-cd2a-4869-bce5-60b22afbcd49.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5f83ece5-cd2a-4869-bce5-60b22afbcd49.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5f83ece5-cd2a-4869-bce5-60b22afbcd49.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

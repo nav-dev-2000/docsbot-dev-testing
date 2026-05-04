@@ -1,0 +1,176 @@
+{
+  "slug": "qualified",
+  "name": "Qualified",
+  "domain": "qualified.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Qualified",
+  "metaTitle": "Build AI Agents for Qualified with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Qualified to look up conversations, qualify leads, trigger handoffs, and support sales and marketing workflows safely.",
+  "intro": "Qualified helps B2B teams engage website visitors and turn high-intent traffic into pipeline. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Qualified, and DocsBot will help design, secure, test, and publish that Skill. The result is a support or internal AI agent that can answer questions, retrieve live context, prepare handoffs, and take approved actions inside your Qualified workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Qualified conversation history and summarize prior visitor engagement before replying in chat or a helpdesk ticket.",
+    "Use a DocsBot support agent to identify high-intent website visitors in Qualified and route them to the right sales or success handoff path.",
+    "Have the agent create or update Qualified conversation notes so customer questions, qualification details, and next steps are captured automatically.",
+    "Enable the agent to gather missing qualification details during a customer conversation and pass a structured summary into Qualified for follow-up.",
+    "Allow the agent to trigger approved handoff workflows in Qualified when a visitor requests sales contact, demo scheduling, or account follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Qualified conversation summaries, visitor activity context, and lead qualification details without leaving Slack, Microsoft Teams, or the internal chat interface.",
+    "Give sales and marketing teams an internal AI assistant that researches recent Qualified engagements and prepares outreach or follow-up recommendations for named accounts.",
+    "Help revenue operations teams use a private agent to review Qualified activity, summarize routing outcomes, and complete repeatable lead handoff workflows across systems.",
+    "Enable customer success or SDR teams to ask the agent for a concise view of a prospect's recent Qualified interactions before joining a call or sending a reply.",
+    "Use an internal DocsBot agent to generate structured summaries, escalation notes, and workflow checklists based on Qualified conversation data and your internal SOPs."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes Qualified visitor conversations before a support or sales handoff.",
+    "A Skill that captures qualification answers and writes structured notes back to Qualified.",
+    "An internal assistant that finds recent Qualified engagements for a target account or contact.",
+    "A workflow agent that triggers approved Qualified handoffs when buying intent is detected.",
+    "A private team bot that prepares SDR follow-up briefs from Qualified conversation activity.",
+    "An agent that checks visitor status in Qualified and recommends the next response path."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Qualified in plain language, and it turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the required configuration, secure authentication approach, secret handling, and minimum-scoped access needed so the agent can work with Qualified without exposing credentials in chats or source."
+    },
+    {
+      "title": "Actions are bounded",
+      "description": "Skill Builder adds clear runtime instructions, allowed actions, record limits, and approval boundaries so the agent only looks up data or makes updates within the rules you define."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak prompts, missing checks, or workflow gaps, and feeds those findings into a self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Qualified through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Qualified?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up visitor activity, summarizing conversations, or triggering handoffs in Qualified. Skill Builder then designs the workflow, secures the connection, tests the behavior, and prepares the Skill for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Qualified data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved Qualified context such as conversation history, qualification details, or routing status while replying to customers. It can also prepare summaries and trigger bounded follow-up actions when your rules allow it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Qualified?",
+      "answer": "DocsBot can help automate live lookups, conversation summaries, qualification data capture, sales handoff preparation, and approved workflow triggers connected to Qualified. This helps support and revenue teams respond faster while keeping actions within defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help sales or marketing teams with Qualified?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to research Qualified conversations, review visitor engagement, prepare outreach briefs, and complete internal follow-up workflows. This is useful for SDRs, marketing teams, revenue operations, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep Qualified actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, scopes access to the minimum required records and actions, and can add approval boundaries for sensitive updates. That lets the agent work inside Qualified without exposing credentials or taking unrestricted actions."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Qualified activity?",
+      "answer": "Yes, a Skill can compile Qualified conversation details into structured handoff notes, escalation summaries, or follow-up briefs for sales, support, or customer success teams. This helps downstream teams act quickly with the right context already prepared."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "intercom",
+    "zendesk",
+    "marketo",
+    "gong"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Qualified",
+    "domain": "qualified.com",
+    "description": "Qualified is an agentic marketing platform that powers B2B teams with Piper, the world’s leading AI‑driven Sales Development Representative (SDR). Piper autonomously engages website visitors via text, voice, and video, then nurtures them with timed, personalized emails, turning high‑intent traffic into real‑time pipeline at scale. Trusted by brands such as Asana, Box, Brex, Clari, and GE Healthcare, Qualified delivers a frictionless buyer experience and maximizes conversion efficiency. With over 1,500 five‑star reviews on G2 and the Salesforce AppExchange, Qualified redefines pipeline generation in the AI era.",
+    "slogan": "The future of B2B buying is available now",
+    "logoUrl": "https://media.brand.dev/b749b236-e0ea-4227-887b-c41cba061b1f.svg",
+    "iconUrl": "https://media.brand.dev/39d24d41-3253-4b0a-8fea-5fc30aeea83c.gif",
+    "primaryColor": "#343434",
+    "accentColor": "#5bc0cf",
+    "colors": [
+      {
+        "hex": "#343434",
+        "name": "Jet"
+      },
+      {
+        "hex": "#5bc0cf",
+        "name": "Skink Blue"
+      },
+      {
+        "hex": "#99d4dc",
+        "name": "Tourmaline Water Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fb116763-d7fc-4708-8e8c-cb8b94e4300b.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "contact": null,
+      "careers": "https://www.qualified.com/careers",
+      "privacy": "https://www.qualified.com/legal/privacy",
+      "blog": "https://www.qualified.com/blog",
+      "pricing": "https://www.qualified.com/offers"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d76f4a60-bcc4-4a95-841a-ae0d25a96203.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b749b236-e0ea-4227-887b-c41cba061b1f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 905,
+        "height": 178,
+        "aspectRatio": 5.08
+      },
+      {
+        "url": "https://media.brand.dev/39d24d41-3253-4b0a-8fea-5fc30aeea83c.gif",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/075a75a2-c308-44dd-8a47-c1cf0a04a0ad.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b749b236-e0ea-4227-887b-c41cba061b1f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 905,
+      "height": 178,
+      "aspectRatio": 5.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d76f4a60-bcc4-4a95-841a-ae0d25a96203.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

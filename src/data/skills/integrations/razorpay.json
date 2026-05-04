@@ -1,0 +1,168 @@
+{
+  "slug": "razorpay",
+  "name": "Razorpay",
+  "domain": "razorpay.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Razorpay",
+  "metaTitle": "Build Razorpay AI Agents for Support and Operations | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Razorpay for payment lookups, updates, handoffs, and internal finance workflows.",
+  "intro": "Razorpay helps businesses accept payments, manage subscriptions, send payment links, and streamline billing operations. With DocsBot Skill Builder, you can describe the payment or support workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Razorpay data and actions. The result is a customer support or internal team agent that can answer questions, check payment status, prepare handoffs, and trigger approved workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a Razorpay payment status and explain whether a charge is pending, successful, failed, or refunded while replying in chat or tickets.",
+    "Allow the agent to look up subscription or invoice details in Razorpay so customers can get fast answers about billing dates, renewals, and payment attempts.",
+    "Use the agent to generate or resend approved payment links from Razorpay when a customer needs a fresh way to complete payment.",
+    "Enable the agent to summarize recent payment activity and prepare a clean billing handoff for human support when a case needs review.",
+    "Let the agent collect missing context from the customer, then trigger an approved refund review or escalation workflow tied to Razorpay payment details."
+  ],
+  "internalUseCases": [
+    "Give finance or support employees a private AI agent they can chat with to retrieve Razorpay payment, invoice, and subscription information without searching multiple dashboards.",
+    "Let team members ask the agent to summarize failed payments, overdue invoices, or refund cases and prepare next-step recommendations for operations teams.",
+    "Enable employees to use the agent in Slack or Microsoft Teams to create payment links, gather transaction context, and follow approved billing SOPs.",
+    "Help customer success and finance teams chat with the agent to research subscription history, billing events, and customer payment patterns before outreach.",
+    "Allow internal teams to use the agent to prepare reconciliations, escalation notes, and case summaries that combine Razorpay activity with company process guidance."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Razorpay payment status during customer chats or ticket replies.",
+    "A billing assistant that retrieves invoice, subscription, and refund details for support teams.",
+    "A private finance agent that summarizes failed payments and recommends approved next steps.",
+    "A workflow assistant that creates payment links after collecting the required customer context.",
+    "An escalation helper that prepares refund review summaries using live Razorpay transaction data.",
+    "An internal SOP agent that guides employees through billing and collections workflows with live lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Razorpay, such as checking payment status, generating payment links, or preparing refund handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes Razorpay access to only the actions, users, and records needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps like refunds, billing changes, or payment requests so the agent acts only within the rules you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into self-improvement before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can start using Razorpay workflows through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Razorpay?",
+      "answer": "With DocsBot Skill Builder, you describe the billing or payment workflow you want in plain language, and Skill Builder designs the Razorpay-connected Skill, secures the configuration, tests it, and prepares it for deployment. The finished agent can perform lookups, summaries, handoffs, and other approved actions inside the boundaries you set."
+    },
+    {
+      "question": "Can an AI support agent use Razorpay data to answer customer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use Razorpay to look up payment, invoice, subscription, or refund context while replying to customers in chat or helpdesk tickets. This helps the agent give faster answers, gather missing details, and prepare clean escalations when a human should review the case."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Razorpay?",
+      "answer": "Teams can build workflows for payment status lookups, invoice and subscription checks, payment link creation, billing summaries, refund review preparation, and support handoffs. Skill Builder can also add approval steps or action limits for sensitive workflows."
+    },
+    {
+      "question": "Can an internal AI assistant help finance or operations teams with Razorpay?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a chat workspace, Slack, or Microsoft Teams to retrieve payment records, summarize billing issues, and follow internal billing SOPs. This makes finance and support work faster without requiring teams to manually navigate multiple tools."
+    },
+    {
+      "question": "How does DocsBot keep Razorpay access secure in an AI workflow?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and generated content, proxies authentication through secure runtime configuration, and limits access to the minimum actions and records required. It can also add approval boundaries for high-impact actions such as refunds or payment changes."
+    },
+    {
+      "question": "Can a DocsBot agent trigger Razorpay actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can support bounded AI Actions such as creating payment links, updating workflow state, generating handoff summaries, or triggering approved billing processes. The exact actions are controlled by the workflow design, permissions, and approval rules you choose."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "recurly",
+    "paddle",
+    "paypal",
+    "xero"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Razorpay",
+    "domain": "razorpay.com",
+    "description": "Razorpay is an Indian fintech company that offers a comprehensive payment platform for businesses of all sizes. It enables merchants to accept, process, and disburse online payments through multiple methods—including credit/debit cards, UPI, net banking, and popular wallets—via a single integration. Razorpay also provides tools for subscription billing, invoicing, payment links, and a robust dashboard for analytics and fraud management. In addition to payment processing, the company offers lending, payroll, and banking-as-a-service solutions, helping enterprises streamline financial operations and scale quickly. Founded in 2014, Razorpay serves thousands of startups, SMEs, and large enterprises across India and beyond, positioning itself as a one‑stop financial infrastructure provider.",
+    "slogan": "Empowering India's Businesses with Seamless Payment and Banking Solutions",
+    "logoUrl": "https://media.brand.dev/282ed73b-e354-4767-a1e7-99aa6652508c.svg",
+    "iconUrl": "https://media.brand.dev/d6f7c69c-d2c4-49cb-8504-8131a379dfa1.jpg",
+    "primaryColor": "#3494fc",
+    "accentColor": "#042454",
+    "colors": [
+      {
+        "hex": "#3494fc",
+        "name": "Brilliant Azure"
+      },
+      {
+        "hex": "#042454",
+        "name": "Subnautical"
+      },
+      {
+        "hex": "#e3eef0",
+        "name": "Azul Primavera"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c829aca4-1a6a-4c15-b8fd-08684246f422.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://razorpay.com/jobs/",
+      "contact": null,
+      "blog": "https://razorpay.com/blog/",
+      "pricing": "https://razorpay.com/pricing/",
+      "terms": "https://razorpay.com/terms/rsl",
+      "privacy": "https://razorpay.com/privacy/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d6f7c69c-d2c4-49cb-8504-8131a379dfa1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/665dacb4-93a7-4704-a8ab-aa48039a1212.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 163,
+        "height": 163,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/282ed73b-e354-4767-a1e7-99aa6652508c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 140,
+        "height": 30,
+        "aspectRatio": 4.67
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/282ed73b-e354-4767-a1e7-99aa6652508c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 140,
+      "height": 30,
+      "aspectRatio": 4.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/665dacb4-93a7-4704-a8ab-aa48039a1212.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 163,
+      "height": 163,
+      "aspectRatio": 1
+    }
+  }
+}

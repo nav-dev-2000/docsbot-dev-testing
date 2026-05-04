@@ -1,0 +1,168 @@
+{
+  "slug": "render",
+  "name": "Render",
+  "domain": "render.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Render",
+  "metaTitle": "Build AI Agents for Render with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Render to check deployments, summarize incidents, trigger approved actions, and support customers or internal teams safely.",
+  "intro": "Render helps teams build, deploy, and run applications, services, databases, and jobs in one cloud platform. With DocsBot Skill Builder, you can describe the Render workflows you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up live Render status, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer-facing service on Render is healthy and summarize current deployment or outage status during a support conversation.",
+    "Enable the agent to look up recent deploy activity in Render and explain whether a bug report may be tied to a fresh release before escalating the case.",
+    "Have the agent gather environment or service context from Render, then prepare a clean handoff note for engineering when a customer reports downtime or performance issues.",
+    "Allow the agent to trigger an approved rollback, restart, or incident workflow related to a Render service when a ticket meets your escalation rules and human approval is provided.",
+    "Use the agent to summarize cron job, background worker, or service status from Render so customers get fast updates without waiting for a manual check."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with in Slack, Microsoft Teams, or a web interface to check Render service health, deployment history, and job status without opening multiple dashboards.",
+    "Let operations or support teams ask the agent to research a customer issue by combining Render deployment details with internal SOPs and then recommend the next approved troubleshooting step.",
+    "Enable engineers, customer success, or on-call staff to chat with the agent to restart services, trigger approved workflows, or prepare incident updates with approval boundaries applied to sensitive actions.",
+    "Help internal teams use a private DocsBot agent to summarize recent Render changes, identify likely release-related incidents, and generate status updates for cross-functional stakeholders.",
+    "Allow employees to ask the agent for step-by-step runbook guidance tied to Render services so routine checks and escalation workflows are handled consistently."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Render deployment status before replying to customer outage questions.",
+    "An internal assistant that summarizes recent Render deploys and highlights likely incident causes.",
+    "A DocsBot Skill that prepares engineering handoff notes using live Render service context.",
+    "An AI agent that checks cron job or worker status and reports failures clearly.",
+    "A private ops assistant that restarts approved Render services after human approval.",
+    "A support workflow that links customer bug reports to recent Render releases automatically."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Render-powered agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the needed Render connection details, defines secure authentication and configuration values, keeps secrets out of chats and Skill content, and scopes access to only the services, actions, and users required."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right lookup steps, update actions, approval boundaries, and runtime instructions so the agent can answer questions and take bounded Render actions without overreaching."
+    },
+    {
+      "title": "Testing runs automatically",
+      "description": "The automated testing agent exercises imagined customer support and internal team scenarios, finds bugs, weak guidance, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or internal team assistant with logging and controlled runtime behavior in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Render?",
+      "answer": "With DocsBot Skill Builder, you describe the Render workflow you want in plain language, such as checking deploy status or preparing an incident handoff, and Skill Builder creates the secure Skill logic, configuration, testing plan, and deployment path for you."
+    },
+    {
+      "question": "Can an AI support agent use Render data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Render as a live source for approved lookups such as service health, deployment history, or job status so it can give customers more accurate updates and prepare better escalations."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Render?",
+      "answer": "A DocsBot agent can look up service status, summarize recent deploys, collect context for outage cases, generate escalation notes, and trigger approved restart or rollback workflows when your rules allow it."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage Render operations?",
+      "answer": "Yes, private DocsBot agents can help employees check environments, review deploy activity, follow runbooks, prepare incident summaries, and complete approved operational workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Render actions secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, limits access to approved services and actions, and can add approval steps for sensitive changes like restarts or rollbacks."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Render instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, restarts, handoff creation, or status update generation, with clear permission limits and approval boundaries."
+    }
+  ],
+  "relatedSlugs": [
+    "vercel",
+    "heroku",
+    "netlify",
+    "github-actions",
+    "docker",
+    "kubernetes"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Render",
+    "domain": "render.com",
+    "description": "Render is a cloud platform that provides an all‑in‑one environment for building, deploying, and scaling AI agents and full‑stack web applications. It offers managed services for back‑ends, front‑ends, PostgreSQL databases, cron jobs, and more, all running on a private high‑performance network with built‑in security. Developers can move from fragmented toolchains to a single platform, reducing operational overhead and accelerating time‑to‑market. Render supports automatic scaling from the first user to billions, integrates with popular frameworks, and offers free starter tiers and migration credits from competitors like Heroku. The service is backed by a community of millions of builders and a Discord channel for support.",
+    "slogan": "The fastest path to production for AI agents and full-stack applications.",
+    "logoUrl": "https://media.brand.dev/dc92d675-f4fe-4482-9881-2647d5f7f889.svg",
+    "iconUrl": "https://media.brand.dev/7298d48a-fe98-4263-a9a2-c3716368219f.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#d5d5d5",
+        "name": "Disco Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/da8d6f42-4386-41f3-844a-95c52de9ea68.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://render.com/careers",
+      "terms": "https://render.com/terms",
+      "contact": "https://render.com/contact",
+      "privacy": "https://render.com/privacy",
+      "blog": "https://render.com/blog",
+      "pricing": "https://render.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7298d48a-fe98-4263-a9a2-c3716368219f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dc92d675-f4fe-4482-9881-2647d5f7f889.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 110,
+        "height": 21,
+        "aspectRatio": 5.24
+      },
+      {
+        "url": "https://media.brand.dev/a68de35e-1a71-48eb-b40f-fb5b31d3bd64.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 12,
+        "height": 20,
+        "aspectRatio": 0.6
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dc92d675-f4fe-4482-9881-2647d5f7f889.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 110,
+      "height": 21,
+      "aspectRatio": 5.24
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7298d48a-fe98-4263-a9a2-c3716368219f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

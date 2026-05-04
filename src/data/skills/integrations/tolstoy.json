@@ -1,0 +1,148 @@
+{
+  "slug": "tolstoy",
+  "name": "Tolstoy",
+  "domain": "tolstoy.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Tolstoy",
+  "metaTitle": "Build AI Agents for Tolstoy with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Tolstoy to answer questions, retrieve content, prepare summaries, and support approved publishing or research workflows.",
+  "intro": "Tolstoy gives teams a rich library of literary content, study resources, and community material that can power better customer and employee conversations. With DocsBot Skill Builder, you can describe the Tolstoy workflow you want in plain language and have DocsBot create a secure reusable Skill for your support bot or internal AI agent. The result is an AI agent that can answer questions, look up content, summarize materials, prepare handoffs, and take approved actions inside clear boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up Tolstoy articles, texts, study guides, or multimedia resources and answer visitor questions in real time.",
+    "Let the support agent summarize a Tolstoy work, article, or annotated passage for readers who want a quick explanation before opening the full resource.",
+    "Have the agent guide visitors to the most relevant Tolstoy content by matching their question to novels, essays, letters, blog posts, or educational materials.",
+    "Use the agent to collect missing context from a visitor and prepare a clean handoff when a content request, access issue, or academic inquiry needs human follow-up.",
+    "Let the agent create or update approved support records tied to content issues, broken links, feedback, or publication requests while keeping the visitor informed in chat or over email tickets."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Tolstoy content, compare resources, and assemble fast research summaries for editorial or academic workflows.",
+    "Editorial or education teams can ask the agent to find relevant texts, study guides, and related materials, then prepare a draft reading list or response package.",
+    "Support and operations staff can use the agent in Slack or Microsoft Teams to review reported content issues, summarize current status, and trigger approved follow-up workflows.",
+    "Team members can chat with the agent to standardize moderation, publication review, or escalation steps using documented SOPs connected to Tolstoy data and records.",
+    "Internal teams can use the agent to generate summaries of forum discussions, article collections, or reader feedback so employees can act faster without manual searching."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds Tolstoy resources and answers reader questions with grounded content.",
+    "A website chatbot that recommends relevant novels, essays, study guides, and multimedia resources.",
+    "An internal research assistant that summarizes Tolstoy materials for editors, educators, or support teams.",
+    "A handoff workflow that collects visitor questions and prepares structured cases for human follow-up.",
+    "A content operations agent that logs reported issues and summarizes status for internal teams.",
+    "An employee assistant that searches Tolstoy discussions and drafts concise response briefs for outreach or support."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Tolstoy agent to do, such as answer reader questions, retrieve content, prepare summaries, or trigger an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, secret handling, and authentication approach, then keeps credentials out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Access is scoped",
+      "description": "Skill Builder limits the Tolstoy Skill to the minimum records, actions, users, and systems needed for the job, and it adds approval boundaries wherever updates, escalations, or sensitive actions should stay controlled."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Tolstoy workflow, finds bugs, weak instructions, permission gaps, or missing edge cases, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team agent so it can answer questions and take bounded action in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Tolstoy without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Tolstoy workflow you want in plain language and the builder designs, secures, tests, improves, and prepares the Skill for deployment. That makes it possible to create a support bot or internal AI assistant without manually wiring every integration detail."
+    },
+    {
+      "question": "Can a DocsBot support agent use Tolstoy content to answer reader questions?",
+      "answer": "Yes, a DocsBot support agent can use a Tolstoy Skill to retrieve relevant texts, guides, articles, or related resources and respond with grounded answers. It can also summarize results, ask follow-up questions, and prepare a handoff when human review is needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Tolstoy?",
+      "answer": "A DocsBot agent can look up content, recommend relevant resources, summarize works, collect missing context, log approved issues, and prepare escalation notes for human teams. The exact actions are defined by the workflow and approval boundaries you choose."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research Tolstoy materials faster?",
+      "answer": "Yes, internal teams can chat with a private DocsBot agent to search Tolstoy resources, compare documents, summarize findings, and assemble response drafts or reading lists. This helps employees complete editorial, support, or education workflows faster from one chat interface."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Tolstoy?",
+      "answer": "Skill Builder defines the required configuration values, handles authentication securely, and keeps secrets out of conversations and generated Skill content by proxying them through protected runtime settings. It also scopes permissions and adds approval limits so the agent only performs the allowed lookups or actions."
+    },
+    {
+      "question": "Can a Tolstoy AI agent update records or trigger workflows safely?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating issue reports, updating approved records, or triggering follow-up workflows when those actions fit your process. Skill Builder adds scoped access and approval boundaries so changes stay controlled and auditable."
+    }
+  ],
+  "relatedSlugs": [
+    "youtube",
+    "vimeo",
+    "loom",
+    "wistia",
+    "brightcove",
+    "vidyard"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Tolstoy",
+    "domain": "tolstoy.com",
+    "description": "Tolstoy.com is an online literary platform dedicated to celebrating the works and legacy of Russian author Leo Tolstoy. The site offers a comprehensive collection of his novels, short stories, essays, and letters, alongside scholarly articles, study guides, and multimedia resources. Readers can explore annotated texts, participate in discussion forums, and access educational tools for schools and universities. Tolstoy.com also features a blog with contemporary analyses, author interviews, and news about related events and publications, making it a hub for both casual readers and academic researchers interested in classic literature and its modern relevance.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/2a8b1555-205e-4549-88c7-3af17370aaaf.png",
+    "iconUrl": "https://media.brand.dev/2a8b1555-205e-4549-88c7-3af17370aaaf.png",
+    "primaryColor": "#1071ae",
+    "accentColor": "#7cbcdc",
+    "colors": [
+      {
+        "hex": "#1071ae",
+        "name": "Daphne"
+      },
+      {
+        "hex": "#7cbcdc",
+        "name": "Coastal Waters"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2a8b1555-205e-4549-88c7-3af17370aaaf.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2a8b1555-205e-4549-88c7-3af17370aaaf.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2a8b1555-205e-4549-88c7-3af17370aaaf.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

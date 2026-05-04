@@ -1,0 +1,156 @@
+{
+  "slug": "fireflies-ai",
+  "name": "Fireflies.ai",
+  "domain": "fireflies-ai.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Fireflies.ai",
+  "metaTitle": "Build Fireflies.ai AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Fireflies.ai meeting data for support summaries, handoffs, internal research, and approved workflow actions.",
+  "intro": "Fireflies.ai helps teams capture and analyze meeting conversations, and DocsBot Skill Builder helps you turn that meeting intelligence into a reusable AI agent ability. Describe the outcome you want in plain language, and Skill Builder can create a secure Skill that lets your DocsBot agent look up transcripts, summarize calls, prepare handoffs, and trigger approved follow-up workflows. This gives support teams and internal teams an AI agent that can answer questions and take bounded action using Fireflies.ai data.",
+  "supportUseCases": [
+    "When a customer asks about a recent onboarding or success call, the DocsBot agent can pull the relevant Fireflies.ai transcript and summarize the agreed next steps in a clear support reply.",
+    "For helpdesk tickets that reference a sales, implementation, or support meeting, the agent can use Fireflies.ai notes to prepare a faster handoff with key decisions, open questions, and customer sentiment.",
+    "If a customer asks what was promised during a previous meeting, the agent can retrieve the Fireflies.ai summary and present the approved action items without making the support rep search manually.",
+    "The agent can review Fireflies.ai meeting notes linked to an account and draft an escalation summary for customer success or technical support teams.",
+    "When a support case needs context from multiple calls, the agent can combine Fireflies.ai meeting summaries into one concise timeline for the ticket record."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find what was discussed in past Fireflies.ai meetings, including decisions, blockers, owners, and follow-up tasks.",
+    "Customer success, sales, and operations teams can ask the agent to compare several Fireflies.ai call summaries and produce a single account health or renewal brief.",
+    "Team members can use the agent in Slack or Microsoft Teams to turn Fireflies.ai transcripts into action lists, follow-up emails, or CRM update drafts.",
+    "Managers can ask the agent to identify recurring objections, feature requests, or onboarding issues across Fireflies.ai meeting records for internal research.",
+    "Employees can chat with the agent to follow SOPs that use Fireflies.ai notes as source material for escalations, post-call reviews, and cross-functional handoffs."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that fetches Fireflies.ai meeting summaries for customer ticket context.",
+    "A Skill that turns call transcripts into escalation briefs and internal handoff notes.",
+    "A Skill that extracts promised next steps from customer meetings and drafts follow-up replies.",
+    "A Skill that summarizes multiple Fireflies.ai calls into one account timeline.",
+    "A Skill that identifies recurring objections or feature requests across meeting notes.",
+    "A Skill that creates post-meeting action lists for support, success, or operations teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Fireflies.ai, such as summarizing meetings for support tickets or preparing internal handoff notes, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the records, actions, and users required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "If the workflow includes updates, workflow triggers, or sharing meeting details, Skill Builder adds approval boundaries and safe action limits so the agent only takes actions you have allowed."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "Skill Builder uses its automated testing agent to run imagined customer support and internal team scenarios, find bugs or weak spots, and identify instruction, permission, or workflow improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Before publishing, Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for your website, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Fireflies.ai meeting data?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, such as looking up transcripts, summarizing calls, or drafting follow-ups. Skill Builder then designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your DocsBot agent."
+    },
+    {
+      "question": "Can a customer support AI agent use Fireflies.ai transcripts during ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Fireflies.ai meeting summaries and transcript context to answer questions, prepare handoffs, and give agents a faster view of what happened on prior calls. You can keep those actions bounded with scoped permissions and approval controls."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Fireflies.ai?",
+      "answer": "DocsBot can help summarize recent meetings, gather account context for a ticket, prepare escalation notes, and draft follow-up responses based on approved Fireflies.ai data. It can also combine multiple call summaries into a single case timeline for support teams."
+    },
+    {
+      "question": "Can an internal AI assistant search Fireflies.ai notes for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find decisions, next steps, blockers, and themes across Fireflies.ai meeting records. This is useful for sales, customer success, support, and operations teams that need quick meeting intelligence without manual searching."
+    },
+    {
+      "question": "Is it possible to control what an AI agent can do with Fireflies.ai data?",
+      "answer": "Yes, Skill Builder is designed to define scoped access, secure authentication handling, and approval boundaries around sensitive actions. That helps your AI agent retrieve or use meeting information within the limits you choose."
+    },
+    {
+      "question": "Can DocsBot create summaries and handoff notes from Fireflies.ai meetings?",
+      "answer": "Yes, a Skill can turn Fireflies.ai transcripts or summaries into concise handoff briefs, escalation notes, internal updates, or follow-up drafts. This helps teams move faster while keeping outputs consistent and grounded in meeting records."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "otter-ai",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fireflies AI",
+    "domain": "fireflies-ai.com",
+    "description": "Fireflies AI is the brand behind the premium domain fireflies-ai.com, now being offered for sale through the Spaceship marketplace. The company leverages Spaceship’s secure checkout, buyer‑protection program, and fast domain‑transfer services to provide a hassle‑free purchase experience. Interested buyers can contact the owner directly or complete the transaction online, with flexible payment options and no hidden fees. Fireflies AI’s focus is on delivering a trustworthy, streamlined domain acquisition for businesses seeking an AI‑focused web presence.",
+    "slogan": "Own Fireflies-Ai.com today—secure checkout, quick transfer, no hidden fees.",
+    "logoUrl": "https://media.brand.dev/4036ffba-3d8e-4f75-a22a-ce48f4e644f8.svg",
+    "iconUrl": "https://media.brand.dev/1d5480e6-3fa5-4b11-9f24-f03f21df10fa.png",
+    "primaryColor": "#ffffff",
+    "accentColor": "#3c4cfc",
+    "colors": [
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      },
+      {
+        "hex": "#3c4cfc",
+        "name": "Pretentious Peacock"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "http://fireflies-ai.com/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4036ffba-3d8e-4f75-a22a-ce48f4e644f8.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 165,
+        "height": 28,
+        "aspectRatio": 5.89
+      },
+      {
+        "url": "https://media.brand.dev/1d5480e6-3fa5-4b11-9f24-f03f21df10fa.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4036ffba-3d8e-4f75-a22a-ce48f4e644f8.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 165,
+      "height": 28,
+      "aspectRatio": 5.89
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1d5480e6-3fa5-4b11-9f24-f03f21df10fa.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "slug": "blackline",
+  "name": "BlackLine",
+  "domain": "blackline.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that work with BlackLine",
+  "metaTitle": "Build BlackLine AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use BlackLine for secure finance lookups, workflow updates, handoffs, and internal accounting assistance.",
+  "intro": "BlackLine helps finance teams automate close processes and streamline accounting operations. With DocsBot Skill Builder, you can describe the BlackLine workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve approved finance context, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of billing, reconciliation, or dispute-related workflows in BlackLine and give customers a clear progress update.",
+    "Use a support agent to gather the details needed for a finance case, create or update an approved record in BlackLine, and confirm the next step to the customer.",
+    "Have the agent summarize BlackLine activity related to an account before escalating a sensitive payment or accounting issue to a human specialist.",
+    "Enable a helpdesk-connected DocsBot agent to attach relevant customer context to a BlackLine workflow so finance and support teams receive a cleaner handoff.",
+    "Let the agent trigger an approved follow-up workflow in BlackLine after a customer reports a remittance, invoice, or account application issue."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up BlackLine process status, exceptions, and next steps without leaving the conversation.",
+    "Accounting and operations teams can ask the agent to summarize close-related items, reconciliation progress, or outstanding tasks across BlackLine records for faster decision-making.",
+    "Finance staff can use the agent to collect missing context, prepare a case summary, and create a standardized handoff workflow in BlackLine that follows internal SOPs.",
+    "Shared services teams can chat with the agent to retrieve BlackLine information, draft stakeholder updates, and trigger approved follow-up actions with clear approval boundaries.",
+    "Managers can ask the agent for concise summaries of workflow bottlenecks, aged exceptions, or account-level issues pulled from BlackLine for internal reporting and triage."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks BlackLine workflow status before replying to finance-related customer questions.",
+    "A helpdesk assistant that creates BlackLine handoff records from customer ticket details and conversation summaries.",
+    "An internal accounting assistant that summarizes reconciliation exceptions and recommends the next approved workflow step.",
+    "A finance operations agent that gathers missing details from employees and starts a BlackLine follow-up process.",
+    "A private AI assistant that turns BlackLine record activity into manager-ready summaries and status updates.",
+    "An escalation agent that prepares human handoffs with BlackLine context, ticket history, and suggested next actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with BlackLine, and Skill Builder turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes the Skill to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates so the agent can retrieve information and take bounded actions without overstepping your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can use BlackLine through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BlackLine?",
+      "answer": "With DocsBot Skill Builder, you describe the BlackLine workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use BlackLine data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a BlackLine Skill to retrieve approved status details, summarize workflow context, prepare escalations, and trigger bounded follow-up actions while responding to customers."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with BlackLine?",
+      "answer": "Teams can build workflows for status lookups, finance-case intake, BlackLine record updates, escalation preparation, handoff creation, and approved process triggers tied to billing or accounting-related support questions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with BlackLine tasks?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to look up BlackLine information, summarize exceptions, follow accounting SOPs, prepare handoffs, and complete approved workflow steps faster."
+    },
+    {
+      "question": "How does DocsBot keep BlackLine access secure for AI agents?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill source, proxies secrets through runtime configuration, scopes permissions tightly, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can I require human approval before a DocsBot agent updates something in BlackLine?",
+      "answer": "Yes, DocsBot Skills can be designed with approval checkpoints and bounded action rules so sensitive BlackLine updates only happen when the right review conditions are met."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "sage-intacct",
+    "quickbooks",
+    "xero",
+    "workday"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BlackLine",
+    "domain": "blackline.com",
+    "description": "BlackLine is a leading provider of scalable applications designed to automate financial close processes and streamline various accounting functions. Trusted by thousands of companies globally, BlackLine plays a pivotal role in transforming organizations' finance operations into a digital-first approach. Their proven methodology focuses on enhancing accuracy, improving efficiency, and leveraging intelligent solutions to facilitate a successful digital finance transformation journey. With a commitment to collaboration and achievable outcomes, BlackLine empowers businesses to navigate the complexities of modern finance with confidence.",
+    "slogan": "Inspire, power, and guide your digital finance transformation journey.",
+    "logoUrl": "https://media.brand.dev/237106d4-dce3-4b40-a82b-a9a10fcaf287.png",
+    "iconUrl": "https://media.brand.dev/39c84394-3e08-4c44-8460-1f347333ef69.png",
+    "primaryColor": "#f1ba49",
+    "accentColor": "#745431",
+    "colors": [
+      {
+        "hex": "#f1ba49",
+        "name": "Maximum Yellow Red"
+      },
+      {
+        "hex": "#745431",
+        "name": "Chocolate Bells"
+      },
+      {
+        "hex": "#0f0c0b",
+        "name": "Stout"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4803f28c-698f-47c3-96e6-260ea68bdf30.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.blackline.com/careers-home/",
+      "terms": null,
+      "contact": "https://blackline.com/contact/",
+      "privacy": "https://blackline.com/legal/privacy-policy/",
+      "blog": "https://blackline.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/39c84394-3e08-4c44-8460-1f347333ef69.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/237106d4-dce3-4b40-a82b-a9a10fcaf287.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 134,
+        "height": 38,
+        "aspectRatio": 3.53
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/237106d4-dce3-4b40-a82b-a9a10fcaf287.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 134,
+      "height": 38,
+      "aspectRatio": 3.53
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/39c84394-3e08-4c44-8460-1f347333ef69.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 600,
+      "height": 600,
+      "aspectRatio": 1
+    }
+  }
+}

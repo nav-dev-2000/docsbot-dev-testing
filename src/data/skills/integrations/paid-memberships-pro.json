@@ -1,0 +1,160 @@
+{
+  "slug": "paid-memberships-pro",
+  "name": "Paid Memberships Pro",
+  "domain": "paidmembershipspro.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents for Paid Memberships Pro with DocsBot Skills",
+  "metaTitle": "Paid Memberships Pro AI Agents for Support and Team Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Paid Memberships Pro to answer member questions, check subscription status, update records, and automate safe membership workflows.",
+  "intro": "Paid Memberships Pro helps businesses manage memberships, subscriptions, restricted content, and recurring billing. With DocsBot Skill Builder, you can describe the membership workflow you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to Paid Memberships Pro safely. The result is an AI support agent or internal team assistant that can look up member details, summarize account state, trigger approved actions, and prepare clean handoffs when needed.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a member’s subscription level, renewal status, and access eligibility while replying in website chat or helpdesk tickets.",
+    "Use the agent to confirm whether a member’s payment appears active, expired, canceled, or pending before guiding them to the right next step.",
+    "Allow the agent to summarize a member’s account history and current plan details for faster support resolutions and cleaner escalations.",
+    "Have the agent identify common access issues, such as expired memberships or incorrect membership levels, and prepare a support handoff with the relevant account context.",
+    "Enable the agent to create or update approved membership notes, tags, or internal status fields so support teams keep records current during conversations with members."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up member status, plan details, renewal dates, and account summaries from Paid Memberships Pro.",
+    "Help customer success or operations teams ask the agent to research membership issues, summarize account activity, and prepare next-step recommendations before reaching out to a member.",
+    "Give billing or support staff an internal AI assistant that can follow membership support SOPs, gather missing context, and create structured handoff notes for complex cases.",
+    "Enable teams to ask the agent for filtered membership insights, such as expired accounts or members on a specific level, within the limits you approve.",
+    "Use a private agent to guide employees through approved membership update workflows with scoped permissions and approval boundaries for sensitive changes."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that verifies membership status before answering access and renewal questions.",
+    "An internal assistant that summarizes member accounts for billing, support, and customer success teams.",
+    "A workflow Skill that prepares escalation notes for failed renewals or access disputes.",
+    "An AI agent that checks membership levels before sharing restricted content guidance.",
+    "A private team assistant that helps staff follow membership support SOPs consistently.",
+    "A support workflow that updates approved internal membership notes after each conversation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Paid Memberships Pro, such as checking renewal status, summarizing membership records, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder figures out the required configuration values, connection method, and authentication setup, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder defines the minimum access the agent needs, limits actions to the right records and workflows, and adds approval boundaries for sensitive updates so the agent operates within safe guardrails."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing support bot or private employee agent so it can answer questions and take approved actions inside your membership workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Paid Memberships Pro?",
+      "answer": "With DocsBot Skill Builder, you describe the membership tasks you want in plain language, and DocsBot designs, secures, tests, and packages a reusable Skill for your AI agent. That agent can then look up member data, summarize account state, and take approved actions within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Paid Memberships Pro data to answer member questions?",
+      "answer": "Yes, a DocsBot support agent can use Paid Memberships Pro data to check membership status, renewal details, access eligibility, and other approved account information while responding in chat or tickets. You control which lookups and actions are allowed and where approval is required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Paid Memberships Pro?",
+      "answer": "DocsBot can help automate membership lookups, access troubleshooting, renewal-status checks, account summaries, internal note updates, and escalation preparation. It can also gather missing context from the conversation before handing a case to a human agent."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Paid Memberships Pro?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve member information, research issues, follow support procedures, and complete approved membership workflows from chat, Slack, or Microsoft Teams. This reduces context switching while keeping actions within scoped permissions."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting to Paid Memberships Pro?",
+      "answer": "Skill Builder handles secure connection design by defining required configuration values, protecting and proxying secrets through runtime configuration, and keeping credentials out of chats and generated content. It also scopes access to the minimum records, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot require approval before changing membership records?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries for sensitive actions such as membership updates or workflow triggers. That lets the agent help with research, drafting, and preparation first, then pause for approval before completing higher-risk changes."
+    }
+  ],
+  "relatedSlugs": [
+    "memberful",
+    "recurly",
+    "chargebee",
+    "stripe-billing",
+    "zuora",
+    "memberstack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Paid Memberships Pro",
+    "domain": "paidmembershipspro.com",
+    "description": "Paid Memberships Pro is a comprehensive membership management solution that enables users to restrict content and manage member subscriptions with ease. The platform supports recurring payments through popular gateways like Stripe and PayPal, allowing for seamless transactions. Additionally, it offers custom profile creation and robust member management capabilities, making it an ideal choice for businesses and organizations looking to create and manage membership-based models.",
+    "slogan": "Empowering Memberships with Seamless Content Restriction and Recurring Payments",
+    "logoUrl": "https://media.brand.dev/4b77f17b-eb89-4d64-8746-5e8d20f4c506.jpg",
+    "iconUrl": "https://media.brand.dev/304341f1-f980-4cb3-9848-8b44627d62b5.png",
+    "primaryColor": "#e99984",
+    "accentColor": "#5a7f6d",
+    "colors": [
+      {
+        "hex": "#e99984",
+        "name": "Whimsy"
+      },
+      {
+        "hex": "#5a7f6d",
+        "name": "Fuchsite Green"
+      },
+      {
+        "hex": "#281e17",
+        "name": "Dark Orchestra"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/89b180f4-0fa6-495f-b1b1-0db8a81089ed.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.paidmembershipspro.com/terms-of-service/",
+      "contact": "https://www.paidmembershipspro.com/contact/",
+      "privacy": "https://www.paidmembershipspro.com/privacy-policy/",
+      "blog": "https://www.paidmembershipspro.com/blog/",
+      "pricing": "https://www.paidmembershipspro.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4b77f17b-eb89-4d64-8746-5e8d20f4c506.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 910,
+        "height": 512,
+        "aspectRatio": 1.78
+      },
+      {
+        "url": "https://media.brand.dev/304341f1-f980-4cb3-9848-8b44627d62b5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4b77f17b-eb89-4d64-8746-5e8d20f4c506.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 910,
+      "height": 512,
+      "aspectRatio": 1.78
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/304341f1-f980-4cb3-9848-8b44627d62b5.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

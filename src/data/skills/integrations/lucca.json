@@ -1,0 +1,168 @@
+{
+  "slug": "lucca",
+  "name": "Lucca",
+  "domain": "lucca.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Lucca HR Workflows",
+  "metaTitle": "Build Lucca AI Agents for HR Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Lucca for HR lookups, employee support, approvals, updates, and internal workflow automation.",
+  "intro": "Lucca is used by many teams for HR and people operations workflows, which makes it a strong fit for DocsBot AI Actions. With DocsBot Skill Builder, you can describe the Lucca workflow you want in plain language and have DocsBot create a secure reusable Skill for support agents or internal employee assistants. The result is an AI agent that can answer questions, retrieve HR information, prepare handoffs, trigger approved actions, and keep work moving without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing or employee helpdesk agent to look up leave balances, time-off status, or HR policy context in Lucca before answering a support request.",
+    "Let the agent collect missing details from the requester, create or update an HR-related case or request in Lucca, and confirm the next step in the same conversation.",
+    "Have the agent summarize an employee’s request history or workflow status from Lucca so support teams can respond faster and with better context.",
+    "Enable the agent to prepare an escalation or handoff by pulling relevant Lucca details, organizing them into a clean summary, and routing the case to HR or payroll.",
+    "Allow the agent to trigger approved Lucca workflows such as request submissions, status checks, or manager review prompts when a support conversation meets defined rules."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to check HR information from Lucca, such as leave status, approval progress, or request requirements.",
+    "HR and people operations teams can ask the agent to summarize employee cases, retrieve Lucca records, and complete standard workflows or SOPs without switching between systems.",
+    "Managers can use an internal AI assistant to review team time-off context, gather the right Lucca details, and prepare consistent next-step guidance before approving requests.",
+    "Operations teams can chat with the agent to create handoffs, generate summaries, and trigger approved Lucca actions while keeping sensitive permissions scoped to the right people.",
+    "Internal support teams can use the agent to answer repetitive employee questions with live Lucca context and escalate edge cases with complete notes and workflow history."
+  ],
+  "whatYouCanBuild": [
+    "An AI HR helpdesk agent that checks leave balances and request status in Lucca.",
+    "An employee assistant that explains HR next steps using live Lucca workflow context.",
+    "A manager support agent that prepares approval summaries from Lucca records and policies.",
+    "A private team agent that collects request details and submits approved Lucca workflows.",
+    "An internal assistant that summarizes employee cases and routes escalations to HR specialists.",
+    "A support agent that updates request notes in Lucca after a completed employee conversation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You describe the Lucca task you want in plain language, and Skill Builder turns that goal into an agent workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure Skill design, defines the needed configuration values, handles authentication and secret protection through secure runtime configuration, and keeps credentials out of chats and generated content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum Lucca actions, users, records, and systems required, and it adds approval boundaries or safe action limits for sensitive HR steps."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing, Skill Builder refines the Skill and helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or internal assistant can use Lucca safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Lucca for HR support?",
+      "answer": "With DocsBot Skill Builder, you describe the HR support outcome you want, such as checking leave status or preparing an escalation, and Skill Builder creates a secure Lucca-connected Skill for your agent. It can be configured to retrieve data, summarize context, and take approved actions within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Lucca data to answer employee questions?",
+      "answer": "Yes, a DocsBot agent can use a Lucca Skill to look up relevant HR context, confirm workflow status, and respond with more accurate answers. You can keep access tightly scoped so the agent only retrieves the data and performs the actions that are appropriate for that support flow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Lucca?",
+      "answer": "An internal DocsBot agent can help employees and HR teams check statuses, gather missing information, create handoffs, summarize requests, and trigger approved HR workflows tied to Lucca. This is useful for repetitive SOPs where teams need fast answers and controlled actions from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot trigger updates or approvals in Lucca safely?",
+      "answer": "DocsBot Skill Builder can create Skills that perform bounded updates or workflow triggers in Lucca when the right conditions are met. It designs scoped permissions, secure authentication handling, and approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "How does setup work for a Lucca AI agent if my team is not technical?",
+      "answer": "Your team describes the desired result in plain language, and Skill Builder handles the workflow design, secure connection plan, configuration requirements, testing, and deployment guidance. It also protects secrets by design and improves the Skill through automated scenario testing before launch."
+    },
+    {
+      "question": "Can a Lucca AI assistant help with escalations and HR handoffs?",
+      "answer": "Yes, DocsBot can build a Skill that gathers the right Lucca context, summarizes the issue, and prepares a clean handoff for HR, payroll, or managers. This helps teams escalate faster with better notes and less manual copying between systems."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "personio",
+    "hibob",
+    "gusto",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lucca Luxury",
+    "domain": "lucca.com",
+    "description": "Lucca.com is a travel and tourism website that provides information and resources for visitors to Lucca, Italy. The website offers a range of services, including hotel booking, restaurant recommendations, and guides to local attractions, museums, and events. It also provides information on typical Tuscan products, shopping, and useful numbers for travelers. Lucca.com aims to help visitors plan their trip to Lucca and make the most of their stay in this historic Tuscan city.",
+    "slogan": "Discover the Charm of Lucca: History, Culture, and Tuscan Hospitality",
+    "logoUrl": "https://media.brand.dev/d7dda940-1435-4d43-9450-ac8970b9f966.jpg",
+    "iconUrl": "https://media.brand.dev/8a21100a-9c28-4da3-aeb3-f3fa81358c2f.png",
+    "primaryColor": "#727272",
+    "accentColor": "#545454",
+    "colors": [
+      {
+        "hex": "#727272",
+        "name": "Dull"
+      },
+      {
+        "hex": "#545454",
+        "name": "Brilliant Liquorice"
+      },
+      {
+        "hex": "#8c8c8c",
+        "name": "More Than A Week"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5b447d0f-8ba0-4f57-9ba8-12cbff0c7c87.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://lucca.com/contacts.html",
+      "privacy": null,
+      "blog": "https://lucca.com/newsstands_in_lucca.html",
+      "pricing": "https://lucca.com/dental-implants_in_lucca.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8a21100a-9c28-4da3-aeb3-f3fa81358c2f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d7dda940-1435-4d43-9450-ac8970b9f966.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 422,
+        "height": 93,
+        "aspectRatio": 4.54
+      },
+      {
+        "url": "https://media.brand.dev/9b9d4ddd-e79e-4c32-91b0-e7381803be99.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d7dda940-1435-4d43-9450-ac8970b9f966.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 422,
+      "height": 93,
+      "aspectRatio": 4.54
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9b9d4ddd-e79e-4c32-91b0-e7381803be99.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

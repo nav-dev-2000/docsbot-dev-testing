@@ -1,0 +1,176 @@
+{
+  "slug": "memberpress",
+  "name": "MemberPress",
+  "domain": "memberpress.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI agents that work with MemberPress",
+  "metaTitle": "MemberPress AI agents for support and team workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up MemberPress membership data, handle support workflows, and automate safe internal actions.",
+  "intro": "MemberPress helps businesses run memberships, subscriptions, courses, and gated content on WordPress. With DocsBot Skill Builder, you can describe the MemberPress workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, check membership status, prepare handoffs, and take approved actions inside MemberPress with clear safeguards.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a member’s subscription status, access level, renewal date, or course eligibility while answering billing and access questions in chat or tickets.",
+    "Use the agent to verify whether a payment, coupon, or membership change likely affected access, then summarize the situation for the customer in plain language.",
+    "Have the agent prepare a support handoff with the member’s plan details, recent account history, and the exact issue already gathered from the conversation.",
+    "Enable the agent to trigger approved follow-up workflows such as notifying staff about failed-payment access issues or membership provisioning problems.",
+    "Let the agent explain content-dripping or membership access timing by looking up the member’s plan and relevant access rules before responding."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that can look up MemberPress membership records, subscription details, coupon usage, and course access information from chat, Slack, or Microsoft Teams.",
+    "Let support and customer success teams chat with the agent to research account issues, summarize a member’s lifecycle, and prepare next-step recommendations before replying manually.",
+    "Help operations teams use a private agent to follow membership support SOPs, collect the right context, and trigger approved escalations for billing or access exceptions.",
+    "Enable internal teams to ask the agent for reports or summaries such as members nearing renewal, failed-payment trends, or plan-level support patterns when connected to the right data sources.",
+    "Allow employees to use the agent to generate clean handoff notes for developers, billing specialists, or course admins when a MemberPress issue needs deeper review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks membership status and explains access issues.",
+    "A billing assistant that summarizes renewals, failed payments, and plan history for support teams.",
+    "A member access agent that reviews course or content eligibility before suggesting next steps.",
+    "An escalation workflow that gathers account context and prepares a complete support handoff.",
+    "A private operations assistant that answers MemberPress record questions inside Slack or Teams.",
+    "A retention workflow that flags renewal problems and routes cases for human approval."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the MemberPress agent to do, such as checking subscription status or preparing billing handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes the Skill to only the records, actions, and users needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When a workflow could change records, trigger messages, or escalate a case, Skill Builder adds approval boundaries and safe action limits so the agent acts only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "Skill Builder’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams and customers can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for MemberPress without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the MemberPress workflow you want in plain language, and the builder designs the Skill, handles secure configuration, tests scenarios, and prepares it for deployment. You do not need to manually wire API logic, secret handling, or approval controls."
+    },
+    {
+      "question": "Can an AI support agent use MemberPress data to answer membership and billing questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved MemberPress account details such as membership status, renewal timing, or access context while responding to customer chats or tickets. It can also summarize findings clearly and prepare a human handoff when the case needs review."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with MemberPress?",
+      "answer": "A MemberPress AI agent can help with access checks, renewal questions, failed-payment troubleshooting, coupon or plan context lookups, and escalation preparation. It can gather missing information, summarize account state, and trigger approved follow-up workflows inside your boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with MemberPress?",
+      "answer": "Yes, private DocsBot agents can help employees research member records, summarize account history, follow support SOPs, and prepare escalations from chat, Slack, or Microsoft Teams. This gives teams faster answers without exposing unrestricted actions."
+    },
+    {
+      "question": "How does DocsBot keep MemberPress actions secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes access to the minimum actions and records needed. It can also add approval steps for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can a DocsBot agent update MemberPress records or trigger workflows?",
+      "answer": "It can be designed to perform approved actions such as creating internal handoffs, triggering follow-up workflows, or making bounded record changes when you allow them. DocsBot Skill Builder adds guardrails, permission limits, and approval boundaries around those actions."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "recurly",
+    "woocommerce-subscriptions",
+    "learnworlds",
+    "teachable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "MemberPress",
+    "domain": "memberpress.com",
+    "description": "MemberPress is an all‑in‑one WordPress membership plugin that transforms websites into full‑featured business platforms. It enables creators and businesses to monetize content through paywalls, subscription billing, digital downloads, online courses, coaching programs, and community forums. With tools like content‑dripping, customizable checkout, order bumps, coupons, and integrated payment gateways (including credit cards, Apple Pay, Google Wallet, and buy‑now‑pay‑later), MemberPress simplifies recurring revenue management. Additional features include ClubCircles™ for unlimited forums, ClubDirectory™ for searchable member profiles, corporate bulk‑membership accounts, and a drag‑and‑drop page builder. The plugin offers seamless integration, automated billing, and robust access control, allowing users to launch and scale membership sites without technical or design expertise.",
+    "slogan": "WordPress Membership, Monetization & Courses Plugin",
+    "logoUrl": "https://media.brand.dev/14af802d-05df-49b6-8b90-fe77e23f7b2a.svg",
+    "iconUrl": "https://media.brand.dev/ebb925e1-4acd-4489-92ab-0187289d8599.jpg",
+    "primaryColor": "#0bb0dd",
+    "accentColor": "#cbf2f5",
+    "colors": [
+      {
+        "hex": "#0bb0dd",
+        "name": "Blue Atoll"
+      },
+      {
+        "hex": "#cbf2f5",
+        "name": "Tinted Ice"
+      },
+      {
+        "hex": "#054f9e",
+        "name": "USAFA Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f5f620e7-9b0c-4ec4-a679-428ade07b2d7.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://memberpress.com/blog/",
+      "careers": "https://memberpress.com/careers/",
+      "privacy": "https://memberpress.com/privacy/",
+      "terms": "https://memberpress.com/terms/",
+      "contact": "https://memberpress.com/support/",
+      "pricing": "https://memberpress.com/plans/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ebb925e1-4acd-4489-92ab-0187289d8599.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dfc1acac-6f04-496d-b2b3-1c45e900a684.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/14af802d-05df-49b6-8b90-fe77e23f7b2a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 252,
+        "height": 40,
+        "aspectRatio": 6.3
+      },
+      {
+        "url": "https://media.brand.dev/3cb74756-5598-4f08-8f29-a8d6ca287deb.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/14af802d-05df-49b6-8b90-fe77e23f7b2a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 252,
+      "height": 40,
+      "aspectRatio": 6.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3cb74756-5598-4f08-8f29-a8d6ca287deb.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

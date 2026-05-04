@@ -1,0 +1,160 @@
+{
+  "slug": "hibob",
+  "name": "HiBob",
+  "domain": "hibob.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with HiBob",
+  "metaTitle": "Build HiBob AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use HiBob to answer HR questions, retrieve employee data, trigger workflows, and support safe internal operations.",
+  "intro": "HiBob helps teams manage core HR data, time off, performance, payroll-related processes, and employee experience in one platform. With DocsBot Skill Builder, you can describe the HR or operations outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely work with HiBob. The result is an AI support or internal team agent that can answer questions, look up records, prepare handoffs, trigger approved workflows, and summarize outcomes without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing or helpdesk-connected DocsBot agent to answer employee benefit or leave policy questions by looking up approved HiBob information and returning a clear response.",
+    "Let the agent collect missing context from an employee, check relevant HiBob profile details, and prepare an HR handoff with a summary of the issue and next steps.",
+    "Allow the agent to confirm time-off balances or request status for authenticated employees when your rules permit those lookups.",
+    "Have the agent create or update approved HR-related requests in connected workflows after validating the employee’s identity and gathering required details.",
+    "Use the agent to summarize an employee’s HR case context from HiBob data so support teams can respond faster and with better continuity."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve approved HiBob information such as policies, org details, time-off guidance, and onboarding answers.",
+    "Managers can ask the agent to summarize team leave schedules, review direct-report information, and prepare HR workflow handoffs using scoped HiBob access.",
+    "HR and operations teams can use the agent to gather employee context, draft follow-up notes, and complete standard SOPs that depend on HiBob records.",
+    "People teams can chat with the agent to answer repetitive internal questions, trigger approved lifecycle workflows, and generate summaries for onboarding, offboarding, or manager support.",
+    "Internal service desks can use the agent to research employee HR status across systems, then return a concise next-step summary or escalate with the right context attached."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that answers employee time-off questions using approved HiBob data.",
+    "A private HR assistant that summarizes employee profiles and prepares manager handoffs.",
+    "An onboarding workflow agent that gathers missing details and triggers approved next steps.",
+    "A helpdesk agent that verifies request context and drafts HR escalation summaries.",
+    "A manager assistant that reviews team leave status and answers policy questions.",
+    "An internal operations agent that creates consistent onboarding and offboarding notes from HiBob records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the HiBob agent to do in plain language, such as answer leave questions, retrieve employee details, or prepare HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed HiBob configuration values, and defines safe authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and adds approval boundaries for sensitive HiBob updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal HR scenarios, finds bugs, instruction gaps, or permission issues, and feeds those findings into an improvement loop before release."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps publish the HiBob Skill to your customer-facing support bot or your private employee agent so it can take bounded actions and return reliable answers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HiBob?",
+      "answer": "With DocsBot Skill Builder, you describe the HiBob workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up approved HR data, summarize context, trigger workflows, and support safe next-step actions."
+    },
+    {
+      "question": "Can an AI support agent use HiBob data to answer employee HR questions?",
+      "answer": "Yes, a DocsBot agent can use approved HiBob data to answer common employee questions about leave, policies, profile details, or request status within the access rules you define. It can also gather missing context and prepare escalations when a human HR teammate should take over."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HiBob?",
+      "answer": "A private DocsBot agent can help with onboarding, offboarding, manager support, policy guidance, leave-related lookups, employee record summaries, and HR handoff preparation. It can also trigger approved workflows or generate structured notes for recurring SOPs."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in HiBob?",
+      "answer": "DocsBot Skill Builder is designed to create bounded actions with scoped permissions, secure authentication handling, and approval checks where needed. That lets your agent perform approved updates or workflow triggers while keeping sensitive actions under control."
+    },
+    {
+      "question": "Can a DocsBot agent summarize employee information from HiBob for HR teams?",
+      "answer": "Yes, the agent can retrieve allowed HiBob details and turn them into concise summaries for HR, managers, or internal support teams. This helps teams understand employee context faster and reduces manual back-and-forth."
+    },
+    {
+      "question": "How does setup work for a non-technical team using DocsBot with HiBob?",
+      "answer": "You explain the business outcome you want, and Skill Builder handles the Skill design, connection requirements, secret protection, permission scoping, testing, and deployment guidance. You do not need to manually write code or map every implementation detail yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "gusto",
+    "personio",
+    "rippling",
+    "ukg"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HiBob",
+    "domain": "hibob.com",
+    "description": "HiBob is a cloud‑based HR technology company that powers the modern workplace with its all‑in‑one platform, Bob. The platform streamlines core HR functions—payroll, benefits, time‑off, performance, and employee engagement—into a single, intuitive interface that serves HR teams, managers, and employees alike. By delivering resilient, agile tools that automate complex processes, HiBob helps organizations create a more transparent, inclusive, and efficient work experience, enabling people to bring their authentic selves to work and focus on what matters most.",
+    "slogan": "All-in-one HR, from hire to retire.",
+    "logoUrl": "https://media.brand.dev/695edd9d-056f-40c7-9d1d-244bd0a2a86d.svg",
+    "iconUrl": "https://media.brand.dev/9b69afd3-ecfc-44ce-82e5-5e731e97a872.jpg",
+    "primaryColor": "#8a2a3f",
+    "accentColor": "#f482a1",
+    "colors": [
+      {
+        "hex": "#8a2a3f",
+        "name": "Rumba Red"
+      },
+      {
+        "hex": "#f482a1",
+        "name": "Pink Sherbet"
+      },
+      {
+        "hex": "#eb164d",
+        "name": "Sanguinary"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bf91401a-f4a0-42b2-8ea5-5b9891c6b0d8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.hibob.com/careers/",
+      "terms": "https://www.hibob.com/privacy/terms-and-conditions/",
+      "contact": "https://www.hibob.com/contact-us/",
+      "privacy": "https://www.hibob.com/privacy/privacy-policy/",
+      "blog": "https://www.hibob.com/news/",
+      "pricing": "https://www.hibob.com/pricing-plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9b69afd3-ecfc-44ce-82e5-5e731e97a872.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/695edd9d-056f-40c7-9d1d-244bd0a2a86d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 160,
+        "height": 64,
+        "aspectRatio": 2.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/695edd9d-056f-40c7-9d1d-244bd0a2a86d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 160,
+      "height": 64,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9b69afd3-ecfc-44ce-82e5-5e731e97a872.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "onepagecrm",
+  "name": "OnePageCRM",
+  "domain": "onepagecrm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with OnePageCRM",
+  "metaTitle": "Build AI Agents for OnePageCRM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use OnePageCRM for contact lookups, follow-up updates, handoffs, summaries, and internal sales workflows.",
+  "intro": "OnePageCRM helps small businesses track leads, contacts, and next follow-up actions in a simple CRM. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read from and act in OnePageCRM. That means a support or internal team agent can answer questions, update CRM records, prepare handoffs, and trigger approved workflows without making your team do every step manually.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact or company in OnePageCRM and summarize recent notes, status, and next steps while replying in chat or over helpdesk tickets.",
+    "Use the agent to capture new lead details from a website conversation and create a OnePageCRM contact record for sales follow-up.",
+    "Allow the agent to add notes from a support conversation into the matching OnePageCRM contact so sales and success teams see the latest context.",
+    "Have the agent update approved fields such as lead status, follow-up date, or ownership after confirming the customer's request or intent.",
+    "Enable the agent to prepare a clean handoff summary from a support chat and save it to OnePageCRM for a salesperson or account owner to review later."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find contacts, companies, deal context, and next actions stored in OnePageCRM.",
+    "Help sales or customer success teams ask the agent to create contacts, log call notes, and update follow-up tasks in OnePageCRM without leaving chat.",
+    "Allow employees to request account summaries that combine OnePageCRM activity, open follow-ups, and recent notes before a meeting or renewal call.",
+    "Use an internal agent to guide reps through lead qualification or follow-up SOPs and then record the approved updates directly in OnePageCRM.",
+    "Enable managers to ask the agent for pipeline or follow-up summaries based on OnePageCRM records so they can spot stalled opportunities and coach the team faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates OnePageCRM contacts from qualified website conversations.",
+    "A sales assistant that retrieves contact history and summarizes next follow-up actions.",
+    "An internal agent that logs meeting notes into OnePageCRM from Slack requests.",
+    "A handoff workflow that saves support conversation summaries to the right CRM record.",
+    "A follow-up assistant that updates lead status and ownership after approval.",
+    "A meeting prep agent that summarizes contacts, notes, and pending actions before calls."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with OnePageCRM, such as looking up contacts, creating leads, updating follow-up details, or preparing handoff summaries, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder asks for any missing business context, chooses the safest workflow design, defines the required configuration values, and plans how the agent should use OnePageCRM within clear action limits."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection planning by defining authentication needs, protecting and proxying secrets through secure runtime configuration, keeping credentials out of chats and Skill content, and scoping access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and safeguards",
+      "description": "Skill Builder adds appropriate approval boundaries and permission checks for sensitive updates so the agent can make safe lookups and bounded changes without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for OnePageCRM?",
+      "answer": "With DocsBot Skill Builder, you describe the OnePageCRM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use OnePageCRM data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved OnePageCRM contact or account information, summarize it for the conversation, and create or update records when your workflow allows it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with OnePageCRM?",
+      "answer": "You can automate lead capture, contact lookups, conversation summaries, CRM note creation, status updates, and handoff preparation so customer conversations move smoothly into your sales process."
+    },
+    {
+      "question": "Can an internal AI assistant update OnePageCRM for employees?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve CRM details, log notes, create contacts, update follow-up actions, and complete approved sales or success workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep OnePageCRM actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and source content, scopes permissions to the minimum needed access, and can add approval boundaries for sensitive CRM updates."
+    },
+    {
+      "question": "Can DocsBot create handoffs from support into OnePageCRM?",
+      "answer": "Yes, the agent can turn a customer conversation into a structured summary, attach the key details to the right OnePageCRM record, and prepare the next team member to follow up quickly."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "close",
+    "freshsales",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OnePage CRM",
+    "domain": "onepagecrm.com",
+    "description": "OnePageCRM is a simple and powerful CRM system designed for small businesses in consulting and professional services. It offers a productivity-focused follow-up system, a clutter-free interface, and robust features to drive business growth. Ideal for one-person businesses and small teams, OnePageCRM is a lightweight and easy-to-use tool for tracking leads, staying organized, and following up with contacts.",
+    "slogan": "Simple CRM for Ambitious Small Businesses",
+    "logoUrl": "https://media.brand.dev/25f1c4d1-6ffc-470d-832d-784d1912e9c3.svg",
+    "iconUrl": "https://media.brand.dev/4559c884-3eb9-40bf-8377-1d881d1aead3.png",
+    "primaryColor": "#241c1c",
+    "accentColor": "#fc9304",
+    "colors": [
+      {
+        "hex": "#241c1c",
+        "name": "Dark Orchestra"
+      },
+      {
+        "hex": "#fc9304",
+        "name": "Tangerine"
+      },
+      {
+        "hex": "#fcbe64",
+        "name": "Sea Buckthorn"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/301fc3d9-cb84-464a-9f08-4c110c7fbc39.png",
+    "industries": [],
+    "links": {
+      "careers": "https://onepagecrm.com/careers/",
+      "terms": "https://onepagecrm.com/terms/",
+      "contact": "https://onepagecrm.com/contact/",
+      "privacy": "https://onepagecrm.com/privacy/",
+      "blog": "https://onepagecrm.com/blog/",
+      "pricing": "https://onepagecrm.com/crm-pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/39adec0e-83bf-4435-b3f6-818036801bb3.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/25f1c4d1-6ffc-470d-832d-784d1912e9c3.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 170,
+        "height": 41,
+        "aspectRatio": 4.15
+      },
+      {
+        "url": "https://media.brand.dev/4559c884-3eb9-40bf-8377-1d881d1aead3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 528,
+        "height": 528,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/25f1c4d1-6ffc-470d-832d-784d1912e9c3.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 170,
+      "height": 41,
+      "aspectRatio": 4.15
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/39adec0e-83bf-4435-b3f6-818036801bb3.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

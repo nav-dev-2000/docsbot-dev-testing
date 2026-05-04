@@ -1,0 +1,148 @@
+{
+  "slug": "help-scout-docs",
+  "name": "Help Scout Docs",
+  "domain": "help-scout-docs.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Help Scout Docs",
+  "metaTitle": "Help Scout Docs AI Agents for Support and Internal Teams",
+  "metaDescription": "Build DocsBot AI agents that use Help Scout Docs to answer questions, find articles, summarize knowledge, and support safe support workflows.",
+  "intro": "Help Scout Docs gives teams a structured knowledge base for self-service support and internal documentation. With DocsBot Skill Builder, you can describe the Help Scout Docs workflow you want in plain language and have DocsBot create a reusable Skill for your support bot or internal AI agent. That lets your agent look up knowledge, summarize guidance, suggest next steps, and support handoffs with secure, bounded actions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Help Scout Docs articles and return the most relevant answer snippets while chatting with website visitors or replying to support tickets.",
+    "Use the agent to summarize one or more Help Scout Docs articles into a clear customer-friendly answer tailored to the question being asked.",
+    "Have the agent compare multiple Help Scout Docs entries to reduce conflicting guidance and present the best approved troubleshooting path.",
+    "Enable the agent to identify knowledge gaps during a support conversation and prepare a handoff summary that references the Help Scout Docs content already reviewed.",
+    "Use the agent to suggest related Help Scout Docs articles, setup guides, or policy pages when a customer needs deeper self-service help beyond the first answer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to search Help Scout Docs and retrieve the best internal or customer-facing guidance for a case.",
+    "Enable support managers and success teams to ask the agent for a summary of Help Scout Docs coverage on a topic before updating macros, workflows, or escalation playbooks.",
+    "Help onboarding and training teams use an internal AI agent to answer process questions from Help Scout Docs and turn long articles into short step-by-step instructions.",
+    "Allow operations or support leads to chat with the agent to identify duplicate, outdated, or conflicting Help Scout Docs content and prepare a review summary for knowledge owners.",
+    "Support internal SOP workflows where employees ask the agent what policy or troubleshooting path applies, and the agent uses Help Scout Docs content to guide the next approved step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support bot that searches Help Scout Docs and answers with cited article guidance.",
+    "A private team assistant that summarizes long Help Scout Docs articles into actionable support steps.",
+    "A knowledge triage Skill that finds related Help Scout Docs content before escalating a ticket.",
+    "An agent workflow that prepares customer handoff notes based on Help Scout Docs articles already reviewed.",
+    "A DocsBot Skill that compares multiple Help Scout Docs pages and highlights the best answer.",
+    "An internal assistant that turns Help Scout Docs policies into quick-reference answers for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Help Scout Docs, such as finding articles, summarizing guidance, or preparing handoff notes, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Help Scout Docs access, users, actions, and knowledge workflows required, and adds approval boundaries when a workflow should stay review-only or require confirmation."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for weak answers, permission gaps, or workflow issues, and captures improvements before launch."
+    },
+    {
+      "title": "The Skill improves itself",
+      "description": "Skill Builder feeds test findings into an automated self-improvement loop so the Skill can refine instructions, edge cases, and safety checks before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Help Scout Docs for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as searching articles, summarizing answers, or suggesting related documentation, and Skill Builder creates a reusable Skill for your customer-facing bot or helpdesk agent. It also defines secure connection handling, scopes access, and tests support scenarios before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Help Scout Docs data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use Help Scout Docs content to find relevant articles, summarize approved guidance, and respond with more precise self-service answers. The workflow can be limited to safe read-oriented actions and tested against realistic support conversations."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Help Scout Docs?",
+      "answer": "DocsBot can help automate article lookups, answer summaries, related content suggestions, escalation preparation, and knowledge-based handoff notes. These workflows help the agent move from answering questions to taking the next approved support action."
+    },
+    {
+      "question": "Can I create an internal AI assistant that searches Help Scout Docs for employees?",
+      "answer": "Yes, teams can deploy a private DocsBot agent in chat, Slack, or Microsoft Teams so employees can ask questions and retrieve the most relevant Help Scout Docs guidance quickly. This is useful for support operations, onboarding, and SOP reinforcement."
+    },
+    {
+      "question": "How does DocsBot keep Help Scout Docs connections secure?",
+      "answer": "Skill Builder identifies the required configuration values, protects and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated content. It also scopes permissions and can add approval limits or review-only boundaries where needed."
+    },
+    {
+      "question": "Can DocsBot summarize multiple Help Scout Docs articles into one answer?",
+      "answer": "Yes, a Skill can be designed to compare several Help Scout Docs pages and produce a concise answer, summary, or troubleshooting path for either customers or employees. This is helpful when information is spread across multiple articles or needs simpler phrasing."
+    }
+  ],
+  "relatedSlugs": [
+    "helpscout",
+    "zendesk-guide",
+    "intercom-articles",
+    "document360",
+    "guru",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Help Scout",
+    "domain": "docs.helpscout.com",
+    "description": "Help Scout is a customer support platform that provides businesses with tools to manage email, live chat, and knowledge base interactions in one unified inbox. Their suite includes Inbox for email collaboration, Beacon for on‑site chat and proactive messaging, and Docs for self‑service knowledge bases. Help Scout also offers robust account management features such as permissions, two‑factor authentication, SSO, and billing controls, as well as reporting and analytics. The platform integrates with popular CRM, e‑commerce, marketing, and communication apps, and supports custom integrations via its API. Designed for teams of any size, Help Scout helps companies deliver personalized, efficient customer service while empowering customers to help themselves.",
+    "slogan": "Delight customers with Inbox, Beacon, and Docs support",
+    "logoUrl": "https://media.brand.dev/1db27d86-1919-4031-8623-f2c7736c3a09.png",
+    "iconUrl": "https://media.brand.dev/1db27d86-1919-4031-8623-f2c7736c3a09.png",
+    "primaryColor": "#3750dc",
+    "accentColor": "#94a4ec",
+    "colors": [
+      {
+        "hex": "#3750dc",
+        "name": "Veteran’s Day Blue"
+      },
+      {
+        "hex": "#94a4ec",
+        "name": "Cold Lips"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://docs.helpscout.com/category/74-copying-email-to-help-scout",
+      "pricing": "https://docs.helpscout.com/category/1559-reports"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1db27d86-1919-4031-8623-f2c7736c3a09.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1db27d86-1919-4031-8623-f2c7736c3a09.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 152,
+      "height": 152,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1db27d86-1919-4031-8623-f2c7736c3a09.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 152,
+      "height": 152,
+      "aspectRatio": 1
+    }
+  }
+}

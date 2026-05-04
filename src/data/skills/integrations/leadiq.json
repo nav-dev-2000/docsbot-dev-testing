@@ -1,0 +1,172 @@
+{
+  "slug": "leadiq",
+  "name": "LeadIQ",
+  "domain": "leadiq.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with LeadIQ",
+  "metaTitle": "Build AI Agents for LeadIQ with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LeadIQ for safe lookups, enrichment workflows, handoffs, and internal sales operations with Skill Builder.",
+  "intro": "LeadIQ helps teams find prospect data, track buying signals, and enrich sales records, which makes it useful for both revenue workflows and support-adjacent handoffs. With DocsBot Skill Builder, you can describe the LeadIQ-powered agent behavior you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support or internal team agent that can answer questions, retrieve LeadIQ data, trigger approved workflows, and prepare clean next steps instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up account or prospect context in LeadIQ and summarize relevant sales intelligence before preparing a handoff to sales or customer success.",
+    "Let a helpdesk-connected DocsBot agent gather buying-signal or contact-enrichment context from LeadIQ so support teams can route expansion, renewal, or partnership inquiries to the right revenue owner.",
+    "Enable the agent to create structured lead-capture summaries from customer conversations and send approved follow-up details into LeadIQ-linked workflows for sales review.",
+    "Have the agent verify and summarize available company or contact details from LeadIQ while responding to inbound demo, pricing, or enterprise inquiry tickets.",
+    "Allow the agent to prepare escalation notes that combine the customer's request with LeadIQ prospect insights, helping sales or success teams continue the conversation without requalification."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up LeadIQ prospect and company details, summarize buying signals, and prepare outreach-ready research without leaving Slack, Teams, or the internal chat interface.",
+    "Enable sales and RevOps teams to ask the agent to enrich records, check contact coverage, and draft next-step summaries that follow internal workflow rules.",
+    "Give SDRs an internal AI assistant that can gather LeadIQ context, generate account research briefs, and create clean handoff notes for account executives or customer success managers.",
+    "Allow revenue teams to chat with the agent to review pipeline-generation inputs, identify missing enrichment data, and complete standard prospecting SOPs faster.",
+    "Support internal operations by letting employees ask the agent for LeadIQ-based lead research, territory preparation notes, and approved workflow triggers tied to sales processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes LeadIQ prospect data before routing enterprise inquiries.",
+    "A support-to-sales handoff Skill that packages customer intent with LeadIQ enrichment context.",
+    "An internal sales assistant that retrieves buying signals and drafts account research briefs.",
+    "A RevOps Skill that checks record completeness and suggests approved enrichment follow-ups.",
+    "An AI workflow that prepares outreach notes from LeadIQ data and conversation history.",
+    "A lead-qualification assistant that structures inbound requests for sales review and assignment."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LeadIQ-powered agent to do, such as enrich inbound lead context, prepare handoffs, or summarize prospect data, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right workflow, identifies the required configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes LeadIQ access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets appropriate approval boundaries and safe action limits so sensitive updates, workflow triggers, or record changes only happen within the rules you approve."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and records what should improve."
+    },
+    {
+      "title": "DocsBot improves the Skill",
+      "description": "Skill Builder uses those test findings to refine instructions, strengthen guardrails, and improve the LeadIQ workflow before deployment so the agent is more reliable on day one."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LeadIQ?",
+      "answer": "With DocsBot Skill Builder, you describe the LeadIQ workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to your support or internal agent. The finished agent can perform bounded lookups, summaries, handoffs, and approved actions based on your rules."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use LeadIQ data during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use a LeadIQ Skill to retrieve relevant prospect or company context while responding in a chat widget or helpdesk flow. That can help the agent qualify requests, prepare escalations, and route high-value conversations with better context."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LeadIQ?",
+      "answer": "A DocsBot agent can summarize inbound sales-related inquiries, look up available prospect intelligence, prepare support-to-sales handoff notes, and trigger approved follow-up workflows. This helps teams respond faster while keeping lead context consistent across conversations."
+    },
+    {
+      "question": "Can an internal AI assistant help sales teams use LeadIQ more effectively?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve LeadIQ insights, review contact coverage, generate research briefs, and complete prospecting or RevOps SOPs. This reduces tab-switching and makes sales information easier to use in daily workflows."
+    },
+    {
+      "question": "How does DocsBot handle LeadIQ credentials and secure access?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chats and generated Skill content, and proxies authentication through secure runtime configuration. It also scopes permissions and action limits so the agent only accesses the LeadIQ data and workflows you allow."
+    },
+    {
+      "question": "Can I control which LeadIQ actions an AI agent is allowed to perform?",
+      "answer": "Yes, DocsBot Skills can be designed with bounded permissions, approval steps, and workflow limits for sensitive actions. That means you can allow simple lookups and summaries broadly while requiring tighter controls for updates or triggered workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "apollo",
+    "outreach",
+    "salesloft",
+    "gong"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LeadIQ",
+    "domain": "leadiq.com",
+    "description": "LeadIQ is a platform that empowers sellers and RevOps through efficient pipeline generation and automated CRM enrichment. They offer B2B sales prospecting tools to find prospect data, track buying signals, and personalize cold outreach for outbound prospecting, accelerating pipeline generation with agile contact data, workflows, and AI-driven email generation.",
+    "slogan": "Empowering sales with efficient pipeline generation and automated prospecting tools.",
+    "logoUrl": "https://media.brand.dev/8c705d7e-08d8-42fc-bc52-7fbb2ac0e5e4.svg",
+    "iconUrl": "https://media.brand.dev/2d1e022c-eba2-44cd-a851-8078a2df5244.png",
+    "primaryColor": "#05d384",
+    "accentColor": "#7ce6c6",
+    "colors": [
+      {
+        "hex": "#05d384",
+        "name": "Underwater Fern"
+      },
+      {
+        "hex": "#7ce6c6",
+        "name": "Shimmering Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/765f69f3-6eb4-41d1-8196-24909eedde87.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://leadiq.com/careers",
+      "terms": "https://leadiq.com/legal/terms-of-use",
+      "privacy": "https://leadiq.com/privacy-center",
+      "blog": "https://leadiq.com/blog",
+      "pricing": "https://leadiq.com/pricing",
+      "contact": "https://leadiq.com/book-a-demo"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a3d5e9a1-ba5b-4ac7-a84a-07c928bd2a58.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8c705d7e-08d8-42fc-bc52-7fbb2ac0e5e4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 128,
+        "height": 37,
+        "aspectRatio": 3.46
+      },
+      {
+        "url": "https://media.brand.dev/2d1e022c-eba2-44cd-a851-8078a2df5244.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/70f3d18b-e16f-4296-8fa8-a535535083c5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8c705d7e-08d8-42fc-bc52-7fbb2ac0e5e4.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 128,
+      "height": 37,
+      "aspectRatio": 3.46
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a3d5e9a1-ba5b-4ac7-a84a-07c928bd2a58.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

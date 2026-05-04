@@ -1,0 +1,176 @@
+{
+  "slug": "n-able-n-central",
+  "name": "N-able N-central",
+  "domain": "n-able-n-central.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with N-able N-central",
+  "metaTitle": "Build AI Agents for N-able N-central with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use N-able N-central for safe lookups, alerts, ticket prep, workflow triggers, and internal IT operations support.",
+  "intro": "N-able N-central helps MSPs and IT teams monitor, manage, and secure client systems at scale. With DocsBot Skill Builder, you can describe the N-able N-central workflow you want in plain language, and DocsBot can turn it into a reusable AI Skill for customer support or private internal agents. That gives your team an AI agent that can answer questions, look up device or alert status, prepare handoffs, and take bounded actions inside approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of monitored devices, services, or known incidents in N-able N-central while answering support questions.",
+    "Use the agent to summarize active alerts, outage context, or remediation progress from N-able N-central before replying to a helpdesk ticket.",
+    "Allow the agent to create a structured escalation handoff for your support or NOC team with relevant N-able N-central device details and recent alert history.",
+    "Enable the agent to trigger approved follow-up workflows, such as notifying the right team or starting a remediation playbook, based on N-able N-central conditions.",
+    "Have the agent gather missing context from the customer, combine it with N-able N-central monitoring data, and prepare a clean next-step summary for human review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve N-able N-central device health, alert, and monitoring information without logging into multiple consoles.",
+    "Help service desk or NOC teams ask the agent to summarize client environment issues, recent alert patterns, and likely escalation paths using N-able N-central data.",
+    "Allow internal teams to use the agent to follow SOPs that gather device status, identify impacted assets, and prepare incident notes or customer-ready summaries.",
+    "Enable operations staff to chat with the agent to trigger approved workflows, assign follow-up tasks, or create handoff artifacts based on N-able N-central events.",
+    "Support employee research by having the agent combine internal documentation with live N-able N-central context to recommend the next approved troubleshooting step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks monitored device status before replying to customer tickets.",
+    "A private IT assistant that summarizes active N-able N-central alerts across client environments.",
+    "An escalation helper that prepares incident handoff notes with device details and alert timelines.",
+    "A workflow Skill that routes urgent monitoring events to the right support team.",
+    "An internal SOP assistant that gathers device context and drafts customer-ready update messages.",
+    "A bounded action Skill that starts approved remediation or notification workflows after review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with N-able N-central in plain language, such as checking device health, summarizing alerts, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum N-able N-central records, actions, users, and systems required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant with the right runtime controls in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for N-able N-central?",
+      "answer": "With DocsBot Skill Builder, you describe the N-able N-central workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The resulting agent can perform safe lookups, summaries, handoffs, and approved actions inside your defined boundaries."
+    },
+    {
+      "question": "Can an AI support agent use N-able N-central data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use N-able N-central context to look up device status, summarize alerts, gather troubleshooting details, and prepare escalations while responding to customer conversations. You control what data and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with N-able N-central?",
+      "answer": "Teams can build workflows for live monitoring lookups, outage context summaries, escalation prep, remediation handoffs, and approved notification or follow-up triggers. This helps agents resolve questions faster without switching systems manually."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside N-able N-central?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve monitoring information, summarize incidents, follow troubleshooting SOPs, and trigger approved internal workflows from chat, Slack, or Microsoft Teams. This is useful for service desk, NOC, and operations teams that need fast answers and consistent processes."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting to N-able N-central?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also scopes access to only the records and actions needed and can require approval for sensitive operations."
+    },
+    {
+      "question": "Can DocsBot trigger actions in N-able N-central instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoffs, starting approved workflows, or triggering follow-up processes based on N-able N-central conditions. Approval steps and safe limits can be added wherever your team wants extra control."
+    }
+  ],
+  "relatedSlugs": [
+    "connectwise-automate",
+    "datto-rmm",
+    "pagerduty",
+    "servicenow",
+    "zendesk",
+    "freshservice"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "N-able",
+    "domain": "n-able.com",
+    "description": "N-able Technologies is a leading provider of IT management and automation solutions tailored for managed service providers (MSPs). The company empowers IT services providers with robust software tools designed to monitor, manage, and secure a wide array of systems, data, and networks for their clients. With a focus on simplifying complex IT ecosystems, N-able offers a scalable and secure platform along with essential resources to help partners navigate their evolving IT landscape. Their suite of best-in-class solutions includes Remote Monitoring & Management, Data Protection, and Security offerings that enable partners to excel at every stage of growth, safeguard their customers, and enhance their service portfolios with a diverse range of integrations from top technology providers.",
+    "slogan": "Empowering IT providers with powerful software and seamless management solutions.",
+    "logoUrl": "https://media.brand.dev/0b888c18-7ad7-48c7-8c4d-58a1d8942fb0.png",
+    "iconUrl": "https://media.brand.dev/fa5b2b88-182c-47f2-878f-ab31757e5ceb.png",
+    "primaryColor": "#cb7af0",
+    "accentColor": "#949494",
+    "colors": [
+      {
+        "hex": "#cb7af0",
+        "name": "Fake Love"
+      },
+      {
+        "hex": "#949494",
+        "name": "Grey Shingle"
+      },
+      {
+        "hex": "#343434",
+        "name": "Jet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8248b0f7-818d-4c3b-9d3b-61e957729cf6.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.n-able.com/",
+      "terms": "https://n-able.com/legal/terms-of-use",
+      "contact": "https://n-able.com/contact",
+      "privacy": "https://n-able.com/legal/privacy",
+      "blog": "https://n-able.com/blog",
+      "pricing": "https://n-able.com/resources/cybersecurity-incident-response-plan"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0b888c18-7ad7-48c7-8c4d-58a1d8942fb0.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 640,
+        "height": 484,
+        "aspectRatio": 1.32
+      },
+      {
+        "url": "https://media.brand.dev/fa5b2b88-182c-47f2-878f-ab31757e5ceb.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/01c1ff63-df7c-4fdc-8c9d-90565fd22089.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fb492131-f47a-4208-b7a2-cc5e0819aa05.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0b888c18-7ad7-48c7-8c4d-58a1d8942fb0.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 640,
+      "height": 484,
+      "aspectRatio": 1.32
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fa5b2b88-182c-47f2-878f-ab31757e5ceb.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

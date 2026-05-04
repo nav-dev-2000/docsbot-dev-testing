@@ -1,0 +1,177 @@
+{
+  "slug": "zoominfo-scim",
+  "name": "ZoomInfo SCIM",
+  "domain": "zoominfo.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with ZoomInfo SCIM",
+  "metaTitle": "Build AI Agents for ZoomInfo SCIM with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use ZoomInfo SCIM for identity lookups, access workflows, internal requests, and support handoffs.",
+  "intro": "ZoomInfo SCIM helps organizations manage identity and access data connected to their ZoomInfo environment. With DocsBot Skill Builder, you can describe the workflow you want in plain language and have DocsBot create a secure reusable Skill that lets a support or internal AI agent look up account access details, prepare handoffs, and trigger approved identity-related workflows. This helps teams move faster with AI agents that do more than answer questions by taking safe, bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether an account access request should be routed to the right team and prepare a complete support handoff with the relevant ZoomInfo identity context.",
+    "Use a helpdesk-connected DocsBot agent to summarize user provisioning or deprovisioning status from ZoomInfo SCIM data while replying to customer tickets.",
+    "Enable the agent to collect missing details from a customer about login or access issues, then create an approved internal follow-up workflow tied to the correct user record.",
+    "Let the agent confirm whether a customer contact appears to be associated with an active managed identity record before escalating an account access case.",
+    "Use the agent to generate a concise access-related case summary for human support teams, including the user details and next approved steps based on ZoomInfo SCIM information."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up ZoomInfo user identity status, provisioning details, or access context without opening admin tools.",
+    "Enable operations or IT teams to ask the agent to prepare onboarding, offboarding, or access review workflows using ZoomInfo SCIM data and company rules.",
+    "Help support managers and revenue operations employees research whether a teammate has the right ZoomInfo access and generate a handoff or approval request when changes are needed.",
+    "Allow internal teams to use the agent to summarize identity changes, pending follow-ups, or account access exceptions across ZoomInfo-related workflows.",
+    "Give employees an AI assistant that follows SOPs for identity administration by gathering details, checking records, and guiding or triggering the next approved action."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up ZoomInfo user provisioning status during support conversations.",
+    "A private assistant that prepares onboarding and offboarding requests using ZoomInfo SCIM records.",
+    "A support Skill that gathers login issue details and drafts an internal escalation summary.",
+    "An internal agent that checks identity attributes before routing an access change request.",
+    "A workflow assistant that creates approval-ready handoffs for ZoomInfo access administration.",
+    "An AI agent that summarizes SCIM record status for managers and operations teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with ZoomInfo SCIM in plain language, such as checking identity status, preparing access handoffs, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and defines how the agent should safely look up data or take bounded action."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and secret management through secure runtime configuration, keeps credentials out of chats and Skill content, and proxies sensitive connection details by design."
+    },
+    {
+      "title": "Permissions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and adds approval boundaries wherever a sensitive ZoomInfo access workflow should not run automatically."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ZoomInfo SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and Skill Builder creates a secure Skill that lets your AI agent look up identity data, summarize status, route requests, and trigger approved workflows around ZoomInfo SCIM."
+    },
+    {
+      "question": "Can an AI support agent use ZoomInfo SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a ZoomInfo SCIM Skill to retrieve approved identity context, summarize provisioning state, gather missing details, and prepare escalations or handoffs while responding to customers."
+    },
+    {
+      "question": "What can an internal AI assistant do with ZoomInfo SCIM?",
+      "answer": "An internal DocsBot agent can help employees check user access status, research provisioning questions, prepare onboarding or offboarding actions, and follow identity administration SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger access-related workflows with ZoomInfo SCIM?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect authentication details, and add approval boundaries so the agent only performs the ZoomInfo SCIM actions you explicitly allow."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation summaries from ZoomInfo SCIM information?",
+      "answer": "Yes, the agent can gather relevant identity details, summarize current status, and generate a clean handoff for IT, support, or operations teams so cases move faster and with better context."
+    },
+    {
+      "question": "How does setup work for non-technical teams using ZoomInfo SCIM with DocsBot?",
+      "answer": "You do not need to manually design the integration flow. Skill Builder asks for missing context, chooses a safer workflow design, handles secure configuration, tests the Skill, improves it, and helps deploy it to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "microsoft-entra-id",
+    "onelogin",
+    "jumpcloud",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ZoomInfo",
+    "domain": "zoominfo.com",
+    "description": "ZoomInfo Technologies Inc. is a go-to-market intelligence and engagement platform provider that helps sales and marketing teams identify target customers, decision makers, and grow their pipeline. The company's cloud-based platform provides real-time B2B contact and company information, insights, and technology to businesses worldwide, serving various industry verticals. With a focus on data accuracy, privacy, and security, ZoomInfo supports enterprises, mid-market companies, and small businesses in accelerating sales and marketing growth.",
+    "slogan": "How Business Goes to Market",
+    "logoUrl": "https://media.brand.dev/268d53b3-4f9c-4c19-958f-6a049d58531c.svg",
+    "iconUrl": "https://media.brand.dev/b19b9c63-fd9a-4006-8ff5-739f96204743.png",
+    "primaryColor": "#ec1c14",
+    "accentColor": "#f48480",
+    "colors": [
+      {
+        "hex": "#ec1c14",
+        "name": "Prehistoric Meteor"
+      },
+      {
+        "hex": "#f48480",
+        "name": "Shell Pink"
+      },
+      {
+        "hex": "#f4443c",
+        "name": "Flamboyant"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ed0203b4-0186-4f8e-8483-db8589dd65df.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.zoominfo.com/careers",
+      "terms": "https://www.zoominfo.com/legal/terms-of-use",
+      "contact": "https://www.zoominfo.com/features/contact-company-search",
+      "privacy": "https://www.zoominfo.com/legal/privacy-policy",
+      "blog": "https://www.zoominfo.com/newsroom",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.zoominfo.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b19b9c63-fd9a-4006-8ff5-739f96204743.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6ef079db-a8c1-4a33-99e2-5347d767dae7.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/553ce35b-cad5-42c9-b741-e02484bda2f3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/268d53b3-4f9c-4c19-958f-6a049d58531c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 129,
+        "height": 35,
+        "aspectRatio": 3.69
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/268d53b3-4f9c-4c19-958f-6a049d58531c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 129,
+      "height": 35,
+      "aspectRatio": 3.69
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6ef079db-a8c1-4a33-99e2-5347d767dae7.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 64,
+      "height": 64,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "bombora",
+  "name": "Bombora",
+  "domain": "bombora.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Bombora Intent Data",
+  "metaTitle": "Build AI Agents for Bombora with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Bombora data for support and internal workflows, with secure lookups, summaries, handoffs, and approved actions.",
+  "intro": "Bombora helps teams understand company research behavior and buying intent across the B2B ecosystem. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Bombora data in support conversations or internal team workflows. The result is an AI agent that can answer questions, enrich context, prepare handoffs, and trigger approved next steps instead of only giving static responses.",
+  "supportUseCases": [
+    "Use Bombora intent signals during a customer chat or helpdesk reply to identify likely account interests and tailor the response to the customer’s product evaluation stage.",
+    "Summarize company-level research activity from Bombora so the support agent can prepare a higher-context handoff for sales or customer success when a conversation shows expansion potential.",
+    "Look up Bombora audience or intent context while responding to an inbound request and generate a concise internal note for follow-up teams.",
+    "Detect when a support conversation suggests buying interest and trigger an approved handoff workflow that routes the account to the right revenue team with a summary of the interaction.",
+    "Enrich ticket context with Bombora company insights so the agent can prioritize responses, suggest next-best actions, and explain why a follow-up may deserve escalation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up Bombora intent data for target accounts, summarize research behavior, and prepare outreach or account plans faster.",
+    "Sales, marketing, and customer success teams can ask the agent to compare intent trends across companies and return a simple summary for pipeline reviews or campaign planning.",
+    "Revenue operations teams can use the agent in Slack or Microsoft Teams to gather Bombora context, generate account briefs, and trigger downstream routing or alert workflows.",
+    "Employees can ask the agent to combine Bombora insights with internal SOPs so it can recommend the correct follow-up path for inbound leads, renewals, or expansion opportunities.",
+    "Team members can use a private AI assistant to research account interest signals, prepare meeting notes, and create standardized handoff summaries without switching between tools."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that flags sales-ready conversations using Bombora intent signals.",
+    "A private revenue assistant that summarizes company research behavior for account teams.",
+    "A ticket enrichment Skill that adds Bombora context before human escalation.",
+    "An internal agent that prepares account briefs from Bombora intent and identity data.",
+    "A routing Skill that sends high-intent accounts to the right follow-up team.",
+    "A sales assistant that generates outreach talking points based on Bombora trends."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Bombora in plain language, and it translates that goal into a reusable Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the configuration values needed, protects and proxies secrets through approved runtime settings, and scopes Bombora access to the minimum data and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds clear action boundaries, user scoping, and approval steps for sensitive workflows so the agent can enrich, summarize, route, or trigger follow-up actions without overreaching."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The built-in testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "The Skill improves and deploys",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Bombora data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as account research, intent-based routing, or ticket enrichment, and Skill Builder creates the Skill with the secure connection, instructions, and action boundaries needed. The finished agent can then use Bombora data for lookups, summaries, handoffs, and other approved workflows."
+    },
+    {
+      "question": "Can an AI support agent use Bombora intent data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Bombora data to enrich account context, identify likely interests, and prepare smarter handoffs while replying in a website chat or helpdesk flow. You control what the agent is allowed to look up, summarize, or trigger."
+    },
+    {
+      "question": "What Bombora workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees research target accounts, summarize intent patterns, prepare account briefs, generate follow-up notes, and trigger approved routing or notification workflows. This gives revenue, marketing, and operations teams faster access to Bombora insights inside chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely limit what an AI agent does in Bombora-related workflows?",
+      "answer": "Yes, Skill Builder is designed to create Skills with scoped permissions, secure secret handling, and approval boundaries for sensitive actions. That means the agent can work within the records, users, and workflow limits you define instead of having broad uncontrolled access."
+    },
+    {
+      "question": "Can an AI agent use Bombora data to improve sales and customer success handoffs?",
+      "answer": "Yes, the agent can turn Bombora intent and company context into concise handoff summaries, account notes, and next-step recommendations for downstream teams. This helps sales and customer success teams act faster with more context and less manual research."
+    },
+    {
+      "question": "What does setup look like for a Bombora AI agent in DocsBot?",
+      "answer": "You explain what you want the agent to accomplish, and Skill Builder handles the design, secure configuration, authentication approach, testing, improvement, and deployment details. Non-technical teams can focus on the workflow outcome rather than manually wiring the integration."
+    }
+  ],
+  "relatedSlugs": [
+    "zoominfo",
+    "6sense",
+    "clearbit",
+    "hubspot",
+    "salesforce",
+    "gong"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bombora",
+    "domain": "bombora.com",
+    "description": "Bombora is a B2B data pioneer that connects the B2B ecosystem through its unique Data Co-op, comprising leading publishers, brand websites, and premium data providers. Leveraging AI models, Bombora creates a holistic view of company research behavior, enabling brands, agencies, and publishers to identify and reach their prospects and customers. Bombora provides intent, identity, audience, and campaign measurement solutions, accessible within various MarTech, RevTech, SalesTech, and AdTech solutions, helping businesses drive growth and connect with potential buyers.",
+    "slogan": "Connecting B2B Data for Smarter Marketing and Sales Decisions",
+    "logoUrl": "https://media.brand.dev/51934111-bd00-470d-b539-0bd8f7e7b856.png",
+    "iconUrl": "https://media.brand.dev/91cfe3ed-9f42-4e55-91c7-9325116ac63f.png",
+    "primaryColor": "#dc863b",
+    "accentColor": "#dfa979",
+    "colors": [
+      {
+        "hex": "#dc863b",
+        "name": "Dull Orange"
+      },
+      {
+        "hex": "#dfa979",
+        "name": "Thai Ice Tea"
+      },
+      {
+        "hex": "#2a949a",
+        "name": "Java"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7be5b439-a0fc-4213-83ae-822a9fb89dd0.png",
+    "industries": [],
+    "links": {
+      "careers": "https://bombora.com/careers/",
+      "terms": "https://bombora.com/terms/",
+      "contact": "https://bombora.com/contact-us/",
+      "privacy": "https://bombora.com/privacy-philosophy/",
+      "blog": "https://bombora.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/519287db-b27f-46bf-8e5b-ec092dacc1c2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d8522f8c-5323-4eb4-ab0f-24dcf91cb4ff.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 410,
+        "height": 512,
+        "aspectRatio": 0.8
+      },
+      {
+        "url": "https://media.brand.dev/51934111-bd00-470d-b539-0bd8f7e7b856.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 824,
+        "height": 140,
+        "aspectRatio": 5.89
+      },
+      {
+        "url": "https://media.brand.dev/91cfe3ed-9f42-4e55-91c7-9325116ac63f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/51934111-bd00-470d-b539-0bd8f7e7b856.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 824,
+      "height": 140,
+      "aspectRatio": 5.89
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/519287db-b27f-46bf-8e5b-ec092dacc1c2.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

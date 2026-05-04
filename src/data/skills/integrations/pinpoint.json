@@ -1,0 +1,168 @@
+{
+  "slug": "pinpoint",
+  "name": "Pinpoint",
+  "domain": "pinpoint.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Pinpoint Recruiting Workflows",
+  "metaTitle": "Build Pinpoint AI Agents for Recruiting and Support Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely work with Pinpoint data, recruiting workflows, candidate updates, and internal hiring support actions.",
+  "intro": "Pinpoint helps teams manage recruiting and hiring workflows, and DocsBot Skill Builder helps you turn those workflows into safe AI agent actions. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill your DocsBot agent uses to look up hiring data, update records, prepare handoffs, and trigger approved steps. This makes it easier to support candidates, assist hiring teams, and automate routine recruiting work through customer-facing or internal AI agents.",
+  "supportUseCases": [
+    "A DocsBot support agent can look up a candidate or application status in Pinpoint and give an approved, policy-safe progress update in chat or over a helpdesk ticket.",
+    "A customer-facing agent can collect missing applicant details, summarize the conversation, and prepare a structured handoff for a recruiting or talent team to review in Pinpoint.",
+    "A support agent can create or update candidate notes in Pinpoint so hiring teams receive a clean record of candidate questions, concerns, or scheduling issues.",
+    "A DocsBot agent can trigger approved recruiting workflow steps after a candidate confirms information, helping move the case to the right hiring stage or owner.",
+    "A helpdesk-connected agent can summarize open candidate issues tied to a record in Pinpoint and draft a clear escalation for a recruiter or coordinator."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up candidate records, job details, hiring stages, and recruiter notes from Pinpoint without manually searching across systems.",
+    "Recruiting and operations teams can ask the agent to summarize pipeline activity, identify next steps, and prepare internal handoffs based on Pinpoint records.",
+    "Hiring teams can use the agent in Slack or Microsoft Teams to collect interview feedback context, update approved notes, and route follow-up tasks into the right recruiting workflow.",
+    "Employees can chat with the agent to follow hiring SOPs, such as confirming required application details, preparing recruiter-ready summaries, or escalating time-sensitive candidate issues.",
+    "Internal talent teams can use the agent to research the current state of a requisition or candidate journey and generate a concise update for recruiters, coordinators, or hiring managers."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate or application status and returns safe response guidance.",
+    "A recruiting assistant that writes candidate handoff summaries and updates approved Pinpoint notes.",
+    "An internal hiring agent that retrieves job and applicant context for recruiters in Slack.",
+    "A workflow assistant that routes candidate issues to the right recruiter or coordinator.",
+    "A private team agent that summarizes requisition progress and next actions from Pinpoint data.",
+    "A support agent that gathers missing applicant information before creating a structured escalation record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Pinpoint, such as checking application status, updating notes, or preparing recruiter handoffs, and Skill Builder turns that into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right workflow, identifies the configuration values it needs, sets up secure authentication handling, protects and proxies secrets, and scopes access to only the records, actions, and users required."
+    },
+    {
+      "title": "Approvals and action limits",
+      "description": "For sensitive recruiting steps, Skill Builder adds approval boundaries and safe action limits so the agent can assist with lookups, updates, and workflow triggers without exceeding the permissions you want it to have."
+    },
+    {
+      "title": "Automatic testing and improvement",
+      "description": "Skill Builder’s automated testing agent runs imagined customer support and internal hiring scenarios, finds bugs or weak spots, checks permission boundaries, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee agent so teams can start using Pinpoint actions through chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Pinpoint recruiting data?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting task you want in plain language, and it creates a Skill that can safely look up Pinpoint records, summarize hiring context, update approved fields, and trigger bounded workflow steps. Skill Builder also handles secure connection design, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Pinpoint to answer candidate status questions?",
+      "answer": "Yes, a DocsBot support agent can use a Pinpoint Skill to retrieve approved application or candidate status details and respond in a chat widget or helpdesk workflow. The actions can be limited to safe lookups and approved updates so candidate communications stay controlled."
+    },
+    {
+      "question": "What internal hiring workflows can a DocsBot AI assistant automate with Pinpoint?",
+      "answer": "An internal DocsBot agent can help recruiters and hiring teams retrieve candidate context, summarize requisition progress, create handoff notes, update approved records, and route next steps to the right owner. It can also guide employees through hiring SOPs inside chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update Pinpoint records or create recruiting handoffs safely?",
+      "answer": "DocsBot Skills can be designed for approved updates, note creation, escalation prep, and workflow triggers inside Pinpoint with clear boundaries. Skill Builder defines scoped permissions, protects secrets, and can require approvals for higher-sensitivity actions."
+    },
+    {
+      "question": "How does DocsBot keep Pinpoint authentication and secrets secure?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and Skill instructions. It also scopes access to the minimum records and actions needed for the workflow."
+    },
+    {
+      "question": "Can a private employee AI agent in Slack or Teams use Pinpoint?",
+      "answer": "Yes, a private DocsBot agent can help employees access Pinpoint information and complete approved recruiting tasks from chat, Slack, or Microsoft Teams. This is useful for recruiter support, hiring coordination, requisition research, and internal workflow execution."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "teamtailor"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Pinpoint",
+    "domain": "pinpoint.com",
+    "description": "LinkedIn is a global professional networking platform that connects individuals, businesses, and organizations to build and nurture career relationships. It offers tools for job searching, talent acquisition, skill development, and industry news, allowing users to showcase their experience, share insights, and discover opportunities. Through features like Open To Work, targeted job postings, learning courses, and community groups, LinkedIn helps members advance their careers, recruit top talent, and stay informed on market trends. The platform also provides businesses with branding, advertising, and analytics solutions to reach professional audiences.",
+    "slogan": "Collaborative workspace for notes, knowledge, and to-dos.",
+    "logoUrl": "https://media.brand.dev/691ef861-168b-4e93-aa60-fa3f6735baba.png",
+    "iconUrl": "https://media.brand.dev/691ef861-168b-4e93-aa60-fa3f6735baba.png",
+    "primaryColor": "#f8818f",
+    "accentColor": "#4d6d3d",
+    "colors": [
+      {
+        "hex": "#f8818f",
+        "name": "Camaron Pink"
+      },
+      {
+        "hex": "#4d6d3d",
+        "name": "Gully Green"
+      },
+      {
+        "hex": "#adb598",
+        "name": "Norwich Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f0326549-1120-4b21-a924-028bdce0c236.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7ec58b54-d59a-4e4f-9fa0-f8dd40fef1d2.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/691ef861-168b-4e93-aa60-fa3f6735baba.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f6637d72-a742-4f37-8430-f58de06b3547.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7ec58b54-d59a-4e4f-9fa0-f8dd40fef1d2.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7ec58b54-d59a-4e4f-9fa0-f8dd40fef1d2.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

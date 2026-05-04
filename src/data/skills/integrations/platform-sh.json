@@ -1,0 +1,144 @@
+{
+  "slug": "platform-sh",
+  "name": "Platform.sh",
+  "domain": "platform-sh.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Platform.sh and Upsun",
+  "metaTitle": "Platform.sh and Upsun AI Agent Integration with DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Platform.sh and Upsun data to answer questions, summarize environments, trigger approved workflows, and support internal teams safely.",
+  "intro": "Platform.sh, now branded as Upsun, helps teams build, test, preview, and deploy applications across cloud environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create an AI Skill that lets a support or internal agent safely look up platform details, summarize deployment state, and trigger approved actions. This helps customer-facing and internal AI agents move from answering questions to completing bounded work inside your delivery workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check application or environment status in Platform.sh and explain current deployment health during a support chat or ticket reply.",
+    "Use the agent to summarize recent deployment activity or environment details from Platform.sh so customers get a clearer status update without waiting for manual investigation.",
+    "Allow the agent to gather customer-reported issue details, look up the relevant project or environment in Platform.sh, and prepare a structured handoff for engineering or hosting teams.",
+    "Enable the agent to trigger approved diagnostics, notifications, or internal workflow steps tied to Platform.sh when a customer reports downtime, release issues, or environment instability.",
+    "Have the agent confirm whether a preview or test environment exists for a reported issue and provide a concise next-step summary to the customer and support team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Platform.sh project, environment, deployment, or status information without switching tools.",
+    "Operations and support teams can ask the agent to summarize recent release activity, investigate environment differences, and prepare incident notes using Platform.sh data.",
+    "Engineering and customer success teams can use the agent to follow internal SOPs for escalation, environment checks, release verification, and deployment communication.",
+    "Team members can ask the agent to trigger approved Platform.sh-related workflows, such as notifications, handoff creation, or post-deployment checklists, within defined approval boundaries.",
+    "Internal teams can use the agent to generate concise environment summaries, incident updates, and stakeholder-ready status messages based on Platform.sh activity and metadata."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Platform.sh environment status before answering outage or release questions.",
+    "An internal assistant that summarizes recent deployments across Upsun projects for support and operations teams.",
+    "A DocsBot Skill that prepares escalation handoffs with project, environment, and deployment context from Platform.sh.",
+    "An agent workflow that verifies preview environment availability for bug reports and customer issue reproduction.",
+    "A private AI assistant that follows deployment investigation SOPs and generates incident update summaries.",
+    "A bounded action flow that triggers approved notifications or checklists after Platform.sh deployment events are reviewed."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Platform.sh or Upsun in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, actions, projects, and environments needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive updates or workflow triggers so the agent can take helpful action without exceeding the rules you set."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, reference context, and any approved actions the DocsBot agent needs to look up data, summarize state, or trigger workflows."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Platform.sh or Upsun?",
+      "answer": "With DocsBot Skill Builder, you describe the Platform.sh workflow you want in plain language, such as checking environment status, summarizing deployments, or preparing escalations. Skill Builder then designs the Skill, secures the connection, tests the workflow, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Platform.sh data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Platform.sh Skill to retrieve approved environment or deployment information, summarize what is happening, and respond with clearer status updates. It can also prepare handoffs or trigger approved internal workflows when a customer issue needs escalation."
+    },
+    {
+      "question": "What Platform.sh workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve project and environment details, summarize deployment history, follow incident or release SOPs, and generate updates for teammates or customers. It can also perform bounded workflow steps such as notifications, handoff preparation, or checklist execution when those actions are approved."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Platform.sh deployments or environments?",
+      "answer": "Yes, DocsBot Skill Builder is designed to add safe action boundaries around any approved workflow, including scoped permissions, protected authentication handling, and approval steps for sensitive actions. That lets the agent take useful action without exposing credentials or overreaching beyond the allowed workflow."
+    },
+    {
+      "question": "Can I use DocsBot with Platform.sh for deployment status summaries and escalation prep?",
+      "answer": "Yes, this is a strong fit for DocsBot Skills because the agent can gather relevant environment context, summarize deployment state, and package the details needed for an escalation or handoff. That helps support and operations teams respond faster with more complete context."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Platform.sh?",
+      "answer": "You do not need to manually wire every step yourself. You explain the outcome you want, and Skill Builder handles the workflow design, secure configuration, secret protection, permission scoping, testing, improvement, and deployment guidance."
+    }
+  ],
+  "relatedSlugs": [
+    "vercel",
+    "netlify",
+    "render",
+    "digitalocean",
+    "cloudflare",
+    "aws"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Upsun",
+    "domain": "platform.sh",
+    "description": "Upsun is a highly flexible Platform-as-a-Service (PaaS) that enables development teams to build, preview, test, and deploy applications across multiple cloud providers such as AWS, Azure, GCP, IBM Cloud and OVHcloud. The platform offers instant, data‑rich preview environments, Git‑driven automation, full observability, security compliance (SOC 2, PCI DSS), and scalable container‑level resource controls. It supports a wide range of languages and frameworks—including PHP, Python, Node.js, Java, .NET, Django, Laravel, WordPress, Magento, and more—allowing teams to customize stacks per project. Upsun also provides 24/7 global support, automated backups, and sustainability‑focused hosting certified by Greenly and B Labs. The service is aimed at enterprises, SaaS providers, and agencies seeking reliable, cost‑efficient, and future‑proof cloud‑native application delivery.",
+    "slogan": "Deliver every release with certainty",
+    "logoUrl": "https://media.brand.dev/136ad986-b141-4c3f-83cf-a01fa499891d.svg",
+    "iconUrl": "https://media.brand.dev/136ad986-b141-4c3f-83cf-a01fa499891d.svg",
+    "primaryColor": "#040404",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/75e4bce1-63c7-4df3-b2da-2636cb4d55fb.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/136ad986-b141-4c3f-83cf-a01fa499891d.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/136ad986-b141-4c3f-83cf-a01fa499891d.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/136ad986-b141-4c3f-83cf-a01fa499891d.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

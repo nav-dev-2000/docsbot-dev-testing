@@ -1,0 +1,191 @@
+{
+  "slug": "dropbox-personal",
+  "name": "Dropbox - Personal",
+  "domain": "dropbox.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dropbox Personal",
+  "metaTitle": "Build Dropbox Personal AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Dropbox Personal for file lookups, summaries, handoffs, and approved workflow actions in support and internal chats.",
+  "intro": "Dropbox helps people store, share, and organize files, which makes it a useful system for AI agents that need trusted document access and simple workflow actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that works with Dropbox Personal. The result is a support or internal AI agent that can find files, summarize contents, prepare handoffs, and trigger approved actions without exposing sensitive access details.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to find the right Dropbox file or folder for a customer and share the correct approved resource while answering in chat or a helpdesk ticket.",
+    "Let the support agent summarize documents stored in Dropbox, such as setup guides, onboarding files, or policy PDFs, so customers get faster answers without waiting for a manual review.",
+    "Have the agent gather files related to an issue, summarize what was found, and prepare a clean escalation handoff for a human support teammate.",
+    "Enable the agent to confirm whether a requested document exists in Dropbox and guide the customer to the correct next step when a file is missing or restricted.",
+    "Use the agent to trigger approved file-based workflows, such as creating a follow-up task or flagging a document review step after a customer request is received."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Dropbox files, summarize their contents, and retrieve the latest approved document for a workflow.",
+    "Teams can ask the agent to collect files from a Dropbox folder, compare what is available, and produce a summary for operations, customer success, or leadership review.",
+    "Support and success teams can use the agent to prepare handoff packets from Dropbox documents so employees spend less time gathering links and context manually.",
+    "Operations employees can chat with the agent to follow SOPs that depend on Dropbox content, with the agent retrieving required files and guiding the next approved step.",
+    "Internal teams can use the agent to answer document-based questions across shared Dropbox content while keeping access scoped to the right folders, users, and actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and summarizes customer-facing documents stored in Dropbox Personal.",
+    "A private team assistant that retrieves the latest Dropbox files for SOPs and recurring workflows.",
+    "A handoff Skill that gathers Dropbox links and document summaries for escalations.",
+    "A document lookup agent that confirms whether required files exist before the next workflow step.",
+    "A summary Skill that reads approved Dropbox files and turns them into quick answers.",
+    "An internal research assistant that pulls Dropbox content into concise briefings for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Dropbox Personal, such as finding files, summarizing documents, or preparing handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies authentication details through secure runtime settings, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum folders, actions, users, and workflow steps needed, and it adds approval boundaries when a file action or downstream workflow should require extra control."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds fixes into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use Dropbox-backed AI actions in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Dropbox Personal files to answer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the file lookup or summary workflow you want in plain language, and Skill Builder creates a secure Skill your AI agent can use to retrieve approved Dropbox content and respond with useful answers. It also defines safe connection handling, scoped access, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Dropbox Personal during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Dropbox Personal Skill to find approved documents, summarize file contents, confirm whether a file exists, and prepare handoff context while replying to customers. Sensitive access can be scoped and guarded with approval limits where needed."
+    },
+    {
+      "question": "What customer support workflows can I automate with Dropbox Personal and DocsBot?",
+      "answer": "You can automate document lookups, file-based answer generation, escalation prep, follow-up summaries, and workflow triggers tied to approved Dropbox content. This helps support teams resolve routine questions faster while keeping file access controlled."
+    },
+    {
+      "question": "Can an internal AI assistant search Dropbox Personal for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, a private DocsBot agent can help employees find Dropbox files, summarize documents, and support SOP-driven workflows from chat, Slack, or Microsoft Teams. Skill Builder designs the Skill so access stays limited to the right people, folders, and allowed actions."
+    },
+    {
+      "question": "How does DocsBot keep Dropbox Personal connections secure in a custom Skill?",
+      "answer": "Skill Builder identifies the configuration and authentication details the workflow needs, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated content. It also scopes permissions and can add approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "Can DocsBot summarize documents stored in Dropbox Personal for support or operations teams?",
+      "answer": "Yes, a Dropbox Personal Skill can let your DocsBot agent read approved files and return concise summaries, handoff notes, or quick-reference answers for customers or employees. This is useful for onboarding documents, internal SOPs, policies, and other file-based knowledge."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "box",
+    "onedrive",
+    "sharepoint",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dropbox",
+    "domain": "dropbox.com",
+    "description": "Dropbox is a content collaboration platform that provides secure file sharing, storage, and collaboration solutions to individuals, teams, and organizations worldwide, serving various industries with over 700 million registered users across 180 countries.",
+    "slogan": "Simplify the way you work together",
+    "logoUrl": "https://media.brand.dev/2b34a33f-6928-47b3-911f-042e621d2d07.svg",
+    "iconUrl": "https://media.brand.dev/c89f753b-7550-48fb-812b-c489ec9b060a.png",
+    "primaryColor": "#0765fb",
+    "accentColor": "#7aacfa",
+    "colors": [
+      {
+        "hex": "#0765fb",
+        "name": "Bright Blue"
+      },
+      {
+        "hex": "#7aacfa",
+        "name": "Fennel Flower"
+      },
+      {
+        "hex": "#fcf7f4",
+        "name": "Unbleached"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/76838ba4-96ed-4828-8352-e61620260b07.png",
+    "industries": [],
+    "links": {
+      "careers": "https://jobs.dropbox.com/",
+      "terms": "https://dropbox.com/terms",
+      "contact": "https://dropbox.com/contact-sales",
+      "privacy": "https://dropbox.com/terms",
+      "blog": "https://blog.dropbox.com/",
+      "pricing": "https://dropbox.com/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c89f753b-7550-48fb-812b-c489ec9b060a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/752be932-2a48-4094-99dc-d9cd85c1420e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e6b20a83-f030-44e1-b6fc-cd66c9dd3be2.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 1200,
+        "height": 628,
+        "aspectRatio": 1.91
+      },
+      {
+        "url": "https://media.brand.dev/6ff70a65-0572-4a47-aa9d-80358acbcf67.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 34,
+        "height": 34,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aabdc7b7-ebaa-4346-87b1-498eafa196aa.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2b34a33f-6928-47b3-911f-042e621d2d07.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 30,
+        "height": 25,
+        "aspectRatio": 1.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e6b20a83-f030-44e1-b6fc-cd66c9dd3be2.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 1200,
+      "height": 628,
+      "aspectRatio": 1.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/752be932-2a48-4094-99dc-d9cd85c1420e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

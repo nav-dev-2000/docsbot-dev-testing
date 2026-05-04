@@ -1,0 +1,176 @@
+{
+  "slug": "statsig",
+  "name": "Statsig",
+  "domain": "statsig.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that use Statsig with DocsBot Skills",
+  "metaTitle": "Build Statsig AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Statsig for experiment lookups, feature flag context, rollout summaries, and safe internal or support workflows.",
+  "intro": "Statsig helps teams manage feature flags, run experiments, and understand product behavior. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Statsig, and DocsBot helps design, secure, test, and publish that ability. The result is a support or internal AI agent that can answer questions with live Statsig context, summarize rollout status, and trigger approved follow-up workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a reported issue may be tied to an active feature flag or rollout and explain the current release state in plain language.",
+    "Use Statsig experiment and rollout context to help a support agent prepare a clearer handoff when a customer reports unexpected behavior after a product change.",
+    "Have the agent summarize whether a customer may be in a test group, feature rollout, or gated experience so support replies are more accurate and consistent.",
+    "Enable the agent to collect reproduction details from the customer and create an approved internal handoff that includes relevant Statsig experiment or feature exposure context.",
+    "Let a helpdesk-connected DocsBot agent add a concise rollout or experiment summary to a ticket before escalation to product or engineering teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up feature flag status, experiment details, and rollout summaries from Statsig without leaving the conversation.",
+    "Product, support, and success teams can ask the agent to explain which customer segment is affected by a feature rollout and receive a plain-language summary for internal coordination.",
+    "Team members can use the agent to gather Statsig context alongside ticket details, then prepare escalation notes or SOP-based handoffs for engineering review.",
+    "Operations or product teams can chat with the agent to retrieve experiment status, compare rollout context, and generate internal updates for launches or incident follow-up.",
+    "Employees can ask the agent to follow approved workflows around feature-release checks, including requesting confirmation before any sensitive action is taken."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes Statsig feature flag and rollout context for customer conversations.",
+    "An internal assistant that answers employee questions about experiments, segments, and release exposure.",
+    "A ticket enrichment Skill that adds Statsig rollout details before escalation to engineering.",
+    "A launch assistant that prepares plain-language rollout summaries for support and customer success teams.",
+    "An AI workflow that gathers customer issue details and pairs them with relevant experiment context.",
+    "A private agent that helps teams follow release-check SOPs using live Statsig information."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Statsig-enabled agent to do, such as explain rollout status, enrich escalations, or answer internal release questions, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, actions, and Statsig data needed for the workflow."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds safe action boundaries, confirmation steps, and approval rules where needed so the agent can look up information, prepare summaries, and take only the bounded actions you allow."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can start using Statsig context in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Statsig data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking rollout status or summarizing experiment context, and Skill Builder creates the secure Skill design, testing plan, and deployment path for that workflow."
+    },
+    {
+      "question": "Can an AI support agent use Statsig during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Statsig context to explain feature rollout status, summarize experiment-related behavior, enrich support tickets, and prepare cleaner handoffs while staying within the actions and permissions you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Statsig?",
+      "answer": "Teams can automate ticket enrichment, rollout-aware troubleshooting, escalation prep, issue summaries tied to feature exposure, and internal handoff creation that includes relevant Statsig context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees check feature flags and experiments in Statsig?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve feature flag status, rollout details, and experiment summaries through chat, Slack, or Microsoft Teams so teams can make faster decisions without switching tools."
+    },
+    {
+      "question": "How does DocsBot keep Statsig connections and credentials secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chat transcripts and Skill source, proxies authentication through secure runtime configuration, and scopes access to the minimum permissions required for the approved workflow."
+    },
+    {
+      "question": "Can DocsBot require approval before taking actions related to Statsig workflows?",
+      "answer": "Yes, Skill Builder can add approval boundaries and confirmation steps for sensitive workflows so the agent can safely gather context, prepare updates, or trigger only the actions your team allows."
+    }
+  ],
+  "relatedSlugs": [
+    "launchdarkly",
+    "split",
+    "amplitude",
+    "mixpanel",
+    "posthog",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Statsig",
+    "domain": "statsig.com",
+    "description": "Statsig is a modern feature management and experimentation platform that allows businesses to accelerate product development and improve user experience. Through integrated AB testing, product analytics, feature flags, and session replay, Statsig enables companies to make data-driven decisions, automate experiments, and optimize feature rollouts. Founded in 2021 by former Facebook engineers, Statsig caters to a wide range of clients including Microsoft, Figma, Notion, and Eventbrite, helping them streamline development processes and reduce risks. By democratizing experimentation, Statsig empowers teams to increase their experimentation velocity and deliver features efficiently based on performance metrics.",
+    "slogan": "Ship fast, build better. 10x your experimentation velocity with Statsig.",
+    "logoUrl": "https://media.brand.dev/ec8bbf46-e151-4540-b26d-198584772a3d.svg",
+    "iconUrl": "https://media.brand.dev/f8b6f77a-e2fb-4931-baf3-4daf5f26a6dc.png",
+    "primaryColor": "#daebf8",
+    "accentColor": "#82949c",
+    "colors": [
+      {
+        "hex": "#daebf8",
+        "name": "Celestial Cathedral"
+      },
+      {
+        "hex": "#82949c",
+        "name": "Morning at Sea"
+      },
+      {
+        "hex": "#1c2525",
+        "name": "Shadow Warrior"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0d017302-c5d3-4bdf-9c2f-d0ff66f47f73.png",
+    "industries": [],
+    "links": {
+      "careers": "https://statsig.com/careers",
+      "terms": "https://statsig.com/terms",
+      "contact": "https://statsig.com/contact/us",
+      "privacy": "https://statsig.com/privacy",
+      "blog": "https://statsig.com/blog",
+      "pricing": "https://statsig.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f8b6f77a-e2fb-4931-baf3-4daf5f26a6dc.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/874bd20d-5347-4485-a5fe-6014500251f3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ec8bbf46-e151-4540-b26d-198584772a3d.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1500,
+        "height": 260,
+        "aspectRatio": 5.77
+      },
+      {
+        "url": "https://media.brand.dev/ff4f80ec-b822-4eb1-815c-b84f27b5622c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1500,
+        "height": 260,
+        "aspectRatio": 5.77
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ec8bbf46-e151-4540-b26d-198584772a3d.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1500,
+      "height": 260,
+      "aspectRatio": 5.77
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f8b6f77a-e2fb-4931-baf3-4daf5f26a6dc.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

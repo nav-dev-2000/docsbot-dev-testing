@@ -1,0 +1,170 @@
+{
+  "slug": "browserstack",
+  "name": "BrowserStack",
+  "domain": "browserstack.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with BrowserStack",
+  "metaTitle": "Build BrowserStack AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use BrowserStack to look up test results, summarize failures, trigger approved workflows, and support teams safely.",
+  "intro": "BrowserStack helps teams test web and mobile apps across real browsers, devices, and operating systems. With DocsBot Skill Builder, you can describe the BrowserStack workflow you want in plain language and have DocsBot create a reusable AI Skill for support or internal teams. The result is an AI agent that can answer questions, check testing status, summarize issues, and take bounded actions inside your approved BrowserStack workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check BrowserStack test session status and summarize whether a reported issue appears to be reproducible across browsers or devices.",
+    "Use a support agent to look up recent BrowserStack test outcomes tied to a product area and prepare a clearer handoff for engineering when a customer reports a bug.",
+    "Enable the agent to summarize failed BrowserStack runs so customers receive a concise status update while internal teams get the technical context they need.",
+    "Have the agent gather customer environment details, compare them with BrowserStack coverage, and suggest the next approved testing or escalation step.",
+    "Use the agent in helpdesk replies to attach a BrowserStack-based summary of known browser compatibility findings for a reported feature issue."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve BrowserStack test results, device coverage, and run summaries without digging through multiple dashboards.",
+    "Enable QA and support teams to ask the agent for a plain-language explanation of failed BrowserStack sessions and recommended next investigation steps.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to prepare bug triage summaries from BrowserStack data for engineering handoffs.",
+    "Allow release managers to chat with the agent about recent BrowserStack execution trends, unstable areas, and readiness signals before launches.",
+    "Help operations, QA, and customer success teams complete testing and escalation SOPs by having the agent gather BrowserStack evidence and format the next-step report automatically."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes BrowserStack failures before escalating a customer bug.",
+    "A private QA assistant that retrieves cross-browser test run results in chat.",
+    "A release-readiness agent that reviews BrowserStack outcomes and drafts launch risk summaries.",
+    "A support handoff Skill that packages BrowserStack evidence for engineering tickets.",
+    "An internal assistant that compares reported customer environments against BrowserStack device coverage.",
+    "A workflow Skill that triggers approved follow-up steps after failed BrowserStack runs are detected."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the BrowserStack agent to do, such as summarize failed runs, check test status, or prepare bug handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed BrowserStack connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes access to the minimum actions, records, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries for sensitive updates or workflow triggers so the agent can help confidently without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BrowserStack?",
+      "answer": "With DocsBot Skill Builder, you describe the BrowserStack workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and workflow actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use BrowserStack data to help with customer bug reports?",
+      "answer": "Yes, a DocsBot support agent can use BrowserStack data to check test outcomes, summarize failed sessions, compare browser or device coverage, and prepare better escalations. This helps customers get faster answers while internal teams receive more structured context."
+    },
+    {
+      "question": "What BrowserStack workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can retrieve run results, explain failures in plain language, draft QA or engineering handoffs, summarize release risk, and guide teams through testing SOPs. You define the allowed actions and approval points so automation stays controlled."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to BrowserStack workflows?",
+      "answer": "Yes, Skill Builder is designed to create bounded AI actions with scoped permissions, secure authentication handling, and approval boundaries where needed. It keeps secrets out of chats and source content while limiting the agent to the workflows you approve."
+    },
+    {
+      "question": "Can I use BrowserStack with a helpdesk AI agent for ticket replies?",
+      "answer": "Yes, a DocsBot agent connected to your helpdesk can use BrowserStack-backed lookups and summaries while drafting ticket responses. It can also prepare escalation notes and technical context for the next team without exposing sensitive credentials."
+    },
+    {
+      "question": "How does setup work for a non-technical team using DocsBot with BrowserStack?",
+      "answer": "You do not need to manually design the integration flow step by step. Skill Builder asks for the outcome you want, then handles the secure connection design, configuration requirements, testing, improvements, and deployment process for you."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "github",
+    "gitlab",
+    "selenium",
+    "postman",
+    "datadog"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BrowserStack",
+    "domain": "browserstack.com",
+    "description": "BrowserStack is the world’s leading software testing platform that enables developers and QA teams to test web and mobile applications across real browsers, devices, and operating systems. Powered by AI and trusted by over 50,000 teams including Amazon, Microsoft, and NVIDIA, it supports more than 3 million tests daily from 21 global data centers. With a community of 9 million registered developers and testers, BrowserStack helps deliver quality software faster.",
+    "slogan": "Most Reliable App & Cross Browser Testing Platform",
+    "logoUrl": "https://media.brand.dev/fa877432-a245-4a45-9bac-221760da15e9.svg",
+    "iconUrl": "https://media.brand.dev/5af62012-9fd2-487e-901d-3c6de047c260.png",
+    "primaryColor": "#ffffff",
+    "accentColor": "#cd3d3d",
+    "colors": [
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      },
+      {
+        "hex": "#cd3d3d",
+        "name": "Heart Throb"
+      },
+      {
+        "hex": "#2a5c62",
+        "name": "Inner Space"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/303c9b60-fe9c-44c7-b8f7-0bca9cc0240e.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.browserstack.com/blog",
+      "careers": "https://www.browserstack.com/careers",
+      "terms": "https://www.browserstack.com/terms",
+      "contact": "https://www.browserstack.com/contact",
+      "privacy": "https://www.browserstack.com/privacy",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.browserstack.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/94d87ee1-a072-481c-884b-01d760762e43.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fa877432-a245-4a45-9bac-221760da15e9.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 188,
+        "height": 32,
+        "aspectRatio": 5.88
+      },
+      {
+        "url": "https://media.brand.dev/5af62012-9fd2-487e-901d-3c6de047c260.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fa877432-a245-4a45-9bac-221760da15e9.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 188,
+      "height": 32,
+      "aspectRatio": 5.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/94d87ee1-a072-481c-884b-01d760762e43.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

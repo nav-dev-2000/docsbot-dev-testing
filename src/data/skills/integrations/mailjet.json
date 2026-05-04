@@ -1,0 +1,176 @@
+{
+  "slug": "mailjet",
+  "name": "Mailjet",
+  "domain": "mailjet.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Mailjet",
+  "metaTitle": "Build Mailjet AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Mailjet for email lookups, campaign workflows, summaries, and approved team actions.",
+  "intro": "Mailjet helps teams create, send, automate, and analyze email communications across marketing and transactional workflows. With DocsBot Skill Builder, you can describe the Mailjet-powered agent ability you want in plain language, and DocsBot helps design, secure, test, and deploy it as a reusable Skill. The result is an AI support or internal team agent that can answer questions, look up email activity, prepare handoffs, and take approved actions inside Mailjet.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent email delivery, open, click, or bounce status in Mailjet so it can answer customer questions about missing messages.",
+    "Use a support agent to confirm whether a password reset, invoice, onboarding, or verification email was sent through Mailjet and summarize the delivery outcome in the reply.",
+    "Allow the agent to create an internal follow-up or escalation summary when Mailjet activity suggests a customer is not receiving critical emails.",
+    "Have the agent collect missing details from the customer, then trigger an approved Mailjet workflow or resend process for eligible transactional communications.",
+    "Enable a helpdesk-connected DocsBot agent to summarize a customer's recent Mailjet email history for support staff before a human takeover."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Mailjet campaign status, delivery trends, or recent transactional email activity.",
+    "Give customer success or operations teams an internal AI assistant that summarizes Mailjet engagement data before renewals, onboarding reviews, or account health checks.",
+    "Help marketing and support employees ask the agent to prepare audience, performance, or deliverability summaries from Mailjet without manually digging through dashboards.",
+    "Allow internal teams to trigger approved Mailjet workflows, draft follow-up tasks, or prepare escalation notes when email issues need coordination across teams.",
+    "Support SOP execution by letting employees chat with the agent to research Mailjet activity, gather context, and complete bounded communication workflows across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks Mailjet delivery status for transactional emails and explains the result to customers.",
+    "An internal assistant that summarizes campaign performance and recent engagement metrics for marketing and success teams.",
+    "A workflow Skill that gathers customer details and prepares a resend or escalation request using Mailjet activity.",
+    "A helpdesk Skill that adds Mailjet email history summaries to tickets before human review.",
+    "A private team agent that researches bounce or suppression patterns and prepares next-step recommendations.",
+    "An operations assistant that triggers approved Mailjet communication workflows after collecting required context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Mailjet-enabled agent to do, such as check email status, summarize campaign activity, or trigger an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required Mailjet connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes access to the minimum actions, records, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries for sensitive Mailjet steps so the agent can take useful action without exceeding your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Mailjet data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking delivery status or summarizing recent email activity, and Skill Builder creates a secure Skill the support agent can use during customer chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent check whether an email was sent or delivered in Mailjet?",
+      "answer": "Yes, a DocsBot Skill can be designed to look up Mailjet send and delivery information so the agent can answer customers about missing onboarding, billing, password reset, or verification emails within your approved workflow rules."
+    },
+    {
+      "question": "What Mailjet workflows can an internal AI assistant help automate?",
+      "answer": "An internal DocsBot agent can retrieve campaign or transactional email context, summarize performance, prepare escalation notes, and trigger bounded follow-up workflows that your team defines and approves."
+    },
+    {
+      "question": "Can DocsBot safely take actions in Mailjet instead of only answering questions?",
+      "answer": "Yes, Skill Builder can create Skills for safe lookups, approved updates, workflow triggers, summaries, and handoff preparation while enforcing scoped permissions, secret protection, and approval boundaries for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot connect to Mailjet securely?",
+      "answer": "Skill Builder handles the secure design by defining the needed configuration, keeping credentials out of chats and Skill source, proxying secrets through secure runtime settings, and limiting access to only the Mailjet actions required."
+    },
+    {
+      "question": "Can a private employee AI agent use Mailjet in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent that employees access through chat, Slack, or Microsoft Teams to research Mailjet activity, answer internal questions, and complete approved SOP workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "mailchimp",
+    "hubspot",
+    "intercom",
+    "zendesk",
+    "gmail"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mailjet",
+    "domain": "mailjet.com",
+    "description": "Mailjet is an all‑in‑one email marketing platform designed for both developers and marketers. It enables teams to manage audiences, design and test emails, automate customer communications, and analyze performance throughout the entire email lifecycle—from the first send to ongoing optimization. The easy‑to‑use interface supports creating newsletters, campaign emails, and triggered messages, while robust APIs and integration tools cater to developers building custom solutions. Whether used by solo entrepreneurs or large teams, Mailjet helps businesses deliver impactful email experiences that drive engagement and growth.",
+    "slogan": "Best email marketing software & Email API for teams",
+    "logoUrl": "https://media.brand.dev/b1db18fb-1e8d-4e86-b7d1-8d5a11a77861.svg",
+    "iconUrl": "https://media.brand.dev/642ea040-85a0-4e92-9dfc-68b8d71f6e2c.png",
+    "primaryColor": "#b3aafa",
+    "accentColor": "#544e7c",
+    "colors": [
+      {
+        "hex": "#b3aafa",
+        "name": "Winterspring Lilac"
+      },
+      {
+        "hex": "#544e7c",
+        "name": "Fully Purple"
+      },
+      {
+        "hex": "#0a090c",
+        "name": "Existential Angst"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/de4fff31-5527-4a56-91b1-d0c4e3bff0b6.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.mailjet.com/jobs/",
+      "terms": "https://www.mailjet.com/legal/terms/",
+      "contact": "https://www.mailjet.com/contact/sales/",
+      "privacy": "https://www.mailjet.com/legal/privacy-policy/",
+      "blog": "https://www.mailjet.com/solutions/use-cases/newsletter-templates/",
+      "pricing": "https://www.mailjet.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/642ea040-85a0-4e92-9dfc-68b8d71f6e2c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/09b64a9a-0c77-48c9-9467-4d7dc2ee68b0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/756c8f0f-adba-45a2-a627-075ad7967d1c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b1db18fb-1e8d-4e86-b7d1-8d5a11a77861.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 104,
+        "height": 32,
+        "aspectRatio": 3.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b1db18fb-1e8d-4e86-b7d1-8d5a11a77861.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 104,
+      "height": 32,
+      "aspectRatio": 3.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/756c8f0f-adba-45a2-a627-075ad7967d1c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

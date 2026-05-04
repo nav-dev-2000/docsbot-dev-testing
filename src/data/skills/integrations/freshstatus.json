@@ -1,0 +1,144 @@
+{
+  "slug": "freshstatus",
+  "name": "Freshstatus",
+  "domain": "freshstatus.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Freshstatus",
+  "metaTitle": "Build Freshstatus AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshstatus to look up status details, summarize updates, prepare handoffs, and trigger approved workflows safely.",
+  "intro": "Freshstatus helps teams communicate service health, updates, and incident-related information. With DocsBot Skill Builder, you can describe the Freshstatus workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, pull status information, prepare summaries, and take bounded actions inside your approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Freshstatus for current service status, maintenance notices, or incident updates while replying in chat or over helpdesk tickets.",
+    "Use the agent to summarize the latest Freshstatus incident timeline in plain language so customers get a fast and consistent update.",
+    "Have the agent share the right Freshstatus status page details or maintenance communication when customers report an outage or degraded performance.",
+    "Let the agent collect the customer’s product area, region, and symptoms, then prepare a clean handoff that references the relevant Freshstatus incident context for your support team.",
+    "Use the agent to confirm whether an issue appears to be part of a known incident before escalating the conversation to a human teammate."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Freshstatus incident details, maintenance schedules, and recent service communications.",
+    "Let operations or support teams ask the agent for a summarized timeline of a Freshstatus incident so they can respond consistently across customer conversations and internal updates.",
+    "Help customer success or support employees chat with the agent to gather Freshstatus context, compare current status messaging, and follow escalation or communication SOPs faster.",
+    "Use an internal AI assistant to prepare incident briefings, shift handoff notes, or executive-ready summaries based on Freshstatus updates and team instructions.",
+    "Let internal teams ask the agent to trigger approved follow-up workflows after a Freshstatus change, such as creating a handoff note or drafting a customer communication artifact."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Freshstatus before answering outage-related customer questions.",
+    "A private incident assistant that summarizes Freshstatus updates for support and operations teams.",
+    "A DocsBot Skill that turns Freshstatus incident timelines into customer-friendly status explanations.",
+    "An internal agent that prepares escalation notes using Freshstatus context and team SOPs.",
+    "A support workflow that confirms known incidents before routing tickets to human responders.",
+    "An AI assistant that drafts maintenance update messages from Freshstatus event details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Freshstatus, such as checking current status, summarizing incidents, or preparing escalation notes, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing context, and automatically defines the safest workflow, required configuration values, and runtime behavior for your agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection planning by defining authentication and secret handling, keeping credentials out of chats and Skill content, proxying them through protected runtime configuration, and scoping access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible action boundaries, user scoping, and approval steps for sensitive updates or workflow triggers so the agent operates within the rules you approve."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Freshstatus for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking current service status or summarizing an incident, and Skill Builder creates a secure Skill the DocsBot agent can use during customer chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Freshstatus data to answer outage questions?",
+      "answer": "Yes, a DocsBot agent can use a Freshstatus Skill to look up relevant status information, summarize active incidents, and provide customer-friendly responses within the limits and permissions you define."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Freshstatus?",
+      "answer": "Internal DocsBot agents can help employees retrieve incident updates, prepare handoff summaries, draft communication notes, and follow response SOPs faster using Freshstatus as a source of current status context."
+    },
+    {
+      "question": "Can DocsBot add approval controls for actions related to Freshstatus workflows?",
+      "answer": "Yes, Skill Builder can design approval boundaries and scoped permissions so sensitive actions, updates, or follow-up triggers only happen when the right rules and reviewers are in place."
+    },
+    {
+      "question": "Is it possible to create incident summaries from Freshstatus with an AI agent?",
+      "answer": "Yes, DocsBot can generate concise incident summaries, customer-safe explanations, and internal briefings based on the Freshstatus information your workflow is allowed to access."
+    },
+    {
+      "question": "How does DocsBot connect to Freshstatus safely for AI Actions?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of conversations and generated content, proxies authentication through secure runtime configuration, and limits access to the minimum data and actions needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "statuspage",
+    "pagerduty",
+    "opsgenie",
+    "zendesk",
+    "freshdesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshstatus",
+    "domain": "freshstatus.com",
+    "description": "FreshStatus.com is a premium domain marketplace that connects buyers and sellers of high‑quality web addresses. The platform offers a streamlined, secure process for purchasing or leasing domains, featuring fast transfers, hassle‑free payments, and dedicated support. Users can request a price quote within 24 hours, receive assistance from domain experts, and complete transactions through safe, verified channels. FreshStatus.com aims to simplify the acquisition of memorable, brand‑ready domains for businesses, entrepreneurs, and individuals seeking a strong online presence.",
+    "slogan": "The simple, safe way to buy domain names.",
+    "logoUrl": "https://media.brand.dev/c01ab4e2-ddab-423d-8472-e3603bd2ee40.svg",
+    "iconUrl": "https://media.brand.dev/c01ab4e2-ddab-423d-8472-e3603bd2ee40.svg",
+    "primaryColor": "#141414",
+    "accentColor": "#141414",
+    "colors": [
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c01ab4e2-ddab-423d-8472-e3603bd2ee40.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 38,
+        "aspectRatio": 4.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c01ab4e2-ddab-423d-8472-e3603bd2ee40.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c01ab4e2-ddab-423d-8472-e3603bd2ee40.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 38,
+      "aspectRatio": 4.03
+    }
+  }
+}

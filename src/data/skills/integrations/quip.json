@@ -1,0 +1,170 @@
+{
+  "slug": "quip",
+  "name": "Quip",
+  "domain": "quip.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Quip",
+  "metaTitle": "Build AI Agents for Quip with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Quip to find documents, summarize collaboration, create handoffs, and support internal workflows with safe actions.",
+  "intro": "Quip combines documents, spreadsheets, checklists, and team collaboration in one workspace, often alongside Salesforce-driven processes. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Quip, and Skill Builder designs, secures, tests, and packages that ability for you. The result is a support or internal AI agent that can retrieve context from Quip, prepare updates, create structured handoffs, and trigger approved collaboration workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Quip documents and checklists to answer product, onboarding, or process questions using the latest approved team content.",
+    "Use a support agent to summarize relevant Quip notes, runbooks, or account plans from linked records before replying to a customer ticket.",
+    "Have the agent create a Quip handoff document or checklist when a customer issue needs escalation to success, support, or operations teams.",
+    "Enable the agent to collect missing customer details in chat and add them to a Quip-based intake or troubleshooting document for follow-up.",
+    "Use the agent to prepare a concise summary of customer history, open questions, and next steps from Quip content before routing a case to a human team member."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Quip documents, spreadsheets, checklists, and embedded process notes without manually searching across workspaces.",
+    "Give customer success or operations teams an internal agent that summarizes Quip account plans, close plans, or project notes and returns the most relevant action items.",
+    "Allow employees to ask the agent to draft or update Quip handoff documents, meeting notes, and status checklists as part of repeatable SOPs.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to gather Quip context, summarize collaboration history, and prepare follow-up artifacts for cross-functional teams.",
+    "Help teams research internal processes by chatting with an agent that pulls relevant Quip documentation, compares linked notes, and guides the next approved workflow step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches Quip docs for approved answers and troubleshooting steps.",
+    "An internal assistant that summarizes Quip account plans and highlights next actions for teams.",
+    "A workflow Skill that creates Quip handoff documents from customer chat or ticket context.",
+    "An agent that builds Quip checklists for onboarding, escalation, or renewal follow-up tasks.",
+    "A private team assistant that finds the latest Quip SOP and explains the correct process.",
+    "An AI agent that drafts meeting notes or action summaries into Quip after internal conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Quip, such as finding documents, summarizing notes, creating handoffs, or updating checklists, and Skill Builder turns that into a working Skill plan."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides the safest workflow design, identifies the Quip connection details and configuration values needed, and structures the Skill so the agent can take only the approved actions you want."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design by keeping credentials out of chats and Skill content, proxying secrets through secure runtime configuration, and scoping access to the minimum users, documents, actions, and workspaces required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive updates or document creation steps, Skill Builder adds approval boundaries, action limits, and routing rules so the agent can act within clear business controls instead of operating without oversight."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Quip documents and checklists?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and it creates a Skill that can search Quip content, summarize it, and take approved follow-up actions. Skill Builder also handles secure connection design, scoped permissions, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Quip content to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Quip as a source of live operational context such as help content, process notes, and troubleshooting checklists while responding in chat or tickets. You can also define boundaries for when it should summarize, hand off, or request human review instead of acting automatically."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Quip?",
+      "answer": "Internal agents can help employees find SOPs, summarize project or account documents, draft handoff notes, create checklists, and prepare follow-up artifacts across operations, support, and customer success workflows. The actions are defined around your approved processes and permissions."
+    },
+    {
+      "question": "Can DocsBot create Quip handoff documents or escalation notes automatically?",
+      "answer": "Yes, Skill Builder can create workflows where the agent prepares Quip-based handoff documents, escalation summaries, or structured notes from customer conversations or internal requests. Approval steps can be added for sensitive cases before anything is finalized."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Quip?",
+      "answer": "Skill Builder can define approval boundaries so the agent can gather context and draft outputs automatically while requiring review for sensitive document creation or updates. This helps teams keep AI actions useful but safely bounded."
+    },
+    {
+      "question": "Is it possible to use a private AI assistant with Quip in Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot can power a private employee-facing agent that team members use in chat, Slack, or Microsoft Teams to retrieve Quip information, summarize documents, and complete approved workflows. That gives staff fast answers and task support without broadening access beyond what is allowed."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "slack",
+    "microsoft-teams",
+    "notion",
+    "confluence",
+    "google-drive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Quip",
+    "domain": "quip.com",
+    "description": "Quip, a Salesforce company, provides a mobile‑first productivity suite that combines real‑time chat, documents, spreadsheets, checklists and more into a single, elegant interface. It lets teams collaborate directly within any device and embeds collaborative content inside Salesforce records, enabling streamlined processes such as account planning, close‑plans and qualification notes. Quip’s features include built‑in team chat, live‑editing documents, embedded spreadsheets for data‑driven decisions, and secure enterprise‑grade controls through Quip Shield. Integrated with Salesforce Anywhere, it delivers secure, real‑time collaboration across the CRM, helping businesses work faster and more securely.",
+    "slogan": "Transform business processes with real-time collaboration inside Salesforce.",
+    "logoUrl": "https://media.brand.dev/5026753c-bf9c-4a6e-9f02-7f51d829b403.svg",
+    "iconUrl": "https://media.brand.dev/b5792029-68f5-42a8-a1a5-d5157b96cb7c.svg",
+    "primaryColor": "#e5694b",
+    "accentColor": "#e4bca4",
+    "colors": [
+      {
+        "hex": "#e5694b",
+        "name": "Coral Orange"
+      },
+      {
+        "hex": "#e4bca4",
+        "name": "Starfish"
+      },
+      {
+        "hex": "#3c3c3c",
+        "name": "Shisha Coal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cc813f01-e0af-4eb7-a93b-f50910b7cbf3.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://quip.com/about/terms",
+      "contact": "https://quip.com/about/contact",
+      "privacy": "https://quip.com/security",
+      "blog": "https://quip.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://quip.com/about/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e702aa39-2650-4e6d-b887-24231c3afc18.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5026753c-bf9c-4a6e-9f02-7f51d829b403.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 112,
+        "height": 35,
+        "aspectRatio": 3.2
+      },
+      {
+        "url": "https://media.brand.dev/b5792029-68f5-42a8-a1a5-d5157b96cb7c.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 26,
+        "height": 27,
+        "aspectRatio": 0.96
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5026753c-bf9c-4a6e-9f02-7f51d829b403.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 112,
+      "height": 35,
+      "aspectRatio": 3.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e702aa39-2650-4e6d-b887-24231c3afc18.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

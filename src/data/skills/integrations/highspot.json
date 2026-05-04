@@ -1,0 +1,176 @@
+{
+  "slug": "highspot",
+  "name": "Highspot",
+  "domain": "highspot.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Highspot",
+  "metaTitle": "Build Highspot AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Highspot content, summarize guidance, trigger workflows, and support teams or customers.",
+  "intro": "Highspot helps revenue teams manage content, training, coaching, and guidance that drive more consistent execution. With DocsBot Skill Builder, you can describe the Highspot workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve the right enablement context, prepare handoffs, and take bounded actions inside customer-defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Highspot sales or product content so it can answer customer questions with the latest messaging and collateral guidance.",
+    "Use a helpdesk-connected agent to summarize the most relevant Highspot training or enablement materials for a support rep before replying to a customer ticket.",
+    "Have the agent gather product positioning, competitive guidance, or approved talking points from Highspot to prepare a clean escalation handoff for sales or customer success.",
+    "Let the agent surface the best matching customer-facing asset or resource from Highspot when a customer asks for documentation, presentations, or follow-up materials.",
+    "Use the agent to summarize recent enablement guidance from Highspot so customer-facing teams can respond with more consistent messaging across chat and tickets."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right Highspot content, training materials, and approved messaging for a deal or account conversation.",
+    "Let sales, support, and customer success teams ask an internal AI assistant to summarize Highspot guidance for specific products, personas, competitors, or objection-handling situations.",
+    "Use an internal agent to assemble role-specific answer drafts, follow-up notes, or handoff summaries based on approved Highspot content and team instructions.",
+    "Help enablement and operations teams chat with the agent to identify relevant assets, summarize gaps, and trigger downstream review or follow-up workflows based on Highspot information.",
+    "Give new employees an AI assistant that can guide them through SOPs, onboarding questions, and approved customer messaging by referencing Highspot materials alongside internal documentation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that retrieves approved Highspot content before answering product or pricing questions.",
+    "A helpdesk assistant that prepares escalation summaries using relevant Highspot messaging and enablement guidance.",
+    "An internal sales assistant that finds the best Highspot asset for a persona, industry, or objection.",
+    "A revenue team agent that summarizes training and coaching materials for fast rep enablement.",
+    "A customer success assistant that drafts consistent follow-up messages using approved Highspot content.",
+    "An onboarding agent that answers employee questions using Highspot training and internal SOP references."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Highspot, and Skill Builder turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should retrieve Highspot information, format responses, handle handoffs, and keep actions aligned with your business rules without requiring you to map the technical details."
+    },
+    {
+      "title": "Secure connections are planned",
+      "description": "Skill Builder identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through approved runtime configuration, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Highspot access, users, records, and actions needed, and it adds approval boundaries whenever a workflow should be reviewed before anything sensitive happens."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Highspot content to answer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the Highspot lookups, summaries, and actions you want in plain language, and DocsBot designs a secure Skill around that workflow. The agent can then use approved Highspot content to answer questions, prepare drafts, or support handoffs within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Highspot data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Highspot Skill to retrieve approved content, summarize enablement guidance, and help prepare accurate responses during customer conversations or helpdesk workflows. Access and actions can be scoped so the agent only uses the content and workflows you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Highspot?",
+      "answer": "An internal DocsBot agent can help employees find the right content, summarize training materials, prepare talk tracks, generate follow-up drafts, and guide teams through enablement-related SOPs. It can also trigger approved downstream workflows or create structured handoff summaries when needed."
+    },
+    {
+      "question": "Can DocsBot safely connect to Highspot for lookups and workflow actions?",
+      "answer": "DocsBot Skill Builder is designed to handle secure connection details for you by defining configuration needs, protecting secrets, and routing authentication through approved runtime controls. It also scopes permissions and can require approval boundaries for any action that should not run automatically."
+    },
+    {
+      "question": "Can a Highspot AI assistant help sales and customer success teams stay on message?",
+      "answer": "Yes, the agent can retrieve approved messaging, content, and training context from Highspot so teams get more consistent answers and follow-up materials. That helps reduce guesswork and keeps responses aligned with current enablement guidance."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Highspot with DocsBot?",
+      "answer": "You describe the outcome you want, such as finding the right asset, summarizing guidance, or preparing a handoff, and Skill Builder handles the design, secure configuration, testing, and deployment path. It can also test imagined scenarios, improve weak spots, and help publish the finished Skill to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "seismic",
+    "outreach",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Highspot",
+    "domain": "highspot.com",
+    "description": "Highspot helps companies turn go-to-market strategy into consistent, revenue-driving execution through its AI-powered revenue platform. The unified platform combines content, training, coaching, and actionable insights, giving revenue teams the right guidance at the right time. Powered by the Nexus™ AI and analytics engine, Highspot captures signals from sales conversations, shared content, and customer interactions, turning them into real-time, role-specific actions. The solution boosts seller productivity, improves customer conversations, and drives predictable revenue growth. It enables salespeople to work smarter, marketers to focus on high-performing assets, and enablement teams to scale proven practices, ultimately aligning revenue activities with business outcomes.",
+    "slogan": "AI that fixes what’s broken and scales what works.",
+    "logoUrl": "https://media.brand.dev/a2fcfa1f-4eaa-42f8-8006-bfa93b182a00.svg",
+    "iconUrl": "https://media.brand.dev/c087bcde-5066-4240-a23d-faeb4fdebb6d.png",
+    "primaryColor": "#042434",
+    "accentColor": "#1a89d2",
+    "colors": [
+      {
+        "hex": "#042434",
+        "name": "Midnight Dreams"
+      },
+      {
+        "hex": "#1a89d2",
+        "name": "Newport Blue"
+      },
+      {
+        "hex": "#82c4e9",
+        "name": "Shimmer"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3bd49eb5-c280-4630-88af-f60840816a40.jpg",
+    "industries": [],
+    "links": {
+      "contact": "https://www.highspot.com/contact/",
+      "careers": "https://www.highspot.com/careers/",
+      "terms": "https://www.highspot.com/terms/",
+      "privacy": "https://www.highspot.com/privacy/",
+      "blog": "https://www.highspot.com/blog/",
+      "pricing": "https://www.highspot.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3537f7f6-8a42-4e94-9ad5-7fa36521b4d7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2fcfa1f-4eaa-42f8-8006-bfa93b182a00.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 176,
+        "height": 70,
+        "aspectRatio": 2.51
+      },
+      {
+        "url": "https://media.brand.dev/c087bcde-5066-4240-a23d-faeb4fdebb6d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1b1f54a8-5d25-4672-890f-e4263b4b1b24.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 155,
+        "height": 31,
+        "aspectRatio": 5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1b1f54a8-5d25-4672-890f-e4263b4b1b24.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 155,
+      "height": 31,
+      "aspectRatio": 5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3537f7f6-8a42-4e94-9ad5-7fa36521b4d7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

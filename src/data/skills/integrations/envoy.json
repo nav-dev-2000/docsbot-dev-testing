@@ -1,0 +1,162 @@
+{
+  "slug": "envoy",
+  "name": "Envoy",
+  "domain": "envoy.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Envoy",
+  "metaTitle": "Build Envoy AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Envoy for workplace lookups, visitor workflows, handoffs, approvals, and internal operations support.",
+  "intro": "Envoy helps organizations manage workplace operations, visitors, space usage, and compliance from one platform. With DocsBot Skill Builder, you can describe the Envoy workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up workplace information, trigger approved actions, and prepare clean handoffs while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Envoy visitor or workplace status information and explain the current situation during a support chat or ticket reply.",
+    "Use an AI support agent to collect missing details from a visitor, employee, or guest request and create an approved handoff for workplace teams in Envoy.",
+    "Have the agent summarize access, visitor, or workplace request context from Envoy so support teams can respond faster and with better accuracy.",
+    "Allow the agent to trigger approved workplace workflows in Envoy, such as notifying the right team about a visitor issue or escalating a facility-related request.",
+    "Use DocsBot to prepare a concise Envoy-based incident or visit summary that can be added to a helpdesk response or internal escalation."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with in Slack, Microsoft Teams, or a web chat to look up visitor, desk, room, or workplace policy information from Envoy.",
+    "Let workplace, office, or operations teams ask the agent to summarize Envoy activity, open requests, or site status before following internal SOPs.",
+    "Enable employees to chat with the agent to start approved Envoy workflows, such as visitor-related follow-up, workplace issue routing, or internal handoff preparation.",
+    "Help HR, facilities, and security teams use a private DocsBot agent to gather Envoy context, research current workplace records, and prepare next-step recommendations.",
+    "Allow internal teams to use an AI assistant to create structured summaries from Envoy data for audits, compliance reviews, and cross-team coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that answers workplace visit questions using live Envoy data.",
+    "A support workflow that gathers visitor issue details and creates a structured handoff.",
+    "An internal assistant that summarizes daily workplace activity across Envoy locations.",
+    "A private AI agent that helps employees find room, desk, or visitor information.",
+    "An approval-based workflow for sensitive Envoy updates or workplace escalation actions.",
+    "A helpdesk assistant that adds Envoy context to support replies and escalation notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Envoy agent to do in plain language, such as looking up visitor status, summarizing workplace activity, or triggering an approved handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chat or Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Envoy actions, records, users, and systems needed for the workflow, and it adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "The Skill gets tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Envoy workflow, finds bugs, missing checks, or weak instructions, and feeds those results into improvements."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill through automated review and self-improvement, Skill Builder helps publish it to the right DocsBot agent so your team or customers can use it confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Envoy?",
+      "answer": "With DocsBot Skill Builder, you describe the Envoy workflow you want in plain language and Skill Builder creates the Skill, handles secure configuration, and prepares it for testing and deployment. The agent can then use Envoy for lookups, summaries, handoffs, and other approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Envoy data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use an Envoy Skill to retrieve relevant workplace or visitor context, summarize status, and prepare approved follow-up actions while responding to customers. You control what information and actions are allowed."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Envoy?",
+      "answer": "An internal DocsBot agent can help employees retrieve workplace information, summarize Envoy records, prepare handoffs, and trigger bounded workflows for facilities, security, or office operations teams. It can also support SOP-driven requests through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Envoy?",
+      "answer": "Yes, Skill Builder is designed to define secure connection handling, keep secrets out of chats, scope permissions to the minimum needed, and add approval boundaries for sensitive Envoy actions. That lets the agent take bounded action instead of only describing the next step."
+    },
+    {
+      "question": "Can a DocsBot agent create Envoy-based handoffs or escalation summaries?",
+      "answer": "Yes, the agent can collect the right context, summarize Envoy activity, and generate structured notes for workplace teams, security, or facilities staff. This helps speed up escalations and keeps handoffs consistent."
+    },
+    {
+      "question": "How does testing work for an Envoy Skill in DocsBot?",
+      "answer": "DocsBot includes an automated testing agent that can run support and internal workplace scenarios, identify workflow gaps or permission issues, and feed those findings into an automated improvement loop before deployment. This helps you launch a more reliable Envoy-powered agent."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "servicenow",
+    "google-calendar"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Envoy",
+    "domain": "envoy.com",
+    "description": "Envoy empowers more than 16,000 workplaces and properties worldwide by providing a unified, cloud‑based platform that connects people, spaces, and data. The solution lets companies of any size manage every facet of facility operations—from visitor and employee experiences to space utilization and compliance—through a single, integrated interface. By aggregating real‑time usage data across multiple sources, Envoy enables informed decisions on workplace resourcing, investment, and safety, helping organizations create secure, efficient, and collaborative environments where people can work together in‑person.",
+    "slogan": "Everything you need for secure, compliant workplace operations in one platform",
+    "logoUrl": "https://media.brand.dev/82a98f69-5758-45e3-bf27-f39ab71b36a8.svg",
+    "iconUrl": "https://media.brand.dev/53b3f200-cf82-484c-bc76-941464e73be3.jpg",
+    "primaryColor": "#3c4454",
+    "accentColor": "#fa4637",
+    "colors": [
+      {
+        "hex": "#3c4454",
+        "name": "Blue Zodiac"
+      },
+      {
+        "hex": "#fa4637",
+        "name": "Hotspot"
+      },
+      {
+        "hex": "#eca494",
+        "name": "Peach Tile"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/068b5a10-8451-4882-9c21-3408178d44a8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://envoy.com/jobs",
+      "terms": "https://envoy.com/legal/terms-of-service",
+      "contact": "https://envoy.com/contact",
+      "privacy": "https://envoy.com/legal/privacy-policy",
+      "blog": "https://envoy.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://envoy.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/53b3f200-cf82-484c-bc76-941464e73be3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/82a98f69-5758-45e3-bf27-f39ab71b36a8.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 102,
+        "height": 32,
+        "aspectRatio": 3.19
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/82a98f69-5758-45e3-bf27-f39ab71b36a8.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 102,
+      "height": 32,
+      "aspectRatio": 3.19
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/53b3f200-cf82-484c-bc76-941464e73be3.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

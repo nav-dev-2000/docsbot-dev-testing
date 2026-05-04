@@ -1,0 +1,176 @@
+{
+  "slug": "zscaler-zia",
+  "name": "Zscaler ZIA",
+  "domain": "zscaler-zia.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zscaler ZIA",
+  "metaTitle": "Build AI Agents for Zscaler ZIA with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zscaler ZIA for secure lookups, incident context, policy summaries, and approved security workflows in support and internal operations.",
+  "intro": "Zscaler ZIA helps organizations manage secure internet access, web security, and policy enforcement across users and locations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Zscaler ZIA data and actions. The result is a support or internal AI agent that can answer questions, gather security context, summarize findings, and trigger bounded workflows without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a reported website, URL category, or access issue matches known Zscaler ZIA policy behavior and explain the likely next step.",
+    "Use a helpdesk-connected DocsBot agent to gather Zscaler ZIA context for a customer-reported connectivity or web access problem, then prepare a clean escalation summary for the security or network team.",
+    "Enable the agent to look up policy-related access details tied to a support case and provide a customer-safe explanation without exposing sensitive internal security configuration.",
+    "Have the agent summarize recent Zscaler ZIA findings relevant to a reported browsing issue so support teams can respond faster and with better context.",
+    "Allow the agent to trigger an approved internal review or handoff workflow when a customer issue appears related to blocked traffic, security policy, or suspicious web activity."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Zscaler ZIA policy context, access behavior, or security event summaries without opening multiple consoles.",
+    "Enable IT or security teams to ask the agent for a plain-language summary of why traffic was blocked, which policy likely applied, and what team should review it next.",
+    "Help service desk employees use the agent to collect Zscaler ZIA evidence, assemble incident notes, and follow internal troubleshooting SOPs for web access issues.",
+    "Allow operations or security staff to chat with the agent to generate handoff summaries, approval requests, or investigation briefs based on Zscaler ZIA records and related case context.",
+    "Support internal teams with an AI assistant that researches user-reported access issues across Zscaler ZIA and prepares the next approved workflow step for review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains likely Zscaler ZIA blocking behavior from live policy and access context.",
+    "A private IT assistant that summarizes Zscaler ZIA web access events for faster troubleshooting.",
+    "A helpdesk workflow that gathers Zscaler ZIA details and drafts escalation notes automatically.",
+    "An internal security agent that prepares incident handoff briefs from Zscaler ZIA findings.",
+    "A support Skill that checks approved Zscaler ZIA records before answering customer access questions.",
+    "An employee AI assistant that follows web access troubleshooting SOPs using Zscaler ZIA context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zscaler ZIA, such as checking access issues, summarizing policy context, or preparing escalations, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow includes updates, triggers, or escalations, Skill Builder adds approval boundaries and safe action limits so the agent can help without taking unrestricted security actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission checks, and workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve before deployment",
+      "description": "Skill Builder feeds those testing results into an automated self-improvement loop so the Skill is refined, clarified, and made more reliable before it is published to your support or internal DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zscaler ZIA?",
+      "answer": "With DocsBot Skill Builder, you describe the Zscaler ZIA workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can perform approved lookups, summaries, handoffs, and other bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Zscaler ZIA data to help with customer access issues?",
+      "answer": "Yes, a DocsBot support agent can use Zscaler ZIA context to investigate reported web access or policy-related issues, summarize what it finds, and prepare the right next step. You control which lookups and workflows are allowed so customer responses stay helpful and safe."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zscaler ZIA?",
+      "answer": "A private DocsBot agent can help employees research blocked traffic, summarize policy context, assemble incident notes, draft handoffs, and follow troubleshooting SOPs using Zscaler ZIA information. It can also trigger approved internal workflows when a review or escalation is needed."
+    },
+    {
+      "question": "Can DocsBot safely connect to Zscaler ZIA without exposing credentials?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration requirements, keep secrets out of chats and Skill source, and proxy authentication through protected runtime settings. It also scopes permissions and actions so the agent only uses the minimum access needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Zscaler ZIA security events for support or operations teams?",
+      "answer": "Yes, the agent can turn Zscaler ZIA results into plain-language summaries, investigation notes, escalation briefs, or handoff-ready context for support and internal teams. This helps teams respond faster without manually translating raw security details."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Zscaler ZIA workflows?",
+      "answer": "Skill Builder can place approval boundaries around sensitive actions so the agent can gather context, prepare recommendations, or draft updates before anything higher risk is carried out. That keeps the workflow useful while maintaining human oversight where it matters."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "crowdstrike",
+    "sentinelone",
+    "cloudflare",
+    "cisco-umbrella",
+    "microsoft-entra-id"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zscaler",
+    "domain": "zscaler.com",
+    "description": "Zscaler is a leading global cloud-based information security company that facilitates secure digital transformation for organizations embracing a mobile and cloud-first approach. Known for operating the world's largest cloud security platform, Zscaler delivers services that simplify and enhance IT operations with unmatched security. Their flagship offerings, Zscaler Internet Access and Zscaler Private Access, ensure fast, secure connections between users and applications, regardless of device, location, or network. With a presence in over 185 countries, Zscaler protects thousands of enterprises and government agencies from cyber threats and data loss through a fully cloud-delivered solution that outperforms traditional appliances and hybrid security models. As a pioneer in zero trust cybersecurity, Zscaler accelerates digital transformation by providing robust, secure access across any network.",
+    "slogan": "Securely transform your networks for a mobile and cloud-first world.",
+    "logoUrl": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+    "iconUrl": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+    "primaryColor": "#286df2",
+    "accentColor": "#8cbcec",
+    "colors": [
+      {
+        "hex": "#286df2",
+        "name": "Retro Blue"
+      },
+      {
+        "hex": "#8cbcec",
+        "name": "Electric Eel"
+      },
+      {
+        "hex": "#0574bc",
+        "name": "Bumangués Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0e9d5bd5-1896-4509-a3bd-dad3ec2d303b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://zscaler.com/careers",
+      "terms": null,
+      "contact": "https://zscaler.com/company/contact",
+      "privacy": "https://zscaler.com/privacy/overview",
+      "blog": "https://zscaler.com/blogs",
+      "pricing": "https://zscaler.com/pricing-and-plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/58a8a829-4c3b-4a1d-89ab-9218b540db9d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d282adec-a8f3-4aae-a9fe-ba2879665c04.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

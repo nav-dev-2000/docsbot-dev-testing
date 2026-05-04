@@ -1,0 +1,168 @@
+{
+  "slug": "anthropic",
+  "name": "Anthropic",
+  "domain": "anthropic.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI Agents That Work with Anthropic",
+  "metaTitle": "Build DocsBot AI Agents for Anthropic Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Anthropic for safe text generation, summarization, routing, and internal workflows with secure controls and testing.",
+  "intro": "Anthropic provides powerful AI models and assistant capabilities that teams can use for generation, summarization, classification, and reasoning workflows. With DocsBot Skill Builder, you can describe the Anthropic-powered outcome you want in plain language, and DocsBot can create a reusable Skill that safely connects your agent to Anthropic. The result is a customer support or internal AI agent that can answer questions, generate structured outputs, prepare handoffs, and trigger approved AI-assisted workflows inside clear boundaries.",
+  "supportUseCases": [
+    "Use a DocsBot support agent to send customer issue details to Anthropic for response drafting, tone adjustment, or summary generation before replying in a chat widget or helpdesk ticket.",
+    "Let the agent classify incoming support conversations with Anthropic so it can route billing, technical, onboarding, and urgent cases to the right queue or next workflow.",
+    "Have the agent summarize long customer threads with Anthropic and create clean escalation notes for human support teams.",
+    "Use Anthropic to turn messy customer problem descriptions into structured troubleshooting steps, case notes, or follow-up questions that the DocsBot agent can send back instantly.",
+    "Let the agent generate multilingual support reply drafts with Anthropic while keeping approvals in place for sensitive or high-risk responses."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to send product notes, policies, or ticket histories to Anthropic for summaries, rewrite suggestions, or research assistance.",
+    "Support and success teams can ask an internal agent to classify feedback themes with Anthropic and return organized summaries for product, operations, or leadership reviews.",
+    "Operations teams can use a private agent in Slack or Microsoft Teams to generate SOP drafts, handoff notes, or response templates with Anthropic based on approved internal materials.",
+    "Managers can chat with the agent to turn large sets of support transcripts into concise trend reports, action items, and risk summaries using Anthropic.",
+    "Internal teams can use the agent to create first drafts of macros, knowledge base updates, or escalation checklists with Anthropic while keeping human review for publication."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that drafts ticket replies with Anthropic using your tone and approval rules.",
+    "A customer chat agent that summarizes conversations and prepares escalation handoff notes automatically.",
+    "An internal assistant that classifies feedback, bugs, and feature requests into structured categories.",
+    "A team agent that converts raw transcripts into clean summaries, action items, and follow-up tasks.",
+    "A DocsBot workflow that generates multilingual response drafts for support teams with review controls.",
+    "An AI assistant that rewrites knowledge base content into shorter customer-friendly explanations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Anthropic-powered agent to do, such as draft support replies, summarize conversations, classify requests, or prepare internal handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and defines how the DocsBot agent should use Anthropic during support or internal conversations."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chat transcripts and Skill content, proxies credentials through protected runtime configuration, and scopes Anthropic access to only the actions and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries, response rules, and safe action limits so sensitive generations, escalations, or downstream workflows can stay under customer-defined control."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Anthropic with DocsBot?",
+      "answer": "You describe the Anthropic-powered workflow you want in plain language, and DocsBot Skill Builder designs the Skill, secures the connection, tests the behavior, and helps deploy it to the right support or internal agent. The finished agent can use Anthropic for generation, summarization, classification, and other bounded AI actions you approve."
+    },
+    {
+      "question": "Can a DocsBot customer support agent use Anthropic to draft replies and summarize tickets?",
+      "answer": "Yes, you can build a Skill that sends approved support context to Anthropic so the DocsBot agent can draft responses, summarize threads, prepare escalation notes, or generate follow-up questions. Skill Builder can also add approval steps and scope what information is included in those requests."
+    },
+    {
+      "question": "What customer support workflows can Anthropic help automate inside DocsBot?",
+      "answer": "Common workflows include reply drafting, conversation summarization, ticket classification, language rewriting, escalation preparation, and structured note generation. DocsBot can use those outputs while responding in a website chat widget or a connected helpdesk workflow."
+    },
+    {
+      "question": "Can an internal AI assistant use Anthropic for employee research and writing tasks?",
+      "answer": "Yes, private DocsBot agents can use Anthropic to summarize documents, rewrite internal content, classify themes, prepare SOP drafts, and generate structured outputs for employees in chat, Slack, or Microsoft Teams. Skill Builder keeps those workflows within scoped permissions and defined usage boundaries."
+    },
+    {
+      "question": "How does DocsBot keep Anthropic integrations secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime settings, keeps credentials out of chats and generated Skill content, and scopes access to the minimum required actions. It can also add approval boundaries for sensitive outputs or higher-risk workflows."
+    },
+    {
+      "question": "Can DocsBot use Anthropic for safe AI actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can go beyond answers by generating summaries, preparing handoffs, creating structured artifacts, triggering downstream workflows, and supporting approved decisions based on Anthropic output. The exact actions stay bounded by the rules, permissions, and approval controls you define."
+    }
+  ],
+  "relatedSlugs": [
+    "openai",
+    "intercom",
+    "zendesk",
+    "slack",
+    "microsoft-teams",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Anthropic",
+    "domain": "anthropic.com",
+    "description": "Anthropic is an AI research company that builds reliable, interpretable, and steerable AI systems. They develop AI solutions, including Claude, an AI assistant for tasks at any scale, and conduct research in areas such as natural language, human feedback, and reinforcement learning.",
+    "slogan": "Building reliable, interpretable, and steerable AI for a safer future.",
+    "logoUrl": "https://media.brand.dev/a48d6f42-56b6-4673-a05a-9e504ac56634.svg",
+    "iconUrl": "https://media.brand.dev/1a43a7fa-b272-438b-9862-0c505bc5aac6.png",
+    "primaryColor": "#7c7474",
+    "accentColor": "#191918",
+    "colors": [
+      {
+        "hex": "#7c7474",
+        "name": "Soft Fur"
+      },
+      {
+        "hex": "#191918",
+        "name": "Thamar Black"
+      },
+      {
+        "hex": "#f2ebea",
+        "name": "Opulent Opal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/70dcd62d-87f8-480e-849f-0dbf4e160d10.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.anthropic.com/careers",
+      "contact": "https://www.anthropic.com/contact-sales",
+      "privacy": "https://www.anthropic.com/legal/privacy",
+      "terms": "https://www.anthropic.com/legal/commercial-terms",
+      "blog": "https://www.anthropic.com/news",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1a43a7fa-b272-438b-9862-0c505bc5aac6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a48d6f42-56b6-4673-a05a-9e504ac56634.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 45,
+        "height": 32,
+        "aspectRatio": 1.41
+      },
+      {
+        "url": "https://media.brand.dev/4fec08a6-f7cc-4c4a-8ccd-a0dc550ea7af.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 143,
+        "height": 16,
+        "aspectRatio": 8.94
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4fec08a6-f7cc-4c4a-8ccd-a0dc550ea7af.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 143,
+      "height": 16,
+      "aspectRatio": 8.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1a43a7fa-b272-438b-9862-0c505bc5aac6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "power-bi",
+  "name": "Power BI",
+  "domain": "power-bi.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Business Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Power BI",
+  "metaTitle": "Build AI Support and Internal Agents for Power BI",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that query Power BI, summarize metrics, trigger reporting workflows, and support customers or internal teams safely.",
+  "intro": "Power BI helps teams turn business data into dashboards, reports, and operational insight. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely query Power BI, summarize results, and trigger approved follow-up actions. That means customer-facing support agents and private internal assistants can answer with live reporting context instead of static documentation alone.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Power BI metrics to explain account usage, product adoption, service status trends, or billing-related reporting during a chat or helpdesk reply.",
+    "Use the agent to summarize dashboard results for a customer in plain language and prepare a clean handoff for human support when the reported numbers suggest escalation is needed.",
+    "Enable the agent to compare a customer's current reporting period with prior periods in Power BI and explain noticeable changes without exposing unrelated internal data.",
+    "Have the agent retrieve approved KPI snapshots from Power BI and add a concise summary to a support ticket so agents and customers share the same operational context.",
+    "Let the agent surface report-based health indicators from Power BI before suggesting the next support step, such as troubleshooting, escalation, or a customer success follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Power BI dashboard summaries, KPI changes, and trend explanations without opening multiple reports manually.",
+    "Customer success and operations teams can ask the agent to summarize account health, adoption trends, renewal risk indicators, or service performance data pulled from Power BI for faster decision-making.",
+    "Leaders can chat with the agent to compare reporting periods, generate executive-ready summaries, and prepare internal handoff notes grounded in approved Power BI data.",
+    "Support managers can use the agent to research ticket volume, resolution trends, or escalation patterns in Power BI and turn the findings into action-oriented summaries for the team.",
+    "Employees can use the agent to follow reporting SOPs, such as gathering defined metrics, checking exceptions, and producing a standardized summary for operations reviews or customer meetings."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains customer account metrics using approved Power BI dashboards.",
+    "An internal assistant that summarizes KPI changes and trends from multiple Power BI reports.",
+    "A helpdesk agent that adds live reporting context to escalations and customer handoffs.",
+    "An operations assistant that compares current and prior period metrics before recommending next steps.",
+    "An AI agent that generates plain-language executive summaries from selected Power BI visual data.",
+    "A customer success assistant that reviews adoption indicators and prepares renewal risk summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Power BI, such as summarizing a dashboard, checking a KPI, or preparing an escalation summary, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder scopes the Skill to the minimum reports, actions, users, and data needed, and adds approval boundaries or safe action limits for any sensitive lookups, updates, or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can ask questions and get answers or bounded actions backed by Power BI."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Power BI data?",
+      "answer": "With DocsBot Skill Builder, you describe the reporting or workflow outcome you want in plain language, and Skill Builder designs a secure Skill that can query approved Power BI data, summarize results, and take bounded follow-up actions. It also handles configuration, authentication, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Power BI during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Power BI Skill to retrieve approved metrics, explain trends in plain language, add reporting context to replies, and prepare escalations or handoffs. Access can be limited to only the dashboards, data, and actions you approve."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Power BI?",
+      "answer": "Internal agents can help employees retrieve dashboard summaries, compare reporting periods, monitor KPIs, prepare executive updates, and follow reporting SOPs across operations, support, and customer success teams. The agent can also generate concise summaries or trigger approved follow-up workflows based on the results."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent can access in Power BI?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect and proxy secrets, and scope access to the minimum reports, users, and actions required. It can also add approval boundaries for sensitive workflows so the agent stays within your rules."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Power BI dashboards for non-technical users?",
+      "answer": "Yes, the agent can turn approved dashboard data into plain-language explanations, KPI summaries, and next-step recommendations for customers or employees. This helps teams use reporting insight without requiring everyone to interpret raw visualizations themselves."
+    },
+    {
+      "question": "What does setup look like for a Power BI AI agent in DocsBot?",
+      "answer": "You describe what you want the agent to accomplish, and Skill Builder handles the design, secure connection details, testing, improvement, and deployment path. Non-technical teams can focus on outcomes while DocsBot manages the implementation details behind the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "looker",
+    "google-bigquery",
+    "snowflake",
+    "microsoft-teams",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

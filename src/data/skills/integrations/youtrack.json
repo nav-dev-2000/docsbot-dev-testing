@@ -1,0 +1,151 @@
+{
+  "slug": "youtrack",
+  "name": "YouTrack",
+  "domain": "youtrack.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with YouTrack",
+  "metaTitle": "Build YouTrack AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use YouTrack to look up issues, update records, trigger workflows, and support employees or customers with safe bounded actions.",
+  "intro": "YouTrack helps teams track issues, manage projects, and coordinate software delivery. With DocsBot Skill Builder, you can describe the YouTrack-powered agent you want in plain language, and DocsBot helps design, secure, test, improve, and publish that Skill. The result is an AI support agent or internal assistant that can answer questions and take approved action in YouTrack instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of a reported bug or feature request in YouTrack and respond with a clear progress summary.",
+    "Let the agent create a new YouTrack issue from a website chat or support ticket when a customer reports a reproducible product problem.",
+    "Allow the agent to add customer-provided reproduction steps, priority notes, or environment details to an existing YouTrack issue during support conversations.",
+    "Have the agent summarize related YouTrack issues, linked tasks, and current assignees so support can prepare a fast handoff to engineering.",
+    "Use the agent to trigger an approved escalation workflow in YouTrack when a support conversation meets your criteria for severity or urgency."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find YouTrack issues, epics, sprints, and project updates without opening multiple tools.",
+    "Product, QA, and support teams can ask the agent to summarize open bugs, blockers, and recently updated tickets across selected YouTrack projects.",
+    "Team members can use the agent to create issues, add comments, update fields, or prepare escalation notes in YouTrack while following approved workflow boundaries.",
+    "Operations or engineering managers can chat with the agent to retrieve YouTrack status details, generate standup summaries, and support internal SOPs for triage and release coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates YouTrack bugs from customer chats with structured reproduction details.",
+    "A private team assistant that summarizes sprint progress and blockers across selected YouTrack projects.",
+    "A DocsBot workflow that updates issue fields only after collecting required context from the requester.",
+    "An escalation assistant that prepares YouTrack handoff notes for engineering and customer success teams.",
+    "A release support agent that checks linked issues and summarizes current fix status for support replies.",
+    "An internal triage assistant that finds duplicate issues and suggests the best existing YouTrack record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with YouTrack, such as finding issues, creating tickets, updating fields, or preparing escalation summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "DocsBot Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, needed configuration values, and the right YouTrack connection approach."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder handles authentication and secret storage through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded action in YouTrack."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with YouTrack?",
+      "answer": "With DocsBot Skill Builder, you describe the YouTrack workflow you want in plain language, and DocsBot helps design, secure, test, improve, and publish the Skill. That Skill can let your AI agent look up issues, create records, update approved fields, trigger workflows, and summarize project state."
+    },
+    {
+      "question": "Can an AI support agent use YouTrack during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use YouTrack from a website chat widget or helpdesk context to check issue status, create new bugs, add notes, prepare handoffs, or trigger approved escalation steps. You control what actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What YouTrack workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees search issues, summarize sprint progress, create or update tickets, prepare release notes, and complete triage or escalation SOPs across teams. This is useful in private chat, Slack, or Microsoft Teams where employees want quick answers and safe action without switching tools."
+    },
+    {
+      "question": "Can DocsBot safely update YouTrack issues instead of only reading data?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as adding comments, changing selected fields, creating issues, or moving work through approved workflows. Skill Builder defines secure connection handling, scopes permissions, and can add approval checks for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep YouTrack credentials and secrets secure?",
+      "answer": "Skill Builder identifies the required connection details and uses secure runtime configuration to store and proxy secrets instead of exposing them in chats or generated Skill content. It also limits access to the minimum users, actions, and records needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize YouTrack issues for handoffs and escalations?",
+      "answer": "Yes, the agent can gather issue details, comments, linked work, owners, and status changes from YouTrack and turn them into concise handoff or escalation summaries. This helps support, QA, engineering, and customer success teams move faster with shared context."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "trello",
+    "clickup",
+    "github"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "YouTrack",
+    "domain": "youtrack.com",
+    "description": "YouTrack is a flexible issue tracking and project management platform developed by JetBrains, designed to help software teams plan, track, and release high‑quality software. It offers powerful search queries, customizable workflows, agile boards, time tracking, and integration with version control systems. Teams can capture bugs, feature requests, and tasks, prioritize work, and generate reports. YouTrack supports both Scrum and Kanban methodologies, provides REST APIs, and can be self‑hosted or used in the cloud. Its intuitive UI and automation capabilities streamline collaboration, making it easier for developers, QA, and product managers to stay aligned and deliver software efficiently.",
+    "slogan": "Real-time tracking for vehicles and loved ones—at the touch of a button.",
+    "logoUrl": "https://media.brand.dev/ed42aa92-88d0-4293-a046-f6484a1198cf.jpg",
+    "iconUrl": "https://media.brand.dev/ed42aa92-88d0-4293-a046-f6484a1198cf.jpg",
+    "primaryColor": "#d63045",
+    "accentColor": "#232323",
+    "colors": [
+      {
+        "hex": "#d63045",
+        "name": "Bloody Rust"
+      },
+      {
+        "hex": "#232323",
+        "name": "Young Night"
+      },
+      {
+        "hex": "#e8dddd",
+        "name": "Homeopathic Rose"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://youtrack.com/",
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ed42aa92-88d0-4293-a046-f6484a1198cf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ed42aa92-88d0-4293-a046-f6484a1198cf.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ed42aa92-88d0-4293-a046-f6484a1198cf.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

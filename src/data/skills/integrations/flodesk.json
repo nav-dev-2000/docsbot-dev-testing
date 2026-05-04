@@ -1,0 +1,176 @@
+{
+  "slug": "flodesk",
+  "name": "Flodesk",
+  "domain": "flodesk.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Flodesk",
+  "metaTitle": "Build Flodesk AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Flodesk for customer support, campaign lookups, subscriber updates, and internal marketing workflows.",
+  "intro": "Flodesk helps businesses manage email marketing, automations, sales pages, and related customer journeys. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Flodesk data and actions. The result is a support or internal AI agent that can answer questions, look up subscriber or campaign details, trigger approved workflows, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a subscriber is on a list or in an email workflow while answering account or communication questions.",
+    "Use a support agent to confirm recent email campaign status, delivery context, or automation enrollment before responding to a customer ticket.",
+    "Allow the agent to add or update subscriber details in Flodesk after collecting the right information from the customer in chat.",
+    "Have the agent prepare an escalation summary that includes relevant Flodesk subscriber activity and communication history for a human teammate.",
+    "Enable the agent to trigger an approved follow-up workflow, such as adding a customer to a nurture sequence or tagging them for a support-related campaign."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up Flodesk subscriber, segment, campaign, or automation details without manually searching the platform.",
+    "Enable marketing or customer success teams to ask the agent for summaries of campaign activity, subscriber state, or workflow enrollment before taking next steps.",
+    "Allow team members in Slack or Microsoft Teams to have the agent add subscribers to approved sequences, update list membership, or prepare outreach handoffs using Flodesk.",
+    "Use an internal AI assistant to guide employees through repeatable SOPs for campaign checks, follow-up actions, and marketing operations tasks across Flodesk and other systems.",
+    "Help managers and operators chat with the agent to research communication issues, gather context, and generate concise internal notes or next-step recommendations."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Flodesk subscriber status during customer conversations.",
+    "A private team assistant that summarizes campaign and automation activity on request.",
+    "A workflow Skill that adds contacts to approved email sequences with guardrails.",
+    "An escalation helper that gathers Flodesk context and drafts handoff notes for agents.",
+    "A marketing operations assistant that updates subscriber fields after employee approval.",
+    "A support Skill that confirms list membership before suggesting next communication steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Flodesk in plain language, such as checking subscriber status, updating approved fields, or triggering a follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the needed configuration values, handles authentication and secret storage through protected runtime configuration, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Guardrails are added automatically",
+      "description": "Skill Builder scopes the Skill to the minimum Flodesk access required, limits which actions or records the agent can use, and adds approval boundaries wherever updates or sensitive workflows should require extra control."
+    },
+    {
+      "title": "Scenarios are tested and improved",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Flodesk data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, and it creates a Skill that lets your agent safely look up Flodesk subscriber details, automation status, or campaign context while responding in chat or tickets. You can also define bounded actions such as approved updates, follow-up triggers, and escalation handoffs."
+    },
+    {
+      "question": "Can an AI support agent update Flodesk subscriber information during a customer conversation?",
+      "answer": "Yes, DocsBot can be configured to collect the needed details from the customer, validate the request, and update approved subscriber fields or list membership in Flodesk. Skill Builder adds scoped permissions and approval boundaries so sensitive changes stay controlled."
+    },
+    {
+      "question": "What Flodesk workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve subscriber or campaign information, summarize automation state, add contacts to approved sequences, and follow repeatable marketing operations SOPs. It can also generate notes, handoffs, and next-step recommendations for teams working in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot use Flodesk to prepare support handoffs and escalation summaries?",
+      "answer": "Yes, a DocsBot agent can gather relevant Flodesk context such as subscriber status, workflow enrollment, and communication-related details, then produce a concise handoff summary for a human teammate. This helps support teams escalate faster with better context."
+    },
+    {
+      "question": "How does DocsBot keep a Flodesk AI agent secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, and keeps credentials out of conversations and generated content. It also scopes access to the minimum needed actions and can require approvals for updates or workflow triggers."
+    },
+    {
+      "question": "Do I need to write code to create a Flodesk Skill for DocsBot?",
+      "answer": "No, the setup is designed for non-technical users. You describe the workflow you want, and Skill Builder handles the design, secure configuration, testing, improvement, and deployment steps for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "convertkit",
+    "activecampaign",
+    "hubspot",
+    "klaviyo",
+    "campaign-monitor"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Flodesk",
+    "domain": "flodesk.com",
+    "description": "Flodesk is a software company that provides intuitive tools to help entrepreneurs grow their businesses. They offer a suite of services including designing and sending marketing emails, creating sales pages, processing online payments, and building email automations, all in one platform.",
+    "slogan": "Email marketing made beautiful, simple, and powerful for entrepreneurs.",
+    "logoUrl": "https://media.brand.dev/a067b042-7170-4bd1-a360-afde6ff298ac.svg",
+    "iconUrl": "https://media.brand.dev/38840d25-8cb8-4cbf-89ef-73b096e5cf51.jpg",
+    "primaryColor": "#847c7c",
+    "accentColor": "#251c17",
+    "colors": [
+      {
+        "hex": "#847c7c",
+        "name": "Steeple Grey"
+      },
+      {
+        "hex": "#251c17",
+        "name": "Dark Orchestra"
+      },
+      {
+        "hex": "#fafafa",
+        "name": "Dr. White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/21c627c0-7f0e-4b6d-8d9a-ade0e995c428.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://flodesk.com/careers",
+      "terms": "https://flodesk.com/legal/terms-of-service",
+      "contact": null,
+      "privacy": "https://flodesk.com/legal/privacy-policy",
+      "blog": "https://flodesk.com/blog",
+      "pricing": "https://flodesk.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/38840d25-8cb8-4cbf-89ef-73b096e5cf51.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 513,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/afa1a80d-6aff-49c0-9ec5-77f9a3dc4e67.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2cb1a66b-8121-476a-a1dc-c87e2775a0a4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 700,
+        "height": 700,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a067b042-7170-4bd1-a360-afde6ff298ac.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 114,
+        "height": 24,
+        "aspectRatio": 4.75
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a067b042-7170-4bd1-a360-afde6ff298ac.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 114,
+      "height": 24,
+      "aspectRatio": 4.75
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2cb1a66b-8121-476a-a1dc-c87e2775a0a4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 700,
+      "height": 700,
+      "aspectRatio": 1
+    }
+  }
+}

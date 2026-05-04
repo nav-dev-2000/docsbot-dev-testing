@@ -1,0 +1,184 @@
+{
+  "slug": "braintree",
+  "name": "Braintree",
+  "domain": "braintreepayments.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Braintree",
+  "metaTitle": "Build Braintree AI Agents for Support and Payment Operations",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Braintree for payment lookups, status summaries, escalations, and approved billing workflows.",
+  "intro": "Braintree helps businesses accept and manage payments across cards, PayPal, Venmo, and other payment methods. With DocsBot Skill Builder, you can describe the payment workflow you want in plain language and create an AI Skill that lets your support or internal agent safely use Braintree data and actions. The result is an AI agent that can answer questions, check payment status, prepare handoffs, and trigger approved billing workflows without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Braintree transaction status so it can explain whether a payment succeeded, failed, settled, or is still pending.",
+    "Use the agent to look up subscription or billing-related payment activity in Braintree and summarize the latest charge history for a support conversation or helpdesk ticket.",
+    "Have the agent gather the right payment details from the customer, then prepare a clean escalation summary for billing or fraud specialists when a case needs human review.",
+    "Enable the agent to identify declined or duplicate payment patterns in Braintree and guide the customer to the next approved step based on your support policies.",
+    "Let the agent create bounded internal handoff notes that include relevant Braintree payment context, customer statements, and recommended follow-up actions for the support team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Braintree transaction details, settlement status, and payment timelines without digging through dashboards.",
+    "Finance and operations teams can ask the agent to summarize Braintree activity for a customer account, compare recent payment events, and prepare investigation notes for exception handling workflows.",
+    "Customer success or billing teams can use the agent to follow internal SOPs for payment issue triage, with the agent gathering context, organizing evidence, and routing approved cases to the right team.",
+    "Support managers can ask the agent to research common payment failure patterns from Braintree records and return concise summaries that help improve macros, help content, and escalation rules.",
+    "Internal teams can use the agent to complete bounded workflows such as collecting transaction context, generating case summaries, and requesting approval before any sensitive payment-related follow-up action is taken."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Braintree transaction status during live customer chats.",
+    "A billing assistant that summarizes recent payment activity for helpdesk tickets.",
+    "A private finance agent that researches failed payments and prepares investigation notes.",
+    "An operations assistant that gathers Braintree context and creates clean escalation handoffs.",
+    "A customer success agent that explains payment outcomes using approved support language.",
+    "An internal agent that follows payment issue SOPs and requests approval for sensitive steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Braintree, such as checking payment status, summarizing transaction history, or preparing billing escalations, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and sets up secure authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes the Skill to the minimum Braintree access, users, records, and actions needed for the workflow, and adds approval boundaries wherever payment-related actions should stay controlled."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to the right DocsBot agent so your website chat, helpdesk bot, or internal team assistant can use Braintree safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Braintree?",
+      "answer": "With DocsBot Skill Builder, you describe the payment or billing workflow you want in plain language, and Skill Builder designs the Braintree-connected Skill for you. It handles secure configuration, scoped access, testing, and deployment so the agent can safely look up data or support approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Braintree data to answer payment questions?",
+      "answer": "Yes, a DocsBot support agent can use a Braintree Skill to retrieve payment status, transaction context, and other approved billing details while replying to customers in chat or through helpdesk tickets. This helps the agent give faster answers and prepare better handoffs when a human needs to step in."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Braintree?",
+      "answer": "A DocsBot agent can look up transaction outcomes, summarize recent payment activity, gather missing details from the customer, and create escalation-ready notes for billing or fraud review. You can also define bounded workflow triggers and approval steps for more sensitive payment operations."
+    },
+    {
+      "question": "Can an internal AI assistant help finance or operations teams with Braintree?",
+      "answer": "Yes, internal teams can chat with a private DocsBot agent to research transactions, summarize account payment history, and follow investigation or escalation SOPs. The agent can reduce manual dashboard work while staying inside the access limits and approval rules you define."
+    },
+    {
+      "question": "How does DocsBot keep Braintree credentials and payment workflows secure?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes permissions to the minimum necessary access and can require approvals for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot test a Braintree AI workflow before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises imagined support and internal scenarios against the Skill design. It can identify bugs, missing checks, weak instructions, or workflow gaps, then improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "paypal",
+    "adyen",
+    "recurly",
+    "chargebee",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Braintree",
+    "domain": "braintreepayments.com",
+    "description": "Braintree is a payment platform that provides online and mobile businesses with the tools they need to accept payments. They enable merchants in over 45 countries to accept and process payments in more than 130 currencies, and provide commerce tools to minimize security concerns, expand globally, and enable new commerce experiences. As a PayPal service, Braintree allows merchants to accept multiple payment methods, including PayPal, Venmo, credit and debit cards, in a single integration, driving innovation and revenue for businesses worldwide.",
+    "slogan": "Simplifying payments worldwide to empower businesses and inspire innovation.",
+    "logoUrl": "https://media.brand.dev/97deb326-e187-417e-983e-51343e06beec.svg",
+    "iconUrl": "https://media.brand.dev/dc57f624-58c8-4545-9219-bb67aabaa812.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dddddd",
+        "name": "Steam"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8fc19c92-b90a-4353-a08f-bdf81bcbabe2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/dc57f624-58c8-4545-9219-bb67aabaa812.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1438ff01-d025-425e-9c04-ae99763ec063.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 258,
+        "height": 258,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/102f0ef1-417e-4647-8b42-74cd6d60c765.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/80d00386-d504-4b99-a7bb-de4c63c30c3c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/97deb326-e187-417e-983e-51343e06beec.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 167,
+        "height": 56,
+        "aspectRatio": 2.98
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/97deb326-e187-417e-983e-51343e06beec.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 167,
+      "height": 56,
+      "aspectRatio": 2.98
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1438ff01-d025-425e-9c04-ae99763ec063.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 258,
+      "height": 258,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-cliq",
+  "name": "Zoho Cliq",
+  "domain": "zoho-cliq.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Cliq",
+  "metaTitle": "Build AI Agents for Zoho Cliq with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI Skills that read, post, route, and summarize Zoho Cliq conversations for customer support and internal team workflows.",
+  "intro": "Zoho Cliq helps teams communicate and coordinate work across the business. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Cliq, and DocsBot helps design, secure, test, and deploy that Skill. The result is a support or internal AI agent that can look up conversation context, post updates, prepare handoffs, and trigger approved communication workflows without requiring a technical setup process.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to post a Zoho Cliq message to the right support channel when a customer issue needs human attention.",
+    "Let the agent summarize a customer chat or helpdesk ticket and send the summary into Zoho Cliq for faster internal escalation.",
+    "Have the agent collect missing details from the customer, then create a structured Zoho Cliq handoff message for the support or success team.",
+    "Enable the agent to update customers while also notifying Zoho Cliq channels about urgent incidents, account risks, or priority follow-ups.",
+    "Use the agent to look up recent Zoho Cliq thread context tied to an escalation so it can give the customer a clearer status update."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find the right Zoho Cliq channel, person, or conversation for a project, incident, or customer account.",
+    "Enable team members to ask the agent to post standardized updates, reminders, or follow-up summaries into Zoho Cliq without rewriting the message manually.",
+    "Use an internal AI assistant to gather details from multiple systems, then draft and send a Zoho Cliq escalation summary that follows your team SOP.",
+    "Help operations or support managers ask the agent for a summary of recent Zoho Cliq activity related to an incident, launch, or service issue.",
+    "Allow employees to use chat, Slack, or Microsoft Teams to trigger approved Zoho Cliq notifications as part of cross-team workflows and recurring procedures."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that posts customer escalation summaries into the correct Zoho Cliq channel.",
+    "A Skill that drafts and sends incident updates to Zoho Cliq based on support ticket context.",
+    "A Skill that routes internal handoff messages to the right Zoho Cliq team or manager.",
+    "A Skill that summarizes a Zoho Cliq thread before an agent replies to a customer.",
+    "A Skill that creates standardized follow-up messages for onboarding, renewals, or urgent support cases.",
+    "A Skill that triggers Zoho Cliq alerts when customer conversations match escalation rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the AI agent to do with Zoho Cliq, such as sending escalation updates, summarizing threads, or routing handoffs, and it turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed connection details, defines secure configuration values, protects and proxies secrets and authentication through approved runtime setup, and scopes access to only the channels, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds safe action boundaries for sensitive steps like posting to high-visibility channels or triggering urgent alerts, including approvals when your workflow calls for them."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot agent or your private team assistant so it can take bounded action inside Zoho Cliq during real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zoho Cliq for customer support workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as posting escalations or sharing ticket summaries in Zoho Cliq, and Skill Builder creates a secure Skill that your support agent can use during chats or ticket replies."
+    },
+    {
+      "question": "Can a DocsBot support agent send Zoho Cliq messages when a customer needs escalation?",
+      "answer": "Yes, you can design a Skill that lets the agent prepare and send structured Zoho Cliq messages for approved escalation paths. Skill Builder can also add approval boundaries and action limits for sensitive notifications."
+    },
+    {
+      "question": "Can an AI agent use Zoho Cliq conversation context to improve customer handoffs?",
+      "answer": "Yes, a DocsBot Skill can help the agent retrieve or summarize relevant Zoho Cliq context so handoffs are clearer and faster. This can reduce repeated questions and give support teams better internal visibility."
+    },
+    {
+      "question": "What can an internal AI assistant automate with Zoho Cliq?",
+      "answer": "An internal DocsBot agent can help employees find channels, draft updates, send standardized notifications, summarize discussions, and trigger communication steps inside larger SOPs. The exact actions are defined by the workflow you want to enable."
+    },
+    {
+      "question": "Is it safe to let an AI agent post messages in Zoho Cliq?",
+      "answer": "It can be, when the Skill is designed with scoped permissions, secure authentication handling, and clear approval boundaries. Skill Builder plans those controls by default so the agent only takes the actions you approve."
+    },
+    {
+      "question": "Do I need to configure the Zoho Cliq integration manually to create a DocsBot Skill?",
+      "answer": "No, the setup is framed around the outcome you want. Skill Builder helps define the connection, secure configuration, secret handling, testing plan, and deployment path without making you manually write code or map every implementation detail."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "microsoft-teams",
+    "discord",
+    "google-chat",
+    "intercom",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

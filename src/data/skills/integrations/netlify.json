@@ -1,0 +1,176 @@
+{
+  "slug": "netlify",
+  "name": "Netlify",
+  "domain": "netlify.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Netlify",
+  "metaTitle": "Build Netlify AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Netlify to check deploy status, summarize site activity, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Netlify helps teams build, deploy, and manage modern websites and applications. With DocsBot Skill Builder, you can describe the Netlify-powered agent you want in plain language and have DocsBot design, secure, test, and package the Skill for you. The result is an AI support or internal operations agent that can answer questions and take approved actions in Netlify instead of only pointing people to dashboards.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a site deployment in Netlify and explain whether a recent update is live.",
+    "Use a support agent to summarize recent Netlify deploy activity when a customer reports a broken page or missing website change.",
+    "Have the agent gather a site's environment or build context from approved Netlify metadata and prepare a clean escalation handoff for engineering.",
+    "Enable the agent to trigger an approved redeploy or build-related workflow in Netlify after collecting the right customer confirmation.",
+    "Let the agent review site status details in Netlify and give customers a plain-language update about outages, failed builds, or publishing delays."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to check Netlify deploy history, site status, and recent build outcomes without opening multiple dashboards.",
+    "Operations or engineering teams can ask the agent to summarize failed deploy patterns across Netlify sites and prepare incident notes or follow-up tasks.",
+    "Customer success or support leads can chat with the agent to collect Netlify deployment context before escalating a customer issue to developers.",
+    "Internal teams can use the agent to trigger approved Netlify workflows, such as a redeploy request, within scoped permissions and approval boundaries.",
+    "Employees can ask the agent to follow deployment SOPs, gather missing context, and produce a step-by-step summary of what changed in Netlify and what should happen next."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Netlify deploy status before replying to website issue tickets.",
+    "A private team assistant that summarizes recent Netlify builds across important production sites.",
+    "A handoff Skill that collects Netlify deployment details and prepares an engineering escalation summary.",
+    "An approval-based agent that triggers safe Netlify redeploy workflows after confirming the request.",
+    "A status lookup Skill that explains failed Netlify builds in plain language for support teams.",
+    "An internal SOP agent that guides employees through website incident response using Netlify data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Netlify agent to do, such as checking deploy status, triggering a redeploy, or preparing an escalation, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the configuration values it needs, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum Netlify actions, sites, and users required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "For changes like redeploys or workflow triggers, Skill Builder adds approval boundaries and action limits so the agent only performs approved Netlify actions under the rules you set."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "Skill Builder's automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or internal team assistant can use Netlify data and actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Netlify?",
+      "answer": "With DocsBot Skill Builder, you describe the Netlify workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Netlify data to answer customer website or deploy questions?",
+      "answer": "Yes, a DocsBot agent can use a Netlify Skill to look up approved deployment details, site status, or recent build activity and turn that information into a clear customer response or escalation summary."
+    },
+    {
+      "question": "What Netlify workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve deploy information, summarize build outcomes, follow incident SOPs, prepare handoffs, and trigger approved Netlify workflows within scoped permissions."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Netlify instead of only explaining what to do?",
+      "answer": "Yes, Skill Builder can create bounded AI Actions for approved Netlify tasks such as workflow triggers, redeploy requests, or escalation preparation, with approval steps for sensitive actions when needed."
+    },
+    {
+      "question": "How does DocsBot keep Netlify access secure when building an AI Skill?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and limits access to the specific Netlify sites, actions, and users the workflow requires."
+    },
+    {
+      "question": "Can a DocsBot agent prepare engineering handoffs using Netlify context?",
+      "answer": "Yes, the agent can gather the relevant Netlify deployment history, failed build details, and site context, then generate a clean summary for engineers or support escalations."
+    }
+  ],
+  "relatedSlugs": [
+    "vercel",
+    "cloudflare",
+    "github",
+    "gitlab",
+    "render",
+    "heroku"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Netlify",
+    "domain": "netlify.com",
+    "description": "Netlify is a platform that enables developers to build, deploy, and manage fast, scalable, and secure websites and applications. With Netlify, developers can build with AI or code and deploy instantly, leveraging a comprehensive platform that includes features like serverless functions, edge computing, and more to deliver high-performance digital experiences.",
+    "slogan": "Build, deploy, and scale your web ideas with Netlify's all-in-one platform.",
+    "logoUrl": "https://media.brand.dev/db944650-96f1-4db7-9acb-d97e8643ffb5.svg",
+    "iconUrl": "https://media.brand.dev/aa4fcd57-c0a0-44b4-affc-1d86c905e040.png",
+    "primaryColor": "#040404",
+    "accentColor": "#15b5b4",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#15b5b4",
+        "name": "Swagger"
+      },
+      {
+        "hex": "#044543",
+        "name": "Dark Side"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2ddad6ae-d2d7-4f39-8437-16739b28fbf5.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.netlify.com/careers/",
+      "contact": "https://www.netlify.com/contact/",
+      "privacy": "https://www.netlify.com/privacy/",
+      "blog": "https://www.netlify.com/blog/",
+      "pricing": "https://www.netlify.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aa4fcd57-c0a0-44b4-affc-1d86c905e040.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/da73d46e-4778-47ff-8753-d98f3c6e9b61.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db944650-96f1-4db7-9acb-d97e8643ffb5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 512,
+        "height": 209,
+        "aspectRatio": 2.45
+      },
+      {
+        "url": "https://media.brand.dev/83b87637-43cf-4fb1-92af-12eaf766395d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 128,
+        "height": 113,
+        "aspectRatio": 1.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/db944650-96f1-4db7-9acb-d97e8643ffb5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 512,
+      "height": 209,
+      "aspectRatio": 2.45
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/aa4fcd57-c0a0-44b4-affc-1d86c905e040.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "re-amaze",
+  "name": "Re:amaze",
+  "domain": "re-amaze.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Re:amaze",
+  "metaTitle": "Build AI Support and Team Agents for Re:amaze",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read and update Re:amaze conversations, assist customers, prepare handoffs, and support internal teams safely.",
+  "intro": "Re:amaze helps teams manage customer conversations across chat, email, and other support channels. With DocsBot Skill Builder, you can describe the Re:amaze workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up conversation context, prepare handoffs, and take approved actions inside Re:amaze while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a shopper’s recent Re:amaze conversation history so it can answer with better context and avoid asking the same questions again.",
+    "Use the agent to create or update Re:amaze conversations, notes, or tags while helping a customer in a website chat widget or responding through a connected helpdesk.",
+    "Have the agent summarize an active Re:amaze thread and prepare a clean handoff for a human teammate when the issue needs escalation.",
+    "Enable the agent to check conversation status, assigned team member, or channel details in Re:amaze before giving the customer a next-step update.",
+    "Let the agent add internal notes in Re:amaze that capture what the customer already tried, what information was collected, and what action should happen next."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find Re:amaze conversations, summarize account history, and review open support issues without searching manually.",
+    "Let customer success or operations teams ask the agent to prepare escalation summaries from Re:amaze threads and route them into the right internal workflow.",
+    "Enable support managers chatting in Slack or Microsoft Teams to retrieve Re:amaze queue status, review tagged conversation trends, and coordinate follow-up actions faster.",
+    "Help new team members use a private AI assistant to follow support SOPs, gather the right context from Re:amaze, and draft consistent next steps for customer cases.",
+    "Allow employees to chat with the agent to update approved Re:amaze fields, add notes, or trigger follow-up workflows while keeping actions within scoped permissions."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that retrieves Re:amaze conversation history before replying to customers.",
+    "A support bot that creates tags, notes, and handoff summaries inside Re:amaze.",
+    "An internal assistant that finds open cases and explains the latest customer context.",
+    "A workflow agent that escalates high-priority Re:amaze conversations to the right team.",
+    "A QA assistant that reviews conversation summaries and flags missing support steps.",
+    "A triage bot that gathers missing details from customers and updates the Re:amaze thread."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Re:amaze in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to only the Re:amaze data and actions the workflow truly needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right action limits, user scope, and approval boundaries so sensitive updates, escalations, or record changes happen only within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, your helpdesk-connected agent, or a private team agent in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Re:amaze?",
+      "answer": "With DocsBot Skill Builder, you describe the Re:amaze workflow you want in plain language, such as looking up conversations, adding notes, or preparing escalations. Skill Builder then designs, secures, tests, and packages that workflow as a reusable Skill for your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Re:amaze data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved Re:amaze conversation data, summarize context, and make bounded updates while responding in a website chat widget or helpdesk flow. You control what data and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Re:amaze?",
+      "answer": "You can build workflows for conversation lookups, note creation, tagging, escalation prep, status summaries, and other approved support actions inside Re:amaze. This helps the agent resolve simple requests faster and hand off complex issues with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Re:amaze?",
+      "answer": "Yes, private DocsBot agents can help employees search conversations, summarize account history, follow support SOPs, and complete approved Re:amaze updates from chat, Slack, or Microsoft Teams. This reduces manual searching and keeps common workflows consistent."
+    },
+    {
+      "question": "How does DocsBot keep Re:amaze actions secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes permissions to the minimum needed. It can also add approval boundaries for sensitive actions so the agent stays within your rules."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation summaries from Re:amaze conversations?",
+      "answer": "Yes, you can build a Skill that reads the current Re:amaze thread, summarizes the issue, captures what has already been tried, and prepares a structured handoff for a human teammate. This makes escalations faster and more consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "gorgias",
+    "helpscout",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Re:amaze",
+    "domain": "reamaze.com",
+    "description": "Re:amaze is a customer support and helpdesk platform designed for eCommerce businesses, offering a multi-channel shared inbox with features like live chat, chatbots, and more. It unifies customer support, engagement, and sales across various channels, serving over 5,000 eCommerce brands in 100+ countries, and is a top-rated support platform on major eCommerce platforms like Shopify and WooCommerce.",
+    "slogan": "Support, Engage, and Convert Customers with a Single Platform",
+    "logoUrl": "https://media.brand.dev/c5eb38f3-d0ca-40f9-bfc5-892def042424.png",
+    "iconUrl": "https://media.brand.dev/c5eb38f3-d0ca-40f9-bfc5-892def042424.png",
+    "primaryColor": "#46b8d6",
+    "accentColor": "#dedcdd",
+    "colors": [
+      {
+        "hex": "#46b8d6",
+        "name": "Bachelor Button"
+      },
+      {
+        "hex": "#dedcdd",
+        "name": "Silver Lake"
+      },
+      {
+        "hex": "#a4a3a4",
+        "name": "Dark Souls"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/75e6bf1c-2a5f-4127-b1fd-3ba5b309277e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.reamaze.com/blog/jobs/",
+      "terms": "https://reamaze.com/tos",
+      "contact": null,
+      "privacy": "https://reamaze.com/privacy",
+      "blog": "https://www.reamaze.com/blog",
+      "pricing": "https://reamaze.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/42466900-d924-4b47-bfb5-1838bca606ea.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c5eb38f3-d0ca-40f9-bfc5-892def042424.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/370789c3-d973-48c4-b742-9658431d709d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/42466900-d924-4b47-bfb5-1838bca606ea.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/42466900-d924-4b47-bfb5-1838bca606ea.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

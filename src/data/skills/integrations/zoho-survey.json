@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-survey",
+  "name": "Zoho Survey",
+  "domain": "zoho-survey.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Survey",
+  "metaTitle": "Build AI Agents for Zoho Survey with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Survey to check responses, summarize feedback, trigger follow-up workflows, and support teams with safe actions.",
+  "intro": "Zoho Survey helps teams collect customer feedback, run questionnaires, and review response data. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Survey, and DocsBot helps design, secure, test, and publish that Skill. The result is a support or internal AI agent that can retrieve survey insights, prepare follow-ups, and take approved actions without exposing sensitive access details.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up whether a customer has completed a survey and answer follow-up questions using the latest response status.",
+    "Use Zoho Survey data to summarize feedback themes from a customer account before the agent responds to a complaint or service issue.",
+    "Have the agent trigger an approved post-resolution survey workflow after a support conversation or closed helpdesk ticket.",
+    "Enable the agent to create a handoff summary that includes recent survey sentiment, notable answers, and recommended next steps for a human support teammate.",
+    "Let the agent identify low-satisfaction survey responses tied to a customer and prepare an escalation note while replying with empathy and context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Zoho Survey results, compare feedback trends, and get fast summaries for customer success or operations reviews.",
+    "Customer success teams can ask the agent to find low-score responses, group common themes, and prepare follow-up task suggestions for at-risk accounts.",
+    "Operations or research teams can use the agent in Slack or Microsoft Teams to check survey completion rates, recent response patterns, and campaign performance without digging through dashboards.",
+    "Teams can chat with the agent to complete SOPs such as reviewing new feedback, generating internal summaries, and routing important responses to the right owner.",
+    "Managers can ask the agent to compile survey insights into a reusable brief for meetings, handoffs, or product feedback discussions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks survey completion and response status during customer conversations.",
+    "An AI workflow that summarizes recent survey sentiment before escalating a support ticket.",
+    "An internal assistant that groups low-score responses by theme for customer success follow-up.",
+    "A private team agent that generates weekly survey insight briefs from new responses.",
+    "An AI assistant that triggers approved post-case satisfaction surveys after support resolutions.",
+    "A feedback triage agent that flags negative responses and prepares escalation summaries for human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Survey agent to do in plain language, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, connection method, and authentication flow, then keeps credentials out of chats and Skill source by protecting and proxying secrets through secure runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum survey data, actions, users, and systems required, and adds approval boundaries for sensitive updates, triggers, or escalations."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action with Zoho Survey."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Survey?",
+      "answer": "With DocsBot Skill Builder, you describe the survey workflow you want in plain language, such as checking responses, summarizing sentiment, or triggering follow-ups. Skill Builder then designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Survey data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho Survey data to check response status, summarize recent feedback, and give support teams better context while replying to customers. Access can be limited to the specific records and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Survey?",
+      "answer": "Teams can automate post-case survey triggers, low-satisfaction escalation prep, survey-status lookups, and feedback summaries tied to a customer conversation or helpdesk ticket. The agent can also generate handoff notes so human teammates have the right context."
+    },
+    {
+      "question": "Can an internal AI assistant help teams analyze Zoho Survey responses?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve survey results, group themes, compare trends, and generate summaries for customer success, product, or operations teams. This makes feedback easier to act on without requiring everyone to navigate the survey tool directly."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Survey access secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and can require approval boundaries for higher-impact actions."
+    },
+    {
+      "question": "Can DocsBot trigger surveys or follow-up workflows from Zoho Survey?",
+      "answer": "Yes, a Skill can be designed to trigger approved survey-related workflows, such as sending a satisfaction survey after a support outcome or routing negative feedback into a review process. Those actions can be constrained to the exact rules and approvals your team wants."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "survey-monkey",
+    "qualtrics",
+    "google-forms",
+    "zoho-crm",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

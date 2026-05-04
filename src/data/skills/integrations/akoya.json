@@ -1,0 +1,176 @@
+{
+  "slug": "akoya",
+  "name": "Akoya",
+  "domain": "akoya.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Securely With Akoya",
+  "metaTitle": "Build Akoya AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Akoya data for support lookups, internal workflows, handoffs, summaries, and approved actions.",
+  "intro": "Akoya helps organizations securely and transparently share financial data through an API-based access network backed by major financial institutions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up data, summarize account-sharing status, trigger workflows, and prepare handoffs. This makes it easier to deploy customer support and internal AI agents that can answer questions and take bounded action around financial data access processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of a customer's financial data connection or consent-related workflow in Akoya and explain the next approved step.",
+    "Let the support agent summarize data-sharing or connection details from Akoya so customers get faster answers without waiting for manual back-office review.",
+    "Have the agent gather missing details from a customer conversation, create a structured support handoff, and attach an Akoya status summary for operations or compliance teams.",
+    "Enable the agent to identify common financial data access issues, prepare escalation notes, and trigger an approved internal review workflow while replying to the customer.",
+    "Use the agent in helpdesk tickets to retrieve Akoya-related context and draft a clear, policy-aligned response about financial data sharing, access, or connection status."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Akoya connection, consent, or data-sharing status without searching across tools.",
+    "Enable operations or customer success teams to ask the agent for summaries of Akoya-related cases, exceptions, or onboarding progress and receive structured next-step guidance.",
+    "Help compliance or support teams use a private AI agent to gather required context, prepare escalation packets, and follow internal SOPs for financial data access reviews.",
+    "Allow internal teams to ask the agent to generate standardized handoff notes, case summaries, or audit-ready recaps based on Akoya workflow data and conversation context.",
+    "Support employee research workflows where the agent combines Akoya information with internal documentation to answer process questions and recommend approved actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks financial data connection or consent status in Akoya.",
+    "A helpdesk assistant that summarizes Akoya-related issues and prepares compliance-friendly escalations.",
+    "An internal operations agent that guides teams through financial data access review workflows.",
+    "A customer success assistant that creates structured handoff notes from Akoya workflow context.",
+    "A private team agent that answers employee questions about Akoya onboarding or exception handling.",
+    "An AI agent that gathers missing customer details before triggering an approved internal review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Akoya-powered agent to do, such as check connection status, summarize a case, or prepare a handoff, and it turns that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When a workflow could affect customer data, compliance steps, or downstream operations, Skill Builder adds approval boundaries and safe action limits so the agent only takes permitted actions in approved situations."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into improvements automatically."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action with Akoya."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Akoya?",
+      "answer": "With DocsBot Skill Builder, you describe the Akoya workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize status, prepare handoffs, and trigger approved actions. It also handles secure configuration, authentication design, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Akoya data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use Akoya for approved lookups such as connection status, consent-related context, or workflow summaries while responding in chat or helpdesk tickets. The Skill can also collect missing information and prepare escalations when human review is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Akoya?",
+      "answer": "Teams can build workflows for live status lookups, issue summarization, structured handoff creation, escalation prep, and approved workflow triggers connected to financial data access support. This helps support teams resolve more questions in the first response while keeping sensitive actions controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Akoya processes?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Akoya-related information, follow SOPs, generate summaries, and complete operations or compliance workflows from chat, Slack, or Microsoft Teams. This reduces tool switching and makes process knowledge easier to access."
+    },
+    {
+      "question": "How does DocsBot keep Akoya connections and credentials secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chats and generated content, proxies credentials through secure runtime configuration, and scopes permissions to the minimum required access. It can also add approval checkpoints and action limits for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Akoya instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record-related updates, handoff generation, and status retrieval depending on your allowed use case. The goal is to let the agent answer and safely do the next step within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "plaid",
+    "finicity",
+    "stripe",
+    "quickbooks",
+    "xero",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Akoya",
+    "domain": "akoya.com",
+    "description": "Akoya is a company that transforms the way people share their financial data by making it more secure, private, reliable, and transparent. They provide an API-based data access network backed by major financial institutions, allowing consumers to safely share their personal financial data with third-party financial apps, while also helping financial institutions achieve open banking compliance standards.",
+    "slogan": "Secure, transparent, and empowering financial data sharing for a better future.",
+    "logoUrl": "https://media.brand.dev/b6e5d359-f360-44bc-8592-2bf7774f86f0.png",
+    "iconUrl": "https://media.brand.dev/2d4bc138-882a-4ba6-80df-e8f8e9b427aa.jpg",
+    "primaryColor": "#a1212c",
+    "accentColor": "#2f4c7b",
+    "colors": [
+      {
+        "hex": "#a1212c",
+        "name": "Haute Couture"
+      },
+      {
+        "hex": "#2f4c7b",
+        "name": "Nautical"
+      },
+      {
+        "hex": "#e5c99c",
+        "name": "Compatible Cream"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2693a613-c187-47c2-acb0-3c532b9b67f4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://akoya.com/careers",
+      "terms": "https://akoya.com/terms-of-use",
+      "contact": "https://akoya.com/contact",
+      "privacy": "https://akoya.com/privacy-policy",
+      "blog": "https://akoya.com/news",
+      "pricing": "https://akoya.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2d4bc138-882a-4ba6-80df-e8f8e9b427aa.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b6e5d359-f360-44bc-8592-2bf7774f86f0.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 71,
+        "aspectRatio": 4.23
+      },
+      {
+        "url": "https://media.brand.dev/ed55c8ef-5f8d-4ee0-a5c4-1418ff60ce9a.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 490,
+        "height": 292,
+        "aspectRatio": 1.68
+      },
+      {
+        "url": "https://media.brand.dev/3973332a-104d-4d59-a4e9-198661207c2e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b6e5d359-f360-44bc-8592-2bf7774f86f0.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 71,
+      "aspectRatio": 4.23
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2d4bc138-882a-4ba6-80df-e8f8e9b427aa.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

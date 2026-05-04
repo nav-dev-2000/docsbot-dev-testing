@@ -1,0 +1,168 @@
+{
+  "slug": "avoma",
+  "name": "Avoma",
+  "domain": "avoma.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use Avoma for Support and Team Workflows",
+  "metaTitle": "Build AI Agents for Avoma with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Avoma meeting insights, notes, and conversation data to support customers, assist teams, and trigger safe workflows.",
+  "intro": "Avoma helps customer-facing teams capture meeting notes, conversation intelligence, and revenue insights across calls and follow-up workflows. With DocsBot Skill Builder, you can describe the Avoma-powered agent behavior you want in plain language, and DocsBot designs a reusable Skill that connects safely to Avoma. The result is an AI support agent or internal AI assistant that can look up call context, summarize conversations, prepare handoffs, and trigger approved next steps while staying inside your rules.",
+  "supportUseCases": [
+    "Use Avoma meeting notes and conversation summaries to help a customer-facing DocsBot agent answer follow-up questions after onboarding, support, or success calls.",
+    "Pull key decisions, open questions, and action items from relevant Avoma calls so the agent can prepare a clear support handoff or escalation summary.",
+    "Look up past customer call insights in Avoma to give support agents or ticket replies more context about promises, timelines, and unresolved concerns.",
+    "Summarize sentiment, objections, or recurring discussion themes from Avoma records so the agent can respond with better context in website chat or helpdesk tickets.",
+    "Create approved follow-up tasks or workflow triggers after a support conversation when Avoma context shows the customer needs onboarding help, account review, or specialist outreach."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Avoma meeting summaries, call notes, objections, next steps, and conversation history without searching manually.",
+    "Customer success, sales, and support teams can ask the agent to compare Avoma call trends, summarize recent customer feedback themes, and prepare internal briefings.",
+    "Team members can use the agent in Slack or Microsoft Teams to generate handoff notes from Avoma conversations for renewals, escalations, implementation, or executive review.",
+    "Managers can ask the agent to surface key risks, churn signals, or follow-up gaps from Avoma meeting records to support coaching and operational reviews.",
+    "Employees can chat with the agent to complete SOPs that depend on Avoma call context, such as preparing QBR notes, updating internal trackers, or drafting outreach summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Avoma call summaries before replying to sensitive customer tickets.",
+    "An internal assistant that turns Avoma meeting notes into clean handoff briefs for support and success teams.",
+    "A DocsBot workflow that extracts action items from Avoma and routes approved follow-up tasks.",
+    "An AI agent that summarizes customer objections and sentiment trends from Avoma conversations.",
+    "A private team assistant that finds the latest customer meeting context before renewal or escalation reviews.",
+    "An agent that prepares executive-ready recap documents from Avoma notes and related customer interactions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Avoma-powered agent to do, such as summarize customer calls, prepare handoffs, or trigger approved follow-up workflows, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the needed Avoma connection details, defines secure configuration values, handles authentication and secret storage through protected runtime settings, and keeps credentials out of chats and Skill content by default."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and adds approval boundaries or safe action limits wherever updates, workflow triggers, or sensitive data access should be controlled."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can use Avoma data and actions in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Avoma meeting data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as retrieving call summaries, generating handoff notes, or triggering follow-up workflows from Avoma. Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Avoma notes to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Avoma meeting notes, summaries, and conversation context to answer follow-up questions, clarify past commitments, and prepare better escalations. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Avoma?",
+      "answer": "DocsBot can help automate support workflows such as looking up past call context, summarizing unresolved issues, generating escalation briefs, and triggering approved follow-up tasks based on Avoma conversation data. This helps the agent do more than answer questions by taking bounded action inside your process rules."
+    },
+    {
+      "question": "Can an internal AI assistant search Avoma call history for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Avoma call summaries, action items, objections, and key decisions. This can reduce manual searching and speed up research, handoffs, and account preparation."
+    },
+    {
+      "question": "How does DocsBot keep an Avoma integration secure?",
+      "answer": "Skill Builder defines the required configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated Skill content. It also scopes permissions to the minimum needed access and can add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot create summaries and handoff documents from Avoma conversations?",
+      "answer": "Yes, a DocsBot Skill can turn Avoma conversation data into support handoff notes, executive summaries, account briefs, follow-up drafts, or internal recap documents. The exact format and approval rules can be tailored to your workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "chorus",
+    "salesloft",
+    "hubspot",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Avoma",
+    "domain": "avoma.com",
+    "description": "Avoma is an AI-first Growth Acceleration Platform designed for customer-facing teams at startups and scaleups. It combines AI Meeting Assistance, Conversational Intelligence, and Revenue Intelligence to streamline workflows, enhance customer interactions, and accelerate growth. Avoma's platform automates tasks such as note-taking, scheduling, and CRM updates, and provides real-time insights and analytics to inform sales and customer calls, ultimately empowering teams to make data-driven decisions and drive business growth.",
+    "slogan": "Accelerate growth with AI-powered insights, automation, and customer engagement.",
+    "logoUrl": "https://media.brand.dev/f2d62c3b-afc8-4061-9522-c9c134169cac.webp",
+    "iconUrl": "https://media.brand.dev/54c166a5-d3d1-4df3-911c-a597e0a927f3.png",
+    "primaryColor": "#f24535",
+    "accentColor": "#e5a494",
+    "colors": [
+      {
+        "hex": "#f24535",
+        "name": "Vermilion Bird"
+      },
+      {
+        "hex": "#e5a494",
+        "name": "Rose Dusk"
+      },
+      {
+        "hex": "#1d2832",
+        "name": "Abyssal Anchorfish Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5216df64-222e-4659-878e-3744bf2f7866.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.avoma.com/careers",
+      "terms": "https://www.avoma.com/terms",
+      "contact": "https://www.avoma.com/contact-us",
+      "privacy": "https://www.avoma.com/privacy-policy",
+      "blog": "https://www.avoma.com/blog",
+      "pricing": "https://www.avoma.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/54c166a5-d3d1-4df3-911c-a597e0a927f3.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f2d62c3b-afc8-4061-9522-c9c134169cac.webp",
+        "type": "logo",
+        "mode": "light",
+        "width": 464,
+        "height": 112,
+        "aspectRatio": 4.14
+      },
+      {
+        "url": "https://media.brand.dev/4c0edb52-65a2-4fae-ae6c-ddb53373c0e6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f2d62c3b-afc8-4061-9522-c9c134169cac.webp",
+      "type": "logo",
+      "mode": "light",
+      "width": 464,
+      "height": 112,
+      "aspectRatio": 4.14
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/54c166a5-d3d1-4df3-911c-a597e0a927f3.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

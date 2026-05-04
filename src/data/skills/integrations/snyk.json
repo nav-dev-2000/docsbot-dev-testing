@@ -1,0 +1,152 @@
+{
+  "slug": "snyk",
+  "name": "Snyk",
+  "domain": "snyk.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with Snyk",
+  "metaTitle": "Build AI agents with Snyk using DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Snyk for security lookups, issue summaries, workflow triggers, and safe internal or support-side actions.",
+  "intro": "Snyk helps teams find and manage code, dependency, and application security issues across modern software delivery. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Snyk, and DocsBot can turn that into a secure reusable Skill. The result is a support or internal AI agent that can look up security status, summarize findings, prepare handoffs, and trigger approved workflows without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the current status of a reported vulnerability or remediation request in Snyk and respond with a clear progress summary.",
+    "Use a helpdesk-connected DocsBot agent to pull Snyk issue details, affected projects, severity, and remediation guidance when a customer reports a security concern.",
+    "Have the agent prepare a structured escalation handoff that includes relevant Snyk findings, impacted components, and investigation notes for your security or engineering team.",
+    "Enable the agent to summarize whether a customer-reported package, repository, or service has open Snyk findings so support can give accurate next-step guidance.",
+    "Let the agent trigger an approved internal review workflow when a support conversation reveals a potential vulnerability disclosure or urgent product security question."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Snyk issues by project, repository, severity, or status without opening multiple tools.",
+    "Security, support, and engineering teams can ask the agent to summarize open findings, remediation trends, or affected services to speed up triage and cross-team coordination.",
+    "Team members can use the agent to prepare incident or escalation briefings that combine Snyk findings with internal workflow steps and ownership notes.",
+    "Employees can chat with the agent to follow security review SOPs, gather missing context, and trigger approved follow-up workflows for vulnerable projects or packages.",
+    "Operations and engineering leaders can ask the agent for concise rollups of unresolved high-severity issues across selected projects to support planning and prioritization."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that retrieves Snyk issue status for customer-reported security questions.",
+    "A private security assistant that summarizes open vulnerabilities by project, severity, or owner.",
+    "A DocsBot workflow that prepares escalation notes from Snyk findings and ticket context.",
+    "An internal agent that triggers approved remediation review workflows for critical findings.",
+    "A support agent that checks affected repositories before promising remediation timelines to customers.",
+    "A team assistant that follows vulnerability triage SOPs and gathers missing investigation details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Snyk in plain language, such as looking up findings, summarizing risk, or triggering a secure review workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a reusable Skill, identifies the needed configuration values, and defines the safest way for the agent to interact with Snyk."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to the minimum actions and records required."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder applies permission limits, user scoping, and approval boundaries for sensitive updates or workflow triggers so the agent stays within your rules."
+    },
+    {
+      "title": "It tests realistic scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing permission checks, and feeds those improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Snyk data?",
+      "answer": "With DocsBot Skill Builder, you describe the Snyk workflow you want in plain language, and the builder designs a secure Skill for lookups, summaries, workflow triggers, and other bounded actions. It also handles connection setup, secret protection, permission scoping, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Snyk during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Snyk to retrieve approved security information, summarize issue status, and prepare internal escalations while replying in chat or through helpdesk tickets. The Skill can be designed with safe limits so customers get useful updates without exposing sensitive internal details."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot agent automate with Snyk?",
+      "answer": "A private DocsBot agent can help employees look up findings, summarize high-severity issues, prepare triage notes, follow security SOPs, and trigger approved review workflows. This is useful for support, security, engineering, and operations teams working across multiple systems."
+    },
+    {
+      "question": "Can DocsBot summarize vulnerabilities and remediation status from Snyk?",
+      "answer": "Yes, a Skill can let the agent pull relevant Snyk findings and return a concise summary by project, severity, ownership, or remediation stage. That helps teams answer questions faster and prepare cleaner handoffs."
+    },
+    {
+      "question": "How does DocsBot keep Snyk access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, keeps credentials out of chats, and scopes access to only the records and actions the workflow needs. It can also add approval steps for sensitive actions before anything is updated or triggered."
+    },
+    {
+      "question": "Can a DocsBot agent trigger follow-up workflows based on Snyk findings?",
+      "answer": "Yes, DocsBot Skills can be designed to trigger approved internal actions such as review requests, escalations, or remediation workflows when Snyk findings meet conditions you define. The actions stay bounded by your permissions and approval rules."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jira",
+    "linear",
+    "pagerduty",
+    "opsgenie"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Snyk",
+    "domain": "snyk.com",
+    "description": "Snyk is a developer-first security company that empowers organizations to build fast and stay secure by delivering solutions that align development and security teams. They provide a trusted platform for developing and securing modern AI-based application development, offering insights and automated remediation to tackle code security, open-source security, and other challenges.",
+    "slogan": "Empowering secure, fast AI-driven software development for modern organizations.",
+    "logoUrl": "https://media.brand.dev/011f3940-0e4e-4d75-85c8-9fbb20c2a23c.jpg",
+    "iconUrl": "https://media.brand.dev/011f3940-0e4e-4d75-85c8-9fbb20c2a23c.jpg",
+    "primaryColor": "#c763de",
+    "accentColor": "#29068b",
+    "colors": [
+      {
+        "hex": "#c763de",
+        "name": "Blueberry Glaze"
+      },
+      {
+        "hex": "#29068b",
+        "name": "Orbital Kingdom"
+      },
+      {
+        "hex": "#8a84b5",
+        "name": "Aster Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a0c1dea7-cfed-4c56-932b-050fb2e4a6e6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/011f3940-0e4e-4d75-85c8-9fbb20c2a23c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/011f3940-0e4e-4d75-85c8-9fbb20c2a23c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/011f3940-0e4e-4d75-85c8-9fbb20c2a23c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

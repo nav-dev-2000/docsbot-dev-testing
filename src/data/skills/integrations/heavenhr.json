@@ -1,0 +1,156 @@
+{
+  "slug": "heavenhr",
+  "name": "HeavenHR",
+  "domain": "heavenhr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with HeavenHR",
+  "metaTitle": "Build AI Agents for HeavenHR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use HeavenHR for HR lookups, employee workflows, support handoffs, and approved internal actions.",
+  "intro": "HeavenHR helps businesses manage HR processes such as employee records, recruiting, and payroll-related administration in one platform. With DocsBot Skill Builder, you can describe the HR workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use HeavenHR data and actions. The result is a support or internal AI agent that can answer questions, gather context, prepare handoffs, and complete approved HR workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent answer hiring or onboarding process questions by looking up approved status information from HeavenHR and summarizing the next steps.",
+    "Use a DocsBot helpdesk agent to collect missing employee or applicant context from a ticket, check relevant HeavenHR records, and prepare a clean handoff for HR when a human review is needed.",
+    "Enable a support agent to confirm whether HR documents, onboarding tasks, or employee profile updates have been completed in HeavenHR and explain what remains outstanding.",
+    "Have the agent create structured escalation notes for payroll, leave, or onboarding questions by summarizing the customer conversation alongside approved HeavenHR record details.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying HR teams or creating internal review requests, based on the HeavenHR status it retrieves during a support conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a chat portal to look up approved employee information, policy-related status, or onboarding progress stored in HeavenHR.",
+    "HR and operations teams can ask the agent to summarize employee profiles, open recruiting activity, or pending administrative tasks from HeavenHR before completing the next step in an SOP.",
+    "Managers can use an internal AI agent to gather leave, onboarding, or team administration context from HeavenHR and prepare approval-ready summaries for human review.",
+    "People operations staff can chat with the agent to update permitted HeavenHR records, trigger follow-up workflows, and document the outcome in a consistent format.",
+    "Recruiting and HR teams can use the agent to combine HeavenHR lookups with internal knowledge so employees get faster answers and the right workflow is started automatically."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding progress and summarizes remaining employee tasks.",
+    "A support agent that prepares HR ticket handoffs using HeavenHR record context.",
+    "An internal assistant that retrieves employee status details with permission-aware access controls.",
+    "An AI workflow that drafts escalation summaries for payroll, leave, or recruiting questions.",
+    "A private HR assistant that updates approved fields in HeavenHR after manager confirmation.",
+    "An employee help agent that answers process questions and triggers follow-up HR workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with HeavenHR, such as checking onboarding status, summarizing HR records, or preparing escalations, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right connection approach, defines the configuration values the Skill needs, protects and proxies secrets through secure runtime handling, and scopes HeavenHR access to only the users, records, and actions required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries so sensitive HeavenHR updates, workflow triggers, or record changes only happen within the rules you choose."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private employee assistant can use HeavenHR in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for HeavenHR without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the HR outcome you want in plain language and the builder designs the Skill, handles secure connection requirements, tests scenarios, and prepares it for deployment. That makes it practical for non-technical teams to create HeavenHR-powered AI workflows."
+    },
+    {
+      "question": "Can an AI support agent use HeavenHR data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot agent can use approved HeavenHR data to look up status, summarize records, gather missing context, and prepare escalations while responding in a chat widget or helpdesk workflow. Access can be limited to the exact records and actions your organization approves."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HeavenHR?",
+      "answer": "Internal agents can retrieve employee or recruiting information, summarize onboarding progress, update permitted fields, trigger follow-up workflows, and create consistent handoff notes for HR teams. These workflows can be delivered through private chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update HeavenHR records through an AI agent?",
+      "answer": "Yes, when you allow it, DocsBot Skill Builder can create bounded actions for approved record updates in HeavenHR. It also defines secure authentication handling, keeps secrets out of chats and Skill text, and adds approval steps for sensitive changes."
+    },
+    {
+      "question": "How do approval controls work for HeavenHR AI actions?",
+      "answer": "Skill Builder can place approval boundaries around sensitive actions such as employee record changes, escalations, or workflow triggers so the agent only proceeds when the right conditions are met. This helps teams automate routine work while keeping human oversight where it matters."
+    },
+    {
+      "question": "Can an employee AI assistant answer HR questions and take action in HeavenHR?",
+      "answer": "Yes, a private DocsBot agent can answer process questions using your knowledge sources and then use HeavenHR for live lookups, summaries, and approved next-step actions. This helps employees get answers and move work forward in one conversation."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "workday",
+    "hibob",
+    "gusto",
+    "payfit"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HeavenHR",
+    "domain": "heavenhr.com",
+    "description": "HeavenHR is a cutting-edge HR management platform designed specifically for small and medium enterprises. Based in Berlin, Germany, this innovative startup focuses on streamlining HR processes to help businesses save time and enhance productivity. HeavenHR integrates various HR functions, from recruiting to payroll, into a single, user-friendly platform, allowing companies to manage their human resources efficiently. By digitizing administrative tasks, HeavenHR empowers organizations to focus on strategic initiatives rather than getting bogged down in routine HR responsibilities. With a commitment to improving workplace dynamics and collaboration, HeavenHR is redefining HR management for businesses across Europe.",
+    "slogan": "Streamline HR tasks and focus on what you do best.",
+    "logoUrl": "https://media.brand.dev/a53bedf5-0cdd-45ed-a261-4903f1fb47c5.png",
+    "iconUrl": "https://media.brand.dev/5684189f-ae14-4913-bf15-85344a3c08cd.png",
+    "primaryColor": "#044c84",
+    "accentColor": "#e1ebef",
+    "colors": [
+      {
+        "hex": "#044c84",
+        "name": "Dance Studio"
+      },
+      {
+        "hex": "#e1ebef",
+        "name": "Himalaya Peaks"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/99e73789-b662-4689-8646-7ad04c8ec10b.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5684189f-ae14-4913-bf15-85344a3c08cd.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a53bedf5-0cdd-45ed-a261-4903f1fb47c5.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 113,
+        "height": 88,
+        "aspectRatio": 1.28
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a53bedf5-0cdd-45ed-a261-4903f1fb47c5.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 113,
+      "height": 88,
+      "aspectRatio": 1.28
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5684189f-ae14-4913-bf15-85344a3c08cd.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

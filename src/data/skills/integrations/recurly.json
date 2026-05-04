@@ -1,0 +1,160 @@
+{
+  "slug": "recurly",
+  "name": "Recurly",
+  "domain": "recurly.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Recurly",
+  "metaTitle": "Build AI Agents for Recurly with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Recurly to answer billing questions, check subscriptions, update approved records, and support internal subscription workflows safely.",
+  "intro": "Recurly helps subscription businesses manage billing, subscriber lifecycle, payments, and recurring revenue operations. With DocsBot Skill Builder, you can describe the Recurly workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in Recurly for faster customer support and smoother team operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a subscriber’s plan, renewal date, invoice status, or payment history in Recurly while answering billing questions in chat or tickets.",
+    "Enable the agent to help customers understand failed payments, dunning status, or retry progress by summarizing the current subscription and billing state from Recurly.",
+    "Allow the agent to prepare a cancellation or plan-change handoff by collecting the customer’s reason, confirming account details, and creating a structured summary for a human team.",
+    "Use the agent to confirm whether a subscription is active, paused, canceled, or scheduled to renew so customers get fast answers without waiting for an agent.",
+    "Have the agent generate a clean billing summary from Recurly records to explain recent charges, invoices, credits, or subscription changes in plain language to the customer."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Recurly subscription details, account history, invoice context, and renewal status without searching manually across records.",
+    "Let customer success or billing teams ask the agent to summarize subscriber lifecycle activity in Recurly before outreach, retention conversations, or escalation reviews.",
+    "Help operations teams use a private DocsBot agent in Slack or Microsoft Teams to follow subscription support SOPs, gather missing context, and prepare approved next steps inside Recurly-connected workflows.",
+    "Enable finance, support, and revenue teams to chat with the agent to research billing issues, compare account state, and produce handoff notes or case summaries based on Recurly data.",
+    "Support internal teams with an AI assistant that can trigger bounded follow-up workflows, request approvals for sensitive actions, and document outcomes after Recurly-related tasks are completed."
+  ],
+  "whatYouCanBuild": [
+    "A billing support agent that checks subscription status and explains recent invoices to customers.",
+    "An AI assistant that summarizes failed payment and dunning activity before a support reply.",
+    "A customer success agent that prepares cancellation risk handoffs with Recurly account context.",
+    "An internal billing copilot that retrieves subscriber history and generates case summaries for teams.",
+    "A renewal support workflow that confirms plan, term, and next billing date in chat.",
+    "An operations agent that gathers missing context and prepares approved Recurly update requests safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the Recurly agent to do, such as checking subscription status, summarizing invoices, or preparing a billing handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure workflow, identifies the required configuration values, sets up safe authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Review actions and boundaries",
+      "description": "Skill Builder adds the right approval boundaries and safe action limits for sensitive Recurly tasks so the agent can answer and act within rules you control."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should be improved."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder feeds those test results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Recurly without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Recurly workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can create agents that look up subscription data, summarize billing context, trigger approved workflows, and hand off sensitive cases when needed."
+    },
+    {
+      "question": "Can an AI support agent use Recurly data to answer billing and subscription questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use Recurly data for live lookups such as subscription status, renewal dates, invoice history, or payment issues while responding in chat or helpdesk tickets. You control which records and actions are allowed, and Skill Builder adds approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Recurly?",
+      "answer": "A Recurly-connected agent can help with subscription checks, billing summaries, failed payment explanations, cancellation context gathering, and escalation preparation. It can also create structured handoff notes so human teams receive the right account details faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Recurly?",
+      "answer": "Yes, private DocsBot agents for employees can retrieve Recurly account details, summarize subscriber history, support billing research, and guide teams through recurring SOPs in chat, Slack, or Microsoft Teams. This helps support, operations, finance, and customer success teams work from the same current context."
+    },
+    {
+      "question": "How does DocsBot keep Recurly actions safe and controlled?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes permissions to the minimum access required. It can also require approvals or limit actions for updates, workflow triggers, or other sensitive billing operations."
+    },
+    {
+      "question": "Can DocsBot test a Recurly AI workflow before it goes live?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs realistic support and internal scenarios against the Skill design. It looks for bugs, missing safeguards, weak instructions, and workflow gaps, then feeds those findings into an automated improvement loop before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe-billing",
+    "chargebee",
+    "zuora",
+    "fastspring",
+    "shopify",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Recurly",
+    "domain": "recurly.com",
+    "description": "Recurly is a subscription‑management platform that enables brands to launch, scale, and optimize recurring‑revenue businesses. The all‑in‑one solution handles subscriber lifecycle, payment orchestration, churn reduction, real‑time analytics, and AI‑driven insights through tools like Recurly Compass, Engage, and Commerce. Trusted by companies such as Sling, Twitch, BarkBox, FabFitFun, Paramount+, and many others, Recurly delivers an average 14‑16× ROI by simplifying billing, revenue recognition, and customer engagement. Founded in San Francisco in 2009, the company now operates from Austin, Broomfield, Medellín, and London, serving global subscription brands with flexible payment options, deep integrations, and intelligent growth tools.",
+    "slogan": "Own the subscriber experience. Automate digital subscriptions that grow revenue.",
+    "logoUrl": "https://media.brand.dev/ab7cfd33-b989-4bc5-ae81-9159775c578e.svg",
+    "iconUrl": "https://media.brand.dev/25c1a829-2ca5-4db5-9dba-962dfbe93b01.jpg",
+    "primaryColor": "#0c0c0c",
+    "accentColor": "#f9d305",
+    "colors": [
+      {
+        "hex": "#0c0c0c",
+        "name": "Black Wash"
+      },
+      {
+        "hex": "#f9d305",
+        "name": "Wu-Tang Gold"
+      },
+      {
+        "hex": "#7e611b",
+        "name": "Brazen Brass"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bf206d1a-7885-4cf7-8697-4cad15ff4182.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://recurly.com/careers/",
+      "terms": "https://recurly.com/legal/terms/rsm/",
+      "contact": "https://recurly.com/contact-us/",
+      "privacy": "https://recurly.com/legal/privacy/",
+      "blog": "https://recurly.com/blog/",
+      "pricing": "https://recurly.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/25c1a829-2ca5-4db5-9dba-962dfbe93b01.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ab7cfd33-b989-4bc5-ae81-9159775c578e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1920,
+        "height": 411,
+        "aspectRatio": 4.67
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ab7cfd33-b989-4bc5-ae81-9159775c578e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1920,
+      "height": 411,
+      "aspectRatio": 4.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/25c1a829-2ca5-4db5-9dba-962dfbe93b01.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

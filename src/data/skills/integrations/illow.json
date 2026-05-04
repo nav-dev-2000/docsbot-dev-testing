@@ -1,0 +1,113 @@
+{
+  "slug": "illow",
+  "name": "Illow",
+  "domain": "illow.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Illow Using DocsBot Skills",
+  "metaTitle": "Build Illow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that connect with Illow for support lookups, safe updates, workflow triggers, handoffs, and internal team automation.",
+  "intro": "Illow can become part of a DocsBot AI agent that not only answers questions, but also takes approved action. With DocsBot Skill Builder, non-technical teams can describe the Illow workflow they want in plain language and have Skill Builder create, secure, test, and deploy a reusable Skill. That makes it easier to power customer support agents and private internal assistants that look up data, update records, trigger workflows, and summarize outcomes inside Illow.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Illow account or workflow details during a chat or ticket reply so customers get faster status answers.",
+    "Use an Illow Skill to create or update approved records from customer conversations, reducing manual follow-up for support teams.",
+    "Have the agent summarize relevant Illow activity, open items, or recent changes before replying to a customer or preparing a handoff.",
+    "Trigger approved Illow workflows from a support conversation when a customer needs a next step, escalation, or fulfillment action.",
+    "Collect missing details from the customer in chat, then send a clean Illow-ready handoff record to the right team for follow-up."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Illow data, summarize record status, and answer operational questions without switching tools.",
+    "Let operations or customer success teams ask the agent to create updates in Illow, trigger approved workflows, and document outcomes through guided chat.",
+    "Help internal teams follow SOPs by having the agent gather context from Illow and connected systems, then prepare the next approved action.",
+    "Enable Slack or Microsoft Teams users to chat with an internal DocsBot agent that researches Illow records and produces concise summaries for handoffs or reviews.",
+    "Support managers and specialists with an AI assistant that checks Illow state, identifies missing information, and helps coordinate cross-team follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Illow record status before answering customer questions.",
+    "A DocsBot Skill that creates Illow handoff records from customer chats or tickets.",
+    "An internal assistant that summarizes Illow activity for operations and customer success teams.",
+    "A workflow agent that gathers missing context and triggers approved Illow follow-up actions.",
+    "A private team assistant that researches Illow records and prepares escalation summaries.",
+    "A support automation Skill that updates Illow fields only after defined approval rules are met."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Illow in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the Illow connection method, defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Safe actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum Illow data, records, users, and actions needed, and it adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted and reviewed",
+      "description": "Skill Builder assembles the reusable Skill package with instructions, behavior rules, and any needed actions so the DocsBot agent can look up information, update records, create handoffs, or trigger approved workflows."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and employee scenarios against the Illow Skill, finds bugs or weak spots, and feeds those results into an automated improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Illow?",
+      "answer": "With DocsBot Skill Builder, you describe the Illow workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests it, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Illow data during customer chats and helpdesk replies?",
+      "answer": "Yes, a DocsBot agent can use an Illow Skill to retrieve relevant data, summarize status, prepare handoffs, and take approved actions while responding to customers in chat or tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent handle with Illow?",
+      "answer": "Teams can build workflows for status lookups, approved record updates, escalation prep, handoff creation, missing-information collection, and workflow triggering inside defined rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Illow?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Illow information, research records, follow SOPs, trigger approved workflows, and summarize outcomes in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Illow actions safe?",
+      "answer": "Skill Builder defines secure configuration, keeps secrets out of chats and source files, scopes access to the minimum required permissions, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can an Illow AI agent update records instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as updating approved fields, creating records, triggering workflows, and generating summaries or handoff artifacts under your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "automation",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Illow",
+    "domain": "illow.com",
+    "description": "",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

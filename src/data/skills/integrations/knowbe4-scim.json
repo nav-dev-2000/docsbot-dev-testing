@@ -1,0 +1,168 @@
+{
+  "slug": "knowbe4-scim",
+  "name": "KnowBe4 SCIM",
+  "domain": "knowbe4.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with KnowBe4 SCIM",
+  "metaTitle": "Build AI Agents for KnowBe4 SCIM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use KnowBe4 SCIM for safe user lookups, provisioning workflows, status checks, handoffs, and internal security operations automation.",
+  "intro": "KnowBe4 SCIM helps organizations manage identity-related user provisioning connected to their security awareness and human risk workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets an AI agent look up users, summarize status, trigger approved provisioning steps, and support internal security operations. This makes it easier to give support teams and employees an AI agent that can answer questions and take bounded action inside your approved KnowBe4 SCIM processes.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user provisioning request has been completed in KnowBe4 SCIM and explain the current status during a support chat or ticket reply.",
+    "Use the agent to collect missing identity details from a customer, look up the matching user record in KnowBe4 SCIM, and prepare a clean handoff for the identity or security team.",
+    "Enable the agent to confirm whether an account exists, summarize relevant provisioning attributes, and guide the customer through the next approved step without exposing sensitive directory data.",
+    "Have the agent create an escalation summary for access or onboarding issues by pulling the latest KnowBe4 SCIM user state and packaging it for human follow-up.",
+    "Allow the agent to trigger approved downstream workflows related to user provisioning or deprovisioning requests when a support conversation meets your policy rules and approval boundaries."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up KnowBe4 SCIM user records and get quick answers about onboarding, offboarding, or provisioning status.",
+    "Enable IT, security, or operations teams to ask the agent to summarize identity changes, missing attributes, or provisioning exceptions before they take the next step in an SOP.",
+    "Use an internal AI assistant to gather context from KnowBe4 SCIM and prepare access review notes, escalation summaries, or cleanup task lists for security administrators.",
+    "Allow HR or IT staff to chat with the agent to verify whether new hires or departing employees have been processed through the expected provisioning workflow.",
+    "Give operations teams an AI assistant that can trigger approved identity workflow steps, request human approval for sensitive actions, and document the outcome for audit readiness."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks KnowBe4 SCIM user provisioning status during support conversations.",
+    "A private assistant that summarizes onboarding and offboarding identity workflow progress for employees.",
+    "A workflow Skill that gathers missing user details and prepares escalation handoffs for security teams.",
+    "An internal agent that flags provisioning exceptions and generates follow-up task summaries.",
+    "A support agent that confirms account presence and explains the next approved access step.",
+    "A team assistant that triggers bounded provisioning or deprovisioning workflows after approval."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with KnowBe4 SCIM, such as checking provisioning status, summarizing user records, or triggering an approved identity workflow, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Guardrails are added automatically",
+      "description": "Skill Builder defines safe action limits, adds approval boundaries for sensitive updates or workflow triggers, and structures the Skill so the agent can answer questions and take bounded action without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so teams can start using KnowBe4 SCIM actions safely in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for KnowBe4 SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, such as checking user provisioning status or preparing an escalation, and Skill Builder creates the secure Skill design, connection setup, testing plan, and deployment path for you."
+    },
+    {
+      "question": "Can an AI support agent use KnowBe4 SCIM data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use a KnowBe4 SCIM Skill to perform approved lookups, summarize user provisioning state, gather missing context, and prepare handoffs while replying to customers. You control what records and actions the agent is allowed to access."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with KnowBe4 SCIM?",
+      "answer": "An internal DocsBot agent can help employees and admins check onboarding or offboarding progress, review user records, summarize exceptions, prepare audit notes, and trigger approved provisioning steps inside defined SOPs."
+    },
+    {
+      "question": "Can DocsBot safely trigger provisioning or deprovisioning actions in KnowBe4 SCIM?",
+      "answer": "Yes, Skill Builder can design bounded actions with scoped permissions and approval checkpoints so the agent only performs the specific updates or workflow triggers you authorize. Sensitive actions can be restricted to the right users and require approval before execution."
+    },
+    {
+      "question": "How does DocsBot handle security and authentication for a KnowBe4 SCIM Skill?",
+      "answer": "Skill Builder identifies the needed configuration values, stores and proxies secrets through secure runtime configuration, keeps credentials out of chat transcripts and generated content, and limits access to the minimum permissions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare escalations and handoffs using KnowBe4 SCIM information?",
+      "answer": "Yes, the agent can collect the right user details, summarize current provisioning state, and generate a clean handoff for IT or security teams so human follow-up starts with complete context."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "google-workspace",
+    "duo-security"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "KnowBe4",
+    "domain": "knowbe4.com",
+    "description": "KnowBe4 empowers organizations to improve their security culture by training and testing employees to make smarter security decisions daily. Trusted by over 70,000 companies worldwide, the company provides an AI‑driven, best‑of‑suite human risk management platform that delivers adaptive, continuous awareness training, phishing simulations, and risk analytics, creating an adaptive defense layer that reduces human‑related cyber risk.",
+    "slogan": "We Train Humans and AI Agents",
+    "logoUrl": "https://media.brand.dev/e3af5aaa-be79-418a-8a76-ddb205901027.svg",
+    "iconUrl": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+    "primaryColor": "#ec4424",
+    "accentColor": "#141c24",
+    "colors": [
+      {
+        "hex": "#ec4424",
+        "name": "Heating Lamp"
+      },
+      {
+        "hex": "#141c24",
+        "name": "Coarse Wool"
+      },
+      {
+        "hex": "#fb250d",
+        "name": "Reign of Tomatoes"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c7c95325-9590-4821-89c7-96b3cd06b85a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.knowbe4.com/careers",
+      "terms": "https://www.knowbe4.com/website-terms-of-use",
+      "contact": "https://www.knowbe4.com/contact-us",
+      "privacy": "https://www.knowbe4.com/website-privacy-notice",
+      "blog": "https://blog.knowbe4.com/",
+      "pricing": "https://www.knowbe4.com/products/security-awareness-training/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d5f705a-043b-461c-8513-cb283e9a2aef.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 389,
+        "height": 73,
+        "aspectRatio": 5.33
+      },
+      {
+        "url": "https://media.brand.dev/e3af5aaa-be79-418a-8a76-ddb205901027.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 390,
+        "height": 73,
+        "aspectRatio": 5.34
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7d5f705a-043b-461c-8513-cb283e9a2aef.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 389,
+      "height": 73,
+      "aspectRatio": 5.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

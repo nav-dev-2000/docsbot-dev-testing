@@ -1,0 +1,159 @@
+{
+  "slug": "tiktok-shop-partner",
+  "name": "TikTok Shop Partner",
+  "domain": "tiktok-shop.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with TikTok Shop Partner",
+  "metaTitle": "TikTok Shop Partner AI Agent for Support and Operations",
+  "metaDescription": "Build DocsBot AI agents that use TikTok Shop Partner to answer customers, check orders, update workflows, and help internal teams complete e-commerce tasks safely.",
+  "intro": "TikTok Shop Partner helps merchants manage e-commerce activity tied to TikTok Shop, and DocsBot Skill Builder helps you turn that data and workflow access into a practical AI agent ability. In plain language, you can describe what you want the agent to do, and Skill Builder designs, secures, tests, improves, and deploys the Skill for customer support or internal operations. The result is an AI agent that can answer questions and take approved actions inside your TikTok Shop Partner workflows instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check TikTok Shop order status, shipment progress, or cancellation state while replying in chat or helpdesk tickets.",
+    "Use the agent to look up product, listing, or fulfillment details in TikTok Shop Partner and explain the current status to customers in clear language.",
+    "Allow the agent to gather missing order information from the customer, prepare a structured support handoff, and attach a summary based on TikTok Shop Partner records.",
+    "Enable approved workflow actions such as flagging an order issue, triggering a follow-up process, or updating support notes after the customer conversation is complete.",
+    "Have the agent summarize recent order activity, returns context, or fulfillment exceptions from TikTok Shop Partner before escalating a complex case to a human agent."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve TikTok Shop order, product, seller, or fulfillment information without opening multiple tools.",
+    "Enable operations teams to ask the agent to summarize marketplace activity, identify exceptions, and prepare next-step recommendations using TikTok Shop Partner data.",
+    "Help customer success or support leaders use an internal agent to research seller or order issues, collect the right context, and generate handoff notes for standard operating procedures.",
+    "Allow team members to trigger approved internal workflows, update records, or create follow-up tasks through a chat request while Skill permissions stay scoped to the right actions.",
+    "Support internal training and SOP execution by letting employees ask the agent how to handle common TikTok Shop operational scenarios and then complete the approved workflow from the same conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks TikTok Shop order and fulfillment status during live customer conversations.",
+    "A ticket assistant that summarizes TikTok Shop Partner order issues before human escalation.",
+    "An internal operations agent that retrieves seller, order, and listing details on demand.",
+    "A workflow assistant that gathers missing order context and creates structured support handoffs.",
+    "An AI agent that triggers approved follow-up actions for returns, shipping delays, or exceptions.",
+    "A private team assistant that summarizes TikTok Shop activity and highlights operational risks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the TikTok Shop Partner agent to do in plain language, such as checking order status, summarizing fulfillment issues, or triggering an approved follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder maps the safest workflow for that outcome, identifies the required configuration values, and defines how the agent should look up data, update records, create handoffs, or trigger bounded actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure connection and authentication handling, keeps credentials out of chats and Skill logic, proxies secrets through protected runtime configuration, and scopes access to only the users, records, and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps so the agent can help quickly while still following your rules for updates, escalations, and workflow triggers."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for TikTok Shop Partner?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and the builder creates a Skill that can safely use TikTok Shop Partner data and actions inside a DocsBot agent. It handles workflow design, secure connection setup, testing, and deployment without making your team manually wire every step."
+    },
+    {
+      "question": "Can an AI support agent use TikTok Shop Partner data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a TikTok Shop Partner Skill to look up approved order, fulfillment, product, or workflow details while replying in your website chat or helpdesk. That helps customers get faster answers and gives human agents cleaner handoffs when escalation is needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with TikTok Shop Partner?",
+      "answer": "You can build workflows for order lookups, shipment and return summaries, issue intake, escalation prep, support note creation, and approved follow-up triggers. The agent can gather missing context from the customer, summarize the current state, and take bounded actions based on your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in TikTok Shop Partner?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve marketplace information, research exceptions, follow SOPs, and trigger approved operational workflows from chat, Slack, or Microsoft Teams. This reduces tool switching and helps teams complete routine work more consistently."
+    },
+    {
+      "question": "How does DocsBot keep TikTok Shop Partner actions secure?",
+      "answer": "Skill Builder defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated content. It also scopes permissions to the minimum required access and can add approval steps or action limits for sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger workflows in TikTok Shop Partner?",
+      "answer": "If you want it to, Skill Builder can create a Skill that performs approved updates, workflow triggers, or handoff actions within the boundaries you set. That lets the agent do more than answer questions while still keeping control over what it is allowed to change."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "woocommerce",
+    "amazon-seller-central",
+    "ebay"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TikTok Shop",
+    "domain": "tiktok-shop.com",
+    "description": "fruits GmbH is a Munich‑based online marketplace that connects domain sellers and buyers, offering a secure, fee‑transparent platform for buying and selling premium domain names. The service features a low all‑in 9.9% fee, automated billing and VAT handling, buyer protection, and AI‑driven tools such as automated lander creation and transfer code delivery. Sellers can list top‑level domains and receive fast payouts, while buyers enjoy fee‑free purchases and secure transfers. fruits GmbH aims to simplify the domain trade process with a user‑friendly interface and comprehensive support.",
+    "slogan": "Buy & sell domains with ease—best fees guaranteed.",
+    "logoUrl": "https://media.brand.dev/88c1c2c5-3539-4106-bf2f-6804d583a8ca.svg",
+    "iconUrl": "https://media.brand.dev/80dbb239-0298-43ca-98f6-ba5c9b2bd8d3.png",
+    "primaryColor": "#a4434f",
+    "accentColor": "#f0ae9d",
+    "colors": [
+      {
+        "hex": "#a4434f",
+        "name": "Strawberry Daiquiri"
+      },
+      {
+        "hex": "#f0ae9d",
+        "name": "Stucco Wall"
+      },
+      {
+        "hex": "#e8d7dc",
+        "name": "Angelic Choir"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/80dbb239-0298-43ca-98f6-ba5c9b2bd8d3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/88c1c2c5-3539-4106-bf2f-6804d583a8ca.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 115,
+        "height": 40,
+        "aspectRatio": 2.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/88c1c2c5-3539-4106-bf2f-6804d583a8ca.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 115,
+      "height": 40,
+      "aspectRatio": 2.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/80dbb239-0298-43ca-98f6-ba5c9b2bd8d3.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

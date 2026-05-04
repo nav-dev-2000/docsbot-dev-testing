@@ -1,0 +1,176 @@
+{
+  "slug": "hailey-hr",
+  "name": "Hailey HR",
+  "domain": "hailey-hr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Hailey HR",
+  "metaTitle": "Build AI Agents for Hailey HR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Hailey HR for employee data lookups, workflow actions, HR support responses, and internal team automation.",
+  "intro": "Hailey HR centralizes employee data, onboarding, time off, performance, payroll, and HR workflows in one platform. With DocsBot Skill Builder, you can describe the HR help or workflow you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to Hailey HR safely. The result is an AI support or internal team agent that can answer questions, look up records, trigger approved HR workflows, and prepare clean handoffs without exposing sensitive data.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer candidate or employee portal questions by checking Hailey HR records, application status, onboarding steps, or leave policy details before replying.",
+    "Let a support agent connected to your helpdesk gather missing context from Hailey HR, summarize the employee or applicant record, and prepare a handoff for HR when a case needs human review.",
+    "Enable the agent to create or update approved HR-related requests such as onboarding follow-ups, time-off corrections, or profile detail changes when the customer conversation confirms the needed information.",
+    "Have the agent verify workflow status in Hailey HR and explain next steps for onboarding, recruitment, performance review, or payroll-related processes in a clear customer response.",
+    "Use the agent to trigger bounded workflows in Hailey HR, such as sending an onboarding checklist or routing an HR request, while logging the action for review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Hailey HR policies, onboarding tasks, leave balances, review timelines, or ownership for a people process.",
+    "HR teams can ask the agent to retrieve employee or candidate context from Hailey HR, summarize the latest status, and prepare next-step recommendations for recruiting, onboarding, or performance workflows.",
+    "Managers can use the agent to complete guided SOPs such as starting an onboarding sequence, requesting an approved profile update, or checking whether a salary review or time-off workflow is still pending.",
+    "Operations and people teams can chat with the agent to research HR records across systems, generate handoff notes, and trigger approved follow-up workflows without switching tools.",
+    "Internal support teams can use the agent to collect required details from employees, validate what action is allowed, and route sensitive HR cases to the right human owner with a concise summary."
+  ],
+  "whatYouCanBuild": [
+    "An AI HR help agent that answers leave, onboarding, and policy questions using Hailey HR data.",
+    "A recruiting assistant that checks candidate status and prepares recruiter handoff summaries from Hailey HR.",
+    "An internal employee assistant that surfaces profile details, workflow status, and pending HR tasks.",
+    "A manager assistant that guides review-cycle questions and triggers approved follow-up workflows in Hailey HR.",
+    "A support agent that collects missing context and updates approved HR request records safely.",
+    "An onboarding assistant that checks task completion and sends the next approved workflow step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Hailey HR in plain language, such as answering onboarding questions, checking leave status, or routing HR requests."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, defines safe authentication handling, and keeps secrets protected and out of chats and Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries or action limits for sensitive HR updates and workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder assembles the reusable Skill package with instructions, runtime behavior, reference material, and any approved actions the DocsBot agent needs to use Hailey HR."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal HR scenarios, finds bugs, weak steps, or missing permission checks, and feeds those results into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Hailey HR without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the HR workflow or support task you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. You do not need to manually map every API step or handle secret storage yourself."
+    },
+    {
+      "question": "Can an AI support agent use Hailey HR data to answer employee or candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Hailey HR data to look up status, summarize workflows, and answer questions in a customer-facing chat widget or helpdesk reply. The actions and data access can be scoped so the agent only uses the records and workflows you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Hailey HR?",
+      "answer": "An internal DocsBot agent can help employees, managers, and HR teams retrieve HR information, check workflow status, generate summaries, and trigger approved follow-up actions such as onboarding or routing tasks. This is useful in private chat, Slack, or Microsoft Teams for faster HR operations."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Hailey HR?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions for approved record updates and workflow triggers while adding permission limits and approval boundaries where needed. Skill Builder also protects authentication and keeps credentials out of chats and generated content."
+    },
+    {
+      "question": "How does setup work for a Hailey HR AI agent in DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the design, secure configuration, testing, and improvement process for the Skill. It identifies required settings, proxies secrets through secure runtime configuration, and prepares the agent for safe deployment."
+    },
+    {
+      "question": "Can an AI assistant help HR teams prepare escalations and handoffs from Hailey HR?",
+      "answer": "Yes, a DocsBot agent can gather context from Hailey HR, summarize the current record or workflow state, and prepare clean handoff notes for HR specialists or managers. This helps reduce manual triage and gives human reviewers the information they need faster."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "hibob",
+    "workday",
+    "sap-successfactors",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Hailey HR",
+    "domain": "haileyhr.com",
+    "description": "Hailey is a cloud‑based HR platform that centralizes employee data and automates the full HR lifecycle for modern companies. It offers core HR, recruitment, onboarding, time‑off, performance management, salary review, payroll, and AI‑driven analytics in a single, GDPR‑compliant solution. Customizable workflows put HR on autopilot, while seamless integrations sync data with existing tools and a secure API. The mobile app lets employees access information and complete tasks on the go. Hailey emphasizes a clean user experience, robust security with crypto shredding, and responsible AI that reduces manual work. Designed for ease of use, the platform helps HR teams, managers, and employees save time, make data‑driven decisions, and focus on strategic people initiatives.",
+    "slogan": "The HR platform your people actually use",
+    "logoUrl": "https://media.brand.dev/de11a278-da73-402a-913a-d59747bd1ab4.svg",
+    "iconUrl": "https://media.brand.dev/13672733-4593-4905-bd76-8fffa7ee5a07.png",
+    "primaryColor": "#fab3b3",
+    "accentColor": "#856465",
+    "colors": [
+      {
+        "hex": "#fab3b3",
+        "name": "Precious Pink"
+      },
+      {
+        "hex": "#856465",
+        "name": "Forbidden Thrill"
+      },
+      {
+        "hex": "#2e2b2b",
+        "name": "Shoe Wax"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f85110de-c3f4-4448-bc52-0b9f0735f0f2.png",
+    "industries": [],
+    "links": {
+      "blog": "https://haileyhr.com/blog/",
+      "careers": null,
+      "privacy": "https://haileyhr.com/privacy-policy/",
+      "terms": "https://haileyhr.com/terms-of-use/",
+      "contact": null,
+      "pricing": "https://haileyhr.com/plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/17115dc8-32c0-491c-96c1-2a721c905d8e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/13672733-4593-4905-bd76-8fffa7ee5a07.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d0b8430-a03c-41d8-b2d7-5bb73f0aaa5b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/de11a278-da73-402a-913a-d59747bd1ab4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 127,
+        "height": 40,
+        "aspectRatio": 3.18
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/de11a278-da73-402a-913a-d59747bd1ab4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 127,
+      "height": 40,
+      "aspectRatio": 3.18
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/17115dc8-32c0-491c-96c1-2a721c905d8e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

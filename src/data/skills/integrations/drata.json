@@ -1,0 +1,152 @@
+{
+  "slug": "drata",
+  "name": "Drata",
+  "domain": "drata.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely with Drata",
+  "metaTitle": "Build AI Agents for Drata with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Drata for secure compliance lookups, workflow handoffs, audit readiness updates, and internal trust operations.",
+  "intro": "Drata helps teams manage compliance, risk, assurance, and audit readiness across their business. With DocsBot Skill Builder, you can describe the Drata-powered agent behavior you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support or internal team agent that can answer questions, gather context, summarize trust and compliance status, and take approved actions inside Drata.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved compliance or trust-program status in Drata and answer common customer security questionnaire questions with current information.",
+    "Use a support agent connected to your helpdesk to gather missing details from a customer, prepare a security review handoff, and create or update the related workflow record in Drata.",
+    "Enable the agent to summarize audit-readiness progress, control ownership, or evidence status from Drata so customer success teams can respond faster to trust-related inquiries.",
+    "Have the agent route sensitive trust or compliance questions to the right internal team while attaching a clear Drata-based summary of controls, risks, or open tasks.",
+    "Allow the agent to trigger approved follow-up workflows in Drata after a customer asks for security documentation, compliance confirmation, or vendor review next steps."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up control status, audit readiness progress, or risk-related tasks stored in Drata.",
+    "Enable internal teams to ask the agent for summaries of open compliance work, missing evidence, framework gaps, or upcoming audit activities without manually searching Drata.",
+    "Use an internal AI assistant to collect context from employees, prepare trust-review handoffs, and trigger approved Drata workflows for security reviews or compliance follow-up.",
+    "Help operations, security, and customer-facing teams chat with the agent to understand current trust posture and retrieve Drata-backed answers for internal decision-making.",
+    "Allow employees to follow SOP-style workflows through chat, with the agent using Drata data to guide next steps, record updates, and escalation prep inside approved boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that answers customer trust questions using approved Drata compliance and control data.",
+    "An internal assistant that summarizes audit readiness, evidence gaps, and open control tasks from Drata.",
+    "A security review intake workflow that gathers context in chat and creates a Drata handoff.",
+    "An AI agent that routes compliance questions and attaches Drata-backed summaries for the right team.",
+    "A private operations assistant that checks framework progress and highlights missing evidence in Drata.",
+    "A helpdesk agent that prepares trust escalation notes and triggers approved Drata follow-up actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Drata-connected agent to do, such as answer trust questions, summarize compliance status, or start a review workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, protects and proxies secrets outside chats and Skill source, and scopes the Skill to the minimum Drata access needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible action boundaries, user scope, and approval checks so sensitive Drata updates, workflow triggers, or record changes happen only within the rules you define."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill based on test results and then helps publish it to the right DocsBot agent so your website bot, helpdesk bot, or private employee assistant can use Drata safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Drata?",
+      "answer": "With DocsBot Skill Builder, you describe the Drata workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests realistic scenarios, and prepares it for deployment. The finished agent can look up data, summarize status, create handoffs, and take bounded actions inside the rules you approve."
+    },
+    {
+      "question": "Can an AI support agent use Drata data to answer customer trust and compliance questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Drata data to answer common trust, compliance, and audit-readiness questions, or prepare a clean handoff when a human review is needed. You control what information the agent can access and what actions it may take."
+    },
+    {
+      "question": "What Drata workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve control status, summarize evidence gaps, review audit-readiness progress, trigger approved follow-ups, and prepare internal trust or compliance handoffs. This is especially useful in Slack, Microsoft Teams, or private chat for repeatable SOP-style work."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Drata?",
+      "answer": "Yes, Skill Builder can create Skills that perform approved Drata actions such as creating handoffs, updating workflow state, or triggering follow-up processes with scoped permissions and approval boundaries. Sensitive actions can be limited to specific users, records, or conditions."
+    },
+    {
+      "question": "How does DocsBot keep Drata credentials and secrets secure?",
+      "answer": "Skill Builder identifies the connection details the Skill needs and keeps secrets out of chat transcripts and generated Skill source by using secure runtime configuration and secret proxying. It also scopes access to the minimum systems and actions required for the workflow."
+    },
+    {
+      "question": "Can I use DocsBot with Drata for security reviews and escalation prep?",
+      "answer": "Yes, you can build an agent that gathers missing context from customers or employees, summarizes the relevant Drata status, and prepares a structured handoff for your security, compliance, or operations team. This helps teams respond faster without giving the agent unlimited access."
+    }
+  ],
+  "relatedSlugs": [
+    "vanta",
+    "secureframe",
+    "jira",
+    "servicenow",
+    "zendesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Drata",
+    "domain": "drata.com",
+    "description": "Drata provides the trust network that enables businesses to operate, scale, and partner with confidence. Powered by AI and designed to operationalize trust, its Agentic Trust Management Platform continuously interprets controls, risk, and assurance signals, reducing manual work, improving visibility into internal and third‑party risk, and delivering always‑on audit readiness across compliance frameworks while accelerating security reviews.",
+    "slogan": "Win With Trust",
+    "logoUrl": "https://media.brand.dev/14da8908-a1f8-4c2c-8f94-4879b431ceaf.jpg",
+    "iconUrl": "https://media.brand.dev/14da8908-a1f8-4c2c-8f94-4879b431ceaf.jpg",
+    "primaryColor": "#0d141c",
+    "accentColor": "#848c8d",
+    "colors": [
+      {
+        "hex": "#0d141c",
+        "name": "Midnight Edition"
+      },
+      {
+        "hex": "#848c8d",
+        "name": "Necron Compound"
+      },
+      {
+        "hex": "#ededf2",
+        "name": "Springtime Rain"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b94e1349-c2c7-49d8-b5db-1e89c17e8f47.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://drata.com/about/careers",
+      "terms": null,
+      "privacy": "https://drata.com/privacy",
+      "blog": "https://drata.com/blog",
+      "pricing": null,
+      "contact": "https://drata.com/contact-sales"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/14da8908-a1f8-4c2c-8f94-4879b431ceaf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/14da8908-a1f8-4c2c-8f94-4879b431ceaf.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/14da8908-a1f8-4c2c-8f94-4879b431ceaf.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

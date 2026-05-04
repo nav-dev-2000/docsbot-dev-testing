@@ -1,0 +1,176 @@
+{
+  "slug": "retool",
+  "name": "Retool",
+  "domain": "retool.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build DocsBot AI agents that work with Retool",
+  "metaTitle": "Build AI agents for Retool with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Retool for lookups, updates, workflow triggers, and internal operations with secure controls and automated testing.",
+  "intro": "Retool helps companies build internal apps, agents, and workflows across their data sources and APIs. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Retool, and Skill Builder designs, secures, tests, and packages that ability for customer support or internal team use. The result is an AI agent that can answer questions and take approved action inside bounded workflows instead of stopping at advice alone.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Retool-backed order, account, or workflow status and reply with a current summary during a live chat or support ticket.",
+    "Use Retool actions from a support conversation to create an internal follow-up task, trigger an operational workflow, or prepare a handoff for a human team.",
+    "Have the agent collect missing customer details in chat, pass them into a Retool workflow, and return the next approved step or case status update.",
+    "Enable a helpdesk-connected DocsBot agent to use Retool as an operational layer for safe record lookups, workflow triggers, and escalation preparation while responding to tickets.",
+    "Let the agent summarize the results of a Retool query into a customer-friendly explanation without exposing internal system details or sensitive fields."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to run Retool-powered operational workflows without switching tools.",
+    "Support, success, and operations teams can ask the agent to look up account context from systems connected through Retool and receive a concise summary with recommended next steps.",
+    "Team members can use the agent to start SOPs, route requests, gather approvals, and trigger multi-step actions that Retool coordinates across internal tools.",
+    "Operations employees can chat with the agent to generate handoff notes, case summaries, and structured updates based on data retrieved through Retool apps or workflows.",
+    "Internal teams can use a DocsBot agent with Retool to standardize repetitive processes while keeping actions scoped to approved users, records, and workflow paths."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks customer status through a Retool workflow and explains the result clearly.",
+    "An internal assistant that launches SOP workflows in Retool from Slack or Microsoft Teams chats.",
+    "A helpdesk agent that gathers missing context and sends it into Retool for triage.",
+    "An operations bot that creates structured handoff notes from Retool query results and ticket context.",
+    "A customer support assistant that triggers approved follow-up workflows when a case meets defined rules.",
+    "An employee agent that summarizes data from multiple systems accessed through Retool in one response."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the DocsBot agent to do with Retool in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes the Skill to the minimum actions and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe operating rules, user and permission boundaries, and approval steps for sensitive Retool actions so the agent can take helpful action without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and reports what should be improved."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into a self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Retool for customer support workflows?",
+      "answer": "You can describe the support outcome you want in plain language, such as checking status, triggering a follow-up workflow, or preparing an escalation, and DocsBot Skill Builder will design a Retool-connected Skill with secure configuration, scoped actions, and testing before deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use Retool data during live chat or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a Skill to query approved Retool-backed workflows or data sources, summarize the result for the customer, and take bounded follow-up actions when your rules allow it."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Retool?",
+      "answer": "A private DocsBot agent can help employees retrieve operational context, launch SOPs, gather inputs, trigger workflows, prepare handoffs, and summarize results across systems that Retool connects."
+    },
+    {
+      "question": "Can DocsBot safely trigger Retool actions instead of only answering questions?",
+      "answer": "Yes, Skill Builder is designed for AI Actions such as lookups, updates, workflow triggers, summaries, and handoffs, while adding scoped permissions and approval boundaries for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Retool?",
+      "answer": "Skill Builder identifies the connection details needed, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and limits access to the users, actions, and records required for the workflow."
+    },
+    {
+      "question": "Can an AI agent use Retool to prepare escalations and human handoffs?",
+      "answer": "Yes, the agent can gather relevant context, run approved Retool queries or workflows, and produce structured handoff notes or escalation summaries for support and operations teams."
+    }
+  ],
+  "relatedSlugs": [
+    "airtable",
+    "zapier",
+    "make",
+    "monday-com",
+    "notion",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Retool",
+    "domain": "retool.com",
+    "description": "Retool is an AI‑focused application platform that lets companies build internal software—apps, agents, and workflows—using any large language model, data source, or API. Trusted by over 10,000 organizations including Amazon and Stripe, Retool combines drag‑and‑drop building blocks with custom code, enabling developers to create and deploy sophisticated AI‑powered tools quickly while maintaining full control and quality.",
+    "slogan": "Build smarter internal software faster with AI-powered tools and integrations.",
+    "logoUrl": "https://media.brand.dev/9afb495e-1dce-4140-adb6-763f1930a255.svg",
+    "iconUrl": "https://media.brand.dev/22ac849c-7bb7-4aca-a8da-0e1cdeca2e28.jpg",
+    "primaryColor": "#242424",
+    "accentColor": "#346494",
+    "colors": [
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      },
+      {
+        "hex": "#346494",
+        "name": "Teeny Bikini"
+      },
+      {
+        "hex": "#84847c",
+        "name": "Grey Pepper"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ae23bb63-1d4d-42e2-b0e6-789d9f0a23de.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://retool.com/careers",
+      "terms": "https://docs.retool.com/legal",
+      "contact": null,
+      "privacy": "https://docs.retool.com/legal/privacy-policy",
+      "blog": "https://retool.com/blog",
+      "pricing": "https://retool.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/22ac849c-7bb7-4aca-a8da-0e1cdeca2e28.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/754f70be-f4d7-4ebb-88b7-5d16da0cf663.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0a43346d-832f-48bb-8cc1-c3d3163c7a10.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9afb495e-1dce-4140-adb6-763f1930a255.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 87,
+        "height": 17,
+        "aspectRatio": 5.12
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9afb495e-1dce-4140-adb6-763f1930a255.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 87,
+      "height": 17,
+      "aspectRatio": 5.12
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/754f70be-f4d7-4ebb-88b7-5d16da0cf663.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

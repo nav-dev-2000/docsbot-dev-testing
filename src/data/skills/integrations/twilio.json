@@ -1,0 +1,176 @@
+{
+  "slug": "twilio",
+  "name": "Twilio",
+  "domain": "twilio.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Take Action in Twilio",
+  "metaTitle": "Build Twilio AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Twilio data, send approved messages, trigger workflows, and support teams or customers.",
+  "intro": "Twilio helps businesses communicate with customers across SMS, voice, WhatsApp, and other channels. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read Twilio data, send approved communications, trigger workflows, and summarize activity. This helps customer support teams and internal teams move faster with AI agents that can answer questions and take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Twilio message or call status details so it can explain delivery outcomes during a support chat or helpdesk reply.",
+    "Enable the agent to create approved SMS or WhatsApp follow-up messages in Twilio after confirming customer identity and collecting the right context.",
+    "Use the agent to summarize Twilio communication history and prepare a clean handoff for a human support rep when an issue needs escalation.",
+    "Allow the agent to trigger approved notification workflows in Twilio, such as sending appointment reminders, verification follow-ups, or outage updates from a support conversation.",
+    "Have the agent check whether a verification, text message, or voice communication was attempted and provide customers with a clear status update without exposing sensitive account details."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Twilio message, call, or communication status information without manually searching through dashboards.",
+    "Enable operations or support teams to ask the agent to send approved outbound notifications through Twilio for SOP-driven workflows such as reminders, alerts, or follow-up confirmations.",
+    "Help customer success or support managers use an internal AI agent to summarize communication activity in Twilio before handling escalations or account reviews.",
+    "Allow team members in Slack, Microsoft Teams, or internal chat to ask the agent to research delivery issues, gather Twilio context, and prepare next-step recommendations.",
+    "Support internal workflows where employees chat with the agent to complete communication-related SOPs, including escalation prep, notification triggers, and status summaries across Twilio and connected systems."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Twilio SMS delivery status and explains the result to customers.",
+    "An internal assistant that sends approved appointment reminders or service alerts through Twilio.",
+    "A helpdesk agent that summarizes Twilio call and message activity before escalation.",
+    "A workflow agent that triggers Twilio notifications after a support case reaches a defined stage.",
+    "An employee assistant that researches communication failures and prepares recommended next steps.",
+    "A support bot that verifies whether a customer received a one-time notification or follow-up message."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Twilio in plain language, such as checking message status, sending approved notifications, or preparing escalation summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Twilio actions and records needed, and adds approval boundaries for sensitive sends or updates."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot agent or your private team agent so it can answer questions and take bounded action in Twilio."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Twilio?",
+      "answer": "With DocsBot Skill Builder, you describe the Twilio workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The resulting AI agent can look up communication data, trigger approved messages, summarize activity, and support safe operational workflows."
+    },
+    {
+      "question": "Can an AI support agent use Twilio data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Twilio Skill to retrieve message or call status, summarize communication history, and trigger approved follow-up workflows while responding to customers. Access can be scoped to the specific records and actions your support process allows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Twilio?",
+      "answer": "A DocsBot agent can help check delivery outcomes, confirm whether communications were attempted, prepare escalation summaries, and send approved follow-up notifications through Twilio. Approval boundaries can be added for any action that should require extra control."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Twilio from Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can be deployed for employees in chat, Slack, or Microsoft Teams so teams can ask for Twilio status lookups, communication summaries, workflow triggers, and SOP guidance. This reduces manual switching between tools while keeping actions within defined limits."
+    },
+    {
+      "question": "How does DocsBot keep a Twilio AI integration secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and Skill instructions. It also scopes permissions to the minimum needed and can enforce approval steps for sensitive messaging or workflow actions."
+    },
+    {
+      "question": "Can DocsBot test a Twilio Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill design to catch bugs, weak instructions, and permission issues. Those findings can be used in an automated self-improvement loop before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "intercom",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Twilio",
+    "domain": "twilio.com",
+    "description": "Twilio is a pioneering cloud communication company that empowers businesses to enhance customer engagement through a robust Customer Engagement Platform (CEP). Utilizing standard web languages and a comprehensive web API, Twilio enables the creation of voice, VoIP, and SMS applications. Trusted by leading companies globally, Twilio provides the tools necessary for building direct, personalized relationships with customers throughout their journey—from sales and marketing to growth and customer service. Operating in 180 countries, Twilio supports millions of developers and hundreds of thousands of businesses in delivering exceptional and intelligent customer experiences. The company facilitates seamless communication across preferred channels by offering APIs for SMS, WhatsApp messaging, voice, and email integration, allowing organizations to craft dynamic solutions tailored to their needs.",
+    "slogan": "Build direct, personalized relationships with customers everywhere in the world.",
+    "logoUrl": "https://media.brand.dev/f7b6a6a7-8f80-4a32-874c-226e2ad5e76c.jpg",
+    "iconUrl": "https://media.brand.dev/f7b6a6a7-8f80-4a32-874c-226e2ad5e76c.jpg",
+    "primaryColor": "#f32d45",
+    "accentColor": "#ec8f9c",
+    "colors": [
+      {
+        "hex": "#f32d45",
+        "name": "Red Radish"
+      },
+      {
+        "hex": "#ec8f9c",
+        "name": "Peony"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7e32fa7e-0d1f-41da-8326-a98db1dd7390.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://twilio.com/en-us/company/jobs",
+      "terms": null,
+      "contact": "https://twilio.com/en-us/flex/use-cases/contact-center",
+      "privacy": "https://www.twilio.com/en-us/legal/privacy",
+      "blog": "https://twilio.com/en-us/blog",
+      "pricing": "https://twilio.com/en-us/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f7b6a6a7-8f80-4a32-874c-226e2ad5e76c.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1035227b-41e9-4c62-b3e7-63a7db648a13.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 312,
+        "height": 312,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5a325867-fd17-4167-956d-0f94efcbac2b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2be6fb07-5e4e-4867-a7e8-4167ae96f0e6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 520,
+        "height": 520,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2be6fb07-5e4e-4867-a7e8-4167ae96f0e6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 520,
+      "height": 520,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2be6fb07-5e4e-4867-a7e8-4167ae96f0e6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 520,
+      "height": 520,
+      "aspectRatio": 1
+    }
+  }
+}

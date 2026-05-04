@@ -1,0 +1,160 @@
+{
+  "slug": "mural",
+  "name": "Mural",
+  "domain": "mural.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that use Mural for support and team workflows",
+  "metaTitle": "Build AI agents for Mural with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mural to find boards, summarize collaboration context, create handoffs, and support internal team workflows safely.",
+  "intro": "Mural is a visual workspace where teams align on plans, strategy, and execution. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent use Mural safely. The result is a support or internal AI agent that can look up collaboration context, summarize decisions, prepare handoffs, and trigger approved next steps instead of only answering questions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Mural board context to explain the current project status, roadmap decisions, or workshop outcomes during a chat or support ticket reply.",
+    "Use a DocsBot support agent to summarize relevant Mural spaces, boards, and sticky-note discussions so customers get a clear status update without a human manually reviewing the workspace.",
+    "Have the agent prepare escalation handoffs that include linked Mural artifacts, workshop summaries, and open decision points for customer success or product teams.",
+    "Enable the agent to capture customer feedback from a chat conversation and create or update a Mural board item for follow-up planning when that action is approved.",
+    "Let the agent gather missing context from the customer, then attach a structured summary of the issue and related Mural planning references for internal review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right Mural board, workshop output, or planning artifact without searching manually.",
+    "Enable team members to ask the agent for summaries of strategy sessions, retrospectives, or project planning boards so they can quickly understand decisions and next steps.",
+    "Give operations or customer success teams an internal agent that creates Mural follow-up boards, notes, or structured planning artifacts from conversations, tickets, or meeting summaries.",
+    "Help employees use a private AI agent to turn scattered project context into a clean Mural handoff for product, marketing, or go-to-market planning workflows.",
+    "Support SOP-driven internal workflows where employees ask the agent to collect information, update approved Mural content, and summarize outcomes across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes relevant Mural boards before replying to a customer.",
+    "An internal assistant that finds workshop outputs and explains key decisions in plain language.",
+    "A handoff Skill that turns support conversations into structured Mural planning inputs.",
+    "An agent that creates approved Mural follow-up artifacts from customer feedback or ticket trends.",
+    "A team assistant that links project status questions to the latest visual planning context.",
+    "A DocsBot workflow that gathers missing details, updates Mural, and prepares an escalation summary."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Mural, such as summarizing boards, creating follow-up artifacts, or preparing escalations, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to the minimum Mural actions and content needed."
+    },
+    {
+      "title": "Approvals and boundaries are added",
+      "description": "Skill Builder adds clear action limits and approval boundaries so the agent can safely perform lookups, summaries, updates, or workflow triggers only in the situations you allow."
+    },
+    {
+      "title": "Automated scenario testing runs",
+      "description": "DocsBot’s testing agent exercises imagined customer support and internal team scenarios, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings back into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so teams can use Mural-aware AI actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Mural without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Mural workflow you want in plain language and the builder designs the Skill for you. It handles secure configuration, connection details, testing, and deployment so your agent can safely use Mural for lookups, summaries, and approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Mural data when replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Mural content to retrieve planning context, summarize board activity, and prepare better customer replies or escalation notes. You control what the agent can access and whether it can only read data or also take bounded follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Mural?",
+      "answer": "A DocsBot agent can summarize relevant boards, collect customer context, prepare internal handoffs, log feedback into planning workflows, and surface decision history that helps support teams respond faster. Sensitive updates can be placed behind approval boundaries when needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Mural in Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find the right Mural workspace, summarize sessions, retrieve planning decisions, and complete approved collaboration workflows from Slack, Teams, or a private chat interface."
+    },
+    {
+      "question": "Can DocsBot safely create or update Mural records through an AI agent?",
+      "answer": "DocsBot Skill Builder is designed to define safe action boundaries, scope permissions, and protect authentication details by default. That means your agent can be configured for approved create or update actions while keeping credentials out of chats and limiting access to the right users and workflows."
+    },
+    {
+      "question": "How does DocsBot keep a Mural AI agent secure during setup and deployment?",
+      "answer": "Skill Builder decides the secure setup pattern for the workflow, including required configuration values, secret handling, proxied authentication, scoped permissions, and approval rules. It also tests realistic scenarios before deployment to catch bugs, unsafe behavior, or workflow gaps."
+    }
+  ],
+  "relatedSlugs": [
+    "confluence",
+    "miro",
+    "notion",
+    "slab",
+    "sharepoint",
+    "google-drive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mural",
+    "domain": "mural.com",
+    "description": "Mural is an AI-powered visual workspace that enables go-to-market teams to turn alignment into an ongoing way of working. It provides a shared visual space for teams to collaborate, accelerate alignment, and drive better outcomes, helping businesses connect strategy to execution for faster results. With Mural, teams can plan, strategize, and execute projects seamlessly on one intuitive tool, fostering always-on alignment and innovation.",
+    "slogan": "Transform collaboration with Mural's AI-powered visual workspace for better results.",
+    "logoUrl": "https://media.brand.dev/160e33b0-c114-4f4b-816f-830f115b93eb.svg",
+    "iconUrl": "https://media.brand.dev/c6062377-5269-49e1-bbd2-05f6ff403f9b.jpg",
+    "primaryColor": "#1e4a52",
+    "accentColor": "#f0b0ac",
+    "colors": [
+      {
+        "hex": "#1e4a52",
+        "name": "Moscow Midnight"
+      },
+      {
+        "hex": "#f0b0ac",
+        "name": "Lusty Salmon"
+      },
+      {
+        "hex": "#a7d3c0",
+        "name": "Swimming Pool Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/810d5a81-bcfd-48d6-ba4f-50038b76ef3f.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c6062377-5269-49e1-bbd2-05f6ff403f9b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/160e33b0-c114-4f4b-816f-830f115b93eb.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 620,
+        "height": 178,
+        "aspectRatio": 3.48
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/160e33b0-c114-4f4b-816f-830f115b93eb.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 620,
+      "height": 178,
+      "aspectRatio": 3.48
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c6062377-5269-49e1-bbd2-05f6ff403f9b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

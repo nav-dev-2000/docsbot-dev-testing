@@ -1,0 +1,168 @@
+{
+  "slug": "autodesk",
+  "name": "Autodesk",
+  "domain": "autodesk.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Autodesk",
+  "metaTitle": "Build Autodesk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Autodesk data and actions for customer support, project coordination, internal help, and controlled workflow automation.",
+  "intro": "Autodesk teams manage design, engineering, construction, and manufacturing work that often requires fast answers, status checks, and careful handoffs. With DocsBot Skill Builder, you can describe the Autodesk workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve approved Autodesk information, prepare updates, and trigger bounded actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Autodesk project, model, or document status details and explain the latest state in a chat or support ticket reply.",
+    "Use the agent to gather missing customer context, create a structured handoff for a design or project specialist, and attach a summary of relevant Autodesk records.",
+    "Enable the support agent to look up drawing, file, or project references tied to a customer issue and return a clear progress summary without sending the customer to multiple systems.",
+    "Have the agent prepare escalation notes from Autodesk activity, milestones, or linked project information so human teams can take over with full context.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying an internal project team or logging a service-related request tied to Autodesk work."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Autodesk project details, document status, and recent activity without searching manually.",
+    "Project managers and operations teams can ask the agent to summarize Autodesk records, highlight blockers, and prepare handoff notes for design reviews or customer meetings.",
+    "Internal teams can use the agent to follow SOPs that collect missing context, update approved project metadata, and route Autodesk-related tasks to the right team.",
+    "Support, success, and delivery employees can chat with the agent to research Autodesk-linked customer issues across systems and produce a clean case summary for escalation.",
+    "Engineering or operations teams can use the agent to generate status updates, check workflow progress, and trigger bounded Autodesk-related follow-up actions under approval rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Autodesk project or document status during customer conversations.",
+    "A private team assistant that summarizes Autodesk activity for project managers and operations staff.",
+    "A DocsBot Skill that prepares Autodesk-based escalation briefs with linked context and next steps.",
+    "An internal AI assistant that gathers missing details before routing Autodesk-related requests to specialists.",
+    "A support workflow that looks up Autodesk references and creates structured handoff notes automatically.",
+    "A controlled action Skill that triggers approved Autodesk follow-up workflows after human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the Autodesk task you want in plain language, and Skill Builder turns that goal into a practical agent workflow for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, defines secure connection and authentication handling, protects and proxies secrets, and scopes Autodesk access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right instructions, lookups, updates, workflow triggers, and approval boundaries so the agent can act inside clear limits instead of taking unrestricted actions."
+    },
+    {
+      "title": "Testing runs automatically",
+      "description": "DocsBot’s automated testing agent exercises imagined customer and employee scenarios, finds bugs, weak guidance, or permission gaps, and feeds those findings into an improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant with logging and controlled runtime settings in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Autodesk data?",
+      "answer": "With DocsBot Skill Builder, you describe the Autodesk workflow you want in plain language, and DocsBot designs a Skill that can retrieve approved data, summarize status, prepare handoffs, and trigger bounded actions. Skill Builder also handles secure configuration, authentication, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Autodesk information to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Autodesk as a connected system for approved lookups such as project status, document references, milestones, or linked activity while replying in a chat widget or helpdesk workflow. You define what data the agent may access and what actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Autodesk?",
+      "answer": "Teams can build workflows for status lookups, escalation preparation, structured handoff creation, issue summaries, and approved follow-up triggers tied to Autodesk records. This helps support agents resolve routine questions faster while passing complex cases to specialists with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work across Autodesk projects and records?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Autodesk information, summarize project activity, research blockers, and complete SOP-driven workflows from chat, Slack, or Microsoft Teams. This reduces context switching and keeps repeatable work inside a guided assistant experience."
+    },
+    {
+      "question": "How does DocsBot keep Autodesk integrations secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and Skill source, proxies authentication through secure runtime configuration, and limits access to the right users, records, and actions. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update Autodesk-related records or trigger workflows safely?",
+      "answer": "DocsBot Skills can be designed for approved updates, routing steps, notifications, and other bounded actions when that matches your process. Skill Builder sets safe limits and approval checkpoints so the agent only performs the actions you authorize."
+    }
+  ],
+  "relatedSlugs": [
+    "autocad",
+    "notion",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Autodesk",
+    "domain": "autodesk.com",
+    "description": "Autodesk is a pioneering technology company that specializes in 3D design software for various industries, including architecture, engineering, construction, design, manufacturing, and media. With a mission to transform how the world is designed and made, Autodesk provides innovative solutions that empower over 100 million users globally. Their extensive software suite, which includes renowned products like AutoCAD, Revit, Maya, and Fusion 360, helps professionals tackle design-related challenges and create more sustainable and intelligent products and structures. Leveraging cloud computing, Autodesk enables seamless collaboration and creativity across teams, allowing them to visualize and fabricate ideas in 3D. Headquartered in the San Francisco Bay Area with more than 10,000 employees worldwide, Autodesk is committed to fostering a diverse workplace and promoting equal opportunities for all qualified applicants.",
+    "slogan": "Empowering innovators to design and make a better world for all.",
+    "logoUrl": "https://media.brand.dev/d7b477f8-a11f-446c-bad3-19797c5c8457.png",
+    "iconUrl": "https://media.brand.dev/d7b477f8-a11f-446c-bad3-19797c5c8457.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#c0c0c0",
+        "name": "Silver"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/22398665-8e7b-4146-b734-bdea37045d50.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.autodesk.com/careers/overview",
+      "terms": "https://www.autodesk.com/company/terms-of-use/en/general-terms",
+      "contact": "https://www.autodesk.com/support/contact-support",
+      "privacy": "https://www.autodesk.com/company/legal-notices-trademarks/privacy-statement",
+      "blog": "https://www.autodesk.com/blogs/",
+      "pricing": "https://www.autodesk.com/buying/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d7b477f8-a11f-446c-bad3-19797c5c8457.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/97b127d7-e902-4ca9-a01f-2061b97b6dfa.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9757ba88-3fc2-4cc8-a0c8-e619aa99b1c6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9757ba88-3fc2-4cc8-a0c8-e619aa99b1c6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9757ba88-3fc2-4cc8-a0c8-e619aa99b1c6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

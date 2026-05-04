@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-marketing-automation",
+  "name": "Zoho Marketing Automation",
+  "domain": "zoho-marketing-automation.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Marketing Automation",
+  "metaTitle": "Build AI Agents for Zoho Marketing Automation with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Marketing Automation for customer support lookups, campaign workflow actions, internal research, and safe team automation.",
+  "intro": "Zoho Marketing Automation helps teams manage campaigns, contacts, journeys, and engagement data across the customer lifecycle. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up marketing records, summarize subscriber status, trigger approved workflows, and prepare handoffs. This helps customer-facing and internal AI agents move from answering questions to taking safe, bounded action inside your marketing operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a contact is subscribed, suppressed, or active in a Zoho Marketing Automation audience while responding to billing, communication, or preference questions.",
+    "Enable the agent to capture newsletter or campaign opt-in requests from website chat and create or update the contact record in Zoho Marketing Automation within your approval rules.",
+    "Use the agent to summarize a customer’s recent campaign engagement or journey status so support can explain what messages were sent and what happens next.",
+    "Have the agent trigger an approved follow-up workflow, nurture path, or handoff when a customer asks for product information, onboarding help, or sales contact.",
+    "Allow the agent to collect missing contact details in chat and prepare a clean marketing handoff record for your team with conversation context attached."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to look up contact, list, segment, or campaign status in Zoho Marketing Automation without leaving the conversation.",
+    "Marketing and customer success teams can ask the agent to summarize journey performance, subscriber activity, or campaign context before outreach, escalation, or renewal conversations.",
+    "Teams can use the agent to follow internal SOPs for adding contacts to approved journeys, updating preferences, or preparing handoffs between support, sales, and marketing.",
+    "Operations employees can ask the agent to gather campaign and audience details from Zoho Marketing Automation and produce clean internal summaries, follow-up checklists, or status updates.",
+    "Internal teams can use the agent to research why a contact did or did not receive a campaign and get a structured explanation based on available segmentation or subscription data."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks subscriber status and communication preferences during customer conversations.",
+    "A chat agent that captures opt-in requests and updates approved marketing contact records safely.",
+    "An internal assistant that summarizes campaign engagement before support, sales, or success outreach.",
+    "A workflow Skill that triggers approved nurture journeys after qualified chat conversations.",
+    "A handoff Skill that packages customer intent, contact details, and campaign context for marketing teams.",
+    "An internal research agent that explains list membership, suppression status, and recent engagement history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Marketing Automation, such as checking subscriber status, updating preferences, or triggering an approved journey, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder identifies the connection details and configuration values the workflow needs, sets up secure authentication handling, keeps secrets out of chats and Skill source, and proxies credentials through protected runtime configuration by default."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, users, and actions required, adds approval boundaries for sensitive updates or workflow triggers, and defines clear rules for what the agent may and may not do."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams and customers can use it through normal conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Marketing Automation?",
+      "answer": "With DocsBot Skill Builder, you describe the result you want in plain language, such as checking subscription status or triggering an approved campaign workflow, and Skill Builder creates, secures, tests, and prepares the Skill for deployment. It also handles connection setup, secret protection, scoped permissions, and safe action boundaries."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Marketing Automation data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up contact status, campaign engagement, subscription preferences, or journey information while responding to customers in chat or helpdesk tickets. You control which records and actions are allowed so the agent stays within your support rules."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Marketing Automation?",
+      "answer": "DocsBot can help automate lookups, opt-in or preference updates, approved workflow triggers, and marketing handoff preparation tied to customer conversations. It can also summarize engagement history so support agents and customers get faster, clearer answers."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work across Zoho Marketing Automation?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve campaign and audience information, follow internal SOPs, prepare outreach context, and complete approved contact or workflow actions from chat, Slack, or Microsoft Teams. This reduces manual switching between systems while keeping actions controlled."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Marketing Automation actions safe?",
+      "answer": "Skill Builder is designed to define secure configuration, protect and proxy secrets, scope permissions to the minimum needed, and add approval boundaries where actions should be reviewed before they run. Automated scenario testing also helps catch weak spots before the Skill is deployed."
+    },
+    {
+      "question": "Can DocsBot trigger marketing workflows or journeys from a conversation?",
+      "answer": "Yes, a Skill can be designed to trigger approved workflows or journeys in Zoho Marketing Automation when the conversation meets your rules. For example, the agent can hand qualified interest to marketing or start a nurture path after collecting required details."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot-marketing-hub",
+    "mailchimp",
+    "activecampaign",
+    "marketo",
+    "klaviyo",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

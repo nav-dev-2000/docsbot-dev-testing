@@ -1,0 +1,152 @@
+{
+  "slug": "alibaba-cloud-oss",
+  "name": "Alibaba Cloud OSS",
+  "domain": "alibaba-cloud-oss.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Alibaba Cloud OSS",
+  "metaTitle": "DocsBot AI Agents for Alibaba Cloud OSS Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Alibaba Cloud OSS for secure file lookups, upload workflows, summaries, and approved support or internal actions.",
+  "intro": "Alibaba Cloud OSS stores files and objects that often matter during support, operations, and internal team workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up objects, summarize file status, generate handoffs, and trigger approved storage-related actions. This helps customer-facing and internal AI agents do more than answer questions by taking bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer support agent check whether a requested file, export, backup, or document exists in Alibaba Cloud OSS and summarize its current status during a chat or ticket reply.",
+    "Enable the agent to retrieve approved object metadata such as file names, paths, timestamps, sizes, or storage locations so customers get faster answers without a manual lookup.",
+    "Have the agent generate secure handoff notes when a missing, delayed, or corrupted file issue needs escalation to operations or engineering.",
+    "Allow the agent to trigger an approved workflow after a customer request, such as creating a follow-up task when an expected upload or generated asset is not present in OSS.",
+    "Use the agent to summarize storage-related activity for a customer case, including what object was checked, what was found, and what next step was taken."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find files, inspect object details, and summarize what is stored in Alibaba Cloud OSS without switching tools.",
+    "Operations or support teams can ask the agent to follow SOPs for missing uploads, failed exports, or asset verification workflows and have it prepare next-step notes automatically.",
+    "Customer success teams can use the agent in Slack or Microsoft Teams to confirm whether deliverables, reports, or customer-specific assets have been generated and stored correctly.",
+    "Internal teams can ask the agent to gather OSS object metadata across a defined path or bucket scope and return a concise summary for audits, incident reviews, or status checks.",
+    "Employees can use the agent to create structured handoffs that combine OSS findings with ticket or account context before escalating work to another team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks whether customer files or exports exist in OSS.",
+    "A private operations assistant that summarizes object metadata for audits and incident response.",
+    "A customer success agent that verifies report delivery assets before replying to customers.",
+    "An internal AI assistant that prepares escalation notes for missing or delayed uploads.",
+    "A support workflow that logs OSS lookup results and triggers approved follow-up tasks.",
+    "An employee chatbot that follows storage verification SOPs across teams and systems."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Alibaba Cloud OSS, such as check for files, summarize object details, or trigger a follow-up workflow, and Skill Builder turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and scopes OSS access to the minimum actions and storage paths needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "When the workflow could affect sensitive data or trigger downstream changes, Skill Builder adds approval boundaries, user limits, and clear action rules so the agent only performs approved lookups, updates, or handoffs."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or missed edge cases, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can start using the workflow with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Alibaba Cloud OSS?",
+      "answer": "With DocsBot Skill Builder, you describe the storage workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up OSS data, summarize findings, and take approved actions. It also handles secure configuration, scoped access, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Alibaba Cloud OSS data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use an Alibaba Cloud OSS Skill to check object metadata, confirm whether files exist, summarize storage status, and prepare escalation notes while replying to customers. The actions can be limited to safe lookups and approved workflows that match your support process."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Alibaba Cloud OSS?",
+      "answer": "DocsBot can help automate file existence checks, export verification, missing upload investigations, case summaries, and escalation handoff preparation. This gives support teams faster answers and more consistent next steps when customer issues involve stored files or generated assets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Alibaba Cloud OSS?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a chat interface, Slack, or Microsoft Teams to find files, inspect object details, summarize storage activity, and follow internal SOPs. This is useful for operations, support, and customer success teams that need quick answers across systems."
+    },
+    {
+      "question": "How does DocsBot keep Alibaba Cloud OSS access secure?",
+      "answer": "Skill Builder defines the connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated content. It also scopes permissions to the minimum required actions, users, records, and storage areas, with approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can DocsBot trigger workflows based on Alibaba Cloud OSS findings?",
+      "answer": "Yes, a Skill can be designed so the agent checks OSS state and then creates a handoff, logs a result, or triggers an approved downstream workflow when your rules allow it. That helps the agent move from answering questions to completing the next bounded action."
+    }
+  ],
+  "relatedSlugs": [
+    "amazon-s3",
+    "google-cloud-storage",
+    "azure-blob-storage",
+    "dropbox",
+    "box",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Alibaba Cloud",
+    "domain": "alibabacloud.com",
+    "description": "Alibaba Cloud is a cloud computing company that provides a comprehensive suite of cloud products and services. They offer reliable and secure solutions to help businesses build cloud infrastructure and data centers across multiple regions, supporting global business expansion.",
+    "slogan": "To Infinity and Beyond Cloud",
+    "logoUrl": "https://media.brand.dev/905c250f-66d9-49e2-9f15-b6522fa1c03e.jpg",
+    "iconUrl": "https://media.brand.dev/905c250f-66d9-49e2-9f15-b6522fa1c03e.jpg",
+    "primaryColor": "#1454ec",
+    "accentColor": "#fc6e08",
+    "colors": [
+      {
+        "hex": "#1454ec",
+        "name": "Azul"
+      },
+      {
+        "hex": "#fc6e08",
+        "name": "Fire Dragon Bright"
+      },
+      {
+        "hex": "#fcb47b",
+        "name": "Market Melon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/84fffb1b-6d75-4ee5-807d-14dc77885515.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.alibabacloud.com/e-magazine/paving_the_path_to_a_sustainable_future",
+      "contact": "https://www.alibabacloud.com/contact-sales",
+      "privacy": "https://www.alibabacloud.com/help/faq-detail/42425.htm",
+      "blog": "https://www.alibabacloud.com/blog",
+      "pricing": "https://www.alibabacloud.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/905c250f-66d9-49e2-9f15-b6522fa1c03e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 675,
+        "height": 720,
+        "aspectRatio": 0.94
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/905c250f-66d9-49e2-9f15-b6522fa1c03e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 675,
+      "height": 720,
+      "aspectRatio": 0.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/905c250f-66d9-49e2-9f15-b6522fa1c03e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 675,
+      "height": 720,
+      "aspectRatio": 0.94
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "discord",
+  "name": "Discord",
+  "domain": "discord.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Beta, Built on request",
+  "h1": "Build AI Agents That Work with Discord Using DocsBot",
+  "metaTitle": "Build Discord AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Discord to send updates, monitor channels, prepare handoffs, and support internal team workflows with safe controls.",
+  "intro": "Discord helps teams and communities communicate in real time across channels, direct messages, and shared spaces. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Discord, and Skill Builder designs, secures, tests, and packages that ability for you. The result is a support or internal AI agent that can look up conversation context, post approved updates, prepare escalations, and keep people aligned without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to post approved escalation summaries into a Discord support channel when a website chat or helpdesk ticket needs human follow-up.",
+    "Let the agent look up recent Discord channel activity related to an incident or account issue and summarize the latest status back to the customer.",
+    "Have the agent create structured handoff messages in Discord for billing, product, or technical teams while continuing to guide the customer in chat.",
+    "Allow the agent to notify a private Discord channel when a high-priority customer ticket is opened, updated, or waiting on internal action.",
+    "Use the agent to collect missing details from the customer, format them into a clean incident summary, and send that summary to the right Discord team channel for faster response."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right Discord channel, retrieve recent discussion context, and get a concise summary of decisions or open issues.",
+    "Team members can ask the agent to draft and post approved updates to Discord for incidents, launches, status changes, or customer escalations.",
+    "Operations teams can use the agent in Slack, Microsoft Teams, or private chat to turn a request into a Discord handoff message that follows internal SOPs.",
+    "Customer success and support leaders can ask the agent to summarize Discord conversations across selected channels so employees can quickly understand what happened before responding.",
+    "Internal teams can use the agent to gather information from business systems, generate a status recap, and share the final approved message into the appropriate Discord space."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that posts escalation summaries from customer chats into the correct Discord channel.",
+    "An internal assistant that finds recent Discord discussions and summarizes decisions, blockers, and next steps.",
+    "A workflow agent that drafts incident updates and sends approved messages to Discord response channels.",
+    "A customer success assistant that prepares handoff notes and alerts account teams in Discord.",
+    "An operations agent that routes urgent events into Discord with standardized context and priority labels.",
+    "A team assistant that turns internal requests into clean Discord announcements that follow your SOPs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Discord in plain language, such as summarizing channel activity, sending escalation alerts, or drafting approved updates."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the needed configuration values, and handles secure connection and authentication setup without exposing credentials in chat or source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Discord actions and channels required, and adds approval boundaries for sensitive posts or updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee agent so it can take bounded action inside Discord under your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Discord for customer support workflows?",
+      "answer": "With DocsBot Skill Builder, you can describe support outcomes such as posting escalation summaries, alerting response teams, or sharing ticket context into Discord. Skill Builder designs the workflow, secures the connection, scopes the allowed actions, and prepares the Skill for your support agent."
+    },
+    {
+      "question": "Can a DocsBot AI support agent send messages to Discord during a customer conversation?",
+      "answer": "Yes, you can build a Skill that lets the agent send approved Discord messages such as internal alerts, handoff notes, or incident summaries while it responds to a customer. Approval boundaries and scoped permissions can be added so sensitive actions stay controlled."
+    },
+    {
+      "question": "Can an AI agent use Discord channel activity to improve support responses?",
+      "answer": "Yes, a DocsBot agent can be designed to retrieve recent Discord context from approved channels and summarize relevant updates for the support conversation. This helps the agent give customers better status information without requiring a human to search manually."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Discord?",
+      "answer": "An internal DocsBot agent can summarize channel discussions, draft announcements, route escalations, and post approved updates tied to incidents, launches, or operations workflows. Employees can request these actions in chat, Slack, or Microsoft Teams without manually assembling the context."
+    },
+    {
+      "question": "How does DocsBot keep Discord access secure when building an AI Skill?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum users, channels, and actions needed for the workflow and can require approvals for higher-risk actions."
+    },
+    {
+      "question": "Do I need to write code to connect Discord to a DocsBot AI agent?",
+      "answer": "No, the setup is framed around describing the result you want in plain language. Skill Builder handles the design, secure configuration, testing, improvement cycle, and deployment details for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "microsoft-teams",
+    "intercom",
+    "zendesk",
+    "freshdesk",
+    "linear"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Discord",
+    "domain": "discord.com",
+    "description": "Discord is a dynamic platform designed to transform group chats into engaging and interactive experiences. Whether you're looking to play games, relax with friends, or build a global community, Discord offers the perfect space for all your social interactions. Users can customize their own spaces to talk, play, and hang out, making it a versatile tool for both casual and dedicated users alike. For support, reach out to @discord_support.",
+    "slogan": "Where group chat is all fun & games",
+    "logoUrl": "https://media.brand.dev/2aa75795-9fbe-417f-897e-f91467a6d676.jpg",
+    "iconUrl": "https://media.brand.dev/2aa75795-9fbe-417f-897e-f91467a6d676.jpg",
+    "primaryColor": "#141cbc",
+    "accentColor": "#848cd4",
+    "colors": [
+      {
+        "hex": "#141cbc",
+        "name": "Tetraammine"
+      },
+      {
+        "hex": "#848cd4",
+        "name": "Mystic Iris"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/95003d4f-8b70-4295-90c1-115e1a25cda7.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://discord.com/careers",
+      "terms": "https://discord.com/terms",
+      "contact": null,
+      "privacy": "https://discord.com/privacy",
+      "blog": "https://discord.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2aa75795-9fbe-417f-897e-f91467a6d676.jpg",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2aa75795-9fbe-417f-897e-f91467a6d676.jpg",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2aa75795-9fbe-417f-897e-f91467a6d676.jpg",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

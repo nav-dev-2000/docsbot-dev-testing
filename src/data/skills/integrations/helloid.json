@@ -1,0 +1,148 @@
+{
+  "slug": "helloid",
+  "name": "HelloID",
+  "domain": "helloid.com",
+  "category": "Identity & Access",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Securely with HelloID",
+  "metaTitle": "Build HelloID AI Agents for Support and Internal Workflows",
+  "metaDescription": "Create DocsBot AI agents that use HelloID for secure identity lookups, access workflows, approvals, summaries, and internal support automation.",
+  "intro": "HelloID helps organizations manage identity, provisioning, access, and approval workflows across complex environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use HelloID data and actions. The result is a support or internal AI agent that can answer questions, look up identity status, trigger approved workflows, and prepare clean handoffs without exposing sensitive access details.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a user onboarding, account activation, or access request in HelloID while replying in chat or over a helpdesk ticket.",
+    "Use the agent to confirm whether a password reset, self-service request, or provisioning workflow has been submitted, completed, or is still pending in HelloID.",
+    "Have the agent gather the details needed for an access-related issue, summarize the current HelloID workflow state, and prepare a support handoff for an identity or IT team.",
+    "Enable the agent to trigger an approved HelloID self-service workflow, such as starting an access request or account update process, after collecting the required customer information.",
+    "Use the agent to explain the next step in an identity or access request based on HelloID records, workflow status, and customer-provided context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up HelloID user status, provisioning progress, assigned roles, or workflow history.",
+    "Enable internal IT or operations teams to use the agent to start approved HelloID workflows, request access changes, or gather required context before escalation.",
+    "Help helpdesk teams ask the agent for a summary of a user's identity lifecycle state across onboarding, access requests, password workflows, and pending approvals in HelloID.",
+    "Allow managers or service desk staff to chat with the agent to understand why access has not been granted yet and what HelloID step or approval is blocking completion.",
+    "Support SOP execution by letting employees use the agent to collect identity details, generate escalation notes, and route access issues to the right team with HelloID context attached."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks HelloID access request and provisioning status during support conversations.",
+    "A private IT assistant that summarizes user lifecycle progress and pending identity approvals.",
+    "A support workflow that collects missing details and starts approved HelloID self-service requests.",
+    "An internal agent that explains blocked access changes based on HelloID workflow status.",
+    "A helpdesk assistant that prepares identity-related escalation notes with HelloID context included.",
+    "An employee chatbot that looks up assigned roles, user status, and request history safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with HelloID, such as checking request status, starting an approved workflow, or summarizing access issues, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder decides the safest way to connect HelloID, defines the required configuration values, handles authentication through secure runtime setup, keeps secrets out of chats and Skill source, and scopes access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right instructions, approval boundaries, and action limits so the agent can perform bounded HelloID lookups, updates, workflow triggers, and handoff steps without overreaching."
+    },
+    {
+      "title": "Testing and self-improvement run",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak spots, or missing permission checks, and feeds those findings into an automated improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the HelloID Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can use it through chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HelloID?",
+      "answer": "With DocsBot Skill Builder, you describe the HelloID workflow you want in plain language, and Skill Builder creates a reusable Skill for lookups, workflow triggers, summaries, and approved actions. It also handles secure configuration, authentication, testing, and deployment so the agent can be used safely in support or internal chat."
+    },
+    {
+      "question": "Can an AI support agent use HelloID data to answer account or access questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to read HelloID status information such as request progress, onboarding state, password workflow status, or pending approvals while responding to customers. The Skill can also prepare a handoff or trigger an approved next step when the workflow allows it."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HelloID?",
+      "answer": "An internal DocsBot agent can help employees and service desk teams check user lifecycle status, review access request progress, start approved workflows, collect missing information, and generate escalation summaries. This is useful for IT operations, onboarding, access management, and identity-related SOPs."
+    },
+    {
+      "question": "Can DocsBot trigger HelloID workflows or access requests safely?",
+      "answer": "Yes, Skill Builder can create bounded actions that let the agent start approved HelloID workflows or submit the next step only within your defined rules. It scopes permissions carefully and can add approval boundaries for sensitive actions so the agent does not exceed allowed access."
+    },
+    {
+      "question": "How does DocsBot keep HelloID credentials and sensitive access data secure?",
+      "answer": "Skill Builder defines secure connection settings, stores and proxies secrets through protected runtime configuration, and keeps credentials out of conversations and generated content. It also limits access to the minimum records, actions, and users required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help with identity-related ticket triage and escalation using HelloID?",
+      "answer": "Yes, the agent can gather the needed context from the user, check HelloID workflow state, summarize the issue, and prepare a clean escalation for the correct IT or identity team. This helps support teams reduce back-and-forth while keeping handoffs consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "active-directory",
+    "azure-active-directory",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Tools4ever",
+    "domain": "helloid.com",
+    "description": "HelloID is an identity and access management (IAM) platform offered by Tools4ever that delivers cloud‑based and on‑premise solutions for businesses, educational institutions, and other organizations. Its modular suite lets customers purchase only the capabilities they need—such as automated user provisioning, role‑based access control, password management, self‑service workflows, and compliance reporting—while providing a clear upgrade path. HelloID’s NIM (Next‑generation Identity Management) engine supports complex, multi‑system environments with high performance and easy self‑administration. By streamlining account lifecycle management and enhancing security controls, HelloID helps organizations reduce costs, improve productivity, and meet regulatory requirements.",
+    "slogan": "Simplified identity and user management—secure access, automated provisioning, lower costs.",
+    "logoUrl": "https://media.brand.dev/648ded93-a6ed-4ab9-a491-0bf1b30eea15.png",
+    "iconUrl": "https://media.brand.dev/648ded93-a6ed-4ab9-a491-0bf1b30eea15.png",
+    "primaryColor": "#2d7de4",
+    "accentColor": "#90bced",
+    "colors": [
+      {
+        "hex": "#2d7de4",
+        "name": "Bleu De France"
+      },
+      {
+        "hex": "#90bced",
+        "name": "Blue Shutters"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/648ded93-a6ed-4ab9-a491-0bf1b30eea15.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/648ded93-a6ed-4ab9-a491-0bf1b30eea15.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/648ded93-a6ed-4ab9-a491-0bf1b30eea15.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "happyfox",
+  "name": "HappyFox",
+  "domain": "happyfox.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with HappyFox using DocsBot Skills",
+  "metaTitle": "Build HappyFox AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use HappyFox for ticket lookups, updates, handoffs, summaries, and safe internal workflows built in plain language.",
+  "intro": "HappyFox helps teams manage customer support, service operations, and ticket workflows across channels. With DocsBot Skill Builder, you can describe the HappyFox workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. That means your agent can answer questions and take bounded action in HappyFox, such as looking up tickets, preparing escalations, updating records, and summarizing case history safely.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check HappyFox ticket status and summarize the latest updates while replying in website chat or helpdesk conversations.",
+    "Use DocsBot to create a new HappyFox ticket from a customer chat when the issue needs follow-up, including the customer summary, priority, and relevant context.",
+    "Have the agent add internal notes to a HappyFox ticket after collecting troubleshooting details from the customer so human agents receive a clean handoff.",
+    "Enable the agent to update approved HappyFox ticket fields such as category, priority, or status when the customer confirms new information.",
+    "Let the agent gather conversation details, summarize the issue, and prepare a HappyFox escalation package for a specialist team or manager."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up HappyFox tickets, requester history, assigned teams, and recent activity without switching tools.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to summarize open HappyFox queues, identify aging tickets, and surface cases that need attention.",
+    "Enable support leads to ask the agent for ticket trends, backlog snapshots, or priority summaries based on HappyFox data and workflow rules.",
+    "Let service desk teams use the agent to create or update HappyFox tickets during internal SOPs, with approvals for sensitive changes when needed.",
+    "Help operations or customer success teams chat with the agent to prepare handoff notes, escalation summaries, and follow-up task lists from HappyFox records."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that looks up HappyFox tickets and explains current status to customers in plain language.",
+    "A Skill that creates HappyFox tickets from chat conversations with structured summaries and routing details.",
+    "A Skill that adds internal notes and troubleshooting context to HappyFox before human escalation.",
+    "A Skill that updates approved HappyFox ticket fields after customer confirmation and policy checks.",
+    "A Skill that summarizes requester history and recent ticket activity for faster support responses.",
+    "A Skill that prepares escalation handoffs from HappyFox with issue summaries, timelines, and next steps for agents."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the HappyFox agent to do, such as check ticket status, create tickets, update fields, or prepare escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure workflow, identifies the HappyFox connection details it needs, defines protected authentication and secret handling, keeps credentials out of chats and source, and scopes access to the minimum actions and records required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits, user scoping, and approval boundaries for sensitive HappyFox updates so the agent can help confidently without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings back into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and strengthening the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can use HappyFox in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HappyFox?",
+      "answer": "With DocsBot Skill Builder, you describe the HappyFox workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your DocsBot agent. The resulting agent can look up tickets, summarize case history, create records, update approved fields, and trigger handoff workflows within the rules you define."
+    },
+    {
+      "question": "Can an AI support agent use HappyFox ticket data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a HappyFox Skill to retrieve ticket status, recent updates, assignment details, or other approved case information while responding to customers. It can also summarize what happened so far and prepare clean escalations when a human needs to step in."
+    },
+    {
+      "question": "Can DocsBot create or update HappyFox tickets safely?",
+      "answer": "DocsBot Skill Builder can create workflows for safe HappyFox actions such as opening tickets, adding notes, or updating selected fields when those actions are approved for the agent. Skill Builder also scopes permissions, protects authentication, and can require approval boundaries for more sensitive changes."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with HappyFox?",
+      "answer": "Common workflows include ticket lookups, ticket creation from chat, conversation summaries, internal note creation, escalation prep, and updates to approved ticket fields. This helps teams resolve routine issues faster while still routing edge cases to human agents with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in HappyFox from Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve HappyFox information, summarize queue health, research ticket history, and complete internal service workflows from chat, Slack, or Microsoft Teams. That reduces tool switching and speeds up SOP-driven work for support, IT, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep HappyFox access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration values, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum users, actions, and records needed and can add approval controls for sensitive steps."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "jira-service-management",
+    "helpscout",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HappyFox",
+    "domain": "happyfox.com",
+    "description": "HappyFox is a global leader in AI‑powered customer support software, providing a unified, full‑stack platform that combines help desk, ITSM service desk, automation, and business intelligence across channels such as email, chat, phone, and social media. Trusted by over 2,000 organizations in 70+ countries, its intuitive design and AI‑driven chatbot/copilot simplify complex workflows for customer service, IT, HR, facilities and more. The platform enables ticketing, self‑service knowledge bases, community forums, and robust reporting, helping businesses deliver 24/7 support and improve efficiency. HappyFox also fosters a remote‑friendly, innovation‑focused culture for its employees.",
+    "slogan": "Simplifying customer support with AI-powered, intuitive, and unified solutions.",
+    "logoUrl": "https://media.brand.dev/040140ad-6f9e-4246-a1fc-12f00f616d0f.svg",
+    "iconUrl": "https://media.brand.dev/baea5ba1-3e35-417d-8015-4c09aedce365.jpg",
+    "primaryColor": "#fb5c04",
+    "accentColor": "#f3a47a",
+    "colors": [
+      {
+        "hex": "#fb5c04",
+        "name": "Maximum Orange"
+      },
+      {
+        "hex": "#f3a47a",
+        "name": "Coral Silk"
+      },
+      {
+        "hex": "#14141c",
+        "name": "Absence of Light"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f2e07931-cf26-4b67-9a1c-4637bf9f64cc.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.happyfox.com/jobs/",
+      "terms": "https://www.happyfox.com/terms-services/",
+      "contact": "https://www.happyfox.com/contact/",
+      "privacy": "https://www.happyfox.com/privacy-policy/",
+      "blog": "https://blog.happyfox.com/",
+      "pricing": "https://www.happyfox.com/live-chat/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/baea5ba1-3e35-417d-8015-4c09aedce365.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/040140ad-6f9e-4246-a1fc-12f00f616d0f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 106,
+        "height": 20,
+        "aspectRatio": 5.3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/040140ad-6f9e-4246-a1fc-12f00f616d0f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 106,
+      "height": 20,
+      "aspectRatio": 5.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/baea5ba1-3e35-417d-8015-4c09aedce365.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

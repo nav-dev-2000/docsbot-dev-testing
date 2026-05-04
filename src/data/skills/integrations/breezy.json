@@ -1,0 +1,168 @@
+{
+  "slug": "breezy",
+  "name": "Breezy",
+  "domain": "breezy.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Breezy",
+  "metaTitle": "Build AI Agents for Breezy with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that connect with Breezy to answer questions, retrieve records, trigger approved workflows, and support internal teams safely.",
+  "intro": "Breezy can become part of a DocsBot AI agent that does more than answer questions. With DocsBot Skill Builder, you can describe the outcome you want in plain language, and Skill Builder helps create a reusable Skill that lets your support or internal agent securely look up data, summarize status, and take approved actions inside Breezy. This makes it easier to automate customer conversations and employee workflows while keeping permissions, approvals, and security under control.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Breezy-related account or job workflow details and return a clear status update during a chat or ticket reply.",
+    "Use the agent to collect missing information from a customer, create a structured handoff, and send the right Breezy workflow or record update for follow-up.",
+    "Have the agent summarize activity or record history from Breezy so support teams can respond faster without manually switching systems.",
+    "Enable the agent to trigger approved Breezy actions after confirming customer intent, such as routing a request, creating a task, or preparing an escalation.",
+    "Use Breezy data to help the agent explain next steps, expected timelines, or current processing status in a customer-friendly response."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up Breezy records, statuses, and workflow details without leaving Slack, Microsoft Teams, or the internal chat interface.",
+    "Recruiting, operations, or support teams can ask the agent to collect context, summarize Breezy activity, and prepare the next step in a standard operating procedure.",
+    "Team members can use the agent to create structured handoffs, update approved fields, or trigger bounded Breezy workflows while staying within defined permissions.",
+    "Managers can ask the agent for concise summaries of open items, stalled steps, or recent changes in Breezy to speed up reviews and decisions.",
+    "Internal teams can use the agent to combine Breezy information with company knowledge so employees get answers and workflow guidance in one conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up Breezy record status and explains the next approved step.",
+    "A support assistant that gathers missing context and creates Breezy handoff notes automatically.",
+    "An internal agent that summarizes Breezy activity for recruiters, coordinators, or operations teams.",
+    "A workflow assistant that triggers approved Breezy tasks after human confirmation when needed.",
+    "A private team agent that answers process questions using Breezy data and internal SOPs.",
+    "An escalation helper that prepares Breezy updates, summaries, and follow-up actions for staff review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Breezy, such as looking up status, creating handoffs, updating records, or triggering an approved workflow, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and defines how the agent should interact with Breezy without exposing technical setup complexity to you."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication patterns, keeps credentials out of chats and Skill instructions, proxies secrets through approved runtime configuration, and scopes Breezy access to only the users, records, and actions required."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive Breezy changes so the agent can take useful action while staying inside the rules you define."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team conversations against the Breezy Skill, finds bugs, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Breezy?",
+      "answer": "With DocsBot Skill Builder, you describe the Breezy workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize records, and take approved actions safely. It also defines secure connection handling, permission scope, and testing before deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use Breezy data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Breezy Skill to retrieve relevant status, summarize record details, gather missing context, and prepare handoffs or approved workflow actions while replying to customers. The customer conversation triggers the DocsBot agent, and the Skill lets that agent work inside Breezy within your defined limits."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Breezy?",
+      "answer": "A private DocsBot agent can help employees retrieve Breezy information, summarize activity, update approved records, prepare handoffs, and trigger bounded workflows from chat, Slack, or Microsoft Teams. This helps teams complete SOPs faster without manually navigating multiple systems."
+    },
+    {
+      "question": "Can an AI agent safely update Breezy records or trigger workflows?",
+      "answer": "Yes, DocsBot Skill Builder is designed to add scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. That means the agent can perform bounded updates or workflow triggers only where you allow them."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Breezy?",
+      "answer": "No, the setup is framed around the outcome you want, not a manual coding project. Skill Builder handles the design, secure configuration, testing, and improvement process needed to create and publish the Breezy Skill."
+    },
+    {
+      "question": "How does DocsBot keep Breezy credentials and secrets secure?",
+      "answer": "Skill Builder identifies the required connection details, stores secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also proxies authentication safely and limits access to the minimum needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "ashby",
+    "bamboohr",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Breezy",
+    "domain": "breezy.com",
+    "description": "Breezy is a cloud-based mobile printing solution that enables secure printing from any device to any printer, reinventing the printing experience for the modern era.",
+    "slogan": "Reinventing mobile printing — secure, universal, and effortless for the 21st century.",
+    "logoUrl": "https://media.brand.dev/c90830f7-0844-4633-ba71-7239e1fa6be7.jpg",
+    "iconUrl": "https://media.brand.dev/9ecf5cb4-e74d-4c69-aaba-c69ded55d51a.png",
+    "primaryColor": "#1b82b5",
+    "accentColor": "#d6ebf3",
+    "colors": [
+      {
+        "hex": "#1b82b5",
+        "name": "Mediterranean Blue"
+      },
+      {
+        "hex": "#d6ebf3",
+        "name": "Spacious Skies"
+      },
+      {
+        "hex": "#d5b19c",
+        "name": "Indian Khaki"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/26ec9117-4920-4b39-b7ff-bde781c74f51.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://breezy.com/terms",
+      "contact": null,
+      "privacy": "https://breezy.com/privacy",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/35064a0e-72eb-4833-bb7b-7b018ff8ac22.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9ecf5cb4-e74d-4c69-aaba-c69ded55d51a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c90830f7-0844-4633-ba71-7239e1fa6be7.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 1200,
+        "height": 630,
+        "aspectRatio": 1.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c90830f7-0844-4633-ba71-7239e1fa6be7.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 1200,
+      "height": 630,
+      "aspectRatio": 1.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/35064a0e-72eb-4833-bb7b-7b018ff8ac22.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 600,
+      "height": 600,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "slug": "adobe-experience-manager",
+  "name": "Adobe Experience Manager",
+  "domain": "adobe-experience-manager.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Adobe Experience Manager",
+  "metaTitle": "Adobe Experience Manager AI Agent Integration for DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that safely search, summarize, update, and trigger workflows in Adobe Experience Manager.",
+  "intro": "Adobe Experience Manager helps teams manage digital content, assets, and customer experiences across channels. With DocsBot Skill Builder, you can describe the Adobe Experience Manager workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve content details, prepare updates, trigger approved workflows, and create cleaner handoffs while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Adobe Experience Manager content, asset, or page status so it can answer customer questions with current information.",
+    "Use the agent to summarize publication state, approval status, or recent content changes from Adobe Experience Manager when replying to support chats or tickets.",
+    "Enable the agent to create approved internal handoff notes for content, asset, or publishing issues that need review by a human team.",
+    "Have the agent collect missing context from the customer and trigger an Adobe Experience Manager workflow or escalation path for broken pages, missing assets, or content corrections.",
+    "Allow the agent to prepare structured issue summaries from Adobe Experience Manager records so support teams can resolve web experience problems faster."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find Adobe Experience Manager pages, assets, or content records without manually searching through multiple systems.",
+    "Marketing, content, and operations teams can ask the agent to summarize approval status, publishing history, or asset metadata from Adobe Experience Manager before taking action.",
+    "Teams can use the agent in chat, Slack, or Microsoft Teams to prepare content review handoffs, draft workflow summaries, and follow internal SOPs tied to Adobe Experience Manager.",
+    "Employees can ask the agent to gather related Adobe Experience Manager information and create a clean escalation package for developers, web teams, or content owners.",
+    "Internal teams can use the agent to retrieve content details, compare status across records, and trigger approved next-step workflows with clear approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks page or asset status before answering customer website issue questions.",
+    "A private assistant that finds Adobe Experience Manager content records and summarizes publishing or approval history.",
+    "An agent that gathers issue details and prepares escalation handoffs for broken pages or missing assets.",
+    "A workflow assistant that triggers approved content review or remediation steps after collecting required context.",
+    "An internal research assistant that compares content metadata across records and returns a concise summary.",
+    "A support workflow agent that turns ticket details into structured Adobe Experience Manager investigation notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Adobe Experience Manager agent to do, such as checking asset status, summarizing publishing details, or preparing a handoff, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, keeps authentication and secrets protected through secure runtime handling, and scopes access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates or workflow triggers so the agent can take bounded action without exceeding the rules you set."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing instructions, weak permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "The Skill improves and deploys",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and then helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Adobe Experience Manager without writing integration code?",
+      "answer": "You can describe the outcome you want in plain language, and DocsBot Skill Builder can design the workflow, secure the connection, define configuration needs, test scenarios, and prepare the Skill for deployment. This lets non-technical teams create Adobe Experience Manager actions without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use Adobe Experience Manager data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Adobe Experience Manager data for approved lookups such as page status, asset details, publishing state, or related content information while replying to chats or helpdesk tickets. It can also summarize findings and prepare escalations when a human team should take over."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Adobe Experience Manager?",
+      "answer": "A DocsBot agent can gather missing customer details, look up content or asset records, summarize current state, create handoff notes, and trigger approved follow-up workflows. This helps support teams resolve website and content issues faster while keeping actions within defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Adobe Experience Manager?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve content information, review approval or publication status, prepare workflow summaries, and complete repeatable SOP-driven tasks tied to Adobe Experience Manager. The assistant can also coordinate handoffs across content, marketing, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep Adobe Experience Manager actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration values, protect and proxy secrets, keep credentials out of chats and Skill instructions, and scope permissions to the minimum actions and records required. It can also add approval steps and action boundaries for sensitive operations."
+    },
+    {
+      "question": "Can DocsBot trigger Adobe Experience Manager workflows or updates safely?",
+      "answer": "DocsBot Skills can be designed for bounded updates or workflow triggers when those actions are appropriate for your process. Skill Builder helps set the approval rules, permission scope, and safe execution limits before the Skill is deployed."
+    }
+  ],
+  "relatedSlugs": [
+    "sharepoint",
+    "box",
+    "google-drive",
+    "dropbox",
+    "contentful",
+    "bynder"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adobe Learning Manager",
+    "domain": "business.adobe.com",
+    "description": "Adobe is a company that provides a cloud-based Learning Platform, Adobe Learning Manager, to train employees, customers, and partners. It offers a next-gen Learning Management System to develop skills, increase sales, and engage customers. Adobe also provides powerful digital marketing, analytics, commerce, AI, and automation tools to drive growth and deliver personalized experiences across channels.",
+    "slogan": "Empowering Learning and Engagement with Adobe’s Next-Gen Digital Solutions",
+    "logoUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "iconUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "primaryColor": "#ea1507",
+    "accentColor": "#dc8484",
+    "colors": [
+      {
+        "hex": "#ea1507",
+        "name": "Uproar Red"
+      },
+      {
+        "hex": "#dc8484",
+        "name": "Peaches of Immortality"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2a29d8d2-48b0-436e-80ef-c6a6ca0e3c12.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

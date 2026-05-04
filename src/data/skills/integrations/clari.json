@@ -1,0 +1,156 @@
+{
+  "slug": "clari",
+  "name": "Clari",
+  "domain": "clari.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Clari",
+  "metaTitle": "Build AI Agents for Clari with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Clari for revenue lookups, summaries, handoffs, and approved workflow actions in support and internal team chats.",
+  "intro": "Clari helps revenue teams track pipeline health, forecast performance, and spot risks or opportunities across the revenue process. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure Skill that lets your AI agent use Clari data and actions. The result is an AI support or internal team agent that can answer questions, prepare handoffs, summarize revenue context, and take bounded actions inside your approved workflow.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, opportunity, or forecast context from Clari so it can answer status questions with more complete revenue insight.",
+    "Use Clari data during support conversations to summarize deal health, recent changes, or risk indicators before preparing a handoff to sales or customer success.",
+    "Have the agent create structured escalation notes for account teams by combining the customer conversation with relevant Clari revenue context.",
+    "Enable a helpdesk-connected DocsBot agent to gather missing customer details, check Clari records, and route the case to the right revenue owner or team.",
+    "Let the agent prepare renewal or expansion handoff summaries using Clari account signals so customer-facing teams receive better context faster."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Clari pipeline summaries, forecast updates, and deal risk signals without leaving the conversation.",
+    "Sales, customer success, and operations teams can ask the agent to research an account in Clari and produce a concise briefing with risks, opportunities, next steps, and recommended handoffs.",
+    "Revenue leaders can chat with the agent to compare forecast changes, surface priority deals, and summarize pipeline movement for team updates or operating reviews.",
+    "Employees can use the agent to follow internal SOPs that gather Clari context, generate escalation notes, and prepare approved follow-up workflows across revenue systems.",
+    "Operations teams can ask the agent to summarize Clari record state, identify missing context for a process, and route the case to the correct owner with a clean audit trail."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Clari account and opportunity context during escalations.",
+    "A private revenue assistant that answers forecast and pipeline questions from Clari data.",
+    "An internal agent that prepares account briefings with risks, changes, and next steps.",
+    "A handoff workflow that combines customer chat details with Clari revenue signals.",
+    "A helpdesk assistant that routes tickets using Clari ownership and account context.",
+    "An AI agent that generates renewal or expansion summaries from Clari records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Clari in plain language, such as summarizing deal risk, preparing handoffs, or answering account-status questions."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines how the agent should use Clari data and actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection planning by protecting and proxying secrets through approved runtime configuration, keeping credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Clari records, actions, users, and systems needed, and adds approval boundaries whenever an update, trigger, or sensitive workflow should be reviewed first."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Clari without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and Skill Builder designs, secures, tests, and prepares the Clari-connected Skill for deployment. It handles connection requirements, secret management, scoped permissions, and runtime behavior so non-technical teams can focus on the business outcome."
+    },
+    {
+      "question": "Can an AI support agent use Clari data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use approved Clari data to look up account context, summarize pipeline or deal status, identify risks, and prepare clean handoffs while responding to customers. You control what the agent is allowed to read, summarize, or trigger."
+    },
+    {
+      "question": "What Clari workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal agents can retrieve forecast and pipeline context, summarize account health, prepare deal briefings, generate escalation notes, and support revenue-team SOPs across chat, Slack, or Microsoft Teams. DocsBot can also add bounded actions and approval steps for workflows that should not run automatically."
+    },
+    {
+      "question": "Can DocsBot use Clari to prepare handoffs between support, sales, and customer success?",
+      "answer": "Yes, a DocsBot agent can combine the customer conversation with approved Clari account and opportunity context to generate structured handoff notes and route them to the right team. This helps reduce back-and-forth and gives revenue teams clearer context before they engage."
+    },
+    {
+      "question": "How does DocsBot keep Clari-connected AI actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps authentication details out of chat transcripts and Skill source, proxies secrets through protected runtime settings, and scopes access to the minimum records and actions required. It can also place approval boundaries around sensitive updates, workflow triggers, or escalations."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Clari forecast or pipeline changes for leadership updates?",
+      "answer": "Yes, an internal DocsBot agent can gather approved Clari data and turn it into concise summaries for forecast reviews, pipeline inspection, and operating updates. That gives leaders faster access to the latest context without manually pulling the same information every time."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "pipedrive",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Clari",
+    "domain": "clari.com",
+    "description": "Clari is a Revenue Platform that provides efficiency, predictability, and growth solutions throughout the revenue process. By offering total visibility into businesses, Clari enables revenue teams to enhance process rigor, identify risks and opportunities, improve forecast accuracy, and enhance overall efficiency. Trusted by numerous sales, marketing, and customer success teams from top companies like Okta, Adobe, Zoom, and Workday, Clari's platform delivers execution insights to streamline revenue processes and enhance predictability. Whether it's sales forecasting, pipeline management, or revenue intelligence, Clari's platform is designed to optimize the entire revenue process for maximum efficiency and predictability.",
+    "slogan": "Predictable revenue process with Clari's Revenue Platform",
+    "logoUrl": "https://media.brand.dev/c7f53cb1-7644-4666-b7bc-421de6dd7307.svg",
+    "iconUrl": "https://media.brand.dev/ba2e8e31-2fe0-4755-b8ca-0d9288488a29.jpg",
+    "primaryColor": "#2472f1",
+    "accentColor": "#dee9f5",
+    "colors": [
+      {
+        "hex": "#2472f1",
+        "name": "Clouded Blue"
+      },
+      {
+        "hex": "#dee9f5",
+        "name": "Freeze Up"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/79eee13b-39c9-4746-bf02-333632a53e83.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://clari.com/careers/",
+      "terms": null,
+      "contact": "https://clari.com/about/",
+      "privacy": "https://clari.com/privacy/",
+      "blog": "https://clari.com/blog/",
+      "pricing": "https://clari.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ba2e8e31-2fe0-4755-b8ca-0d9288488a29.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c7f53cb1-7644-4666-b7bc-421de6dd7307.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 131,
+        "height": 39,
+        "aspectRatio": 3.36
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c7f53cb1-7644-4666-b7bc-421de6dd7307.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 131,
+      "height": 39,
+      "aspectRatio": 3.36
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ba2e8e31-2fe0-4755-b8ca-0d9288488a29.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

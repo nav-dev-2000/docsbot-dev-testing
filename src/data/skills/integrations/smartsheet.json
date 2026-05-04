@@ -1,0 +1,170 @@
+{
+  "slug": "smartsheet",
+  "name": "Smartsheet",
+  "domain": "smartsheet.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Smartsheet",
+  "metaTitle": "Build Smartsheet AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Smartsheet to answer questions, update work records, trigger workflows, and support teams with safe, approved actions.",
+  "intro": "Smartsheet helps teams plan, track, and automate work across projects, portfolios, and operational processes. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Smartsheet, and DocsBot will help design, secure, test, and publish that ability. The result is a support or internal AI agent that can do more than answer questions by looking up status, updating approved records, triggering workflows, and preparing handoffs inside Smartsheet.",
+  "supportUseCases": [
+    "Use a customer chat widget or helpdesk agent to look up project, onboarding, implementation, or service request status in Smartsheet and reply with the latest approved update.",
+    "Create new intake rows in a Smartsheet sheet from customer requests so the agent can capture missing details and start the right follow-up workflow.",
+    "Update permitted Smartsheet fields such as priority, due date notes, owner handoff status, or escalation reason while the agent responds to a customer.",
+    "Summarize linked Smartsheet records, task progress, blockers, and next steps so the agent can give customers a clear progress update without exposing internal-only details.",
+    "Prepare a handoff for human teams by creating or updating a Smartsheet record with the customer issue summary, urgency, requested action, and conversation history excerpt."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to find Smartsheet project status, sheet data, owners, deadlines, and blockers without opening multiple workspaces.",
+    "Operations and customer success teams can ask the agent to create intake items, update approved fields, or move work through Smartsheet-based SOPs using natural language.",
+    "Managers can use the agent to summarize portfolio health, overdue tasks, team workload signals, and recent changes across selected Smartsheet sheets and reports.",
+    "Team members can ask the agent to collect context from Smartsheet and generate handoff notes, status summaries, meeting briefs, or escalation packets for downstream teams.",
+    "Employees can use the agent to follow repeatable workflows that reference Smartsheet records, gather missing information, and trigger the next approved operational step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks onboarding or implementation status from Smartsheet before replying to customers.",
+    "A DocsBot Skill that creates Smartsheet intake rows from support conversations with required fields and clean summaries.",
+    "An internal assistant that updates approved Smartsheet columns when employees request workflow changes in chat.",
+    "A project operations agent that summarizes overdue tasks, blockers, and owners across selected Smartsheet sheets.",
+    "A handoff workflow that writes customer issue summaries and escalation details into Smartsheet for follow-up teams.",
+    "An employee agent that answers questions about project timelines, milestones, dependencies, and current work status from Smartsheet data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Smartsheet-powered agent to do in plain language, such as checking status, creating intake items, updating approved fields, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, decides the safest workflow design, identifies the needed configuration values, and defines secure connection and authentication handling for Smartsheet."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum sheets, records, users, and actions needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee agent so it can answer questions and take bounded action in Smartsheet."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Smartsheet?",
+      "answer": "With DocsBot Skill Builder, you describe the Smartsheet workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up data, summarize work status, update approved fields, and trigger bounded actions based on your rules."
+    },
+    {
+      "question": "Can a DocsBot support agent use Smartsheet data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Smartsheet Skill to retrieve approved project or request information, summarize the current state, and respond with accurate updates. It can also create or update permitted records when your workflow allows it."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Smartsheet?",
+      "answer": "Common workflows include checking request status, creating intake records, updating escalation details, preparing handoffs, and summarizing next steps from Smartsheet data. This helps the agent resolve routine questions faster while keeping more sensitive actions within defined approval limits."
+    },
+    {
+      "question": "Can an internal AI assistant update Smartsheet for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create rows, update approved columns, move work through SOPs, and summarize sheet data through chat, Slack, or Microsoft Teams. Skill Builder scopes those actions to the right users, records, and permissions before deployment."
+    },
+    {
+      "question": "How does DocsBot keep Smartsheet actions safe?",
+      "answer": "Skill Builder defines secure configuration and authentication handling, keeps credentials out of chats and generated content, proxies secrets through protected runtime settings, and limits the Skill to approved sheets, actions, and users. It can also add approval boundaries for sensitive changes so the agent only takes action within your rules."
+    },
+    {
+      "question": "Can DocsBot test a Smartsheet AI workflow before it goes live?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs realistic support and internal scenarios against the proposed workflow. It can find bugs, missing checks, or unclear instructions and feed those improvements back into the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "monday",
+    "clickup",
+    "jira",
+    "notion",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Smartsheet",
+    "domain": "smartsheet.com",
+    "description": "Smartsheet is an intelligent work management platform that helps organizations align people and technology to plan, track, automate, and execute work at scale. Using a flexible, spreadsheet‑inspired interface, it enables teams to manage projects, portfolios, and processes across departments, with features such as workflow automation, real‑time dashboards, reporting, and integrations with Microsoft, Google Workspace, Salesforce, Jira and more. Backed by enterprise‑grade security, governance and compliance, Smartsheet is trusted by over 85% of Fortune 500 companies to streamline collaboration, improve visibility, and drive data‑driven decisions.",
+    "slogan": "Smarter solutions. Greater velocity of work.",
+    "logoUrl": "https://media.brand.dev/406bf15d-3e6b-4bc2-9951-309d82854b0f.svg",
+    "iconUrl": "https://media.brand.dev/0756cd44-3266-4731-ae08-5b2c01088f98.jpg",
+    "primaryColor": "#041c4c",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#041c4c",
+        "name": "Oxford Blue"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c94ac",
+        "name": "Nordland Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e1af1eba-97ef-42c1-9864-8bc94623c29d.jpg",
+    "industries": [],
+    "links": {
+      "contact": "https://www.smartsheet.com/contact",
+      "careers": "https://www.smartsheet.com/careers",
+      "terms": "https://www.smartsheet.com/legal/site-terms",
+      "privacy": "https://www.smartsheet.com/legal/privacy",
+      "blog": "https://www.smartsheet.com/content-center/news",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.smartsheet.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0756cd44-3266-4731-ae08-5b2c01088f98.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/406bf15d-3e6b-4bc2-9951-309d82854b0f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 454,
+        "height": 74,
+        "aspectRatio": 6.14
+      },
+      {
+        "url": "https://media.brand.dev/64d4cc0f-30a4-435f-a9ad-1ef95e67291c.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 310,
+        "height": 310,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/406bf15d-3e6b-4bc2-9951-309d82854b0f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 454,
+      "height": 74,
+      "aspectRatio": 6.14
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/64d4cc0f-30a4-435f-a9ad-1ef95e67291c.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 310,
+      "height": 310,
+      "aspectRatio": 1
+    }
+  }
+}

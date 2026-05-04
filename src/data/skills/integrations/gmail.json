@@ -1,0 +1,148 @@
+{
+  "slug": "gmail",
+  "name": "Gmail",
+  "domain": "gmail.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Gmail",
+  "metaTitle": "Build Gmail AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read, draft, organize, and trigger safe Gmail workflows for customer support and internal teams.",
+  "intro": "Gmail is often where support conversations, escalations, approvals, and follow-ups actually happen. With DocsBot Skill Builder, you can describe the Gmail workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. That lets your agent answer questions, gather context, draft emails, summarize threads, and take approved email actions without exposing credentials or giving broad access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Gmail conversations tied to a customer and summarize the thread before replying in chat or a helpdesk ticket.",
+    "Use the agent to draft follow-up emails in Gmail after a support conversation, then send them automatically or hold them for approval.",
+    "Have the agent create escalation handoff emails in Gmail with the customer issue, troubleshooting steps, account context, and next-action summary already prepared.",
+    "Enable the agent to check whether a promised email update was sent and reassure the customer with an accurate status update.",
+    "Let the agent label or route Gmail messages tied to support cases so follow-up workflows stay organized after the customer interaction ends."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find Gmail threads about a customer, supplier, account, or project and return a clean summary with action items.",
+    "Let operations or customer success teams ask the agent to draft outreach, renewal reminders, onboarding follow-ups, or escalation emails using approved Gmail workflows.",
+    "Help managers use a private DocsBot agent in Slack or Microsoft Teams to review important Gmail conversations, identify open questions, and prepare next steps.",
+    "Allow internal teams to trigger Gmail-based SOPs such as sending confirmation emails, requesting missing information, or preparing handoff notes for another team.",
+    "Enable employees to chat with the agent to research historical email context across Gmail and other connected systems before making a decision or responding."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Gmail thread history before answering a customer question.",
+    "A DocsBot Skill that drafts escalation emails and includes ticket details, summaries, and next steps.",
+    "A private employee assistant that finds Gmail conversations and extracts commitments, deadlines, and owners.",
+    "An AI workflow that labels Gmail messages based on support issue type or urgency.",
+    "A handoff Skill that prepares customer update emails after an internal approval is completed.",
+    "An internal SOP assistant that sends standardized Gmail follow-ups when required information is missing."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Gmail-enabled agent to do, such as summarize customer email threads, draft follow-ups, or send approved handoff messages, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the needed Gmail connection, defines the right configuration values, handles authentication securely, keeps secrets out of chats and source, and scopes access to the minimum inbox actions, labels, messages, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries where needed so the agent can perform lookups, drafts, sends, labels, or workflow triggers only within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, unclear instructions, permission gaps, or workflow issues, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Gmail Skill to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can start using it in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gmail?",
+      "answer": "With DocsBot Skill Builder, you describe the Gmail outcome you want in plain language, such as finding threads, drafting replies, sending follow-ups, or labeling messages, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It also handles connection details, secret protection, scoped permissions, and approval rules for sensitive email actions."
+    },
+    {
+      "question": "Can a DocsBot support agent use Gmail data while helping customers?",
+      "answer": "Yes, a support agent can use a Gmail Skill to look up relevant email history, summarize prior conversations, prepare escalation emails, and trigger approved follow-up workflows while responding in chat or through a helpdesk. This helps the agent give more accurate answers and cleaner handoffs without exposing inbox credentials in the conversation."
+    },
+    {
+      "question": "What Gmail workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees search email history, summarize threads, draft outreach, send standardized follow-ups, prepare approvals, and organize messages with labels or routing rules. These workflows can be bounded to approved users, inboxes, and actions so teams get help without giving the agent unrestricted access."
+    },
+    {
+      "question": "Can an AI agent draft or send Gmail messages safely?",
+      "answer": "Yes, DocsBot Skill Builder can create Gmail workflows that only draft messages, or that send messages only under defined conditions and approval boundaries. Skill Builder scopes the allowed actions, protects authentication through secure runtime configuration, and keeps secrets out of the chat experience."
+    },
+    {
+      "question": "Can DocsBot use Gmail for escalation and handoff workflows?",
+      "answer": "Yes, a Gmail Skill can prepare escalation emails, attach the right customer context, summarize issue history, and route the handoff to the correct team. This makes transitions from bot support to human support much faster and more consistent."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Gmail with DocsBot?",
+      "answer": "Your team explains the result you want, and Skill Builder handles the workflow design, secure Gmail connection plan, configuration requirements, testing, improvement, and deployment path. You do not need to manually write code or map every integration step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "outlook",
+    "google-workspace",
+    "zendesk",
+    "freshdesk",
+    "hubspot",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Diril Steel",
+    "domain": "gmail.com",
+    "description": "Quick Pipe Bid is a mobile‑first trading and bidding platform serving North America’s steel pipe industry. It connects steel mills, distributors, and buyers on a single marketplace where mills showcase products, distributors source inventory and post offers, and buyers receive competitive bids. Users can post RFQs, upload inventory, and negotiate deals in real time from any device, eliminating the need for email, fax, or constant desktop monitoring. By streamlining communication and providing instant access to pricing and availability, Quick Pipe Bid helps industry participants find the best prices, accelerate transactions, and never miss an opportunity while on the go.",
+    "slogan": "Connecting Steel Industry Players for Fast, Easy, and Competitive Bidding",
+    "logoUrl": "https://media.brand.dev/740ca545-0ca9-4ce1-ae97-287a99f252f6.png",
+    "iconUrl": "https://media.brand.dev/740ca545-0ca9-4ce1-ae97-287a99f252f6.png",
+    "primaryColor": "#e13d31",
+    "accentColor": "#6b9af0",
+    "colors": [
+      {
+        "hex": "#e13d31",
+        "name": "CG Red"
+      },
+      {
+        "hex": "#6b9af0",
+        "name": "Guilliman Blue"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/740ca545-0ca9-4ce1-ae97-287a99f252f6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 402,
+        "height": 402,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/740ca545-0ca9-4ce1-ae97-287a99f252f6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 402,
+      "height": 402,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/740ca545-0ca9-4ce1-ae97-287a99f252f6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 402,
+      "height": 402,
+      "aspectRatio": 1
+    }
+  }
+}

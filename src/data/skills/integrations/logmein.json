@@ -1,0 +1,176 @@
+{
+  "slug": "logmein",
+  "name": "LogMeIn",
+  "domain": "logmein.com",
+  "category": "Customer Support",
+  "trutoCategory": "Remote Support",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with LogMeIn",
+  "metaTitle": "Build LogMeIn AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LogMeIn for remote support lookups, escalation prep, workflow actions, and secure internal IT assistance.",
+  "intro": "LogMeIn helps teams manage endpoints and support users remotely, which makes it a strong system for AI-assisted support and internal IT workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use LogMeIn data and approved actions. The result is an AI support or internal help agent that can answer questions, gather context, prepare handoffs, and trigger bounded workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check remote support session status or device context in LogMeIn before giving an update to the customer.",
+    "Use a DocsBot helpdesk agent to collect troubleshooting details from a customer, look up the related endpoint or support record in LogMeIn, and prepare a clean escalation summary for IT.",
+    "Enable the agent to create or update an approved remote support case or internal handoff in LogMeIn while continuing the customer conversation.",
+    "Have the agent summarize recent support activity, endpoint details, or connection history from LogMeIn so customers get faster and more informed responses.",
+    "Let the agent trigger approved follow-up workflows, such as notifying an IT team or flagging a support situation for human review, based on LogMeIn context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up endpoint status, support history, or remote assistance details from LogMeIn.",
+    "Enable IT teams to ask the agent to gather device context, summarize recent support activity, and assemble a handoff note before a technician begins a remote session.",
+    "Use an internal AI agent to guide employees through support SOPs, collect missing troubleshooting details, and create approved LogMeIn updates without jumping between tools.",
+    "Allow operations or service desk staff to chat with the agent to identify affected devices, review issue patterns, and trigger bounded follow-up workflows across support processes.",
+    "Help managers and IT leads use a private agent to generate summaries of open remote support situations and route the next step to the right technician or team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks LogMeIn session or endpoint context before replying to customers.",
+    "A helpdesk assistant that prepares LogMeIn-based escalation summaries for remote support teams.",
+    "An internal IT agent that looks up device details and recent support activity on request.",
+    "A workflow Skill that creates approved handoffs from DocsBot conversations into LogMeIn processes.",
+    "An employee assistant that follows troubleshooting SOPs and gathers missing context before escalation.",
+    "A service desk agent that summarizes open support situations and recommends the next approved action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LogMeIn agent to do in plain language, such as look up endpoint details, prepare escalations, or trigger approved support workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and defines how the agent should use LogMeIn safely during support or internal conversations."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets safe action boundaries, user scope, and approval steps for sensitive LogMeIn updates so the agent can help quickly without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal IT scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LogMeIn?",
+      "answer": "With DocsBot Skill Builder, you describe the LogMeIn workflow you want in plain language and Skill Builder creates a reusable Skill for lookups, summaries, handoffs, and approved actions. It also defines secure configuration, authentication handling, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use LogMeIn data while chatting with customers?",
+      "answer": "Yes, a DocsBot support agent can use a LogMeIn Skill to retrieve approved device, session, or support context while responding in a website chat or helpdesk ticket flow. This helps the agent give better answers, collect missing details, and prepare faster escalations."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with LogMeIn?",
+      "answer": "Teams can build workflows for endpoint lookups, support context summaries, escalation preparation, case updates, and approved follow-up triggers based on LogMeIn information. The agent can answer the customer and take bounded next-step actions inside the rules you define."
+    },
+    {
+      "question": "Can an internal AI assistant help IT teams use LogMeIn?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve LogMeIn information, follow troubleshooting SOPs, summarize issue history, and complete approved support workflows. This is useful in internal chat, Slack, or Microsoft Teams environments."
+    },
+    {
+      "question": "How does DocsBot keep LogMeIn actions safe?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure secret handling, proxied authentication, and approval boundaries for sensitive actions. That lets the agent access only the users, records, and workflows required for the job."
+    },
+    {
+      "question": "Can DocsBot prepare escalations and handoffs using LogMeIn context?",
+      "answer": "Yes, a Skill can gather LogMeIn details, summarize the issue, collect missing information from the conversation, and generate a structured handoff for a technician or service desk team. This reduces manual triage and makes human escalation faster."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "servicenow",
+    "jira-service-management",
+    "intercom",
+    "gotoassist"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LogMeIn",
+    "domain": "logmein.com",
+    "description": "LogMeIn is a cloud-based endpoint management and remote support solution provider. They offer a range of tools, including LogMeIn Central, to help IT professionals monitor, manage, and secure their endpoint infrastructure. As part of the GoTo family of products, LogMeIn equips IT leaders with AI-enabled unified endpoint management, reducing complexity and enhancing productivity while staying ahead of security demands.",
+    "slogan": "Simplify, secure, and empower your IT with LogMeIn's cloud solutions.",
+    "logoUrl": "https://media.brand.dev/322d9406-4e18-4ad1-804f-d1c130204960.svg",
+    "iconUrl": "https://media.brand.dev/17b1bdf0-0f87-4ecd-8d67-ca277732258a.jpg",
+    "primaryColor": "#fcec04",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#fcec04",
+        "name": "Hudson Bee"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#255c75",
+        "name": "Sea Hunter"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5bf79938-4abe-453a-ba28-f90f1e20dd47.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null,
+      "contact": "https://www.logmein.com/contact-sales"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/17b1bdf0-0f87-4ecd-8d67-ca277732258a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a76597aa-4ec2-4b91-8c8b-462c8dc6af09.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 134,
+        "height": 39,
+        "aspectRatio": 3.44
+      },
+      {
+        "url": "https://media.brand.dev/322d9406-4e18-4ad1-804f-d1c130204960.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 280,
+        "height": 37,
+        "aspectRatio": 7.57
+      },
+      {
+        "url": "https://media.brand.dev/b5944d82-c930-4e88-9a69-ddb38065bc9d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a76597aa-4ec2-4b91-8c8b-462c8dc6af09.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 134,
+      "height": 39,
+      "aspectRatio": 3.44
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/17b1bdf0-0f87-4ecd-8d67-ca277732258a.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

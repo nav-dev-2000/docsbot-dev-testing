@@ -1,0 +1,165 @@
+{
+  "slug": "gong-io",
+  "name": "Gong",
+  "domain": "gong.io",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with Gong",
+  "metaTitle": "Build AI Agents for Gong with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Gong data for support summaries, escalations, coaching insights, and internal workflows with secure, testable actions.",
+  "intro": "Gong helps teams record, analyze, and summarize customer conversations, sales calls, and meeting activity. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Gong, and DocsBot helps design, secure, test, and deploy that ability. The result is a customer support or internal AI agent that can retrieve conversation insights, prepare handoffs, summarize call history, and trigger approved follow-up workflows.",
+  "supportUseCases": [
+    "Use Gong conversation data to summarize a customer’s recent calls and help the support agent answer with full context in chat or tickets.",
+    "Look up call transcripts, meeting summaries, or interaction highlights in Gong so the AI agent can explain what was previously discussed with the customer.",
+    "Prepare escalation handoffs by pulling relevant Gong call notes, risks, objections, and next steps into a structured summary for human teams.",
+    "Identify whether a customer issue has already been discussed on a recent call and respond with a concise recap before proposing the next approved step.",
+    "Create internal follow-up tasks or handoff notes based on Gong conversation insights when a support conversation needs sales, success, or account team involvement."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private AI agent to retrieve Gong call summaries, deal conversation highlights, and coaching insights without manually searching recordings.",
+    "Help sales, support, and customer success teams ask the agent for recent customer conversation history across Gong before renewals, escalations, or executive reviews.",
+    "Enable managers to chat with the agent to research patterns in Gong conversations, summarize recurring objections, and prepare coaching or enablement follow-ups.",
+    "Support cross-functional SOPs where employees ask the agent to gather Gong insights, combine them with other system context, and prepare handoff-ready briefs.",
+    "Allow internal teams in Slack or Microsoft Teams to ask the agent for concise summaries of customer meetings, action items, and risk signals captured in Gong."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves Gong call summaries before answering a customer ticket.",
+    "An internal assistant that turns Gong transcripts into structured renewal or escalation briefs.",
+    "A team agent that surfaces customer objections mentioned in recent Gong conversations.",
+    "A handoff workflow that packages Gong insights for success, sales, or support teams.",
+    "An AI assistant that summarizes meeting action items from Gong for internal follow-up.",
+    "A coaching assistant that helps managers review Gong themes and conversation patterns safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Gong, such as summarizing recent calls, preparing escalation notes, or retrieving conversation insights for employees."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "DocsBot Skill Builder translates that goal into a reusable Skill, identifies the needed Gong connection details, defines secure configuration values, and sets up safe authentication handling without exposing credentials in chats or Skill instructions."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations against the Skill, checks for bugs, missing instructions, weak permission limits, and workflow gaps, and records what should improve."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and then helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Gong?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as retrieving call summaries or preparing follow-up notes from Gong. Skill Builder then designs the workflow, secures the connection, tests realistic scenarios, and helps deploy the finished Skill to your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Gong data to help answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Gong to look up recent calls, transcripts, summaries, and discussed next steps so replies have more context. You can keep actions bounded so the agent only retrieves approved information or prepares handoffs when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Gong?",
+      "answer": "DocsBot can help summarize recent customer conversations, prepare escalation notes, gather meeting context for ticket replies, and generate structured handoff briefs for sales, success, or support teams. These workflows are designed around your rules, permissions, and approval limits."
+    },
+    {
+      "question": "Can an internal AI assistant search Gong conversations for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Gong summaries, coaching points, customer objections, or recent meeting context. This makes it easier for teams to research conversations and complete internal workflows without manually searching recordings."
+    },
+    {
+      "question": "Can DocsBot create safe AI actions in Gong instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as generating handoff artifacts, triggering approved follow-up workflows, or updating connected processes based on Gong insights. Skill Builder adds scoped permissions and approval boundaries so the agent acts only within the limits you define."
+    },
+    {
+      "question": "How does DocsBot keep Gong credentials and access secure?",
+      "answer": "Skill Builder defines the required configuration values, keeps secrets out of chat transcripts and generated copy, and proxies authentication through secure runtime configuration. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "slack",
+    "hubspot",
+    "salesforce",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gong",
+    "domain": "gong.io",
+    "description": "Gong is a revenue intelligence and conversation intelligence platform that records, transcribes, analyzes, and summarizes customer calls, meetings, and sales interactions so teams can coach reps, understand deals, and improve customer-facing work.",
+    "slogan": "Reality platform for revenue teams",
+    "logoUrl": "https://cdn.sanity.io/images/ww20clc6/production/0b50133901322a215dfcf2f3311fc378ffdaacd6-117x42.svg",
+    "iconUrl": "https://cdn.sanity.io/images/ww20clc6/production/0b50133901322a215dfcf2f3311fc378ffdaacd6-117x42.svg",
+    "logoVariants": [
+      {
+        "url": "https://cdn.sanity.io/images/ww20clc6/production/0b50133901322a215dfcf2f3311fc378ffdaacd6-117x42.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 117,
+        "height": 42,
+        "aspectRatio": 2.7857142857
+      },
+      {
+        "url": "https://cdn.sanity.io/images/ww20clc6/production/9c8602a9f8f274c4a2e19f1addf42deb950fd0ce-117x42.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 117,
+        "height": 42,
+        "aspectRatio": 2.7857142857
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://cdn.sanity.io/images/ww20clc6/production/0b50133901322a215dfcf2f3311fc378ffdaacd6-117x42.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 117,
+      "height": 42,
+      "aspectRatio": 2.7857142857
+    },
+    "preferredIcon": {
+      "url": "https://cdn.sanity.io/images/ww20clc6/production/0b50133901322a215dfcf2f3311fc378ffdaacd6-117x42.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 117,
+      "height": 42,
+      "aspectRatio": 2.7857142857
+    },
+    "primaryColor": "#7121DB",
+    "accentColor": "#FF5A1F",
+    "colors": [
+      {
+        "hex": "#7121DB",
+        "name": "Gong Purple"
+      },
+      {
+        "hex": "#FF5A1F",
+        "name": "Gong Orange"
+      },
+      {
+        "hex": "#0B1020",
+        "name": "Dark Navy"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [
+      "Software",
+      "Sales",
+      "Revenue Intelligence",
+      "Conversation Intelligence"
+    ],
+    "links": {
+      "blog": "https://www.gong.io/blog",
+      "careers": "https://www.gong.io/careers",
+      "contact": "https://www.gong.io/contact-us",
+      "pricing": "https://www.gong.io/pricing",
+      "privacy": "https://www.gong.io/privacy-policy",
+      "terms": "https://www.gong.io/terms-and-conditions"
+    }
+  }
+}

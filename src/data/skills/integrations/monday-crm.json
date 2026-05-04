@@ -1,0 +1,113 @@
+{
+  "slug": "monday-crm",
+  "name": "Monday CRM",
+  "domain": "monday-crm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Monday CRM",
+  "metaTitle": "Build AI Agents for Monday CRM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Monday CRM for customer support lookups, safe record updates, handoffs, and internal workflow automation.",
+  "intro": "Monday CRM helps teams manage contacts, deals, activities, and customer interactions in one place. With DocsBot Skill Builder, you can describe the agent outcome you want in plain language, and DocsBot can create a reusable Skill that lets your support or internal AI agent securely look up data, update records, trigger workflows, and summarize next steps. This helps customer-facing and employee-only agents move from answering questions to taking approved action inside your CRM.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, contact, deal, or activity details in Monday CRM while replying in your website chat or helpdesk.",
+    "Use the agent to create or update CRM notes, tasks, or follow-up items after a customer reports an issue or asks for help.",
+    "Have the agent summarize recent customer interactions and open sales or success activity so support replies include useful context.",
+    "Allow the agent to prepare a clean handoff for sales, customer success, or account management by creating a CRM update with the customer request and conversation summary.",
+    "Enable the agent to log qualified lead details from a support conversation into Monday CRM for approved follow-up workflows."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to find contact, deal, and account details from Monday CRM without leaving the conversation.",
+    "Enable sales, support, and success teams to ask the agent for pipeline summaries, recent activity history, or account status before calls and renewals.",
+    "Allow employees to use chat to create follow-up tasks, append CRM notes, or prepare handoff records while the agent follows approved workflow boundaries.",
+    "Help operations teams use an internal AI agent to standardize CRM update SOPs, gather missing details, and complete routine record maintenance more consistently.",
+    "Give managers a private agent that can summarize CRM activity across accounts and produce concise internal briefings for reviews, escalations, or planning."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves customer and account context from Monday CRM before replying.",
+    "An AI assistant that creates follow-up tasks and notes after support or sales conversations.",
+    "A handoff workflow that turns chat conversations into structured CRM updates for account teams.",
+    "An internal agent that summarizes deal, contact, and activity history on request.",
+    "A private employee assistant that guides CRM update SOPs and completes approved record actions.",
+    "A support workflow that logs lead or opportunity details from qualified customer conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Monday CRM in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside chats and Skill source, and scopes access to only the records, users, and actions required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so sensitive CRM updates, workflow triggers, or escalations happen only within the rules you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent for employees in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Monday CRM without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the CRM task you want in plain language, such as looking up account details or creating follow-up notes, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It also defines the needed configuration, handles authentication safely, and keeps secrets out of chats and generated content."
+    },
+    {
+      "question": "Can an AI support agent use Monday CRM data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved customer, contact, deal, or activity information from Monday CRM while responding in a chat widget or helpdesk flow. It can also summarize CRM context, prepare handoffs, and make bounded updates when you allow those actions."
+    },
+    {
+      "question": "What customer support workflows can I automate with Monday CRM and DocsBot?",
+      "answer": "You can automate CRM lookups, conversation summaries, note creation, follow-up task logging, lead capture, and structured handoffs to sales or customer success. The agent can answer the customer and take the next approved action instead of only telling a human what to do."
+    },
+    {
+      "question": "Can an internal AI assistant update Monday CRM records for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create notes, update tasks, log activity, and complete CRM workflows within the permissions and approval rules you set. Skill Builder scopes those actions carefully so the assistant only performs the record changes your team approves."
+    },
+    {
+      "question": "How does DocsBot keep Monday CRM actions secure?",
+      "answer": "Skill Builder is designed to define secure connection settings, proxy and protect secrets through runtime configuration, and keep credentials out of chat transcripts and Skill instructions. It also limits access to the minimum records, users, and actions needed and can require approval boundaries for more sensitive updates."
+    },
+    {
+      "question": "Can DocsBot test a Monday CRM Skill before deployment?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that can simulate support and internal team scenarios, find instruction gaps, permission issues, or workflow bugs, and improve the Skill before you publish it. This helps you launch a more reliable agent with safer behavior from the start."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Hermes CRM",
+    "domain": "monday-crm.com",
+    "description": "EspoCRM, Inc. develops and maintains EspoCRM, an open source customer relationship management (CRM) platform that enables businesses to manage contacts, sales pipelines, and customer interactions with customizable, extensible features.",
+    "slogan": "Open Source CRM application by EspoCRM",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "enchant",
+  "name": "Enchant",
+  "domain": "enchant.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Enchant",
+  "metaTitle": "Build AI Support and Internal Agents for Enchant",
+  "metaDescription": "Create DocsBot AI agents that use Enchant to look up tickets, summarize conversations, prepare handoffs, update records, and trigger safe support workflows.",
+  "intro": "Enchant helps teams manage customer conversations across email, chat, messaging, and calls in one support workspace. With DocsBot Skill Builder, you can describe the Enchant workflow you want in plain language and have DocsBot create a reusable Skill for a customer-facing support agent or a private internal assistant. The result is an AI agent that can answer questions and take bounded action in Enchant, such as retrieving ticket details, preparing escalations, updating records, and summarizing support history.",
+  "supportUseCases": [
+    "Use a DocsBot website chat agent to look up a customer's recent Enchant conversations and respond with accurate status updates.",
+    "Let a DocsBot agent connected to your helpdesk summarize long Enchant threads before drafting a reply or escalating the case.",
+    "Create a Skill that updates Enchant ticket fields, tags, or priority levels when a customer provides new information in chat.",
+    "Have the agent create a new Enchant conversation or follow-up task when a customer needs offline support from a human teammate.",
+    "Use Enchant data to help the agent detect repeat contacts, summarize past resolutions, and suggest the next approved support step to the customer."
+  ],
+  "internalUseCases": [
+    "Let support employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Enchant ticket history, customer context, and recent conversation summaries.",
+    "Help team leads ask an internal agent to review Enchant cases, identify escalation patterns, and prepare clean handoff notes for specialists.",
+    "Enable employees to update approved Enchant fields, assign conversations, or trigger follow-up workflows by chatting with the agent instead of switching tools.",
+    "Give operations and customer success teams an internal assistant that pulls Enchant conversation details together with SOP guidance so employees can complete support workflows more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Enchant ticket status before answering customer questions.",
+    "A Skill that summarizes multichannel Enchant conversations into clean escalation notes for human agents.",
+    "An internal assistant that reassigns Enchant conversations based on team rules and approval limits.",
+    "A DocsBot workflow that tags Enchant tickets from customer chat intent and account context.",
+    "An AI agent that creates Enchant follow-up tasks after troubleshooting steps are completed.",
+    "A private support ops assistant that retrieves Enchant reporting context for manager questions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Enchant in plain language, such as checking ticket status, creating handoffs, or updating approved fields during support conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a safe Skill design, asks for any missing business context, and automatically defines the configuration values, connection details, and runtime behavior the agent needs."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes Enchant access to only the users, actions, and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive updates so the agent can take bounded action in Enchant without exceeding the rules you set."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Enchant?",
+      "answer": "With DocsBot Skill Builder, you describe the Enchant workflow you want in plain language and Skill Builder creates a reusable Skill that can look up data, summarize conversations, update approved records, and trigger support actions. It also handles secure connection design, scoped permissions, testing, and deployment for the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Enchant ticket data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use an Enchant Skill to retrieve ticket context, conversation history, ownership details, and other approved information while replying to customers in a website chat widget or helpdesk flow. This helps the agent answer with better context and prepare faster handoffs when a human should step in."
+    },
+    {
+      "question": "What Enchant customer support workflows can DocsBot automate safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as ticket lookups, status summaries, tagging, assignment support, follow-up creation, escalation prep, and approved field updates in Enchant. Skill Builder adds scoped access and approval boundaries so automations stay within the workflow you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Enchant from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Enchant conversation details, summarize cases, follow SOPs, and complete approved support workflows without jumping between tools. This is useful for support teams, team leads, and operations staff who need fast access to case context and next steps."
+    },
+    {
+      "question": "How does DocsBot keep Enchant actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration values, protect and proxy secrets, keep credentials out of transcripts and generated content, and limit access to the minimum actions and records needed. It can also add approval checkpoints for sensitive updates before the Skill is deployed."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Enchant workflows?",
+      "answer": "No, the setup is framed around describing the outcome you want, not manually building the integration yourself. Skill Builder handles the design, configuration planning, secure authentication approach, testing, and improvement process behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "helpscout",
+    "gorgias",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Enchant",
+    "domain": "enchant.com",
+    "description": "Enchant is a customer‑support platform that unifies omnichannel communication into a single, AI‑enhanced workspace. It offers a shared inbox for email, live chat, messenger, and a built‑in call center, allowing teams to collaborate on tickets, calls, and messages in real time. The solution includes a searchable knowledge base, AI‑generated draft replies, translation and summarization tools, and robust reporting to track performance and customer satisfaction. Enchant integrates with popular business tools, supports custom workflows, and scales for teams of any size across more than 30 countries. Founded in 2012, the platform emphasizes simplicity, reliability (99.99% uptime), and a personal touch, helping companies deliver faster, smarter support while turning support teams into “happiness machines.”",
+    "slogan": "Better conversations with your customers.",
+    "logoUrl": "https://media.brand.dev/d4d3af80-cd6d-43e2-8c02-72df5d200f61.svg",
+    "iconUrl": "https://media.brand.dev/f1081eb7-0c02-4376-9e5a-6e49d7e2d842.png",
+    "primaryColor": "#0493db",
+    "accentColor": "#5eb9e7",
+    "colors": [
+      {
+        "hex": "#0493db",
+        "name": "Sea of Crete"
+      },
+      {
+        "hex": "#5eb9e7",
+        "name": "Malibu"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://www.enchant.com/careers",
+      "terms": "https://www.enchant.com/terms",
+      "contact": "https://www.enchant.com/contact",
+      "privacy": "https://www.enchant.com/privacy",
+      "blog": "https://www.enchant.com/blog",
+      "pricing": "https://www.enchant.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d4d3af80-cd6d-43e2-8c02-72df5d200f61.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 161,
+        "height": 34,
+        "aspectRatio": 4.74
+      },
+      {
+        "url": "https://media.brand.dev/f1081eb7-0c02-4376-9e5a-6e49d7e2d842.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3c09b558-6dd5-40b6-8180-e4220997ffc9.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d4d3af80-cd6d-43e2-8c02-72df5d200f61.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 161,
+      "height": 34,
+      "aspectRatio": 4.74
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3c09b558-6dd5-40b6-8180-e4220997ffc9.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "slug": "confluence",
+  "name": "Confluence",
+  "domain": "atlassian.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with Confluence",
+  "metaTitle": "Build AI support and internal agents for Confluence",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that search Confluence, summarize knowledge, update approved pages, and support customers or internal teams safely.",
+  "intro": "Confluence is a central workspace for team knowledge, documentation, and shared process information. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent search Confluence, summarize pages, prepare updates, and trigger approved knowledge workflows. This helps customer support teams answer faster and helps employees get reliable documentation help inside chat, Slack, or Microsoft Teams.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to search Confluence for product guides, policies, and troubleshooting steps while answering customer questions in real time.",
+    "Let the agent summarize relevant Confluence pages into a clear customer answer instead of sending the customer through multiple documentation links.",
+    "Have the agent gather missing context from the customer, match it to Confluence runbooks, and prepare a more accurate handoff when escalation is needed.",
+    "Use the agent in helpdesk replies to pull internal Confluence procedures and draft consistent responses for support tickets.",
+    "Let the agent identify the right Confluence page for a known issue and present the most relevant steps, limitations, or workarounds to the customer within the conversation context.】【：】【“】【internalUseCases:["
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Confluence pages, summarize long documentation, and get direct answers without searching manually.",
+    "Help support, success, and operations teams ask the agent for SOPs stored in Confluence and receive step-by-step guidance for recurring workflows.",
+    "Allow employees to ask the agent to compare multiple Confluence pages and produce a concise summary for onboarding, incident review, or policy research.",
+    "Use a private AI assistant in Slack or Microsoft Teams to prepare approved Confluence page update drafts based on new process changes or support learnings.",
+    "Let team members chat with the agent to collect scattered Confluence knowledge and generate handoff notes, meeting briefs, or action summaries tied to documented procedures."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches Confluence and answers product or policy questions with cited documentation context.",
+    "A helpdesk assistant that summarizes Confluence runbooks before drafting customer ticket replies.",
+    "An internal agent that finds SOPs in Confluence and walks employees through each required step.",
+    "A private assistant that compares multiple Confluence pages and produces a decision-ready summary.",
+    "A workflow agent that drafts approved Confluence page updates from resolved support issues or process changes.",
+    "A team assistant that turns Confluence documentation into onboarding checklists, briefs, and handoff notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Confluence, such as answer questions from documentation, summarize pages, or prepare approved updates, and it translates that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Confluence access to only the pages, actions, users, and workflows required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds sensible action limits and approval boundaries so the agent can search, summarize, draft, or update Confluence only within the safe rules you define for customer support or internal use."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer conversations and employee requests, checks for weak instructions, missing permissions, edge cases, or workflow gaps, and reports what should be improved."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and help deploy it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Confluence for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that can search Confluence pages, summarize relevant guidance, and prepare approved handoffs or follow-up actions during customer chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Confluence data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use a Confluence Skill to retrieve relevant documentation, summarize it in a customer-friendly way, and stay within the access and action limits you approve for support workflows."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Confluence?",
+      "answer": "A private DocsBot agent can help employees find SOPs, summarize documentation, compare pages, draft knowledge updates, and generate handoff notes or onboarding materials from Confluence content."
+    },
+    {
+      "question": "Can DocsBot safely update or draft Confluence content through an AI agent?",
+      "answer": "Yes, Skill Builder can create bounded workflows for drafting or updating Confluence content with scoped permissions, protected authentication, and approval steps for sensitive changes before anything is published."
+    },
+    {
+      "question": "How does DocsBot keep Confluence credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of chats and generated content, and limits access to the minimum users, spaces, pages, and actions needed."
+    },
+    {
+      "question": "Can a Confluence AI agent prepare escalations and handoffs for support teams?",
+      "answer": "Yes, the agent can gather the customer context, pull the relevant Confluence runbook or policy, and generate a structured summary that helps human teams take over faster and with better documentation context."
+    }
+  ],
+  "relatedSlugs": [
+    "notion",
+    "slab",
+    "guru",
+    "sharepoint",
+    "google-drive",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Atlassian Corporation",
+    "domain": "atlassian.com",
+    "description": "Atlassian is a global software company dedicated to enhancing team collaboration and productivity. With a robust portfolio that includes popular tools like Jira, Confluence, and Trello, Atlassian helps over 300,000 customers streamline their project management and issue tracking. Employing a diverse team of over 10,000 professionals, Atlassian is committed to building innovative software that empowers teams to work together effectively. The company believes in the transformative power of teamwork to create a more open, authentic, and inclusive world, driving them to continuously develop next-generation solutions that unlock the full potential of teams. Whether organizing tasks, facilitating discussions, or completing shared projects, Atlassian's tools are designed to foster collaboration and creativity among teams worldwide.",
+    "slogan": "Unleash team potential with Atlassian's collaboration tools.",
+    "logoUrl": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+    "iconUrl": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+    "primaryColor": "#1c6cdb",
+    "accentColor": "#8cbcdc",
+    "colors": [
+      {
+        "hex": "#1c6cdb",
+        "name": "Flickr Blue"
+      },
+      {
+        "hex": "#8cbcdc",
+        "name": "Frozen Whisper"
+      },
+      {
+        "hex": "#0c1414",
+        "name": "Ruined Smores"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c62dcddc-8c20-4ff5-ad33-b9e6ee90b48f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://atlassian.com/company/careers",
+      "terms": "https://atlassian.com/legal/cloud-terms-of-service",
+      "contact": "https://atlassian.com/company/contact",
+      "privacy": "https://atlassian.com/legal/privacy-policy",
+      "blog": "https://atlassian.com/blog",
+      "pricing": "https://atlassian.com/software/jira/align"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/691f7f71-bb91-48f8-bd30-840777d00fd6.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ac87536f-b22c-4b28-af86-d824f87a8842.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8df4abcb-f0cc-45d4-9262-eadd1d6b9901.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 541,
+        "height": 150,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/10af4e49-8ef0-4556-8256-3ff11ed55617.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 150,
+        "aspectRatio": 3.6
+      },
+      {
+        "url": "https://media.brand.dev/295e212e-8a85-455d-9774-807a82f65937.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/d9220038-27df-4c36-ba76-d10be4cf2380.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      },
+      {
+        "url": "https://media.brand.dev/513146ad-0fe1-41f3-8857-61407f8d805d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 296,
+        "height": 48,
+        "aspectRatio": 6.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ea9bf961-fe6d-46e0-b60f-0186ffd2066c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 540,
+      "height": 150,
+      "aspectRatio": 3.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/36317f4b-01e8-4cfe-8749-1869d764a8b4.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

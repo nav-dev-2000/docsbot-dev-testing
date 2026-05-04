@@ -1,0 +1,168 @@
+{
+  "slug": "loanpro",
+  "name": "LoanPro",
+  "domain": "loanpro.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with LoanPro",
+  "metaTitle": "Build LoanPro AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use LoanPro for customer support, loan lookups, team workflows, handoffs, and approved updates.",
+  "intro": "LoanPro helps teams manage lending and borrower-related workflows, and DocsBot Skill Builder helps you turn those workflows into safe AI agent actions. In plain language, you describe what the agent should do, and Skill Builder designs, secures, tests, and deploys a reusable Skill. The result is a DocsBot support or internal AI agent that can answer questions, retrieve LoanPro data, trigger approved actions, and prepare clean handoffs without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up borrower or loan status details in LoanPro and explain the next approved step during a website chat or support ticket reply.",
+    "Use the agent to summarize payment status, application progress, or recent account activity from LoanPro so customers get faster and clearer updates.",
+    "Have the agent gather missing borrower context in chat, create a structured handoff, and pass the case to a loan specialist with a LoanPro-backed summary.",
+    "Enable the agent to trigger approved follow-up workflows, such as notifying a team or flagging a record for review, when a customer reports an urgent financing issue.",
+    "Allow the agent to answer common servicing or application questions by combining your documentation with live LoanPro lookups for account-specific context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve LoanPro account details, borrower status, and workflow summaries faster.",
+    "Help operations or customer success teams use the agent to collect required context, prepare escalation notes, and follow lending SOPs across LoanPro and other internal systems.",
+    "Give managers an internal AI assistant that summarizes open borrower issues, recent status changes, or follow-up needs using LoanPro data and company policies.",
+    "Allow team members to ask the agent to trigger approved internal workflows, create handoff summaries, or update bounded fields in LoanPro within defined approval limits.",
+    "Support employee research by having the agent compare borrower context, summarize account history, and guide teams through the next best action based on internal procedures."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks loan or application status and explains approved next steps.",
+    "An internal assistant that summarizes borrower records before a specialist takes over.",
+    "A helpdesk agent that prepares LoanPro-based escalation notes for underwriting or servicing teams.",
+    "A workflow agent that flags urgent borrower issues and triggers internal follow-up tasks.",
+    "An employee assistant that answers process questions using policy docs plus live LoanPro context.",
+    "A private agent that gathers missing information before creating a clean handoff record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with LoanPro in plain language, such as checking loan status, preparing escalations, or triggering approved follow-up actions."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow design, defining the required configuration values, and planning how the agent should look up data or take bounded action."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection design by defining authentication needs, protecting and proxying secrets through runtime configuration, keeping credentials out of chats and Skill content, and scoping access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, user scoping, and approval steps for sensitive LoanPro actions so the agent can help quickly without exceeding the controls you want in place."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LoanPro?",
+      "answer": "With DocsBot Skill Builder, you describe the LoanPro workflow you want in plain language and the builder creates a secure Skill for lookups, summaries, handoffs, and approved actions. It also plans configuration, protects secrets, scopes permissions, tests scenarios, and helps deploy the Skill to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use LoanPro data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a LoanPro Skill to retrieve approved account or workflow details, summarize status, gather missing context, and prepare escalations while responding to customers. Access can be limited to the exact records, fields, and actions you authorize."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LoanPro?",
+      "answer": "A DocsBot agent can check status, summarize account activity, prepare handoff notes, trigger approved internal follow-up workflows, and guide customers to the next step using LoanPro-backed context. This helps support teams resolve routine questions faster while keeping sensitive actions controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside LoanPro?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve LoanPro information, summarize borrower situations, follow SOPs, and complete approved workflows from chat, Slack, or Microsoft Teams. The Skill can be designed with scoped permissions and approval boundaries for higher-risk updates."
+    },
+    {
+      "question": "How does DocsBot keep LoanPro connections and credentials secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime handling, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum systems, users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I require approval before an AI agent updates LoanPro records or triggers a workflow?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries and safe action limits for sensitive LoanPro steps. That lets the agent gather context and prepare the action while reserving final approval for the right person or condition."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "salesforce",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Loanpro",
+    "domain": "loanpro.com",
+    "description": "Loanpro is a mortgage lender specializing in flexible loan solutions for self‑employed borrowers, offering purchase, refinance, and construction financing as a bank alternative. Through an online pre‑qualification platform, borrowers can get personalized quotes, rate updates, and mortgage calculators. Loanpro compares options, provides free consultations, and helps clients secure financing despite traditional bank roadblocks.",
+    "slogan": "Mortgages made for self-employed borrowers.",
+    "logoUrl": "https://media.brand.dev/ffa2c506-270d-4f05-96b3-b20da651f9bf.svg",
+    "iconUrl": "https://media.brand.dev/558ec8dc-a16a-49bd-8bdf-818faee095da.jpg",
+    "primaryColor": "#9ca4a8",
+    "accentColor": "#3b4155",
+    "colors": [
+      {
+        "hex": "#9ca4a8",
+        "name": "Rainmaster"
+      },
+      {
+        "hex": "#3b4155",
+        "name": "Blue Zodiac"
+      },
+      {
+        "hex": "#cfd2d5",
+        "name": "Elemental"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/56152f38-d1ea-4608-a55b-862791699e97.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://loanpro.com/privacy-policy-2/",
+      "terms": "https://loanpro.com/terms-of-use/",
+      "contact": "https://loanpro.com/contact-us/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/558ec8dc-a16a-49bd-8bdf-818faee095da.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ffa2c506-270d-4f05-96b3-b20da651f9bf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 900,
+        "height": 241,
+        "aspectRatio": 3.73
+      },
+      {
+        "url": "https://media.brand.dev/553900fb-16f5-4b4c-8167-0aa48540fb1d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 202,
+        "height": 241,
+        "aspectRatio": 0.84
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ffa2c506-270d-4f05-96b3-b20da651f9bf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 900,
+      "height": 241,
+      "aspectRatio": 3.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/558ec8dc-a16a-49bd-8bdf-818faee095da.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

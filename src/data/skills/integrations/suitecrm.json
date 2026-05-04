@@ -1,0 +1,160 @@
+{
+  "slug": "suitecrm",
+  "name": "Suitecrm",
+  "domain": "suitecrm.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for SuiteCRM with DocsBot Skill Builder",
+  "metaTitle": "Build SuiteCRM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SuiteCRM to answer customers, update CRM records, trigger workflows, and support internal teams with safe, approved actions.",
+  "intro": "SuiteCRM helps teams manage customer, sales, and service data, and DocsBot Skill Builder helps you turn that data into practical AI Actions. In plain language, you can describe the outcome you want, and Skill Builder can create a reusable Skill that lets a DocsBot support agent or internal AI assistant safely look up records, update CRM details, trigger workflows, and summarize account context. The result is an AI agent that does more than answer questions because it can also take bounded action inside SuiteCRM under your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up contact, account, case, or opportunity details in SuiteCRM and answer customers with current status and next steps.",
+    "Let a support agent create or update SuiteCRM cases from website chat conversations or helpdesk tickets so customer issues are logged without manual re-entry.",
+    "Have the agent summarize a customer's SuiteCRM history, recent activities, and open issues to prepare a faster handoff to a human support rep.",
+    "Allow the agent to collect missing details during a support conversation and write approved notes or field updates back to the matching SuiteCRM record.",
+    "Trigger follow-up workflows from customer conversations, such as assigning a case, flagging an escalation, or creating a task for the right team in SuiteCRM."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve SuiteCRM account, contact, lead, case, or opportunity information without digging through records manually.",
+    "Enable customer success, sales, or operations teams to ask the agent for account summaries, relationship history, open activities, and pipeline context pulled from SuiteCRM.",
+    "Help employees complete SOPs faster by having the agent create follow-up tasks, update record fields, add notes, or route work in SuiteCRM within approved limits.",
+    "Allow managers and operations teams to use the agent to research CRM data, summarize trends across records, and prepare handoff notes for cross-functional teams.",
+    "Support internal workflows where employees ask the agent to validate account context across SuiteCRM before escalations, renewals, onboarding steps, or outreach actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks SuiteCRM case status and explains the latest update to customers.",
+    "A DocsBot Skill that creates new SuiteCRM cases from chat conversations with captured issue details.",
+    "An internal assistant that summarizes account health, open tasks, and recent activity from SuiteCRM.",
+    "A workflow agent that updates SuiteCRM contact or case fields after collecting missing information.",
+    "A handoff assistant that prepares escalation notes using SuiteCRM account history and conversation context.",
+    "A private team agent that retrieves opportunity details and next actions from SuiteCRM on demand."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SuiteCRM in plain language, such as looking up cases, updating records, or preparing handoffs for support and internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed SuiteCRM configuration values, and sets up the right runtime behavior without making you manually plan the implementation."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and scopes SuiteCRM access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, approval steps, and safe action limits so sensitive SuiteCRM updates, escalations, or workflow triggers only happen under the rules you choose."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SuiteCRM?",
+      "answer": "With DocsBot Skill Builder, you describe the SuiteCRM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use SuiteCRM data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a SuiteCRM Skill to look up customer, case, account, or activity information while responding in a chat widget or helpdesk ticket flow. You can also define approved actions such as creating cases, updating fields, or preparing escalation notes."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate in SuiteCRM?",
+      "answer": "A DocsBot agent can help with live record lookups, case creation, status summaries, note updates, escalation prep, follow-up task creation, and other bounded CRM actions you approve. This helps support teams resolve requests faster without switching between tools."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside SuiteCRM?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve SuiteCRM data, summarize account history, update approved records, and complete CRM-related SOPs through chat, Slack, or Microsoft Teams. This makes CRM workflows easier for sales, success, support, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep SuiteCRM actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration, protect and proxy secrets, keep credentials out of chats, and scope access to the minimum records and actions needed. It can also add approval boundaries for sensitive updates or workflow triggers before the agent takes action."
+    },
+    {
+      "question": "Can a SuiteCRM AI agent create handoffs and escalation summaries?",
+      "answer": "Yes, you can build a Skill that gathers account context, case history, and recent activity from SuiteCRM to generate clean handoff notes or escalation summaries for human teams. This helps preserve context and reduces repetitive manual work."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zoho-crm",
+    "pipedrive",
+    "freshdesk",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SuiteCRM",
+    "domain": "suitecrm.com",
+    "description": "SalesAgility is a globally respected and innovative CRM development organization specializing in SuiteCRM, the world's most popular open-source CRM software. With a foundation in consultancy services, SalesAgility has delivered over 300 SuiteCRM projects across the globe, catering to governments, enterprises, and SMBs. Committed to quality work, timely delivery, and budget-friendly projects, they integrate SuiteCRM with clients' operational and business practices. All their work and extensions are published under Open Source licenses, emphasizing integrity and client-centric approaches. By engaging with an Open Source philosophy, SalesAgility believes in the long-term benefits for clients and the IT industry. With ISO 9001 and ISO 27001 accreditation, they provide customized solutions to address unique business needs, driving revenue and customer loyalty. Contact SalesAgility today to explore the open-source SuiteCRM and experience unparalleled CRM solutions.",
+    "slogan": "Empowering businesses with customized solutions for informed decisions and loyalty.",
+    "logoUrl": "https://media.brand.dev/675cadff-9887-49be-a3e1-199d39689f46.png",
+    "iconUrl": "https://media.brand.dev/a6708b8f-5002-43ce-9577-af46006fcda4.png",
+    "primaryColor": "#d39a38",
+    "accentColor": "#ecaca4",
+    "colors": [
+      {
+        "hex": "#d39a38",
+        "name": "Mineral Yellow"
+      },
+      {
+        "hex": "#ecaca4",
+        "name": "Joyful Poppy"
+      },
+      {
+        "hex": "#e7d7d8",
+        "name": "Diminished Red"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/05b6de7f-b1ab-4faf-a08f-f98d615b803c.png",
+    "industries": [],
+    "links": {
+      "careers": "https://suitecrm.com/about/about-us/suitecrm-ltd/jobs/",
+      "terms": "https://suitecrm.com/terms-and-conditions/",
+      "contact": "https://suitecrm.com/about/about-us/contact/",
+      "privacy": "https://suitecrm.com/privacy-policy/",
+      "blog": "https://suitecrm.com/about/newsroom/news/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a6708b8f-5002-43ce-9577-af46006fcda4.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/675cadff-9887-49be-a3e1-199d39689f46.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 175,
+        "height": 78,
+        "aspectRatio": 2.24
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/675cadff-9887-49be-a3e1-199d39689f46.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 175,
+      "height": 78,
+      "aspectRatio": 2.24
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a6708b8f-5002-43ce-9577-af46006fcda4.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

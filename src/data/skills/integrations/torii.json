@@ -1,0 +1,168 @@
+{
+  "slug": "torii",
+  "name": "Torii",
+  "domain": "torii.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Torii for SaaS Operations",
+  "metaTitle": "Build AI Agents for Torii with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Torii to look up SaaS data, automate approved workflows, support employees, and prepare secure handoffs.",
+  "intro": "Torii helps IT teams discover, govern, and automate SaaS management across the business. With DocsBot Skill Builder, you can describe the Torii workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That lets your agent answer questions, retrieve SaaS management details, trigger approved actions, and prepare handoffs without exposing sensitive credentials or broad permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check Torii-backed entitlement or application access status before preparing a support response or escalation.",
+    "Let a support agent summarize a customer's SaaS provisioning or offboarding workflow state from Torii and explain the next approved step.",
+    "Have the agent collect missing context in chat, then create an internal handoff with Torii workflow details for IT or operations teams.",
+    "Use the agent in helpdesk replies to look up SaaS ownership, app status, or governance notes stored in Torii and return a clear customer-safe summary.",
+    "Let the agent trigger approved Torii workflows such as access review follow-up or internal task routing when a support case meets defined conditions."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Torii records for app ownership, spend context, renewal details, or lifecycle status.",
+    "IT and operations teams can ask the agent to summarize SaaS usage, shadow IT findings, or governance status across applications without manually digging through dashboards.",
+    "Managers can use the agent to start approved Torii workflows for onboarding, offboarding, access reviews, or SaaS cleanup while the agent follows scoped permissions and approval rules.",
+    "Procurement, finance, and IT employees can chat with the agent to research application spend, license allocation, and optimization opportunities across their SaaS stack.",
+    "Internal teams can use the agent to prepare handoff notes, compliance summaries, or follow-up task lists based on Torii data and linked workflow steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up SaaS app owners and routes access questions to the right team.",
+    "A support Skill that summarizes provisioning or offboarding status from Torii before escalating a case.",
+    "An internal assistant that answers employee questions about approved apps, ownership, and SaaS governance policies.",
+    "A workflow Skill that starts approved Torii automations after the agent gathers missing request details.",
+    "A finance and IT assistant that summarizes SaaS spend signals and license optimization opportunities.",
+    "An employee help agent that prepares access review handoffs with Torii context and next steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Torii agent to do, such as look up SaaS ownership, summarize workflow status, or trigger an approved automation, and it translates that into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, handles connection and authentication setup securely, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions the Skill truly needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries for sensitive Torii updates or workflow triggers so the agent can help without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds those test findings into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, Slack, Microsoft Teams, or private internal chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Torii?",
+      "answer": "With DocsBot Skill Builder, you describe the Torii task you want in plain language, and Skill Builder designs the workflow, secures the connection, tests the behavior, and prepares the Skill for deployment. The resulting agent can perform bounded lookups, summaries, handoffs, and approved actions inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Torii data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Torii as a source for safe lookups and workflow context while replying in a website chat widget or helpdesk ticket flow. It can summarize status, gather missing details, and prepare escalations without exposing internal credentials or unrestricted data."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Torii?",
+      "answer": "An internal DocsBot agent can help employees look up app ownership, spend details, lifecycle status, governance notes, and workflow progress across your SaaS environment. It can also trigger approved onboarding, offboarding, review, or cleanup workflows when your rules allow it."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Torii instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as starting approved workflows, creating handoffs, updating bounded records, or generating summaries and task lists. Skill Builder adds permission scoping and approval checkpoints so actions stay within your control."
+    },
+    {
+      "question": "Is it safe to connect Torii to an AI agent for employee use?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration values, storing and proxying secrets through secure runtime settings, and keeping credentials out of chat transcripts and Skill content. It also scopes access and can require approvals for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent help with SaaS access reviews and offboarding using Torii?",
+      "answer": "Yes, you can build an agent that checks workflow status, gathers missing context, prepares review summaries, and starts approved follow-up steps tied to access reviews or offboarding. This helps employees move faster while keeping control over high-impact actions."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "sailpoint",
+    "bettercloud",
+    "zapier"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Torii",
+    "domain": "toriihq.com",
+    "description": "Torii is a SaaS management platform that helps modern IT teams gain control over their SaaS applications. They provide an automation-centered platform that automates discovery, spend optimization, operations, and compliance of SaaS, allowing organizations to reduce spend, free up IT time, and manage SaaS sprawl. With AI-powered governance and over 180 integrated applications, Torii brings every application into one dashboard, uncovering shadow IT, optimizing spend, and automating workflows, resulting in cost savings and improved security.",
+    "slogan": "Streamlining SaaS Management for Modern IT Success and Business Growth",
+    "logoUrl": "https://media.brand.dev/b2433941-b9b5-4a33-acc5-adc2a83ee886.svg",
+    "iconUrl": "https://media.brand.dev/897f9f68-14bc-4a5a-9722-f52b8453e7bb.jpg",
+    "primaryColor": "#0a53f0",
+    "accentColor": "#e8f7fa",
+    "colors": [
+      {
+        "hex": "#0a53f0",
+        "name": "Opulent Blue"
+      },
+      {
+        "hex": "#e8f7fa",
+        "name": "Kodama White"
+      },
+      {
+        "hex": "#10d2fb",
+        "name": "Tropical Turquoise"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/082216e2-0894-402d-b3cf-fb81e4f95681.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.toriihq.com/careers",
+      "terms": "https://www.toriihq.com/terms",
+      "contact": null,
+      "blog": "https://www.toriihq.com/blog",
+      "pricing": "https://www.toriihq.com/pricing",
+      "privacy": "https://www.toriihq.com/privacy-notice"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/897f9f68-14bc-4a5a-9722-f52b8453e7bb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b2433941-b9b5-4a33-acc5-adc2a83ee886.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 100,
+        "height": 30,
+        "aspectRatio": 3.33
+      },
+      {
+        "url": "https://media.brand.dev/ef86dbdf-1fc9-4a08-80b2-5428a42916eb.webp",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b2433941-b9b5-4a33-acc5-adc2a83ee886.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 100,
+      "height": 30,
+      "aspectRatio": 3.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ef86dbdf-1fc9-4a08-80b2-5428a42916eb.webp",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

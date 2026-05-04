@@ -1,0 +1,170 @@
+{
+  "slug": "creatio",
+  "name": "Creatio",
+  "domain": "creatio.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Creatio",
+  "metaTitle": "Build Creatio AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely read, update, and trigger Creatio workflows from chat and tickets.",
+  "intro": "Creatio is a no-code CRM and workflow platform used to manage customer data, processes, and business automation. With DocsBot Skill Builder, you can describe the Creatio task you want an AI agent to handle in plain language, and DocsBot helps design, secure, test, and deploy that ability as a reusable Skill. The result is an AI support or internal agent that can answer questions and take bounded action inside Creatio instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, case, contact, or opportunity details in Creatio to answer status and ownership questions in real time.",
+    "Use the agent to create or update Creatio records from a website chat or helpdesk ticket when a customer reports an issue, requests a change, or needs a follow-up.",
+    "Have the agent summarize the current state of a Creatio case, related activities, and recent notes before replying to a customer or preparing a handoff to a human team member.",
+    "Trigger approved Creatio workflows from support conversations, such as escalation routing, callback requests, service follow-up tasks, or renewal handoff preparation.",
+    "Allow the agent to gather missing information from the customer and write a structured Creatio record update so the support team receives cleaner, more complete cases."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to retrieve Creatio account, pipeline, case, or workflow information without manually searching multiple screens.",
+    "Customer success, sales, or operations teams can ask the agent to create follow-up tasks, update record fields, log notes, or trigger approved Creatio processes while following internal SOPs.",
+    "Managers can use the agent to summarize open cases, stalled opportunities, overdue tasks, or workflow bottlenecks from Creatio for faster decision-making.",
+    "Internal teams can ask the agent to prepare handoff summaries between sales, support, and success by pulling the latest Creatio context into a clean, shareable brief.",
+    "Operations employees can chat with the agent to complete repetitive Creatio workflows with approval boundaries, such as routing requests, assigning ownership, or updating standardized statuses."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that reads Creatio case details and replies with accurate status updates.",
+    "An AI assistant that creates Creatio follow-up tasks from customer chat conversations.",
+    "A workflow agent that updates Creatio records after collecting missing customer information.",
+    "An internal sales assistant that summarizes accounts, contacts, opportunities, and recent activity from Creatio.",
+    "A success team agent that prepares renewal or escalation handoff briefs using Creatio data.",
+    "An operations assistant that triggers approved Creatio workflows from Slack or Microsoft Teams chats."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Creatio, such as look up cases, update records, trigger workflows, or prepare handoff summaries, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chat or Skill instructions."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records, actions, and users needed, and adds approval boundaries wherever updates or workflow triggers should stay controlled."
+    },
+    {
+      "title": "Tests and improves automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing guardrails, or weak instructions, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private internal assistant so the agent can answer and take approved action in Creatio."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Creatio?",
+      "answer": "With DocsBot Skill Builder, you describe the Creatio workflow you want in plain language, and DocsBot creates a Skill that can look up data, update records, trigger approved workflows, and summarize results. Skill Builder also handles secure configuration, scoped access, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Creatio data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Creatio Skill to retrieve relevant customer, case, or workflow information while responding in a website chat or helpdesk ticket. You can define what data the agent may read, what actions it may take, and where human approval is required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Creatio?",
+      "answer": "Teams can build workflows for case lookups, record creation, field updates, escalation prep, structured handoffs, callback requests, and workflow triggers inside Creatio. The agent can gather missing context from the customer first, then complete only the actions you allow."
+    },
+    {
+      "question": "Can an internal AI assistant update Creatio records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees create tasks, log notes, update statuses, assign ownership, and trigger approved Creatio processes from chat. Skill Builder designs those actions with scoped permissions and approval boundaries so routine work can be automated safely."
+    },
+    {
+      "question": "How does DocsBot keep Creatio connections and credentials secure?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated Skill content. It also scopes permissions to the minimum access needed for the workflow and can require approval for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot test a Creatio Skill before we deploy it to customers or employees?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run support and internal scenarios against the Skill, identify workflow gaps or permission issues, and improve the Skill before it is published. This helps teams catch problems early and launch with stronger guardrails."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "microsoft-dynamics-365",
+    "zoho-crm",
+    "pipedrive",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Creatio",
+    "domain": "creatio.com",
+    "description": "Creatio is a global vendor of an agentic CRM & workflow platform that utilizes no-code and AI at its core. The company provides a range of tools, including Creatio Studio, a no-code platform to build applications and AI agents, and a CRM suite with embedded AI agents. Creatio's platform enables business users to build and deploy applications without technical skills, delivering fast time-to-value and reduced TCO. With a presence in 25 countries and thousands of clients worldwide, Creatio is recognized as a leader in the industry, known for its genuine care for clients and partners.",
+    "slogan": "Empowering Business Automation with No-Code, AI, and Genuine Care",
+    "logoUrl": "https://media.brand.dev/e63aa510-8ade-49aa-8d62-3143dae4b416.jpg",
+    "iconUrl": "https://media.brand.dev/e63aa510-8ade-49aa-8d62-3143dae4b416.jpg",
+    "primaryColor": "#fc6642",
+    "accentColor": "#f8c0b2",
+    "colors": [
+      {
+        "hex": "#fc6642",
+        "name": "Sweet Pimento"
+      },
+      {
+        "hex": "#f8c0b2",
+        "name": "Rustique"
+      },
+      {
+        "hex": "#748ca9",
+        "name": "Blue Shadow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c0c46d13-6e6c-4f7d-a387-a173e823bf01.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.creatio.com/company/careers",
+      "contact": "https://www.creatio.com/company/contacts",
+      "privacy": "https://www.creatio.com/privacy-policy",
+      "blog": "https://www.creatio.com/company/news",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.creatio.com/products/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e63aa510-8ade-49aa-8d62-3143dae4b416.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c8e7d1cd-c9d6-47ad-844a-b1060ac28d38.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9a5a84f1-5b25-40d8-ada1-290c316b9b87.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 360,
+        "height": 360,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e63aa510-8ade-49aa-8d62-3143dae4b416.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e63aa510-8ade-49aa-8d62-3143dae4b416.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

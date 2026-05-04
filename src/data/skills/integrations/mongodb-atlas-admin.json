@@ -1,0 +1,168 @@
+{
+  "slug": "mongodb-atlas-admin",
+  "name": "MongoDB Atlas Admin",
+  "domain": "mongodb-atlas-admin.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with MongoDB Atlas Admin",
+  "metaTitle": "MongoDB Atlas Admin AI Agents for Support and Internal Ops",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query MongoDB Atlas Admin, summarize system state, trigger bounded actions, and support teams or customers.",
+  "intro": "MongoDB Atlas Admin helps teams manage clusters, users, projects, alerts, and operational settings across MongoDB deployments. With DocsBot Skill Builder, you can describe in plain language how an AI agent should use Atlas Admin data or approved admin workflows, and DocsBot helps design, secure, test, and publish that Skill. The result is a support or internal AI agent that can answer questions, check live system context, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check MongoDB Atlas project or cluster status and summarize relevant operational context while replying to an incident-related support question.",
+    "Enable a support agent to look up alerts, maintenance state, or configuration summaries in MongoDB Atlas Admin so customers get faster, more accurate answers without waiting for manual investigation.",
+    "Use the agent to gather account, environment, or cluster details from the customer conversation and prepare a structured escalation handoff with Atlas Admin findings attached.",
+    "Allow the agent to retrieve approved operational metadata from MongoDB Atlas Admin and explain likely next steps when a customer reports connectivity, performance, or availability issues.",
+    "Have the agent summarize recent Atlas Admin state for a support ticket so human teams can quickly review the issue, the environment involved, and any relevant alerts or project details."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve MongoDB Atlas Admin project, cluster, and alert information without switching tools.",
+    "Enable operations or support teams to ask the agent for a plain-language summary of Atlas Admin health, configuration state, or recent alerts before following an internal SOP.",
+    "Use an internal AI assistant to collect environment details from MongoDB Atlas Admin, combine them with team instructions, and prepare incident handoffs or change review notes.",
+    "Allow team members to chat with the agent to trigger approved Atlas Admin workflows, such as creating a bounded escalation artifact or routing a review request, with approval gates for sensitive actions.",
+    "Help new employees follow operational playbooks by asking the agent to research MongoDB Atlas Admin context, summarize what matters, and guide the next approved step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Atlas alerts and summarizes likely impact for customer tickets.",
+    "An internal assistant that explains cluster status, project settings, and recent operational context in plain language.",
+    "A ticket triage Skill that gathers MongoDB Atlas Admin details and drafts escalation notes for engineers.",
+    "A workflow Skill that retrieves project and cluster metadata before triggering an approved internal review.",
+    "An operations assistant that summarizes live Atlas Admin health information for Slack or Teams questions.",
+    "A handoff Skill that combines customer issue details with Atlas Admin findings into a structured incident brief."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with MongoDB Atlas Admin in plain language, such as checking cluster status, summarizing alerts, or preparing an escalation handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and setting up secure connection and authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Atlas Admin actions and records required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so it can answer questions and take bounded actions inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses MongoDB Atlas Admin data?",
+      "answer": "With DocsBot Skill Builder, you describe the Atlas Admin workflow you want in plain language, and DocsBot designs a Skill that can safely retrieve live context, summarize it, and take approved follow-up actions. The Skill Builder also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use MongoDB Atlas Admin during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a MongoDB Atlas Admin Skill to look up operational context such as project details, alerts, or cluster state while responding in a chat widget or helpdesk workflow. This helps the agent provide faster answers, prepare better escalations, and stay within the actions you approve."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with MongoDB Atlas Admin?",
+      "answer": "Common workflows include looking up cluster or project status, summarizing alerts, gathering environment details for a ticket, drafting escalation notes, and preparing structured handoffs for engineering teams. You can also set boundaries so the agent only performs safe lookups or requires approval for sensitive actions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with MongoDB Atlas Admin?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Atlas Admin information, summarize system state, and follow operational SOPs from chat, Slack, or Microsoft Teams. This reduces tool switching and helps teams act faster with current context."
+    },
+    {
+      "question": "How does DocsBot keep MongoDB Atlas Admin access secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and generated content, proxies credentials through approved runtime settings, and scopes access to the minimum users, actions, and records needed. It can also add approval boundaries before sensitive updates or triggers are allowed to run."
+    },
+    {
+      "question": "Can DocsBot test a MongoDB Atlas Admin Skill before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises support and internal scenarios, finds bugs or weak spots, and feeds those findings into a self-improvement loop before the Skill is published. That helps you launch with better instructions, safer behavior, and stronger workflow coverage."
+    }
+  ],
+  "relatedSlugs": [
+    "postgresql",
+    "mysql",
+    "snowflake",
+    "datadog",
+    "pagerduty",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "MongoDB",
+    "domain": "mongodb.com",
+    "description": "MongoDB is a modern database platform designed for developers to build and transform industries through software and data. Headquartered in New York, the company empowers innovators with a unified database platform and related services to address the needs of modern applications. With a global presence, MongoDB has tens of thousands of customers across over 100 countries and has been downloaded hundreds of millions of times. The company provides tools, services, and training to help developers build distributed applications quickly and efficiently, making it easy to work with data and bring ideas to market faster.",
+    "slogan": "A modern database platform for developers to do their best work",
+    "logoUrl": "https://media.brand.dev/f0823e8b-c0f4-4e3f-bf90-580ab895d4e7.svg",
+    "iconUrl": "https://media.brand.dev/810ea8e5-9a71-4bd0-97d6-7b79cd4e41cc.png",
+    "primaryColor": "#041c2c",
+    "accentColor": "#04e261",
+    "colors": [
+      {
+        "hex": "#041c2c",
+        "name": "Midnight Dreams"
+      },
+      {
+        "hex": "#04e261",
+        "name": "Limonana"
+      },
+      {
+        "hex": "#047442",
+        "name": "Succulents"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/38d5149a-149a-4ae3-b2ef-1d3b70329d24.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.mongodb.com/company/careers",
+      "terms": null,
+      "contact": "https://www.mongodb.com/company/contact",
+      "privacy": "https://www.mongodb.com/legal/privacy/privacy-policy",
+      "blog": "https://www.mongodb.com/blog",
+      "pricing": "https://www.mongodb.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f0823e8b-c0f4-4e3f-bf90-580ab895d4e7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1102,
+        "height": 278,
+        "aspectRatio": 3.96
+      },
+      {
+        "url": "https://media.brand.dev/208e0dd8-e834-4e9c-92ee-4f85871bc6f1.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/810ea8e5-9a71-4bd0-97d6-7b79cd4e41cc.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f0823e8b-c0f4-4e3f-bf90-580ab895d4e7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1102,
+      "height": 278,
+      "aspectRatio": 3.96
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/208e0dd8-e834-4e9c-92ee-4f85871bc6f1.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

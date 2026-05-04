@@ -1,0 +1,176 @@
+{
+  "slug": "classlink",
+  "name": "ClassLink",
+  "domain": "classlink.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ClassLink",
+  "metaTitle": "Build AI Agents for ClassLink with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use ClassLink for access lookups, provisioning workflows, support handoffs, and internal team automation.",
+  "intro": "ClassLink helps schools manage identity, application access, rostering, provisioning, and digital engagement across students and staff. With DocsBot Skill Builder, you can describe the ClassLink workflow you want in plain language and have DocsBot build a reusable Skill for a support agent or private internal AI assistant. That lets your AI agent answer questions, perform safe lookups, trigger approved actions, and prepare handoffs without exposing sensitive credentials or broad permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check ClassLink access status or assigned application availability when a parent, student, or staff member reports a login issue.",
+    "Use a support agent to gather missing details about a user, summarize likely access problems, and prepare a helpdesk handoff with relevant ClassLink context.",
+    "Enable the agent to confirm whether rostering or provisioning data appears current before escalating an account access request to the right team.",
+    "Have the agent trigger an approved follow-up workflow when a user needs manual identity or access review outside the chat conversation.",
+    "Use the agent to summarize a user's ClassLink-related access situation inside a support ticket so human teams can resolve issues faster."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up ClassLink user access details, app assignments, or provisioning status without switching systems.",
+    "Enable IT, operations, or school support teams to ask the agent for a summary of likely identity and access issues before following an internal SOP.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to collect the right context for onboarding, access troubleshooting, or escalation workflows tied to ClassLink.",
+    "Let staff ask the agent to prepare approved handoff notes, incident summaries, or next-step checklists using ClassLink account and access information.",
+    "Support internal teams with an agent that researches ClassLink-related questions across documentation and live system data while staying within scoped permissions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks ClassLink access status and summarizes likely login issues.",
+    "A private IT assistant that researches provisioning status and prepares escalation-ready handoff notes.",
+    "An employee agent that follows onboarding SOPs and gathers ClassLink context for access requests.",
+    "A support workflow that confirms roster or assignment status before creating an internal handoff.",
+    "An internal assistant that answers ClassLink process questions and triggers approved follow-up workflows.",
+    "A helpdesk agent that summarizes identity and access context directly inside ticket replies."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with ClassLink, such as checking access status, preparing handoffs, or supporting provisioning workflows, and Skill Builder turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes ClassLink access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When a workflow could affect identity or access, Skill Builder adds approval boundaries, safe action limits, and clear escalation paths so the agent stays within the rules you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should be improved."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and help publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ClassLink without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the ClassLink workflow you want in plain language and the builder agent designs, secures, tests, and prepares the Skill for deployment. It handles connection details, secret management, scoped permissions, and approval boundaries as part of the build process."
+    },
+    {
+      "question": "Can an AI support agent use ClassLink data to help with login and access questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use approved ClassLink lookups to check access status, gather troubleshooting context, summarize likely issues, and prepare handoffs for human teams. The exact actions are bounded by the permissions and approval rules you choose."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with ClassLink?",
+      "answer": "A private DocsBot agent can help employees research user access, review provisioning or assignment context, follow onboarding or troubleshooting SOPs, and generate escalation notes or summaries. It can also trigger approved next steps when a workflow should continue outside the chat."
+    },
+    {
+      "question": "Can DocsBot take safe actions in ClassLink instead of only answering questions?",
+      "answer": "DocsBot Skills can be built for bounded AI Actions such as live lookups, approved updates, workflow triggers, handoff preparation, and status summaries. Skill Builder defines safe limits, scoped access, and approval checkpoints for sensitive identity and access workflows."
+    },
+    {
+      "question": "How does DocsBot keep ClassLink credentials and sensitive access data secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill source, and proxies secrets through secure runtime configuration. It also scopes access to the minimum permissions needed and can require approvals for higher-risk actions."
+    },
+    {
+      "question": "Can a DocsBot agent help school IT or support teams escalate ClassLink issues faster?",
+      "answer": "Yes, the agent can gather the right user context, summarize the ClassLink-related issue, and create a cleaner handoff for IT or operations teams. This reduces back-and-forth and helps human responders start with better information."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "google-workspace",
+    "microsoft-entra-id",
+    "clever",
+    "jumpcloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ClassLink",
+    "domain": "classlink.com",
+    "description": "ClassLink is a global education provider that offers identity, access, and analytics products to schools, creating more time for learning and helping them understand digital engagement. They provide single sign-on access to apps and files, streamline class rostering, automate account provisioning, and offer actionable analytics, empowering over 25 million students and staff in 3,000+ school systems.",
+    "slogan": "Creating more time for learning through seamless access and analytics.",
+    "logoUrl": "https://media.brand.dev/e0eb693f-30cf-4aee-8a76-792847f2a497.svg",
+    "iconUrl": "https://media.brand.dev/fbd71823-94db-411f-b8f6-cf27d365b1a3.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#78afc5",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#78afc5",
+        "name": "Frisky Blue"
+      },
+      {
+        "hex": "#075484",
+        "name": "Grand Bleu"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5d78de0f-8b89-4a62-bd4e-f4a5bde9f7b3.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.classlink.com/company/careers",
+      "contact": "https://www.classlink.com/contact",
+      "privacy": "https://www.classlink.com/company/privacy",
+      "blog": "https://www.classlink.com/resources/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fbd71823-94db-411f-b8f6-cf27d365b1a3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e0eb693f-30cf-4aee-8a76-792847f2a497.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 49,
+        "aspectRatio": 6.12
+      },
+      {
+        "url": "https://media.brand.dev/6f5413e5-bd2a-4b41-b98d-39a56216e624.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ffd1d885-733b-4bdd-a10a-201a5dc2ba33.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 66,
+        "aspectRatio": 4.55
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e0eb693f-30cf-4aee-8a76-792847f2a497.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 49,
+      "aspectRatio": 6.12
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6f5413e5-bd2a-4b41-b98d-39a56216e624.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

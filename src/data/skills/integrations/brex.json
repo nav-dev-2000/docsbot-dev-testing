@@ -1,0 +1,160 @@
+{
+  "slug": "brex",
+  "name": "Brex",
+  "domain": "brex.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Brex",
+  "metaTitle": "Brex AI Agent for Support and Finance Workflows | DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Brex to answer questions, look up spend data, prepare handoffs, and trigger approved finance workflows safely.",
+  "intro": "Brex helps teams manage cards, expenses, bill pay, travel, banking, and broader finance operations in one platform. With DocsBot Skill Builder, you can describe the Brex workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve approved Brex data, prepare summaries, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a reimbursement, card request, or expense-related workflow in Brex and explain the next approved step.",
+    "Use a support agent connected to your helpdesk to gather purchase or billing context, summarize relevant Brex records, and prepare a clean handoff to finance or operations.",
+    "Have the agent verify whether an expense submission, payment, or travel-related request is pending, approved, or needs additional information before replying to the customer.",
+    "Enable the agent to collect missing details from a customer conversation and create a structured finance follow-up task or escalation based on Brex-related workflow data.",
+    "Let the agent summarize spending or payment context from Brex so support teams can respond faster to account or transaction questions without switching tools."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant they can chat with to look up approved Brex expense, card, bill pay, or travel information without hunting through dashboards.",
+    "Let finance and operations teams ask the agent to summarize spending activity, approval status, or open action items across Brex workflows for faster decision-making.",
+    "Allow employees in Slack, Microsoft Teams, or internal chat to start standard finance workflows, gather required details, and route requests for approval through a Brex-connected agent.",
+    "Help customer success, operations, and finance staff chat with the agent to prepare reimbursement follow-ups, policy explanations, and handoff notes tied to Brex records.",
+    "Use an internal AI assistant to guide employees through finance SOPs, retrieve the right Brex context, and complete approved next steps with audit-friendly boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks expense and reimbursement status before replying to customers or employees.",
+    "A private finance assistant that summarizes card activity, approvals, and outstanding spend questions.",
+    "A support workflow that gathers missing billing details and prepares a Brex-based escalation.",
+    "An internal agent that helps employees submit standard finance requests with the right context.",
+    "A handoff assistant that turns Brex activity into concise notes for finance or operations teams.",
+    "A policy-aware AI assistant that explains approved expense workflows using live Brex context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Brex in plain language, such as checking expense status, summarizing spend activity, or preparing a finance handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, identifies the configuration values it needs, and sets up safe connection and authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Permissions are safely scoped",
+      "description": "Skill Builder defines the minimum Brex access required for the workflow, limits actions to the right users and records, and adds approval boundaries anywhere a sensitive finance action should be reviewed before completion."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, unclear instructions, missing safeguards, or workflow gaps, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing, Skill Builder refines the Skill, protects and proxies secrets through secure runtime configuration, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Brex?",
+      "answer": "With DocsBot Skill Builder, you describe the Brex workflow you want in plain language and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. That can include lookups, summaries, handoffs, workflow triggers, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Brex data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Brex data to look up status, summarize finance context, and prepare escalations while replying in a chat widget or helpdesk flow. Access can be scoped so the agent only sees the records and actions needed for the support workflow."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Brex?",
+      "answer": "Internal agents can help employees retrieve expense or card information, summarize approvals, guide finance SOPs, and kick off standard requests with the right context. Teams can use the agent in private chat, Slack, or Microsoft Teams to reduce manual back-and-forth."
+    },
+    {
+      "question": "Can DocsBot take actions in Brex instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating follow-ups, updating approved records, triggering workflows, or generating handoff summaries. Skill Builder adds action limits and approval boundaries so sensitive finance steps stay controlled."
+    },
+    {
+      "question": "Is it safe to connect an AI agent to Brex?",
+      "answer": "Skill Builder is designed to connect services safely by defining required configuration values, keeping secrets out of conversations and generated content, and proxying authentication through secure runtime settings. It also scopes permissions to the minimum access needed and can require approval for higher-risk actions."
+    },
+    {
+      "question": "Can a Brex-connected AI assistant help with expense and reimbursement questions for employees?",
+      "answer": "Yes, an internal DocsBot agent can answer routine expense and reimbursement questions, retrieve status updates, and guide employees through the next approved step using Brex context. This helps finance teams reduce repetitive support work while keeping responses consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "bill-com",
+    "expensify",
+    "ramp",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Brex",
+    "domain": "brex.com",
+    "description": "Brex is an intelligent finance platform that equips founders and finance teams with speed, control, and AI‑driven automation. It combines corporate cards, banking, treasury, expense management, bill pay, travel, and accounting into a single, intuitive solution that works in over 120 countries. By eliminating manual processes, Brex helps companies spend smarter, accelerate growth, and reduce operational overhead. The platform powers more than 35,000 businesses—from startups to enterprises such as DoorDash, ServiceTitan, Robinhood, and Five Guys—enabling them to manage global spend, streamline financial workflows, and focus on impact.",
+    "slogan": "Finance built for speed and control.",
+    "logoUrl": "https://media.brand.dev/153386c4-7606-4b21-853b-3778eabe29da.svg",
+    "iconUrl": "https://media.brand.dev/4c3c8f84-277b-4597-a988-cde5aeaa1723.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#7c7c7c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#d8dada",
+        "name": "Silver Setting"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d4a61d3a-d167-4025-bd6e-6e3cac4d239b.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "privacy": "https://privacy.brex.com/",
+      "careers": "https://www.brex.com/careers",
+      "contact": "https://www.brex.com/contact-us",
+      "blog": "https://www.brex.com/resources",
+      "pricing": "https://www.brex.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4c3c8f84-277b-4597-a988-cde5aeaa1723.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/153386c4-7606-4b21-853b-3778eabe29da.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 20,
+        "aspectRatio": 3.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/153386c4-7606-4b21-853b-3778eabe29da.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 78,
+      "height": 20,
+      "aspectRatio": 3.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4c3c8f84-277b-4597-a988-cde5aeaa1723.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

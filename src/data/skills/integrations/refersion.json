@@ -1,0 +1,160 @@
+{
+  "slug": "refersion",
+  "name": "Refersion",
+  "domain": "refersion.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Refersion",
+  "metaTitle": "Build Refersion AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Refersion to look up affiliate data, summarize program activity, trigger workflows, and support teams with safe approved actions.",
+  "intro": "Refersion helps brands manage affiliate, influencer, and promoter programs in one place. With DocsBot Skill Builder, you can describe the Refersion workflow you want in plain language and have DocsBot create a secure reusable Skill for support or internal AI agents. That lets your AI agent answer questions, retrieve affiliate program data, prepare handoffs, and take approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an affiliate application or partner record in Refersion and explain the next approved step to the user.",
+    "Use a support agent to summarize a promoter or affiliate account, including recent activity, conversion status, and relevant program details before responding to a ticket.",
+    "Enable the agent to create an internal handoff when a customer asks about missing commissions, disputed attribution, or affiliate onboarding issues that need human review.",
+    "Have the agent gather missing details from the customer, then prepare a structured escalation summary using Refersion context for your partnerships or support team.",
+    "Allow the agent to confirm whether an affiliate code, referral relationship, or tracked conversion appears in Refersion and respond with a clear status update when policy allows it."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up affiliate, influencer, or campaign details in Refersion without manually searching through program records.",
+    "Partnerships and support teams can ask the agent to summarize affiliate performance, recent conversion activity, or account status before outreach or review.",
+    "Team members can use the agent in Slack or Microsoft Teams to prepare handoff notes, investigation summaries, and follow-up tasks tied to Refersion program data.",
+    "Operations employees can chat with the agent to follow internal SOPs for affiliate onboarding, exception reviews, or commission issue triage across Refersion and other business systems.",
+    "Managers can ask the agent to generate clear snapshots of promoter program activity for internal reporting, team reviews, or escalation decisions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks affiliate application or account status in Refersion.",
+    "A ticket assistant that summarizes commission or conversion disputes before human escalation.",
+    "An internal agent that retrieves promoter, influencer, and affiliate program details on demand.",
+    "A workflow agent that prepares structured handoffs for partnership and support teams.",
+    "A private assistant that follows affiliate onboarding and exception review SOPs.",
+    "An AI agent that generates activity summaries from Refersion records for internal review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Refersion-powered agent to do, such as checking affiliate status, summarizing activity, or preparing escalation handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the Refersion connection details it needs, defines runtime configuration values, and keeps authentication and secrets protected and out of chats or source content."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for any sensitive lookup, update, or workflow trigger."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent for Slack, Teams, or internal chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Refersion?",
+      "answer": "With DocsBot Skill Builder, you describe the Refersion workflow you want in plain language, and Skill Builder creates a secure Skill that can look up data, summarize records, and trigger approved actions. It also handles connection design, secret protection, testing, and deployment guidance for the right agent."
+    },
+    {
+      "question": "Can an AI support agent use Refersion data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Refersion Skill to retrieve approved affiliate or program information, summarize status, and prepare escalations while replying in chat or tickets. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Refersion?",
+      "answer": "DocsBot can help automate affiliate status checks, commission issue triage, escalation summaries, partner onboarding questions, and other support workflows that rely on Refersion data. The agent can gather missing context, answer with live information, and hand off complex cases with structured notes."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Refersion?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve affiliate records, summarize activity, follow SOPs, and prepare internal handoffs using Refersion data. This helps teams move faster without manually searching across systems."
+    },
+    {
+      "question": "How does DocsBot keep Refersion actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum needed, and can add approval boundaries for sensitive actions. That means your AI agent can work inside clear rules instead of having broad uncontrolled access."
+    },
+    {
+      "question": "Can DocsBot trigger workflows based on Refersion information?",
+      "answer": "Yes, a DocsBot Skill can be designed to trigger approved downstream workflows after checking or summarizing Refersion data, such as creating handoffs, notifying teams, or starting review steps. The exact actions are bounded by the rules and approvals you choose during setup."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "klaviyo",
+    "gorgias",
+    "impact",
+    "partnerstack",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Refersion",
+    "domain": "refersion.com",
+    "description": "Refersion is an affiliate marketing platform that helps online shops track sales driven by promoters, influencers, and affiliates. They provide software to create, grow, and track affiliate programs, allowing businesses to manage their influencer and affiliate marketing efforts in one place.",
+    "slogan": "Easiest affiliate software to grow, track, and manage your program.",
+    "logoUrl": "https://media.brand.dev/5ae4a4ca-a4d7-43e3-bd25-fe56f5b96cbb.svg",
+    "iconUrl": "https://media.brand.dev/f86c07b9-f84d-428e-aca4-99c9d05cebd5.jpg",
+    "primaryColor": "#53d763",
+    "accentColor": "#041b2b",
+    "colors": [
+      {
+        "hex": "#53d763",
+        "name": "Koopa Green Shell"
+      },
+      {
+        "hex": "#041b2b",
+        "name": "Midnight Dreams"
+      },
+      {
+        "hex": "#241c4c",
+        "name": "Azulado"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0cbddb43-d7eb-4565-9995-9d311332e1e9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://refersion.com/careers/",
+      "terms": "https://refersion.com/terms/",
+      "contact": "https://refersion.com/landing/contact-us/",
+      "privacy": "https://www.refersion.com/privacy",
+      "blog": "https://refersion.com/blog/",
+      "pricing": "https://www.refersion.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f86c07b9-f84d-428e-aca4-99c9d05cebd5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 360,
+        "height": 360,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5ae4a4ca-a4d7-43e3-bd25-fe56f5b96cbb.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 140,
+        "height": 20,
+        "aspectRatio": 7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ae4a4ca-a4d7-43e3-bd25-fe56f5b96cbb.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 140,
+      "height": 20,
+      "aspectRatio": 7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f86c07b9-f84d-428e-aca4-99c9d05cebd5.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 360,
+      "height": 360,
+      "aspectRatio": 1
+    }
+  }
+}

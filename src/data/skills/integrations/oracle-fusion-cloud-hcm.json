@@ -1,0 +1,155 @@
+{
+  "slug": "oracle-fusion-cloud-hcm",
+  "name": "Oracle Fusion Cloud HCM",
+  "domain": "oracle-fusion-cloud-hcm.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Oracle Fusion Cloud HCM",
+  "metaTitle": "Build AI Agents for Oracle Fusion Cloud HCM with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that securely use Oracle Fusion Cloud HCM for employee lookups, HR workflow support, approvals, updates, and internal service automation.",
+  "intro": "Oracle Fusion Cloud HCM helps organizations manage employee, organizational, and HR workflow data across the business. With DocsBot Skill Builder, you can describe the Oracle Fusion Cloud HCM actions you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve approved HR information, prepare handoffs, and take bounded actions inside your rules instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing or employee-facing support agent to look up approved worker or organizational information in Oracle Fusion Cloud HCM while responding to HR service questions.",
+    "Let the agent summarize leave balances, job details, reporting lines, or employment status from Oracle Fusion Cloud HCM to speed up routine support conversations.",
+    "Have the agent create or update approved HR service records, requests, or follow-up tasks in Oracle Fusion Cloud HCM during a helpdesk interaction.",
+    "Enable the agent to gather missing details from the requester, prepare a clean escalation summary, and hand off the case to HR or operations with Oracle Fusion Cloud HCM context attached.",
+    "Allow the agent to trigger approved onboarding, offboarding, or employee data review workflows in Oracle Fusion Cloud HCM after confirming the right conditions are met."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve approved Oracle Fusion Cloud HCM information such as job data, org structure, manager details, or time-off status.",
+    "HR and operations teams can ask the agent to guide and complete SOP-driven workflows, such as onboarding checks, status reviews, and employee record follow-up steps across Oracle Fusion Cloud HCM.",
+    "Managers can use an internal AI assistant to summarize team changes, open HR tasks, or employee lifecycle steps based on Oracle Fusion Cloud HCM data and defined permissions.",
+    "Shared services teams can chat with the agent to collect required context, prepare handoff notes, and route HR requests using Oracle Fusion Cloud HCM as the system of record.",
+    "Employees can ask the agent policy and process questions while it combines DocsBot knowledge answers with safe Oracle Fusion Cloud HCM lookups to provide personalized next steps."
+  ],
+  "whatYouCanBuild": [
+    "An HR service desk agent that checks employee status and summarizes the next approved action.",
+    "A leave and absence assistant that retrieves balances and prepares escalation notes for complex cases.",
+    "An onboarding workflow agent that confirms required data and triggers approved follow-up steps.",
+    "A manager assistant that summarizes team structures, reporting lines, and pending people operations tasks.",
+    "An internal employee bot that answers HR questions with personalized Oracle Fusion Cloud HCM lookups.",
+    "A case handoff Skill that gathers missing context and prepares clean HR escalation summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Oracle Fusion Cloud HCM, such as looking up employee details, updating approved records, or triggering an onboarding workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, defines secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime settings, and scopes Oracle Fusion Cloud HCM access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive HR actions by defining approval boundaries, user access limits, and clear instructions for when the agent should answer, ask for more context, hand off, or stop."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing support bot, helpdesk agent, or private employee assistant so teams can start using Oracle Fusion Cloud HCM actions inside normal conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Oracle Fusion Cloud HCM?",
+      "answer": "With DocsBot Skill Builder, you describe the HR task or workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can answer questions, retrieve approved HCM data, and take bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Oracle Fusion Cloud HCM data during HR service conversations?",
+      "answer": "Yes, a DocsBot agent can use approved Oracle Fusion Cloud HCM data to look up employee information, summarize status, gather missing context, and prepare handoffs while responding in chat or through a helpdesk workflow. Access can be scoped so the agent only sees and uses the records needed for the support task."
+    },
+    {
+      "question": "What internal employee workflows can an AI assistant automate with Oracle Fusion Cloud HCM?",
+      "answer": "An internal DocsBot agent can help with onboarding steps, leave and absence questions, manager lookups, organizational research, record follow-up workflows, and HR service routing. It can also summarize outcomes and trigger approved next steps instead of only telling employees what to do manually."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Oracle Fusion Cloud HCM?",
+      "answer": "DocsBot Skill Builder can create Skills for approved updates and workflow triggers with scoped permissions, secure secret handling, and approval boundaries for sensitive actions. That lets the agent take useful action while staying within the limits your team defines."
+    },
+    {
+      "question": "How does DocsBot keep Oracle Fusion Cloud HCM credentials and permissions secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum users, actions, and records required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent escalate HR issues using Oracle Fusion Cloud HCM context?",
+      "answer": "Yes, the agent can collect missing details, summarize the issue, attach relevant Oracle Fusion Cloud HCM context, and prepare a clean handoff for HR or operations teams. This helps reduce back-and-forth and speeds up resolution for more sensitive requests."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "sap-successfactors",
+    "ukg-pro",
+    "oracle-netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Oracle Corporation",
+    "domain": "oracle.com",
+    "description": "Oracle is a leading cloud technology company that provides an integrated suite of cloud applications and platform services to organizations globally. Specializing in enterprise IT solutions, Oracle empowers businesses to innovate, enhance operational efficiencies, and effectively manage their data with pioneering tools, including the world's first autonomous database. Their cloud infrastructure is designed for high performance, security, and cost savings, facilitating seamless transitions between on-premises and cloud systems. Oracle's applications support business leaders in achieving sustainable growth and resilience, impacting diverse sectors such as government, science, and healthcare. With a commitment to diversity and professional development, Oracle fosters a culture of innovation within a passionate global workforce. Millions of users leverage Oracle’s solutions to streamline processes, enhance collaboration, and tackle real-world challenges. For those interested in a rewarding career or seeking financial insights, Oracle provides additional resources on its careers and investor pages.",
+    "slogan": "Unlock insights and endless possibilities with Oracle Cloud technology.",
+    "logoUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "iconUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "primaryColor": "#c44434",
+    "accentColor": "#e39c91",
+    "colors": [
+      {
+        "hex": "#c44434",
+        "name": "Mexican Red Papaya"
+      },
+      {
+        "hex": "#e39c91",
+        "name": "Strawberry Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ef3e2ab7-5c9b-46e5-a47f-8b60b5d10fcd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://oracle.com/careers/",
+      "terms": null,
+      "contact": "https://oracle.com/corporate/contact/",
+      "privacy": "https://oracle.com/legal/privacy/",
+      "blog": "https://oracle.com/news/",
+      "pricing": "https://oracle.com/ai-world/register/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

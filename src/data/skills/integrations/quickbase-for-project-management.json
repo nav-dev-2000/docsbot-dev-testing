@@ -1,0 +1,176 @@
+{
+  "slug": "quickbase-for-project-management",
+  "name": "Quickbase for Project Management",
+  "domain": "quickbase-for-project-management.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Quickbase for Project Management",
+  "metaTitle": "Quickbase for Project Management AI Agent | DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Quickbase for project lookups, updates, handoffs, workflow triggers, and internal team operations support.",
+  "intro": "Quickbase helps teams manage custom workflows, operational data, and complex projects in a flexible no-code environment. With DocsBot Skill Builder, you can describe the Quickbase-powered action you want in plain language and have DocsBot design, secure, test, and publish a reusable Skill. The result is an AI support agent or internal team assistant that can answer questions and take approved action inside Quickbase instead of only pointing people to a manual process.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up project status, milestone progress, delivery notes, or case-related records in Quickbase while replying in chat or over helpdesk tickets.",
+    "Use the agent to create approved Quickbase records for implementation requests, issue reports, onboarding tasks, or customer follow-up workflows during a support conversation.",
+    "Allow the agent to update bounded Quickbase fields such as status, priority, owner, due date, or escalation notes after gathering the right context from the customer.",
+    "Have the agent summarize the current state of a project, open blockers, recent changes, and next steps from Quickbase before preparing a support handoff.",
+    "Trigger approved Quickbase workflows from a support interaction, such as escalating a delayed project, opening a remediation task, or notifying the right operations team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to pull Quickbase project data, status summaries, ownership details, and overdue work.",
+    "Operations, customer success, and project teams can ask the agent to create or update Quickbase records as part of standard SOPs without navigating multiple apps manually.",
+    "Team members can use the agent to research blockers across Quickbase records, summarize active initiatives, and prepare clean handoff notes for cross-functional work.",
+    "Managers can ask the agent to compile Quickbase updates into weekly summaries, risk reports, project snapshots, or action lists for internal reviews.",
+    "Internal teams can use the agent to guide consistent workflows by gathering missing information, checking permissions, and completing approved Quickbase actions step by step."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks project status and explains the latest Quickbase record updates.",
+    "An AI assistant that creates implementation tasks in Quickbase from customer chat requests.",
+    "A project escalation Skill that updates priority, owner, and notes after approval.",
+    "An internal agent that summarizes overdue milestones and blocked work across Quickbase apps.",
+    "A customer success assistant that prepares handoff notes using Quickbase project history.",
+    "An operations agent that triggers standardized remediation workflows from private team chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Quickbase in plain language, such as checking project status, creating tasks, updating records, or preparing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, chooses the safest workflow design, identifies the needed Quickbase configuration values, and defines secure authentication handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so it can answer questions and take bounded Quickbase actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Quickbase for project management?",
+      "answer": "With DocsBot Skill Builder, you describe the Quickbase workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. The finished agent can look up project data, update approved records, trigger workflows, and summarize status inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Quickbase data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Quickbase as a live system of record for project status, milestones, task ownership, issue history, or escalation context. It can retrieve the right details during a chat or ticket reply and, when allowed, create or update records as part of the resolution process."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Quickbase?",
+      "answer": "Teams can automate status lookups, issue intake, project escalations, implementation task creation, handoff preparation, and follow-up summaries tied to Quickbase records. Approval boundaries can be added for more sensitive updates so the agent only takes actions you explicitly allow."
+    },
+    {
+      "question": "Can an internal AI assistant update Quickbase records for employees?",
+      "answer": "Yes, private DocsBot agents can help employees create, edit, and summarize Quickbase records within scoped permissions and approved action limits. This is useful for project operations, customer success, onboarding workflows, and recurring SOP-driven updates."
+    },
+    {
+      "question": "How does DocsBot keep Quickbase actions secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum users, records, and actions needed and can require approvals for higher-risk changes."
+    },
+    {
+      "question": "Can DocsBot test a Quickbase Skill before teams use it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises imagined support and internal team scenarios before deployment. It can find bugs, missing permission checks, weak instructions, or workflow gaps and use those findings to improve the Skill before it goes live."
+    }
+  ],
+  "relatedSlugs": [
+    "airtable",
+    "asana",
+    "clickup",
+    "jira",
+    "monday-com",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Quickbase",
+    "domain": "quickbase.com",
+    "description": "Quickbase is an AI-powered operations platform that enables teams to solve unique problems and manage complex projects. It provides a flexible no-code platform for businesses to tailor their operations to their specific needs, empowering teams to work more efficiently and effectively.",
+    "slogan": "Empowering teams to turn ideas into efficient, no-code, custom solutions.",
+    "logoUrl": "https://media.brand.dev/f13f3b65-9691-47c4-a527-193e3a5d584f.svg",
+    "iconUrl": "https://media.brand.dev/8e99d24c-aa65-4c7a-8b20-822cf1a1d7f7.jpg",
+    "primaryColor": "#ec6d48",
+    "accentColor": "#366860",
+    "colors": [
+      {
+        "hex": "#ec6d48",
+        "name": "Aurora Orange"
+      },
+      {
+        "hex": "#366860",
+        "name": "Seiheki Green"
+      },
+      {
+        "hex": "#f1f5f6",
+        "name": "Chef’s Hat"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/834ca2eb-1618-448e-99ab-3c6d3c91f0c1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.quickbase.com/",
+      "contact": "https://www.quickbase.com/contact-us",
+      "pricing": "https://www.quickbase.com/plans-and-pricing",
+      "terms": "https://www.quickbase.com/terms-of-service",
+      "privacy": "https://www.quickbase.com/privacy",
+      "blog": "https://www.quickbase.com/blog"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8e99d24c-aa65-4c7a-8b20-822cf1a1d7f7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/76efd620-5dc7-4c90-b024-5099e63abfb7.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f13f3b65-9691-47c4-a527-193e3a5d584f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 109,
+        "height": 145,
+        "aspectRatio": 0.75
+      },
+      {
+        "url": "https://media.brand.dev/2db9c38b-f0c5-4af8-ac49-f1e843d96798.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 894,
+        "height": 145,
+        "aspectRatio": 6.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2db9c38b-f0c5-4af8-ac49-f1e843d96798.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 894,
+      "height": 145,
+      "aspectRatio": 6.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8e99d24c-aa65-4c7a-8b20-822cf1a1d7f7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

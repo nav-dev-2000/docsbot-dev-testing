@@ -1,0 +1,159 @@
+{
+  "slug": "zenefits",
+  "name": "Zenefits",
+  "domain": "zenefits.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zenefits",
+  "metaTitle": "Build AI Agents for Zenefits with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zenefits for HR lookups, employee workflows, approvals, and support handoffs with secure, tested Skills.",
+  "intro": "Zenefits helps businesses manage HR, payroll, benefits, and compliance from one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up data, trigger workflows, and support employees or customers. The result is an AI support or internal operations agent that can answer questions and take bounded action inside approved Zenefits workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify the status of an employee onboarding or benefits-related request and provide a clear update without exposing sensitive HR data.",
+    "Let a support agent gather missing details from a customer or employee, then create or prepare an HR handoff that includes the relevant Zenefits context for the right team.",
+    "Enable a helpdesk-connected DocsBot agent to summarize payroll, benefits, or enrollment issue context from Zenefits so support teams can respond faster and more accurately.",
+    "Allow the agent to trigger approved follow-up workflows, such as routing a payroll or benefits question to the correct HR contact, while explaining next steps to the requester.",
+    "Use the agent to check whether required onboarding tasks or documents are complete in Zenefits and guide the person on what still needs attention."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up HR policy guidance alongside relevant Zenefits workflow status.",
+    "Enable HR and operations teams to ask the agent for employee onboarding progress, payroll timing, benefits enrollment state, or required next steps pulled from Zenefits.",
+    "Give managers a private AI assistant that can prepare summaries of team HR tasks, missing onboarding items, or pending approvals without making them search across systems.",
+    "Allow employees to chat with the agent to start approved HR workflows, gather required details, and route requests into Zenefits with the right context.",
+    "Support internal SOPs by letting team members ask the agent to research an HR issue, summarize the current record state, and prepare a clean handoff for HR or payroll specialists."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding progress and explains remaining employee tasks.",
+    "A support assistant that summarizes payroll or benefits issue context before human handoff.",
+    "An internal HR helper that routes employee requests to the correct workflow.",
+    "A manager assistant that reviews pending approvals and prepares action summaries.",
+    "An employee self-service agent that answers status questions using Zenefits data.",
+    "A compliance workflow assistant that gathers missing details before escalating to HR."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the Zenefits agent to do, such as check onboarding status, summarize payroll issues, or route benefits requests, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest workflow, identifies the needed configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "It adds safe action limits",
+      "description": "Skill Builder defines approval boundaries and bounded action rules so the agent can perform approved lookups, updates, handoffs, and workflow triggers without overreaching into sensitive HR operations."
+    },
+    {
+      "title": "It tests realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds findings back into improvement."
+    },
+    {
+      "title": "It improves and publishes",
+      "description": "Skill Builder refines the Skill before deployment and helps publish it to the right DocsBot agent, whether that is a customer-facing chat widget, a helpdesk agent, or a private employee assistant in Slack or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zenefits without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and the builder designs the Skill, handles secure connection requirements, tests scenarios, and prepares it for deployment. This makes it practical to create Zenefits-powered AI actions without managing the technical details yourself."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Zenefits data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot agent can be configured to use Zenefits for approved lookups, status summaries, handoff preparation, and workflow routing while it responds in chat or through helpdesk tickets. Access can be scoped so the agent only retrieves the specific HR information needed for the support task."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Zenefits?",
+      "answer": "Internal agents can help with onboarding status checks, payroll and benefits question routing, approval preparation, employee request intake, and HR handoff summaries. They can also guide employees through SOPs while using Zenefits data and approved actions behind the scenes."
+    },
+    {
+      "question": "Can an AI agent safely update records or trigger workflows in Zenefits?",
+      "answer": "Yes, when you define the allowed actions, DocsBot Skill Builder can create bounded workflows for updates, routing, and triggers with approval steps where needed. It also scopes permissions and keeps authentication details protected through secure runtime configuration."
+    },
+    {
+      "question": "How does DocsBot keep Zenefits credentials and sensitive HR access secure?",
+      "answer": "Skill Builder identifies the required connection details, stores secrets in secure configuration instead of chats or generated content, and proxies authentication safely at runtime. It also limits access to the minimum records, actions, and users needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot test a Zenefits AI workflow before employees or customers use it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run realistic support and internal scenarios against the Skill, find bugs or risky gaps, and improve the workflow before deployment. This helps teams launch with better instructions, safer controls, and more reliable outcomes."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "gusto",
+    "workday",
+    "namely",
+    "adp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TriNet",
+    "domain": "zenefits.com",
+    "description": "TriNet provides businesses with comprehensive HR solutions, offering a suite of services including payroll, benefits, risk management, and compliance, all accessible from a single platform.",
+    "slogan": "Empowering people, transforming work, and building better businesses together.",
+    "logoUrl": "https://media.brand.dev/5045e82b-6713-4ceb-84d8-290727ea3c10.svg",
+    "iconUrl": "https://media.brand.dev/5045e82b-6713-4ceb-84d8-290727ea3c10.svg",
+    "primaryColor": "#150732",
+    "accentColor": "#847c9c",
+    "colors": [
+      {
+        "hex": "#150732",
+        "name": "Quiet Abyss"
+      },
+      {
+        "hex": "#847c9c",
+        "name": "Relic"
+      },
+      {
+        "hex": "#d3d0da",
+        "name": "Spooky Ghost"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3217f25e-2c58-452f-a05d-16a7fc79d933.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5045e82b-6713-4ceb-84d8-290727ea3c10.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 318,
+        "height": 405,
+        "aspectRatio": 0.79
+      },
+      {
+        "url": "https://media.brand.dev/fa2ed5f4-4022-4af3-a906-06a09715786e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 104,
+        "height": 30,
+        "aspectRatio": 3.47
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fa2ed5f4-4022-4af3-a906-06a09715786e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 104,
+      "height": 30,
+      "aspectRatio": 3.47
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5045e82b-6713-4ceb-84d8-290727ea3c10.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 318,
+      "height": 405,
+      "aspectRatio": 0.79
+    }
+  }
+}

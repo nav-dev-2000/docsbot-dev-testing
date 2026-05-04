@@ -1,0 +1,168 @@
+{
+  "slug": "files-com",
+  "name": "Files.com",
+  "domain": "files-com.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Files.com",
+  "metaTitle": "Build AI Agents for Files.com with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Files.com to find files, summarize transfer status, trigger workflows, and support teams with secure, approved actions.",
+  "intro": "Files.com helps teams securely transfer, store, and automate file workflows across business systems. With DocsBot Skill Builder, you can describe the Files.com workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. The result is an AI agent that can answer questions, look up file activity, trigger approved actions, and prepare clean handoffs without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether an expected file was received in Files.com and reply with the latest status during a chat or ticket conversation.",
+    "Use the agent to summarize recent transfer activity, delivery failures, or processing outcomes from Files.com so customers get a clear update without waiting for a manual review.",
+    "Allow the agent to create an internal handoff with the relevant Files.com path, transfer history, and customer context when a missing or failed file needs human follow-up.",
+    "Enable the agent to trigger an approved workflow in Files.com after collecting the right customer details, such as restarting a delivery process or notifying the operations team.",
+    "Have the agent look up folder contents, timestamps, or file availability in Files.com to confirm whether a customer can access the document they expect."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find files in Files.com, check transfer status, and summarize activity across customer or vendor folders.",
+    "Let operations teams use a DocsBot agent in Slack or Microsoft Teams to investigate failed transfers, gather the relevant Files.com details, and follow internal escalation steps.",
+    "Help customer success or support employees chat with an internal agent to prepare status updates, handoff notes, and case summaries using live Files.com data.",
+    "Allow teams to trigger approved file-processing or delivery workflows from a private AI agent while keeping actions scoped to the right folders, users, and approval rules.",
+    "Support SOP-driven work by letting employees ask the agent how to verify a delivery, locate a file, or collect transfer evidence from Files.com for audits or incident review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks whether customer files arrived and explains the latest transfer status.",
+    "A private operations assistant that investigates failed file deliveries and prepares escalation summaries for teammates.",
+    "A DocsBot Skill that searches Files.com folders and returns file names, timestamps, and path details.",
+    "An agent workflow that gathers customer context and triggers an approved resend or downstream file process.",
+    "An internal assistant that compiles transfer history into a clean handoff note for support or engineering.",
+    "A team agent that follows your SOP to verify expected uploads before opening an incident or escalation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Files.com in plain language, and it turns that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum Files.com actions, folders, and users needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for things like workflow triggers, file operations, or escalations so the agent only acts within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant for secure day-to-day use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Files.com?",
+      "answer": "With DocsBot Skill Builder, you describe the Files.com task you want in plain language, such as checking transfer status or finding files, and Skill Builder designs, secures, tests, and packages that workflow as a reusable Skill. The finished Skill can then be deployed to a support bot or an internal team agent."
+    },
+    {
+      "question": "Can an AI support agent use Files.com data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use a Files.com Skill to look up file availability, transfer history, folder contents, or recent delivery status while responding to a customer in chat or in a helpdesk ticket. You define what the agent is allowed to access and which actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Files.com?",
+      "answer": "A Files.com Skill can help a support agent confirm whether a file was received, summarize failed transfers, collect context for a handoff, or trigger approved follow-up workflows. This helps customers get faster answers while keeping sensitive actions controlled."
+    },
+    {
+      "question": "Can an internal AI assistant search Files.com for employees?",
+      "answer": "Yes, private DocsBot agents can help employees search Files.com folders, review transfer activity, gather audit details, and prepare summaries inside chat, Slack, or Microsoft Teams. This is useful for operations, support, and customer success teams that need quick answers without logging into multiple systems."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting to Files.com?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated Skill content. It also scopes access to the minimum folders, actions, and users required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot Files.com Skill trigger actions or only do lookups?",
+      "answer": "It can do both, depending on the workflow you approve. For example, the agent can look up file or transfer information, prepare summaries and handoffs, and trigger bounded actions such as approved workflow steps or escalation processes."
+    }
+  ],
+  "relatedSlugs": [
+    "box",
+    "dropbox",
+    "google-drive",
+    "onedrive",
+    "sharepoint",
+    "egnyte"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Files",
+    "domain": "files.com",
+    "description": "Files.com is a SaaS file automation and integration platform that enables organizations to securely transfer, share, and store files. It automates and secures business-critical transfers, supporting standard file transfer protocols and native apps for high-performance internal transfers, all within a cloud-native SaaS environment.",
+    "slogan": "Secure, automated file transfer and collaboration made simple and reliable.",
+    "logoUrl": "https://media.brand.dev/bff2145a-4d19-43a8-a316-fff56eb2f949.svg",
+    "iconUrl": "https://media.brand.dev/7ec68982-0631-4ec2-873c-13976a47bdd1.jpg",
+    "primaryColor": "#c40c2c",
+    "accentColor": "#4c1423",
+    "colors": [
+      {
+        "hex": "#c40c2c",
+        "name": "Red City of Morocco"
+      },
+      {
+        "hex": "#4c1423",
+        "name": "Vino Tinto"
+      },
+      {
+        "hex": "#dc8c9c",
+        "name": "Melancholy"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3d15e297-853a-41ad-a6ec-c80ee2a094af.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.files.com/jobs",
+      "terms": "https://www.files.com/legal/terms",
+      "contact": "https://www.files.com/contact",
+      "privacy": "https://www.files.com/legal/privacy",
+      "blog": "https://www.files.com/blog",
+      "pricing": "https://www.files.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7ec68982-0631-4ec2-873c-13976a47bdd1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bff2145a-4d19-43a8-a316-fff56eb2f949.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 131,
+        "height": 43,
+        "aspectRatio": 3.05
+      },
+      {
+        "url": "https://media.brand.dev/5a64e040-d2e4-4f87-8bae-85f67f592563.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bff2145a-4d19-43a8-a316-fff56eb2f949.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 131,
+      "height": 43,
+      "aspectRatio": 3.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5a64e040-d2e4-4f87-8bae-85f67f592563.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

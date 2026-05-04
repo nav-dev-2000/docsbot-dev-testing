@@ -1,0 +1,113 @@
+{
+  "slug": "microsoft-planner",
+  "name": "Microsoft Planner",
+  "domain": "microsoft-planner.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Microsoft Planner",
+  "metaTitle": "Microsoft Planner AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Microsoft Planner to look up tasks, update plans, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Microsoft Planner helps teams organize tasks, plans, ownership, and work progress across Microsoft environments. With DocsBot Skill Builder, you can describe the Planner workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve task status, create follow-ups, and take approved actions in Microsoft Planner without exposing credentials or broad access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of onboarding, implementation, or service follow-up tasks in Microsoft Planner and share a clear progress update in chat or a helpdesk reply.",
+    "Use the agent to create approved Planner tasks when customers report bugs, request account changes, or need a promised callback from the support team.",
+    "Allow the agent to summarize open Planner tasks related to an account so customers receive a concise next-step update without waiting for a manual handoff.",
+    "Have the agent add notes, labels, due dates, or assignments to Planner tasks after collecting the missing details from a customer conversation or ticket.",
+    "Enable the agent to prepare an escalation handoff by creating a Planner task with the customer issue summary, priority, and required follow-up actions for the right team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Planner tasks, owners, due dates, and current status without opening multiple tools.",
+    "Customer success or operations teams can ask the agent to create recurring Planner tasks, assign owners, and structure follow-up work using approved internal workflows.",
+    "Managers can use the agent to summarize overdue tasks, blocked work, and upcoming deadlines across plans so they can review team progress faster.",
+    "Internal teams can chat with the agent to turn meeting notes, support escalations, or SOP outputs into Planner tasks with standardized titles, descriptions, and assignments.",
+    "Employees can ask the agent to guide a workflow step by step, then update Microsoft Planner as each SOP stage is completed and documented."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks task status before replying to customers.",
+    "A private team assistant that creates Planner tasks from chat requests.",
+    "An escalation workflow that turns support issues into assigned follow-up tasks.",
+    "A project summary agent that explains overdue, blocked, and completed work.",
+    "An onboarding assistant that creates and tracks implementation task lists.",
+    "A customer success agent that logs follow-up actions after account conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Microsoft Planner agent to do in plain language, such as checking task status, creating follow-up work, or preparing escalations for your team."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, decides which Planner actions and data are needed, and defines the required configuration values without making you map every technical step yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and limits access to the minimum plans, tasks, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds scoped permissions, approval boundaries, and safe action limits so sensitive updates such as task creation, reassignment, or due-date changes happen only within the rules you choose."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and sends findings into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Microsoft Planner?",
+      "answer": "With DocsBot Skill Builder, you describe the Planner workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Microsoft Planner during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use Microsoft Planner to look up task status, create approved follow-up work, summarize next steps, and prepare escalation handoffs while responding in chat or through helpdesk tickets."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Microsoft Planner?",
+      "answer": "An internal DocsBot agent can help employees find tasks, assign work, create recurring action items, summarize progress, and update Planner as part of SOPs, project management routines, or cross-team follow-up workflows."
+    },
+    {
+      "question": "Can an AI agent safely update Microsoft Planner tasks?",
+      "answer": "Yes, Skill Builder can create bounded actions for updates such as creating tasks, adding notes, assigning owners, or changing due dates while applying scoped permissions and approval rules to sensitive actions."
+    },
+    {
+      "question": "Can DocsBot summarize Microsoft Planner work for managers or support teams?",
+      "answer": "Yes, a DocsBot agent can generate concise summaries of open work, overdue items, blockers, and account-specific follow-ups so teams can respond faster and make better decisions."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft Planner access secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, keeps credentials out of conversations and generated content, and scopes access to the minimum users, records, and actions needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "microsoft-teams",
+    "jira",
+    "asana",
+    "trello",
+    "monday-com",
+    "clickup"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft Planner",
+    "domain": "microsoft-planner.com",
+    "description": "",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

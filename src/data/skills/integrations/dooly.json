@@ -1,0 +1,113 @@
+{
+  "slug": "dooly",
+  "name": "Dooly",
+  "domain": "dooly.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI agents that work with Dooly using DocsBot Skills",
+  "metaTitle": "Build Dooly AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Dooly for sales lookups, notes, handoffs, updates, and internal workflows with secure, tested Skills.",
+  "intro": "Dooly helps teams capture sales context, notes, and workflow details that can make support and internal conversations faster and more accurate. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Dooly, and DocsBot will help design, secure, test, improve, and publish that reusable Skill. The result is an AI support or internal team agent that can answer questions, gather context, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up relevant Dooly notes or account context so it can answer status questions with more complete background.",
+    "Let the agent summarize recent Dooly activity before replying to a support ticket, helping customers receive faster and more informed responses.",
+    "Have the agent create a structured handoff note in Dooly when a support conversation reveals expansion interest, renewal risk, or a sales follow-up opportunity.",
+    "Allow the agent to update approved Dooly records with customer-provided details, meeting outcomes, or follow-up tasks while keeping the conversation moving.",
+    "Use the agent to prepare escalation summaries from chat or ticket conversations and store those summaries in Dooly for account teams to review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Dooly account notes, meeting summaries, and follow-up context without searching manually.",
+    "Enable sales, success, or support teams to ask the agent to create Dooly notes, draft next steps, and log approved updates as part of internal workflows.",
+    "Give account teams an internal AI assistant that summarizes Dooly activity across an account before renewals, escalations, or executive reviews.",
+    "Help employees follow SOPs by asking the agent to collect account context from Dooly, combine it with other business systems, and prepare a recommended next action.",
+    "Allow operations or revenue teams to use a private agent to research Dooly records, spot missing follow-up data, and trigger bounded cleanup or handoff workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Dooly account notes before answering customer tickets.",
+    "A handoff Skill that creates Dooly follow-up notes from support chat conversations.",
+    "An internal sales assistant that summarizes recent Dooly activity for any account.",
+    "A success workflow that logs approved customer updates into Dooly from chat.",
+    "An escalation prep Skill that turns conversations into structured Dooly summaries.",
+    "A renewal assistant that pulls Dooly context and drafts next-step recommendations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Dooly agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, while keeping credentials out of chats and routing secrets through protected runtime settings."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum Dooly actions, records, users, and approval boundaries needed so the agent can take helpful but bounded action inside your rules."
+    },
+    {
+      "title": "The workflow is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, and any approved actions needed for lookups, updates, summaries, handoffs, or workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs or weak spots, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Dooly data?",
+      "answer": "With DocsBot Skill Builder, you describe the Dooly workflow you want in plain language, and Skill Builder creates a secure Skill that can look up notes, summarize context, update approved records, or trigger follow-up actions. It also defines the needed configuration, protects secrets, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Dooly during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Dooly as a background system to retrieve account context, summarize recent activity, prepare handoffs, or log approved follow-up details while responding to customers. That helps support conversations stay accurate without making agents switch tools manually."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Dooly?",
+      "answer": "A private DocsBot agent can help employees retrieve account notes, generate meeting summaries, create follow-up records, prepare renewal briefs, and complete handoff workflows tied to Dooly. Teams can use it in chat, Slack, or Microsoft Teams to move faster across sales, success, and support processes."
+    },
+    {
+      "question": "Can DocsBot update Dooly records safely through an AI agent?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions for approved Dooly updates such as creating notes, logging follow-ups, or saving structured summaries. Skill Builder also adds scoped permissions and approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Dooly credentials and access secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated Skill content. It also scopes access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent create sales or success handoffs in Dooly?",
+      "answer": "Yes, you can build a Skill that turns support conversations, customer requests, or internal notes into structured Dooly handoffs for account teams. This is useful for expansion opportunities, renewal risks, escalations, and follow-up coordination."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dooly",
+    "domain": "dooly.com",
+    "description": "Dooly.com is a web‑based ecommerce and landing‑page development company that helps businesses create high‑converting online stores and marketing pages. Their services include custom website design, ecommerce platform integration, responsive landing‑page creation, and ongoing support. Clients can reach the team at 1‑800‑763‑3097 for consultations and assistance. Dooly.com focuses on delivering fast, user‑friendly digital experiences that drive sales and improve brand presence online.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

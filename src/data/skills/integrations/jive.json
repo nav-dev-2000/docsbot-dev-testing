@@ -1,0 +1,155 @@
+{
+  "slug": "jive",
+  "name": "Jive",
+  "domain": "jive.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Jive and GoTo Connect",
+  "metaTitle": "Build Jive and GoTo Connect AI Agents with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Jive and GoTo Connect for support lookups, call workflow actions, handoffs, summaries, and internal team automation.",
+  "intro": "Jive, now part of GoTo Connect, helps businesses manage phone, messaging, meetings, and customer engagement workflows in one cloud communications platform. With DocsBot Skill Builder, you can describe the Jive or GoTo Connect workflow you want in plain language and have DocsBot create a reusable Skill for your support bot or internal AI agent. That lets your agent answer questions, retrieve live conversation context, trigger approved actions, and prepare cleaner handoffs instead of only giving static help content.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up call routing details, contact center status, or account-specific communication settings while answering a support chat or ticket.",
+    "Use the agent to summarize recent customer communication activity from Jive or GoTo Connect and include that context in a support reply or escalation handoff.",
+    "Allow the bot to create approved follow-up tasks, callback requests, or internal handoff notes when a customer needs live assistance.",
+    "Have the agent collect missing information from the customer and then trigger a bounded workflow in Jive or GoTo Connect for queue routing, case follow-up, or supervisor review.",
+    "Enable a helpdesk-connected DocsBot agent to prepare a concise communications history summary for support teams before a ticket is escalated."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Jive or GoTo Connect account details, communication settings, queue information, or recent activity without searching across admin screens.",
+    "Customer success or operations teams can ask the agent to summarize call flow status, routing setups, or communication history before handling an account review or renewal conversation.",
+    "Support managers can use an internal AI agent in Slack or Microsoft Teams to generate escalation notes, callback briefs, or handoff summaries based on Jive or GoTo Connect records.",
+    "Operations teams can chat with the agent to complete SOPs such as collecting missing account data, preparing approval-ready changes, or triggering approved communication workflows.",
+    "Internal teams can use the agent to research communication issues across systems and return a concise next-step summary with links, status context, and recommended follow-up actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up customer communication history before replying.",
+    "A private assistant that summarizes call routing and queue configurations for employees.",
+    "A DocsBot workflow that creates callback requests after collecting required customer details.",
+    "An internal agent that prepares escalation handoff notes from recent conversation activity.",
+    "A support bot that triggers approved supervisor review workflows for urgent cases.",
+    "An employee assistant that answers questions about account communication settings and status."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Jive or GoTo Connect, and it turns that plain-language request into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required configuration values, secure connection method, authentication handling, secret protection, and the minimum scoped access the agent needs without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Actions are bounded",
+      "description": "Skill Builder defines safe lookups, updates, workflow triggers, and approval boundaries so the agent can take useful action inside the limits you choose for users, records, and sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs or workflow gaps, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant for ongoing monitored use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Jive or GoTo Connect customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as looking up communication history or creating a callback handoff, and Skill Builder designs and secures the workflow for your support bot. The finished Skill can help your customer-facing agent retrieve live context, summarize activity, and take approved actions during chats or helpdesk replies."
+    },
+    {
+      "question": "Can an AI support agent use Jive or GoTo Connect data during a customer conversation?",
+      "answer": "Yes, DocsBot can be configured to use Jive or GoTo Connect data for live lookups, status summaries, and handoff preparation while responding to a customer. Skill Builder scopes access and adds approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Jive or GoTo Connect?",
+      "answer": "An internal DocsBot agent can help employees retrieve account details, summarize communication activity, prepare escalation notes, and trigger approved operational workflows. This is useful for support, customer success, and operations teams working in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Jive or GoTo Connect activity?",
+      "answer": "Yes, a Skill can gather recent communication context from Jive or GoTo Connect and turn it into a concise handoff or escalation summary for human teams. That helps agents transfer cases faster with less manual note writing."
+    },
+    {
+      "question": "How does DocsBot keep Jive or GoTo Connect actions secure?",
+      "answer": "Skill Builder automatically plans secure configuration, protects and proxies secrets through runtime settings, and keeps credentials out of chat transcripts and generated content. It also scopes permissions to the minimum required actions and can require approval steps for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Jive or GoTo Connect?",
+      "answer": "No, the intended setup starts with a plain-language description of the outcome you want. Skill Builder handles the design, secure connection approach, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "ringcentral",
+    "aircall",
+    "dialpad",
+    "twilio",
+    "zoom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "GoTo Connect",
+    "domain": "jive.com",
+    "description": "GoTo is a technology company that provides a cloud-based phone system and customer engagement software called GoTo Connect. It modernizes and centralizes business conversations through a suite of products, including phone, meetings, messaging, and customer engagement solutions. The company offers a range of products to suit different business needs, from basic phone systems to comprehensive customer engagement and performance insights tools.",
+    "slogan": "The Last Phone System You'll Ever Need",
+    "logoUrl": "https://media.brand.dev/12be14f5-4193-4da9-9f21-f4e8335fc708.svg",
+    "iconUrl": "https://media.brand.dev/12be14f5-4193-4da9-9f21-f4e8335fc708.svg",
+    "primaryColor": "#fcec04",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#fcec04",
+        "name": "Hudson Bee"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6c13054d-467f-45cf-8d1b-7a478af4ed19.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://jive.com/company/careers",
+      "terms": "https://jive.com/company/legal/terms-and-conditions",
+      "contact": "https://jive.com/connect/contact-center",
+      "privacy": "https://jive.com/company/legal/privacy",
+      "blog": "https://jive.com/blog",
+      "pricing": "https://jive.com/pricing/connect"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a2af367f-a952-4355-a9e5-787526d0c207.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 41,
+        "aspectRatio": 1.9
+      },
+      {
+        "url": "https://media.brand.dev/12be14f5-4193-4da9-9f21-f4e8335fc708.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 77,
+        "height": 41,
+        "aspectRatio": 1.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a2af367f-a952-4355-a9e5-787526d0c207.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 78,
+      "height": 41,
+      "aspectRatio": 1.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2af367f-a952-4355-a9e5-787526d0c207.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 78,
+      "height": 41,
+      "aspectRatio": 1.9
+    }
+  }
+}

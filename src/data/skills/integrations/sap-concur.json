@@ -1,0 +1,156 @@
+{
+  "slug": "sap-concur",
+  "name": "SAP Concur",
+  "domain": "sap-concur.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with SAP Concur",
+  "metaTitle": "Build AI Agents for SAP Concur with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SAP Concur for spend lookups, expense updates, approvals, handoffs, and internal workflow automation with secure controls.",
+  "intro": "SAP Concur helps businesses manage travel, expenses, and invoices with better visibility into company spend. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up Concur data, prepare updates, trigger approved workflows, and summarize results. That gives support teams and internal employees an AI agent that can answer questions and take bounded action instead of only pointing people to manual steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a travel reimbursement or expense-related request in SAP Concur and explain the current state in simple language.",
+    "Use a support agent connected to your helpdesk to collect missing receipt or trip details from a customer, prepare the right handoff notes, and route the case to finance or travel operations.",
+    "Allow the agent to summarize expense report issues, such as missing documentation or policy exceptions, so customers understand what must be fixed next.",
+    "Have the agent look up invoice or payment workflow status in SAP Concur and provide a customer-friendly progress update without exposing internal-only details.",
+    "Enable the agent to trigger approved follow-up workflows, such as notifying the right back-office team when a spend or reimbursement case needs review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up expense report status, travel booking context, or invoice processing details from SAP Concur.",
+    "Allow finance or operations teams to ask the agent for summaries of outstanding approvals, rejected expenses, or delayed reimbursements so they can act faster.",
+    "Help employees follow expense and travel SOPs by chatting with an internal agent that checks SAP Concur records, gathers missing information, and guides the next approved step.",
+    "Enable managers to use an internal AI assistant to review approval queues, understand policy exception context, and prepare approval or escalation decisions.",
+    "Support shared services teams with an agent that researches SAP Concur activity, summarizes account history, and creates consistent handoff notes for finance, payroll, or travel administrators."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks expense report status and explains the next required action.",
+    "A support workflow that gathers missing receipt details and prepares a finance handoff.",
+    "An internal assistant that summarizes pending approvals across teams and spending categories.",
+    "An agent that looks up reimbursement progress and shares a clear customer-ready update.",
+    "A private finance bot that researches rejected expenses and drafts follow-up guidance.",
+    "An approval support agent that flags policy exceptions and routes sensitive cases for review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SAP Concur agent to do, such as check expense status, summarize approval queues, or prepare a reimbursement handoff, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and proxies credentials through protected runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries wherever updates, escalations, or sensitive finance actions should be reviewed before completion."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chatbot, helpdesk agent, or private employee assistant can safely use SAP Concur in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SAP Concur without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the SAP Concur workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the reusable Skill for deployment. It can support lookups, summaries, handoffs, workflow triggers, and other bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use SAP Concur data to answer customer reimbursement or expense questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved SAP Concur status information, summarize the current state, and explain the next step to the customer. It can also gather missing details and prepare a clean handoff when human review is needed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with SAP Concur?",
+      "answer": "Internal DocsBot agents can help employees check expense reports, review approval queues, research invoice or travel workflow status, and follow finance or travel SOPs through chat. They can also generate summaries, escalation notes, and other artifacts that save time for operations teams."
+    },
+    {
+      "question": "Can DocsBot take actions in SAP Concur instead of only answering questions?",
+      "answer": "Yes, Skills can be designed for bounded AI Actions such as approved updates, workflow triggers, handoff creation, or escalation preparation. Skill Builder adds approval boundaries and scoped permissions so sensitive finance actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep SAP Concur access secure for AI agents?",
+      "answer": "Skill Builder defines the needed configuration, handles authentication safely, keeps credentials out of conversations and generated content, and proxies secrets through secure runtime settings. It also scopes access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can I use a private AI assistant with SAP Concur in Slack or Microsoft Teams?",
+      "answer": "Yes, you can publish the Skill to a private DocsBot agent for employees and teams so they can chat in Slack, Microsoft Teams, or a private interface to retrieve information and complete approved workflows. This is useful for finance, travel, operations, and shared services teams."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "bill-com",
+    "stripe",
+    "workday"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Concur",
+    "domain": "concur.com",
+    "description": "SAP Concur is a leading provider of integrated travel, expense, and invoice management solutions. It simplifies and automates everyday business processes through its mobile app and AI-driven transaction analysis, providing businesses with real-time visibility and control over their spend.",
+    "slogan": "Simplifying Spend Management for Total Visibility and Greater Control",
+    "logoUrl": "https://media.brand.dev/c5faea97-43b8-4eba-943c-c0ec1afe5b3c.png",
+    "iconUrl": "https://media.brand.dev/c5faea97-43b8-4eba-943c-c0ec1afe5b3c.png",
+    "primaryColor": "#158ed7",
+    "accentColor": "#82ccee",
+    "colors": [
+      {
+        "hex": "#158ed7",
+        "name": "Way Beyond the Blue"
+      },
+      {
+        "hex": "#82ccee",
+        "name": "Below Zero"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/24d7710f-ddb9-4f87-b2ba-5b0188aa7eed.png",
+    "industries": [],
+    "links": {
+      "careers": "https://concur.com/careers",
+      "terms": "https://concur.com/en-us/termsofuse",
+      "contact": "https://concur.com/en-us/contact",
+      "privacy": "https://www.concur.com/en-us/privacy-policy",
+      "blog": "https://concur.com/blog",
+      "pricing": "https://concur.com/en-us/get-quote-form"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c5faea97-43b8-4eba-943c-c0ec1afe5b3c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2ccdd60e-6a21-45ea-a358-8bafb841aabf.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2ccdd60e-6a21-45ea-a358-8bafb841aabf.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2ccdd60e-6a21-45ea-a358-8bafb841aabf.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    }
+  }
+}

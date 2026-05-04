@@ -1,0 +1,170 @@
+{
+  "slug": "uservoice",
+  "name": "UserVoice",
+  "domain": "uservoice.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with UserVoice Feedback and Roadmaps",
+  "metaTitle": "Build AI Agents for UserVoice with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use UserVoice to look up feedback, summarize trends, update records, route requests, and support teams with safe actions.",
+  "intro": "UserVoice helps teams collect, analyze, and act on customer feedback, feature requests, and roadmap signals. With DocsBot Skill Builder, you can describe the UserVoice workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve feedback context, prepare handoffs, and take approved actions inside UserVoice while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a feature request already exists in UserVoice and respond with a clear status update or next step.",
+    "Use the agent to create new feedback entries in UserVoice from chat conversations or support tickets when customers report unmet needs.",
+    "Enable the agent to summarize related UserVoice ideas, votes, and themes so support replies reflect current product feedback context.",
+    "Have the agent tag or route customer feedback into the right product area in UserVoice before preparing a handoff for the product team.",
+    "Let the agent update approved feedback metadata in UserVoice after collecting missing context from a customer in chat or email support."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find related UserVoice ideas, roadmap context, and customer demand signals before responding to accounts or planning releases.",
+    "Customer success and support teams can ask the agent to turn conversation notes into structured UserVoice feedback records and follow internal intake steps automatically.",
+    "Product and operations teams can use the agent in Slack or Microsoft Teams to summarize voting trends, recurring requests, and high-priority themes from UserVoice.",
+    "Internal teams can ask the agent to prepare escalation summaries that combine UserVoice feedback context with account details and recommended next actions.",
+    "Employees can chat with the agent to complete feedback triage workflows, including categorization, routing, and approval-based updates inside UserVoice."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks existing feature requests before creating new UserVoice feedback.",
+    "An AI assistant that turns support conversations into clean, categorized UserVoice submissions.",
+    "A private team agent that summarizes top-voted requests by segment, theme, or product area.",
+    "A workflow that prepares product handoffs with linked UserVoice ideas and customer context.",
+    "An internal assistant that routes new feedback to the correct team using approval boundaries.",
+    "A DocsBot agent that answers roadmap-related questions using live UserVoice feedback signals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the UserVoice agent to do, such as checking feedback status, creating requests, summarizing trends, or routing product input from support conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, defines the required configuration values, and chooses the safest way for the agent to read data or take approved actions in UserVoice."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and secret management through secure runtime configuration, keeps credentials out of chats and Skill source, and proxies sensitive values by design."
+    },
+    {
+      "title": "Permissions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum UserVoice records, actions, users, and workflow boundaries needed, and it adds approval steps for sensitive updates or escalations."
+    },
+    {
+      "title": "An agent tests scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with UserVoice?",
+      "answer": "With DocsBot Skill Builder, you describe the UserVoice workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up feedback, summarize requests, create records, or trigger approved follow-up steps. It also plans secure configuration, permission scoping, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use UserVoice data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use UserVoice as a feedback system behind the scenes to check existing requests, summarize product demand, create new feedback entries, and prepare handoffs while responding to customers. Actions can be limited to safe lookups or expanded to approved updates based on your rules."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with UserVoice?",
+      "answer": "Teams can automate feature request lookups, feedback capture from tickets, duplicate detection, issue summarization, roadmap-context replies, and product-team handoff preparation. This helps support answer faster while sending cleaner feedback into UserVoice."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with UserVoice?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a web app, Slack, or Microsoft Teams to research product feedback, summarize voting patterns, route new requests, and complete feedback triage workflows. The agent can also follow internal SOPs before making approved changes."
+    },
+    {
+      "question": "How does DocsBot keep UserVoice actions safe and controlled?",
+      "answer": "Skill Builder defines secure connection handling, protects secrets through runtime configuration, scopes access to the minimum required records and actions, and adds approval boundaries where needed. That lets your agent take useful action without exposing credentials or allowing broad uncontrolled changes."
+    },
+    {
+      "question": "Can DocsBot summarize UserVoice trends for product, support, or customer success teams?",
+      "answer": "Yes, a Skill can be designed to gather UserVoice ideas, votes, categories, and related signals, then produce summaries tailored for support responses, product reviews, or internal planning. Those summaries can help teams understand demand without manually searching through feedback records."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "jira",
+    "productboard",
+    "canny",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "UserVoice",
+    "domain": "uservoice.com",
+    "description": "UserVoice is a customer feedback and product management software that helps businesses build better products by collecting, analyzing, and acting on customer feedback. It provides a single platform to manage product feedback, create customizable roadmaps, and empower teams with actionable insights to drive customer-centric growth.",
+    "slogan": "Listen, Learn, and Deliver on Customer Needs",
+    "logoUrl": "https://media.brand.dev/fffcb6b6-2dd2-4c1c-b31d-4cd63335f15e.svg",
+    "iconUrl": "https://media.brand.dev/92d05c7a-9061-49fc-b58e-9382e3b85012.png",
+    "primaryColor": "#fc793a",
+    "accentColor": "#fcbd9c",
+    "colors": [
+      {
+        "hex": "#fc793a",
+        "name": "Synthetic Pumpkin"
+      },
+      {
+        "hex": "#fcbd9c",
+        "name": "Apricot Iced Tea"
+      },
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/93d3887f-ee1c-40a5-bfac-f5b4bb5e42c8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://uservoice.com/about",
+      "contact": null,
+      "terms": "https://www.uservoice.com/tos",
+      "privacy": "https://www.uservoice.com/privacy",
+      "blog": "https://www.uservoice.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.uservoice.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/92d05c7a-9061-49fc-b58e-9382e3b85012.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/de62b729-7595-4b4a-8f76-d3e818489361.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fffcb6b6-2dd2-4c1c-b31d-4cd63335f15e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 128,
+        "height": 18,
+        "aspectRatio": 7.11
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fffcb6b6-2dd2-4c1c-b31d-4cd63335f15e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 128,
+      "height": 18,
+      "aspectRatio": 7.11
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/92d05c7a-9061-49fc-b58e-9382e3b85012.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

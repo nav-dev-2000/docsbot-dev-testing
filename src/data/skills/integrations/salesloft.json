@@ -1,0 +1,160 @@
+{
+  "slug": "salesloft",
+  "name": "Salesloft",
+  "domain": "salesloft.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Salesloft",
+  "metaTitle": "Build Salesloft AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Salesloft for lookups, updates, handoffs, workflow triggers, and internal team workflows with secure controls.",
+  "intro": "Salesloft helps revenue teams coordinate outreach, track activity, and act on revenue signals across sales, marketing, and customer success. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Salesloft data and actions. The result is a support or internal AI agent that can answer questions, gather context, prepare handoffs, and take bounded action inside your approved workflow rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, contact, or activity context in Salesloft so it can answer status questions with better accuracy.",
+    "Use Salesloft engagement history to summarize recent outreach and prepare a clean handoff for a human sales or success representative.",
+    "Have the agent create or update approved notes, tasks, or follow-up records in Salesloft while responding to a customer in chat or over a helpdesk ticket.",
+    "Trigger a defined follow-up workflow in Salesloft when a customer requests a demo, pricing conversation, renewal discussion, or escalation.",
+    "Pull relevant Salesloft signals into a support conversation so the agent can route high-value or time-sensitive requests to the right team faster."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Salesloft account activity, engagement history, and rep notes without switching tools.",
+    "Help sales, customer success, and operations teams ask the agent for pipeline context, recent touchpoints, and next-step summaries pulled from Salesloft.",
+    "Allow team members to use chat to create approved tasks, log follow-up actions, or prepare outreach handoffs in Salesloft through guided workflows.",
+    "Support internal SOPs where employees ask the agent to research an account, summarize open activity, and generate a recommended next-action brief.",
+    "Give managers and revenue operations teams an AI assistant that can summarize record state across Salesloft and prepare escalation or coaching notes for review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Salesloft engagement history before answering account-related questions.",
+    "A private sales assistant that summarizes recent outreach and recommends the next approved follow-up step.",
+    "A customer success handoff Skill that creates notes and triggers follow-up workflows in Salesloft.",
+    "An internal revenue operations assistant that retrieves account activity and prepares escalation summaries.",
+    "A chat-based assistant that logs approved tasks in Salesloft after customer conversations.",
+    "A helpdesk-connected agent that uses Salesloft context to route tickets to the right team."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Salesloft in plain language, and it turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through approved runtime configuration by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, reference context, and any approved actions the DocsBot agent needs to work with Salesloft."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing guardrails, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Salesloft?",
+      "answer": "With DocsBot Skill Builder, you describe the Salesloft workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment to your support or internal agent. The resulting agent can perform approved lookups, summaries, updates, and workflow triggers inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use Salesloft data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Salesloft context such as account activity, engagement history, or ownership details to answer questions, prepare handoffs, and route requests more effectively. Access can be scoped so the agent only retrieves the records and fields needed for each workflow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Salesloft?",
+      "answer": "A private DocsBot agent can help employees retrieve account context, summarize activity, create approved tasks, prepare follow-up notes, and trigger defined revenue workflows in Salesloft. This is useful for sales, customer success, operations, and leadership teams that want faster execution through chat."
+    },
+    {
+      "question": "Can DocsBot update Salesloft records safely?",
+      "answer": "Yes, Skill Builder can create Skills that allow bounded Salesloft updates such as adding notes, creating tasks, or triggering follow-up actions with scoped permissions and approval steps where needed. Skill Builder is designed to keep credentials protected and limit the agent to the safest allowed actions."
+    },
+    {
+      "question": "Can a DocsBot agent hand off leads, opportunities, or escalations using Salesloft?",
+      "answer": "Yes, the agent can collect missing context from the conversation, summarize the situation, and create or prepare a structured handoff in Salesloft for a human team member. This helps teams move from chat to follow-up without losing important details."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Salesloft with DocsBot?",
+      "answer": "You do not need to write code or map every implementation detail yourself. Skill Builder asks for the outcome you want, then handles secure configuration, secret management, permissions, testing, and deployment guidance for the Salesloft Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "gong",
+    "outreach",
+    "pipedrive",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Salesloft",
+    "domain": "salesloft.com",
+    "description": "Salesloft is an AI‑powered revenue orchestration platform that partners with Clari to deliver a Predictive Revenue System. By capturing the broadest dataset of structured and unstructured signals, Salesloft enables revenue teams to orchestrate end‑to‑end workflows, boost AI‑driven productivity, and achieve predictable growth. The platform’s AI insights guide sales, marketing, and customer success teams to accelerate pipelines, forecast accurately, and close deals faster. Trusted by thousands of leading enterprises—including Adobe, IBM, 3M, and Zoom—Salesloft helps the world’s most successful companies turn data into actionable revenue strategies and sustain scalable, predictable growth.",
+    "slogan": "Turn insights into action, all in one platform",
+    "logoUrl": "https://media.brand.dev/c3857732-c256-47bf-ac76-d8744e244149.svg",
+    "iconUrl": "https://media.brand.dev/587fc338-3a78-44db-9aac-31456332ec25.jpg",
+    "primaryColor": "#b6d046",
+    "accentColor": "#135650",
+    "colors": [
+      {
+        "hex": "#b6d046",
+        "name": "Mossy Shining Gold"
+      },
+      {
+        "hex": "#135650",
+        "name": "Baltic Prince"
+      },
+      {
+        "hex": "#f3f3f3",
+        "name": "Bleached Silk"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/84e53b53-6554-4ba3-9bbd-94a670a288be.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.salesloft.com/company/careers",
+      "terms": "https://www.salesloft.com/legal/msa/",
+      "privacy": "https://www.salesloft.com/legal/privacy-policies",
+      "blog": "https://www.salesloft.com/resources/blog",
+      "pricing": "https://www.salesloft.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/587fc338-3a78-44db-9aac-31456332ec25.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c3857732-c256-47bf-ac76-d8744e244149.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 138,
+        "height": 32,
+        "aspectRatio": 4.31
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c3857732-c256-47bf-ac76-d8744e244149.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 138,
+      "height": 32,
+      "aspectRatio": 4.31
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/587fc338-3a78-44db-9aac-31456332ec25.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

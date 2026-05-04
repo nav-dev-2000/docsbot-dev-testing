@@ -1,0 +1,184 @@
+{
+  "slug": "trinet",
+  "name": "TriNet",
+  "domain": "trinet.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with TriNet",
+  "metaTitle": "Build TriNet AI Agents for HR Support and Employee Workflows",
+  "metaDescription": "Create DocsBot AI agents that use TriNet for HR lookups, employee support, workflow handoffs, and approved internal actions with secure controls.",
+  "intro": "TriNet helps businesses manage payroll, benefits, compliance, and core HR processes in one place. With DocsBot Skill Builder, you can describe the TriNet workflow you want in plain language and have DocsBot create a reusable AI Skill for support or internal team use. The result is an AI agent that can answer questions, retrieve HR information, prepare handoffs, and take approved actions inside clear security boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee questions about payroll timing, benefits basics, or HR process status by looking up approved TriNet data and summarizing the next step.",
+    "Let a helpdesk-connected DocsBot agent gather missing details from an employee, create a structured HR handoff, and attach a TriNet-based summary for the HR team.",
+    "Enable the agent to check approved employee record details in TriNet so it can respond to common support requests without sending employees through multiple portals.",
+    "Have the agent prepare escalation notes for payroll, benefits, or compliance questions by summarizing the TriNet record context for a human specialist.",
+    "Allow the agent to trigger approved HR workflows, such as request routing or follow-up task creation, when an employee needs help that requires manual review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to get quick answers about payroll dates, benefits processes, or HR policy steps using approved TriNet data.",
+    "HR and operations teams can ask the agent to summarize employee status, collect missing onboarding information, and prepare next-step checklists based on TriNet records.",
+    "Managers can chat with the agent to understand standard HR procedures, retrieve relevant employee administration context, and create clean handoffs for HR review when approvals are required.",
+    "People operations teams can use the agent to complete SOP-driven workflows, such as onboarding follow-ups, offboarding coordination, and document request triage across TriNet and related systems.",
+    "Internal support teams can ask the agent to generate case summaries, action histories, and escalation notes so HR work moves faster with less manual copying."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that answers employee payroll and benefits questions using approved TriNet lookups.",
+    "A private HR assistant that gathers onboarding details and prepares next-step handoffs for people operations.",
+    "A helpdesk agent that summarizes TriNet employee context before escalating sensitive HR requests.",
+    "An internal AI assistant that guides managers through HR workflows and required approvals.",
+    "A DocsBot Skill that checks record status and drafts follow-up messages for HR teams.",
+    "An employee support agent that routes requests based on TriNet-related payroll, benefits, or compliance context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with TriNet, such as answer payroll questions, prepare HR handoffs, or trigger an approved workflow, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum TriNet data, actions, users, and records needed for the workflow, and it adds approval boundaries wherever a sensitive update, escalation, or handoff should be reviewed."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined employee support and internal HR scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing support bot, helpdesk agent, or private employee assistant so teams can use TriNet-powered AI Actions with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with TriNet?",
+      "answer": "With DocsBot Skill Builder, you describe the TriNet workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, improves it, and helps publish it to the right AI agent."
+    },
+    {
+      "question": "Can an AI support agent use TriNet data to answer employee HR questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved TriNet data for lookups, summaries, and handoff preparation so employees get faster answers while sensitive actions remain controlled."
+    },
+    {
+      "question": "What TriNet workflows can an internal AI assistant help automate?",
+      "answer": "An internal DocsBot agent can help with onboarding follow-ups, payroll and benefits question handling, HR case summaries, SOP guidance, routing, and other bounded workflows your team approves."
+    },
+    {
+      "question": "Can DocsBot create safe approval controls for TriNet actions?",
+      "answer": "Yes, Skill Builder can define approval boundaries and scoped permissions so the agent only performs allowed lookups, updates, or workflow triggers under your chosen rules."
+    },
+    {
+      "question": "Can a DocsBot agent summarize TriNet information for HR handoffs and escalations?",
+      "answer": "Yes, the agent can collect context, summarize relevant TriNet details, and prepare structured handoff notes so HR specialists receive a cleaner case with less back-and-forth."
+    },
+    {
+      "question": "How does setup work for a non-technical team using TriNet with DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the workflow design, secure configuration values, secret protection, testing, self-improvement, and deployment details for you."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "gusto",
+    "paychex",
+    "adp-workforce-now",
+    "workday",
+    "ukg"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TriNet",
+    "domain": "trinet.com",
+    "description": "TriNet is a leading provider of comprehensive HR solutions tailored specifically for small and medium-sized businesses. Offering an integrated platform, TriNet simplifies the complexities of human resources by delivering essential services such as payroll processing, employee benefits management, risk management, and compliance support. With a focus on enabling businesses to thrive, TriNet helps organizations streamline their HR operations, ensuring that they can focus on growth and innovation. By consolidating multiple HR functions into one cohesive service, TriNet empowers businesses to create a more efficient and effective workplace. The company’s mission is to facilitate success through exceptional HR services, making it an invaluable partner for businesses looking to enhance their human capital management. Incredible starts here with TriNet.",
+    "slogan": "Incredible HR solutions all in one place.",
+    "logoUrl": "https://media.brand.dev/211cf0af-7c13-488b-a3cc-09207d803781.png",
+    "iconUrl": "https://media.brand.dev/8870ce86-a922-44fc-ae5e-7fcd7b66f99b.png",
+    "primaryColor": "#d56f48",
+    "accentColor": "#0c0434",
+    "colors": [
+      {
+        "hex": "#d56f48",
+        "name": "Coral Gold"
+      },
+      {
+        "hex": "#0c0434",
+        "name": "Cosmic Void"
+      },
+      {
+        "hex": "#817c99",
+        "name": "Garden Violets"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://trinet.com/about-us/careers",
+      "terms": "https://trinet.com/about-us/referrals/terms-and-conditions",
+      "contact": "https://trinet.com/contact-us",
+      "privacy": "https://www.trinet.com/privacy-policy",
+      "blog": "https://trinet.com/resources/newsletter",
+      "pricing": "https://trinet.com/solutions/peo/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8870ce86-a922-44fc-ae5e-7fcd7b66f99b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/211cf0af-7c13-488b-a3cc-09207d803781.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 318,
+        "height": 405,
+        "aspectRatio": 0.79
+      },
+      {
+        "url": "https://media.brand.dev/7a2d5b7c-9a5e-48d2-a3c2-85b7a081bb87.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 460,
+        "height": 460,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/24c3c572-ef70-48a4-bb52-3a2eda967541.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 318,
+        "height": 405,
+        "aspectRatio": 0.79
+      },
+      {
+        "url": "https://media.brand.dev/65096134-5d85-4321-b264-a32b1f8ed8a5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 104,
+        "height": 30,
+        "aspectRatio": 3.47
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/65096134-5d85-4321-b264-a32b1f8ed8a5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 104,
+      "height": 30,
+      "aspectRatio": 3.47
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7a2d5b7c-9a5e-48d2-a3c2-85b7a081bb87.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 460,
+      "height": 460,
+      "aspectRatio": 1
+    }
+  }
+}

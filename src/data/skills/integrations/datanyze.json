@@ -1,0 +1,176 @@
+{
+  "slug": "datanyze",
+  "name": "Datanyze",
+  "domain": "datanyze.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Datanyze",
+  "metaTitle": "Build AI Agents for Datanyze with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Datanyze for prospect lookups, research, handoffs, and controlled workflow actions in support and internal team chats.",
+  "intro": "Datanyze helps teams find B2B contact and company information quickly, which makes it useful for research, routing, and sales-support workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Datanyze data and actions. The result is a support or internal AI agent that can answer questions, gather context, prepare handoffs, and take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up company and contact details in Datanyze to qualify inbound business inquiries and route them to the right sales or success team.",
+    "Use Datanyze data during helpdesk conversations to summarize a lead's company profile, likely role, and relevant contact context before a human follow-up.",
+    "Have the agent prepare escalation notes for sales-assisted support cases by pulling Datanyze prospect details and adding a concise handoff summary to the ticket.",
+    "Enable the agent to confirm whether an inbound requester appears to match a target account profile and guide the next approved step for demos, partnerships, or enterprise sales questions.",
+    "Let the agent gather missing company context from Datanyze and generate a structured follow-up brief for human teams handling account-specific requests."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to research prospects in Datanyze, summarize company and contact details, and prepare outreach-ready notes.",
+    "Let sales, success, or operations teams ask the agent for quick Datanyze lookups inside Slack, Microsoft Teams, or private chat without switching tools.",
+    "Enable employees to use the agent to enrich inbound leads with Datanyze context and then follow internal qualification or routing SOPs.",
+    "Help revenue teams chat with the agent to compare target accounts, pull contact information, and generate concise account research summaries for meetings.",
+    "Allow internal teams to ask the agent for Datanyze-backed prospect research while the agent follows approved workflow boundaries and escalation rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that researches inbound companies and drafts qualified lead handoff summaries.",
+    "A support assistant that enriches tickets with Datanyze company and contact context.",
+    "An internal sales research agent that finds prospect details and prepares outreach briefs.",
+    "A routing agent that checks target account fit and recommends the next approved team.",
+    "An AI assistant that summarizes Datanyze results for account planning and meeting prep.",
+    "A lead qualification workflow that gathers missing business context before escalation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Datanyze-powered agent to do, such as qualify inbound leads, research companies, or prepare sales handoffs, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow, identifies the required configuration values, and defines secure Datanyze connection and authentication handling for you."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to only the needed records and actions, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot agent or your private team assistant so it can take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Datanyze without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Datanyze workflow you want in plain language, and Skill Builder designs the Skill, handles secure configuration, tests it, improves it, and prepares it for deployment. This lets non-technical teams create AI agents that can use Datanyze for lookups, summaries, routing, and other approved actions."
+    },
+    {
+      "question": "Can a DocsBot support agent use Datanyze data during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use a Datanyze Skill to look up company and contact context while responding in a website chat widget or helpdesk ticket flow. That can help the agent qualify business inquiries, prepare better handoffs, and summarize account context for human teams."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Datanyze?",
+      "answer": "An internal DocsBot agent can help employees research prospects, enrich inbound leads, summarize target accounts, and prepare outreach or meeting briefs using Datanyze data. It can also follow SOPs for qualification, routing, and escalation across your team tools."
+    },
+    {
+      "question": "Can an AI agent safely perform Datanyze lookups and related actions?",
+      "answer": "Yes, Skill Builder is designed to define scoped permissions, protect secrets, and add approval boundaries so the agent only performs the Datanyze actions you allow. It also keeps authentication details out of chat transcripts and runtime instructions by using secure configuration."
+    },
+    {
+      "question": "How does DocsBot keep a Datanyze integration secure for AI agents?",
+      "answer": "Skill Builder decides the secure setup by identifying required connection values, storing and proxying secrets safely, limiting access to the minimum records and actions needed, and setting approval checks for sensitive workflows. Automated scenario testing also helps catch missing safeguards before deployment."
+    },
+    {
+      "question": "Can a Datanyze AI assistant work in Slack or Microsoft Teams for employees?",
+      "answer": "Yes, you can publish the Skill to a private DocsBot agent that employees use in chat, Slack, or Microsoft Teams. That agent can answer Datanyze-related questions, research prospects, and complete approved internal workflows from one conversation."
+    }
+  ],
+  "relatedSlugs": [
+    "apollo-io",
+    "zoominfo",
+    "clearbit",
+    "hubspot",
+    "salesforce",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Datanyze",
+    "domain": "datanyze.com",
+    "description": "Datanyze is a B2B sales intelligence platform that provides accurate and affordable contact information, enabling users to find and connect with sales prospects within minutes. With a Chrome extension available for a free trial, Datanyze aims to revolutionize B2B data by making it easier to identify and reach potential customers.",
+    "slogan": "Revolutionizing B2B Data to Find and Connect Sales Prospects Instantly",
+    "logoUrl": "https://media.brand.dev/750af7d0-82d2-4082-b941-ede2b28abf3e.svg",
+    "iconUrl": "https://media.brand.dev/f81b9edf-2cc3-4768-a1b2-8f4a7e9a80ea.png",
+    "primaryColor": "#118afc",
+    "accentColor": "#52d6fc",
+    "colors": [
+      {
+        "hex": "#118afc",
+        "name": "Clear Chill"
+      },
+      {
+        "hex": "#52d6fc",
+        "name": "Libra Blue Morpho"
+      },
+      {
+        "hex": "#d6e3ee",
+        "name": "Blooming Aster"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1d3f4d56-0ca1-4364-a05e-fc649d5166bc.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": null,
+      "terms": "https://www.datanyze.com/terms-conditions",
+      "privacy": "https://www.datanyze.com/privacy-policy",
+      "blog": "https://www.datanyze.com/blog",
+      "pricing": "https://www.datanyze.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f81b9edf-2cc3-4768-a1b2-8f4a7e9a80ea.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/59c1852f-5dc3-4121-87a4-1f353c40d4d8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/750af7d0-82d2-4082-b941-ede2b28abf3e.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 143,
+        "height": 33,
+        "aspectRatio": 4.33
+      },
+      {
+        "url": "https://media.brand.dev/b13659b0-f816-4f6c-9eff-af7a6d1a9ff2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/750af7d0-82d2-4082-b941-ede2b28abf3e.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 143,
+      "height": 33,
+      "aspectRatio": 4.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/59c1852f-5dc3-4121-87a4-1f353c40d4d8.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

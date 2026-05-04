@@ -1,0 +1,152 @@
+{
+  "slug": "ukg-dimensions",
+  "name": "UKG Dimensions",
+  "domain": "ukg-dimensions.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with UKG Dimensions",
+  "metaTitle": "Build AI Agents for UKG Dimensions with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that securely use UKG Dimensions for employee support, workforce lookups, workflow automation, and approved HR actions.",
+  "intro": "UKG Dimensions helps organizations manage workforce operations, scheduling, time, and employee-related processes. With DocsBot Skill Builder, you can describe the HR or workforce task you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use UKG Dimensions data and approved actions. The result is a support or internal AI agent that can answer questions, perform bounded lookups and updates, prepare handoffs, and trigger workflows without exposing sensitive credentials or broad access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee portal questions by looking up relevant UKG Dimensions workforce information and summarizing the next approved step.",
+    "Let a support agent connected to your helpdesk review scheduling or time-related context in UKG Dimensions so it can prepare a faster, more accurate response to employee tickets.",
+    "Enable the agent to collect missing information from the employee conversation, then create a structured HR or workforce handoff based on UKG Dimensions context for a human team member.",
+    "Allow the agent to summarize attendance, schedule, or workforce status details from UKG Dimensions when responding to approved employee support requests.",
+    "Use the agent to trigger approved workforce support workflows, such as escalation or follow-up task creation, when a request needs human review beyond self-service answers."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up workforce information from UKG Dimensions without searching through multiple systems.",
+    "Enable HR, operations, or team managers to ask the agent for summarized schedule, attendance, or workforce status details pulled from UKG Dimensions for faster decision-making.",
+    "Give internal teams an AI assistant that gathers missing context, follows SOPs, and prepares handoffs or case summaries based on UKG Dimensions records.",
+    "Allow authorized employees to use chat to trigger approved UKG Dimensions workflows, updates, or follow-up actions within the limits your organization defines.",
+    "Help HR and operations teams use a private AI agent to answer policy and workforce questions by combining company guidance with live UKG Dimensions lookups."
+  ],
+  "whatYouCanBuild": [
+    "An employee support agent that checks schedule or time-related details before answering a ticket.",
+    "A private HR assistant that summarizes workforce records and prepares manager-ready handoff notes.",
+    "An operations agent that gathers missing context and triggers approved workforce follow-up workflows.",
+    "A team assistant that answers internal questions using company policies plus live UKG Dimensions data.",
+    "A helpdesk agent that escalates complex attendance or scheduling issues with a structured case summary.",
+    "A manager support assistant that retrieves approved workforce details and explains the next best action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with UKG Dimensions in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, defines secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right instructions, approval boundaries, and action limits so the agent can look up information, prepare updates, trigger workflows, or create handoffs only within the rules you approve."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined employee support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing support bot or private employee agent so your team can start using UKG Dimensions safely through chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for UKG Dimensions?",
+      "answer": "With DocsBot Skill Builder, you describe the workforce or HR outcome you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The finished agent can answer questions, run lookups, prepare handoffs, and take approved actions inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use UKG Dimensions data when replying to employee questions?",
+      "answer": "Yes, a DocsBot support agent can use UKG Dimensions as a governed source for live workforce lookups, status summaries, and case context while responding in a chat widget or helpdesk workflow. Skill Builder helps ensure access is scoped appropriately and sensitive actions can require approval boundaries."
+    },
+    {
+      "question": "What employee support workflows can DocsBot automate with UKG Dimensions?",
+      "answer": "You can build workflows for schedule or attendance lookups, ticket context gathering, case summarization, escalation preparation, and approved follow-up actions tied to workforce support. The goal is to help the agent resolve more requests directly and hand off the rest with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help HR or operations teams work in UKG Dimensions?",
+      "answer": "Yes, private DocsBot agents can help employees and managers retrieve workforce information, summarize records, follow internal SOPs, and trigger approved workflows through chat, Slack, or Microsoft Teams. This gives teams faster answers and more consistent process execution without broad manual system access."
+    },
+    {
+      "question": "How does DocsBot handle security for UKG Dimensions integrations?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and generated copy, proxies secrets through secure runtime settings, and scopes permissions to the minimum needed for the workflow. It can also add approval steps and bounded action rules for sensitive updates or escalations."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in UKG Dimensions?",
+      "answer": "DocsBot Skills can be designed for approved actions such as bounded record updates, workflow triggers, or handoff creation when your process allows it. Skill Builder helps set the right limits so the agent acts only within the permissions, records, and conditions you authorize."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "ukg-pro",
+    "successfactors",
+    "paylocity"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "UKG",
+    "domain": "ukg.com",
+    "description": "UKG is a workforce operating platform that leverages the world’s largest collection of workforce insights and people‑first AI to help organizations build trust, boost productivity, and empower talent. By turning data into actionable intelligence, UKG enables customers across all industries to solve complex challenges, optimize human capital, and treat their workforce as a competitive advantage.",
+    "slogan": "Empower the people who power your business",
+    "logoUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "iconUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "primaryColor": "#e2f225",
+    "accentColor": "#7a8c2e",
+    "colors": [
+      {
+        "hex": "#e2f225",
+        "name": "Herbery Honey"
+      },
+      {
+        "hex": "#7a8c2e",
+        "name": "Sassy Grass"
+      },
+      {
+        "hex": "#1d3b21",
+        "name": "Queen of Trees"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/910029d1-4323-4abd-99b9-f5a1c5ac1795.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.ukg.com/terms-of-use",
+      "careers": "https://www.ukg.com/company/careers",
+      "contact": "https://www.ukg.com/industry-solutions/contact-centers",
+      "privacy": "https://www.ukg.com/privacy",
+      "blog": "https://www.ukg.com/company/newsroom/archive",
+      "pricing": "https://www.ukg.com/products/features/strategic-workforce-planning"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "payu",
+  "name": "PayU",
+  "domain": "payu.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with PayU",
+  "metaTitle": "Build PayU AI Agents for Support and Payment Operations",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use PayU for payment lookups, support workflows, internal operations, and approved billing actions.",
+  "intro": "PayU helps businesses manage local and cross-border payments across many markets, making it a strong system for payment support and operations workflows. With DocsBot Skill Builder, you can describe the PayU workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or private internal AI agent. The result is an AI agent that can answer questions, look up payment details, prepare handoffs, and take approved actions inside safe boundaries instead of only giving static instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up PayU payment status details so it can explain whether a transaction is pending, completed, failed, or needs manual review.",
+    "Use a DocsBot support agent to pull PayU transaction information from a helpdesk ticket and summarize the payment timeline for faster replies.",
+    "Allow the agent to gather missing order or payment identifiers from the customer, then retrieve the matching PayU record before responding.",
+    "Have the agent prepare a clean escalation handoff with PayU transaction details, customer context, and the steps already completed in chat.",
+    "Enable the agent to summarize refund or payment issue context from PayU so support teams can respond with clearer next steps and fewer back-and-forth messages."
+  ],
+  "internalUseCases": [
+    "Let finance, support, or operations employees chat with a private DocsBot agent to retrieve PayU transaction details, payment states, and dispute context without leaving Slack, Microsoft Teams, or an internal chat portal.",
+    "Use an internal AI agent to research payment exceptions across PayU and summarize findings for reconciliation, risk review, or customer follow-up workflows.",
+    "Allow team members to ask the agent to prepare payment issue handoffs, case summaries, or SOP-based next-step recommendations using PayU data.",
+    "Help operations employees complete repeatable workflows by having the agent collect required context, check PayU records, and trigger approved follow-up steps within defined limits.",
+    "Enable internal teams to use a private AI assistant for payment support research, cross-team coordination, and status summaries tied to PayU activity."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks PayU payment status from a customer chat or ticket.",
+    "An AI assistant that summarizes PayU transaction history for support escalations and handoffs.",
+    "A private finance bot that researches failed or pending PayU payments for employees.",
+    "An operations agent that gathers order details and matches them to PayU transactions.",
+    "A support workflow that prepares refund or payment issue summaries using PayU data.",
+    "An internal assistant that follows payment investigation SOPs and recommends next actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PayU-enabled agent to do, such as checking payment status, summarizing transaction history, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the workflow should operate, what PayU data or actions are needed, which configuration values must be collected, and how to connect the service safely without making you map the implementation yourself."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive payment-related actions."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the PayU Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing support bot or your private internal AI agent so teams can use PayU workflows inside controlled DocsBot conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with PayU?",
+      "answer": "With DocsBot Skill Builder, you describe the PayU workflow you want in plain language, and Skill Builder designs, secures, tests, and packages that behavior as a reusable Skill. The finished agent can then use PayU data for lookups, summaries, handoffs, and other approved actions inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use PayU data to answer payment questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use PayU transaction data to help explain payment status, gather missing context, and prepare better responses for customers. You control what records and actions are allowed, and sensitive steps can require approval boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with PayU?",
+      "answer": "Common workflows include payment status lookups, failed transaction research, refund-related context gathering, support handoff preparation, and ticket summaries based on PayU records. The agent can respond in chat or through a connected helpdesk while staying within the workflow limits you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with PayU?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve PayU information, research payment issues, follow SOPs, and prepare summaries or escalations from Slack, Microsoft Teams, or an internal chat interface. This is useful for support, operations, finance, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep PayU actions secure?",
+      "answer": "Skill Builder handles secure connection design by defining required configuration values, protecting and proxying secrets, and keeping credentials out of chat transcripts and generated Skill content. It also scopes permissions to the minimum necessary access and can add approval controls for sensitive payment workflows."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger workflows related to PayU?",
+      "answer": "It can be designed to take bounded actions when your workflow and permissions allow it, such as creating internal handoffs, updating related records in connected systems, or triggering approved follow-up steps after a PayU lookup. Skill Builder sets the allowed action boundaries so the agent does not operate outside your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "adyen",
+    "braintree",
+    "checkout-com",
+    "authorize-net",
+    "square"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PayU",
+    "domain": "payu.com",
+    "description": "PayU enables local and cross-border payments and innovative financial services across 50+ emerging markets.",
+    "slogan": "Empowering global commerce with innovative, accessible financial solutions.",
+    "logoUrl": "https://media.brand.dev/c0a5a768-c14e-4d97-862c-71ff055feb84.svg",
+    "iconUrl": "https://media.brand.dev/09b39d43-a22b-4f92-bc34-f4c5ef862333.jpg",
+    "primaryColor": "#869695",
+    "accentColor": "#1c3134",
+    "colors": [
+      {
+        "hex": "#869695",
+        "name": "In the Moment"
+      },
+      {
+        "hex": "#1c3134",
+        "name": "Dark Pine Green"
+      },
+      {
+        "hex": "#ced4d4",
+        "name": "Pacific Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a3621539-b46a-43f6-a2ac-94d14535866d.png",
+    "industries": [],
+    "links": {
+      "careers": "https://corporate.payu.com/careers/",
+      "terms": null,
+      "contact": "https://corporate.payu.com/contact-us/",
+      "privacy": "https://corporate.payu.com/privacy/",
+      "blog": "https://corporate.payu.com/blog/",
+      "pricing": "https://corporate.payu.com/global-payment-solutions/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/09b39d43-a22b-4f92-bc34-f4c5ef862333.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c0a5a768-c14e-4d97-862c-71ff055feb84.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 303,
+        "height": 152,
+        "aspectRatio": 1.99
+      },
+      {
+        "url": "https://media.brand.dev/9ff91094-c07e-4093-ae56-c5fa96667447.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b2b5155d-9887-4181-a75e-6dfe456f30db.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c0a5a768-c14e-4d97-862c-71ff055feb84.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 303,
+      "height": 152,
+      "aspectRatio": 1.99
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/09b39d43-a22b-4f92-bc34-f4c5ef862333.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

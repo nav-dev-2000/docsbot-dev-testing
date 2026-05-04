@@ -1,0 +1,170 @@
+{
+  "slug": "vercel",
+  "name": "Vercel",
+  "domain": "vercel.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Vercel",
+  "metaTitle": "Build AI Support and Internal Agents for Vercel",
+  "metaDescription": "Create DocsBot AI agents that use Vercel for safe lookups, deployment updates, incident summaries, workflow triggers, and internal team assistance.",
+  "intro": "Vercel helps teams build, deploy, and scale web experiences, and DocsBot Skill Builder can turn that platform access into practical AI Actions. Describe the outcome you want in plain language, and Skill Builder designs a reusable Skill that lets your support or internal AI agent safely check deployment status, summarize incidents, trigger approved workflows, and prepare handoffs. The result is an AI agent that can do more than answer questions because it can also take bounded action inside your Vercel workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Vercel deployment status and explain whether a recent release may be affecting a reported issue.",
+    "Use a support agent to summarize recent Vercel build failures or outage context and prepare a clean handoff for engineering or on-call teams.",
+    "Enable the agent to confirm whether a preview or production deployment is live before responding to customers about feature availability.",
+    "Have the agent collect missing troubleshooting details from the customer, match them to the relevant Vercel project or environment, and create an escalation summary.",
+    "Allow the agent to trigger an approved internal workflow when a customer reports a site outage, degraded performance, or a failed release that needs review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Vercel project, deployment, and environment status without opening multiple dashboards.",
+    "Enable engineering, support, and success teams to ask the agent for a plain-language summary of recent deployments, build errors, and release history for a project.",
+    "Use an internal AI assistant to guide employees through incident response SOPs, gather the right Vercel context, and prepare escalation notes for on-call teams.",
+    "Allow team members to ask the agent to trigger approved deployment-related workflows, notifications, or follow-up tasks while keeping sensitive actions behind approval boundaries.",
+    "Help operations and customer-facing teams research whether a customer issue lines up with a deployment change, environment problem, or broader service disruption."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks deployment health before answering customer issue reports.",
+    "An internal agent that summarizes recent Vercel builds and failed deployment events.",
+    "A release-aware assistant that matches customer complaints to recent production changes.",
+    "An escalation Skill that gathers project context and drafts incident handoff notes.",
+    "A workflow Skill that triggers approved incident or rollback review processes.",
+    "A private team assistant that explains environment status in plain language."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Vercel, such as checking deployment status, summarizing build failures, or triggering an approved escalation workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the projects, actions, users, and records needed for the workflow."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds clear instructions, safe action limits, and approval boundaries for sensitive steps such as workflow triggers or deployment-related actions so the agent stays within your rules."
+    },
+    {
+      "title": "Testing agent exercises scenarios",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so teams can use Vercel-aware AI Actions immediately."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Vercel?",
+      "answer": "With DocsBot Skill Builder, you describe the Vercel workflow you want in plain language, and it designs a reusable Skill that can look up deployment information, summarize status, trigger approved workflows, and route the result to the right AI agent. Skill Builder also handles secure configuration, scoped access, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Vercel data to help customers faster?",
+      "answer": "Yes, a DocsBot support agent can use a Vercel Skill to check deployment state, review release context, summarize incidents, and prepare escalations while replying to customer chats or tickets. This helps support teams answer with live operational context instead of relying only on static documentation."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Vercel?",
+      "answer": "A DocsBot agent can help verify whether a production issue aligns with a recent deployment, collect troubleshooting details, summarize build or incident context, and trigger approved internal follow-up workflows. Sensitive actions can be limited with approval boundaries and scoped permissions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Vercel operations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve deployment history, understand environment status, review build failures, and follow incident response steps tied to Vercel projects. This is useful in Slack, Microsoft Teams, or an internal chat workspace."
+    },
+    {
+      "question": "How does DocsBot keep a Vercel Skill secure?",
+      "answer": "Skill Builder defines the connection setup, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and limits the Skill to the minimum actions and project access required. It can also add approval checkpoints for any action that should not run automatically."
+    },
+    {
+      "question": "Can DocsBot trigger actions or workflows related to Vercel instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as triggering approved incident workflows, creating handoff summaries, generating status updates, or starting follow-up processes based on Vercel conditions. The exact actions stay bounded by the rules and permissions you approve."
+    }
+  ],
+  "relatedSlugs": [
+    "netlify",
+    "cloudflare",
+    "github",
+    "gitlab",
+    "linear",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Vercel",
+    "domain": "vercel.com",
+    "description": "Vercel is a developer‑focused platform that provides tools, cloud infrastructure, and a global CDN to build, deploy, and scale fast, secure, and personalized web experiences. By integrating with popular frameworks such as Next.js, Svelte, Nuxt, and Vite, Vercel turns a single Git push into a fully provisioned, optimized deployment worldwide. Its AI Cloud adds services like AI Gateway, AI SDK, and Fluid Compute, enabling developers to add LLM‑powered features with zero‑config infrastructure. Customers including Under Armour, Nintendo, The Washington Post, and Zapier rely on Vercel for rapid builds, low latency, automatic HTTPS, preview environments, and seamless scaling for web apps, e‑commerce sites, and AI‑driven applications.",
+    "slogan": "Build and deploy on the AI Cloud.",
+    "logoUrl": "https://media.brand.dev/391e66ed-9a91-48ec-85a2-b03502b95462.svg",
+    "iconUrl": "https://media.brand.dev/e1b93def-fce6-4af3-91cc-eaf79798723f.png",
+    "primaryColor": "#040404",
+    "accentColor": "#7c7c7c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#cdcdcd",
+        "name": "Compact Disc Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0a4d48e3-d1a6-4ae2-b4a1-d79dca98dd58.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://vercel.com/careers",
+      "privacy": "https://vercel.com/legal/privacy-policy",
+      "blog": "https://vercel.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://vercel.com/pricing",
+      "contact": "https://vercel.com/contact/sales"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/391e66ed-9a91-48ec-85a2-b03502b95462.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 262,
+        "height": 52,
+        "aspectRatio": 5.04
+      },
+      {
+        "url": "https://media.brand.dev/efcb7642-2d62-40d5-9bd7-63eb650670dd.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e1b93def-fce6-4af3-91cc-eaf79798723f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/391e66ed-9a91-48ec-85a2-b03502b95462.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 262,
+      "height": 52,
+      "aspectRatio": 5.04
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/efcb7642-2d62-40d5-9bd7-63eb650670dd.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

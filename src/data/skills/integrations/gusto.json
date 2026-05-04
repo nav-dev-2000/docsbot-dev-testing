@@ -1,0 +1,163 @@
+{
+  "slug": "gusto",
+  "name": "Gusto",
+  "domain": "gusto.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Gusto",
+  "metaTitle": "Build Gusto AI Agents for Support and HR Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up Gusto data, assist employees, and automate approved HR and payroll workflows.",
+  "intro": "Gusto helps growing businesses manage payroll, benefits, onboarding, and core HR tasks in one people platform. With DocsBot Skill Builder, you can describe the Gusto workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve approved HR information, prepare handoffs, and take bounded actions inside Gusto while staying within your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer payroll or onboarding questions by looking up approved employee or company status details from Gusto and summarizing the next steps clearly.",
+    "Let a support agent connected to your helpdesk gather payroll, benefits, or onboarding context from Gusto and prepare an accurate handoff for HR or payroll specialists.",
+    "Enable the agent to confirm whether an employee onboarding checklist, document request, or profile update has been completed in Gusto before replying to the customer.",
+    "Have the agent create or update approved internal follow-up tasks based on a customer conversation, such as flagging a payroll issue for human review through a controlled workflow tied to Gusto records.",
+    "Use the agent to summarize relevant Gusto information for a ticket so support teams can respond faster without manually checking employee HR records in every case."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up approved Gusto information such as onboarding status, pay schedule details, or benefits enrollment timelines.",
+    "Give HR or operations teams an AI assistant that gathers Gusto record details, summarizes employee status, and walks staff through standard payroll or onboarding SOPs.",
+    "Enable managers to ask the agent for approved team information from Gusto, such as who is still missing onboarding steps or which employee updates need follow-up.",
+    "Use an internal AI assistant to collect missing context from employees, then trigger controlled Gusto-related workflows or prepare review-ready handoffs for HR specialists.",
+    "Help finance, people operations, and support employees research Gusto data alongside internal documentation so they can resolve payroll and benefits questions faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding completion status and explains the next required employee steps.",
+    "A support assistant that summarizes payroll-related context from Gusto before escalating to a human specialist.",
+    "An internal HR bot that helps employees find benefits enrollment timelines and eligibility information.",
+    "A manager assistant that identifies missing employee onboarding tasks and prepares follow-up summaries.",
+    "A people operations agent that gathers employee record context and drafts compliant internal handoffs.",
+    "A payroll support workflow that collects issue details and routes approved cases for review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Gusto-powered agent to do, such as checking onboarding status, summarizing payroll context, or preparing an HR handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Gusto connection details, defines secure authentication and configuration values, keeps secrets out of chats and source files, and scopes access to only the records, actions, and users required for the workflow."
+    },
+    {
+      "title": "Guardrails are added automatically",
+      "description": "Skill Builder sets safe action limits, approval boundaries, and routing rules so the agent can answer questions and take bounded action without exceeding the permissions or decisions you want it to have."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined customer support and internal employee scenarios, finds bugs, missing instructions, or weak permission checks, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so employees or customers can use the Gusto workflow in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gusto?",
+      "answer": "With DocsBot Skill Builder, you describe the Gusto workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Gusto data to answer payroll or onboarding questions?",
+      "answer": "Yes, a DocsBot agent can be designed to retrieve approved Gusto information, summarize status for the conversation, and prepare a handoff or next-step response within the limits you define."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Gusto?",
+      "answer": "Internal agents can help employees look up onboarding or benefits information, summarize HR record context, gather missing details for payroll issues, and trigger controlled follow-up workflows for HR or operations teams."
+    },
+    {
+      "question": "Can DocsBot take actions in Gusto instead of only answering questions?",
+      "answer": "DocsBot Skills can be built for bounded AI Actions such as approved updates, workflow triggers, handoff creation, and record lookups, with permissions and approvals designed around your rules."
+    },
+    {
+      "question": "How does DocsBot keep Gusto credentials and HR data secure?",
+      "answer": "Skill Builder defines secure runtime configuration, protects and proxies secrets, keeps credentials out of chats and generated content, and scopes access to the minimum records and actions needed for the workflow."
+    },
+    {
+      "question": "Can I require human approval before an AI agent updates anything related to Gusto?",
+      "answer": "Yes, Skill Builder can add approval boundaries for sensitive steps so the agent can gather context and prepare the action while routing the final decision or update to the right person."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "rippling",
+    "namely",
+    "adp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gusto",
+    "domain": "gusto.com",
+    "description": "Gusto is a people platform that helps growing businesses manage HR, payroll, benefits, and more. Trusted by over 400,000 businesses, Gusto provides a comprehensive solution for onboarding, paying, insuring, and supporting employees. With a range of features including payroll, benefits, and 401(k)s, Gusto aims to grow the small business economy by supporting entrepreneurs and their teams.",
+    "slogan": "Empowering small businesses with payroll, benefits, and HR solutions.",
+    "logoUrl": "https://media.brand.dev/5eb1f101-b365-400d-9814-0d4d5c2b3548.svg",
+    "iconUrl": "https://media.brand.dev/d5cc1f07-6fc4-44be-8b4c-7037abf8f497.jpg",
+    "primaryColor": "#f35c4c",
+    "accentColor": "#f2b4a4",
+    "colors": [
+      {
+        "hex": "#f35c4c",
+        "name": "Hot Coral"
+      },
+      {
+        "hex": "#f2b4a4",
+        "name": "First Date"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4bc49d38-ce2d-46e0-8339-6331dd9957e5.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://gusto.com/about/careers",
+      "terms": "https://gusto.com/about/terms",
+      "contact": "https://gusto.com/about/contact",
+      "privacy": "https://gusto.com/about/privacy",
+      "blog": "https://gusto.com/company-news",
+      "pricing": "https://gusto.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d5cc1f07-6fc4-44be-8b4c-7037abf8f497.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5eb1f101-b365-400d-9814-0d4d5c2b3548.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 69,
+        "height": 27,
+        "aspectRatio": 2.56
+      },
+      {
+        "url": "https://media.brand.dev/bcbbb01a-a113-4928-b11a-cac6e3d6423f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5eb1f101-b365-400d-9814-0d4d5c2b3548.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 69,
+      "height": 27,
+      "aspectRatio": 2.56
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d5cc1f07-6fc4-44be-8b4c-7037abf8f497.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

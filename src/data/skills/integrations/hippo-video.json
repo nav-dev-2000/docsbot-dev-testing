@@ -1,0 +1,168 @@
+{
+  "slug": "hippo-video",
+  "name": "Hippo Video",
+  "domain": "hippo-video.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Hippo Video",
+  "metaTitle": "Build Hippo Video AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Hippo Video to find videos, generate follow-up assets, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Hippo Video helps teams create, personalize, share, and track AI-powered video content at scale. With DocsBot Skill Builder, you can describe the Hippo Video workflow you want in plain language and have DocsBot create a reusable Skill for your support bot or internal AI agent. The result is an AI agent that can answer questions, look up video information, trigger approved actions, prepare handoffs, and help teams move faster without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up relevant Hippo Video assets, sharing status, or engagement details so it can answer customer questions with current video context.",
+    "Let the agent suggest or generate a personalized video follow-up workflow in Hippo Video after a support conversation, then confirm the next step with the customer.",
+    "Have the agent summarize a customer's issue and prepare a video handoff request for a success, onboarding, or escalation team that uses Hippo Video for personalized outreach.",
+    "Enable a helpdesk-connected DocsBot agent to trigger approved Hippo Video workflows for demo recaps, onboarding explainers, or support follow-up videos tied to a ticket.",
+    "Use the agent to retrieve the right explainer or tutorial video from Hippo Video and send it in chat when a customer needs guided product help."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the best Hippo Video asset for a sales, onboarding, training, or support scenario without searching manually.",
+    "Customer success or support teams can ask the agent to prepare a Hippo Video follow-up workflow, summarize the customer context, and route the request to the right teammate.",
+    "Marketing, enablement, and training teams can use an internal AI agent to locate reusable video content, repurposing opportunities, or campaign-ready assets stored in Hippo Video.",
+    "Operations teams can chat with the agent in Slack or Microsoft Teams to trigger approved Hippo Video processes and receive a clear summary of what was created, updated, or queued.",
+    "Employees can ask the agent to assemble SOP-style video recommendations for common customer questions, internal training needs, or launch communications."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and shares the right Hippo Video tutorial during live customer conversations.",
+    "A helpdesk assistant that prepares personalized Hippo Video follow-up requests after complex support tickets.",
+    "An internal agent that retrieves Hippo Video assets by use case, audience, campaign, or training topic.",
+    "A customer success agent that drafts video handoff context for onboarding, renewal, or escalation workflows.",
+    "A team assistant that triggers approved Hippo Video creation or sharing workflows with clear approval boundaries.",
+    "An AI agent that summarizes video engagement context for teams before outreach or follow-up conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Hippo Video, such as finding videos, triggering follow-up workflows, or preparing personalized handoffs, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime settings, and scopes access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Actions get clear limits",
+      "description": "Skill Builder adds the right behavior instructions, approval boundaries, and safe action limits so the agent can answer questions and take bounded Hippo Video actions without overreaching."
+    },
+    {
+      "title": "Testing runs realistic scenarios",
+      "description": "DocsBot's automated testing agent exercises imagined customer support and internal team conversations, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use Hippo Video workflows through natural chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Hippo Video?",
+      "answer": "With DocsBot Skill Builder, you describe the Hippo Video workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Hippo Video during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Hippo Video as part of a customer-facing chat or helpdesk workflow to find relevant videos, prepare follow-up requests, summarize context, and trigger approved next steps while replying to the customer."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Hippo Video?",
+      "answer": "Teams can automate video lookups, personalized support follow-up requests, onboarding or tutorial video recommendations, escalation handoff prep, and workflow triggers tied to customer questions or tickets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Hippo Video more efficiently?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to find video assets, retrieve context, prepare outreach workflows, and complete repeatable SOPs that involve Hippo Video."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Hippo Video instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as lookups, workflow triggers, summaries, and approved updates, with scoped permissions and approval checks for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot keep Hippo Video access secure?",
+      "answer": "Skill Builder defines the needed configuration, handles authentication through secure runtime settings, keeps secrets out of conversations and generated content, scopes access to the minimum required permissions, and can add approval boundaries before sensitive actions run."
+    }
+  ],
+  "relatedSlugs": [
+    "vidyard",
+    "loom",
+    "wistia",
+    "youtube",
+    "vimeo",
+    "bombbomb"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Hippo Video",
+    "domain": "hippovideo.io",
+    "description": "Hippo Video is an AI-powered video creation and distribution platform that empowers businesses to create high-impact videos at scale. It offers features such as Text-to-Video, AI Avatars, and interactive videos, allowing users to craft professional videos quickly, personalize video experiences, and boost engagement effectiveness. The platform automates video production, enables content repurposing, and provides integrations for developers, making it a versatile tool for sales, marketing, learning, and customer service teams.",
+    "slogan": "Create, share, and track impactful AI videos effortlessly at scale.",
+    "logoUrl": "https://media.brand.dev/8140b452-727b-4bab-abf6-57389f18c3a2.svg",
+    "iconUrl": "https://media.brand.dev/e5c52d04-b5a7-449c-ac60-e6141767e94c.png",
+    "primaryColor": "#f47c5c",
+    "accentColor": "#e4937d",
+    "colors": [
+      {
+        "hex": "#f47c5c",
+        "name": "Akakō Red"
+      },
+      {
+        "hex": "#e4937d",
+        "name": "Nude Flamingo"
+      },
+      {
+        "hex": "#fbc0b0",
+        "name": "Peach Melba"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/354815a6-046e-4147-bbd9-8c6162246cc1.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.hippovideo.io/careers.html",
+      "terms": "https://www.hippovideo.io/terms_of_service.html",
+      "contact": "https://www.hippovideo.io/contactus.html",
+      "privacy": "https://www.hippovideo.io/privacy_policy.html",
+      "blog": "https://www.hippovideo.io/blog/",
+      "pricing": "https://www.hippovideo.io/pricing.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/41401c05-6cb5-4ec5-a133-0ff03e0a7f5e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8140b452-727b-4bab-abf6-57389f18c3a2.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 420,
+        "height": 116,
+        "aspectRatio": 3.62
+      },
+      {
+        "url": "https://media.brand.dev/e5c52d04-b5a7-449c-ac60-e6141767e94c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8140b452-727b-4bab-abf6-57389f18c3a2.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 420,
+      "height": 116,
+      "aspectRatio": 3.62
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/41401c05-6cb5-4ec5-a133-0ff03e0a7f5e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

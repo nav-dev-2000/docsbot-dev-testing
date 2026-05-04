@@ -21,6 +21,7 @@ import CTASection from '@/components/CTASection'
 import VideoPlayer from '@/components/VideoPlayer'
 import SecuritySection from '@/components/SecuritySection'
 import { UseCases } from '@/components/home/UseCases'
+import AIActionContextSection from '@/components/AIActionContextSection'
 import JsonLd from '@/components/seo/JsonLd'
 import { HOW_IT_WORKS_FEATURES } from '@/data/howItWorks'
 import {
@@ -216,6 +217,8 @@ export default function Home() {
             />
 
             <HowItWorks />
+
+            <AIActionContextSection variant="home" className="bg-gray-50" />
 
             <IntegrationsFeatures />
 

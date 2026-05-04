@@ -1,0 +1,170 @@
+{
+  "slug": "alchemer",
+  "name": "Alchemer",
+  "domain": "alchemer.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Alchemer Feedback Data",
+  "metaTitle": "Build AI Agents for Alchemer with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Alchemer survey and feedback data for support workflows, internal research, safe updates, summaries, and follow-up actions.",
+  "intro": "Alchemer helps teams collect feedback, analyze responses, and turn insights into action across customer, employee, and market programs. With DocsBot Skill Builder, you can describe the Alchemer workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, pull survey context, summarize feedback, and take approved actions inside Alchemer while staying within secure rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Alchemer survey responses tied to an account and summarize sentiment while replying in chat or email support.",
+    "Use an AI support agent to check whether a customer completed a feedback survey, capture missing context, and create an internal handoff when follow-up is needed.",
+    "Enable the agent to pull common themes from Alchemer responses after a support interaction and prepare a concise case summary for the success or product team.",
+    "Have the agent trigger an approved Alchemer survey workflow after a resolved ticket so customers can receive the right follow-up request automatically.",
+    "Use DocsBot to review customer feedback tied to a product area and explain the latest reported pain points during a live support conversation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Teams, or a web chat to retrieve Alchemer survey results, segment feedback, and summarize key trends for meetings or planning.",
+    "Enable customer success or operations teams to ask the agent for the latest satisfaction themes, detractor comments, or survey completion patterns without manually digging through dashboards.",
+    "Give product and research teams an AI assistant that compares Alchemer feedback across surveys, drafts insight summaries, and prepares structured handoff notes for roadmap reviews.",
+    "Allow HR or people teams to use a private AI agent to summarize employee feedback results, identify recurring topics, and generate action-oriented briefing notes within approved access limits.",
+    "Help internal teams complete feedback-response SOPs by having employees chat with the agent to gather Alchemer context, prepare next-step recommendations, and trigger approved follow-up workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes recent Alchemer survey responses for a specific customer or account.",
+    "A support assistant that triggers post-resolution feedback surveys after approved ticket outcomes.",
+    "An internal research agent that compares feedback themes across multiple Alchemer surveys.",
+    "A customer success assistant that drafts handoff notes from survey comments and response scores.",
+    "An employee AI assistant that pulls approved employee feedback trends for leadership updates.",
+    "A workflow agent that checks survey completion status and recommends the next follow-up step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Alchemer-enabled agent to do in plain language, and it turns that goal into a working Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime settings so credentials stay out of chats and Skill instructions."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum Alchemer access needed, limits actions to the right records and users, and adds approval boundaries for sensitive updates or workflow triggers before anything is deployed."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, permission gaps, and missed edge cases, then feeds those findings back into improvement steps."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder uses those test results to refine prompts, action logic, safeguards, and handoff behavior so the Skill is stronger and safer before publication."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Alchemer survey data?",
+      "answer": "With DocsBot Skill Builder, you describe the survey lookup, summary, or action you want in plain language, and Skill Builder creates a reusable Skill that lets your AI agent securely work with Alchemer data. It can be designed for customer support workflows or for private internal assistants used by your team."
+    },
+    {
+      "question": "Can an AI support agent use Alchemer during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use an Alchemer Skill to look up feedback context, summarize responses, check survey status, and trigger approved follow-up workflows while responding to customers. The customer conversation or ticket triggers DocsBot, and the Skill gives the agent safe access to Alchemer actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Alchemer?",
+      "answer": "Teams can build workflows such as checking whether a customer completed a survey, summarizing recent feedback themes, preparing escalation notes, or sending an approved post-resolution survey. The goal is to help the agent answer, gather context, and take bounded next-step actions instead of only suggesting manual work."
+    },
+    {
+      "question": "Can an internal AI assistant help employees analyze Alchemer feedback?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve survey findings, compare themes, summarize sentiment, and prepare research or planning notes from Alchemer data. This is useful for customer success, product, research, operations, and people teams that need fast feedback insights."
+    },
+    {
+      "question": "How does DocsBot keep Alchemer connections and credentials secure?",
+      "answer": "Skill Builder defines the required configuration, handles authentication safely, and keeps credentials out of chat transcripts and generated Skill content by using secure runtime configuration and secret proxying. It also scopes permissions to the minimum records, actions, and users needed for the workflow."
+    },
+    {
+      "question": "Can I require approvals before an AI agent updates records or triggers surveys in Alchemer?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries and action limits for sensitive workflows. That means the agent can gather context, prepare the action, and only proceed when the rules you set allow it."
+    }
+  ],
+  "relatedSlugs": [
+    "surveymonkey",
+    "qualtrics",
+    "typeform",
+    "medallia",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Alchemer",
+    "domain": "alchemer.com",
+    "description": "Alchemer empowers organizations to turn feedback into action. Whether launching a single survey or building a comprehensive feedback program, Alchemer provides customer‑obsessed teams with the tools and insights needed to move from asking questions to driving measurable business results. Their platform enables real‑time data collection, advanced analytics, and seamless integration, helping companies harness the full potential of customer, employee, and market feedback.",
+    "slogan": "You Don’t Need Another Survey Tool. You Need a Feedback Machine.",
+    "logoUrl": "https://media.brand.dev/3c33aa13-fffc-4953-ad6a-4e1080146290.png",
+    "iconUrl": "https://media.brand.dev/5d55f319-5d35-43d4-b8b0-59ce8f9cd2fc.png",
+    "primaryColor": "#7c7c78",
+    "accentColor": "#1f1f1f",
+    "colors": [
+      {
+        "hex": "#7c7c78",
+        "name": "Moon Base"
+      },
+      {
+        "hex": "#1f1f1f",
+        "name": "Umbra"
+      },
+      {
+        "hex": "#f3f3eb",
+        "name": "Snow Fall"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/96d1bb09-b1c8-43a6-961f-0d47035b0b29.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.alchemer.com/careers/",
+      "terms": null,
+      "pricing": "https://www.alchemer.com/plans-pricing/",
+      "contact": "https://www.alchemer.com/contact/",
+      "privacy": "https://www.alchemer.com/privacy/",
+      "blog": "https://www.alchemer.com/resources/blog/",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/dd78a62d-b6ba-4e32-a7de-0ed52a5322b9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3c33aa13-fffc-4953-ad6a-4e1080146290.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1599,
+        "height": 318,
+        "aspectRatio": 5.03
+      },
+      {
+        "url": "https://media.brand.dev/5d55f319-5d35-43d4-b8b0-59ce8f9cd2fc.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3c33aa13-fffc-4953-ad6a-4e1080146290.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1599,
+      "height": 318,
+      "aspectRatio": 5.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/dd78a62d-b6ba-4e32-a7de-0ed52a5322b9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

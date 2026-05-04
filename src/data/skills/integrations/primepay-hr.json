@@ -1,0 +1,168 @@
+{
+  "slug": "primepay-hr",
+  "name": "PrimePay HR",
+  "domain": "primepay-hr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with PrimePay HR",
+  "metaTitle": "Build PrimePay HR AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use PrimePay HR for employee lookups, HR workflows, support handoffs, and approved record updates.",
+  "intro": "PrimePay HR helps businesses manage payroll, HR, and related people processes in one platform. With DocsBot Skill Builder, you can describe the HR or support workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up data, summarize status, trigger workflows, and take approved actions. This makes it easier to support employees, customers, and internal teams with faster answers and bounded automation.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an employment or payroll-related request in PrimePay HR and give the customer a clear progress update.",
+    "Use a support agent connected to your helpdesk to gather missing information for HR or payroll questions, then prepare a complete handoff for a human specialist.",
+    "Enable the agent to summarize employee-related case details from PrimePay HR so support teams can respond with accurate next steps.",
+    "Allow the agent to create or update approved HR service records in PrimePay HR while responding to customer or employee support requests.",
+    "Have the agent trigger a defined follow-up workflow in PrimePay HR, such as routing a benefits or payroll question to the right internal queue."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up approved employee, payroll, or HR information from PrimePay HR.",
+    "HR and operations teams can ask the agent to summarize worker records, open tasks, or process status in PrimePay HR before taking the next step.",
+    "Managers can use the agent to start approved HR workflows, collect required context, and route requests to the correct people without leaving chat.",
+    "People operations staff can chat with the agent to follow SOPs for onboarding, offboarding, payroll issue triage, and benefits-related follow-up across PrimePay HR and other systems.",
+    "Internal support teams can use the agent to prepare handoff notes, case summaries, and escalation context based on PrimePay HR data."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks HR request status and explains the next approved step.",
+    "A private employee assistant that retrieves payroll or benefits context from PrimePay HR.",
+    "A helpdesk agent that gathers missing details before routing HR tickets to specialists.",
+    "An internal HR copilot that summarizes employee records and pending process steps.",
+    "A workflow assistant that triggers approved onboarding or offboarding actions from chat.",
+    "A manager assistant that prepares escalation notes using PrimePay HR case details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with PrimePay HR, and it turns that goal into a practical workflow without requiring you to map the technical steps yourself."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should look up information, update records, trigger workflows, generate summaries, and add safe routing instructions for your support or internal agent."
+    },
+    {
+      "title": "Secure connections are planned",
+      "description": "Skill Builder identifies the configuration values the Skill needs, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, users, and actions needed, and it adds approval boundaries or safe action limits wherever a sensitive HR workflow should not run automatically."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with PrimePay HR?",
+      "answer": "With DocsBot Skill Builder, you describe the HR or support outcome you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use PrimePay HR data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot agent can use a PrimePay HR Skill to perform approved lookups, summarize relevant status, gather missing details, and prepare handoffs while replying in a chat widget or helpdesk context."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with PrimePay HR?",
+      "answer": "Internal DocsBot agents can help with employee information lookups, HR request triage, onboarding or offboarding steps, payroll issue follow-up, case summaries, and approved workflow triggers based on your rules."
+    },
+    {
+      "question": "Can DocsBot safely update PrimePay HR records or trigger HR actions?",
+      "answer": "DocsBot Skills can be designed for bounded updates and workflow triggers, with scoped permissions, secure secret handling, and approval boundaries so sensitive actions stay under your control."
+    },
+    {
+      "question": "Can an AI agent hand off PrimePay HR issues to human HR or payroll teams?",
+      "answer": "Yes, the agent can collect context, summarize the issue, attach relevant details from PrimePay HR, and create a cleaner escalation or handoff for the right internal team."
+    },
+    {
+      "question": "How does DocsBot keep PrimePay HR connections secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, avoids exposing credentials in chats or generated content, and scopes access to only the actions and records the workflow needs."
+    }
+  ],
+  "relatedSlugs": [
+    "adp-workforce-now",
+    "bamboohr",
+    "gusto",
+    "paylocity",
+    "paychex-flex",
+    "ukg-pro"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PrimePay",
+    "domain": "primepay.com",
+    "description": "PrimePay is a unified HCM platform that simplifies payroll and HR processes for small businesses. With 38 years of experience, they offer an all-in-one solution that includes payroll, HR, and benefits, empowering financial and people outcomes. Their platform helps over 14,000 clients streamline operations, reduce compliance worries, and save time, allowing them to focus on their business.",
+    "slogan": "Simplify payroll and HR, empowering small businesses to focus on growth.",
+    "logoUrl": "https://media.brand.dev/31c3a93d-d31e-4e5b-8715-6b8a28294134.png",
+    "iconUrl": "https://media.brand.dev/a171a648-981e-46ab-a0f8-a0e2b08102c4.jpg",
+    "primaryColor": "#050564",
+    "accentColor": "#7474ac",
+    "colors": [
+      {
+        "hex": "#050564",
+        "name": "D. Darx Blue"
+      },
+      {
+        "hex": "#7474ac",
+        "name": "Minuet Lilac"
+      },
+      {
+        "hex": "#cdcde1",
+        "name": "Breezy Violet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c4ecea16-357b-4ebb-b067-0ec53e57151f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://primepay.com/careers/",
+      "contact": "https://primepay.com/contact-us/",
+      "privacy": "https://primepay.com/privacy-policy/",
+      "pricing": "https://primepay.com/pricing/",
+      "terms": "https://primepay.com/terms-of-use/",
+      "blog": "https://primepay.com/blog/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a171a648-981e-46ab-a0f8-a0e2b08102c4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/31c3a93d-d31e-4e5b-8715-6b8a28294134.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1965,
+        "height": 341,
+        "aspectRatio": 5.76
+      },
+      {
+        "url": "https://media.brand.dev/ab0a1093-10c0-4301-8d4b-cec7befb79b6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/31c3a93d-d31e-4e5b-8715-6b8a28294134.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1965,
+      "height": 341,
+      "aspectRatio": 5.76
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a171a648-981e-46ab-a0f8-a0e2b08102c4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

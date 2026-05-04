@@ -1,0 +1,168 @@
+{
+  "slug": "apache-airflow",
+  "name": "Apache Airflow",
+  "domain": "apache-airflow.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Apache Airflow",
+  "metaTitle": "Build Apache Airflow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Apache Airflow to check workflow status, trigger approved runs, summarize pipeline issues, and support internal teams safely.",
+  "intro": "Apache Airflow helps teams schedule, monitor, and manage batch workflows and data pipelines. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Airflow, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can answer questions, look up workflow state, trigger approved actions, and prepare clear handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer-specific data pipeline or scheduled job has completed and explain the latest status in plain language.",
+    "Enable the agent to summarize recent Airflow task failures tied to a customer issue so support can respond faster with accurate context.",
+    "Allow the agent to trigger an approved Airflow DAG run for safe customer-requested operations such as a retry, refresh, or resync workflow.",
+    "Use the agent to gather customer details from the chat or ticket, attach the relevant Airflow run information, and prepare a clean escalation handoff for technical teams.",
+    "Let the agent monitor workflow progress during a support conversation and send an updated summary when a run finishes or fails within approved limits."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up DAG health, recent task runs, failure reasons, and schedule status across Airflow environments.",
+    "Operations or data teams can ask the agent to trigger approved Airflow workflows, reruns, or backfills with clear approval boundaries and logged outcomes.",
+    "Team members can use the agent in Slack or Microsoft Teams to summarize pipeline incidents, identify likely downstream impact, and prepare incident updates.",
+    "Employees can ask the agent to follow internal SOPs for workflow triage, gather missing context, and route the issue to the right team with a structured summary.",
+    "Analysts and support teams can chat with the agent to understand whether a delayed customer-facing process is caused by an Airflow dependency and what happened most recently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Airflow DAG and task status during customer conversations.",
+    "A private operations assistant that triggers approved reruns and summarizes outcomes for employees.",
+    "An escalation helper that gathers Airflow logs, run history, and failure context into a handoff.",
+    "A Slack or Teams assistant that reports pipeline health and recent workflow exceptions.",
+    "A triage agent that maps customer issues to relevant Airflow jobs and likely downstream impact.",
+    "An internal SOP assistant that walks teams through safe recovery steps for failed workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Apache Airflow in plain language, such as checking run status, summarizing failures, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable DocsBot Skill, choosing the safest workflow design, defining the required configuration values, and setting up secure connection and authentication handling for Airflow."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum actions and records needed, and adds approval boundaries for sensitive workflow triggers or updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing support bot or private employee agent so it can take bounded action inside your approved Airflow workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Apache Airflow?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and Skill Builder creates a reusable Skill that can look up Airflow workflow state, summarize runs, or trigger approved actions. It also handles secure configuration, scoped permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Apache Airflow data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use an Apache Airflow Skill to check DAG runs, task status, failure summaries, or workflow progress while responding to customers. You control which environments, actions, and records the agent can access and when approvals are required."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Apache Airflow?",
+      "answer": "A DocsBot agent can look up job status, explain whether a customer-facing process completed, summarize pipeline failures, trigger approved retries or refreshes, and prepare escalations with the right run context. This helps support teams resolve issues faster without giving the bot unlimited operational access."
+    },
+    {
+      "question": "Can an internal AI assistant trigger Apache Airflow workflows for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees trigger approved DAG runs, reruns, or related operational workflows from chat, Slack, or Microsoft Teams. Skill Builder can add safe action limits, approval steps, and scoped permissions so the assistant stays within your rules."
+    },
+    {
+      "question": "How does DocsBot keep Apache Airflow access secure for AI agents?",
+      "answer": "Skill Builder defines the connection settings the Skill needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated content. It also scopes permissions to the minimum required access and can require approvals for sensitive actions like triggering or modifying workflows."
+    },
+    {
+      "question": "Can DocsBot summarize Apache Airflow failures for operations or support teams?",
+      "answer": "Yes, a DocsBot agent can gather relevant Airflow run details, task states, and failure information, then present a concise summary for support, operations, or engineering teams. It can also turn that context into a structured handoff or incident update."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "pagerduty",
+    "jira",
+    "slack",
+    "microsoft-teams",
+    "github"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Apache Airflow",
+    "domain": "airflow.apache.org",
+    "description": "Apache Airflow is an open-source platform that enables the development, scheduling, and monitoring of batch-oriented workflows. It provides an extensible Python framework to build workflows that can connect with various technologies and a web interface to manage workflow states. Airflow is highly deployable and has become a de-facto standard for Data Engineering and ETL pipelines, allowing users to programmatically author, schedule, and monitor workflows.",
+    "slogan": "Streamline workflows with Apache Airflow's flexible, open-source platform.",
+    "logoUrl": "https://media.brand.dev/e27179f1-9f40-469f-83a9-cf9ab8a6a7c5.svg",
+    "iconUrl": "https://media.brand.dev/d597c8f4-d516-4d3f-9a17-233285abd17b.jpg",
+    "primaryColor": "#0aa7de",
+    "accentColor": "#273237",
+    "colors": [
+      {
+        "hex": "#0aa7de",
+        "name": "Blue Fire"
+      },
+      {
+        "hex": "#273237",
+        "name": "Nightshade Blue"
+      },
+      {
+        "hex": "#04b348",
+        "name": "Billiards Cloth"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/516ee464-8f14-41c5-baed-4bf7e2325751.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": "https://airflow.apache.org/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d597c8f4-d516-4d3f-9a17-233285abd17b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c9ea52e0-76d6-48ef-911b-442b458c8f4a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e27179f1-9f40-469f-83a9-cf9ab8a6a7c5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 155,
+        "height": 60,
+        "aspectRatio": 2.58
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e27179f1-9f40-469f-83a9-cf9ab8a6a7c5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 155,
+      "height": 60,
+      "aspectRatio": 2.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c9ea52e0-76d6-48ef-911b-442b458c8f4a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

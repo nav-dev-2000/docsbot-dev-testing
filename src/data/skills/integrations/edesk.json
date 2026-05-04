@@ -1,0 +1,176 @@
+{
+  "slug": "edesk",
+  "name": "eDesk",
+  "domain": "edesk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with eDesk",
+  "metaTitle": "Build AI Support and Team Agents for eDesk | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use eDesk to look up tickets, summarize conversations, prepare escalations, update records, and support eCommerce teams safely.",
+  "intro": "eDesk helps eCommerce brands manage customer conversations across channels, and DocsBot Skill Builder helps you turn that data and workflow access into practical AI Actions. In plain language, you describe what your agent should do with eDesk, and Skill Builder designs, secures, tests, and deploys the Skill for customer support or internal team use. The result is an AI agent that can answer questions and take bounded action inside your support process instead of only suggesting the next step.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer’s recent eDesk conversation history and summarize open issues before replying.",
+    "Use a DocsBot helpdesk agent to create or update eDesk tickets from incoming customer messages while capturing the right order, channel, and issue details.",
+    "Have the agent check ticket status in eDesk and give customers a clear progress update without requiring a human to search manually.",
+    "Enable the agent to prepare escalation notes in eDesk with a concise summary of the customer’s issue, prior messages, and requested outcome.",
+    "Let the agent tag or route eDesk conversations based on refund, shipping, marketplace, or product issue patterns defined by your team rules before handoff occurs."
+  ],
+  "internalUseCases": [
+    "Give support employees a private DocsBot agent they can chat with to retrieve eDesk ticket details, recent conversation history, and account context without switching tools.",
+    "Let team members ask an internal agent to summarize backlog trends, repeat complaint themes, or unresolved marketplace issues pulled from eDesk conversations.",
+    "Enable operations or customer success teams to chat with the agent to prepare escalation handoffs, draft follow-up notes, and complete support SOP steps using eDesk data.",
+    "Allow managers to use a private agent in Slack or Microsoft Teams to review ticket states, triage queues, and identify which issues need human approval or reassignment.",
+    "Help new employees chat with an internal AI assistant that combines your support documentation with eDesk context to guide consistent responses and next-step workflows."
+  ],
+  "whatYouCanBuild": [
+    "A chat agent that retrieves eDesk ticket status and explains the next approved support step.",
+    "An AI assistant that summarizes multi-message eDesk conversations for faster human handoffs.",
+    "A Skill that creates eDesk tickets from website chats with structured issue details.",
+    "An internal agent that surfaces open eDesk cases for a specific order or customer.",
+    "A workflow that tags and routes eDesk conversations based on issue type and urgency.",
+    "An agent that drafts escalation summaries from eDesk threads before manager review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with eDesk in plain language, such as checking ticket status, creating escalations, or summarizing support threads for employees."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically decides the safest workflow design, required configuration values, and runtime behavior."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and scopes eDesk access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates so the agent can look up information freely while only making approved changes under your rules."
+    },
+    {
+      "title": "An automated agent tests it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for eDesk customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and Skill Builder creates a secure Skill that lets your agent look up eDesk data, summarize conversations, create handoffs, and perform approved ticket actions. The finished Skill can be deployed to a website chat widget or a DocsBot agent connected to your helpdesk workflow."
+    },
+    {
+      "question": "Can an AI support agent use eDesk data during live customer conversations?",
+      "answer": "Yes, a DocsBot agent can use a Skill to retrieve relevant eDesk ticket or conversation context while replying to a customer, as long as you approve the workflow and access scope. This helps the agent provide faster answers, clearer status updates, and better escalation preparation."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with eDesk?",
+      "answer": "Teams can build workflows for ticket lookups, conversation summaries, escalation note creation, routing suggestions, status updates, and other bounded actions that fit their process. Skill Builder helps define safe permissions and approval steps so automation stays controlled."
+    },
+    {
+      "question": "Can DocsBot update eDesk records safely?",
+      "answer": "Yes, Skill Builder can design Skills that update records only within the limits you define, such as adding notes, creating tickets, or changing selected fields. It scopes access carefully, protects secrets by design, and can require approval boundaries for sensitive changes."
+    },
+    {
+      "question": "Can I create an internal AI assistant that works with eDesk for my support team?",
+      "answer": "Yes, teams can deploy a private DocsBot agent in chat, Slack, or Microsoft Teams so employees can ask for ticket context, queue summaries, escalation prep, and SOP guidance based on eDesk information. This reduces tool switching and helps teams work more consistently."
+    },
+    {
+      "question": "How does DocsBot keep eDesk credentials and access secure?",
+      "answer": "Skill Builder defines the connection setup, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions to the smallest practical set of actions, records, and users for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "gorgias",
+    "helpscout",
+    "intercom",
+    "shopify"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "eDesk",
+    "domain": "edesk.com",
+    "description": "eDesk is an eCommerce helpdesk platform that empowers ecommerce brands and marketplace sellers to deliver faster, smarter, AI-driven customer experiences across every channel. It centralizes customer messages, automates repetitive support tasks, and turns customer conversations into growth, allowing teams to resolve issues faster, delight customers, and scale efficiently.",
+    "slogan": "Smart, unified customer support for eCommerce success everywhere you sell.",
+    "logoUrl": "https://media.brand.dev/37b437ad-5465-4841-ab61-758a1f0b967a.svg",
+    "iconUrl": "https://media.brand.dev/aa492471-0e9d-48e0-8054-edc911ac6ab3.jpg",
+    "primaryColor": "#133f8b",
+    "accentColor": "#934061",
+    "colors": [
+      {
+        "hex": "#133f8b",
+        "name": "Mondrian Blue"
+      },
+      {
+        "hex": "#934061",
+        "name": "Aurora Magenta"
+      },
+      {
+        "hex": "#d2d7e0",
+        "name": "Hint of Violet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cf961e86-f2cf-4787-bcf9-e25b5c1495a9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.edesk.com/careers/",
+      "terms": "https://www.edesk.com/terms-and-conditions/",
+      "contact": "https://www.edesk.com/contact-support/",
+      "privacy": "https://www.edesk.com/privacy-policy/",
+      "blog": "https://www.edesk.com/blog/gorgias-vs-zendesk/",
+      "pricing": "https://www.edesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aa492471-0e9d-48e0-8054-edc911ac6ab3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a8859fd6-7ab8-4aa4-8908-9316fdc3de51.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/37b437ad-5465-4841-ab61-758a1f0b967a.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 129,
+        "height": 36,
+        "aspectRatio": 3.58
+      },
+      {
+        "url": "https://media.brand.dev/05e065df-6a4e-46af-bb72-dc4917041c80.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/37b437ad-5465-4841-ab61-758a1f0b967a.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 129,
+      "height": 36,
+      "aspectRatio": 3.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/05e065df-6a4e-46af-bb72-dc4917041c80.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

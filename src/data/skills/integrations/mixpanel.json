@@ -1,0 +1,176 @@
+{
+  "slug": "mixpanel",
+  "name": "Mixpanel",
+  "domain": "mixpanel.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Mixpanel for Support and Team Workflows",
+  "metaTitle": "Build AI Agents for Mixpanel with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mixpanel for analytics lookups, customer support context, internal reporting, workflow triggers, and safe team actions.",
+  "intro": "Mixpanel helps teams understand product and web behavior, retention, feature usage, and customer engagement. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Mixpanel, and Skill Builder designs, secures, tests, improves, and deploys that reusable Skill for you. The result is a support or internal AI agent that can answer questions, pull live analytics context, summarize behavior, and take bounded actions inside your approved workflow.",
+  "supportUseCases": [
+    "When a customer asks why a feature is not being used, the DocsBot agent can check Mixpanel event trends and summarize recent adoption patterns before responding.",
+    "For billing, onboarding, or success questions, the agent can look up product usage signals in Mixpanel to help explain activity levels, engagement changes, or likely next steps.",
+    "The agent can use Mixpanel data to prepare a support handoff with a concise summary of recent user events, funnel drop-off points, and notable behavior changes.",
+    "When a customer reports a broken flow, the agent can reference Mixpanel conversion or event data to identify where users are dropping off and share a clearer troubleshooting response.",
+    "The agent can enrich helpdesk replies with Mixpanel-based usage context so support teams can personalize answers instead of relying only on static documentation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Mixpanel metrics, trend summaries, and feature adoption insights without opening dashboards manually.",
+    "Customer success and support teams can ask the agent to research account engagement patterns in Mixpanel and prepare renewal, escalation, or outreach summaries.",
+    "Product and operations teams can use the agent in Slack or Microsoft Teams to compare funnel performance, summarize retention shifts, and generate stakeholder-ready updates.",
+    "Team members can ask the agent to combine Mixpanel behavior signals with internal SOPs so it can recommend the next approved action for onboarding, enablement, or escalation workflows.",
+    "Employees can use the agent to answer recurring analytics questions quickly, reducing manual dashboard checks and speeding up cross-functional decisions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes recent product usage before replying to customer questions.",
+    "An internal analytics assistant that explains Mixpanel trends in plain business language.",
+    "A helpdesk Skill that prepares escalation notes with event history and funnel context.",
+    "A customer success assistant that flags low adoption signals for outreach planning.",
+    "A team agent that generates weekly feature usage summaries from Mixpanel data.",
+    "A private Slack assistant that answers retention and engagement questions on demand."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Mixpanel in plain language, such as looking up usage trends, summarizing engagement, or preparing support handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling for Mixpanel."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill instructions, proxies secrets through secure runtime configuration, scopes access to the minimum data and actions required, and adds approval boundaries where sensitive actions or wider visibility need extra control."
+    },
+    {
+      "title": "Test and improve",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private team agent so people can use Mixpanel-powered answers and actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Mixpanel data?",
+      "answer": "With DocsBot Skill Builder, you describe the Mixpanel workflow you want in plain language, and Skill Builder creates a secure Skill that can retrieve analytics, summarize behavior, and support approved actions. It also handles connection design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Mixpanel to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Mixpanel as a data source for live usage context, trend summaries, funnel insights, and escalation prep while replying in chat or through helpdesk tickets. This helps support teams deliver more relevant responses based on actual customer behavior."
+    },
+    {
+      "question": "What Mixpanel workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can answer analytics questions, summarize feature adoption, prepare account research, generate recurring reports, and support SOP-driven workflows for product, support, and customer success teams. The exact actions are bounded by the permissions and approval rules you choose."
+    },
+    {
+      "question": "Can DocsBot use Mixpanel for safe lookups without exposing credentials?",
+      "answer": "Yes, Skill Builder is designed to define secure connection settings, keep secrets out of chat transcripts and Skill source, and proxy credentials through approved runtime configuration. It also scopes access so the agent only reaches the records, actions, and users needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare support handoffs using Mixpanel insights?",
+      "answer": "Yes, the agent can gather relevant Mixpanel context such as event history, adoption signals, or funnel drop-off points and turn that into a concise handoff summary for a human team member. This gives support and success teams better context before they engage."
+    },
+    {
+      "question": "How does approval control work for AI actions connected to Mixpanel?",
+      "answer": "Skill Builder can add approval boundaries and safe action limits based on the workflow so sensitive steps require the right level of review. That lets teams automate routine lookups and summaries while keeping stronger control over broader or higher-impact actions."
+    }
+  ],
+  "relatedSlugs": [
+    "amplitude",
+    "google-analytics",
+    "heap",
+    "segment",
+    "looker",
+    "tableau"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mixpanel",
+    "domain": "mixpanel.com",
+    "description": "Mixpanel is an AI‑first digital analytics platform that helps businesses turn data clarity into innovation. Trusted by over 29,000 companies such as Workday, Pinterest, LG, and Rakuten Viber, Mixpanel combines product and web analytics, session replay, experimentation, feature flags, and metric trees into a single solution. Its tools accelerate user adoption, improve retention, and enable teams to ship features with confidence, delivering reliable insights that drive product decisions and growth.",
+    "slogan": "Mixpanel, wherever you work. Get answers faster.",
+    "logoUrl": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+    "iconUrl": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+    "primaryColor": "#74674b",
+    "accentColor": "#0c0b0a",
+    "colors": [
+      {
+        "hex": "#74674b",
+        "name": "Shady Oak"
+      },
+      {
+        "hex": "#0c0b0a",
+        "name": "Raven"
+      },
+      {
+        "hex": "#c3d0b5",
+        "name": "Tender Greens"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7afb1b09-c27d-4da8-8e59-b47d2f603cbb.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "contact": "https://mixpanel.com/contact-us/sales/",
+      "pricing": "https://mixpanel.com/pricing/",
+      "careers": "https://mixpanel.com/jobs/",
+      "privacy": "https://mixpanel.com/legal/privacy-policy/",
+      "blog": "https://mixpanel.com/blog/mixpanel-mcp/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b0f292d4-498a-41a7-aadf-4b866e32ed46.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b1479f2f-b5e4-4242-a4fb-171f0d27e837.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

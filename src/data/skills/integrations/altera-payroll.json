@@ -1,0 +1,113 @@
+{
+  "slug": "altera-payroll",
+  "name": "Altera Payroll",
+  "domain": "altera-payroll.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Altera Payroll",
+  "metaTitle": "Altera Payroll AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Altera Payroll for payroll and HR lookups, secure employee workflows, ticket responses, and internal team automation.",
+  "intro": "Altera Payroll helps businesses manage payroll processing, tax compliance, benefits administration, and employee self-service. With DocsBot Skill Builder, you can describe the payroll or HR workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up information, trigger approved actions, and summarize outcomes. This helps support teams and internal operations teams resolve questions faster while keeping access controlled and auditable.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check payroll processing status or pay schedule information from Altera Payroll when customers ask payment timing questions.",
+    "Use a support agent connected to your helpdesk to gather employee self-service issues, look up relevant Altera Payroll account details, and prepare a clean handoff for payroll or HR specialists.",
+    "Allow the agent to guide users through myESS access issues by checking approved account state, summarizing next steps, and triggering bounded support workflows.",
+    "Have the agent answer common questions about pay stubs, time-off request status, benefits administration, or tax document availability using approved Altera Payroll data.",
+    "Enable the agent to collect missing context from a customer conversation, create an internal support note, and escalate complex payroll problems with a clear summary of Altera Payroll findings."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve payroll dates, policy references, and approved Altera Payroll record details without searching manually.",
+    "HR and payroll teams can use an internal agent to summarize payroll run status, employee self-service issues, and open follow-up tasks from Altera Payroll before acting.",
+    "Managers can ask the agent for guided SOP help around time off, pay stub questions, benefits administration, or tax document workflows while the agent retrieves the right context from Altera Payroll.",
+    "Operations teams can chat with the agent to prepare payroll support handoffs, generate case summaries, and trigger approved follow-up workflows tied to Altera Payroll records.",
+    "Internal teams can use the agent to research employee questions across payroll and HR processes, then return a concise answer with the next approved action or escalation path."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks payroll schedules and explains likely payment timing.",
+    "A helpdesk assistant that summarizes employee self-service login or password reset issues.",
+    "An internal HR agent that retrieves approved pay stub or tax document status information.",
+    "A payroll operations assistant that prepares escalation notes from Altera Payroll case context.",
+    "An employee support agent that guides time-off and benefits questions with live lookups.",
+    "A private team assistant that summarizes payroll run status and outstanding follow-up tasks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Altera Payroll agent to do, such as answer payroll questions, check self-service status, or prepare escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure workflow, identifies the configuration values the Skill needs, handles connection and authentication through protected runtime setup, keeps secrets out of chats and source, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Altera Payroll tasks so the agent can assist confidently without overstepping the permissions and controls you define."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so teams can start using Altera Payroll actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Altera Payroll without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the payroll or HR outcome you want in plain language, and Skill Builder designs the Skill, handles secure configuration, tests scenarios, and prepares it for deployment. It can create bounded actions like lookups, summaries, handoffs, and approved workflow triggers around Altera Payroll data."
+    },
+    {
+      "question": "Can an AI support agent use Altera Payroll data to answer payroll and employee self-service questions?",
+      "answer": "Yes, a DocsBot support agent can use an Altera Payroll Skill to perform approved lookups, summarize account or workflow status, and help answer common payroll, pay stub, tax, benefits, or self-service questions. It can also gather missing context and prepare a clean escalation when a human specialist needs to step in."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Altera Payroll?",
+      "answer": "Internal DocsBot agents can help payroll, HR, and operations teams retrieve approved record details, summarize payroll run status, guide SOPs, generate handoff notes, and trigger controlled follow-up workflows. This reduces manual searching and gives employees one conversational entry point for routine payroll tasks."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Altera Payroll?",
+      "answer": "DocsBot Skills can be designed for approved actions such as record updates, workflow triggers, and escalation steps when those actions fit your process. Skill Builder defines secure authentication handling, protects secrets, scopes permissions, and adds approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Altera Payroll access secure for AI agents?",
+      "answer": "Skill Builder is designed to handle connection details safely by identifying required configuration values, storing and proxying secrets through secure runtime configuration, and keeping credentials out of chats and generated content. It also limits access to the minimum users, actions, and records needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help payroll teams prepare escalations and case summaries from Altera Payroll?",
+      "answer": "Yes, the agent can gather relevant Altera Payroll context, summarize what has already been checked, document missing information, and create a clear handoff for payroll or HR specialists. That helps teams resolve issues faster and keeps support conversations more consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "adp-workforce-now",
+    "paylocity",
+    "paychex-flex",
+    "ukg",
+    "bamboohr",
+    "gusto"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rpo Alterapayroll",
+    "domain": "rpo.alterapayroll.com",
+    "description": "Alterapayroll (RPO) is a payroll and HR technology company that offers comprehensive payroll processing, tax compliance, and employee self‑service tools through its myESS portal. Their platform streamlines wage calculations, benefits administration, and provides secure access for employees to view pay stubs, request time off, and reset passwords. Designed for businesses of all sizes, Alterapayroll ensures accurate, on‑time payments and simplifies HR tasks with an intuitive interface and robust reporting.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

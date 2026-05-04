@@ -1,0 +1,184 @@
+{
+  "slug": "gainsight-px",
+  "name": "Gainsight PX",
+  "domain": "gainsight-px.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Gainsight PX for Support and Team Work",
+  "metaTitle": "Build AI Agents for Gainsight PX with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Gainsight PX data for support lookups, product usage summaries, internal research, and safe workflow actions.",
+  "intro": "Gainsight PX helps teams understand product usage, engagement, and customer behavior across the post-sales journey. With DocsBot Skill Builder, you can describe the Gainsight PX workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, pull live context, summarize activity, and take bounded actions inside your approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent product activity or feature engagement in Gainsight PX so it can answer usage-related support questions with better context.",
+    "Use a DocsBot helpdesk agent to summarize a customer account's product adoption signals from Gainsight PX before drafting a more informed ticket reply.",
+    "Have the agent gather product behavior details from Gainsight PX and prepare a handoff for customer success or product specialists when a support issue needs escalation.",
+    "Enable the agent to identify onboarding or adoption gaps from Gainsight PX data and suggest the next approved support or education workflow for the customer.",
+    "Let the agent create concise internal summaries of a user's engagement history from Gainsight PX to speed up support investigations and reduce back-and-forth."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Gainsight PX usage insights for accounts, segments, features, or onboarding journeys.",
+    "Customer success and product teams can ask the agent to summarize adoption trends from Gainsight PX and prepare account review notes, renewal prep, or expansion research.",
+    "Operations teams can use the agent to follow internal SOPs that combine Gainsight PX lookups with handoff creation, follow-up tasks, or status summaries across systems.",
+    "Support leaders can chat with the agent to investigate recurring product friction points surfaced in Gainsight PX and generate concise reports for product or education teams.",
+    "Internal teams can use the agent to research customer behavior questions faster by having it pull Gainsight PX context, summarize findings, and suggest the next approved workflow."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes recent feature usage before answering a customer ticket.",
+    "An internal assistant that retrieves account adoption signals for customer success managers.",
+    "A workflow that prepares escalation notes using Gainsight PX engagement history and product behavior context.",
+    "An AI agent that identifies onboarding gaps and suggests approved follow-up actions.",
+    "A private team assistant that compares feature engagement across customer segments and summarizes findings.",
+    "A support workflow that gathers usage evidence before creating a product or success handoff."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Gainsight PX agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime settings."
+    },
+    {
+      "title": "Access stays scoped",
+      "description": "Skill Builder defines the minimum records, actions, users, and systems the Skill should reach, and it adds approval boundaries or other safe action limits for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder assembles the reusable Skill package with instructions, runtime behavior, reference context, and any approved actions the DocsBot agent needs to look up data, summarize state, or trigger bounded workflows in Gainsight PX."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak guidance, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Gainsight PX without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Gainsight PX workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for your DocsBot agent. It handles connection planning, protected credentials, scoped permissions, and deployment guidance so non-technical teams can launch safely."
+    },
+    {
+      "question": "Can a DocsBot support agent use Gainsight PX data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Gainsight PX Skill to look up product usage context, summarize engagement history, and prepare informed responses or handoffs while talking to customers. You can keep actions bounded so the agent only performs the lookups, summaries, and approved workflows you allow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Gainsight PX?",
+      "answer": "A DocsBot agent can retrieve adoption context, summarize feature usage, identify onboarding gaps, prepare escalation notes, and trigger approved follow-up workflows for support or customer success teams. This helps support conversations move faster with better product context behind each reply."
+    },
+    {
+      "question": "Can an internal AI assistant help customer success or product teams use Gainsight PX more effectively?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve usage insights, summarize account health signals, research adoption patterns, and complete internal SOPs that depend on Gainsight PX context. The assistant can also prepare reports, handoffs, and account review notes for team workflows."
+    },
+    {
+      "question": "How does DocsBot keep Gainsight PX actions and data access safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, and scopes the Skill to the minimum actions and records needed for the workflow. It can also add approval boundaries for sensitive steps so the agent operates within clear limits you control."
+    },
+    {
+      "question": "Can DocsBot test a Gainsight PX Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises imagined support and internal scenarios, identifies bugs or missing guardrails, and feeds those findings into a self-improvement loop before deployment. This helps you launch a safer and more reliable AI workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "mixpanel",
+    "amplitude",
+    "pendo",
+    "heap",
+    "segment",
+    "gainsight-cs"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gainsight",
+    "domain": "gainsight.com",
+    "description": "Gainsight is a durable growth platform for customer success, product, community, and customer education teams. They help businesses drive efficient growth by unifying the post-sales customer journey through their innovative suite of solutions, leveraging AI-driven insights to enhance engagement, improve retention, and drive expansion.",
+    "slogan": "Empowering businesses to succeed through human-centered customer growth technology.",
+    "logoUrl": "https://media.brand.dev/0f1f2a94-3f2e-4599-9ece-dafa47cf6ccf.svg",
+    "iconUrl": "https://media.brand.dev/33fcdae6-63c0-4651-bc50-106ea766227a.png",
+    "primaryColor": "#3aa3fc",
+    "accentColor": "#143c5c",
+    "colors": [
+      {
+        "hex": "#3aa3fc",
+        "name": "Brilliant Azure"
+      },
+      {
+        "hex": "#143c5c",
+        "name": "Poseidon"
+      },
+      {
+        "hex": "#06b5e5",
+        "name": "Blue Atoll"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/df86e327-b3fd-473b-abd6-835d08beddf5.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.gainsight.com/company/careers/",
+      "terms": "https://www.gainsight.com/glossary/",
+      "privacy": "https://www.gainsight.com/policy/privacy/",
+      "blog": "https://www.gainsight.com/blog/",
+      "pricing": "https://www.gainsight.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ca7f36bb-9e7d-4c4c-b4c5-e8372478579d.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/33fcdae6-63c0-4651-bc50-106ea766227a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0f1f2a94-3f2e-4599-9ece-dafa47cf6ccf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 558,
+        "height": 121,
+        "aspectRatio": 4.61
+      },
+      {
+        "url": "https://media.brand.dev/3bf261f9-3d8c-4a6f-be35-14de83c63249.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/23d7625d-3512-4b27-b623-951030400c4f.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 132,
+        "height": 146,
+        "aspectRatio": 0.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0f1f2a94-3f2e-4599-9ece-dafa47cf6ccf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 558,
+      "height": 121,
+      "aspectRatio": 4.61
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/23d7625d-3512-4b27-b623-951030400c4f.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 132,
+      "height": 146,
+      "aspectRatio": 0.9
+    }
+  }
+}

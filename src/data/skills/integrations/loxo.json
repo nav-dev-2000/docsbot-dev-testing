@@ -1,0 +1,152 @@
+{
+  "slug": "loxo",
+  "name": "Loxo",
+  "domain": "loxo.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Loxo Recruiting Workflows",
+  "metaTitle": "Build AI Agents for Loxo with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Loxo to look up candidate data, update recruiting workflows, prepare handoffs, and support internal hiring teams safely.",
+  "intro": "Loxo is used by recruiting teams to manage candidates, jobs, outreach, and hiring workflows. With DocsBot Skill Builder, you can describe the recruiting task you want in plain language and have DocsBot create a reusable Skill that lets your AI agent work safely with Loxo. This helps teams build customer-facing support agents for hiring-related questions and private internal AI assistants that can retrieve data, summarize pipeline status, and take approved recruiting actions.",
+  "supportUseCases": [
+    "Use a DocsBot chat widget or helpdesk agent to look up a candidate or application status in Loxo and give a current, policy-aligned response to the applicant.",
+    "Let the agent collect missing information from a candidate conversation and create or update a record in Loxo for recruiter follow-up.",
+    "Have the agent summarize interview progress, recruiter notes, or next steps from Loxo before responding to applicant questions in a support ticket.",
+    "Use the agent to prepare an escalation handoff for human recruiting staff by pulling relevant Loxo history and packaging the conversation context.",
+    "Allow the agent to trigger approved recruiting workflows in Loxo, such as moving a candidate to the next review step after required information is confirmed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve candidate, job, and pipeline details from Loxo without digging through multiple screens.",
+    "Recruiters can ask the agent to summarize open roles, candidate activity, outreach history, or next recommended actions based on Loxo records.",
+    "Hiring teams can use the agent to prepare interview handoffs, status updates, and recruiting summaries from Loxo for managers and coordinators.",
+    "Operations teams can chat with the agent to complete SOP-driven workflows such as creating candidate follow-up tasks, updating record fields, or routing hiring issues for review.",
+    "Internal talent teams can use the agent to gather recruiting context across conversations and Loxo data, then produce structured notes or handoff briefs for the next team member."
+  ],
+  "whatYouCanBuild": [
+    "An applicant status agent that checks Loxo and answers hiring progress questions safely.",
+    "A recruiting assistant that updates candidate records after collecting missing information in chat.",
+    "An internal hiring copilot that summarizes pipelines, candidate activity, and recruiter next steps.",
+    "A handoff Skill that packages Loxo history and conversation context for recruiter escalation.",
+    "A workflow agent that triggers approved follow-up tasks and stage changes in Loxo.",
+    "A team assistant that prepares interview summaries and manager-ready recruiting updates from Loxo data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Loxo, such as checking applicant status, updating recruiting fields, or preparing a recruiter handoff, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication approach, keeps secrets out of chats and Skill source, and proxies credentials through protected runtime settings by default."
+    },
+    {
+      "title": "Permissions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum Loxo actions, records, users, and workflow paths needed, and adds approval boundaries for sensitive updates so the agent acts within clear rules."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined applicant, recruiter, and operations scenarios against the Skill, finds bugs, weak instructions, or missing checks, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Skill to your customer-facing support bot or private internal AI agent so teams can use Loxo through DocsBot with logging, controls, and safe action limits in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Loxo recruiting data?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow you want in plain language, and it creates a Skill that lets your AI agent look up Loxo records, summarize hiring context, and take approved actions. Skill Builder also defines secure connection settings, protects credentials, and scopes access to the workflow you approve."
+    },
+    {
+      "question": "Can an AI support agent use Loxo to answer applicant status questions?",
+      "answer": "Yes, a DocsBot support agent can use Loxo data to check application progress, summarize next steps, and prepare escalations for human recruiters when needed. You can also define boundaries so the agent only shares allowed information and only performs approved updates."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Loxo?",
+      "answer": "Internal teams can use a private DocsBot agent to retrieve candidate details, summarize pipeline activity, prepare interview handoffs, update recruiting records, and trigger follow-up workflows in Loxo. This is useful for recruiters, coordinators, and hiring operations teams working in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update records in Loxo through an AI agent?",
+      "answer": "DocsBot Skill Builder can create Skills for bounded updates such as adding notes, changing stages, creating follow-up tasks, or routing records for review. It designs the Skill with scoped permissions, protected authentication handling, and approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Loxo?",
+      "answer": "Skill Builder can define when the agent is allowed to act automatically and when it must stop for approval before making a change in Loxo. This helps teams balance speed with control for recruiting updates, escalations, and workflow triggers."
+    },
+    {
+      "question": "Do I need a developer to connect DocsBot to Loxo workflows?",
+      "answer": "Usually, no. You describe the business outcome you want, and Skill Builder handles the secure design, configuration requirements, testing, improvements, and deployment path without making setup feel like a manual coding project."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "smartrecruiters"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Eli Lilly",
+    "domain": "loxo.com",
+    "description": "Lilly is a medicine company that puts health above all. They develop and provide medicines, offer condition support, and help patients find care, prioritizing health and wellbeing.",
+    "slogan": "Putting health above all with innovative medicines and compassionate care.",
+    "logoUrl": "https://media.brand.dev/9cdda8ed-2447-45bf-b453-8fb1c478719d.svg",
+    "iconUrl": "https://media.brand.dev/84764fed-7e55-4f83-b3ad-ab11724a9298.png",
+    "primaryColor": "#d42c1c",
+    "accentColor": "#d42c1c",
+    "colors": [
+      {
+        "hex": "#d42c1c",
+        "name": "Pure Red"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d301d37e-76e7-47da-9b45-024baf29e946.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9cdda8ed-2447-45bf-b453-8fb1c478719d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 97,
+        "height": 52,
+        "aspectRatio": 1.87
+      },
+      {
+        "url": "https://media.brand.dev/84764fed-7e55-4f83-b3ad-ab11724a9298.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9cdda8ed-2447-45bf-b453-8fb1c478719d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 97,
+      "height": 52,
+      "aspectRatio": 1.87
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/84764fed-7e55-4f83-b3ad-ab11724a9298.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "slug": "cyberark",
+  "name": "CyberArk",
+  "domain": "cyberark.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely with CyberArk",
+  "metaTitle": "Build CyberArk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use CyberArk for secure identity lookups, access workflows, approvals, and internal security support actions.",
+  "intro": "CyberArk helps organizations secure identities, privileged access, and critical systems. With DocsBot Skill Builder, you can describe the CyberArk-powered agent you want in plain language, and DocsBot designs and deploys a reusable Skill for it. The result is an AI support or internal operations agent that can answer questions, retrieve approved security context, prepare handoffs, and trigger bounded actions safely.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved identity or access status details in CyberArk while helping a user understand an authentication or privileged access issue.",
+    "Let a support agent gather missing context from a customer conversation, look up relevant CyberArk records, and prepare a clean escalation summary for the security or identity team.",
+    "Enable a helpdesk-connected DocsBot agent to create or update approved access-related tickets or workflow records based on CyberArk findings and customer-reported issues.",
+    "Have the agent summarize recent identity security context from CyberArk so customers receive a clearer explanation of next steps without exposing sensitive internal details.",
+    "Use the agent to trigger approved review or follow-up workflows in CyberArk when a customer reports access problems, suspicious behavior, or privileged account lockouts."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up approved CyberArk identity, entitlement, or privileged access information without searching multiple tools.",
+    "Enable security, IT, and operations teams to ask the agent for CyberArk summaries, policy context, or access workflow status while following internal SOPs.",
+    "Give internal teams an AI assistant that gathers CyberArk details, drafts escalation notes, and routes requests to the right approver or security queue.",
+    "Allow employees to start bounded access review, remediation, or follow-up workflows from chat, with the agent using CyberArk under scoped permissions and approval rules.",
+    "Help audit, compliance, and security staff research identity-related questions faster by having the agent summarize CyberArk state and relevant supporting context across investigations."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks approved CyberArk access status during customer account issue conversations.",
+    "A security assistant that summarizes privileged access context and drafts internal escalation handoffs.",
+    "An employee chat agent that starts access review workflows with approval boundaries.",
+    "A helpdesk agent that enriches tickets with CyberArk identity and entitlement context.",
+    "An internal operations assistant that guides staff through identity security SOPs using CyberArk data.",
+    "An AI agent that prepares audit-ready summaries from approved CyberArk lookups and workflow results."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with CyberArk, such as checking access status, preparing escalations, or starting a review workflow, and Skill Builder turns that into a practical design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, defines secure authentication handling, and keeps credentials protected and out of chats and Skill source."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive CyberArk workflows."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined support and internal team scenarios, finds bugs, weak spots, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the CyberArk Skill to your customer-facing support bot or your private employee agent so it can answer questions and take approved actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with CyberArk?",
+      "answer": "With DocsBot Skill Builder, you describe the CyberArk workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests it, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use CyberArk data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved CyberArk lookups to gather identity or access context, explain next steps, and prepare escalations or follow-up workflows without exposing sensitive internal information."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with CyberArk?",
+      "answer": "An internal DocsBot agent can help employees retrieve access context, summarize privileged identity information, route requests, draft handoffs, and trigger bounded review or remediation workflows inside your approval rules."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in CyberArk?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, restrict actions to approved workflows, protect secrets through secure runtime configuration, and add approval boundaries for sensitive operations."
+    },
+    {
+      "question": "Can a DocsBot agent create escalations or handoffs using CyberArk context?",
+      "answer": "Yes, the agent can gather approved CyberArk details, summarize the situation, and create structured handoffs for security, IT, or compliance teams so humans receive the right context faster."
+    },
+    {
+      "question": "How does setup work for a non-technical team using CyberArk with DocsBot?",
+      "answer": "You focus on the outcome you want, and Skill Builder handles the connection design, secure configuration values, secret protection, testing, improvement, and deployment details for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "ping-identity",
+    "servicenow",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "CyberArk",
+    "domain": "cyberark.com",
+    "description": "CyberArk is a global leader in Identity Security, providing comprehensive security solutions to protect against cyber threats. Founded in 1999, the company offers a range of products and services, including Privileged Access Manager, Endpoint Privilege Manager, and Cloud Entitlements Manager, to secure identities, access, and endpoints across various industries and government agencies. CyberArk's solutions help organizations prevent attack escalation, meet compliance requirements, and protect critical assets.",
+    "slogan": "Secure Identities, Protect Assets",
+    "logoUrl": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+    "iconUrl": "https://media.brand.dev/875f764b-3d96-433d-85c8-a15936483e5a.svg",
+    "primaryColor": "#2fafe0",
+    "accentColor": "#75cbe8",
+    "colors": [
+      {
+        "hex": "#2fafe0",
+        "name": "Royal Peacock"
+      },
+      {
+        "hex": "#75cbe8",
+        "name": "Spritzig"
+      },
+      {
+        "hex": "#366895",
+        "name": "Summerday Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9b61f7f7-a260-4d6b-b1c0-ea9963cf26e1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.cyberark.com/careers/",
+      "terms": "https://www.cyberark.com/terms-conditions/",
+      "contact": "https://www.cyberark.com/contact/",
+      "privacy": "https://www.cyberark.com/privacy-notice/",
+      "blog": "https://www.cyberark.com/company/newsroom/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d601edfa-f7e3-4dbe-a66c-e0b0104701c0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b010a48b-5a48-43a8-8180-5a2ac1c89665.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d2b2c46-38c3-409c-90e9-76723675c00d.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 190,
+        "height": 42,
+        "aspectRatio": 4.52
+      },
+      {
+        "url": "https://media.brand.dev/875f764b-3d96-433d-85c8-a15936483e5a.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 260,
+        "height": 260,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/87a1cbf2-b6fd-40d0-a07a-c3f47ed02334.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/61528a60-edd5-4b67-a3e1-85d7f995dceb.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 190,
+      "height": 42,
+      "aspectRatio": 4.52
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/87a1cbf2-b6fd-40d0-a07a-c3f47ed02334.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

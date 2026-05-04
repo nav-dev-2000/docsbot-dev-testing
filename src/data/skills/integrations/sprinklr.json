@@ -1,0 +1,168 @@
+{
+  "slug": "sprinklr",
+  "name": "Sprinklr",
+  "domain": "sprinklr.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sprinklr",
+  "metaTitle": "Build Sprinklr AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sprinklr for customer support, internal workflows, safe lookups, updates, handoffs, and approved actions.",
+  "intro": "Sprinklr helps teams manage customer experience across social, messaging, chat, email, and other modern channels. With DocsBot Skill Builder, you can describe the Sprinklr workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, look up live context, prepare handoffs, update records, and trigger approved actions inside Sprinklr.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer’s recent Sprinklr case, conversation, or channel history and respond with a more informed answer.",
+    "Let the agent create or update Sprinklr care records, notes, tags, or statuses while chatting with customers on your website or through helpdesk tickets.",
+    "Have the agent summarize a customer’s cross-channel history in Sprinklr before handing the issue to a human support or social care specialist.",
+    "Enable the agent to gather missing details from the customer and then open a structured Sprinklr escalation or follow-up workflow.",
+    "Use the agent to check campaign, messaging, or service context in Sprinklr so customer replies reflect the latest known status and brand guidance."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure internal chat to retrieve Sprinklr account, case, engagement, or channel context without switching tools.",
+    "Help customer care, social, and operations teams ask the agent to summarize active Sprinklr issues, recent escalations, or customer sentiment trends for faster decision-making.",
+    "Allow team members to use the agent to prepare handoff notes, draft case summaries, and follow internal SOPs that update approved Sprinklr records.",
+    "Support managers with an internal AI assistant that gathers Sprinklr activity across channels and turns it into concise status reports or follow-up task lists.",
+    "Enable employees to ask the agent to trigger bounded Sprinklr workflows after approval, such as routing a conversation, flagging risk, or assigning a follow-up queue."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that retrieves Sprinklr conversation history before answering a customer.",
+    "An AI handoff Skill that creates structured Sprinklr escalation notes from live chat.",
+    "A case update Skill that adds approved notes, tags, or status changes in Sprinklr.",
+    "An internal reporting Skill that summarizes Sprinklr activity across care and messaging channels.",
+    "A workflow Skill that routes sensitive Sprinklr actions through human approval before execution.",
+    "A research Skill that helps employees retrieve Sprinklr context during support or social response work."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Sprinklr, such as looking up care history, creating handoffs, or updating approved records, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder secures it",
+      "description": "Skill Builder identifies the connection details and configuration values the Skill needs, protects and proxies secrets through secure runtime settings, keeps credentials out of chats and source, and scopes access to only the users, actions, and Sprinklr data required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder defines approval boundaries and safe action limits for sensitive Sprinklr updates so the agent can assist confidently without taking unrestricted actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Sprinklr actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Sprinklr?",
+      "answer": "With DocsBot Skill Builder, you describe the Sprinklr workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can retrieve data, summarize context, update approved records, and trigger bounded workflows inside Sprinklr."
+    },
+    {
+      "question": "Can an AI support agent use Sprinklr data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Sprinklr Skill to look up relevant conversation history, case details, channel activity, or escalation context while responding to customers. This helps the agent give better answers, gather missing details, and prepare smoother human handoffs."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Sprinklr?",
+      "answer": "A DocsBot agent can support workflows such as live lookups, structured escalations, note creation, status updates, queue routing, and cross-channel conversation summaries. You define the allowed actions and approval boundaries so automation stays within your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Sprinklr?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Sprinklr information, summarize open issues, prepare handoff notes, and complete approved SOP-driven updates from chat, Slack, or Microsoft Teams. This reduces tool switching and makes routine CX workflows faster."
+    },
+    {
+      "question": "How does DocsBot keep Sprinklr actions secure?",
+      "answer": "Skill Builder automatically defines the required configuration, stores and proxies secrets securely, keeps credentials out of chat transcripts and generated content, and scopes permissions to the minimum needed access. It can also add approval steps and action limits for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Sprinklr context?",
+      "answer": "Yes, a Skill can gather relevant Sprinklr history and turn it into structured summaries, escalation notes, or follow-up artifacts for human teams. This helps support, social care, and operations teams pick up the issue with full context."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "zendesk",
+    "hubspot",
+    "intercom",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sprinklr",
+    "domain": "sprinklr.com",
+    "description": "Sprinklr is a leading enterprise software company specializing in customer experience management. Headquartered in New York City, Sprinklr offers a Unified Customer Experience Management (Unified-CXM) platform that helps organizations streamline their customer-facing functions. With advanced AI capabilities, the platform enables businesses to create cohesive and human-centered experiences for their customers across various modern channels. Sprinklr serves over 1,400 enterprises, including renowned global brands like Microsoft, P&G, and Samsung, along with more than 50% of the Fortune 100. By un-siloing and unifying teams, Sprinklr eliminates the complexity of utilizing multiple customer experience tools, allowing organizations to effectively engage with consumers across 23 social channels, 11 messaging channels, chat, SMS, and email, ultimately enhancing customer satisfaction.",
+    "slogan": "Unify teams to elevate customer happiness with our Unified-CXM platform.",
+    "logoUrl": "https://media.brand.dev/71a57a70-9c38-4861-b1ac-d124c7bda70e.png",
+    "iconUrl": "https://media.brand.dev/71a57a70-9c38-4861-b1ac-d124c7bda70e.png",
+    "primaryColor": "#0aabdc",
+    "accentColor": "#070907",
+    "colors": [
+      {
+        "hex": "#0aabdc",
+        "name": "Blue Fire"
+      },
+      {
+        "hex": "#070907",
+        "name": "Reversed Grey"
+      },
+      {
+        "hex": "#ecc77e",
+        "name": "Almond Cookie"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7f7865de-7227-45c8-8b7a-0b647f3e5108.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://sprinklr.com/careers/",
+      "terms": "https://sprinklr.com/terms/",
+      "contact": "https://sprinklr.com/teams/customer-service/contact-center-intelligence/",
+      "privacy": "https://sprinklr.com/privacy/",
+      "blog": "https://sprinklr.com/newsroom/",
+      "pricing": "https://sprinklr.com/products/marketing-and-advertising/content-marketing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e7aba1b9-17c1-46be-a074-6870d450db60.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/71a57a70-9c38-4861-b1ac-d124c7bda70e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d71fbdbe-e1ab-491c-9d6f-27268e32bb26.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e7aba1b9-17c1-46be-a074-6870d450db60.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e7aba1b9-17c1-46be-a074-6870d450db60.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "slug": "chili-piper",
+  "name": "Chili Piper",
+  "domain": "chili-piper.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Chili Piper",
+  "metaTitle": "Build Chili Piper AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Chili Piper for scheduling, routing, handoffs, and approved workflow actions in customer support and internal team chats.",
+  "intro": "Chili Piper helps teams route leads, qualify demand, and book meetings faster across forms, chat, and scheduling workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up Chili Piper data, trigger approved actions, and summarize next steps. This helps customer-facing support agents and internal team assistants move from answering questions to completing real scheduling and routing workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Chili Piper routing or meeting status and explain what happened to a booking request without sending the customer to another team.",
+    "Enable the agent to capture missing qualification details during a support chat and prepare a clean handoff for sales or success teams through Chili Piper workflows.",
+    "Use the agent to confirm whether a lead or account was assigned, routed, or scheduled correctly and summarize the result inside a helpdesk reply.",
+    "Allow the agent to trigger approved rescheduling, reassignment, or meeting-follow-up workflows in Chili Piper when a customer reports a booking problem.",
+    "Have the agent gather conversation context and create an escalation summary for teams handling high-value meeting requests or routing exceptions."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to check Chili Piper routing rules, assignment outcomes, and meeting status without opening multiple systems.",
+    "Enable SDR, marketing, and revenue operations teams to ask the agent why a lead was routed a certain way and receive a clear summary pulled from Chili Piper context.",
+    "Help internal teams use the agent to prepare handoffs between marketing, sales, and customer success by collecting required details and triggering approved Chili Piper workflows.",
+    "Allow employees to chat with the agent to review scheduling issues, identify missed conversion steps, and generate follow-up actions for revenue teams.",
+    "Support operations teams with an AI assistant that walks through routing or scheduling SOPs, retrieves relevant Chili Piper details, and completes bounded workflow steps safely."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks meeting assignment and explains booking outcomes to customers.",
+    "A private revenue ops assistant that summarizes Chili Piper routing decisions for employees.",
+    "An agent that captures missing qualification details and prepares a sales handoff.",
+    "A support workflow that triggers approved rescheduling or reassignment actions after verification.",
+    "An internal assistant that audits scheduling issues and creates follow-up task summaries.",
+    "A helpdesk agent that packages booking context for escalation to sales or success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Chili Piper, and Skill Builder turns that goal into a reusable Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Chili Piper access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for things like updates, reassignment, rescheduling, or workflow triggers so the agent acts only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee conversations, checks lookups and actions, finds bugs or weak spots, and sends those findings into a self-improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Chili Piper?",
+      "answer": "With DocsBot Skill Builder, you describe the Chili Piper workflow you want in plain language, such as checking routing outcomes, preparing handoffs, or triggering approved scheduling actions. Skill Builder then designs, secures, tests, and packages that ability as a reusable Skill for your DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Chili Piper data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Chili Piper Skill to look up meeting, routing, or handoff context while responding to customers in a website chat or helpdesk conversation. It can also summarize status, collect missing details, and prepare approved follow-up actions within the limits you set."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Chili Piper?",
+      "answer": "DocsBot can help automate meeting status checks, routing explanations, booking issue triage, escalation summaries, and approved rescheduling or reassignment workflows connected to Chili Piper. The goal is to help the agent resolve more questions directly instead of only handing work off manually."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Chili Piper workflows?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Chili Piper information, understand routing decisions, follow scheduling SOPs, and complete bounded operational workflows from chat, Slack, or Microsoft Teams. This is useful for revenue operations, SDR, marketing, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep Chili Piper actions secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and scopes permissions to the minimum access required. It can also add approval steps and action boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger Chili Piper actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as creating handoffs, triggering approved workflow steps, updating bounded records, or generating summaries for downstream teams. You decide what the agent is allowed to do, and Skill Builder builds those controls into the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "calendly",
+    "gong",
+    "outreach",
+    "apollo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Chili Piper",
+    "domain": "chilipiper.com",
+    "description": "Chili Piper is an all‑in‑one Demand Conversion Platform that helps businesses turn inbound and outbound leads into meetings and revenue. It consolidates form routing, chat, lead distribution, and scheduling into a single system, allowing companies like Intuit, Spotify, Airbnb, and Gong to route leads from webforms, cold calls, product pages, email campaigns, and more directly to the right sales reps and calendars. By automating lead capture, qualification, and appointment setting, Chili Piper improves conversion rates across the funnel and streamlines the handoff of leads from marketing to sales.",
+    "slogan": "You create demand. We convert it to pipeline.",
+    "logoUrl": "https://media.brand.dev/0928b2a1-aa63-4161-92c2-b0be14fe7c6e.svg",
+    "iconUrl": "https://media.brand.dev/0928b2a1-aa63-4161-92c2-b0be14fe7c6e.svg",
+    "primaryColor": "#fc5424",
+    "accentColor": "#eeb99c",
+    "colors": [
+      {
+        "hex": "#fc5424",
+        "name": "Smashing Pumpkins"
+      },
+      {
+        "hex": "#eeb99c",
+        "name": "Caramel Powder"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5cb73c87-f575-4bc0-985e-1fbf842fbda3.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.chilipiper.com/careers",
+      "terms": "https://www.chilipiper.com/terms-and-conditions",
+      "privacy": "https://www.chilipiper.com/privacy-policy",
+      "blog": "https://www.chilipiper.com/resources/blog",
+      "pricing": "https://www.chilipiper.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4387fd3d-0ecb-4747-b7bf-675dc429862d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0928b2a1-aa63-4161-92c2-b0be14fe7c6e.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 360,
+        "height": 360,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a212d564-ad33-4606-9270-b6ee365e82fe.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4387fd3d-0ecb-4747-b7bf-675dc429862d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4387fd3d-0ecb-4747-b7bf-675dc429862d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

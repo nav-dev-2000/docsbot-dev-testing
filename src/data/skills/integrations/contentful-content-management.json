@@ -1,0 +1,167 @@
+{
+  "slug": "contentful-content-management",
+  "name": "Contentful Content Management",
+  "domain": "contentful-content-management.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Contentful Content Management",
+  "metaTitle": "Contentful Content Management AI Agents for Support and Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely read, update, and summarize Contentful content for customer support and internal team workflows.",
+  "intro": "Contentful helps teams manage and deliver content across digital experiences, and DocsBot Skill Builder helps you turn that content layer into practical AI actions. In plain language, you can describe the outcome you want, and Skill Builder can create a reusable Skill that lets a DocsBot agent safely look up entries, summarize content state, update records, and trigger approved workflows. This gives support teams and internal employees an AI agent that can answer questions and take bounded action inside Contentful instead of only pointing people to manual steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull the latest product, pricing, policy, or help content from Contentful so answers stay aligned with published source material.",
+    "Use a support agent to check whether a specific article, landing page, or announcement exists in Contentful and summarize its current status before replying to a customer.",
+    "Allow the agent to create a structured content update request or editorial handoff in response to repeated customer confusion about missing or unclear documentation.",
+    "Enable the agent to gather customer feedback from a chat or ticket and prepare a content gap summary that your team can use to improve Contentful entries.",
+    "Let a helpdesk-connected DocsBot agent identify outdated support content in Contentful and prepare an escalation with the exact entry, locale, and suggested revision notes for human review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Contentful entries, inspect fields, and summarize what content is live across channels.",
+    "Content, support, and operations teams can ask the agent to compare related entries, identify missing localization or metadata, and prepare follow-up tasks based on your workflow rules.",
+    "Marketing and content teams can use the agent to draft structured update briefs, summarize recent content changes, and trigger approved review workflows inside Contentful-connected processes.",
+    "Internal teams can ask the agent to research how a message, campaign, or product update appears across Contentful content models and generate a concise readiness summary.",
+    "Employees can use the agent to follow SOPs for content governance, including checking entry status, preparing approval requests, and documenting handoffs for editors or publishers."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer questions using the latest published Contentful entries.",
+    "A content lookup Skill that finds entries by slug, title, locale, or content type.",
+    "An internal assistant that summarizes draft versus published content status across spaces or environments.",
+    "A workflow Skill that prepares editorial handoffs when customers report missing or outdated information.",
+    "A governed update flow that suggests entry changes and routes them for human approval.",
+    "A content QA assistant that checks required fields, metadata, and localization completeness before review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Contentful in plain language, such as looking up entries, summarizing content status, or preparing approved update workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, identifies the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chat or generated instructions."
+    },
+    {
+      "title": "Protections are built in",
+      "description": "Skill Builder keeps secrets protected through secure runtime configuration, scopes the Skill to the minimum Contentful actions and records required, and adds approval boundaries for sensitive updates or publishing-related steps."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission limits, and workflow gaps, then feeds those findings into a self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Skill to your customer-facing DocsBot chat or helpdesk agent, or to a private internal agent for employees, with logging and boundaries that match the workflow."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Contentful for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as finding the right article, checking content status, or preparing a content correction handoff. Skill Builder creates a secure Skill so your support agent can use Contentful data during customer chats or ticket replies within the action limits you approve."
+    },
+    {
+      "question": "Can an AI support agent use Contentful content to answer customer questions more accurately?",
+      "answer": "Yes, a DocsBot agent can be designed to look up relevant Contentful entries, retrieve structured fields, and summarize the latest approved content before responding. This helps support answers stay grounded in the same content source your team manages."
+    },
+    {
+      "question": "What Contentful workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees find entries, compare content states, summarize missing fields or locales, prepare editorial handoffs, and trigger approved follow-up workflows. It can also guide teams through repeatable content governance SOPs in chat."
+    },
+    {
+      "question": "Can DocsBot safely update or prepare changes related to Contentful records?",
+      "answer": "Yes, Skill Builder can design bounded actions for creating requests, updating approved fields, or preparing content changes with human review where needed. It defines secure authentication handling, scopes permissions, and adds approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can a DocsBot agent summarize what is published or missing in Contentful?",
+      "answer": "Yes, the agent can be built to inspect entries, content types, locales, or environments and return a concise summary of what is live, missing, outdated, or awaiting review. That is useful for both customer support escalations and internal publishing checks."
+    },
+    {
+      "question": "How does setup work for a non-technical team using DocsBot with Contentful?",
+      "answer": "You explain the outcome you want in plain language, and Skill Builder handles the design, secure configuration, testing, and deployment details. It also identifies what connection values are needed, protects secrets, and improves the Skill through automated scenario testing before launch."
+    }
+  ],
+  "relatedSlugs": [
+    "contentstack-content-management",
+    "airtable",
+    "notion",
+    "confluence",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Contentful",
+    "domain": "contentful.com",
+    "description": "Contentful is a leading digital experience platform that empowers businesses to create, manage, and deliver personalized content at scale. Their platform enables dynamic personalization, automated content distribution, and real‑time experimentation, allowing brands to craft next‑generation digital experiences worldwide. With Contentful Platform, Studio, and Ecosystem, teams can collaborate from anywhere, assemble on‑brand experiences, and build custom solutions, all supported by an active developer community.",
+    "slogan": "Scale, personalize, and optimize digital experiences effortlessly with Contentful.",
+    "logoUrl": "https://media.brand.dev/9cd5483f-ef59-4037-b4da-627fd142e97d.svg",
+    "iconUrl": "https://media.brand.dev/b5bc8c45-4cc9-46c2-bbe3-54c638fa2ffd.png",
+    "primaryColor": "#e8811f",
+    "accentColor": "#ebece7",
+    "colors": [
+      {
+        "hex": "#e8811f",
+        "name": "Sports Fan"
+      },
+      {
+        "hex": "#ebece7",
+        "name": "Simply White"
+      },
+      {
+        "hex": "#2c2c34",
+        "name": "Bastille"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/03c0524f-a326-4e3a-af78-6047d6fb7477.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.contentful.com/careers/",
+      "contact": "https://www.contentful.com/contact/sales/",
+      "privacy": "https://www.contentful.com/legal/privacy-at-contentful/privacy-notice/",
+      "blog": "https://www.contentful.com/blog/",
+      "pricing": "https://www.contentful.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/88cba9b6-6c62-4c71-aab1-e1ab553de028.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9cd5483f-ef59-4037-b4da-627fd142e97d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 700,
+        "height": 149,
+        "aspectRatio": 4.7
+      },
+      {
+        "url": "https://media.brand.dev/b5bc8c45-4cc9-46c2-bbe3-54c638fa2ffd.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9cd5483f-ef59-4037-b4da-627fd142e97d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 700,
+      "height": 149,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/88cba9b6-6c62-4c71-aab1-e1ab553de028.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

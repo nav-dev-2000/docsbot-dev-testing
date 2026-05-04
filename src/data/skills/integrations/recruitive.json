@@ -1,0 +1,168 @@
+{
+  "slug": "recruitive",
+  "name": "Recruitive",
+  "domain": "recruitive.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Recruitive",
+  "metaTitle": "Recruitive AI Agents for Hiring Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that work with Recruitive for candidate lookups, hiring workflow updates, handoffs, and internal recruiting support.",
+  "intro": "Recruitive helps teams manage hiring, candidate pipelines, job posting, and onboarding in one applicant tracking system. With DocsBot Skill Builder, you can describe the Recruitive workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal team assistant. That lets your AI agent answer questions, retrieve hiring data, prepare handoffs, update approved records, and trigger bounded recruiting actions inside Recruitive.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check application status in Recruitive and provide approved updates to candidates through your website chat or helpdesk replies.",
+    "Use the agent to collect missing candidate details during a chat, summarize the conversation, and create a clean handoff for your recruiting team in Recruitive.",
+    "Allow the agent to answer hiring-process questions by looking up job, stage, or onboarding information stored in Recruitive and returning a concise status summary.",
+    "Have the agent prepare escalation notes for sensitive candidate issues, including relevant Recruitive record context, before passing the case to a recruiter.",
+    "Enable the agent to trigger approved follow-up workflows, such as notifying the recruiting team when a candidate requests an update or interview reschedule."
+  ],
+  "internalUseCases": [
+    "Let recruiters and hiring managers chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to retrieve candidate, vacancy, and pipeline information from Recruitive.",
+    "Enable employees to ask the agent for a summary of a role, open requisitions, recent applicants, or stalled hiring stages without manually searching the ATS.",
+    "Use an internal agent to prepare recruiter handoff notes, interview summaries, and next-step recommendations using Recruitive data and your hiring SOPs.",
+    "Allow recruiting coordinators to chat with the agent to create approved workflow triggers, route exceptions, and document follow-up actions across hiring operations.",
+    "Help operations or talent teams use the agent to research recruiting activity, compile status reports, and complete repeatable recruitment workflows more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and shares approved updates.",
+    "A recruiting assistant that summarizes Recruitive candidate records for internal teams.",
+    "A hiring support bot that prepares recruiter handoffs from chat conversations.",
+    "An internal AI agent that finds open roles, applicants, and pipeline bottlenecks.",
+    "A workflow assistant that notifies teams about candidate follow-up or scheduling requests.",
+    "An AI assistant that generates hiring summaries and recruiting activity reports from Recruitive data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Recruitive-connected agent to do, such as checking application status, summarizing candidate pipelines, or creating recruiter handoffs, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Recruitive access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries so the agent can look up data, prepare updates, or trigger workflows only within the permissions you allow."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal recruiting scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot agent or your private employee agent for chat, Slack, or Microsoft Teams use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Recruitive without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Recruitive workflow you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for deployment. It handles connection details, secret protection, scoped permissions, and safer action boundaries for you."
+    },
+    {
+      "question": "Can an AI support agent use Recruitive data to answer candidate questions?",
+      "answer": "Yes, a DocsBot agent can use a Recruitive Skill to retrieve approved application, role, or hiring-stage information while responding in a website chat widget or helpdesk workflow. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Recruitive?",
+      "answer": "A Recruitive-connected agent can look up candidate or role information, summarize hiring status, collect missing details, prepare recruiter handoffs, and trigger approved follow-up workflows. This helps teams respond faster while keeping sensitive actions within defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help recruiters and hiring managers inside Recruitive?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve ATS information, summarize pipelines, research candidate progress, and complete repeatable recruiting workflows through chat, Slack, or Microsoft Teams. This reduces manual searching and keeps SOP-driven work consistent."
+    },
+    {
+      "question": "How does DocsBot keep Recruitive actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration, keeps credentials out of chats and generated content, proxies secrets through protected runtime settings, and scopes permissions to the smallest useful access level. It can also add approval steps or boundaries for sensitive updates and workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in Recruitive?",
+      "answer": "Yes, a Skill can be designed for bounded actions such as creating handoffs, adding notes, updating approved fields, or triggering recruiting workflows when your rules allow it. Skill Builder helps design those actions with permission checks and approval controls where needed."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "ashby",
+    "recruitee",
+    "bamboohr"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Recruitive",
+    "domain": "recruitive.com",
+    "description": "Recruitive is a recruitment technology company that provides an all‑in‑one applicant tracking system (ATS) and multi‑job posting platform. Their cloud‑based solution automates the entire hiring workflow—from posting jobs to over 1,400 job boards, attracting and managing candidates, to onboarding new hires. Powered by AI, Recruitive’s software shortens hiring cycles, builds talent pools, and delivers data‑driven recruitment reporting. The platform includes career‑site creation, candidate attraction tools, and 24/7 support via live chat, video guides, and a dedicated account team. Designed for speed and cost‑effectiveness, Recruitive helps organisations streamline recruitment, improve candidate experience, and make smarter hiring decisions.",
+    "slogan": "Make recruitment a breeze with all-in-one recruitment software.",
+    "logoUrl": "https://media.brand.dev/8c401e8d-bda1-462b-98c7-d8cfb33cd069.png",
+    "iconUrl": "https://media.brand.dev/bee14afc-c8c0-4ec4-b32c-114b601a9818.jpg",
+    "primaryColor": "#df1e29",
+    "accentColor": "#e59235",
+    "colors": [
+      {
+        "hex": "#df1e29",
+        "name": "Red Hot Chili Pepper"
+      },
+      {
+        "hex": "#e59235",
+        "name": "Sanskrit"
+      },
+      {
+        "hex": "#84afca",
+        "name": "Batch Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1cdcfb39-9479-4a5b-96fe-8e158d013539.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.recruitive.com/blog/",
+      "careers": "https://www.recruitive.com/careers-website-design/",
+      "privacy": "https://www.recruitive.com/privacy-policy/",
+      "terms": "https://www.recruitive.com/terms-conditions/",
+      "contact": "https://www.recruitive.com/contact/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bee14afc-c8c0-4ec4-b32c-114b601a9818.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8c401e8d-bda1-462b-98c7-d8cfb33cd069.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 425,
+        "height": 80,
+        "aspectRatio": 5.31
+      },
+      {
+        "url": "https://media.brand.dev/43b51447-f56e-4b69-844e-05db1e9dddb1.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8c401e8d-bda1-462b-98c7-d8cfb33cd069.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 425,
+      "height": 80,
+      "aspectRatio": 5.31
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/43b51447-f56e-4b69-844e-05db1e9dddb1.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

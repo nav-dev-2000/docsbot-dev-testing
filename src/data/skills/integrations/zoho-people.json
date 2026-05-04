@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-people",
+  "name": "Zoho People",
+  "domain": "zoho-people.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho People",
+  "metaTitle": "Build AI Agents for Zoho People with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho People for HR lookups, employee workflows, approvals, and support handoffs with secure, tested Skill automation.",
+  "intro": "Zoho People helps teams manage employee records, time, leave, attendance, and HR workflows in one place. With DocsBot Skill Builder, you can describe the Zoho People tasks your AI agent should handle in plain language, and DocsBot can turn that into a secure reusable Skill. The result is an AI support or internal team agent that can answer questions, retrieve HR information, prepare handoffs, and take approved actions inside defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of employment verification or HR service requests stored in Zoho People and provide a clear update without exposing sensitive records.",
+    "Use a support agent connected to your helpdesk to collect missing details for an HR-related inquiry, create or update the right request in Zoho People, and summarize the next steps for the employee.",
+    "Enable a DocsBot agent to prepare escalation handoffs by pulling relevant leave, attendance, or employee workflow context from Zoho People and packaging it for an HR specialist.",
+    "Allow the agent to answer common employee-facing questions by looking up policy-linked HR data in Zoho People and returning a safe, role-appropriate response.",
+    "Have the agent trigger approved follow-up workflows in Zoho People, such as routing an issue for HR review or marking a request ready for manual approval."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up their leave balances, attendance summaries, or request statuses from Zoho People.",
+    "HR teams can ask the agent to gather employee record context from Zoho People, summarize history, and prepare case notes before they continue a sensitive workflow.",
+    "Managers can chat with the agent to review team time-off patterns, pending approvals, or attendance details from Zoho People within approved access boundaries.",
+    "Operations teams can use the agent to follow HR SOPs, such as collecting onboarding details, checking workflow progress, and generating handoff summaries across Zoho People and other business systems.",
+    "Employees can ask an internal AI assistant for step-by-step help with HR processes, while the agent retrieves the latest workflow state from Zoho People and guides the next action."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks leave balances and explains the next approval step.",
+    "A support Skill that creates HR service requests in Zoho People from chat conversations.",
+    "An internal assistant that summarizes attendance records for managers within approved permissions.",
+    "An employee help agent that tracks request status and prepares HR handoffs.",
+    "A workflow Skill that gathers onboarding details and routes them into Zoho People.",
+    "An AI assistant that retrieves employee profile data for approved internal HR workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho People agent to do in plain language, such as checking leave status, updating a request, or preparing an HR handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the right Zoho People actions, records, users, and approval boundaries so the agent can only take the bounded actions you intend."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined employee support and internal HR scenarios, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot agent or private internal assistant with logging, controls, and secure runtime configuration in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho People?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho People workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your agent. It can support lookups, record updates, workflow triggers, summaries, and handoffs within the rules you define."
+    },
+    {
+      "question": "Can an AI support agent use Zoho People data to answer employee questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho People data to check request status, gather HR context, and provide role-appropriate answers in a website chat or helpdesk reply. Access can be scoped so the agent only sees and uses the records needed for that workflow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zoho People?",
+      "answer": "An internal DocsBot agent can help employees and HR teams with leave checks, attendance summaries, onboarding steps, approval routing, case preparation, and workflow status updates. It can also generate summaries and handoff notes so teams spend less time gathering context manually."
+    },
+    {
+      "question": "Can DocsBot safely update Zoho People records through an AI agent?",
+      "answer": "Yes, Skill Builder can create bounded actions for approved updates in Zoho People, such as creating requests, updating workflow state, or routing records for review. It also adds scoped permissions and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot handle authentication and secrets for a Zoho People Skill?",
+      "answer": "Skill Builder identifies the connection details the Skill needs and handles secure configuration so secrets are protected and proxied through approved runtime settings. Credentials stay out of chats, prompts, and generated Skill source."
+    },
+    {
+      "question": "Can an AI assistant help HR teams prepare handoffs from Zoho People?",
+      "answer": "Yes, the agent can collect relevant Zoho People context, summarize the current status, and generate clean handoff notes for HR specialists or managers. This helps teams move faster without losing important details."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "gusto",
+    "ukg-pro",
+    "rippling",
+    "zoho-desk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

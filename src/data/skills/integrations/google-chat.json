@@ -1,0 +1,156 @@
+{
+  "slug": "google-chat",
+  "name": "Google Chat",
+  "domain": "chat.google.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Chat",
+  "metaTitle": "Build Google Chat AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Google Chat for support handoffs, team notifications, summaries, and internal workflows with secure controls.",
+  "intro": "Google Chat helps teams communicate and coordinate work across Google Workspace. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create an AI Skill that lets your support or internal agent send messages, post updates, prepare handoffs, and trigger approved collaboration workflows in Google Chat. This helps customer-facing and employee-facing AI agents move from answering questions to taking safe, useful action.",
+  "supportUseCases": [
+    "Send a Google Chat message to the right internal room when a customer issue needs a live handoff from the DocsBot chat widget or helpdesk reply flow.",
+    "Post a structured escalation summary in Google Chat with the customer problem, account details, urgency, and troubleshooting steps already completed.",
+    "Notify an on-call or specialist team in Google Chat when the agent detects a billing dispute, outage pattern, or high-risk support case.",
+    "Create follow-up coordination messages in Google Chat after the agent resolves a customer request so internal teams can track promised next steps.",
+    "Summarize a support ticket thread and share it into Google Chat so agents and managers can review the situation without reopening every message."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to send approved Google Chat updates to project rooms, incident channels, or team spaces without switching tools.",
+    "Help operations teams ask an internal AI agent to summarize a workflow outcome and post the next steps into the correct Google Chat conversation.",
+    "Enable customer success or support leaders to chat with the agent to prepare escalation notes, daily recap messages, or cross-functional handoffs for Google Chat.",
+    "Allow employees to use a private agent in chat, Slack, or Microsoft Teams to trigger Google Chat notifications as part of SOPs that span multiple systems.",
+    "Give internal teams an AI assistant that researches context from connected tools, then drafts and posts a concise Google Chat update for review or approval."
+  ],
+  "whatYouCanBuild": [
+    "A support escalation Skill that posts structured case summaries into the correct Google Chat space.",
+    "An internal assistant that drafts and sends approved status updates to team rooms in Google Chat.",
+    "A workflow Skill that notifies specialists in Google Chat when support cases meet escalation rules.",
+    "A recap Skill that summarizes tickets, incidents, or account activity and shares the summary in Google Chat.",
+    "A handoff Skill that prepares customer context and posts it to Google Chat for faster internal follow-up.",
+    "An SOP assistant that gathers details from other systems and triggers Google Chat messages at the right step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in plain language, such as posting escalation summaries to Google Chat or sending internal follow-up messages after a support event."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow pattern, identifies the required configuration values, and defines secure connection and authentication handling for Google Chat."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill instructions, proxies credentials through secure runtime configuration, scopes access to the minimum rooms, actions, and users needed, and adds approval boundaries for sensitive messaging actions."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing guardrails, weak instructions, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so it can take bounded action inside your approved Google Chat workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that sends Google Chat messages during customer support workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as posting escalation details or notifying a specialist team, and Skill Builder creates a secure Skill for those approved Google Chat actions. The agent can then use that Skill from a website chat widget or helpdesk-driven support flow."
+    },
+    {
+      "question": "Can an AI support agent use Google Chat for escalations and internal handoffs?",
+      "answer": "Yes, a DocsBot agent can summarize the customer issue, gather the right context, and send a structured handoff or escalation message into Google Chat. You can also define approval limits and room-level access so the agent only posts where it should."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Google Chat?",
+      "answer": "An internal DocsBot agent can draft team updates, post workflow notifications, share incident summaries, and send cross-functional handoffs into Google Chat as part of larger SOPs. It can also combine research from other connected systems before creating the final message."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent does in Google Chat?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect and proxy secrets, and scope permissions to the minimum actions and destinations required. It can also add approval boundaries for sensitive notifications or messages before anything is sent."
+    },
+    {
+      "question": "Do I need to configure the Google Chat integration manually to build the agent workflow?",
+      "answer": "No, the setup is framed around describing the outcome you want in plain language. Skill Builder handles the design, secure connection details, testing, improvement cycle, and deployment path for the Skill."
+    },
+    {
+      "question": "Can a DocsBot agent summarize support activity and post daily updates into Google Chat?",
+      "answer": "Yes, you can build a Skill that gathers support activity, creates a concise summary, and posts it into the appropriate Google Chat space. This is useful for shift handoffs, leadership updates, and specialist team coordination."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "microsoft-teams",
+    "gmail",
+    "google-workspace",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "chat.google.com",
+    "description": "Google Chat is a secure messaging platform that enables individuals, groups, and businesses to connect and collaborate online. It offers powerful features as part of Google Workspace, facilitating online communication and teamwork.",
+    "slogan": "Connect, collaborate, and communicate securely with Google Chat.",
+    "logoUrl": "https://media.brand.dev/850d77eb-3631-4abc-88a5-b1f3686421fe.svg",
+    "iconUrl": "https://media.brand.dev/f8083e57-1ee3-46af-8037-46f2369ea4af.png",
+    "primaryColor": "#f78627",
+    "accentColor": "#5c646c",
+    "colors": [
+      {
+        "hex": "#f78627",
+        "name": "Summer Citrus"
+      },
+      {
+        "hex": "#5c646c",
+        "name": "Slate Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a5d6cdc2-4ec7-468f-9cc2-a3113c5b9dd8.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f8083e57-1ee3-46af-8037-46f2369ea4af.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 100,
+        "height": 100,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/850d77eb-3631-4abc-88a5-b1f3686421fe.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 3995,
+        "height": 512,
+        "aspectRatio": 7.8
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/850d77eb-3631-4abc-88a5-b1f3686421fe.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 3995,
+      "height": 512,
+      "aspectRatio": 7.8
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f8083e57-1ee3-46af-8037-46f2369ea4af.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 100,
+      "height": 100,
+      "aspectRatio": 1
+    }
+  }
+}

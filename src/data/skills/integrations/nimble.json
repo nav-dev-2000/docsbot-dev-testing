@@ -1,0 +1,160 @@
+{
+  "slug": "nimble",
+  "name": "Nimble",
+  "domain": "nimble.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Nimble CRM",
+  "metaTitle": "Build AI Agents for Nimble CRM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Nimble to look up contacts, update CRM records, prepare handoffs, and automate safe support or team workflows.",
+  "intro": "Nimble helps teams manage relationships, contacts, outreach, and growth in one CRM. With DocsBot Skill Builder, you can describe the Nimble workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve CRM context, take approved actions, and keep customer or team conversations moving without leaving chat.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact or company in Nimble and summarize recent interactions before replying to a support or success question.",
+    "Use the agent to create or update Nimble contact records from website chat conversations so lead, customer, or partner details are captured automatically.",
+    "Have the agent log notes in Nimble after a support conversation so account history stays current for sales, success, or onboarding teams.",
+    "Enable the agent to prepare a clean handoff by summarizing the customer issue, recent CRM activity, and next steps into Nimble for follow-up by a human teammate.",
+    "Let the agent tag or update deal, contact, or relationship information in Nimble when a customer confirms status changes, interest, or follow-up preferences during chat."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Nimble contact, company, and activity details without opening the CRM.",
+    "Sales, success, and operations teams can ask the agent to summarize relationship history, recent outreach, and open follow-ups from Nimble before meetings or account reviews.",
+    "Team members can use the agent to create contacts, append notes, update fields, and complete lightweight CRM hygiene workflows through a guided conversation.",
+    "Employees can ask the agent to prepare account handoff summaries or next-step briefs from Nimble data so internal SOPs are faster and more consistent.",
+    "Internal teams can use the agent to research relationship context across Nimble records and turn it into call prep, follow-up drafts, or task-ready summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Nimble contact history before answering customer questions.",
+    "An AI assistant that creates new Nimble contacts from website chat lead capture.",
+    "A handoff workflow that writes support summaries and follow-up notes into Nimble.",
+    "An internal sales assistant that pulls account context and recent activity on demand.",
+    "A CRM hygiene assistant that updates fields, notes, and relationship details safely.",
+    "A meeting prep agent that summarizes Nimble contacts, companies, and open follow-ups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Nimble, such as looking up contacts, updating records, or preparing handoff notes, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through approved runtime settings by default."
+    },
+    {
+      "title": "Actions are scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Nimble data, records, users, and actions needed for the workflow, and it adds approval boundaries when an update, creation, or sensitive change should be confirmed before execution."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee agent so your team can start using Nimble-powered AI actions confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Nimble CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Nimble workflow you want in plain language, such as contact lookups, note creation, or CRM updates, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can then be published to a customer-facing support bot or a private internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Nimble data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Nimble Skill to retrieve contact or account context, summarize relationship history, and prepare handoffs while replying to customers in chat or helpdesk tickets. You control which records and actions the agent is allowed to access."
+    },
+    {
+      "question": "What Nimble workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees look up contacts, summarize account activity, create notes, update CRM fields, and prepare meeting or handoff summaries from Nimble. This helps teams complete common CRM workflows through chat instead of switching between tools."
+    },
+    {
+      "question": "Can DocsBot safely update Nimble records with AI actions?",
+      "answer": "Yes, Skill Builder is designed to define secure connection settings, protect and proxy secrets, scope permissions, and add approval boundaries for sensitive actions. That lets your agent take bounded actions in Nimble without exposing credentials or giving it broader access than needed."
+    },
+    {
+      "question": "Can I use DocsBot and Nimble to improve support handoffs and escalations?",
+      "answer": "Yes, you can build a Skill that turns customer chat or ticket context into structured Nimble notes, account summaries, and next-step handoffs for human follow-up. This helps support, sales, and success teams pick up the conversation with better context."
+    },
+    {
+      "question": "Does setting up a Nimble Skill require coding or manual API work?",
+      "answer": "No, the setup is framed around the outcome you want rather than manual implementation steps. Skill Builder handles the workflow design, secure configuration planning, testing, and improvement process so non-technical teams can move faster."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Nimble",
+    "domain": "nimble.com",
+    "description": "Nimble is an AI-driven CRM that helps small businesses, entrepreneurs, and teams manage relationships, streamline outreach, and drive growth. It integrates with Microsoft 365 and Google Workspace to unify contacts, conversations, and calendar, and offers built-in email marketing and customizable web forms to capture leads and manage relationships, all in one simple platform.",
+    "slogan": "Smarter Relationship Management for Growth, Engagement, and Business Success",
+    "logoUrl": "https://media.brand.dev/1fd69836-47c7-4f68-82d1-d971ee12368c.svg",
+    "iconUrl": "https://media.brand.dev/0d387dc7-051a-4bec-9171-d750c8f10497.jpg",
+    "primaryColor": "#0972b9",
+    "accentColor": "#78bcd8",
+    "colors": [
+      {
+        "hex": "#0972b9",
+        "name": "Bumangués Blue"
+      },
+      {
+        "hex": "#78bcd8",
+        "name": "Pacific Harbour"
+      },
+      {
+        "hex": "#c8d9da",
+        "name": "Little Boy Blu"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/27fd0fc0-08d3-4e8b-ad6e-c9dfc667da84.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://nimble.com/company/careers/",
+      "contact": "https://nimble.com/company/contact-us/",
+      "pricing": "https://nimble.com/pricing/",
+      "terms": "https://www.nimble.com/company/terms-of-service/",
+      "privacy": "https://www.nimble.com/company/privacy/",
+      "blog": "https://www.nimble.com/blog"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fd69836-47c7-4f68-82d1-d971ee12368c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 193,
+        "height": 41,
+        "aspectRatio": 4.71
+      },
+      {
+        "url": "https://media.brand.dev/0d387dc7-051a-4bec-9171-d750c8f10497.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1fd69836-47c7-4f68-82d1-d971ee12368c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 193,
+      "height": 41,
+      "aspectRatio": 4.71
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0d387dc7-051a-4bec-9171-d750c8f10497.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

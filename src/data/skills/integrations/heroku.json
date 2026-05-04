@@ -1,0 +1,168 @@
+{
+  "slug": "heroku",
+  "name": "Heroku",
+  "domain": "heroku.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Heroku using DocsBot Skills",
+  "metaTitle": "Build Heroku AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Heroku to check app status, summarize deployments, trigger approved workflows, and support teams safely.",
+  "intro": "Heroku helps teams build, deploy, and manage cloud applications, and DocsBot Skill Builder helps you turn that platform into practical AI Actions. In plain language, you can describe the Heroku tasks your agent should handle, and Skill Builder creates a reusable Skill for customer support or internal team workflows. The result is an AI agent that can answer questions, look up live app details, prepare handoffs, and trigger bounded actions inside Heroku with the right controls in place.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Heroku app health, dyno status, config-driven environment details, or recent release information while answering incident and availability questions.",
+    "Use the agent to summarize recent Heroku deploys, restarts, errors, or maintenance activity so customers get a clear status update without waiting for manual investigation.",
+    "Have the agent gather issue details from the customer, package the relevant Heroku app context, and prepare a clean escalation handoff for engineering or support.",
+    "Allow the agent to trigger approved low-risk workflows such as restarting a non-critical process, opening an incident follow-up path, or notifying an internal team when defined rules are met.",
+    "Enable the agent to confirm whether a known service issue matches the customer’s app or environment and explain the next supported step based on current Heroku state."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Heroku app details, release history, dyno status, and operational summaries without switching tools.",
+    "Support, success, and operations teams can ask the agent to gather Heroku context for an account, summarize likely causes, and draft escalation notes that follow internal SOPs.",
+    "Engineering-adjacent teams can use the agent in Slack or Microsoft Teams to trigger approved Heroku workflows, such as restarts or environment checks, within scoped permissions and approval limits.",
+    "Internal teams can ask the agent to compare recent Heroku activity across apps, summarize deployment outcomes, and surface the right records for incident review or customer follow-up.",
+    "Employees can use the agent to walk through operational playbooks that combine Heroku lookups, documentation retrieval, and handoff preparation in one guided conversation."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Heroku app status and explains recent deployment activity to customers.",
+    "An internal assistant that summarizes dyno health, releases, and operational signals across selected Heroku apps.",
+    "A handoff workflow that packages customer issue details with relevant Heroku app context for escalation.",
+    "A private team agent that triggers approved restarts or checks only after defined approval boundaries are met.",
+    "An incident assistant that compares current Heroku state with known issue patterns and drafts next-step summaries.",
+    "A support workflow that collects missing troubleshooting details before escalating a Heroku-related customer issue."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Heroku-powered agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through secure runtime settings, and scopes Heroku access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approval rules are added",
+      "description": "For sensitive Heroku actions, Skill Builder adds approval boundaries, user limits, and safe action rules so the agent can help without exceeding the permissions you intend."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the right instructions, runtime behavior, reference context, and approved Heroku actions for your DocsBot agent."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings back into improvements."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Heroku?",
+      "answer": "With DocsBot Skill Builder, you describe the Heroku workflow you want in plain language, such as checking app status, summarizing releases, or triggering an approved restart. Skill Builder then designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Heroku data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Heroku Skill to look up live app details, release history, or operational status while responding in a website chat widget or helpdesk workflow. You control which lookups and actions are allowed, and sensitive actions can require approvals or tighter limits."
+    },
+    {
+      "question": "What Heroku workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can retrieve Heroku app information, summarize deployment activity, prepare escalation notes, and trigger bounded operational workflows that fit your SOPs. Teams can access that agent through private chat, Slack, or Microsoft Teams for faster research and execution."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Heroku safely?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, keep credentials out of chats and generated content, proxy secrets through approved runtime settings, and scope permissions to the smallest practical set of actions. It can also add approval boundaries before the agent performs higher-risk Heroku operations."
+    },
+    {
+      "question": "Can a DocsBot agent help with Heroku-related incident triage?",
+      "answer": "Yes, the agent can gather customer-reported symptoms, check relevant Heroku app context, summarize recent releases or runtime signals, and prepare a clear handoff for the right team. That helps reduce back-and-forth and speeds up escalation quality."
+    },
+    {
+      "question": "How much technical setup is required to connect DocsBot to Heroku workflows?",
+      "answer": "The setup is centered on describing the outcome you want, not manually writing code or wiring every step yourself. Skill Builder handles the workflow design, secure authentication approach, testing, improvements, and deployment guidance for the finished Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "aws",
+    "vercel",
+    "netlify",
+    "render",
+    "digitalocean",
+    "github"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Heroku",
+    "domain": "heroku.com",
+    "description": "Heroku is an AI platform as a service (AI PaaS) that enables developers to build, deploy, and manage applications entirely in the cloud. They provide a range of tools and services, including polyglot support, third-party add-ons, and open source buildpacks, to enhance developer productivity and simplify the process of getting apps to market, allowing companies of all sizes to focus on building great data-driven applications.",
+    "slogan": "Build, deploy, and scale apps easily in the cloud with Heroku.",
+    "logoUrl": "https://media.brand.dev/514a7b0b-ac02-4dff-88dd-1a9ed06ae022.png",
+    "iconUrl": "https://media.brand.dev/d8e2469b-a32e-4bde-985d-a09e1cdabe22.jpg",
+    "primaryColor": "#0c9cdb",
+    "accentColor": "#5e0ab2",
+    "colors": [
+      {
+        "hex": "#0c9cdb",
+        "name": "Structural Blue"
+      },
+      {
+        "hex": "#5e0ab2",
+        "name": "Indiviolet Sunset"
+      },
+      {
+        "hex": "#ac84d0",
+        "name": "Middy’s Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/03f66896-c856-450d-bdad-a944f631b8e8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.heroku.com/careers/",
+      "terms": null,
+      "contact": "https://www.heroku.com/contact/",
+      "privacy": null,
+      "blog": "https://www.heroku.com/blog/",
+      "pricing": "https://www.heroku.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d8e2469b-a32e-4bde-985d-a09e1cdabe22.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/900ed606-8256-4921-b989-4e2e2bb0d5d6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/514a7b0b-ac02-4dff-88dd-1a9ed06ae022.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 300,
+        "height": 84,
+        "aspectRatio": 3.57
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/514a7b0b-ac02-4dff-88dd-1a9ed06ae022.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 300,
+      "height": 84,
+      "aspectRatio": 3.57
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d8e2469b-a32e-4bde-985d-a09e1cdabe22.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 150,
+      "height": 150,
+      "aspectRatio": 1
+    }
+  }
+}

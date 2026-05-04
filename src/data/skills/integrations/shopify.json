@@ -1,0 +1,184 @@
+{
+  "slug": "shopify",
+  "name": "Shopify",
+  "domain": "shopify.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use Shopify for Support and Operations",
+  "metaTitle": "Build Shopify AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Shopify data and actions for customer support, order workflows, team operations, and approved ecommerce automation.",
+  "intro": "Shopify helps merchants run ecommerce, orders, customers, products, and retail operations in one place. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Shopify, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can answer questions, look up store data, take approved actions, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order status, fulfillment details, and shipping history in Shopify while answering order questions in chat or helpdesk tickets.",
+    "Use an AI support agent to verify customer profiles, summarize recent purchases, and provide tailored return or exchange guidance based on Shopify order data.",
+    "Have the agent create or update customer notes, tags, or internal order context in Shopify so support conversations are documented for the next team member.",
+    "Enable the agent to check product availability, variant details, and pricing in Shopify before responding to pre-purchase questions from shoppers.",
+    "Let the agent prepare escalation summaries for refunds, cancellations, or delivery issues by pulling the relevant Shopify order, customer, and product details into a handoff note."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Shopify order, customer, product, and inventory information without opening the admin panel.",
+    "Use an internal AI assistant to summarize store activity, research customer history, and prepare support or success workflows using Shopify records and related business context.",
+    "Help operations teams complete SOPs by having the agent gather order details, update approved fields, apply tags, or trigger downstream workflows based on Shopify events or business rules.",
+    "Enable merchandisers and support managers to ask the agent for product, variant, and availability context across the catalog so they can respond faster and make better decisions.",
+    "Give finance or operations staff a private agent that can assemble Shopify order summaries, flag exceptions, and create structured handoff notes for manual review when approval is required."
+  ],
+  "whatYouCanBuild": [
+    "An AI order status assistant that reads Shopify orders and explains the latest fulfillment state.",
+    "A returns support agent that checks purchase history and drafts the next approved support step.",
+    "A shopper assistant that answers product and inventory questions using live Shopify catalog data.",
+    "An internal operations bot that tags orders and adds customer notes after approved review.",
+    "A handoff workflow that summarizes Shopify order issues for human support or success teams.",
+    "A private team assistant that researches customer purchase history before outreach or escalation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Shopify agent to do, such as checking orders, answering stock questions, or preparing refund handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Shopify connection, defines the right configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the records, actions, and users required for the workflow."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Shopify steps such as updates or workflow triggers so the agent can act only within the rules you approve."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so your team can start using Shopify-powered AI Actions with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Shopify for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking order status or summarizing return context, and Skill Builder creates a secure Skill that lets your support agent use Shopify during customer chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Shopify data to answer order and product questions?",
+      "answer": "Yes, a DocsBot agent can be designed to retrieve approved Shopify data such as orders, customers, products, variants, and fulfillment details so it can answer customers with current store context."
+    },
+    {
+      "question": "What Shopify workflows can an AI agent automate besides answering questions?",
+      "answer": "DocsBot Skills can be built to create handoff summaries, update approved notes or tags, trigger bounded workflows, generate structured follow-up artifacts, and prepare escalations using Shopify context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Shopify?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Shopify information, research customer history, follow SOPs, and complete approved operational steps from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Shopify access safe when building AI actions?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and generated content, proxies secrets through secure runtime configuration, scopes permissions to the minimum necessary access, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Do I need a developer to connect Shopify to a DocsBot AI agent?",
+      "answer": "Not for the planning and setup process described here. You explain the business outcome you want, and Skill Builder helps design, secure, test, improve, and publish the Shopify Skill without making you manually wire each implementation detail."
+    }
+  ],
+  "relatedSlugs": [
+    "bigcommerce",
+    "stripe",
+    "square",
+    "woocommerce",
+    "shipstation",
+    "klaviyo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Shopify",
+    "domain": "shopify.com",
+    "description": "Shopify is a global commerce company that provides a platform and tools for businesses to start, grow, and manage their retail operations. With a reliable and consumer-friendly platform, Shopify empowers millions of businesses in over 175 countries, including well-known brands. The company offers a range of services beyond ecommerce software, helping businesses manage every aspect of their operations, and is a trusted partner for entrepreneurs looking to launch or expand their ventures.",
+    "slogan": "Making commerce better for everyone",
+    "logoUrl": "https://media.brand.dev/8fbc5420-1d3b-496d-a7d4-5293eaa32680.svg",
+    "iconUrl": "https://media.brand.dev/bd6243c6-96c7-4781-aab9-e2cefcb74971.png",
+    "primaryColor": "#040404",
+    "accentColor": "#83ae43",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#83ae43",
+        "name": "Tree Palm"
+      },
+      {
+        "hex": "#ccdc9c",
+        "name": "Pear Perfume"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/55ca77ee-143d-4a10-b4a5-594e9fdeebe6.png",
+    "industries": [],
+    "links": {
+      "careers": "https://shopify.com/careers",
+      "terms": "https://shopify.com/legal/terms",
+      "contact": null,
+      "privacy": "https://shopify.com/legal/privacy",
+      "blog": "https://shopify.com/blog",
+      "pricing": "https://shopify.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c34e9571-bb21-4e51-9142-f31400103047.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8fbc5420-1d3b-496d-a7d4-5293eaa32680.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 500,
+        "height": 143,
+        "aspectRatio": 3.5
+      },
+      {
+        "url": "https://media.brand.dev/77a0a654-be55-4f56-b95f-8835fb8c27df.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 304,
+        "height": 87,
+        "aspectRatio": 3.49
+      },
+      {
+        "url": "https://media.brand.dev/bd6243c6-96c7-4781-aab9-e2cefcb74971.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c1ff21d6-15dd-4908-83fb-83be5a545143.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/77a0a654-be55-4f56-b95f-8835fb8c27df.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 304,
+      "height": 87,
+      "aspectRatio": 3.49
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c34e9571-bb21-4e51-9142-f31400103047.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

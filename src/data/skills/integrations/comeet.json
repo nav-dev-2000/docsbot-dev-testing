@@ -1,0 +1,176 @@
+{
+  "slug": "comeet",
+  "name": "Comeet",
+  "domain": "comeet.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Comeet Recruiting Workflows",
+  "metaTitle": "Comeet AI Agent Integration for Support and Recruiting Teams",
+  "metaDescription": "Build DocsBot AI agents that use Comeet to look up candidates, summarize hiring activity, trigger handoffs, and support recruiting workflows with safe controls.",
+  "intro": "Comeet is a collaborative recruiting and applicant tracking platform used to manage candidates, interviews, and hiring workflows. With DocsBot Skill Builder, you can describe the recruiting task you want an AI agent to handle in plain language, and Skill Builder helps create a reusable Skill that connects your agent to Comeet safely. The result is a support or internal AI agent that can answer questions, retrieve hiring data, prepare handoffs, and take approved actions inside your recruiting process.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer job applicant questions by checking candidate or application status in Comeet and returning an approved response.",
+    "Let a support agent create a recruiting handoff when a candidate asks for help with scheduling, application follow-up, or next steps.",
+    "Have the agent summarize interview progress, open tasks, or recruiter notes from Comeet before responding to an applicant ticket.",
+    "Use the agent to capture missing candidate details from a chat conversation and prepare a structured follow-up record for the recruiting team.",
+    "Let the agent trigger approved workflow steps, such as notifying recruiting staff when an applicant needs manual review or escalation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up candidate status, interview stages, and assigned hiring tasks from Comeet.",
+    "Enable recruiting teams to ask the agent for summaries of pipeline activity, role progress, or candidate timelines without opening multiple systems.",
+    "Help recruiters complete SOPs by having the agent gather missing context, prepare handoff notes, and route hiring issues to the right teammate.",
+    "Allow hiring managers to chat with the agent to review interview schedules, candidate updates, and pending actions across recruiting workflows.",
+    "Use an internal AI assistant to generate recruiting summaries, escalation notes, and follow-up drafts based on Comeet records and approved business rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and drafts applicant-ready replies.",
+    "A recruiting assistant that summarizes interview progress for recruiters and hiring managers.",
+    "A private team agent that finds open hiring tasks and explains the next step.",
+    "An AI workflow that prepares candidate handoff notes for recruiting escalations.",
+    "A support agent that captures missing applicant information and updates approved records.",
+    "An internal assistant that creates structured summaries of role pipeline health and activity."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Comeet-connected agent to do, such as check candidate status, prepare recruiting handoffs, or summarize interview progress, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required configuration values, connection method, authentication handling, and secure secret storage for Comeet, while keeping credentials out of chats and Skill instructions by proxying them through approved runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and workflow paths needed for the job, and it adds approval boundaries or safe action limits for sensitive updates and escalations."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak spots, or missing checks, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded recruiting actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Comeet recruiting data?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting outcome you want in plain language, and Skill Builder creates a Skill that lets your AI agent look up Comeet data, summarize it, and take approved actions. It also handles secure connection design, scoped access, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Comeet to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Comeet data to help answer applicant questions about application progress, scheduling status, or next steps when those responses fit your approved rules. The agent can also prepare handoffs or escalations when a recruiter should take over."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Comeet?",
+      "answer": "A private DocsBot agent can help recruiters and hiring managers retrieve candidate information, summarize pipelines, prepare follow-up notes, route issues, and support recruiting SOPs. It can also trigger bounded workflow steps when you want the assistant to move work forward instead of only explaining it."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Comeet?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with scoped permissions, protected secrets, and approval boundaries for sensitive actions. That means your agent can be allowed to perform specific updates or workflow triggers while staying inside the limits you define."
+    },
+    {
+      "question": "Can a Comeet AI agent create recruiting handoffs and escalation summaries?",
+      "answer": "Yes, a DocsBot agent can gather context from the conversation and Comeet records, then create structured handoff notes, summaries, or escalation drafts for recruiters and hiring teams. This helps teams respond faster and with more complete context."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Comeet?",
+      "answer": "You do not need to map out every technical detail yourself. You explain the workflow you want, and Skill Builder handles the secure design, configuration planning, testing scenarios, improvements, and publication path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "ashby",
+    "bamboohr",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Comeet",
+    "domain": "comeet.com",
+    "description": "Spark Hire Recruit, formerly Comeet, is a collaborative hiring platform that provides an all-in-one recruiting solution, including sourcing, recruiting, and applicant tracking. It streamlines the hiring process with features like talent assessments, task automation, and interview scheduling, making it easier for hiring teams to work together and find quality candidates.",
+    "slogan": "Streamlining hiring with human touch and smart, collaborative recruiting tools.",
+    "logoUrl": "https://media.brand.dev/2cbb3dc9-ae88-415e-b409-177454738b88.svg",
+    "iconUrl": "https://media.brand.dev/fe7dbba0-edd0-421d-9122-6b2dd42a3711.jpg",
+    "primaryColor": "#eb5768",
+    "accentColor": "#0c0473",
+    "colors": [
+      {
+        "hex": "#eb5768",
+        "name": "Bara Red"
+      },
+      {
+        "hex": "#0c0473",
+        "name": "Insomniac Blue"
+      },
+      {
+        "hex": "#da9457",
+        "name": "Pumpkin Toast"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fd502849-4168-4ca8-80f9-7eecaaa960ed.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://www.comeet.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fe7dbba0-edd0-421d-9122-6b2dd42a3711.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/68c2162a-ca2b-41fc-b3cf-dad9d327b17c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2cbb3dc9-ae88-415e-b409-177454738b88.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 534,
+        "height": 140,
+        "aspectRatio": 3.81
+      },
+      {
+        "url": "https://media.brand.dev/bb7bbaca-0962-45e1-9b81-eb2bae933c20.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 738,
+        "height": 761,
+        "aspectRatio": 0.97
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2cbb3dc9-ae88-415e-b409-177454738b88.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 534,
+      "height": 140,
+      "aspectRatio": 3.81
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bb7bbaca-0962-45e1-9b81-eb2bae933c20.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 738,
+      "height": 761,
+      "aspectRatio": 0.97
+    }
+  }
+}

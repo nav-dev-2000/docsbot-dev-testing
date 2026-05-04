@@ -1,0 +1,156 @@
+{
+  "slug": "oracle-fusion-cloud",
+  "name": "Oracle Fusion Cloud",
+  "domain": "oracle-fusion-cloud.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Oracle Fusion Cloud",
+  "metaTitle": "Build AI Agents for Oracle Fusion Cloud with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that safely look up data, update records, trigger workflows, and summarize work in Oracle Fusion Cloud.",
+  "intro": "Oracle Fusion Cloud helps organizations manage core business processes across finance, HR, operations, and enterprise workflows. With DocsBot Skill Builder, you can describe the Oracle Fusion Cloud tasks you want an AI agent to handle in plain language, and DocsBot helps design, secure, test, and publish that Skill. The result is a support or internal AI agent that can answer questions and take bounded action inside Oracle Fusion Cloud while following your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order, billing, account, or service status details stored in Oracle Fusion Cloud and answer customers with current information.",
+    "Enable the agent to create support-related follow-up records, service requests, or case notes in Oracle Fusion Cloud while chatting with customers or replying to tickets.",
+    "Allow the agent to update approved customer or transaction fields in Oracle Fusion Cloud after collecting missing details during a support conversation.",
+    "Use the agent to summarize Oracle Fusion Cloud account history, recent changes, and open process steps before handing a complex issue to a human team member.",
+    "Let the agent trigger approved Oracle Fusion Cloud workflows, such as escalation routing or follow-up task creation, when a customer issue meets defined conditions."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Oracle Fusion Cloud records, policy-linked details, and workflow status without manually navigating multiple screens.",
+    "Finance, operations, or HR teams can ask the agent to summarize Oracle Fusion Cloud data, compare record states, and prepare handoff notes for the next team in the process.",
+    "Team members can use the agent in Slack, Microsoft Teams, or private chat to create approved Oracle Fusion Cloud updates, tasks, or follow-up actions through guided workflows.",
+    "Managers can chat with the agent to gather context across Oracle Fusion Cloud processes, identify missing information, and complete standard operating procedures faster.",
+    "Internal teams can use the agent to generate structured summaries, exception reports, or escalation drafts based on Oracle Fusion Cloud activity and related business rules."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks customer billing or account status in Oracle Fusion Cloud.",
+    "An internal assistant that creates approved follow-up tasks from chat requests.",
+    "A workflow agent that gathers missing details and updates eligible Oracle Fusion Cloud records.",
+    "A handoff assistant that summarizes case history before escalation to human teams.",
+    "An operations agent that triggers approved Oracle Fusion Cloud process workflows after validation.",
+    "A finance support assistant that prepares transaction summaries and next-step guidance for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Oracle Fusion Cloud agent to do, such as checking status, updating records, creating handoffs, or triggering approved workflows, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow design, needed configuration values, and secure connection approach."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and secret management through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes Oracle Fusion Cloud access to the minimum actions, users, and records required."
+    },
+    {
+      "title": "Approval limits are added",
+      "description": "For sensitive Oracle Fusion Cloud changes, Skill Builder adds approval boundaries, safe action limits, and clear rules so the agent only performs the bounded actions you allow."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Oracle Fusion Cloud without custom development?",
+      "answer": "You can describe the Oracle Fusion Cloud workflow you want in plain language, and DocsBot Skill Builder helps design, secure, test, and package that ability as a reusable Skill. It handles connection planning, secret protection, scoped permissions, and deployment guidance so non-technical teams can launch useful AI actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Oracle Fusion Cloud data to answer customers?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved Oracle Fusion Cloud data during a website chat or helpdesk ticket response. It can return current status, summarize relevant history, and prepare handoffs or follow-up actions based on your rules."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Oracle Fusion Cloud?",
+      "answer": "An agent can perform bounded tasks such as status lookups, approved record updates, service follow-up creation, escalation preparation, workflow triggers, and conversation summaries. The exact actions depend on the Oracle Fusion Cloud records and permissions you choose to expose."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Oracle Fusion Cloud?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Oracle Fusion Cloud information, complete guided workflows, and generate summaries or handoff notes. This helps teams move faster without giving the agent unlimited access."
+    },
+    {
+      "question": "How does DocsBot keep Oracle Fusion Cloud actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, and keeps credentials out of chat transcripts and generated content. It also scopes permissions, limits actions to approved workflows, and can add approval steps for sensitive updates."
+    },
+    {
+      "question": "Can a DocsBot agent update Oracle Fusion Cloud records or trigger workflows?",
+      "answer": "Yes, if you allow those actions, a Skill can help the agent update records, create follow-up items, or trigger Oracle Fusion Cloud workflows within the boundaries you define. Sensitive actions can be restricted to specific users, record types, or approval conditions."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "netsuite",
+    "oracle",
+    "sap",
+    "microsoft-dynamics-365",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Oracle Corporation",
+    "domain": "oracle.com",
+    "description": "Oracle is a leading cloud technology company that provides an integrated suite of cloud applications and platform services to organizations globally. Specializing in enterprise IT solutions, Oracle empowers businesses to innovate, enhance operational efficiencies, and effectively manage their data with pioneering tools, including the world's first autonomous database. Their cloud infrastructure is designed for high performance, security, and cost savings, facilitating seamless transitions between on-premises and cloud systems. Oracle's applications support business leaders in achieving sustainable growth and resilience, impacting diverse sectors such as government, science, and healthcare. With a commitment to diversity and professional development, Oracle fosters a culture of innovation within a passionate global workforce. Millions of users leverage Oracle’s solutions to streamline processes, enhance collaboration, and tackle real-world challenges. For those interested in a rewarding career or seeking financial insights, Oracle provides additional resources on its careers and investor pages.",
+    "slogan": "Unlock insights and endless possibilities with Oracle Cloud technology.",
+    "logoUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "iconUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "primaryColor": "#c44434",
+    "accentColor": "#e39c91",
+    "colors": [
+      {
+        "hex": "#c44434",
+        "name": "Mexican Red Papaya"
+      },
+      {
+        "hex": "#e39c91",
+        "name": "Strawberry Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ef3e2ab7-5c9b-46e5-a47f-8b60b5d10fcd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://oracle.com/careers/",
+      "terms": null,
+      "contact": "https://oracle.com/corporate/contact/",
+      "privacy": "https://oracle.com/legal/privacy/",
+      "blog": "https://oracle.com/news/",
+      "pricing": "https://oracle.com/ai-world/register/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

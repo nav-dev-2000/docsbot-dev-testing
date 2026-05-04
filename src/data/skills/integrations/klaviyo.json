@@ -1,0 +1,175 @@
+{
+  "slug": "klaviyo",
+  "name": "Klaviyo",
+  "domain": "klaviyo.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Klaviyo",
+  "metaTitle": "Build AI Support and Internal Agents for Klaviyo",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Klaviyo data and actions for customer support, internal operations, and marketing workflows.",
+  "intro": "Klaviyo helps teams manage customer data, segments, campaigns, and personalized messaging across email, SMS, and other channels. With DocsBot Skill Builder, you can describe the Klaviyo workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, look up customer marketing context, trigger approved actions, and prepare handoffs without exposing sensitive access or requiring technical setup from your team.",
+  "supportUseCases": [
+    "A DocsBot support agent can look up a customer's Klaviyo profile, subscription status, recent campaign activity, and segment membership while replying in chat or over helpdesk tickets.",
+    "The agent can confirm whether a customer is subscribed to email or SMS, summarize consent-related details, and explain the next approved support step.",
+    "The agent can add notes or update approved profile properties in Klaviyo after collecting missing information from the customer during a support conversation.",
+    "The agent can trigger approved follow-up workflows such as welcome, win-back, or preference-management journeys when a support interaction meets your rules.",
+    "The agent can prepare a clean handoff summary for human support or retention teams using Klaviyo profile history, campaign engagement, and the current customer issue context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Klaviyo customer profile details, audience segment logic, campaign status, and engagement summaries without manually searching the platform.",
+    "Marketing, support, and customer success teams can ask the agent to research a customer's messaging history and prepare a next-step recommendation based on approved internal rules.",
+    "Team members can use the agent in Slack, Microsoft Teams, or private chat to update safe profile fields, trigger bounded automation workflows, or log handoff-ready summaries for follow-up.",
+    "Operations and lifecycle teams can chat with the agent to complete standard Klaviyo workflows such as checking subscription states, reviewing flow enrollment status, and gathering context for escalations or retention playbooks."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Klaviyo subscription status before answering opt-in or opt-out questions.",
+    "A customer chat workflow that retrieves recent campaign engagement and summarizes likely messaging context.",
+    "An internal assistant that updates approved Klaviyo profile properties after employee confirmation.",
+    "A lifecycle operations agent that triggers bounded follow-up flows when support conversations meet defined rules.",
+    "A handoff assistant that compiles Klaviyo profile data, consent status, and engagement history for human teams.",
+    "A private team agent that answers segment membership questions and explains why a contact qualifies."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Klaviyo agent to do, such as checking subscription status, updating a profile field, or preparing a campaign-context handoff, and it turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes Klaviyo access to the minimum actions, users, records, and data needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "When a Klaviyo action could affect customer data or trigger messaging, Skill Builder adds approval boundaries and clear action limits so the agent only performs the bounded steps you allow."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk-connected support agent, or private team assistant so people can use it through chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Klaviyo for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking consent status or summarizing campaign engagement, and Skill Builder creates a secure Skill the support agent can use during chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Klaviyo data while talking to customers?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved Klaviyo data such as profile details, subscription states, segment membership, or engagement history so it can respond with more context and prepare better handoffs."
+    },
+    {
+      "question": "What Klaviyo workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees research customer messaging history, check segments, review flow enrollment, update approved profile fields, trigger bounded workflows, and summarize next steps across teams."
+    },
+    {
+      "question": "Can DocsBot update Klaviyo records safely?",
+      "answer": "Yes, Skill Builder can create workflows for approved Klaviyo updates while keeping authentication secure, scoping permissions to the minimum needed, and adding approval boundaries for actions that should require extra control."
+    },
+    {
+      "question": "Can a DocsBot agent trigger Klaviyo automations or follow-up journeys?",
+      "answer": "DocsBot can be configured to trigger approved Klaviyo workflows when your defined conditions are met, such as a retention case, preference update, or support-driven follow-up, with limits and approvals where appropriate."
+    },
+    {
+      "question": "How does setup work if my team is not technical?",
+      "answer": "You describe the business outcome you want, and Skill Builder handles the workflow design, secure configuration, authentication handling, testing, improvement, and deployment details so your team does not have to manually wire everything together."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "activecampaign",
+    "braze",
+    "intercom",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Klaviyo",
+    "domain": "klaviyo.com",
+    "description": "Klaviyo is an innovative automation and email marketing platform designed to empower businesses to grow smarter digital relationships. By allowing users to capture, store, and analyze their own data, Klaviyo helps companies turn insights into actionable strategies that drive measurable outcomes. Its user-friendly SaaS platform, compatible with over 350 integrations, facilitates the delivery of personalized messages across email, SMS, and push notifications, ensuring that businesses connect with their audience at the right time. Trusted by over 146,000 customers, including notable brands like Good American and TaylorMade, Klaviyo leverages AI features to enhance growth efficiency. Ultimately, Klaviyo enables businesses to effectively acquire, engage, and retain customers while promoting sustainable growth according to their unique needs.",
+    "slogan": "Power smarter digital relationships with personalized messages and automation.",
+    "logoUrl": "https://media.brand.dev/bc6057bc-46f2-4e0f-9292-02d2f54d1eee.jpg",
+    "iconUrl": "https://media.brand.dev/bc6057bc-46f2-4e0f-9292-02d2f54d1eee.jpg",
+    "primaryColor": "#eb6454",
+    "accentColor": "#f2b5a2",
+    "colors": [
+      {
+        "hex": "#eb6454",
+        "name": "Connect Red"
+      },
+      {
+        "hex": "#f2b5a2",
+        "name": "First Date"
+      },
+      {
+        "hex": "#8c8c8c",
+        "name": "More Than A Week"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/297c9d02-8314-442e-8728-647c8cd1dd0c.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.klaviyo.com/careers",
+      "terms": "https://www.klaviyo.com/legal",
+      "contact": "https://www.klaviyo.com/contact-us",
+      "privacy": "https://www.klaviyo.com/legal",
+      "blog": "https://www.klaviyo.com/blog",
+      "pricing": "https://www.klaviyo.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bc6057bc-46f2-4e0f-9292-02d2f54d1eee.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/304facf0-b48d-475a-a713-e418af31c24f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d9004a03-b869-4af3-b3b6-cc0bb4ced7e1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/88834792-18d9-4a95-b632-c58857b626ed.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bc6057bc-46f2-4e0f-9292-02d2f54d1eee.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bc6057bc-46f2-4e0f-9292-02d2f54d1eee.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "podio",
+  "name": "Podio",
+  "domain": "podio.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Podio",
+  "metaTitle": "Build AI Support and Internal Agents for Podio | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read, update, and trigger Podio workflows for customer support and internal team operations.",
+  "intro": "Podio is a flexible work management platform teams use to organize projects, workflows, and collaboration. With DocsBot Skill Builder, you can describe the Podio-powered agent outcome you want in plain language, and DocsBot helps design, secure, test, and deploy the Skill. The result is an AI support or internal agent that can look up Podio data, update records, trigger workflows, and prepare clear next steps inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Podio project items, case records, or workflow status while answering questions in a website chat widget or helpdesk reply.",
+    "Use the agent to create Podio follow-up items, service requests, or escalation records from a customer conversation so handoffs are captured without manual re-entry.",
+    "Have the agent summarize Podio activity, ownership, deadlines, and recent updates to give customers a clear status update in plain language.",
+    "Enable the agent to collect missing details from a customer, then update the matching Podio record with approved notes, fields, or tags.",
+    "Use Podio data to help the agent prepare structured escalations for human teams, including customer context, issue summaries, and linked work items."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Podio items, project updates, owners, deadlines, and workflow history without digging through workspaces.",
+    "Use an internal agent to create or update Podio tasks, app items, comments, and follow-up records as employees complete standard operating procedures.",
+    "Help operations, customer success, or support teams ask the agent for a summary of open Podio work by client, team member, priority, or due date.",
+    "Allow employees to trigger approved Podio workflows from chat, such as creating onboarding checklists, escalation records, or project templates.",
+    "Give teams a conversational assistant that combines Podio lookups with policy or process guidance so employees can complete work faster and with fewer mistakes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Podio item status and replies with customer-friendly progress updates.",
+    "A DocsBot Skill that creates Podio follow-up items from support chats or ticket conversations.",
+    "An internal assistant that finds project owners, deadlines, and blockers across Podio workspaces.",
+    "A workflow agent that updates approved Podio fields after collecting missing information from users.",
+    "A handoff assistant that summarizes customer issues and opens structured Podio escalation records.",
+    "An employee agent that launches repeatable onboarding, implementation, or service workflows in Podio."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Podio agent to do in plain language, such as checking project status, creating follow-up items, or updating approved fields during support and internal conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and handles secure Podio connection and authentication setup without exposing credentials in chats or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes Podio access to the minimum users, records, actions, and workspaces needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to the right DocsBot agent so your website chat widget, helpdesk agent, or private employee assistant can safely use Podio to take bounded action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Podio?",
+      "answer": "With DocsBot Skill Builder, you describe the Podio workflow you want in plain language and Skill Builder creates the Skill design, secure connection setup, testing plan, and deployment path for your agent. The finished agent can look up Podio data, update approved records, trigger workflows, and summarize results within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Podio data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Podio as a working system during chat or helpdesk replies to check status, find records, summarize work, create follow-ups, and prepare escalations. You control which records and actions are allowed, and Skill Builder adds safe boundaries for sensitive changes."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Podio?",
+      "answer": "Teams can build workflows for status lookups, case summaries, follow-up creation, escalation handoffs, missing-information collection, and approved record updates in Podio. This helps support agents answer faster while keeping work items and customer context organized in one place."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage Podio work?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find Podio items, review deadlines, create tasks, update records, and trigger repeatable workflows from Slack, Microsoft Teams, or a private chat interface. This is especially useful for operations, support, customer success, and project coordination teams."
+    },
+    {
+      "question": "How does DocsBot keep Podio actions safe?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets securely, scopes permissions to the minimum required access, and can add approval steps for higher-risk Podio actions. That lets your agent take useful action without giving it unlimited control."
+    },
+    {
+      "question": "Can DocsBot create Podio handoffs and escalation records automatically?",
+      "answer": "Yes, you can build a Skill that gathers the right customer or employee context, formats a clean summary, and creates a Podio record for handoff or escalation. This reduces manual copy and paste and gives the next team a clearer starting point."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "monday-com",
+    "clickup",
+    "trello",
+    "jira",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Podio",
+    "domain": "podio.com",
+    "description": "Podio is the all-in-one work management software that helps teams collaborate, automate workflows, and manage projects with ease. They provide custom solutions that drive productivity and efficiency, changing the way the world works since 2009.",
+    "slogan": "Transforming work and real estate with innovative, hassle-free solutions since 2009.",
+    "logoUrl": "https://media.brand.dev/1f63bb3a-1e15-4234-ab18-c667f38c1ff2.svg",
+    "iconUrl": "https://media.brand.dev/cfcb7d92-7485-4124-811a-f3f14a1d8d1e.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#939494",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#939494",
+        "name": "Grey Shingle"
+      },
+      {
+        "hex": "#242525",
+        "name": "Nero"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/234ab4be-ee12-425f-b9c8-bdd38d5e13b5.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "privacy": null,
+      "blog": null,
+      "careers": "https://podio.com/careers",
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cfcb7d92-7485-4124-811a-f3f14a1d8d1e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1f63bb3a-1e15-4234-ab18-c667f38c1ff2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 130,
+        "height": 32,
+        "aspectRatio": 4.06
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1f63bb3a-1e15-4234-ab18-c667f38c1ff2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 130,
+      "height": 32,
+      "aspectRatio": 4.06
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cfcb7d92-7485-4124-811a-f3f14a1d8d1e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

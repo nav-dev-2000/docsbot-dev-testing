@@ -1,0 +1,156 @@
+{
+  "slug": "segment",
+  "name": "Segment",
+  "domain": "segment.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Segment Data and Workflows",
+  "metaTitle": "Build AI Agents for Segment with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Segment for customer data lookups, summaries, handoffs, and safe workflow actions in support and internal operations.",
+  "intro": "Segment helps teams unify customer data, standardize events, and route information across their stack. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely use Segment data and approved actions. This gives support teams and internal employees an AI agent that can answer questions, gather context, prepare handoffs, and trigger bounded workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Use Segment profiles and event history during a customer chat or helpdesk ticket to explain account activity, product usage, or recent lifecycle changes with better context.",
+    "Let the AI agent summarize a customer's recent tracked events and traits before escalating the conversation to a human support or success team member.",
+    "Have the agent check whether a user has completed key onboarding or activation events so it can guide the next troubleshooting step more accurately.",
+    "Use Segment data to help verify whether an issue is isolated or part of a broader pattern based on recent event activity tied to the customer's account.",
+    "Allow the agent to create structured internal handoff notes that combine the customer's question with relevant Segment traits, event timelines, and observed product behavior summaries."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve Segment traits, audiences, and event activity for research or account reviews.",
+    "Customer success and operations teams can ask the agent to summarize user journeys, activation signals, or recent behavioral changes before renewals, outreach, or escalation reviews.",
+    "Teams can use the agent to follow internal SOPs that compare Segment activity with other business systems and produce a clean summary for decision-making.",
+    "Marketing and product teams can chat with the agent to investigate tracking questions, review customer event patterns, and prepare internal reports without manually digging through multiple dashboards.",
+    "Internal agents can gather missing context from employees, then trigger approved downstream workflows based on Segment-based conditions while keeping actions within defined boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that looks up Segment user traits and recent events during customer conversations.",
+    "An escalation assistant that turns Segment activity into concise handoff notes for human teams.",
+    "An onboarding helper that checks milestone events and recommends the next approved support action.",
+    "An internal research agent that summarizes customer journeys from Segment data for success teams.",
+    "A product operations assistant that investigates event patterns and prepares internal incident context.",
+    "A private team agent that compares Segment activity with account context before triggering workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Segment in plain language, such as looking up customer activity, summarizing user journeys, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and defines how the agent should use Segment data and actions safely."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication design, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets approval boundaries and action limits for sensitive lookups, updates, or workflow triggers so the agent operates within customer-defined rules."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Segment data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that lets your agent look up Segment profiles, event history, and customer context during chats or ticket replies. The Skill can also prepare handoffs, summarize findings, and trigger approved workflows within defined limits."
+    },
+    {
+      "question": "Can an AI support agent use Segment event data to troubleshoot customer issues?",
+      "answer": "Yes, a DocsBot agent can be designed to use Segment event and trait data to understand recent customer activity, confirm whether key actions happened, and respond with more accurate guidance. Skill Builder also adds scoped permissions and approval controls so the agent only accesses the data and actions you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Segment?",
+      "answer": "Internal agents can summarize user journeys, review activation signals, support account research, investigate tracking questions, and prepare operational handoff notes for teams in chat, Slack, or Microsoft Teams. They can also trigger bounded follow-up workflows when your process allows it."
+    },
+    {
+      "question": "Can DocsBot use Segment to create better handoffs and escalations?",
+      "answer": "Yes, you can build a Skill that turns Segment traits, events, and customer context into structured summaries for support, success, or operations teams. This helps human teammates pick up a case faster with a clearer picture of what the customer has done and what happened next."
+    },
+    {
+      "question": "How does DocsBot keep Segment access secure when building AI Actions?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum records and actions required and can add approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Segment workflows?",
+      "answer": "No, the setup is centered on describing the desired outcome, not manually wiring every step yourself. Skill Builder handles the design, secure connection approach, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "mixpanel",
+    "amplitude",
+    "customer-io",
+    "braze",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Segment",
+    "domain": "segment.com",
+    "description": "Twilio Segment is a customer data platform that helps companies harness and utilize their customer data. It provides a toolkit to standardize data collection, unify user records, and route customer data into various systems, enabling real-time decision-making, growth, and enhanced user experiences for businesses.",
+    "slogan": "Empowering businesses with unified, reliable customer data for smarter decisions.",
+    "logoUrl": "https://media.brand.dev/4a5b787e-71d0-41c9-82ef-d15ff8253145.png",
+    "iconUrl": "https://media.brand.dev/4a5b787e-71d0-41c9-82ef-d15ff8253145.png",
+    "primaryColor": "#f4364d",
+    "accentColor": "#fb94a4",
+    "colors": [
+      {
+        "hex": "#f4364d",
+        "name": "Flowerhorn Cichlid Red"
+      },
+      {
+        "hex": "#fb94a4",
+        "name": "Salmon Pink"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6865d8ed-faec-488b-8038-823d3ee86dca.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://segment.com/contact/",
+      "privacy": "https://segment.com/product/privacy-portal",
+      "blog": "https://segment.com/newsroom/",
+      "pricing": "https://segment.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5012f234-ef73-470b-8227-54992cb5d9ed.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4a5b787e-71d0-41c9-82ef-d15ff8253145.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5012f234-ef73-470b-8227-54992cb5d9ed.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5012f234-ef73-470b-8227-54992cb5d9ed.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

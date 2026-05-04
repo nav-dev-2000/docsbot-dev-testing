@@ -1,0 +1,176 @@
+{
+  "slug": "desk365",
+  "name": "Desk365",
+  "domain": "desk365.io",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Desk365",
+  "metaTitle": "Build Desk365 AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Desk365 for ticket lookups, updates, handoffs, workflow triggers, and internal support operations with secure controls.",
+  "intro": "Desk365 helps teams manage customer support across email, web, portals, forms, and Microsoft Teams. With DocsBot Skill Builder, you can describe the Desk365 workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take approved actions in Desk365, such as looking up tickets, updating records, preparing escalations, and summarizing support activity.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Desk365 ticket status and provide customers with real-time progress updates in chat or by helpdesk reply.",
+    "Use a DocsBot support agent to create new Desk365 tickets from website conversations when an issue needs formal tracking or human follow-up.",
+    "Allow the agent to add internal notes, tags, priorities, or routing details in Desk365 based on the customer’s issue and the rules you define.",
+    "Have the agent summarize an ongoing Desk365 case, collect missing details from the customer, and prepare a clean handoff for a human support rep.",
+    "Enable the agent to trigger approved escalation workflows in Desk365 when a conversation matches SLA risk, urgency, or specialized support criteria."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up Desk365 tickets, owners, statuses, and recent activity without opening the helpdesk.",
+    "Give support leads an internal AI assistant that summarizes Desk365 queue health, identifies overdue tickets, and helps teams follow triage or escalation SOPs.",
+    "Allow customer success or operations employees to ask the agent to create Desk365 tickets from internal requests and attach the right context for faster handling.",
+    "Use an internal agent to research recurring support issues across Desk365 records and return concise summaries that help teams improve documentation or workflows.",
+    "Help managers chat with the agent to prepare escalation notes, handoff summaries, or follow-up checklists based on Desk365 case history and support policies."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that looks up Desk365 tickets by email, ticket ID, or conversation context.",
+    "A Skill that creates Desk365 tickets from website chats with structured issue details.",
+    "A Skill that updates ticket priority, status, tags, or assigned team using approval rules.",
+    "A Skill that summarizes ticket timelines before escalation to a human support agent.",
+    "A Skill that gathers missing troubleshooting details and appends them to Desk365 records.",
+    "A Skill that prepares SLA-risk alerts and triggers approved Desk365 escalation workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Desk365 agent to do, such as checking ticket status, creating tickets, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum Desk365 actions, records, users, and workflow permissions needed, and it adds approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing instructions, weak permission checks, or workflow gaps, and feeds fixes into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot agent or private internal assistant so teams can use Desk365 actions within controlled boundaries."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Desk365 for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the Desk365 support workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up tickets, create records, summarize cases, and trigger approved actions while responding to customers."
+    },
+    {
+      "question": "Can an AI support agent use Desk365 data during live customer conversations?",
+      "answer": "Yes, a DocsBot agent can use a Desk365 Skill to retrieve ticket details, check status, gather context, and prepare handoffs or updates during a live chat or helpdesk reply, based on the permissions and rules you approve."
+    },
+    {
+      "question": "What Desk365 workflows can a DocsBot AI agent automate safely?",
+      "answer": "A DocsBot Skill can handle bounded actions such as ticket lookups, ticket creation, status changes, tagging, note creation, escalation preparation, and workflow triggers, with scoped permissions and approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can I use Desk365 with an internal AI assistant for employees?",
+      "answer": "Yes, private DocsBot agents can help employees search Desk365 records, summarize queues, create internal support requests, and follow triage or escalation SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Desk365 access secure when building an AI agent?",
+      "answer": "Skill Builder defines secure configuration values, handles authentication safely, proxies secrets through protected runtime settings, and keeps credentials out of conversations and Skill source while limiting access to approved actions and data."
+    },
+    {
+      "question": "Can a DocsBot agent escalate or hand off Desk365 tickets to human teams?",
+      "answer": "Yes, the agent can gather missing context, summarize the issue, update the Desk365 record, and trigger an approved handoff or escalation path so human agents receive a cleaner, faster transition."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "jira-service-management",
+    "helpscout",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Desk365",
+    "domain": "desk365.io",
+    "description": "Desk365 is an AI‑powered helpdesk platform that integrates directly with Microsoft Teams and other tools to streamline customer support for businesses of any size. It lets customers raise tickets via Teams, email, web widgets, portals or forms, and consolidates all requests into a unified inbox for agents. Built‑in AI agents and a Copilot assist with ticket triage, knowledge‑base article generation, summarization and response drafting, reducing repetitive work. The solution includes SLA tracking, customizable workflows, a searchable knowledge base, and extensive integrations through Power Automate, APIs and webhooks with systems like Azure DevOps, Jira and Asana. Trusted by over 7,000 organizations, Desk365 enables faster ticket resolution, improved agent productivity, and a seamless omnichannel support experience.",
+    "slogan": "AI-powered helpdesk for teams, within Microsoft Teams and beyond.",
+    "logoUrl": "https://media.brand.dev/a46a908e-1e5d-469c-b1f6-2f173f4243cf.png",
+    "iconUrl": "https://media.brand.dev/361c8a65-387e-472f-bc15-bb3c0c3bad51.jpg",
+    "primaryColor": "#252b94",
+    "accentColor": "#8c94be",
+    "colors": [
+      {
+        "hex": "#252b94",
+        "name": "Royal Night"
+      },
+      {
+        "hex": "#8c94be",
+        "name": "PHP Purple"
+      },
+      {
+        "hex": "#e3e4ed",
+        "name": "Icy Lavender"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b6b11ed8-cd94-4b8c-80ac-43709681aa2d.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.desk365.io/blog/",
+      "careers": null,
+      "privacy": "https://www.desk365.io/privacy-policy/",
+      "terms": "https://www.desk365.io/terms-of-service/",
+      "contact": "https://www.desk365.io/contact-management/",
+      "pricing": "https://www.desk365.io/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/361c8a65-387e-472f-bc15-bb3c0c3bad51.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a46a908e-1e5d-469c-b1f6-2f173f4243cf.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 547,
+        "height": 156,
+        "aspectRatio": 3.51
+      },
+      {
+        "url": "https://media.brand.dev/0a0fcf85-a7cb-4f6d-94b6-a119c4361cfa.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1d84c5e1-2842-4994-831a-d29b3cad9f0d.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a46a908e-1e5d-469c-b1f6-2f173f4243cf.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 547,
+      "height": 156,
+      "aspectRatio": 3.51
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/361c8a65-387e-472f-bc15-bb3c0c3bad51.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

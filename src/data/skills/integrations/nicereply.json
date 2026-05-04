@@ -1,0 +1,176 @@
+{
+  "slug": "nicereply",
+  "name": "Nicereply",
+  "domain": "nicereply.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Nicereply for Feedback and CX Workflows",
+  "metaTitle": "Build AI Agents for Nicereply with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Nicereply data for support insights, feedback lookups, survey workflows, and internal CX reporting with secure actions.",
+  "intro": "Nicereply helps teams measure customer satisfaction with CSAT, CES, and NPS surveys. With DocsBot Skill Builder, you can describe the Nicereply-powered workflow you want in plain language, and DocsBot can turn it into a reusable Skill for a support bot or private internal AI agent. That lets your AI agent answer questions, look up feedback signals, summarize survey results, and trigger approved follow-up actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent Nicereply survey results for an account and tailor responses based on satisfaction trends.",
+    "Let the support agent summarize CSAT, CES, or NPS feedback tied to a recent ticket so customers receive faster, more informed follow-up.",
+    "Have the agent identify low-score feedback patterns in Nicereply and prepare an escalation handoff for a human support or customer success teammate.",
+    "Enable the agent to confirm whether a post-resolution survey was sent or completed and explain the current feedback status to the customer.",
+    "Use Nicereply insights to help the support bot detect at-risk customers and trigger an approved follow-up workflow after the conversation ends."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Nicereply feedback trends by team, time period, or support queue without digging through dashboards manually.",
+    "Customer success or support leaders can ask the agent to summarize low-scoring survey comments and generate a coaching or follow-up brief for their team.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to research survey completion rates, response trends, and customer sentiment before planning improvements.",
+    "Managers can chat with the agent to compare CSAT, CES, and NPS performance across workflows and get a clear summary for internal reporting.",
+    "Internal teams can use the agent to follow CX review SOPs, including identifying poor feedback, gathering context, and preparing next-step recommendations."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that retrieves recent Nicereply CSAT, CES, or NPS results for a customer record.",
+    "A Skill that summarizes negative survey feedback and drafts an escalation handoff for support teams.",
+    "A Skill that checks whether a feedback survey was sent, completed, or still awaiting a response.",
+    "A Skill that compiles weekly CX summaries from Nicereply for support and customer success managers.",
+    "A Skill that flags low satisfaction signals and triggers an approved internal follow-up workflow.",
+    "A Skill that helps employees compare survey trends across teams, queues, or time periods in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Nicereply-enabled agent to do, such as summarize survey feedback, check response status, or prepare escalations, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder figures out the required Nicereply connection details, defines secure configuration values, protects and proxies secrets through runtime controls, and scopes access to only the records, actions, and users needed for the workflow."
+    },
+    {
+      "title": "Add safe action boundaries",
+      "description": "Skill Builder sets approval steps and safe action limits for sensitive updates or follow-up workflows so the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing instructions, weak permission boundaries, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill based on testing results and helps deploy it to the right DocsBot agent, whether that is your customer-facing chat widget, helpdesk agent, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Nicereply data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up survey results or summarizing customer feedback, and Skill Builder creates a secure Skill that lets your agent use Nicereply data within the rules you approve."
+    },
+    {
+      "question": "Can an AI support agent use Nicereply survey feedback during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Nicereply Skill to retrieve relevant feedback signals, summarize recent survey responses, and help decide whether to reassure, escalate, or prepare a handoff while replying to customers."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Nicereply?",
+      "answer": "Teams can build workflows for feedback lookups, low-score detection, escalation prep, post-case follow-up triggers, survey status checks, and summaries that help support agents respond with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees analyze Nicereply results?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve survey trends, summarize comments, compare team performance, and support internal CX review workflows through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Nicereply workflows?",
+      "answer": "DocsBot Skill Builder is designed to add scoped permissions, secure authentication handling, and approval boundaries so your agent can take only the actions you allow, such as bounded follow-up or escalation steps tied to survey insights."
+    },
+    {
+      "question": "How does setup work for a Nicereply AI agent if my team is non-technical?",
+      "answer": "Your team explains the business outcome in plain language, and Skill Builder handles the design, connection planning, secure secret handling, testing, and deployment details so setup does not feel like a manual integration project."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "survicate",
+    "delighted",
+    "qualtrics"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Nicereply",
+    "domain": "nicereply.com",
+    "description": "Nicereply is a customer satisfaction survey tool that helps businesses track the quality of their customer service. They provide an all-in-one CX management platform that allows companies to collect immediate customer feedback through one-click CSAT, CES, and NPS surveys, increasing the volume of insights received. Nicereply offers a 14-day free trial with no credit card required, enabling businesses to personalize their surveys and get more feedback from their customers.",
+    "slogan": "Measure, Improve, and Delight with Nicereply Customer Satisfaction Tools",
+    "logoUrl": "https://media.brand.dev/e19f285b-54a0-4abf-a6f7-0289ecdb84fe.svg",
+    "iconUrl": "https://media.brand.dev/09aa7a9e-02df-46eb-bb92-a385964ecc60.svg",
+    "primaryColor": "#2b9bd2",
+    "accentColor": "#6fcde2",
+    "colors": [
+      {
+        "hex": "#2b9bd2",
+        "name": "Boyzone"
+      },
+      {
+        "hex": "#6fcde2",
+        "name": "Hawaiian Breeze"
+      },
+      {
+        "hex": "#048fda",
+        "name": "Sea of Crete"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/099ba779-bdef-4e01-882f-688e41f3547c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": "https://www.nicereply.com/blog/",
+      "terms": "https://www.nicereply.com/terms-of-service",
+      "contact": "https://www.nicereply.com/more/about",
+      "privacy": "https://www.nicereply.com/privacy-policy",
+      "pricing": "https://www.nicereply.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e9cffbd5-6609-4b0a-a1d6-5cb24eb1d7b4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/755e6a87-23e3-4f46-949f-d2ea8d9b276c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/09aa7a9e-02df-46eb-bb92-a385964ecc60.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 50,
+        "height": 50,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e19f285b-54a0-4abf-a6f7-0289ecdb84fe.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 80,
+        "height": 52,
+        "aspectRatio": 1.54
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e19f285b-54a0-4abf-a6f7-0289ecdb84fe.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 80,
+      "height": 52,
+      "aspectRatio": 1.54
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e9cffbd5-6609-4b0a-a1d6-5cb24eb1d7b4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

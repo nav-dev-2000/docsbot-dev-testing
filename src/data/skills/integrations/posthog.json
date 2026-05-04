@@ -1,0 +1,160 @@
+{
+  "slug": "posthog",
+  "name": "PostHog",
+  "domain": "posthog.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use PostHog Data and Product Insights",
+  "metaTitle": "Build AI Agents for PostHog with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use PostHog data for support insights, internal research, workflow triggers, summaries, and safe product analytics actions.",
+  "intro": "PostHog brings product analytics, session data, feature flags, experiments, and user behavior insights into one platform. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use that PostHog data, and Skill Builder designs, secures, tests, improves, and deploys the Skill for you. The result is a support or internal AI agent that can answer questions, investigate product behavior, summarize findings, and take approved follow-up actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a user’s recent product activity in PostHog to help explain onboarding issues, missing events, or confusing feature behavior during a chat or support ticket reply.",
+    "Use PostHog session and event summaries to help the agent prepare a faster handoff for human support when a customer reports a bug, failed flow, or repeated friction inside the product.",
+    "Enable the agent to check whether a customer has seen a feature flag, experiment variant, or tracked product event before suggesting troubleshooting steps or escalating the case.",
+    "Have the agent summarize relevant product analytics patterns from PostHog so support teams can respond with more context when customers report broken journeys or low adoption of a feature.",
+    "Let the agent create a structured escalation note that combines the customer’s message with PostHog evidence such as event history, session details, or experiment exposure for product and engineering follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve PostHog metrics, user journey summaries, feature adoption trends, or experiment context without manually digging through dashboards.",
+    "Customer success, product, and support teams can ask the agent to investigate why a workflow is underperforming and receive a plain-language summary of events, drop-offs, and notable user behavior from PostHog.",
+    "Operations or support leaders can use the agent in Slack or Microsoft Teams to prepare incident summaries, product issue reports, or escalation briefs grounded in recent PostHog activity.",
+    "Product and growth teams can chat with the agent to compare feature usage, review experiment exposure, or summarize behavioral changes before planning releases, outreach, or internal follow-up.",
+    "Internal teams can use the agent to follow SOPs that gather PostHog evidence, package findings, and route a clean handoff to engineering, product, or customer success."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks recent user events before answering troubleshooting questions.",
+    "A private team assistant that summarizes feature adoption and customer journey drop-offs from PostHog.",
+    "A support workflow that prepares escalation notes using session and event evidence.",
+    "An internal agent that explains experiment exposure and feature flag status for reported issues.",
+    "A product operations assistant that turns PostHog findings into structured incident summaries.",
+    "A customer success agent that reviews engagement patterns before renewal or onboarding conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PostHog-powered agent to do in plain language, such as investigate user journeys, summarize sessions, or prepare support escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable DocsBot Skill, chooses the safest workflow design, identifies the required configuration values, and sets up secure authentication handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes the Skill to the minimum PostHog data and actions needed, and adds approval boundaries for any sensitive updates, routing, or downstream workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission limits, or workflow gaps, and feeds the results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated and improved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses PostHog data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as summarizing user behavior or investigating a reported issue. Skill Builder then designs the Skill, connects PostHog securely, scopes access, tests scenarios, and prepares it for deployment."
+    },
+    {
+      "question": "Can an AI support agent use PostHog to help troubleshoot customer issues?",
+      "answer": "Yes, a DocsBot support agent can use approved PostHog data to review events, sessions, feature exposure, or user journey signals while replying to customers. This helps the agent provide better answers, prepare cleaner handoffs, and give support teams more context for escalations."
+    },
+    {
+      "question": "What PostHog workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can summarize feature adoption, investigate funnel drop-offs, explain experiment exposure, gather product usage evidence, and prepare reports or handoffs for product, support, or engineering teams. The workflows stay bounded by the access and action limits you approve."
+    },
+    {
+      "question": "Can DocsBot safely connect to PostHog without exposing credentials to users?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration values, keep secrets out of chats and generated content, and proxy authentication through protected runtime settings. It also scopes permissions to the smallest set of users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize PostHog sessions and events for support escalations?",
+      "answer": "Yes, you can build a Skill that turns PostHog activity into a concise escalation summary for support, product, or engineering teams. That can include recent events, journey context, experiment exposure, and other approved evidence relevant to the case."
+    },
+    {
+      "question": "How do approval controls work for AI actions connected to PostHog?",
+      "answer": "Skill Builder can place approval boundaries around sensitive actions and keep the agent focused on safe lookups, summaries, and approved workflow triggers. This helps teams control when the agent can act automatically and when a human should review the next step."
+    }
+  ],
+  "relatedSlugs": [
+    "amplitude",
+    "mixpanel",
+    "google-analytics",
+    "segment",
+    "datadog",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PostHog",
+    "domain": "posthog.com",
+    "description": "PostHog is an integrated, open-source platform that offers a suite of tools for building and optimizing products, including product analytics, heatmaps, session recording, web analytics, feature flags, and A/B testing. With a focus on data integration and compliance, PostHog provides a single stack for engineers to debug products, ship features faster, and measure success, with SOC2 certification, GDPR readiness, and HIPAA compliance.",
+    "slogan": "All-in-one platform to build, analyze, and ship better products faster.",
+    "logoUrl": "https://media.brand.dev/c1c016cf-06ed-4249-9a02-cd283d2dcf33.jpg",
+    "iconUrl": "https://media.brand.dev/c1c016cf-06ed-4249-9a02-cd283d2dcf33.jpg",
+    "primaryColor": "#ec4e0c",
+    "accentColor": "#1f358d",
+    "colors": [
+      {
+        "hex": "#ec4e0c",
+        "name": "Crunchy Carrot"
+      },
+      {
+        "hex": "#1f358d",
+        "name": "Navy Seal"
+      },
+      {
+        "hex": "#f0d49a",
+        "name": "White Corn"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/41ab7336-b26b-4d04-ba97-326976081416.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://posthog.com/careers",
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://posthog.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c1c016cf-06ed-4249-9a02-cd283d2dcf33.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8bc956f2-4a5c-4a7b-8e11-488bb8e7dbbf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c1c016cf-06ed-4249-9a02-cd283d2dcf33.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c1c016cf-06ed-4249-9a02-cd283d2dcf33.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

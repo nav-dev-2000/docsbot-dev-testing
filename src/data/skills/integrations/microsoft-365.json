@@ -1,0 +1,160 @@
+{
+  "slug": "microsoft-365",
+  "name": "Microsoft 365",
+  "domain": "microsoft.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Microsoft 365",
+  "metaTitle": "Build Microsoft 365 AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Microsoft 365 for support and internal workflows, with secure actions, approvals, testing, and guided deployment.",
+  "intro": "Microsoft 365 powers everyday communication, documents, calendars, files, and collaboration across many teams. With DocsBot Skill Builder, you can describe the Microsoft 365 workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That means your agent can do more than answer questions. It can look up information, prepare summaries, update approved records, and trigger bounded actions inside Microsoft 365.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up shared documentation, account communication history, or approved case notes stored in Microsoft 365 while replying to customers.",
+    "Let a support agent summarize long email threads or shared files from Microsoft 365 and turn them into clear customer updates or internal handoff notes.",
+    "Enable the agent to create follow-up tasks, draft escalation summaries, or prepare internal collaboration artifacts in Microsoft 365 when a support issue needs team attention.",
+    "Have the agent collect missing details from the customer, then generate a structured case summary and save it to an approved Microsoft 365 location for the support team.",
+    "Use the agent in helpdesk ticket workflows to pull relevant Microsoft 365 content, summarize the current state, and suggest the next approved action for faster resolution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find documents, summarize shared files, and retrieve approved information from Microsoft 365 without manually searching across tools.",
+    "Enable teams to ask an internal agent to draft meeting notes, create follow-up tasks, and organize action items in Microsoft 365 based on a conversation or SOP.",
+    "Use a private AI assistant in Slack, Microsoft Teams, or chat to prepare onboarding checklists, internal handoff summaries, or status updates using Microsoft 365 data.",
+    "Allow employees to ask the agent for calendar context, document summaries, or shared workspace research so they can complete workflows faster with less switching between apps.",
+    "Give operations or customer success teams an AI assistant that gathers Microsoft 365 information, follows approved steps, and completes repeatable internal workflows with clear summaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Microsoft 365 email threads and shared files for faster ticket responses.",
+    "A DocsBot Skill that creates internal follow-up tasks from customer conversations and escalation outcomes.",
+    "An internal assistant that finds documents, extracts key points, and answers employee questions using Microsoft 365 content.",
+    "A workflow agent that drafts meeting notes and action items after team chats or support escalations.",
+    "A private AI assistant that prepares onboarding checklists and SOP summaries from approved Microsoft 365 sources.",
+    "A customer support bot that saves structured handoff notes to approved Microsoft 365 locations for team review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Microsoft 365 in plain language, and it turns that goal into a practical workflow for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best Skill design, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Microsoft 365 access to the minimum actions and data needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Microsoft 365 steps so the agent can help confidently without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take approved action inside Microsoft 365."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Microsoft 365?",
+      "answer": "With DocsBot Skill Builder, you describe the Microsoft 365 workflow you want in plain language, and DocsBot creates a reusable Skill that can look up information, prepare summaries, update approved records, or trigger bounded actions. Skill Builder also handles secure configuration, permission scoping, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can a DocsBot support agent use Microsoft 365 data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Microsoft 365 Skill to retrieve approved information, summarize files or email context, create handoff notes, and support escalations while responding in a website chat widget or helpdesk workflow. You define what data and actions are allowed so the agent stays within clear boundaries."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Microsoft 365?",
+      "answer": "A DocsBot agent can summarize email threads, pull relevant documents, draft internal notes, create follow-up tasks, prepare escalation summaries, and save structured support artifacts into approved Microsoft 365 locations. These workflows help support teams respond faster while keeping the final action scope controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Microsoft 365 more efficiently?",
+      "answer": "Yes, private DocsBot agents can help employees find documents, summarize shared content, draft meeting notes, prepare action items, and complete internal workflows using approved Microsoft 365 data. The assistant can be available in chat, Slack, or Microsoft Teams for faster access to everyday work information."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft 365 actions secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and limits access to the right users, records, and actions. It can also add approval steps for sensitive workflows so the agent only takes bounded action."
+    },
+    {
+      "question": "Do I need to configure the Microsoft 365 workflow manually to use DocsBot?",
+      "answer": "No, the setup is framed around the outcome you want rather than technical implementation details. Skill Builder asks for missing context, designs the workflow, handles secure configuration decisions, tests scenarios, and improves the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "google-workspace",
+    "microsoft-teams",
+    "sharepoint",
+    "onedrive",
+    "outlook",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

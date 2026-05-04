@@ -1,0 +1,176 @@
+{
+  "slug": "affinity",
+  "name": "Affinity",
+  "domain": "affinity.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Affinity",
+  "metaTitle": "Build Affinity AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Affinity data, update records, trigger workflows, and support customer or internal team work.",
+  "intro": "Affinity helps teams manage relationship data, account context, and pipeline activity. With DocsBot Skill Builder, you can describe the Affinity workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve live CRM context, prepare handoffs, and take approved actions inside Affinity.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, company, or relationship details in Affinity so it can answer status questions with current CRM context.",
+    "Use the agent to create or update notes in Affinity after a customer conversation so sales or success teams receive a clean handoff summary.",
+    "Have the agent capture lead details from a website chat and create a new Affinity record for follow-up by the right team.",
+    "Enable the agent to summarize recent Affinity activity for a customer account before escalating the conversation to a human rep.",
+    "Let the agent update approved fields in Affinity, such as lead source, conversation outcome, or follow-up status, based on customer responses in chat or tickets."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to pull up Affinity relationship history, account notes, and recent activity without opening the CRM.",
+    "Sales and customer success teams can ask the agent to create contact records, log meeting notes, and prepare account summaries in Affinity as part of their daily workflows.",
+    "Revenue operations teams can use the agent to research account status across Affinity, summarize gaps, and guide employees through follow-up SOPs.",
+    "Managers can ask the agent to generate pipeline or relationship summaries from Affinity records for reviews, planning, and handoff meetings.",
+    "Employees can use the agent to update approved Affinity fields or trigger next-step workflows while the Skill enforces the right permissions and approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Affinity account details before answering customer questions.",
+    "A lead capture Skill that creates Affinity contacts from website chat conversations.",
+    "A handoff Skill that writes customer conversation summaries into Affinity notes.",
+    "An internal sales assistant that retrieves relationship history and recent Affinity activity.",
+    "A success workflow Skill that updates account fields after approved customer interactions.",
+    "A pipeline summary Skill that turns Affinity records into brief manager-ready updates."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Affinity agent to do, such as look up account context, create records, update notes, or prepare a handoff, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, defines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside chats and source, and scopes the Skill to the minimum Affinity actions and records needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "For updates, record creation, or other higher-impact steps, Skill Builder adds approval boundaries, safe action limits, and role-aware permissions so the agent only takes the actions you want under the conditions you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk-connected agent, or private internal assistant so teams can start using Affinity-powered AI actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Affinity?",
+      "answer": "With DocsBot Skill Builder, you describe the Affinity workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can retrieve data, create or update records, summarize context, and trigger approved follow-up workflows."
+    },
+    {
+      "question": "Can an AI support agent use Affinity data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use an Affinity Skill to look up live account or relationship context while responding to customers. It can also prepare handoffs, log conversation notes, and update approved CRM fields when that fits your support process."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Affinity?",
+      "answer": "Teams can automate account lookups, lead capture, escalation prep, conversation summaries, note creation, and limited record updates tied to customer interactions. This helps support and success teams respond with better context and keep Affinity current without manual copy-and-paste work."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Affinity?",
+      "answer": "Yes, private DocsBot agents can help employees search Affinity records, summarize account history, log notes, and complete approved CRM workflows from chat, Slack, or Microsoft Teams. This reduces context switching and makes common sales or customer success tasks easier to complete."
+    },
+    {
+      "question": "How does DocsBot keep Affinity actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated content, proxies secrets through approved runtime settings, and scopes access to the minimum records and actions required. It can also add approval steps and limits for sensitive updates or record creation."
+    },
+    {
+      "question": "Can DocsBot update Affinity records instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating records, updating notes, setting approved fields, or triggering follow-up workflows in Affinity. Those actions are controlled by the permissions, approvals, and rules you choose during setup."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "close",
+    "gong",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Affinity",
+    "domain": "affinity.com",
+    "description": "Affinity is a company that partners with leaders and organisations to co-create brighter futures through design and innovation. They work in three key areas: personal innovation, corporate innovation, and social innovation, using human-centred design and creative practices to drive change. However, it appears that there are two different Affinity companies. The one associated with the provided content seems to be primarily an AdTech company that provides advertising media and monetization solutions for advertisers and publishers through its global pay-per-click and display advertising networks.",
+    "slogan": "Co-creating brighter futures through innovation, creativity, and collective genius.",
+    "logoUrl": "https://media.brand.dev/f87a4989-50fd-4fec-8f7a-cd7396a40c06.png",
+    "iconUrl": "https://media.brand.dev/51f9882a-97c3-48f4-819e-2f9fba30befd.jpg",
+    "primaryColor": "#04d184",
+    "accentColor": "#f4f4f4",
+    "colors": [
+      {
+        "hex": "#04d184",
+        "name": "Underwater Fern"
+      },
+      {
+        "hex": "#f4f4f4",
+        "name": "Lighthouse"
+      },
+      {
+        "hex": "#047159",
+        "name": "Teal Dark Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dc9e19bc-3bf6-4e20-887a-febc26c01883.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "pricing": null,
+      "careers": "https://www.affinity.com/careers/",
+      "terms": "https://www.affinity.com/terms-of-use/",
+      "contact": "https://www.affinity.com/contact/",
+      "privacy": "https://www.affinity.com/privacy-policy/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/51f9882a-97c3-48f4-819e-2f9fba30befd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f87a4989-50fd-4fec-8f7a-cd7396a40c06.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 429,
+        "height": 120,
+        "aspectRatio": 3.58
+      },
+      {
+        "url": "https://media.brand.dev/5e41a4e5-04bc-4a6d-9642-b9a44cff722c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 114,
+        "height": 114,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5a0637a4-1263-48ef-9566-f4d93582f3c6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f87a4989-50fd-4fec-8f7a-cd7396a40c06.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 429,
+      "height": 120,
+      "aspectRatio": 3.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5e41a4e5-04bc-4a6d-9642-b9a44cff722c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 114,
+      "height": 114,
+      "aspectRatio": 1
+    }
+  }
+}

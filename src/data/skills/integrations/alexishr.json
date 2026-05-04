@@ -1,0 +1,168 @@
+{
+  "slug": "alexishr",
+  "name": "AlexisHR",
+  "domain": "alexishr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with AlexisHR",
+  "metaTitle": "Build AI Agents for AlexisHR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use AlexisHR to answer HR questions, retrieve employee data, trigger workflows, and support safe internal operations.",
+  "intro": "AlexisHR helps teams manage onboarding, offboarding, time reporting, employee reviews, and people operations in one HR platform. With DocsBot Skill Builder, you can describe the AlexisHR-powered agent you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support or internal operations agent that can answer questions and take bounded action inside AlexisHR under your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify the status of an onboarding, offboarding, or employee documentation process in AlexisHR and give the requester a clear update.",
+    "Let a support agent summarize employee-related workflow status from AlexisHR when a customer asks why a people operations request is still pending.",
+    "Enable the agent to collect missing details in chat, then create or update an approved HR request record in AlexisHR for follow-up by the right team.",
+    "Have the agent prepare a clean handoff for a human HR or support specialist by summarizing the conversation and relevant AlexisHR record context in one response.",
+    "Allow the agent to trigger approved people operations workflows in AlexisHR, such as starting a review-related process or routing a request for internal approval."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up AlexisHR policies, workflow status, and approved employee record details without searching manually.",
+    "HR teams can ask the agent to summarize onboarding progress, review cycles, time reporting status, or offboarding steps across AlexisHR and present the next recommended action.",
+    "Managers can chat with the agent to retrieve employee review milestones, pending tasks, or process checklists from AlexisHR and complete standard SOPs faster.",
+    "People operations staff can use the agent to gather missing context, draft handoff notes, and update approved AlexisHR records while keeping actions within defined approval limits.",
+    "Internal teams can use the agent to answer routine HR operations questions, trigger approved workflows, and generate summaries or follow-up messages based on AlexisHR data."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding status in AlexisHR and explains the next required step.",
+    "A private HR assistant that summarizes employee review progress for managers and people teams.",
+    "A support workflow that creates approved HR follow-up requests in AlexisHR from chat conversations.",
+    "An employee help agent that retrieves time reporting or policy-related status from AlexisHR.",
+    "A handoff assistant that turns AlexisHR record context into a clean escalation summary.",
+    "An internal operations agent that triggers approved onboarding or offboarding workflows in AlexisHR."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the AlexisHR agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the AlexisHR connection approach, defines the required configuration values, secures authentication handling, protects and proxies secrets, and scopes the Skill to the minimum data and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries so the agent can retrieve information, update records, or trigger workflows only within the rules you approve."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings back automatically."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test results to refine the Skill, improve reliability and safety, and then helps deploy it to the right DocsBot agent for your website chat, helpdesk, Slack, Teams, or internal workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with AlexisHR?",
+      "answer": "With DocsBot Skill Builder, you describe the AlexisHR workflow you want in plain language, such as checking onboarding progress or updating an approved HR request. Skill Builder then designs the Skill, secures the connection, tests it, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use AlexisHR data during customer or employee conversations?",
+      "answer": "Yes, a DocsBot agent can use an AlexisHR Skill to look up approved workflow or record information during a live conversation and respond with clear, bounded answers. You control what data the agent can access and which actions it is allowed to take."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with AlexisHR?",
+      "answer": "An internal agent can help with onboarding status checks, employee review summaries, time reporting lookups, offboarding steps, HR request intake, and workflow handoffs. It can also generate summaries and trigger approved actions that fit your people operations process."
+    },
+    {
+      "question": "Can DocsBot update AlexisHR records or trigger workflows safely?",
+      "answer": "Yes, Skill Builder can create Skills for approved AlexisHR updates and workflow triggers with scoped permissions and approval boundaries. That lets the agent take useful action without giving it unlimited access."
+    },
+    {
+      "question": "How does DocsBot keep AlexisHR credentials and secrets secure?",
+      "answer": "Skill Builder defines the needed connection settings, stores secrets in secure runtime configuration, and proxies authentication so credentials stay out of chat transcripts and Skill instructions. It also limits access to the users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent hand off AlexisHR-related issues to HR or operations teams?",
+      "answer": "Yes, the agent can gather missing information, summarize the conversation, attach relevant AlexisHR context, and prepare a clean escalation or handoff for a human team. This helps HR and operations staff move faster with better context."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "hibob",
+    "personio",
+    "gusto",
+    "factorialhr"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "AlexisHR",
+    "domain": "alexishr.com",
+    "description": "AlexisHR, a part of Simployer, offers innovative AI-powered HRIS and Chatbot solutions designed to revolutionize the world of human resources. Their software simplifies people operations for small and medium-sized businesses, providing integrated functionality from onboarding to offboarding, time reporting, employee reviews, and various integrations. With clients in over 65 countries, including companies like NAKD and Candela, AlexisHR boosts productivity, saves time, and enhances the entire employee experience. Their all-in-one HR platform enables organizations to be data-driven and improve operational efficiency. Unlock productivity and streamline your HR processes with AlexisHR's modern and user-friendly solution.",
+    "slogan": "Transform HR with AI. Boost productivity, simplify operations, enhance employee experience.",
+    "logoUrl": "https://media.brand.dev/422bc332-20a1-47f0-850e-929cfcdca854.png",
+    "iconUrl": "https://media.brand.dev/35f261ed-b754-41d9-a7ae-87822a8691a9.jpg",
+    "primaryColor": "#b981ed",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#b981ed",
+        "name": "Illicit Purple"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dbdbdb",
+        "name": "Pixel White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6bce95a9-8b7b-4458-82a7-b6d6f47af649.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.alexishr.com/",
+      "terms": "https://alexishr.com/resources/compliance/terms-conditions",
+      "contact": null,
+      "privacy": "https://alexishr.com/resources/compliance/privacy-policy",
+      "blog": "https://alexishr.com/resources/blog",
+      "pricing": "https://alexishr.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/35f261ed-b754-41d9-a7ae-87822a8691a9.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a8325a03-6d38-46d0-b0fe-740d0813e1c6.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/422bc332-20a1-47f0-850e-929cfcdca854.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 965,
+        "height": 286,
+        "aspectRatio": 3.37
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/422bc332-20a1-47f0-850e-929cfcdca854.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 965,
+      "height": 286,
+      "aspectRatio": 3.37
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/35f261ed-b754-41d9-a7ae-87822a8691a9.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

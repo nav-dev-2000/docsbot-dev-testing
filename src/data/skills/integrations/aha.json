@@ -1,0 +1,156 @@
+{
+  "slug": "aha",
+  "name": "Aha",
+  "domain": "aha.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Aha for Support and Operations",
+  "metaTitle": "Build Aha AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Aha to look up roadmap details, update records, prepare handoffs, and support teams with safe, approved actions.",
+  "intro": "Aha helps teams manage product plans, ideas, roadmaps, and delivery work. With DocsBot Skill Builder, you can describe the Aha workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, fetch Aha context, prepare updates, and take bounded actions without exposing sensitive access or requiring manual setup work from your team.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up product roadmap items, feature statuses, or planned releases in Aha when customers ask about upcoming functionality.",
+    "Use Aha data in helpdesk replies so the agent can summarize linked ideas, initiatives, or delivery progress before responding to a customer ticket.",
+    "Have the agent create structured product feedback or feature requests in Aha from customer chat conversations, including summaries, priority notes, and account context.",
+    "Enable the agent to update approved Aha records with support-driven insights such as recurring issue themes, customer impact details, or escalation notes.",
+    "Let the agent prepare a clean handoff for product or success teams by summarizing the customer request and attaching the right Aha reference records or follow-up tasks."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find roadmap decisions, release plans, initiative status, and idea history stored in Aha.",
+    "Help product, support, and customer success teams research customer feedback by asking the agent to summarize related Aha ideas, linked work, and open priorities.",
+    "Allow internal teams to create or update Aha records through guided agent workflows that follow approval boundaries for sensitive changes or status updates.",
+    "Support SOPs where employees ask the agent to turn meeting notes, ticket trends, or account feedback into structured Aha entries for product review.",
+    "Give operations or leadership teams an AI assistant that summarizes portfolio progress, upcoming milestones, and blocked work across Aha records for faster decisions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks feature status in Aha before answering roadmap questions.",
+    "A ticket assistant that creates structured product feedback records in Aha from customer conversations.",
+    "An internal AI assistant that summarizes initiative progress and release timing from Aha data.",
+    "A handoff workflow that turns support escalations into clean Aha ideas or follow-up records.",
+    "A cross-team assistant that finds related Aha records and prepares stakeholder-ready summaries.",
+    "An approval-based agent that drafts Aha updates and waits for human confirmation before applying changes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Aha agent to do, such as answering roadmap questions, creating feedback records, or preparing handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the needed Aha connection details, defines secure authentication and configuration values, protects and proxies secrets outside chat and source content, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "It adds safe action rules",
+      "description": "Skill Builder sets approval boundaries, user limits, and bounded action rules so the agent can retrieve information, draft updates, or trigger allowed workflows without overreaching."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or missing permission checks, and feeds those issues into improvement loops."
+    },
+    {
+      "title": "It improves and deploys",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat widget, helpdesk agent, or internal team assistant can use Aha safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Aha data to answer customer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that can safely look up Aha roadmap, idea, or status information while your agent responds to customers. Skill Builder also defines secure access, approval limits, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent create product feedback in Aha from customer chats or tickets?",
+      "answer": "Yes, you can design a DocsBot Skill that turns customer conversations into structured Aha feedback records, summaries, or escalation handoffs. The workflow can be limited to approved fields and can require review before sensitive updates are submitted."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Aha?",
+      "answer": "DocsBot can help automate roadmap lookups, feature request capture, issue trend summaries, escalation prep, and handoffs from support into product planning workflows. The exact actions are defined by the Skill you build and the approval boundaries you set."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Aha?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve roadmap context, summarize initiatives, research idea history, and complete repeatable Aha workflows through chat, Slack, or Microsoft Teams. This is useful for product, support, customer success, and operations teams that need fast access to planning information."
+    },
+    {
+      "question": "How does DocsBot keep Aha access secure when building an AI Skill?",
+      "answer": "Skill Builder is designed to handle secure configuration by default, including required connection settings, protected authentication handling, secret proxying, scoped permissions, and approval boundaries for sensitive actions. That helps keep credentials out of chats and limits the agent to the minimum access needed."
+    },
+    {
+      "question": "Can a DocsBot agent update Aha records or trigger workflows safely?",
+      "answer": "Yes, a Skill can be built to draft or apply approved Aha updates, create new records, or trigger follow-up workflows within customer-defined limits. Skill Builder can require confirmation steps or restrict which users, fields, and record types the agent is allowed to touch."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "monday",
+    "clickup",
+    "trello"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Aha",
+    "domain": "aha.com",
+    "description": "Atom (formerly Squadhelp) is a comprehensive branding platform that operates a premium domain marketplace featuring over 400,000 expert‑curated, brandable domains, including ultra‑premium and one‑word names with modern extensions like .ai, .io, and .xyz. The company provides AI‑powered naming contests, audience testing, and human brainstorming tools to generate brand‑ready names, along with domain registration, transfer, and brokerage services. Additional offerings include trademark search and filing, instant logo design, brand monitoring, audience research, and a business name generator. Atom also supports partners through API access, white‑label marketplace solutions, and a distribution network, enabling agencies and resellers to sell premium domains and related services under their own brand.",
+    "slogan": "Everything starts with Atom. Need a domain? We’ve got you covered.",
+    "logoUrl": "https://media.brand.dev/6faf7fd6-169d-4c4c-977e-cc1ab875a667.svg",
+    "iconUrl": "https://media.brand.dev/b4769f22-e6a4-4d5c-a3c4-3d90f15cc7ce.png",
+    "primaryColor": "#1c1c4c",
+    "accentColor": "#637cf5",
+    "colors": [
+      {
+        "hex": "#1c1c4c",
+        "name": "Fly by Night"
+      },
+      {
+        "hex": "#637cf5",
+        "name": "Pan Purple"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4de2bdfa-5f91-4c33-8abd-87f18a0a49c2.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6faf7fd6-169d-4c4c-977e-cc1ab875a667.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 139,
+        "height": 26,
+        "aspectRatio": 5.35
+      },
+      {
+        "url": "https://media.brand.dev/b4769f22-e6a4-4d5c-a3c4-3d90f15cc7ce.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6faf7fd6-169d-4c4c-977e-cc1ab875a667.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 139,
+      "height": 26,
+      "aspectRatio": 5.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b4769f22-e6a4-4d5c-a3c4-3d90f15cc7ce.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

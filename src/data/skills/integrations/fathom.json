@@ -1,0 +1,176 @@
+{
+  "slug": "fathom",
+  "name": "Fathom",
+  "domain": "fathom.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that use Fathom for reporting and analysis",
+  "metaTitle": "Build AI agents for Fathom with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Fathom to retrieve reporting insights, summarize performance, support finance workflows, and assist teams safely.",
+  "intro": "Fathom helps businesses turn accounting data into financial analysis, management reporting, and performance insights. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely use Fathom data and approved actions. That means customer-facing support agents and private internal agents can answer questions, summarize financial performance, prepare handoffs, and help teams move work forward without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer billing or account health questions by pulling approved Fathom performance summaries and trend insights for the right customer context.",
+    "Let a support agent summarize recent revenue, cash flow, or profitability changes from Fathom before escalating a sensitive account conversation to customer success or finance.",
+    "Have the agent prepare a concise financial status handoff for a ticket by combining the customer issue with relevant Fathom metrics, commentary, and trend signals.",
+    "Enable a helpdesk-connected DocsBot agent to identify when a support conversation may involve payment risk or declining account performance and route the case with a Fathom-based summary.",
+    "Use Fathom data inside support workflows to help agents explain high-level business performance context to authorized customers without exposing raw financial records or internal-only analysis."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Fathom KPIs, management report summaries, and trend analysis without opening multiple finance tools.",
+    "Finance and customer success teams can ask the agent to compare periods, summarize changes in cash flow or profitability, and prepare executive-ready updates using approved Fathom data.",
+    "Account managers can chat with the agent to research customer performance trends in Fathom and generate renewal prep notes, risk reviews, or stakeholder meeting briefs.",
+    "Operations teams can use the agent to follow reporting SOPs, gather Fathom insights for a business review, and create a structured handoff for finance leadership.",
+    "Advisors and internal analysts can ask the agent to summarize portfolio or client reporting patterns from Fathom and highlight exceptions that need a human follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes Fathom KPIs for support or success conversations.",
+    "A private finance assistant that answers trend questions using approved Fathom reports.",
+    "A handoff workflow that packages customer context with key Fathom performance signals.",
+    "An internal agent that drafts monthly business review summaries from Fathom data.",
+    "A Slack assistant that compares reporting periods and explains major metric changes.",
+    "A triage workflow that flags financially at-risk accounts using bounded Fathom insights."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Fathom in plain language, such as summarize account performance, answer finance-related questions, or prepare escalation notes."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, choosing the safest workflow, defining the required configuration values, and planning how the agent should use Fathom data and approved actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection design by keeping authentication and secrets out of chats and Skill content, proxying credentials through protected runtime configuration, and limiting access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets scoped permissions, user boundaries, and approval steps for sensitive finance workflows so the agent can help with lookups, summaries, and bounded actions without overreaching."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs or weak spots, and feeds improvements back into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Fathom reporting data?",
+      "answer": "With DocsBot Skill Builder, you describe the reporting or workflow outcome you want in plain language, and it designs a Skill that lets your AI agent securely retrieve Fathom insights, summarize results, and take approved follow-up actions. The setup includes safe connection handling, scoped access, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Fathom to help with customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Fathom data to summarize financial performance context, prepare escalations, and support account health conversations in a website chat or helpdesk workflow. Access can be limited so the agent only uses the right metrics and only in the situations you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Fathom?",
+      "answer": "Internal DocsBot agents can help teams retrieve KPIs, compare reporting periods, draft business review summaries, prepare renewal or risk notes, and assemble finance handoffs. This is useful for finance, operations, customer success, and leadership workflows that depend on fast reporting context."
+    },
+    {
+      "question": "Can DocsBot safely limit what an AI agent can do inside Fathom?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect authentication details, scope access to the minimum necessary records and actions, and add approval boundaries for sensitive tasks. That helps teams automate useful work without giving the agent open-ended control."
+    },
+    {
+      "question": "Can an AI agent summarize Fathom reports for executives or account teams?",
+      "answer": "Yes, a DocsBot agent can turn approved Fathom metrics and trends into concise summaries, handoff notes, and meeting briefs for executives, finance teams, or customer-facing teams. You control which data sources, users, and workflows are allowed."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Fathom with DocsBot?",
+      "answer": "Non-technical teams simply describe the desired outcome, and Skill Builder handles the workflow design, secure connection plan, secret handling, testing, and deployment path. It can also improve the Skill after automated scenario testing finds gaps or edge cases."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "myob",
+    "stripe",
+    "netsuite",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fathom",
+    "domain": "fathom.com",
+    "description": "Fathom is a financial analysis and management reporting tool that helps businesses assess performance, monitor trends, and identify opportunities for improvement. It integrates with popular accounting software like Xero, QuickBooks, and MYOB, transforming data into actionable insights. Fathom is designed for accountants, advisors, and business owners seeking to deliver more frequent and engaging reporting services and improve business performance.",
+    "slogan": "Business insights, made easy.",
+    "logoUrl": "https://media.brand.dev/1107b93a-924e-4e98-8ece-96e3e913ecb2.svg",
+    "iconUrl": "https://media.brand.dev/37b85f2e-5a74-48fd-aa51-7bcbd098b5e0.svg",
+    "primaryColor": "#0c2444",
+    "accentColor": "#4bbba4",
+    "colors": [
+      {
+        "hex": "#0c2444",
+        "name": "Dark Eclipse"
+      },
+      {
+        "hex": "#4bbba4",
+        "name": "Mountain Lake Azure"
+      },
+      {
+        "hex": "#90d7c9",
+        "name": "Bambino"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0fdaa195-6832-4f06-9e49-984417227b6b.png",
+    "industries": [],
+    "links": {
+      "careers": "https://fathom.com/careers",
+      "terms": "https://fathom.com/terms",
+      "contact": "https://fathom.com/contact",
+      "privacy": "https://fathom.com/privacy",
+      "blog": null,
+      "pricing": "https://fathom.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8bd16cf9-cdd1-4925-adae-234c951d1b15.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1107b93a-924e-4e98-8ece-96e3e913ecb2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 196,
+        "height": 44,
+        "aspectRatio": 4.45
+      },
+      {
+        "url": "https://media.brand.dev/960ef019-91af-44d7-8f79-061819a95017.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/37b85f2e-5a74-48fd-aa51-7bcbd098b5e0.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 60,
+        "height": 60,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1107b93a-924e-4e98-8ece-96e3e913ecb2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 196,
+      "height": 44,
+      "aspectRatio": 4.45
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8bd16cf9-cdd1-4925-adae-234c951d1b15.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

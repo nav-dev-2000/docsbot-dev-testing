@@ -1,0 +1,156 @@
+{
+  "slug": "oracle-fusion-cloud-epm",
+  "name": "Oracle Fusion Cloud EPM",
+  "domain": "oracle-fusion-cloud-epm.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Business Intelligence",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for Oracle Fusion Cloud EPM with DocsBot",
+  "metaTitle": "Oracle Fusion Cloud EPM AI Agent Integration for DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query Oracle Fusion Cloud EPM, summarize planning data, and trigger approved workflows for support and internal teams.",
+  "intro": "Oracle Fusion Cloud EPM helps teams plan, report, and analyze financial and operational performance across the business. With DocsBot Skill Builder, you can describe the Oracle Fusion Cloud EPM workflow you want in plain language and have DocsBot build a secure reusable Skill for your AI agent. That lets customer-facing and internal agents answer questions, retrieve approved data, summarize status, and trigger bounded actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved billing, forecast, or budget status information from Oracle Fusion Cloud EPM and explain it in plain language during a chat or support ticket reply.",
+    "Use the agent to summarize planning or reporting context from Oracle Fusion Cloud EPM so support teams can prepare cleaner handoffs to finance or operations specialists.",
+    "Have the agent gather the right details from a customer conversation and create a structured escalation or follow-up workflow tied to Oracle Fusion Cloud EPM processes.",
+    "Enable the agent to check whether a requested financial document, reporting cycle, or planning milestone is complete before responding with next steps.",
+    "Let the agent generate a concise case summary that combines customer context with Oracle Fusion Cloud EPM data for faster resolution by human teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Oracle Fusion Cloud EPM planning, reporting, or performance information without navigating multiple dashboards.",
+    "Finance, operations, and customer success teams can ask the agent to summarize budget variance, forecast status, or reporting progress for a specific account, region, or business unit.",
+    "Team members can use the agent to follow internal SOPs that gather Oracle Fusion Cloud EPM context, prepare escalation notes, and route work to the right approver or specialist.",
+    "Managers can chat with the agent to generate structured updates, meeting briefs, or exception summaries based on approved Oracle Fusion Cloud EPM data.",
+    "Internal teams can use the agent to trigger bounded workflows around review requests, approval preparation, and cross-functional follow-up tied to Oracle Fusion Cloud EPM processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains approved Oracle Fusion Cloud EPM status data to customers in plain language.",
+    "A private finance assistant that summarizes budget, forecast, and performance information across business units.",
+    "An internal agent that prepares escalation packets using Oracle Fusion Cloud EPM context and conversation details.",
+    "A workflow assistant that gathers missing details and triggers approved planning or reporting follow-up tasks.",
+    "A DocsBot agent that creates concise summaries of Oracle Fusion Cloud EPM records for handoffs and approvals.",
+    "A team assistant that answers operational questions using approved Oracle Fusion Cloud EPM data and internal guidance."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Oracle Fusion Cloud EPM, and it turns that goal into a practical Skill design without requiring you to map the technical workflow yourself."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, defines secure connection and authentication handling, protects and proxies secrets through secure runtime configuration, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right guardrails for Oracle Fusion Cloud EPM lookups, summaries, updates, workflow triggers, and approval steps so the agent can act usefully while staying within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Oracle Fusion Cloud EPM without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Oracle Fusion Cloud EPM workflow you want in plain language, and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. You focus on the outcome, while DocsBot handles the integration design and safe runtime setup."
+    },
+    {
+      "question": "Can an AI support agent use Oracle Fusion Cloud EPM data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use approved Oracle Fusion Cloud EPM data to look up status, summarize planning or reporting context, and prepare escalations while responding to customers. Access can be limited to the exact records, actions, and workflows you approve."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Oracle Fusion Cloud EPM?",
+      "answer": "Internal agents can retrieve planning and performance information, summarize reporting progress, generate briefing notes, and trigger bounded follow-up workflows for finance, operations, and customer success teams. They can also help employees follow SOPs by gathering required context and routing the next step."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Oracle Fusion Cloud EPM instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved updates, workflow triggers, handoff creation, and approval preparation. Skill Builder adds scoped permissions, secure authentication handling, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep Oracle Fusion Cloud EPM credentials and secrets secure?",
+      "answer": "Skill Builder identifies the required connection details, keeps secrets out of chats and Skill source, and proxies authentication through secure runtime configuration. It also scopes access to the minimum systems, users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a private employee AI assistant summarize Oracle Fusion Cloud EPM data in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees that answers questions about approved Oracle Fusion Cloud EPM data and returns concise summaries inside Slack, Microsoft Teams, or a private chat interface. This helps teams get faster answers without exposing broader system access."
+    }
+  ],
+  "relatedSlugs": [
+    "oracle-netsuite",
+    "oracle-hcm-cloud",
+    "oracle-erp-cloud",
+    "workday-adaptive-planning",
+    "sap-analytics-cloud",
+    "tableau"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Oracle Corporation",
+    "domain": "oracle.com",
+    "description": "Oracle is a leading cloud technology company that provides an integrated suite of cloud applications and platform services to organizations globally. Specializing in enterprise IT solutions, Oracle empowers businesses to innovate, enhance operational efficiencies, and effectively manage their data with pioneering tools, including the world's first autonomous database. Their cloud infrastructure is designed for high performance, security, and cost savings, facilitating seamless transitions between on-premises and cloud systems. Oracle's applications support business leaders in achieving sustainable growth and resilience, impacting diverse sectors such as government, science, and healthcare. With a commitment to diversity and professional development, Oracle fosters a culture of innovation within a passionate global workforce. Millions of users leverage Oracle’s solutions to streamline processes, enhance collaboration, and tackle real-world challenges. For those interested in a rewarding career or seeking financial insights, Oracle provides additional resources on its careers and investor pages.",
+    "slogan": "Unlock insights and endless possibilities with Oracle Cloud technology.",
+    "logoUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "iconUrl": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+    "primaryColor": "#c44434",
+    "accentColor": "#e39c91",
+    "colors": [
+      {
+        "hex": "#c44434",
+        "name": "Mexican Red Papaya"
+      },
+      {
+        "hex": "#e39c91",
+        "name": "Strawberry Rose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ef3e2ab7-5c9b-46e5-a47f-8b60b5d10fcd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://oracle.com/careers/",
+      "terms": null,
+      "contact": "https://oracle.com/corporate/contact/",
+      "privacy": "https://oracle.com/legal/privacy/",
+      "blog": "https://oracle.com/news/",
+      "pricing": "https://oracle.com/ai-world/register/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/076e2385-b25c-4aab-bd1d-96e4fec796e8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2c67f772-5722-4488-a9a6-f634b9da8391.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

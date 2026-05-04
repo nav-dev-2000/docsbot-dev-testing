@@ -1,0 +1,168 @@
+{
+  "slug": "cisco-meraki",
+  "name": "Cisco Meraki",
+  "domain": "cisco-meraki.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Cisco Meraki",
+  "metaTitle": "Build AI Agents for Cisco Meraki with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Cisco Meraki to look up network data, summarize incidents, trigger approved actions, and support teams safely.",
+  "intro": "Cisco Meraki helps teams manage networks, devices, and secure digital workplaces from the cloud. With DocsBot Skill Builder, you can describe the Cisco Meraki workflow you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. That lets your agent answer questions, retrieve live network context, prepare handoffs, and take bounded actions inside approved rules instead of only giving static guidance.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Cisco Meraki device, network, or connectivity status while answering outage, performance, or location-specific support questions.",
+    "Use a DocsBot helpdesk agent to gather customer-reported issue details, look up the relevant Meraki network state, and summarize likely next steps for support responses.",
+    "Enable the agent to create escalation-ready handoff notes that include affected sites, device details, recent status context, and the customer’s reported symptoms.",
+    "Let the agent provide safe troubleshooting guidance based on live Meraki data, such as whether a device is online, recently changed, or associated with a known network issue.",
+    "Allow the agent to trigger approved internal workflows, such as notifying network operations or opening a follow-up process when a customer reports a recurring connectivity problem."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Cisco Meraki network, device, and location information without switching tools.",
+    "Network operations teams can ask the agent to summarize site health, device status, and issue patterns across Meraki environments for faster internal triage.",
+    "IT staff can use the agent to follow standard operating procedures, gather missing context, and prepare escalation notes before handing issues to specialized network engineers.",
+    "Customer success or field teams can ask the agent for a plain-language summary of location connectivity history before speaking with a customer or partner.",
+    "Operations teams can use the agent to trigger bounded workflows, generate incident summaries, and coordinate approvals for sensitive network-related actions."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks Meraki network and device status during customer conversations.",
+    "An internal assistant that summarizes site connectivity health across selected Meraki locations.",
+    "A handoff workflow that packages Meraki context into incident or escalation notes.",
+    "An AI agent that gathers issue details and routes network problems to the right team.",
+    "A private IT assistant that follows SOPs for common Meraki troubleshooting requests.",
+    "A workflow Skill that triggers approved notifications when Meraki issues match defined conditions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Cisco Meraki agent to do in plain language, such as checking site status, summarizing device issues, or preparing escalation handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, defines the right workflow steps, and determines the required Cisco Meraki configuration values and secure connection approach for the job."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum needed actions and records, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill before publishing it to your customer-facing DocsBot agent or private team assistant, so it is ready to answer questions and take bounded action inside your Cisco Meraki workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Cisco Meraki?",
+      "answer": "With DocsBot Skill Builder, you describe the Cisco Meraki workflow you want in plain language and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The resulting agent can look up live network context, summarize findings, and take approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Cisco Meraki data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Cisco Meraki Skill to retrieve relevant device, network, or site context while responding to customers. That helps the agent give more accurate answers, prepare escalation notes, and trigger approved follow-up workflows when needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Cisco Meraki?",
+      "answer": "A DocsBot agent can help with live status lookups, issue summarization, escalation preparation, handoff creation, and approved workflow triggers tied to network incidents or device problems. The goal is to help support teams resolve questions faster with current operational context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Cisco Meraki operations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Meraki information, summarize site health, follow troubleshooting SOPs, and prepare incident documentation. This reduces context switching and helps teams complete repeatable operational workflows faster."
+    },
+    {
+      "question": "How does DocsBot keep Cisco Meraki actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum required access, and adds approval boundaries for sensitive actions. This lets your agent perform bounded lookups and workflow steps without exposing credentials or overreaching access."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs or escalation summaries from Cisco Meraki data?",
+      "answer": "Yes, the agent can gather Meraki context, combine it with the customer or employee conversation, and generate structured handoff notes for network operations, IT, or support teams. That makes escalations more complete and easier to act on."
+    }
+  ],
+  "relatedSlugs": [
+    "cisco",
+    "okta",
+    "servicenow",
+    "jira-service-management",
+    "pagerduty",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cisco Meraki",
+    "domain": "meraki.cisco.com",
+    "description": "Cisco Meraki is a technology company that creates intuitive solutions to optimize experiences, secure locations, and connect people, places, and things. They develop innovative technologies to simplify IT, secure networks, and enhance digital workplaces, making it easier for passionate individuals to achieve their missions.",
+    "slogan": "Simplifying digital workplaces with intuitive, secure, and scalable cloud technology.",
+    "logoUrl": "https://media.brand.dev/89e6b769-522d-4548-ad7b-7a4b42717cdd.png",
+    "iconUrl": "https://media.brand.dev/eb1c47ed-eb92-4896-8ea2-cc66806db116.jpg",
+    "primaryColor": "#65b345",
+    "accentColor": "#b4d69c",
+    "colors": [
+      {
+        "hex": "#65b345",
+        "name": "Sour Candy"
+      },
+      {
+        "hex": "#b4d69c",
+        "name": "Witty Green"
+      },
+      {
+        "hex": "#4f7244",
+        "name": "Artichoke Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/caa9093d-1654-4681-9c64-2fd684959ded.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://meraki.cisco.com/careers",
+      "terms": "https://meraki.cisco.com/support/",
+      "contact": "https://meraki.cisco.com/form/contact/",
+      "privacy": "https://meraki.cisco.com/support/",
+      "blog": "https://meraki.cisco.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/eb1c47ed-eb92-4896-8ea2-cc66806db116.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/89e6b769-522d-4548-ad7b-7a4b42717cdd.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1024,
+        "height": 200,
+        "aspectRatio": 5.12
+      },
+      {
+        "url": "https://media.brand.dev/c3270ca5-1822-4168-9610-2ed921fc734a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/89e6b769-522d-4548-ad7b-7a4b42717cdd.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1024,
+      "height": 200,
+      "aspectRatio": 5.12
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c3270ca5-1822-4168-9610-2ed921fc734a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 152,
+      "height": 152,
+      "aspectRatio": 1
+    }
+  }
+}

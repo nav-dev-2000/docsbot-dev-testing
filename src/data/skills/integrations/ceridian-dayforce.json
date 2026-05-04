@@ -1,0 +1,168 @@
+{
+  "slug": "ceridian-dayforce",
+  "name": "Ceridian Dayforce",
+  "domain": "ceridian-dayforce.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Ceridian Dayforce",
+  "metaTitle": "Build AI Agents for Ceridian Dayforce with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that securely use Ceridian Dayforce for HR lookups, employee workflows, support handoffs, and approved actions.",
+  "intro": "Ceridian Dayforce helps organizations manage HR, payroll, talent, workforce operations, and people data in one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent work with Dayforce. The result is an AI support or internal team agent that can answer questions, retrieve records, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee or candidate questions by checking approved Dayforce data such as leave balances, payroll status, or benefit enrollment details.",
+    "Let the agent summarize an employee’s Dayforce record context and prepare a clean handoff for HR or payroll teams when a request needs human review.",
+    "Allow the agent to collect missing information during a support conversation and create or update an approved HR service request workflow tied to Dayforce processes.",
+    "Have the agent respond to helpdesk tickets by looking up workforce or payroll status in Dayforce and drafting a clear next-step explanation for the requester.",
+    "Use the agent to confirm onboarding task progress, required documents, or employment status details from Dayforce before replying to a support inquiry."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve approved Dayforce information such as PTO balances, pay dates, org details, or onboarding status.",
+    "HR and payroll teams can ask the agent to summarize employee records, compare status across workflows, and prepare case notes or escalation summaries using Dayforce data.",
+    "Managers can use an internal AI agent to review team scheduling, attendance, or workforce status snapshots pulled from Dayforce within approved permission limits.",
+    "Operations teams can chat with the agent to complete SOP-driven workflows that gather Dayforce context, generate follow-up messages, and route requests to the right internal team.",
+    "Employee support teams can use the agent to research policy-related questions by combining Dayforce record lookups with internal knowledge and then produce consistent answers or handoff drafts."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks PTO balances and explains time-off request status.",
+    "A payroll support agent that looks up pay run status and prepares HR handoffs.",
+    "An internal assistant that summarizes employee onboarding progress from approved Dayforce records.",
+    "A manager assistant that retrieves team workforce snapshots and drafts follow-up actions.",
+    "An HR helpdesk agent that collects missing context and routes employee cases correctly.",
+    "A benefits support agent that explains enrollment status using approved Dayforce data access."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Ceridian Dayforce agent to do in plain language, and it translates that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect to Dayforce, identifies the required configuration values, handles authentication and secret protection through secure runtime configuration, and keeps credentials out of chats and generated content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries for sensitive Dayforce updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and recommends improvements."
+    },
+    {
+      "title": "DocsBot improves and deploys",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Ceridian Dayforce without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Dayforce workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. This makes it practical to create HR, payroll, and employee-service automations without turning setup into a developer project."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Ceridian Dayforce data during employee support conversations?",
+      "answer": "Yes, a DocsBot support agent can be designed to use approved Dayforce data to answer questions, summarize employee status, gather missing context, and prepare handoffs for HR or payroll teams. Access can be scoped so the agent only uses the records and actions you allow."
+    },
+    {
+      "question": "What Ceridian Dayforce workflows can an internal AI assistant automate for employees and managers?",
+      "answer": "An internal DocsBot agent can help with PTO lookups, onboarding status checks, payroll question triage, team workforce summaries, and SOP-driven HR requests. It can also generate summaries, next steps, and routed handoffs based on approved Dayforce information."
+    },
+    {
+      "question": "Can an AI agent safely update Ceridian Dayforce records or trigger HR workflows?",
+      "answer": "Yes, when you choose to allow actions, DocsBot Skill Builder can create bounded workflows for approved updates, request creation, or triggers with scoped permissions and approval steps for sensitive tasks. That helps the agent take useful action without exceeding the limits you define."
+    },
+    {
+      "question": "How does DocsBot keep Ceridian Dayforce credentials and access secure?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and Skill instructions. It also scopes access to the smallest practical set of users, records, and actions for the workflow."
+    },
+    {
+      "question": "Can DocsBot test Ceridian Dayforce agent workflows before they go live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal team scenarios against the Skill design, finds issues or missing safeguards, and feeds those findings into an improvement loop before deployment. This helps you launch a more reliable and better-contained Dayforce agent."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "ukg",
+    "rippling",
+    "paylocity"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dayforce",
+    "domain": "dayforce.com",
+    "description": "Dayforce is a global leader in human capital management technology, offering an AI‑powered, single people platform that integrates HR, payroll, talent management, and analytics. The platform enables organizations of all sizes and industries to streamline workforce processes, improve employee experiences, and make data‑driven decisions, unlocking full workforce potential and operating with confidence.",
+    "slogan": "Lighten the load with an AI-powered people platform.",
+    "logoUrl": "https://media.brand.dev/29fa05e1-b802-4c55-9910-965a027d257a.svg",
+    "iconUrl": "https://media.brand.dev/ecd50a61-3017-48dd-b9ec-519f3a288980.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#1362e0",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1362e0",
+        "name": "Chun-Li Blue"
+      },
+      {
+        "hex": "#f0f7f9",
+        "name": "Distant Horizon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f6564d5f-3f12-4d7a-8597-723cf369f005.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.dayforce.com/who-we-are/careers",
+      "terms": "https://www.dayforce.com/terms",
+      "contact": "https://www.dayforce.com/contact",
+      "privacy": "https://www.dayforce.com/privacy",
+      "blog": "https://www.dayforce.com/blog",
+      "pricing": "https://www.dayforce.com/how-we-help/dayforce/strategic-workforce-planning"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ecd50a61-3017-48dd-b9ec-519f3a288980.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/285146c7-8a84-43ad-99de-5056f707a33a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/29fa05e1-b802-4c55-9910-965a027d257a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 168,
+        "height": 40,
+        "aspectRatio": 4.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/29fa05e1-b802-4c55-9910-965a027d257a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 168,
+      "height": 40,
+      "aspectRatio": 4.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/285146c7-8a84-43ad-99de-5056f707a33a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

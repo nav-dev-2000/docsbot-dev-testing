@@ -1,0 +1,113 @@
+{
+  "slug": "juniper-mist",
+  "name": "Juniper Mist",
+  "domain": "juniper-mist.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Juniper Mist",
+  "metaTitle": "Build AI Agents for Juniper Mist with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Juniper Mist for network lookups, incident summaries, workflow handoffs, and safe internal or support actions.",
+  "intro": "Juniper Mist helps teams monitor and manage modern network environments, making it a strong system for AI-assisted lookups, troubleshooting context, and operational workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions, retrieve live network information, prepare escalations, and take bounded actions inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Juniper Mist site, device, or network status so it can explain likely service issues during a website chat or helpdesk conversation.",
+    "Use the agent to summarize recent wireless or network events from Juniper Mist and add that context to a support reply before handing the case to technical staff.",
+    "Have the agent collect a customer’s location, device details, and issue description, then prepare a structured handoff enriched with Juniper Mist network context for your IT team.",
+    "Enable the agent to identify whether a reported outage appears isolated to one site or broader infrastructure so customers get faster and more accurate status updates.",
+    "Let the agent generate incident summaries from Juniper Mist data that support teams can send to customers or attach to tickets for follow-up."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with in Slack, Microsoft Teams, or a secure chat workspace to look up Juniper Mist site health, device status, and recent network events.",
+    "Let IT staff ask the agent to research a connectivity complaint across locations and return a concise Juniper Mist summary with likely next troubleshooting steps.",
+    "Enable operations teams to use the agent to create standardized escalation notes, maintenance summaries, or shift handoff reports based on Juniper Mist data.",
+    "Help support and network teams follow SOPs by chatting with an internal agent that gathers Juniper Mist details, checks required context, and prepares the next approved workflow step.",
+    "Allow managers to ask the agent for high-level summaries of recurring network issues, affected locations, and open operational patterns drawn from Juniper Mist activity."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Juniper Mist network health before replying to service availability questions.",
+    "A helpdesk assistant that adds Juniper Mist incident context to tickets and escalation handoffs.",
+    "An internal IT copilot that summarizes site, access point, or device issues from Juniper Mist.",
+    "A network operations agent that prepares daily incident reports and shift handoff summaries.",
+    "An employee chat assistant that follows troubleshooting SOPs using live Juniper Mist lookup data.",
+    "An AI agent that gathers outage details and routes approved escalations to the right team."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Juniper Mist in plain language, such as checking site health, summarizing incidents, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and defines the safest way for the agent to connect to Juniper Mist without exposing credentials in chat or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission limits, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so people can start using it safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Juniper Mist?",
+      "answer": "With DocsBot Skill Builder, you describe the Juniper Mist workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your AI agent. It can support live lookups, summaries, handoffs, and other bounded actions based on the permissions and rules you approve."
+    },
+    {
+      "question": "Can an AI support agent use Juniper Mist data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Juniper Mist Skill to look up relevant network status, summarize issues, and prepare more accurate replies or escalations while responding to customer chats or tickets. The customer conversation triggers DocsBot, and the Skill lets the agent safely use Juniper Mist as part of that response workflow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Juniper Mist?",
+      "answer": "A DocsBot agent can help with outage checks, incident summaries, structured handoffs, ticket enrichment, and status explanations based on Juniper Mist information. You can also add approval limits so the agent only performs the actions you want it to handle automatically."
+    },
+    {
+      "question": "Can an internal AI assistant help IT teams work faster with Juniper Mist?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve network details, summarize site or device issues, follow troubleshooting SOPs, and generate handoff notes from Juniper Mist data. This gives teams faster access to operational context through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Juniper Mist access secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chat and generated content, and proxies authentication through secure runtime configuration. It also scopes permissions and can add approval boundaries so the agent only accesses the records, actions, and users appropriate for the workflow."
+    },
+    {
+      "question": "Can DocsBot test a Juniper Mist AI workflow before deployment?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that can run imagined support and internal scenarios against the Skill, find bugs or missing safeguards, and feed those findings into an improvement loop before deployment. This helps you launch a more reliable and safer AI workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "cisco-meraki",
+    "pagerduty",
+    "servicenow",
+    "zendesk",
+    "freshservice",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Juniper Mist",
+    "domain": "juniper-mist.com",
+    "description": "Blue Chip Computer Systems is a Los Angeles‑based IT consulting firm that delivers modern, managed technology solutions for small and medium‑sized businesses. Their services include network design and management (NaaS), AI‑driven AIOps, cloud computing, security, virtualization, and software‑as‑a‑service. With certified consultants and 40 years of experience, Blue Chip provides end‑to‑end IT consulting, proactive monitoring, and support to improve reliability, reduce support tickets, and enable remote work. They partner with leading vendors such as Juniper Mist, Datto, Lenovo, Veeam, and Brivo to offer integrated solutions across education, government, hospitality, and other sectors. Blue Chip focuses on creating long‑term technology strategies that align with each client’s business goals.",
+    "slogan": "Modern IT Solutions to Help Your Business Succeed",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

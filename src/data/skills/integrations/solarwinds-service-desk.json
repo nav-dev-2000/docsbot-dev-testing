@@ -1,0 +1,164 @@
+{
+  "slug": "solarwinds-service-desk",
+  "name": "SolarWinds Service Desk",
+  "domain": "solarwinds-service-desk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SolarWinds Service Desk",
+  "metaTitle": "Build AI Agents for SolarWinds Service Desk with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that look up tickets, update records, trigger workflows, and prepare safe handoffs in SolarWinds Service Desk.",
+  "intro": "SolarWinds Service Desk helps teams manage tickets, incidents, requests, and internal service workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read from and act inside SolarWinds Service Desk. The result is a support or internal AI agent that can answer questions, take approved actions, and keep work moving without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an existing SolarWinds Service Desk ticket and explain the latest update in plain language.",
+    "Allow the agent to create a new service request or incident in SolarWinds Service Desk from a website chat or helpdesk conversation when a customer reports an issue.",
+    "Enable the agent to collect missing details from the customer, add those notes to the SolarWinds Service Desk record, and prepare a cleaner handoff for a human team member.",
+    "Use the agent to summarize ticket history, priority, category, and assigned team so customers receive a clear progress update without waiting for manual review.",
+    "Have the agent trigger approved escalation workflows in SolarWinds Service Desk when a customer issue matches defined urgency or impact rules."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up SolarWinds Service Desk incidents, service requests, and recent activity.",
+    "Enable internal teams to ask the agent to create tickets, route requests, or update status fields in SolarWinds Service Desk by following approved workflow rules.",
+    "Help service desk managers use the agent to summarize open queues, identify blockers, and prepare shift handoff notes from SolarWinds Service Desk data.",
+    "Allow employees to chat with the agent to follow SOPs for incident intake, escalation, and triage while the agent records the right details in SolarWinds Service Desk.",
+    "Use a private AI assistant to research a request across systems, then update the related SolarWinds Service Desk record with a concise summary and next steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks ticket status and explains updates to customers instantly.",
+    "A service request intake assistant that gathers issue details and creates clean SolarWinds Service Desk records.",
+    "An escalation workflow Skill that raises priority only when defined conditions and approval boundaries are met.",
+    "An internal help desk assistant that finds incidents, summarizes history, and suggests next actions.",
+    "A handoff preparation Skill that turns a chat conversation into structured ticket notes for agents.",
+    "A queue summary assistant that reports backlog, ownership, and blockers for service desk managers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with SolarWinds Service Desk, such as checking ticket status, creating requests, updating records, or preparing escalations, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder asks for any missing business context, then designs the Skill, defines the required configuration values, and chooses a safer workflow that fits your support or internal process."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection planning by defining authentication and secret handling, keeping credentials out of chats and Skill source, proxying secrets through protected runtime configuration, and scoping access to only the needed records, actions, and users."
+    },
+    {
+      "title": "Safe actions are bounded",
+      "description": "Skill Builder adds approval boundaries, permission limits, and other guardrails so the agent can take useful actions in SolarWinds Service Desk without exceeding the rules you want enforced."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SolarWinds Service Desk?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up incidents, creating service requests, or updating ticket notes. Skill Builder then designs the Skill, secures the connection, tests the workflow, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use SolarWinds Service Desk data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up ticket status, summarize recent updates, collect missing details, and create or update approved records in SolarWinds Service Desk while responding to customers. Access can be scoped so the agent only uses the data and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SolarWinds Service Desk?",
+      "answer": "DocsBot can support workflows such as ticket lookups, incident creation, request intake, status updates, escalation preparation, and handoff summaries. The Skill can also gather missing context from the conversation and place it into the right SolarWinds Service Desk fields."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in SolarWinds Service Desk?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal interface to retrieve ticket information, create requests, follow triage steps, and update records under approved rules. This helps teams complete service desk workflows faster without switching between tools as often."
+    },
+    {
+      "question": "How does DocsBot keep SolarWinds Service Desk actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime configuration, and keeps credentials out of chats and generated content. It also scopes permissions and can add approval boundaries for sensitive actions such as escalations, status changes, or record updates."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs and escalations from SolarWinds Service Desk activity?",
+      "answer": "Yes, a Skill can summarize ticket history, customer-reported details, priority, ownership, and next steps to create cleaner handoffs for human agents or service teams. It can also trigger approved escalation workflows when your defined conditions are met."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshservice",
+    "jira-service-management",
+    "servicenow",
+    "intercom",
+    "help-scout"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SolarWinds",
+    "domain": "solarwinds.com",
+    "description": "SolarWinds is a company that provides simple, powerful, and secure hybrid IT observability and IT management software. Their solutions are designed to accelerate IT transformation, making it easier for organizations to manage their IT infrastructure. With a focus on ease of use, SolarWinds offers a range of tools to help businesses streamline their IT operations, available for a free trial.",
+    "slogan": "Making IT look easy with simple, powerful, secure management solutions.",
+    "logoUrl": "https://media.brand.dev/c60c7c82-0906-43a7-8f0d-983e074425ac.svg",
+    "iconUrl": "https://media.brand.dev/bdc6afdf-7c4a-46c8-a12a-49c680ab0732.png",
+    "primaryColor": "#fb6405",
+    "accentColor": "#f4b47b",
+    "colors": [
+      {
+        "hex": "#fb6405",
+        "name": "Blaze Orange"
+      },
+      {
+        "hex": "#f4b47b",
+        "name": "Sunburst"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ec9fb32d-0f85-457e-9db9-0e7792a70d84.png",
+    "industries": [],
+    "links": {
+      "careers": "https://jobs.solarwinds.com/",
+      "terms": null,
+      "blog": "https://www.solarwinds.com/blog",
+      "contact": "https://www.solarwinds.com/company/contact-us",
+      "privacy": "https://www.solarwinds.com/legal/privacy",
+      "pricing": "https://www.solarwinds.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bdc6afdf-7c4a-46c8-a12a-49c680ab0732.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6a74f472-83df-4f65-92e8-6ad6b4d0a11d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c60c7c82-0906-43a7-8f0d-983e074425ac.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1000,
+        "height": 200,
+        "aspectRatio": 5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c60c7c82-0906-43a7-8f0d-983e074425ac.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1000,
+      "height": 200,
+      "aspectRatio": 5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bdc6afdf-7c4a-46c8-a12a-49c680ab0732.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

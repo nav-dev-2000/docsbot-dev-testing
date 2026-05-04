@@ -1,0 +1,151 @@
+{
+  "slug": "drift",
+  "name": "Drift",
+  "domain": "drift.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with Drift",
+  "metaTitle": "Build AI Agents for Drift with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Drift for customer support and internal workflows with safe lookups, updates, handoffs, summaries, and approvals.",
+  "intro": "Drift helps teams manage conversational buyer experiences, live chat interactions, and engagement data across the customer journey. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Drift, and DocsBot will design, secure, test, and package that ability as a reusable Skill. The result is a support or internal AI agent that can answer questions and take bounded action in Drift instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a visitor or conversation in Drift and give a faster, more personalized support response.",
+    "Let the agent summarize a customer’s Drift chat history and attach that context to a helpdesk reply or escalation.",
+    "Allow the agent to create or update Drift conversation notes, tags, or routing details while helping a customer in chat.",
+    "Use the agent to prepare a clean handoff from self-service support to a sales or success rep based on Drift conversation context.",
+    "Let the agent trigger approved follow-up workflows in Drift after a support conversation reaches a defined outcome."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent to find Drift conversation details, engagement history, and handoff context without manually searching multiple records.",
+    "Let sales, success, or support teams ask the agent to summarize Drift activity for an account before a renewal call, escalation, or follow-up.",
+    "Allow team members to use the agent in Slack or Microsoft Teams to prepare routing notes, update conversation metadata, or trigger approved Drift workflows.",
+    "Help operations teams use a private AI agent to research conversation patterns in Drift and produce structured summaries for process reviews or SOP improvements."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that retrieves Drift conversation history and summarizes it for support agents.",
+    "A Skill that creates internal handoff notes from Drift chats and customer questions.",
+    "A Skill that updates approved Drift tags or routing fields based on chat outcomes.",
+    "A Skill that prepares escalation summaries using Drift activity and ticket context.",
+    "A Skill that triggers follow-up workflows in Drift after a bounded approval step.",
+    "A Skill that helps employees research buyer engagement details across Drift conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the DocsBot agent to do with Drift, such as looking up conversation context, updating metadata, or preparing a handoff, and Skill Builder translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required Drift connection details, defines secure authentication and configuration values, keeps credentials out of chats and Skill source, proxies secrets through protected runtime settings, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right action boundaries for your workflow, including scoped permissions, user-specific access, and approval steps for sensitive Drift updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private internal agent for Slack, Microsoft Teams, or chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Drift data during customer support conversations?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and DocsBot creates a Skill that can safely look up Drift conversation details, summarize context, and perform approved actions while replying to customers."
+    },
+    {
+      "question": "Can a DocsBot support agent use Drift to prepare escalations and handoffs?",
+      "answer": "Yes, a Skill can gather Drift conversation history, visitor context, and prior notes to generate a structured handoff or escalation summary for your team. You can also add approval boundaries before any sensitive update or routing action is completed."
+    },
+    {
+      "question": "What Drift workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve conversation history, summarize account engagement, update allowed metadata, prepare follow-up notes, and trigger approved Drift workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can I control what an AI agent is allowed to update in Drift?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum users, records, and actions required for the workflow. It can also add approval steps and safe action limits for updates, routing changes, and workflow triggers."
+    },
+    {
+      "question": "Is setup technical if I want DocsBot to connect with Drift?",
+      "answer": "No, you describe the outcome you want, and Skill Builder handles the workflow design, connection planning, secure configuration, testing, and deployment guidance for the Skill. It is built to help non-technical teams create useful AI Actions safely."
+    },
+    {
+      "question": "Can DocsBot use Drift for both customer-facing chat and private team assistants?",
+      "answer": "Yes, the same platform can support customer-facing agents that use Drift context during support interactions and private employee agents that help teams research, summarize, and complete approved workflows inside Drift."
+    }
+  ],
+  "relatedSlugs": [
+    "intercom",
+    "zendesk",
+    "hubspot",
+    "salesforce",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Drift",
+    "domain": "drift.com",
+    "description": "Drift is a buyer‑experience and Conversational AI company that enables businesses to build more engaging, personalized customer journeys. Founded in 2015, Drift’s human‑centric, AI‑powered platform captures conversational data and buyer behavior to remove friction from the B2B buying process, turning chats into deeper relationships, increased pipeline, and higher revenue. By listening, understanding, and learning from each interaction, Drift delivers tailored recommendations at every touchpoint, helping companies scale meaningful conversations at scale.",
+    "slogan": "Faster revenue growth starts here",
+    "logoUrl": "https://media.brand.dev/f1074b79-27e1-4b3c-82ab-c2bf47bd4ace.jpg",
+    "iconUrl": "https://media.brand.dev/f1074b79-27e1-4b3c-82ab-c2bf47bd4ace.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#070707",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#070707",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dbdbdb",
+        "name": "Pixel White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e918d1ee-c8c3-43b6-8cda-cb324dafcd93.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.drift.com/company/careers",
+      "terms": "https://www.drift.com/legal/msa",
+      "contact": null,
+      "privacy": "https://www.drift.com/legal/privacy-policies",
+      "blog": "https://www.drift.com/resources/blog",
+      "pricing": "https://www.drift.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f1074b79-27e1-4b3c-82ab-c2bf47bd4ace.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f1074b79-27e1-4b3c-82ab-c2bf47bd4ace.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f1074b79-27e1-4b3c-82ab-c2bf47bd4ace.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

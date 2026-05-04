@@ -1,0 +1,144 @@
+{
+  "slug": "officient",
+  "name": "Officient",
+  "domain": "officient.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Officient HR Data and Workflows",
+  "metaTitle": "Build AI Agents for Officient with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Officient to answer HR questions, retrieve employee data, trigger workflows, and support safe internal operations.",
+  "intro": "Officient helps companies manage employee data and HR self-service workflows in one place. With DocsBot Skill Builder, you can describe the HR task or support outcome you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent securely look up information, update approved records, trigger workflows, and prepare handoffs. This makes it easier to support employees, managers, and operations teams with faster answers and bounded AI Actions inside your existing HR processes.",
+  "supportUseCases": [
+    "Use a DocsBot support agent in your helpdesk or chat widget to check Officient employee profile details and answer approved identity, policy, or status questions during HR-related support conversations.",
+    "Let the agent collect missing context from an employee, summarize the issue, and create a clean handoff for HR when a request needs human review.",
+    "Enable the agent to look up onboarding or employment status information in Officient so it can give employees faster updates without making them wait for manual follow-up.",
+    "Allow the agent to prepare leave, personal data, or document-related support cases by retrieving relevant Officient records and summarizing the next approved step.",
+    "Use the agent to trigger bounded HR workflows after employee confirmation, such as initiating an update request or routing a task to the right internal owner."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve approved Officient employee information, policy context, and workflow status without searching across systems manually.",
+    "HR and people operations teams can ask the agent to summarize employee records, onboarding progress, leave-related details, or pending tasks from Officient to speed up case handling.",
+    "Managers can use the agent to gather structured employee context from Officient before reviews, team changes, or HR follow-ups, with access scoped to appropriate records and roles.",
+    "Operations teams can chat with the agent to complete SOP-driven workflows that use Officient data, including routing requests, preparing approvals, and generating standardized summaries or handoff notes.",
+    "Internal teams can use the agent to answer repetitive HR operations questions, collect missing details from requesters, and trigger approved next steps while keeping sensitive actions inside defined approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An employee support agent that checks Officient profile and employment status details.",
+    "A leave request assistant that gathers context and routes cases for HR review.",
+    "An onboarding status bot that summarizes progress and next steps for employees.",
+    "A manager assistant that retrieves approved team member HR context before follow-ups.",
+    "An HR operations agent that prepares handoffs, case summaries, and workflow notes.",
+    "A private people team assistant that answers repetitive Officient data questions safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Officient-powered agent to do in plain language, such as answering employee questions, retrieving HR data, or triggering a bounded workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what Officient information or actions are needed, and defines the right configuration values without making you map every technical step yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and scopes access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds safe action boundaries for sensitive HR workflows, including approval checks, role-aware permissions, and clear limits on what the agent can update or trigger."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined employee support and internal HR scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Officient HR data?",
+      "answer": "With DocsBot Skill Builder, you describe the HR workflow or question-handling outcome you want, and Skill Builder creates a reusable Skill that lets your AI agent securely look up Officient data, summarize results, and take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Officient to answer employee HR questions?",
+      "answer": "Yes, a DocsBot support agent can use Officient as a source of approved employee and workflow information to answer common HR questions, gather missing details, and prepare handoffs when a human review is needed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Officient?",
+      "answer": "A private DocsBot agent can help HR, operations, and managers retrieve employee information, summarize onboarding or leave status, route requests, generate handoff notes, and trigger bounded next steps based on your rules."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger HR workflows in Officient?",
+      "answer": "DocsBot Skill Builder is designed to define scoped permissions, secure authentication handling, and approval boundaries so your AI agent can perform only the Officient actions you allow."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Officient with DocsBot?",
+      "answer": "You explain the outcome you want in plain language, and Skill Builder handles the Skill design, connection planning, secure configuration, automated testing, and deployment guidance for the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI agent create HR handoffs and summaries using Officient data?",
+      "answer": "Yes, a DocsBot agent can pull relevant Officient context, summarize the situation, and generate a structured handoff for HR or people operations teams so follow-up work starts with the right information."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "gusto",
+    "workday",
+    "hibob",
+    "deel"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Officient",
+    "domain": "start.officient.io",
+    "description": "Officient is an HR platform provider that offers a portal for employers and employees to manage HR-related tasks. Their platform allows employers to access their HR systems and manage employee data, while employees can log in to a self-service portal to access their personal information and perform various HR-related actions. Officient's platform aims to streamline HR processes and improve employee experience.",
+    "slogan": "Empowering HR and employees with seamless, efficient self-service solutions.",
+    "logoUrl": "https://media.brand.dev/f07f8ca5-8102-4f70-9589-3f9886ced451.png",
+    "iconUrl": "https://media.brand.dev/f07f8ca5-8102-4f70-9589-3f9886ced451.png",
+    "primaryColor": "#849cfc",
+    "accentColor": "#849cfc",
+    "colors": [
+      {
+        "hex": "#849cfc",
+        "name": "Periwinkle Blue"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f07f8ca5-8102-4f70-9589-3f9886ced451.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f07f8ca5-8102-4f70-9589-3f9886ced451.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f07f8ca5-8102-4f70-9589-3f9886ced451.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

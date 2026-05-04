@@ -1,0 +1,160 @@
+{
+  "slug": "crunchbase",
+  "name": "Crunchbase",
+  "domain": "crunchbase.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Crunchbase Data with DocsBot",
+  "metaTitle": "Build Crunchbase AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Crunchbase for company research, support lookups, internal research workflows, and safe sales intelligence actions.",
+  "intro": "Crunchbase helps teams research private companies, funding activity, and market signals. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely look up Crunchbase data, summarize findings, and trigger approved workflows. That means customer-facing support agents and private internal assistants can answer questions faster and take bounded actions using trusted company intelligence.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer's company profile, funding stage, or recent market context in Crunchbase and tailor support responses for onboarding, routing, or account qualification.",
+    "Let a support agent summarize Crunchbase company intelligence inside a helpdesk reply so agents can prepare better escalations for high-value business customers.",
+    "Have the agent gather company background from Crunchbase and create a clean handoff summary for sales, success, or partnerships teams when a support conversation reveals expansion interest.",
+    "Use Crunchbase data to help a support agent identify likely company size, industry, or growth signals and route enterprise inquiries to the right support or account team.",
+    "Let the agent enrich ticket context with Crunchbase research before responding, so complex B2B support requests include better business context without manual lookup work."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to research companies in Crunchbase and get fast summaries for sales outreach, partnership reviews, or account planning.",
+    "Revenue operations teams can ask the agent to pull Crunchbase company details, summarize recent funding or market activity, and prepare internal account briefs for handoffs or pipeline reviews.",
+    "Customer success teams can chat with the agent to research strategic customers, retrieve business context, and follow internal SOPs for escalation, renewal planning, or expansion identification.",
+    "Partnerships and business development teams can use an internal agent to compare target companies, generate prospect research notes, and trigger approved follow-up workflows in connected systems.",
+    "Support leaders can ask the agent to enrich incoming B2B tickets with Crunchbase intelligence so teams have better account context before engaging with customers."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that enriches business customer conversations with Crunchbase company intelligence.",
+    "An internal research assistant that summarizes funding history, company profiles, and market activity.",
+    "A handoff Skill that turns Crunchbase findings into escalation notes for sales or success teams.",
+    "A qualification workflow that uses Crunchbase data to help route enterprise inquiries safely.",
+    "An account planning assistant that prepares concise company briefs for customer-facing teams.",
+    "A prospect research Skill that compares target companies and generates structured summaries for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Crunchbase in plain language, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime settings."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum data access, users, records, and approved actions needed, and it adds approval boundaries wherever lookups, updates, or workflow triggers should be reviewed first."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal employee scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and sends those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chatbot, helpdesk agent, or private team assistant can use Crunchbase data in a controlled way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Crunchbase data?",
+      "answer": "With DocsBot Skill Builder, you describe the research or workflow outcome you want in plain language, and Skill Builder creates a secure Skill that lets your AI agent look up Crunchbase information, summarize it, and use it inside approved workflows."
+    },
+    {
+      "question": "Can a DocsBot support agent use Crunchbase during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use Crunchbase data to add business context, prepare better responses, and create handoff notes for sales, success, or enterprise support teams within the limits you define."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Crunchbase?",
+      "answer": "An internal DocsBot agent can help employees research companies, summarize funding activity, prepare account briefs, compare prospects, and trigger follow-up workflows across connected business systems."
+    },
+    {
+      "question": "Can DocsBot use Crunchbase to enrich helpdesk tickets?",
+      "answer": "Yes, a DocsBot agent connected to your helpdesk can look up Crunchbase company context, summarize the findings, and attach that context to ticket responses, escalations, or handoff notes."
+    },
+    {
+      "question": "How does DocsBot keep Crunchbase access secure?",
+      "answer": "Skill Builder handles secure connection design by defining configuration values, protecting and proxying secrets, scoping access to the minimum necessary data and actions, and adding approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can an internal AI assistant summarize company research from Crunchbase for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to get concise company summaries, funding insights, and market context drawn from Crunchbase for sales, customer success, partnerships, or operations use cases."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "clearbit",
+    "apollo",
+    "linkedin-sales-navigator"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Crunchbase",
+    "domain": "crunchbase.com",
+    "description": "Crunchbase is a predictive solution that provides intelligence on private companies, powered by the unique combination of live private company data, AI, and market activity from over 80 million users. They predict private market movements to help investors, dealmakers, and analysts make informed decisions.",
+    "slogan": "Empowering smarter decisions with private company intelligence and market insights.",
+    "logoUrl": "https://media.brand.dev/28950756-bd38-4c0c-a424-a3358adb885e.svg",
+    "iconUrl": "https://media.brand.dev/d7ae13e7-f1af-40f1-9dc0-baa2cc18f3d5.png",
+    "primaryColor": "#0564fc",
+    "accentColor": "#78acfc",
+    "colors": [
+      {
+        "hex": "#0564fc",
+        "name": "Bright Blue"
+      },
+      {
+        "hex": "#78acfc",
+        "name": "Fennel Flower"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c1f61e70-3d61-4303-86f2-24640d5c2221.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://about.crunchbase.com/about-us/careers",
+      "terms": "https://about.crunchbase.com/terms-of-service/",
+      "contact": "https://about.crunchbase.com/about-us/contact-us",
+      "privacy": "https://about.crunchbase.com/terms-of-service/privacy-policy/",
+      "blog": "https://about.crunchbase.com/blog",
+      "pricing": "https://www.crunchbase.com/buy/select-product"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d7ae13e7-f1af-40f1-9dc0-baa2cc18f3d5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/28950756-bd38-4c0c-a424-a3358adb885e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 370,
+        "height": 53,
+        "aspectRatio": 6.98
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/28950756-bd38-4c0c-a424-a3358adb885e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 370,
+      "height": 53,
+      "aspectRatio": 6.98
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d7ae13e7-f1af-40f1-9dc0-baa2cc18f3d5.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

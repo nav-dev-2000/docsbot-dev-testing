@@ -1,0 +1,156 @@
+{
+  "slug": "meta-marketing-api",
+  "name": "Meta Marketing API",
+  "domain": "meta-marketing-api.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with the Meta Marketing API",
+  "metaTitle": "Build AI Agents for the Meta Marketing API with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely read campaign data, summarize performance, trigger workflows, and assist teams with Meta Marketing API actions.",
+  "intro": "Meta Marketing API helps businesses manage advertising data, campaign performance, and related marketing workflows across Meta platforms. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill for your support or internal AI agent. That lets your agent answer questions, retrieve live marketing information, prepare handoffs, and take bounded actions inside customer-defined rules instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check promotion, campaign, or ad delivery status tied to a customer account and explain the latest known state in chat or a helpdesk reply.",
+    "Let the support agent pull approved advertising or conversion summaries from Meta Marketing API so it can answer customer questions about active campaigns without waiting for a manual lookup.",
+    "Have the agent gather missing details from the customer, summarize campaign context, and prepare an escalation handoff for a marketing specialist with the relevant Meta data attached.",
+    "Enable the agent to trigger approved internal review or follow-up workflows when a customer reports ad issues, rejected creatives, or unexpected campaign performance changes.",
+    "Use the agent to summarize recent campaign metrics or account activity for support tickets so customers receive a clearer update while sensitive actions stay bounded by approval rules."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve live campaign, ad set, and performance summaries from Meta Marketing API.",
+    "Marketing and customer success teams can ask the agent to compare campaign results, surface anomalies, and generate a concise status update for leaders or client-facing teams.",
+    "Operations teams can use the agent to collect account context, document next steps, and trigger approved internal workflows for campaign reviews or issue escalations.",
+    "Employees can chat with the agent to follow standard operating procedures for campaign checks, handoff preparation, reporting requests, and stakeholder updates across marketing systems.",
+    "Internal teams can use the agent to turn Meta marketing data into structured summaries, briefing notes, and reusable artifacts for account reviews and customer meetings."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes live Meta campaign performance for support and success teams.",
+    "A support workflow that prepares escalations with campaign context, metrics, and customer issue details.",
+    "An internal assistant that compares ad account trends and drafts stakeholder-ready performance updates.",
+    "A private agent that gathers campaign diagnostics and triggers approved internal review workflows.",
+    "A reporting assistant that turns Meta marketing data into concise summaries and handoff notes.",
+    "An AI assistant that answers account status questions using bounded live lookups from Meta."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You describe the result you want in plain language, such as answering campaign status questions or preparing ad issue escalations, and Skill Builder turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the required configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right safety limits for lookups, summaries, updates, workflow triggers, and approval boundaries so sensitive Meta actions stay under your control."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use it in production with logging and governed behavior."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for the Meta Marketing API?",
+      "answer": "With DocsBot Skill Builder, you describe the marketing or support outcome you want in plain language, and DocsBot designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can perform approved lookups, summaries, handoffs, and workflow actions against Meta Marketing API data."
+    },
+    {
+      "question": "Can an AI support agent use Meta Marketing API data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Meta Marketing API access to retrieve campaign context, summarize performance, and prepare clearer ticket replies or escalations. You control what data the agent can access and what actions require approvals."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with the Meta Marketing API?",
+      "answer": "An internal AI assistant can help teams retrieve campaign status, compare performance, generate reporting summaries, prepare account review notes, and trigger bounded follow-up workflows. This is useful for marketing, customer success, and operations teams that need faster access to live advertising context."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Meta-related workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoffs, generating summaries, or triggering approved internal workflows tied to Meta marketing operations. Skill Builder adds scoped permissions, secret protection, and approval boundaries so actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to the Meta Marketing API?",
+      "answer": "Skill Builder identifies the required connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and limits access to the minimum records and actions needed. It also helps define approval checkpoints for sensitive operations before deployment."
+    },
+    {
+      "question": "Can a private employee AI assistant in Slack or Teams use the Meta Marketing API?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent that employees access through chat, Slack, or Microsoft Teams. Team members can ask for live campaign information, reporting summaries, and workflow help without needing direct manual lookups in every system."
+    }
+  ],
+  "relatedSlugs": [
+    "google-ads",
+    "hubspot-marketing-hub",
+    "mailchimp",
+    "marketo",
+    "klaviyo",
+    "linkedin-ads"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Meta",
+    "domain": "developers.facebook.com",
+    "description": "Meta is a global technology company that empowers developers to build social experiences across its family of apps—including Facebook, Instagram, Messenger, WhatsApp, Threads, and Meta Quest. Through the Meta for Developers platform, it offers a suite of APIs, SDKs, and tools for advertising, AI, authentication, business messaging, gaming, and open‑source projects. Developers can integrate ads and monetization, create immersive VR content, leverage AI models, and connect billions of users with secure authentication and rich social integrations. Meta also provides extensive documentation, support, and community resources to help businesses grow, engage communities, and unlock new revenue streams. The platform serves over 200 million businesses monthly, enabling them to reach customers, build communities, and scale their products worldwide.",
+    "slogan": "Connecting people, communities, and businesses through innovative social technologies.",
+    "logoUrl": "https://media.brand.dev/0b634fc0-cf74-49f8-80fd-8b9fbfea125f.svg",
+    "iconUrl": "https://media.brand.dev/b91544b5-01b2-4db5-8591-d8a17aa2d0e5.png",
+    "primaryColor": "#047af3",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#047af3",
+        "name": "Blue Darknut"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/49365568-57f9-4db1-9d24-f6c1e036d2b2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": "https://developers.facebook.com/blog/",
+      "pricing": "https://developers.facebook.com/blog/post/2025/10/16/ads-insights-api-metric-availability-updates/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b91544b5-01b2-4db5-8591-d8a17aa2d0e5.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0b634fc0-cf74-49f8-80fd-8b9fbfea125f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 19,
+        "height": 14,
+        "aspectRatio": 1.36
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0b634fc0-cf74-49f8-80fd-8b9fbfea125f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 19,
+      "height": 14,
+      "aspectRatio": 1.36
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b91544b5-01b2-4db5-8591-d8a17aa2d0e5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

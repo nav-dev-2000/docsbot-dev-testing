@@ -1,0 +1,148 @@
+{
+  "slug": "myndhrx",
+  "name": "MYNDHRX",
+  "domain": "myndhrx.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with MYNDHRX",
+  "metaTitle": "Build MYNDHRX AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use MYNDHRX for HR, payroll, compliance, and employee operations with safe lookups, updates, approvals, and workflow automation.",
+  "intro": "MYNDHRX helps organizations manage HR operations, payroll processing, employee lifecycle tasks, and compliance workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use MYNDHRX data and actions. The result is a support or internal AI agent that can answer questions, retrieve records, prepare handoffs, and trigger approved HR or payroll workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of submitted HR or payroll service requests in MYNDHRX and give customers a clear progress update.",
+    "Use MYNDHRX data to help a support agent confirm employee onboarding, offboarding, or document submission status while replying in chat or over helpdesk tickets.",
+    "Allow the agent to collect missing details from a customer, create a structured handoff for HR operations teams, and log the request context for follow-up in MYNDHRX.",
+    "Enable the agent to summarize payroll, compliance, or employee service case history from MYNDHRX so customers receive faster and more consistent answers.",
+    "Let the agent trigger approved workflow steps such as routing a payroll correction request or escalating a compliance issue to the right operations team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up HR operations, payroll processing, or employee service request status from MYNDHRX without searching multiple systems.",
+    "HR, finance, and operations teams can ask the agent to summarize employee lifecycle activity, open requests, and compliance-related updates from MYNDHRX for faster decision-making.",
+    "Managers can use the agent in Slack or Microsoft Teams to gather the required context for onboarding, offboarding, payroll exceptions, or document follow-up and then launch the next approved step.",
+    "Shared services teams can chat with the agent to complete SOPs such as triaging employee issues, preparing escalation notes, and generating standardized case summaries based on MYNDHRX records.",
+    "Internal teams can use the agent to research policy-related questions, retrieve the right MYNDHRX record details, and prepare safe handoffs when human review is required."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks payroll or HR service request status and explains the next step.",
+    "A support workflow that creates structured MYNDHRX handoffs after gathering missing employee request details.",
+    "An internal HR assistant that summarizes onboarding, offboarding, and employee lifecycle tasks from MYNDHRX.",
+    "A payroll operations agent that routes exceptions and prepares escalation notes for human approval.",
+    "A compliance assistant that retrieves case context and triggers approved follow-up workflows in MYNDHRX.",
+    "A manager-facing chat assistant that answers employee operations questions using live MYNDHRX data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with MYNDHRX, such as checking request status, preparing payroll escalations, or triggering approved HR workflows, and it turns that goal into a secure Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides the safest way to connect MYNDHRX, identifies the required configuration values, defines authentication handling, and keeps secrets protected and proxied through secure runtime settings instead of exposing them in chats or Skill source."
+    },
+    {
+      "title": "Bound the agent safely",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or action limits wherever sensitive HR, payroll, or compliance steps should stay controlled."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using MYNDHRX actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for MYNDHRX without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the MYNDHRX workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, improves weak spots, and prepares it for deployment. This makes it possible to create practical AI actions without manually wiring every step yourself."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use MYNDHRX data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a MYNDHRX Skill to perform safe lookups, summarize request status, gather missing details, and prepare handoffs or approved workflow triggers while replying in chat or tickets. The customer conversation triggers the DocsBot agent, and the Skill lets that agent work with MYNDHRX behind the scenes."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with MYNDHRX?",
+      "answer": "An internal DocsBot agent can help employees retrieve HR or payroll request details, summarize employee lifecycle activity, prepare escalation notes, and launch approved follow-up steps inside broader HR operations workflows. It can also guide staff through SOPs in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can an AI agent update MYNDHRX records safely?",
+      "answer": "DocsBot Skill Builder can create bounded MYNDHRX actions for approved updates, workflow triggers, and handoffs while limiting what the agent is allowed to change. It applies scoped permissions, secure authentication handling, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot protect MYNDHRX credentials and sensitive HR data?",
+      "answer": "Skill Builder identifies the connection details the Skill needs, stores secrets in secure runtime configuration, and proxies authentication so credentials stay out of chat transcripts and generated content. It also scopes access to only the records and actions required for the workflow."
+    },
+    {
+      "question": "Can DocsBot test a MYNDHRX Skill before employees or customers use it?",
+      "answer": "Yes, the automated testing agent can run imagined support and internal scenarios to uncover bugs, weak guidance, missing checks, or workflow gaps before deployment. Those results can then feed an automated self-improvement loop so the Skill is stronger before it goes live."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "paychex",
+    "ukg",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "MYND",
+    "domain": "myndhrx.com",
+    "description": "MYND is a premier outsourcing partner that provides end‑to‑end managed services for finance and accounting, HR operations, payroll processing, and regulatory compliance. Leveraging AI‑powered tools and a global delivery network, MYND serves over 1,000 enterprise clients across 30+ industries, handling everything from invoice processing and financial reporting to multi‑country payroll, employee lifecycle management, and tax and labor law compliance. The company operates through four specialized units—Enterprise Solutions, MYNDX product suite, MYND International back‑office services, and MYND Staffing—delivering integrated, automated, and secure back‑office solutions that help businesses streamline operations, improve accuracy, and stay compliant worldwide.",
+    "slogan": "Your Strategic Partner for Finance & Accounts, Payroll & Compliance Outsourcing",
+    "logoUrl": "https://media.brand.dev/1c8d2f86-56df-4660-8645-4d7da080e9b4.svg",
+    "iconUrl": "https://media.brand.dev/1c8d2f86-56df-4660-8645-4d7da080e9b4.svg",
+    "primaryColor": "#4b5bab",
+    "accentColor": "#243c74",
+    "colors": [
+      {
+        "hex": "#4b5bab",
+        "name": "Chinese Bellflower"
+      },
+      {
+        "hex": "#243c74",
+        "name": "Blue Expanse"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://myndhrx.com/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1c8d2f86-56df-4660-8645-4d7da080e9b4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 3223,
+        "height": 892,
+        "aspectRatio": 3.61
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1c8d2f86-56df-4660-8645-4d7da080e9b4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 3223,
+      "height": 892,
+      "aspectRatio": 3.61
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1c8d2f86-56df-4660-8645-4d7da080e9b4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 3223,
+      "height": 892,
+      "aspectRatio": 3.61
+    }
+  }
+}

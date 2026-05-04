@@ -1,0 +1,176 @@
+{
+  "slug": "bamboohr",
+  "name": "BambooHR",
+  "domain": "bamboohr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with BambooHR",
+  "metaTitle": "Build BambooHR AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use BambooHR for secure HR lookups, workflow handoffs, employee support, and internal team automation.",
+  "intro": "BambooHR helps companies manage employee records, HR processes, and people operations in one place. With DocsBot Skill Builder, you can describe the HR or employee support workflow you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent safely use BambooHR data and actions. The result is an AI support agent or internal assistant that can answer questions, gather context, prepare handoffs, and complete approved HR workflows with clear boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee benefit or policy questions by looking up the right BambooHR information and summarizing the next steps.",
+    "Let a helpdesk-connected DocsBot agent gather onboarding or offboarding context from BambooHR and prepare a clean HR handoff for a human team member.",
+    "Enable a support agent to verify basic employee profile details from BambooHR before guiding the person through an HR request or escalation.",
+    "Use DocsBot to collect missing information in chat, then create or update an approved BambooHR workflow record for time-off, employee changes, or document follow-up.",
+    "Allow the agent to summarize relevant BambooHR status details inside a support reply so employees get faster answers without waiting for manual checks."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up approved BambooHR information such as manager relationships, job titles, departments, or time-off balances.",
+    "Give HR and operations teams an internal AI assistant that gathers context from BambooHR, summarizes employee records, and prepares standardized handoff notes for sensitive cases.",
+    "Enable managers to ask an internal agent about team onboarding progress, missing documents, or upcoming employee milestones using BambooHR as a live data source.",
+    "Use a private DocsBot agent to guide employees through HR SOPs, collect required details, and trigger approved BambooHR updates within safe permissions.",
+    "Help people teams research workforce questions faster by combining BambooHR lookups, policy knowledge, and generated summaries in one employee-facing assistant."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks PTO balances and explains the next approved request step.",
+    "A support bot that collects onboarding questions and prepares BambooHR-based HR handoffs.",
+    "An internal assistant that looks up employee directory details with role-based access controls.",
+    "A manager helper that summarizes team member milestones, status changes, and missing onboarding tasks.",
+    "An HR workflow agent that gathers employee updates and creates approved follow-up actions.",
+    "A private AI assistant that answers policy questions using knowledge sources plus BambooHR context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the BambooHR agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder identifies the required BambooHR connection details, defines secure authentication and runtime configuration, protects and proxies secrets by default, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits, user scopes, and approval boundaries so sensitive HR updates, escalations, or record changes only happen in the approved situations you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined employee support and internal team conversations, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into improvements automatically."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill, prepares it for the right DocsBot agent, and helps deploy it to your website chat, helpdesk agent, or private team assistant without making you manage the technical details manually."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BambooHR?",
+      "answer": "With DocsBot Skill Builder, you describe the HR task or employee support workflow you want in plain language, and Skill Builder creates a reusable Skill that lets your AI agent look up BambooHR data, summarize context, and take approved actions safely."
+    },
+    {
+      "question": "Can an AI support agent use BambooHR data to answer employee questions?",
+      "answer": "Yes, a DocsBot agent can use BambooHR as a secure source for approved employee support workflows such as directory lookups, PTO context, onboarding status, and handoff preparation while keeping actions within the rules you set."
+    },
+    {
+      "question": "What internal employee workflows can a DocsBot AI assistant automate with BambooHR?",
+      "answer": "An internal DocsBot assistant can help with employee directory lookups, onboarding and offboarding guidance, manager support, PTO-related questions, workflow summaries, and standardized HR handoffs across chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update BambooHR records or trigger HR workflows safely?",
+      "answer": "DocsBot Skill Builder can create Skills for approved BambooHR updates and workflow triggers with scoped permissions, secure authentication handling, and approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "How does DocsBot keep BambooHR credentials and HR data secure?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, and limits access to the right users, records, and actions."
+    },
+    {
+      "question": "Can a BambooHR AI agent hand off sensitive requests to a human HR team?",
+      "answer": "Yes, DocsBot can gather the needed context, summarize the case, and prepare a clean handoff or escalation for HR while respecting approval rules and avoiding unsupported automated actions."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "rippling",
+    "gusto",
+    "namely",
+    "personio",
+    "adp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BambooHR",
+    "domain": "bamboohr.com",
+    "description": "BambooHR is a SaaS-based HR software company providing subscription-based solutions for small and medium-sized businesses. For 16 years, they've been on a mission to help organizations build better workplaces by transforming tedious HR processes into intuitive experiences, managing people data, and informing business decisions. With over 34,000 customers across 190 countries, BambooHR offers a comprehensive HR ecosystem to manage, protect, and enrich people data, driving business goals and smarter decision-making.",
+    "slogan": "Set People Free To Do Great Work",
+    "logoUrl": "https://media.brand.dev/f40beaea-4339-4cb5-8b58-902f2052a143.png",
+    "iconUrl": "https://media.brand.dev/ed8d7713-1c3f-407d-9eb8-f65a35bcee78.png",
+    "primaryColor": "#8cc53c",
+    "accentColor": "#c4dd96",
+    "colors": [
+      {
+        "hex": "#8cc53c",
+        "name": "Midsummer Field"
+      },
+      {
+        "hex": "#c4dd96",
+        "name": "Lickety Split"
+      },
+      {
+        "hex": "#629926",
+        "name": "Limeade"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5918110c-dca5-4b4e-b5d4-e70c78220590.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://www.bamboohr.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f40beaea-4339-4cb5-8b58-902f2052a143.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 250,
+        "height": 37,
+        "aspectRatio": 6.76
+      },
+      {
+        "url": "https://media.brand.dev/ed8d7713-1c3f-407d-9eb8-f65a35bcee78.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b1f52b32-0466-4022-a45d-5be3451deca5.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 1200,
+        "height": 628,
+        "aspectRatio": 1.91
+      },
+      {
+        "url": "https://media.brand.dev/70ed8c19-1eb9-445f-b00d-316620af5294.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b1f52b32-0466-4022-a45d-5be3451deca5.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 1200,
+      "height": 628,
+      "aspectRatio": 1.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ed8d7713-1c3f-407d-9eb8-f65a35bcee78.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

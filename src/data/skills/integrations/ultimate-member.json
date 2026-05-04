@@ -1,0 +1,160 @@
+{
+  "slug": "ultimate-member",
+  "name": "Ultimate Member",
+  "domain": "ultimatemember.com",
+  "category": "Identity & Access",
+  "trutoCategory": "User Directory",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with Ultimate Member",
+  "metaTitle": "Ultimate Member AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Ultimate Member to answer member questions, look up profiles, manage access workflows, and support internal teams safely.",
+  "intro": "Ultimate Member helps WordPress sites manage user profiles, memberships, and online communities. With DocsBot Skill Builder, you can describe the member support or internal workflow you want in plain language, and DocsBot can turn it into a reusable Skill that safely works with Ultimate Member. The result is an AI agent that can answer questions, retrieve member data, prepare handoffs, and take bounded actions for support teams and internal staff.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a member's profile status, role, or registration details in Ultimate Member while answering account questions in chat or tickets.",
+    "Use the agent to verify whether a user has completed signup steps and summarize what is blocking access before guiding them to the next step.",
+    "Allow the agent to help with membership access issues by checking approved Ultimate Member fields and preparing a support handoff with the relevant account context.",
+    "Enable the agent to capture profile update requests from customers, validate the request against your rules, and trigger an approved follow-up workflow for staff review.",
+    "Have the agent summarize a member's community or account state from Ultimate Member so support can respond faster and with better context across helpdesk conversations."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up member records, roles, approval status, or profile details from Ultimate Member without manually searching the WordPress admin.",
+    "Enable customer success or operations teams to ask the agent to summarize membership issues, identify missing registration information, and prepare internal follow-up tasks.",
+    "Give support managers an internal agent that can gather account context from Ultimate Member and draft escalation notes or handoff summaries for complex cases.",
+    "Allow internal teams to chat with the agent in Slack or Microsoft Teams to follow membership support SOPs, collect the right details, and trigger approved workflows tied to Ultimate Member data.",
+    "Help community or operations staff research member segments, profile patterns, or recurring access problems by having the agent retrieve and summarize relevant Ultimate Member information."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks member profile and registration status during customer chats.",
+    "A private team assistant that retrieves Ultimate Member roles and access details for employees.",
+    "A workflow Skill that prepares membership issue handoffs with profile context and next steps.",
+    "An agent action that validates profile update requests before triggering staff review workflows.",
+    "A support assistant that summarizes account access blockers from Ultimate Member membership data.",
+    "An internal operations agent that follows onboarding SOPs using Ultimate Member lookup results."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Ultimate Member, such as checking membership status, retrieving profile details, or preparing a support handoff, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and defines how the agent should safely connect to Ultimate Member without exposing credentials in chat or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries wherever profile changes or sensitive membership actions need extra control."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Ultimate Member actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Ultimate Member?",
+      "answer": "With DocsBot Skill Builder, you describe the member workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up member data, summarize account state, and perform approved actions with secure configuration and testing built in."
+    },
+    {
+      "question": "Can an AI support agent use Ultimate Member data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Ultimate Member as a trusted source for profile, role, signup, or membership status lookups so it can answer account questions and prepare better handoffs when human review is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Ultimate Member?",
+      "answer": "DocsBot can help automate membership lookups, registration troubleshooting, access issue summaries, escalation prep, and approved follow-up actions based on the rules you define for customer chats and helpdesk tickets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Ultimate Member?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve member details, follow support SOPs, research account issues, and trigger approved internal workflows tied to Ultimate Member data."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Ultimate Member?",
+      "answer": "DocsBot Skill Builder is designed to define bounded actions with scoped permissions, secure authentication handling, and approval steps for sensitive changes so the agent only performs the actions you allow."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Ultimate Member with DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the Skill design, secure connection planning, secret protection, testing, improvements, and deployment path so setup feels guided instead of technical."
+    }
+  ],
+  "relatedSlugs": [
+    "wordpress",
+    "memberstack",
+    "memberful",
+    "okta",
+    "auth0",
+    "woocommerce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Ultimate Member",
+    "domain": "ultimatemember.com",
+    "description": "Ultimate Member is the #1 user profile & membership plugin for WordPress, making it easy to create online communities and membership sites. It allows users to sign-up and become members with ease, adding beautiful user profiles to your site. The plugin is lightweight, highly extendible, and free, enabling the creation of almost any type of membership site.",
+    "slogan": "Create powerful online communities with ease using Ultimate Member.",
+    "logoUrl": "https://media.brand.dev/67eb551d-4e6d-4be6-b50a-1f42bc31841a.jpg",
+    "iconUrl": "https://media.brand.dev/67eb551d-4e6d-4be6-b50a-1f42bc31841a.jpg",
+    "primaryColor": "#6748b9",
+    "accentColor": "#ada9bc",
+    "colors": [
+      {
+        "hex": "#6748b9",
+        "name": "Swiss Plum"
+      },
+      {
+        "hex": "#ada9bc",
+        "name": "Morning Mist Grey"
+      },
+      {
+        "hex": "#dcc2cb",
+        "name": "Baby Tone"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4c676d48-d42f-490e-a2b1-d1f83073649c.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://ultimatemember.com/careers/",
+      "terms": "https://ultimatemember.com/terms-of-service/",
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://ultimatemember.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/67eb551d-4e6d-4be6-b50a-1f42bc31841a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/50a9e889-9040-4fb5-90cb-b0890e6265c4.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/50a9e889-9040-4fb5-90cb-b0890e6265c4.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/50a9e889-9040-4fb5-90cb-b0890e6265c4.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

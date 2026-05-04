@@ -1,0 +1,192 @@
+{
+  "slug": "vidyard",
+  "name": "Vidyard",
+  "domain": "vidyard.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Vidyard",
+  "metaTitle": "Build AI Support and Internal Agents for Vidyard",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Vidyard for video lookups, engagement summaries, workflow triggers, and guided team actions.",
+  "intro": "Vidyard helps teams use video messaging, hosting, and engagement data to connect with buyers and customers. With DocsBot Skill Builder, you can describe the Vidyard workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That gives your AI agent the ability to look up video information, summarize engagement, prepare handoffs, and trigger approved next steps inside Vidyard-driven workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up the right help or onboarding video in Vidyard and share it directly in chat or a support reply.",
+    "Use the agent to summarize video engagement details so support or success teams can understand whether a customer watched a troubleshooting, training, or rollout video.",
+    "Have the agent prepare a support handoff by attaching relevant Vidyard video links, watch context, and a summary of the customer issue for a human teammate.",
+    "Enable the agent to trigger approved follow-up workflows after a support conversation, such as sending a product walkthrough or onboarding video through connected team processes.",
+    "Let the agent pull video metadata from Vidyard to answer customer questions about available demos, tutorials, recorded explainers, or training resources."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find the best Vidyard video for a sales, onboarding, or customer success situation without searching manually.",
+    "Let sales or customer success teams ask the agent for a quick summary of Vidyard engagement activity so they can prioritize outreach and follow-up.",
+    "Enable employees to chat with the agent in Slack or Microsoft Teams to assemble video-based handoff notes, follow-up suggestions, and account summaries using Vidyard context.",
+    "Use a private DocsBot agent to help teams follow video outreach SOPs, including finding approved assets, checking engagement signals, and recommending the next internal action.",
+    "Allow operations or enablement teams to ask the agent for research across video libraries, campaign assets, and engagement patterns to support planning and coaching."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and shares the most relevant Vidyard help video for each customer question.",
+    "A customer success assistant that summarizes Vidyard watch activity before a renewal or onboarding handoff.",
+    "An internal sales assistant that surfaces the right demo video and suggests the next follow-up step.",
+    "A team agent that prepares account notes using Vidyard engagement signals and conversation context.",
+    "An AI workflow that routes video-based follow-up tasks to the right teammate after customer conversations.",
+    "A private enablement assistant that helps employees locate approved Vidyard assets for outreach and training."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Vidyard-connected agent to do, such as share training videos, summarize engagement, or prepare follow-up actions, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes Vidyard access to the minimum actions, users, and data needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates or workflow triggers so the agent can help without exceeding the rules you set."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, missing instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps deploy the Skill to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use Vidyard-powered AI actions in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Vidyard?",
+      "answer": "With DocsBot Skill Builder, you describe the Vidyard workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and helps deploy it to the right AI agent. The resulting agent can perform bounded lookups, summaries, handoffs, and workflow actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Vidyard data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Vidyard Skill to retrieve approved video information, recommend relevant videos, summarize engagement context, and prepare handoffs while replying to customers. Access and actions can be limited to only the fields, records, and workflows you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Vidyard?",
+      "answer": "Teams can build workflows for sharing troubleshooting videos, finding onboarding resources, summarizing watch activity for support context, and preparing escalations with the right video links and notes. DocsBot can also trigger approved follow-up steps connected to your support process."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Vidyard more effectively?",
+      "answer": "Yes, private DocsBot agents can help employees find the right videos, review engagement signals, follow internal outreach or enablement SOPs, and prepare follow-up summaries from Vidyard-related context. This is useful in chat, Slack, or Microsoft Teams for faster daily work."
+    },
+    {
+      "question": "How does DocsBot keep a Vidyard integration secure?",
+      "answer": "Skill Builder handles secure configuration by defining required connection values, keeping credentials out of chats and generated content, proxying secrets through protected runtime settings, and limiting permissions to the smallest practical scope. It can also add approval steps and action boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot trigger actions based on Vidyard engagement or video workflows?",
+      "answer": "DocsBot Skills can be designed to trigger approved next steps such as follow-up tasks, handoff preparation, or downstream workflow actions when Vidyard context suggests they are needed. The exact actions are bounded by the rules, approvals, and permissions your team chooses."
+    }
+  ],
+  "relatedSlugs": [
+    "loom",
+    "vimeo",
+    "youtube",
+    "wistia",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Vidyard",
+    "domain": "vidyard.com",
+    "description": "Vidyard is a leading provider of AI-powered video messaging, video hosting, and buyer engagement solutions for modern revenue teams. They empower go-to-market teams to connect with buyers in personal and impactful ways, accelerating deal cycles and increasing close rates through AI-generated video tools, real-time engagement analytics, and AI-powered video workflows.",
+    "slogan": "Connect, engage, and grow revenue with AI-powered video solutions.",
+    "logoUrl": "https://media.brand.dev/058b37a3-38cd-436f-ae64-0391324159e5.webp",
+    "iconUrl": "https://media.brand.dev/5dbba033-7d86-4d8f-9b9a-05dc6f1bf46a.jpg",
+    "primaryColor": "#4dd787",
+    "accentColor": "#5f657e",
+    "colors": [
+      {
+        "hex": "#4dd787",
+        "name": "Paris Green"
+      },
+      {
+        "hex": "#5f657e",
+        "name": "Purple Daze"
+      },
+      {
+        "hex": "#e1e9e7",
+        "name": "Clear View"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/711572b8-1cb4-4143-a25b-af2dc3550fc0.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.vidyard.com/careers/",
+      "contact": "https://www.vidyard.com/contact-us/",
+      "privacy": "https://www.vidyard.com/privacy/",
+      "blog": "https://www.vidyard.com/blog/",
+      "pricing": "https://www.vidyard.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5dbba033-7d86-4d8f-9b9a-05dc6f1bf46a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dee760de-ab7d-4132-bc85-ffb951475a34.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/49ff1214-b10e-4f06-b5d8-a09a885fd706.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 460,
+        "height": 460,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/058b37a3-38cd-436f-ae64-0391324159e5.webp",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 910,
+        "height": 512,
+        "aspectRatio": 1.78
+      },
+      {
+        "url": "https://media.brand.dev/84263094-1900-49be-ba9c-c4ab0b13505a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 193,
+        "height": 51,
+        "aspectRatio": 3.78
+      },
+      {
+        "url": "https://media.brand.dev/a6c07a8b-e8b4-43dd-84cb-2c5c4bbed837.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 99,
+        "height": 110,
+        "aspectRatio": 0.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/84263094-1900-49be-ba9c-c4ab0b13505a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 193,
+      "height": 51,
+      "aspectRatio": 3.78
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/49ff1214-b10e-4f06-b5d8-a09a885fd706.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 460,
+      "height": 460,
+      "aspectRatio": 1
+    }
+  }
+}

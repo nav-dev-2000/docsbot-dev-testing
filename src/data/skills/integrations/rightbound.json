@@ -1,0 +1,168 @@
+{
+  "slug": "rightbound",
+  "name": "RightBound",
+  "domain": "rightbound.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with RightBound",
+  "metaTitle": "Build AI Agents for RightBound with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use RightBound for safe prospect lookups, outreach summaries, workflow handoffs, and internal sales operations support.",
+  "intro": "RightBound helps teams automate prospecting and outreach, and DocsBot Skill Builder helps you turn that data and activity into useful AI Actions. In plain language, you can describe the support or internal workflow you want, and Skill Builder can create a reusable Skill that lets your DocsBot agent look up records, summarize outreach state, prepare handoffs, and trigger approved actions in RightBound. The result is an AI support agent or internal team assistant that does more than answer questions because it can take bounded action inside your sales workflow.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check prospect or account outreach status in RightBound and give customers or partners a concise update during a website chat or support ticket reply.",
+    "Use a support agent to summarize recent contact activity from RightBound so customer success or partnership teams can respond with better context and less manual research.",
+    "Allow the agent to prepare a handoff record for a sales or success rep when a customer asks for pricing, demos, or follow-up from the right account owner.",
+    "Enable the agent to capture qualified inbound interest from a chat conversation and trigger an approved RightBound workflow for follow-up routing or outreach preparation.",
+    "Have the agent gather missing qualification details in chat, then create a structured summary for your sales team based on the RightBound workflow you define."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to look up prospecting status, outreach history, and account context from RightBound without switching tools.",
+    "Let SDRs and revenue operations teams ask the agent to summarize pipeline-building activity, highlight stalled outreach, and recommend the next approved workflow step.",
+    "Enable team members in Slack or Microsoft Teams to create handoff notes, qualification summaries, or follow-up task briefs based on RightBound activity and account data.",
+    "Allow employees to chat with the agent to complete lead-routing or outreach-support SOPs, with Skill Builder enforcing scoped permissions and approval boundaries for sensitive actions.",
+    "Help managers and operations teams use a private agent to research outreach performance context across accounts and generate concise updates for internal review."
+  ],
+  "whatYouCanBuild": [
+    "A chat agent that looks up RightBound prospect and outreach status during live conversations.",
+    "An internal sales assistant that summarizes account activity and recommends the next approved action.",
+    "A lead qualification workflow that turns chat answers into a structured RightBound handoff.",
+    "A support-side escalation assistant that prepares sales follow-up notes from inbound requests.",
+    "A Slack agent that retrieves outreach context for reps before meetings or follow-ups.",
+    "An operations assistant that flags stalled prospecting workflows and drafts internal summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with RightBound in plain language, such as looking up outreach status, creating handoff summaries, or triggering a bounded follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, decides the needed configuration values, and plans how the DocsBot agent should use RightBound during customer support or internal team conversations."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines safe authentication handling, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive updates, routing changes, or workflow triggers happen only within the rules you choose."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds improvements back into the Skill."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for RightBound without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs the Skill for you. It handles the workflow design, secure connection setup, testing, and deployment path so your agent can safely use RightBound data and actions."
+    },
+    {
+      "question": "Can an AI support agent use RightBound data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a RightBound Skill to look up approved prospect, account, or outreach context while replying to customers. It can also summarize activity, gather missing details, and prepare a handoff for a human rep when that is the better next step."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with RightBound?",
+      "answer": "Internal DocsBot agents can help employees retrieve outreach context, summarize account activity, prepare follow-up briefs, support lead-routing SOPs, and trigger approved sales operations workflows. This is especially useful in chat, Slack, or Microsoft Teams where teams want faster answers and fewer manual tool hops."
+    },
+    {
+      "question": "Can DocsBot take actions in RightBound instead of only answering questions?",
+      "answer": "Yes, Skills can be designed for bounded AI Actions such as safe lookups, record creation, approved updates, workflow triggers, summaries, and handoff preparation. Skill Builder helps define those limits so the agent acts only within the permissions and approval rules you set."
+    },
+    {
+      "question": "How does DocsBot keep a RightBound integration secure?",
+      "answer": "Skill Builder designs secure configuration by default, including required connection values, protected secret handling, proxied authentication, scoped permissions, and approval boundaries for sensitive steps. It keeps credentials out of chat transcripts and generated Skill content while limiting access to the minimum workflow scope required."
+    },
+    {
+      "question": "Can a DocsBot agent help sales or customer success teams research outreach status faster?",
+      "answer": "Yes, a private DocsBot agent can pull together RightBound context into a quick summary so employees do not have to manually search across records and activity. That can speed up prep for follow-ups, handoffs, renewals, and inbound response workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "apollo",
+    "outreach",
+    "salesloft",
+    "gong"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RightBound",
+    "domain": "rightbound.com",
+    "description": "RightBound is a cutting-edge company that specializes in developing a sales platform aimed at automating and streamlining the sales process. Their solution turns the sales development journey into an autonomous process, enabling sales representatives to focus on leads that are more likely to convert. With features like auto-pilot prospecting and autonomous multi-channel outreach, RightBound's platform utilizes AI technology to deliver new prospects and tailored messaging while constantly optimizing the entire sales process in real-time. This data-driven approach boosts sales pipelines with accurate and engaged prospects, ultimately increasing ROI for sales development teams of all sizes. RightBound is reshaping sales development and revolutionizing the way companies approach lead generation and customer outreach.",
+    "slogan": "Autonomous. Data-driven. Sales Development, Re-imagined.",
+    "logoUrl": "https://media.brand.dev/2b2f2716-8217-4266-9878-7258bc8d8871.png",
+    "iconUrl": "https://media.brand.dev/a5eb7769-6855-407d-b28e-2dac87bd5a3a.jpg",
+    "primaryColor": "#f07e65",
+    "accentColor": "#493638",
+    "colors": [
+      {
+        "hex": "#f07e65",
+        "name": "Akakō Red"
+      },
+      {
+        "hex": "#493638",
+        "name": "Warm Operator’s Overalls"
+      },
+      {
+        "hex": "#f2e8e4",
+        "name": "Pink Prism"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fe530e10-bb77-4caa-b949-00159e511aae.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://rightbound.com/about/contact/",
+      "privacy": "https://rightbound.com/privacy-policy/",
+      "blog": "https://blog.rightbound.com/",
+      "pricing": "https://rightbound.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a5eb7769-6855-407d-b28e-2dac87bd5a3a.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7ffde3a1-ddf0-4de3-8635-10bf2f585a72.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2b2f2716-8217-4266-9878-7258bc8d8871.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 3000,
+        "height": 740,
+        "aspectRatio": 4.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2b2f2716-8217-4266-9878-7258bc8d8871.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 3000,
+      "height": 740,
+      "aspectRatio": 4.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7ffde3a1-ddf0-4de3-8635-10bf2f585a72.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

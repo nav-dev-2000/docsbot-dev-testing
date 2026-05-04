@@ -1,0 +1,192 @@
+{
+  "slug": "mailchimp",
+  "name": "Mailchimp",
+  "domain": "mailchimp.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build Mailchimp AI Agents with DocsBot Skill Builder",
+  "metaTitle": "Build Mailchimp AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Mailchimp for support lookups, audience updates, campaign summaries, and internal team workflows.",
+  "intro": "Mailchimp helps businesses manage audiences, campaigns, automations, and engagement data across email and marketing workflows. With DocsBot Skill Builder, you can describe the Mailchimp-powered action you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded actions in Mailchimp while following your rules, approvals, and security requirements.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a contact is already in a Mailchimp audience and explain their subscription status during a support chat or ticket reply.",
+    "Use the agent to add or update a subscriber in Mailchimp after confirming consent details provided by the customer in the conversation.",
+    "Allow the agent to summarize a customer’s recent Mailchimp campaign activity or audience history to prepare a cleaner human handoff.",
+    "Have the agent trigger an approved Mailchimp automation or tag update when a customer requests a newsletter preference change or onboarding sequence.",
+    "Enable the agent to collect missing subscription details from the customer and then create or update the Mailchimp record without leaving the support workflow."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Mailchimp audience records, tags, segments, and campaign status.",
+    "Help marketing, support, or customer success teams ask the agent to prepare campaign performance summaries or audience change summaries pulled from Mailchimp.",
+    "Allow team members to use the agent to update subscriber tags, merge fields, or list membership in Mailchimp as part of approved SOPs.",
+    "Give operations teams an internal AI assistant that researches Mailchimp contact history before renewals, escalations, or outreach planning.",
+    "Enable employees to chat with the agent to trigger repeatable Mailchimp workflows, generate handoff notes, and document what action was taken for follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks subscriber status and updates email preferences in Mailchimp.",
+    "An internal assistant that summarizes Mailchimp campaign performance for sales, support, or marketing teams.",
+    "A workflow Skill that adds tags or audience fields after customer verification in chat.",
+    "A handoff Skill that gathers Mailchimp audience history and prepares escalation notes automatically.",
+    "An employee-facing agent that triggers approved Mailchimp automations from Slack or Microsoft Teams.",
+    "A support workflow that creates or updates Mailchimp contacts after collecting missing consent details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Mailchimp in plain language, such as checking subscriber status, updating audience data, or triggering an approved automation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the Mailchimp configuration it needs, and defines how the agent should retrieve data or take bounded actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes Mailchimp access to only the records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right approval boundaries, user limits, and action guardrails so sensitive Mailchimp updates happen only when you want them to."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak spots, or missing permission checks, and feeds improvements back into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Mailchimp?",
+      "answer": "With DocsBot Skill Builder, you describe the Mailchimp workflow you want in plain language and DocsBot creates a reusable Skill that can look up data, update records, trigger workflows, and summarize outcomes. Skill Builder also handles secure connection design, scoped permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Mailchimp data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Mailchimp Skill to check audience membership, review subscription details, update approved fields, and prepare handoff notes while responding to customers. You control which Mailchimp actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What Mailchimp workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees retrieve contact details, summarize campaign activity, update tags or audience fields, trigger approved automations, and document completed steps. This is useful for marketing, support, customer success, and operations teams working inside chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update Mailchimp subscribers and audience fields?",
+      "answer": "Yes, Skill Builder is designed to create bounded Mailchimp actions with scoped permissions, approval checkpoints, and secure authentication handling. It keeps credentials out of conversations and limits access to the specific records and updates your workflow requires."
+    },
+    {
+      "question": "Can a DocsBot agent trigger Mailchimp automations or segmentation workflows?",
+      "answer": "DocsBot can be configured to trigger approved Mailchimp automations, apply tags, or update segmentation-related fields as part of a defined workflow. Skill Builder helps design those actions safely and tests the expected scenarios before deployment."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Mailchimp with DocsBot?",
+      "answer": "Your team explains the result you want, and Skill Builder handles the design, secure configuration, secret protection, testing, and improvement process. You do not need to manually write code or map every technical step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "activecampaign",
+    "klaviyo",
+    "convertkit",
+    "campaign-monitor",
+    "constant-contact"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mailchimp",
+    "domain": "mailchimp.com",
+    "description": "Mailchimp is an AI‑powered marketing platform that enables businesses to create hyper‑personalized email and multichannel campaigns, automate tasks, and boost audience engagement. It provides onboarding tutorials, advanced growth resources, free webinars, and a wide range of app integrations to help users of all skill levels succeed.",
+    "slogan": "#1 AI-powered email marketing and automations platform",
+    "logoUrl": "https://media.brand.dev/6c984c1f-36c8-47ff-aa0f-ac498352a4df.png",
+    "iconUrl": "https://media.brand.dev/78377fee-5bb9-4eb1-83d9-c5e145a98805.png",
+    "primaryColor": "#241c14",
+    "accentColor": "#f9e11b",
+    "colors": [
+      {
+        "hex": "#241c14",
+        "name": "Tetsu-Guro Black"
+      },
+      {
+        "hex": "#f9e11b",
+        "name": "Xanthic"
+      },
+      {
+        "hex": "#7d6a17",
+        "name": "Yukon Gold"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/68908973-f697-4b9d-a2ba-69cfe7bac649.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://mailchimp.com/jobs/",
+      "terms": "https://mailchimp.com/legal/terms/",
+      "contact": "https://mailchimp.com/contact/",
+      "privacy": null,
+      "blog": "https://mailchimp.com/newsroom/",
+      "pricing": "https://mailchimp.com/pricing/marketing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cd443f04-1305-4085-980b-b898e6019d87.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6c984c1f-36c8-47ff-aa0f-ac498352a4df.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 132,
+        "height": 120,
+        "aspectRatio": 1.1
+      },
+      {
+        "url": "https://media.brand.dev/cd5e1767-99dc-4431-a37a-1b37e102e3e5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 289,
+        "height": 54,
+        "aspectRatio": 5.35
+      },
+      {
+        "url": "https://media.brand.dev/78377fee-5bb9-4eb1-83d9-c5e145a98805.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/01e975ff-324b-426c-bd1f-056e374fac1b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 185,
+        "height": 60,
+        "aspectRatio": 3.08
+      },
+      {
+        "url": "https://media.brand.dev/207c1eaa-806e-4796-a290-8eb0f7c70d29.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 88,
+        "height": 18,
+        "aspectRatio": 4.89
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cd5e1767-99dc-4431-a37a-1b37e102e3e5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 289,
+      "height": 54,
+      "aspectRatio": 5.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cd443f04-1305-4085-980b-b898e6019d87.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

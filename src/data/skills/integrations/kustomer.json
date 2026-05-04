@@ -1,0 +1,168 @@
+{
+  "slug": "kustomer",
+  "name": "Kustomer",
+  "domain": "kustomer.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Kustomer",
+  "metaTitle": "Build Kustomer AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Kustomer to look up customers, update cases, prepare handoffs, and automate safe support and team workflows.",
+  "intro": "Kustomer helps teams manage omnichannel customer conversations and unified customer records. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Kustomer data and actions. The result is an AI agent that can answer questions, take bounded action, and help support teams resolve work faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s Kustomer profile and recent conversation history so it can give more personalized answers in chat or ticket replies.",
+    "Use a DocsBot support agent to create or update Kustomer conversations, notes, tags, and statuses while it helps a customer through an issue.",
+    "Have the agent summarize the current Kustomer case state, previous touchpoints, and next recommended steps before handing the conversation to a human agent.",
+    "Enable the agent to collect missing details from the customer and add them to the Kustomer record so support teams receive a cleaner handoff.",
+    "Let the agent trigger approved escalation workflows in Kustomer when refund, priority, or technical review conditions are met during a support conversation."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Kustomer customer timelines, open issues, tags, and conversation summaries without manually searching across records.",
+    "Let customer success or operations teams ask the agent to prepare Kustomer handoff notes, escalation summaries, and follow-up task context for human agents.",
+    "Enable support managers chatting in Slack or Microsoft Teams to have the agent summarize Kustomer backlog trends, conversation states, or unresolved priority cases.",
+    "Help internal teams complete SOPs by having the agent gather Kustomer record details, check required fields, and prepare the next approved workflow step.",
+    "Allow employees to ask the agent to update non-sensitive Kustomer fields or route records to the correct queue within scoped permissions and approval rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that pulls Kustomer customer history before answering a live chat question.",
+    "A case triage Skill that updates Kustomer tags, priority, and routing based on customer context.",
+    "An escalation assistant that prepares Kustomer handoff notes for billing, technical, or VIP support teams.",
+    "A private team agent that summarizes Kustomer conversations and unresolved account issues on demand.",
+    "A follow-up workflow that captures missing customer details and writes structured notes into Kustomer.",
+    "A manager assistant that reviews Kustomer records and drafts next-step summaries for queue reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Kustomer agent to do, such as look up customer history, update case details, or prepare escalations, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Kustomer access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits, user boundaries, and approval steps for sensitive Kustomer updates so the agent can help confidently without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chatbot, helpdesk agent, or private team assistant can use Kustomer safely in live workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Kustomer for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as retrieving customer history, updating conversation details, or preparing an escalation. Skill Builder then creates and secures the Kustomer workflow, tests it, and helps deploy it to your support agent."
+    },
+    {
+      "question": "Can an AI support agent use Kustomer data during live chat or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a Kustomer Skill to look up relevant customer records, conversation context, statuses, and notes while responding to customers. You control which data and actions are allowed so the agent stays within approved support boundaries."
+    },
+    {
+      "question": "What Kustomer workflows can a DocsBot AI agent automate?",
+      "answer": "A DocsBot agent can automate bounded actions such as customer lookups, case summaries, note creation, record updates, routing support handoffs, and escalation preparation. The exact workflow depends on the permissions, rules, and approvals you want the agent to follow."
+    },
+    {
+      "question": "Can I use DocsBot with Kustomer for internal support and operations teams?",
+      "answer": "Yes, teams can use a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Kustomer information, summarize conversations, and complete internal SOP steps faster. This is useful for support leads, customer success teams, and operations staff who need quick access to customer context."
+    },
+    {
+      "question": "How does DocsBot keep Kustomer actions safe and controlled?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to the smallest set of users, records, and actions needed. It can also add approval boundaries for sensitive updates or escalation workflows."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Kustomer workflows?",
+      "answer": "No, the goal is to describe the business outcome you want rather than manually wiring the integration yourself. Skill Builder handles the workflow design, secure configuration, testing, and improvement process for you."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "salesforce-service-cloud",
+    "hubspot-service-hub",
+    "gorgias"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Kustomer",
+    "domain": "kustomer.com",
+    "description": "Kustomer is a customer service platform that helps businesses deliver exceptional customer experiences across multiple channels, including phone, email, chat, and social media. They provide a unified customer view, omnichannel conversations, and AI-powered automations to enable fast, personalized, and efficient customer service, allowing businesses to build enduring customer relationships and drive better results.",
+    "slogan": "Empowering businesses with personalized, seamless omnichannel customer experiences.",
+    "logoUrl": "https://media.brand.dev/a54aa0a5-9db8-4276-98bf-d6b3de4f4bff.png",
+    "iconUrl": "https://media.brand.dev/fda52e28-9847-4a9f-9225-8dfb147dca50.png",
+    "primaryColor": "#f9ea2b",
+    "accentColor": "#847c2c",
+    "colors": [
+      {
+        "hex": "#f9ea2b",
+        "name": "Banana Bombshell"
+      },
+      {
+        "hex": "#847c2c",
+        "name": "Faience Green"
+      },
+      {
+        "hex": "#3a382c",
+        "name": "El Paso"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5c4dfec5-f5f8-43fc-b188-a3914606daf4.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.kustomer.com/careers/",
+      "contact": "https://www.kustomer.com/contact/",
+      "terms": "https://www.kustomer.com/legal/website-terms-of-use/",
+      "privacy": "https://www.kustomer.com/privacy",
+      "blog": "https://www.kustomer.com/resources/",
+      "pricing": "https://www.kustomer.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ca387cd5-e328-41f2-8664-3fa79f465bf0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a54aa0a5-9db8-4276-98bf-d6b3de4f4bff.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 2214,
+        "height": 401,
+        "aspectRatio": 5.52
+      },
+      {
+        "url": "https://media.brand.dev/fda52e28-9847-4a9f-9225-8dfb147dca50.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 136,
+        "height": 130,
+        "aspectRatio": 1.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a54aa0a5-9db8-4276-98bf-d6b3de4f4bff.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 2214,
+      "height": 401,
+      "aspectRatio": 5.52
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ca387cd5-e328-41f2-8664-3fa79f465bf0.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "sumo-logic",
+  "name": "Sumo Logic",
+  "domain": "sumo-logic.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sumo Logic",
+  "metaTitle": "Build AI Agents for Sumo Logic with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sumo Logic for safe log lookups, incident summaries, escalations, and internal monitoring workflows.",
+  "intro": "Sumo Logic helps teams monitor logs, events, reliability, and security signals across cloud applications. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Sumo Logic data and approved actions. That means better support responses for customers and faster internal investigation workflows for operations, engineering, and security teams.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Sumo Logic for outage indicators or error spikes and respond with a clear status update during product incidents.",
+    "Use Sumo Logic search results to help the agent summarize likely causes of reported issues before handing a ticket to technical support.",
+    "Allow the agent to gather product, region, or account context from the customer conversation and use it to look up matching logs or alerts in Sumo Logic.",
+    "Have the agent prepare an incident handoff that includes customer symptoms, relevant Sumo Logic findings, and suggested escalation details for your support team.",
+    "Enable a helpdesk-connected DocsBot agent to enrich incoming tickets with Sumo Logic evidence so support teams start with better technical context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to investigate spikes, failures, or suspicious patterns using Sumo Logic data.",
+    "Help operations or engineering teams ask the agent for a plain-language summary of recent alerts, log trends, and possible root-cause clues from Sumo Logic.",
+    "Allow internal teams to use the agent to follow incident triage SOPs, gather evidence from Sumo Logic, and prepare escalation notes for the right responders.",
+    "Give security or platform teams an AI assistant that can research events in Sumo Logic, summarize findings, and recommend the next approved workflow step.",
+    "Enable employees to ask the agent for service health snapshots, environment-specific error summaries, or customer-impact summaries pulled from Sumo Logic queries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Sumo Logic for error trends tied to a reported customer issue.",
+    "A helpdesk assistant that enriches tickets with log evidence and incident summary notes from Sumo Logic.",
+    "An internal incident triage agent that summarizes alerts, failures, and likely impact across environments.",
+    "A security assistant that researches suspicious activity in Sumo Logic and prepares escalation handoffs.",
+    "An operations copilot that generates plain-language service health updates from recent Sumo Logic data.",
+    "A private team agent that follows monitoring SOPs and gathers the right Sumo Logic context automatically."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Sumo Logic, such as checking incident signals, summarizing logs, or preparing escalation notes, and it translates that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the data, users, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "When a workflow could affect sensitive systems or expose high-risk data, Skill Builder adds approval boundaries, safe action limits, and clear rules so the agent only performs approved lookups, updates, or handoffs."
+    },
+    {
+      "title": "Test real-world scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Sumo Logic data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your AI agent safely search, summarize, and use Sumo Logic data inside approved workflows. Skill Builder also handles secure connection design, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Sumo Logic to help answer customer issues?",
+      "answer": "Yes, a DocsBot support agent can use Sumo Logic to look up relevant incident signals, summarize likely technical context, and prepare cleaner handoffs for your support team. This helps customers get clearer answers while keeping actions and access within your defined limits."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Sumo Logic?",
+      "answer": "Teams can build workflows for outage checks, log-based issue triage, ticket enrichment, escalation prep, and customer-impact summaries. The agent can gather context from the conversation, use Sumo Logic for evidence, and return a concise response or handoff package."
+    },
+    {
+      "question": "Can an internal AI assistant help employees investigate incidents in Sumo Logic?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve alerts, review patterns, summarize findings, and follow incident response steps using Sumo Logic data. This is useful for engineering, operations, and security teams that need faster research and consistent workflows."
+    },
+    {
+      "question": "How does DocsBot keep Sumo Logic access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill content, proxies secrets through secure runtime settings, and scopes access to the minimum permissions needed. It can also add approval boundaries and action limits for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot summarize Sumo Logic results in plain language for non-technical teams?",
+      "answer": "Yes, a DocsBot agent can turn complex logs, alerts, and monitoring signals into readable summaries for support, success, or leadership teams. That makes it easier to share current status, likely impact, and next steps without requiring everyone to read raw event data."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "splunk",
+    "pagerduty",
+    "opsgenie",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sumo Logic",
+    "domain": "sumologic.com",
+    "description": "Sumo Logic is a leading provider of cloud-based machine data analytics, dedicated to enhancing the reliability and security of cloud-native applications. By offering innovative solutions through its SaaS Log Analytics Platform, Sumo Logic empowers practitioners and developers to transform insights into actionable strategies. The company specializes in cloud monitoring, log management, and Cloud SIEM tools, providing best-in-class real-time insights for web and SaaS applications. With a focus on supporting modern business initiatives, Sumo Logic ensures that its customers can confidently deliver secure and efficient cloud-native solutions.",
+    "slogan": "Empowering modern business with reliable cloud-native application insights.",
+    "logoUrl": "https://media.brand.dev/28baef7a-1a4e-4147-82ce-b571f761338c.svg",
+    "iconUrl": "https://media.brand.dev/3bdf5b23-b12a-4189-9b94-0cdff6142f52.png",
+    "primaryColor": "#2a2683",
+    "accentColor": "#7c74c0",
+    "colors": [
+      {
+        "hex": "#2a2683",
+        "name": "Cosmic Cobalt"
+      },
+      {
+        "hex": "#7c74c0",
+        "name": "Venus Violet"
+      },
+      {
+        "hex": "#ebebf4",
+        "name": "Silver Phoenix"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f3c66c07-d48a-442e-9def-e8dc64854e43.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.sumologic.com/company/careers",
+      "terms": "http://www.sumologic.com/terms-conditions/",
+      "contact": "https://www.sumologic.com/contact",
+      "privacy": "http://www.sumologic.com/privacy-statement/",
+      "blog": "https://sumologic.com/blog",
+      "pricing": "https://www.sumologic.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3bdf5b23-b12a-4189-9b94-0cdff6142f52.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ec454d13-0dca-4dc8-86a7-53bf0ac92de9.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 800,
+        "height": 800,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/28baef7a-1a4e-4147-82ce-b571f761338c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 136,
+        "height": 24,
+        "aspectRatio": 5.67
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/28baef7a-1a4e-4147-82ce-b571f761338c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 136,
+      "height": 24,
+      "aspectRatio": 5.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ec454d13-0dca-4dc8-86a7-53bf0ac92de9.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 800,
+      "height": 800,
+      "aspectRatio": 1
+    }
+  }
+}

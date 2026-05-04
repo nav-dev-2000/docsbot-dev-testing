@@ -1,0 +1,184 @@
+{
+  "slug": "notion-scim",
+  "name": "Notion SCIM",
+  "domain": "notion.so",
+  "category": "Identity & Access",
+  "trutoCategory": "User Directory",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Notion SCIM",
+  "metaTitle": "Build Notion SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Notion SCIM for safe identity lookups, user lifecycle workflows, approvals, and internal access operations.",
+  "intro": "Notion SCIM helps teams manage user identity and lifecycle changes for their Notion workspace. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up users, support access workflows, and trigger approved identity actions. This helps customer support teams handle account-related questions more consistently and gives internal teams a private AI assistant for faster identity operations and policy-driven access workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a user account is provisioned in Notion and summarize the current identity status during an access-related support conversation.",
+    "Let the support agent gather missing details from a customer, prepare an account access handoff, and create a structured escalation for the identity or IT team when Notion access needs review.",
+    "Enable a helpdesk-connected DocsBot agent to look up Notion user lifecycle details tied to a ticket and summarize likely next steps for provisioning, deprovisioning, or access correction.",
+    "Allow the agent to confirm whether a user profile change appears to be synced in Notion SCIM and explain the support status without exposing sensitive administrative data.",
+    "Use the agent to trigger an approved internal workflow for access review or account correction when a customer reports a login, membership, or deactivation issue."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Notion user identity records and understand provisioning status without opening admin tools.",
+    "IT and operations teams can ask the agent to prepare user onboarding, offboarding, and access correction workflows that use Notion SCIM data and follow internal approval rules.",
+    "Managers can chat with the agent to gather account context, review who may need Notion access changes, and create structured requests for identity administrators.",
+    "Security and compliance teams can use the agent to summarize user lifecycle activity, investigate access inconsistencies, and document the next approved remediation steps.",
+    "Internal helpdesk staff can ask the agent to follow SOPs for Notion access issues, collect required context, and route the case to the right identity workflow with a complete summary."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Notion provisioning status during account access conversations.",
+    "An internal AI assistant for employee onboarding and offboarding requests tied to Notion access.",
+    "A workflow agent that gathers missing context before routing identity issues for approval.",
+    "An access review assistant that summarizes Notion user status for IT and security teams.",
+    "A helpdesk agent that prepares structured handoffs for Notion membership and deactivation problems.",
+    "An operations assistant that documents identity workflow outcomes and creates audit-friendly summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Notion SCIM, such as checking provisioning status, preparing access handoffs, or supporting onboarding and offboarding workflows, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside chat and Skill source, and scopes access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive identity tasks so the agent can look up information, prepare changes, or trigger approved workflows without overreaching."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, and workflow issues, and feeds findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing support bot or private internal AI agent so teams can use Notion SCIM actions in a controlled way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Notion SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up user status, prepare lifecycle actions, and trigger approved workflows with secure configuration and scoped permissions."
+    },
+    {
+      "question": "Can an AI support agent use Notion SCIM data for account access questions?",
+      "answer": "Yes, a DocsBot support agent can use a Notion SCIM Skill to check provisioning or identity status, gather missing context, summarize the issue, and prepare a clean escalation or handoff for your identity team."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Notion SCIM?",
+      "answer": "Internal agents can support onboarding, offboarding, access correction, account review preparation, SOP-driven helpdesk workflows, and audit-friendly summaries for identity operations teams."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Notion SCIM?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, define safe action boundaries, protect authentication details, and require approvals for sensitive identity changes so the agent operates within your rules."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation summaries for Notion access issues?",
+      "answer": "Yes, the agent can collect the right details from a conversation or ticket, summarize the current Notion identity state, and prepare a structured handoff for IT, security, or identity administrators."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Notion SCIM with DocsBot?",
+      "answer": "You explain the result you want, and Skill Builder handles the workflow design, secure connection setup, secret protection, testing, improvement, and deployment so your team does not need to manually wire every step."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "azure-active-directory",
+    "google-workspace",
+    "jumpcloud",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Notion",
+    "domain": "notion.so",
+    "description": "Notion is an AI‑powered workspace that unifies notes, docs, projects, databases, and automation into a single collaborative platform. It lets teams and individuals create and organize content, manage tasks, and build custom AI agents that can search across all apps, generate text, schedule meetings, and handle repetitive work. By integrating AI tools such as search, chat, writing assistants, and workflow automation, Notion reduces the need for multiple separate tools, helping users streamline processes, boost productivity, and focus on higher‑value work. Trusted by millions worldwide, including Fortune 100 companies and startups, Notion offers a flexible, extensible environment for knowledge management, project coordination, and AI‑enhanced collaboration.",
+    "slogan": "The AI workspace where teams get more done, faster and smarter.",
+    "logoUrl": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+    "iconUrl": "https://media.brand.dev/b9b9b614-6975-4508-a429-39b3605ce579.svg",
+    "primaryColor": "#f7e158",
+    "accentColor": "#7c6c32",
+    "colors": [
+      {
+        "hex": "#f7e158",
+        "name": "Flame Seal"
+      },
+      {
+        "hex": "#7c6c32",
+        "name": "Time Honored"
+      },
+      {
+        "hex": "#12110e",
+        "name": "Sinister"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/14250921-043a-4557-b29a-8236a2b2d290.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.notion.so/28ffdd083dc3473e9c2da6ec011b58ac",
+      "careers": null,
+      "contact": null,
+      "privacy": "https://www.notion.so/28ffdd083dc3473e9c2da6ec011b58ac",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/841d20bb-3d70-4f09-b3b5-ecebdafe19dd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/70cdd74b-c37e-4ce1-912c-6b83cbcdf4ce.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed00aff8-0b11-4d61-93b1-9e3a6ba6b7c7.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b9b9b614-6975-4508-a429-39b3605ce579.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 33,
+        "height": 34,
+        "aspectRatio": 0.97
+      },
+      {
+        "url": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 105,
+        "height": 30,
+        "aspectRatio": 3.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 105,
+      "height": 30,
+      "aspectRatio": 3.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/841d20bb-3d70-4f09-b3b5-ecebdafe19dd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

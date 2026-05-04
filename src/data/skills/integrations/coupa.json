@@ -1,0 +1,176 @@
+{
+  "slug": "coupa",
+  "name": "Coupa",
+  "domain": "coupa.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Coupa",
+  "metaTitle": "Build AI Agents for Coupa with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Coupa for spend lookups, approvals, status updates, summaries, and internal workflows with secure, tested Skills.",
+  "intro": "Coupa helps teams manage purchasing, suppliers, invoices, approvals, and broader business spend. With DocsBot Skill Builder, you can describe the Coupa workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve live spend data, prepare handoffs, and take bounded actions in Coupa under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a purchase request, invoice, or supplier-related case in Coupa and reply with a clear summary.",
+    "Use a DocsBot helpdesk agent to gather missing order or billing details from a customer, then create or update an approved record in Coupa for follow-up.",
+    "Have the agent summarize Coupa purchasing or invoice history tied to an account so support teams can respond with better context.",
+    "Enable the agent to prepare escalation notes from a customer conversation and attach the relevant Coupa status, approvals, or spend details for the next team.",
+    "Let the agent trigger an approved internal workflow when a customer reports a procurement or billing issue that needs finance or operations review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up purchase order, invoice, approval, or supplier status in Coupa without logging into multiple systems.",
+    "Procurement, finance, and operations teams can ask the agent to summarize spend activity, explain approval bottlenecks, and prepare next-step recommendations from Coupa data.",
+    "Managers can use an internal AI assistant to collect the details needed for an approved purchasing workflow and then submit or update the related Coupa record within defined limits.",
+    "Shared services teams can chat with the agent to follow SOPs for invoice triage, exception handling, and escalation routing while the agent records updates across systems.",
+    "Employees can ask the agent to generate handoff summaries, audit-ready notes, or follow-up task lists based on Coupa transactions and current workflow status."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Coupa purchase request or invoice status for customer-facing teams.",
+    "A finance assistant that summarizes approval chains and highlights blocked spend workflows from Coupa records.",
+    "An internal procurement agent that gathers request details and creates approved follow-up actions in Coupa.",
+    "A helpdesk Skill that attaches Coupa transaction context to escalations and finance handoffs.",
+    "An employee AI assistant that answers supplier, invoice, and purchase order questions using live Coupa data.",
+    "A workflow Skill that prepares approval summaries and routes sensitive actions behind manager review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Coupa agent to do, such as checking invoice status, summarizing approvals, or creating a controlled follow-up workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Coupa actions, records, and user permissions needed, and it adds approval boundaries or action limits for sensitive updates and workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing checks, or weak instructions, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so the agent can take safe Coupa actions in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Coupa without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Coupa workflow you want in plain language and the builder designs the Skill, handles secure connection details, tests scenarios, and prepares it for deployment. This lets non-technical teams create agents that can look up data, summarize records, and take approved actions in Coupa."
+    },
+    {
+      "question": "Can an AI support agent use Coupa data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Coupa Skill to retrieve approved purchasing, invoice, or workflow details while responding to customers. It can also summarize status, collect missing information, and prepare escalations or handoffs for finance and operations teams."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Coupa?",
+      "answer": "Internal agents can help employees check purchase orders, invoice status, approval chains, supplier information, and spend workflow progress in Coupa. They can also guide teams through SOPs, create bounded updates, trigger approved follow-up actions, and generate summaries for managers or shared services teams."
+    },
+    {
+      "question": "Can DocsBot update Coupa records safely through an AI agent?",
+      "answer": "Yes, when you define approved actions, DocsBot Skill Builder can create Skills that update Coupa records within scoped permissions and clear limits. It also supports approval boundaries for sensitive changes so the agent only performs actions your team has authorized."
+    },
+    {
+      "question": "How does DocsBot keep Coupa credentials and API access secure?",
+      "answer": "Skill Builder identifies the connection settings the Skill needs, stores secrets in protected runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum records, actions, and users required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent create finance handoffs or escalation summaries from Coupa activity?",
+      "answer": "Yes, the agent can combine the current conversation with relevant Coupa data to generate clear handoff notes, status summaries, and escalation context. This helps finance, procurement, and operations teams act faster with less manual research."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "sap-concur",
+    "stripe",
+    "bill-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Coupa",
+    "domain": "coupa.com",
+    "description": "Coupa is the leader in AI-native total spend management, offering a cloud-based Business Spend Management (BSM) platform that unifies autonomous AI agents, a network of over 10 million buyers and suppliers, and a suite of applications. Leveraging an $8 trillion community-generated dataset, Coupa automates the entire buying process, delivering real-time insights, cost control, and profitability while connecting customers in new ways.",
+    "slogan": "One community. One platform. Total spend, transformed.",
+    "logoUrl": "https://media.brand.dev/6261c302-8b29-45db-abf9-bec5aafbd0cc.svg",
+    "iconUrl": "https://media.brand.dev/0d14437f-2289-4857-962f-c50912d63ebf.jpg",
+    "primaryColor": "#1464c4",
+    "accentColor": "#82b6d6",
+    "colors": [
+      {
+        "hex": "#1464c4",
+        "name": "Amnesia Blue"
+      },
+      {
+        "hex": "#82b6d6",
+        "name": "Regale Blue"
+      },
+      {
+        "hex": "#e6f1f4",
+        "name": "Ethereal White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/661db7df-10f6-4dee-b082-c243a5956340.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.coupa.com/",
+      "terms": null,
+      "contact": "https://www.coupa.com/contact-us/",
+      "privacy": "https://www.coupa.com/privacy-policy/",
+      "blog": "https://www.coupa.com/blog/",
+      "pricing": "https://www.coupa.com/resources/coupa-tariff-impact-planning-demo/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0d14437f-2289-4857-962f-c50912d63ebf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6261c302-8b29-45db-abf9-bec5aafbd0cc.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 451,
+        "height": 139,
+        "aspectRatio": 3.24
+      },
+      {
+        "url": "https://media.brand.dev/0acd4c2e-1fa5-4842-93ab-c515883eb800.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1086,
+        "height": 995,
+        "aspectRatio": 1.09
+      },
+      {
+        "url": "https://media.brand.dev/10c2d7c6-282f-4d05-bf07-c1768105266e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6261c302-8b29-45db-abf9-bec5aafbd0cc.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 451,
+      "height": 139,
+      "aspectRatio": 3.24
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0acd4c2e-1fa5-4842-93ab-c515883eb800.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1086,
+      "height": 995,
+      "aspectRatio": 1.09
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "slug": "fusedesk",
+  "name": "FuseDesk",
+  "domain": "fusedesk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with FuseDesk",
+  "metaTitle": "Build AI Support and Internal Agents for FuseDesk",
+  "metaDescription": "Create DocsBot AI agents that use FuseDesk to look up cases, update tickets, prepare handoffs, and automate safe support workflows.",
+  "intro": "FuseDesk brings email, chat, phone, and SMS support into one helpdesk, which makes it a strong system for AI-assisted service workflows. With DocsBot Skill Builder, you can describe the FuseDesk tasks you want in plain language and have DocsBot create a reusable Skill for a support agent or internal team assistant. The result is an AI agent that can answer questions and take bounded action in FuseDesk, including lookups, updates, escalations, summaries, and approved workflow triggers.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer’s recent FuseDesk cases and summarize status before answering a support question.",
+    "Use a DocsBot helpdesk agent to create a new FuseDesk case from a customer conversation when the issue needs follow-up by a human team member.",
+    "Allow the agent to add internal notes, tags, or routing details in FuseDesk so the next support rep receives a cleaner handoff.",
+    "Have the agent update approved ticket fields in FuseDesk, such as priority or category, based on the customer’s issue and your rules.",
+    "Use the agent to summarize long FuseDesk case histories into a short customer-friendly update or an internal escalation brief before handoff."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find FuseDesk case history, ownership, and recent activity without opening the helpdesk.",
+    "Support leaders can ask the agent to summarize backlog trends, unresolved conversations, or escalated case patterns from FuseDesk for faster team reviews.",
+    "Customer success or operations teams can chat with the agent to prepare standardized escalation notes, callback tasks, or follow-up workflows based on FuseDesk records.",
+    "New team members can use an internal AI agent to follow support SOPs, retrieve the right FuseDesk information, and complete approved triage steps more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that retrieves FuseDesk case status and answers customers with up-to-date context.",
+    "A ticket triage Skill that creates FuseDesk cases and applies approved categories, tags, and priority rules.",
+    "An escalation assistant that turns long support threads into concise handoff notes for specialists or managers.",
+    "A follow-up workflow that updates FuseDesk records after customer verification or issue resolution steps.",
+    "An internal operations assistant that summarizes open queues, aging cases, and team workload from FuseDesk.",
+    "A support QA helper that reviews FuseDesk conversations and drafts coaching summaries for team leads."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the FuseDesk agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure setup, identifies the required configuration values, handles authentication through protected runtime settings, keeps credentials out of chats and Skill source, and scopes FuseDesk access to only the actions and records the workflow needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries so the agent can safely look up data, prepare updates, create handoffs, or trigger approved FuseDesk workflows without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat agent or your private internal assistant for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with FuseDesk?",
+      "answer": "With DocsBot Skill Builder, you describe the FuseDesk workflow you want in plain language, such as looking up cases, updating ticket details, or preparing escalations. Skill Builder then designs the Skill, secures the connection, tests the behavior, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use FuseDesk data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a FuseDesk Skill to retrieve approved case details, summarize recent support history, and respond with better context. You can also define safe limits for what the agent may update or trigger while helping customers."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with FuseDesk?",
+      "answer": "Common workflows include case lookups, new ticket creation, routing notes, ticket field updates, escalation summaries, and follow-up preparation. The goal is to let the AI agent resolve more requests directly while handing off the rest with cleaner context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside FuseDesk?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve FuseDesk information, summarize queues, follow support SOPs, and complete approved support operations from chat, Slack, or Microsoft Teams. This can reduce context switching and speed up routine service work."
+    },
+    {
+      "question": "How does DocsBot keep FuseDesk actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum needed, and adds approval boundaries for sensitive actions. That means the agent can be helpful without getting broad uncontrolled access to your helpdesk workflows."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs and escalations from FuseDesk conversations?",
+      "answer": "Yes, a FuseDesk Skill can summarize conversation history, capture key account details, and generate structured handoff notes for support specialists or managers. This helps human teams take over faster with less back-and-forth."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "helpscout",
+    "intercom",
+    "front",
+    "gorgias"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FuseDesk",
+    "domain": "fusedesk.com",
+    "description": "FuseDesk is a unified customer service platform that brings email, live chat, phone, and SMS support into a single, easy‑to‑use helpdesk. It helps businesses of any size—from a single support rep to large teams—deliver faster case resolution, track key support metrics, and improve customer satisfaction. FuseDesk tailors its tools for specific verticals such as information marketers, membership site owners, and law firms using Infusionsoft, enabling them to boost lifetime value, reduce churn, and generate referrals. Users can try a free demo app without a credit card, access live chat, email, and phone features, and benefit from integrated reporting and team collaboration. The service aims to simplify support for customers, support teams, and business owners alike.",
+    "slogan": "Empowering entrepreneurs with help desk and messaging for business excellence",
+    "logoUrl": "https://media.brand.dev/43dab1e9-a2fb-441d-9ce1-6cb85c0f84fa.png",
+    "iconUrl": "https://media.brand.dev/9d02ced4-efc7-44eb-84ee-ad4ade11d4ee.png",
+    "primaryColor": "#2795e4",
+    "accentColor": "#2a2a86",
+    "colors": [
+      {
+        "hex": "#2795e4",
+        "name": "Homeworld"
+      },
+      {
+        "hex": "#2a2a86",
+        "name": "Cosmic Cobalt"
+      },
+      {
+        "hex": "#d5dff0",
+        "name": "Cold Shoulder"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d60f5bec-9c3c-40bf-b624-200b5c3e477a.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.fusedesk.com/blog/",
+      "careers": "https://www.fusedesk.com/careers/",
+      "privacy": "https://www.fusedesk.com/privacy/",
+      "terms": null,
+      "contact": "https://www.fusedesk.com/support/contact/",
+      "pricing": "https://www.fusedesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9d02ced4-efc7-44eb-84ee-ad4ade11d4ee.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c6d10087-183e-4414-94b1-128309537fd3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/43dab1e9-a2fb-441d-9ce1-6cb85c0f84fa.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 368,
+        "height": 100,
+        "aspectRatio": 3.68
+      },
+      {
+        "url": "https://media.brand.dev/95152321-a395-44e9-9048-fa491f08d9ed.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/43dab1e9-a2fb-441d-9ce1-6cb85c0f84fa.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 368,
+      "height": 100,
+      "aspectRatio": 3.68
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/95152321-a395-44e9-9048-fa491f08d9ed.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "wealthbox",
+  "name": "Wealthbox",
+  "domain": "wealthbox.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Wealthbox",
+  "metaTitle": "Wealthbox AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Wealthbox to look up client CRM data, update records, trigger workflows, and support advisors with safe, bounded actions.",
+  "intro": "Wealthbox helps financial advisors manage client relationships, opportunities, tasks, and team workflows in one CRM. With DocsBot Skill Builder, you can describe the Wealthbox-powered agent you want in plain language and have DocsBot create a reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve CRM context, prepare handoffs, and take approved actions inside Wealthbox while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a client or household record in Wealthbox and summarize the latest notes, tasks, or relationship context before replying.",
+    "Use a support agent to create a follow-up task in Wealthbox when a client asks for a callback, document delivery, or advisor review.",
+    "Have the agent update approved contact details or add conversation notes to Wealthbox after confirming the change with the client.",
+    "Allow the agent to summarize open opportunities, pending follow-ups, or recent CRM activity from Wealthbox to prepare a smooth handoff to an advisor or service team member.",
+    "Enable the agent to create escalation records or internal handoff notes in Wealthbox when a customer issue needs human review or approval."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Wealthbox contact history, recent notes, task status, and opportunity context without searching the CRM manually.",
+    "Give operations or client service teams an internal AI assistant that creates Wealthbox tasks, drafts follow-up summaries, and logs approved interaction notes from chat requests.",
+    "Help advisors and support staff use a private agent in Slack or Microsoft Teams to prepare meeting briefs from Wealthbox records before client conversations.",
+    "Allow employees to ask the agent for pipeline or relationship summaries across Wealthbox so they can research account status and decide the next action faster.",
+    "Use an internal agent to follow team SOPs by gathering missing details, updating approved Wealthbox fields, and preparing handoff summaries for compliance or supervisory review."
+  ],
+  "whatYouCanBuild": [
+    "A client service agent that finds Wealthbox contact records and summarizes recent relationship activity.",
+    "An advisor assistant that creates follow-up tasks in Wealthbox from chat requests or ticket context.",
+    "A handoff workflow that logs conversation notes in Wealthbox and routes escalations to staff.",
+    "A meeting prep assistant that turns Wealthbox notes, tasks, and opportunities into briefing summaries.",
+    "A data confirmation flow that updates approved Wealthbox contact fields after verification.",
+    "A pipeline summary agent that explains open opportunities and recommended next steps for advisors."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Wealthbox agent to do, such as look up client records, create follow-up tasks, or prepare advisor handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the configuration values it needs, defines safe authentication handling, and keeps credentials protected and out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Wealthbox actions, records, users, and workflow boundaries needed, and it adds approval checks for sensitive updates or escalations."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds weak instructions, bugs, or permission gaps, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the Wealthbox Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Wealthbox?",
+      "answer": "With DocsBot Skill Builder, you describe the Wealthbox workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up CRM information, create or update approved records, trigger follow-ups, and summarize outcomes inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Wealthbox data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Wealthbox as a source of client relationship context while responding in a website chat widget or helpdesk workflow. It can retrieve approved CRM details, summarize notes or tasks, prepare handoffs, and complete allowed actions such as creating follow-up tasks or logging notes."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Wealthbox?",
+      "answer": "A private DocsBot agent can help employees retrieve client context, draft meeting briefs, create tasks, log approved notes, summarize pipelines, and follow internal service workflows. Teams can use it in chat, Slack, or Microsoft Teams to complete CRM work faster without jumping between systems."
+    },
+    {
+      "question": "Can DocsBot safely update Wealthbox records with AI Actions?",
+      "answer": "Yes, DocsBot Skill Builder is designed to define safe action limits, scoped permissions, and approval boundaries for updates. It protects secrets through secure runtime configuration and keeps credentials out of chat transcripts and generated Skill content."
+    },
+    {
+      "question": "Can a Wealthbox AI agent prepare escalations and advisor handoffs?",
+      "answer": "Yes, the agent can gather recent notes, task status, opportunity details, and conversation context from Wealthbox to create cleaner handoffs for human review. It can also log escalation notes or create follow-up tasks when those actions are approved."
+    },
+    {
+      "question": "How much technical setup is needed to connect DocsBot to Wealthbox workflows?",
+      "answer": "The process is designed for non-technical users to describe the desired outcome rather than manually wire every integration detail. Skill Builder handles the secure design, required configuration, authentication approach, testing, and deployment guidance for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zendesk",
+    "intercom",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wealthbox",
+    "domain": "wealthbox.com",
+    "description": "Wealthbox is a modern CRM designed specifically for financial advisors. It provides a powerful, beautiful, and easy-to-use platform to manage client relationships, automate tasks, and drive business growth. With features such as contact management, email integration, opportunity tracking, and customizable workflows, Wealthbox helps advisors streamline their workflow and collaborate with their team. Integrating with over 100 leading custodial platforms and wealth-tech applications, Wealthbox is a comprehensive solution for financial advisors to manage their business efficiently.",
+    "slogan": "Modern, powerful CRM designed for financial advisors to grow and collaborate.",
+    "logoUrl": "https://media.brand.dev/e5952573-22a0-4bdb-ae76-ab65e8d984c9.svg",
+    "iconUrl": "https://media.brand.dev/6d09be16-d9fd-4bc8-87b9-6bbce10ed28f.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#1a71d0",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1a71d0",
+        "name": "Bright Navy Blue"
+      },
+      {
+        "hex": "#84bee2",
+        "name": "Blue Eyed Boy"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/253c4786-3e12-4103-a839-89ff63a625af.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.wealthbox.com/careers/",
+      "terms": "https://www.wealthbox.com/terms-of-service/",
+      "contact": "https://www.wealthbox.com/contact/",
+      "privacy": "https://www.wealthbox.com/privacy-policy/",
+      "blog": "https://www.wealthbox.com/blog/",
+      "pricing": "https://www.wealthbox.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6d09be16-d9fd-4bc8-87b9-6bbce10ed28f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d3360911-9901-48aa-9926-495e04cf96e6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5952573-22a0-4bdb-ae76-ab65e8d984c9.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 164,
+        "height": 38,
+        "aspectRatio": 4.32
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5952573-22a0-4bdb-ae76-ab65e8d984c9.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 164,
+      "height": 38,
+      "aspectRatio": 4.32
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6d09be16-d9fd-4bc8-87b9-6bbce10ed28f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

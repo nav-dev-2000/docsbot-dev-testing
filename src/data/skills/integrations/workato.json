@@ -1,0 +1,168 @@
+{
+  "slug": "workato",
+  "name": "Workato",
+  "domain": "workato.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use Workato With DocsBot Skills",
+  "metaTitle": "Build Workato AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Workato for support workflows, internal automation, handoffs, summaries, and approved actions.",
+  "intro": "Workato helps teams orchestrate apps, data, and business processes across the enterprise. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent use Workato safely. The result is a support or internal AI agent that can look up workflow state, trigger approved automations, prepare handoffs, and summarize outcomes instead of only answering questions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a Workato-driven workflow and explain the current step to a customer in chat or over a helpdesk ticket.",
+    "Use Workato through a DocsBot support agent to trigger approved follow-up automations such as provisioning checks, renewal handoffs, or onboarding task creation after the customer confirms intent.",
+    "Have the agent gather missing details from the customer, send them into a Workato workflow, and return a clear summary of what was submitted and what happens next.",
+    "Enable the agent to create structured escalation handoffs by passing customer context, issue details, and conversation summaries into downstream Workato automations.",
+    "Let the agent summarize whether a multi-system process succeeded, failed, or is waiting on review by retrieving the latest state from Workato-connected workflows."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with in Slack, Microsoft Teams, or a DocsBot workspace to trigger approved Workato workflows without hunting through multiple systems.",
+    "Let operations teams ask the agent to summarize the status of automations, recent failures, or pending steps so they can troubleshoot faster and follow internal SOPs.",
+    "Help customer success or support managers chat with the agent to launch onboarding, escalation, account update, or follow-up workflows across connected business apps.",
+    "Allow employees to use the agent to collect information from several systems through Workato and return a clean summary for research, case review, or executive updates.",
+    "Support internal SOP completion by having the agent gather required context, route requests into Workato automations, and confirm the result back to the employee."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks workflow progress and explains customer-facing next steps.",
+    "An AI assistant that triggers approved onboarding or account follow-up automations through Workato.",
+    "A ticket triage Skill that sends structured issue context into downstream routing workflows.",
+    "An internal ops agent that summarizes failed automations and suggests the right handoff.",
+    "A customer success assistant that launches renewal, escalation, or implementation workflows safely.",
+    "An employee help agent that gathers inputs and runs SOP-driven automation with approvals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Workato in plain language, and it turns that goal into a practical Skill design for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure workflow shape, identifies the required configuration values, sets up protected authentication handling, proxies secrets through secure runtime configuration, and scopes the Skill to the minimum actions and systems needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When actions could affect customers, records, or downstream systems, Skill Builder adds approval boundaries, user scoping, and safe action limits so the agent stays within the rules you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and employee scenarios against the Skill, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill through its self-improvement loop, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use Workato with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Workato for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking workflow status, triggering an approved follow-up, or preparing an escalation handoff, and Skill Builder creates the secure Skill for that workflow. The published Skill can then be used by a customer-facing DocsBot agent in chat or helpdesk replies."
+    },
+    {
+      "question": "Can an AI support agent use Workato to trigger workflows during a customer conversation?",
+      "answer": "Yes, a DocsBot agent can use a Workato Skill to trigger bounded automations during a support conversation when that action fits your rules. Skill Builder can add approvals, scoped permissions, and safe action limits so sensitive steps stay controlled."
+    },
+    {
+      "question": "What Workato workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees launch approved automations, check workflow status, summarize failures, collect required inputs, and complete SOP-driven tasks across connected systems. This is useful for operations, support, customer success, and cross-functional service teams."
+    },
+    {
+      "question": "Can DocsBot use Workato data to summarize automation status for customers or staff?",
+      "answer": "Yes, Skill Builder can create a Skill that lets the agent retrieve workflow state and return a plain-language summary of progress, blockers, failures, or next steps. That helps both customer-facing support agents and internal teams respond faster with better context."
+    },
+    {
+      "question": "How does DocsBot keep Workato connections and credentials secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chats and generated Skill content, and uses secure runtime configuration to proxy authentication safely. It also scopes access to the minimum users, actions, and systems required for the workflow."
+    },
+    {
+      "question": "Can I require approvals before an AI agent runs a Workato automation?",
+      "answer": "Yes, approval boundaries can be built into the Skill for sensitive actions such as account changes, escalations, or downstream workflow triggers. That lets the agent gather context and prepare the action while still requiring the right human checkpoint."
+    }
+  ],
+  "relatedSlugs": [
+    "zapier",
+    "make",
+    "n8n",
+    "salesforce",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Workato",
+    "domain": "workato.com",
+    "description": "Workato is a Palo Alto‑based integration and automation platform that enables enterprises to orchestrate applications, data, and processes using AI‑driven agents. Leveraging its proprietary Enterprise Model Context Protocol (MCP), Workato delivers secure, scalable, and accurate AI agents that move from the edge of business operations to the core, allowing real‑time, enterprise‑wide automation. Trusted by over half of the Fortune 500, the platform connects every application and data source, providing end‑to‑end workflow automation and intelligent orchestration for the agentic era.",
+    "slogan": "Light up your AI with Workato Enterprise MCP",
+    "logoUrl": "https://media.brand.dev/0d0a172f-aa31-4aa7-bebc-7e1dace07834.svg",
+    "iconUrl": "https://media.brand.dev/d6318317-1be1-4df3-9f14-e042ae1e3b38.jpg",
+    "primaryColor": "#62dfd2",
+    "accentColor": "#418484",
+    "colors": [
+      {
+        "hex": "#62dfd2",
+        "name": "Hammam Blue"
+      },
+      {
+        "hex": "#418484",
+        "name": "Emu Egg"
+      },
+      {
+        "hex": "#151716",
+        "name": "Pot Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/654b6670-a46d-4214-96d3-76a9669a0449.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.workato.com/careers",
+      "contact": "https://www.workato.com/request_demo",
+      "privacy": "https://www.workato.com/legal/privacy-policy",
+      "blog": "https://www.workato.com/the-connector",
+      "pricing": "https://www.workato.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d6318317-1be1-4df3-9f14-e042ae1e3b38.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/90c84506-3005-41ca-9807-2232f551dde0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0d0a172f-aa31-4aa7-bebc-7e1dace07834.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 136,
+        "height": 81,
+        "aspectRatio": 1.68
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0d0a172f-aa31-4aa7-bebc-7e1dace07834.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 136,
+      "height": 81,
+      "aspectRatio": 1.68
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/90c84506-3005-41ca-9807-2232f551dde0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

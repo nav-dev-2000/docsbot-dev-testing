@@ -1,0 +1,176 @@
+{
+  "slug": "surveysparrow",
+  "name": "SurveySparrow",
+  "domain": "surveysparrow.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SurveySparrow",
+  "metaTitle": "Build SurveySparrow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SurveySparrow data for support, feedback follow-up, internal research, workflow triggers, and safe customer experience actions.",
+  "intro": "SurveySparrow helps teams collect, analyze, and act on customer feedback across the customer experience journey. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use SurveySparrow for lookups, summaries, follow-up workflows, and approved actions. This helps support teams and internal teams turn feedback data into faster answers, better handoffs, and more consistent next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent SurveySparrow feedback tied to an account and summarize sentiment trends while responding to a support question.",
+    "Use SurveySparrow response data to help a support agent identify whether a frustrated customer recently submitted negative feedback and prepare a more informed handoff to a human team member.",
+    "Have the agent create or trigger a follow-up workflow when a customer reports an unresolved experience issue and the conversation should be captured for customer experience review.",
+    "Enable the agent to summarize survey results, NPS-style feedback, or recurring complaint themes from SurveySparrow when replying in a helpdesk ticket.",
+    "Let the agent gather feedback history from SurveySparrow and include that context in an escalation note so support and success teams see the full customer story."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent to retrieve SurveySparrow survey results, response trends, and customer sentiment summaries without manually searching dashboards.",
+    "Let customer success or operations teams ask the agent to compile feedback themes from SurveySparrow for a renewal risk review, product review, or executive update.",
+    "Help employees use a private AI assistant in Slack or Microsoft Teams to identify low-scoring responses, summarize likely root causes, and prepare internal follow-up tasks.",
+    "Allow teams to chat with the agent to research feedback by account, segment, campaign, or survey and then generate a concise action brief for the right team.",
+    "Support internal SOPs where employees ask the agent to review SurveySparrow feedback activity, detect patterns worth escalating, and trigger approved next-step workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes recent SurveySparrow feedback before replying to a customer.",
+    "A feedback-aware helpdesk assistant that prepares escalations with sentiment, themes, and response history.",
+    "An internal CX assistant that finds low scores and drafts follow-up recommendations for teams.",
+    "A customer success agent that reviews survey trends for an account before renewal conversations.",
+    "A private research assistant that compares SurveySparrow feedback themes across segments or campaigns.",
+    "An operations agent that triggers approved follow-up workflows when negative feedback crosses defined thresholds."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SurveySparrow in plain language, such as summarizing feedback, finding low scores, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and chooses a safer workflow design for lookups, updates, triggers, and handoffs."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, handles authentication through secure runtime configuration, protects and proxies secrets by design, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive feedback workflows."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses SurveySparrow data?",
+      "answer": "With DocsBot Skill Builder, you describe the SurveySparrow workflow you want in plain language, and Skill Builder creates a reusable Skill for lookups, summaries, record-based actions, and approved follow-up steps. It also designs the secure connection, scopes access, and prepares the agent for real support or internal team scenarios."
+    },
+    {
+      "question": "Can an AI support agent use SurveySparrow feedback during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use SurveySparrow as a source of customer feedback context while responding in a website chat widget or helpdesk ticket flow. That can include retrieving recent responses, summarizing sentiment, spotting recurring issues, and preparing better handoffs to human teams."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SurveySparrow?",
+      "answer": "Teams can build workflows for feedback lookups, escalation summaries, follow-up triggers, issue pattern detection, and customer context gathering tied to support conversations. The agent can answer, decide the next step, and take bounded action based on the rules you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees analyze SurveySparrow responses?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve survey trends, compare segments, summarize themes, and generate action briefs. This is useful for customer success, operations, product, and experience teams that need quick answers without digging through dashboards."
+    },
+    {
+      "question": "How does DocsBot keep SurveySparrow access secure?",
+      "answer": "Skill Builder defines the needed configuration values, handles secure authentication setup, proxies secrets through protected runtime configuration, and keeps credentials out of conversations and generated content. It also scopes permissions and can add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger follow-up workflows from SurveySparrow feedback?",
+      "answer": "Yes, a Skill can be designed to trigger approved workflows when feedback meets conditions you define, such as low ratings or repeated negative themes. That can include creating internal handoffs, routing issues for review, or generating summaries for the right team."
+    }
+  ],
+  "relatedSlugs": [
+    "qualtrics",
+    "typeform",
+    "surveymonkey",
+    "delighted",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SurveySparrow",
+    "domain": "surveysparrow.com",
+    "description": "SurveySparrow is an experience management platform that enables businesses to collect, analyze, and act on customer feedback in real-time. Leveraging AI to analyze the customer experience journey, SurveySparrow empowers over 100,000 customers across 149 countries to make smarter customer experience decisions.",
+    "slogan": "Transform Feedback into Conversations for Smarter Customer Experience",
+    "logoUrl": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+    "iconUrl": "https://media.brand.dev/ed0a8c79-e43b-4387-8842-9231f51a146d.png",
+    "primaryColor": "#a1d4d4",
+    "accentColor": "#559da5",
+    "colors": [
+      {
+        "hex": "#a1d4d4",
+        "name": "Smooth Satin"
+      },
+      {
+        "hex": "#559da5",
+        "name": "Tropical Oasis"
+      },
+      {
+        "hex": "#131b32",
+        "name": "Dark Knight"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8d99253d-1734-464b-8a35-9551b031355c.png",
+    "industries": [],
+    "links": {
+      "careers": "https://surveysparrow.com/careers/",
+      "terms": "https://surveysparrow.com/legal/terms-of-service/",
+      "contact": "https://surveysparrow.com/contact-us/",
+      "privacy": "https://surveysparrow.com/legal/privacy-policy/",
+      "blog": "https://surveysparrow.com/newsroom/",
+      "pricing": "https://surveysparrow.com/pricing-get-quote/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a2c4fe34-4e86-44f9-bb51-03943e743d76.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed0a8c79-e43b-4387-8842-9231f51a146d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ccc6fc0c-c2a3-4186-a313-ebd093befea7.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 101,
+        "height": 101,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 24,
+        "aspectRatio": 6.38
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 24,
+      "aspectRatio": 6.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ccc6fc0c-c2a3-4186-a313-ebd093befea7.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 101,
+      "height": 101,
+      "aspectRatio": 1
+    }
+  }
+}

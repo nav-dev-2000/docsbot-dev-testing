@@ -1,0 +1,168 @@
+{
+  "slug": "rollworks",
+  "name": "RollWorks",
+  "domain": "rollworks.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with RollWorks",
+  "metaTitle": "Build RollWorks AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use RollWorks data for support context, account research, handoffs, workflow triggers, and safe internal sales actions.",
+  "intro": "RollWorks helps teams understand target accounts, buyer intent, and account-based marketing activity across sales and marketing workflows. With DocsBot Skill Builder, you can describe the RollWorks-powered agent outcome you want in plain language and have DocsBot design, secure, test, and publish the Skill for you. The result is an AI support or internal team agent that can look up account context, summarize signals, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up RollWorks account details and buyer context to tailor responses for high-value B2B prospects or customers.",
+    "Use a DocsBot helpdesk agent to summarize RollWorks account signals alongside a support ticket so human teams can prioritize strategic accounts faster.",
+    "Have the agent prepare escalation notes that include RollWorks account background, likely buying committee context, and recent account activity for customer success or sales follow-up.",
+    "Enable the agent to trigger approved internal workflows when a support conversation reveals expansion interest, product fit questions, or account-level sales opportunities.",
+    "Let the agent capture lead or account enrichment details from RollWorks and attach a concise summary to a ticket or CRM handoff record."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to research RollWorks account insights, buyer signals, and account-based marketing context before outreach or renewal conversations.",
+    "Let sales, success, and operations teams ask the agent to summarize target account activity in RollWorks and generate next-step recommendations aligned to internal playbooks.",
+    "Enable employees in Slack or Microsoft Teams to request account research packets that combine RollWorks context with internal notes, open opportunities, or support history.",
+    "Use an internal AI agent to prepare handoff summaries between marketing, SDR, AE, and customer success teams based on RollWorks account intelligence.",
+    "Help revenue operations teams chat with the agent to trigger approved RollWorks-related workflows, document outcomes, and follow standard operating procedures more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes RollWorks account intelligence for support or sales handoffs.",
+    "A private assistant that generates account research briefs from RollWorks data for revenue teams.",
+    "A support agent that flags strategic accounts and prepares escalation context using RollWorks signals.",
+    "An internal agent that creates next-step recommendations for ABM follow-up and account prioritization.",
+    "A workflow assistant that turns RollWorks insights into approved CRM updates or task creation.",
+    "A team agent that answers account background questions inside Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the RollWorks workflow you want in plain language, and Skill Builder turns that goal into an agent plan for lookups, summaries, handoffs, or approved actions."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to the minimum RollWorks data and actions required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for updates, workflow triggers, or cross-system changes so the agent operates within your business rules."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations, checks for bugs or weak instructions, and finds missing permission or workflow safeguards."
+    },
+    {
+      "title": "Improve before deployment",
+      "description": "Skill Builder uses those test findings to refine the Skill automatically, improve instructions and edge-case handling, and prepare a more reliable version for launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses RollWorks account data?",
+      "answer": "With DocsBot Skill Builder, you describe the account research, summary, or workflow outcome you want, and Skill Builder creates a secure Skill that lets your agent query RollWorks and return useful account context. It can also shape approved actions such as handoffs, task creation, or downstream workflow triggers based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use RollWorks during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use RollWorks account context while responding to customers in a chat widget or helpdesk flow. This is useful for prioritizing strategic accounts, preparing escalation notes, and giving internal teams better context for follow-up."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with RollWorks?",
+      "answer": "A private DocsBot agent can help employees research accounts, summarize buyer signals, prepare sales or success handoffs, and trigger approved follow-up workflows. Teams can access it through chat, Slack, or Microsoft Teams to complete repeatable account-based processes faster."
+    },
+    {
+      "question": "Can DocsBot safely control actions connected to RollWorks data?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect credentials, proxy secrets through runtime settings, and limit access to the right users, records, and actions. It can also add approval steps for sensitive updates or workflow triggers before anything is executed."
+    },
+    {
+      "question": "Do I need technical setup knowledge to create a RollWorks AI workflow?",
+      "answer": "No, the setup is framed around describing what you want the agent to do in business language. Skill Builder handles the workflow design, connection details, testing, security boundaries, and deployment path for the finished Skill."
+    },
+    {
+      "question": "Can a DocsBot agent create account summaries and handoff notes from RollWorks?",
+      "answer": "Yes, that is a strong use case for DocsBot AI Actions. The agent can pull RollWorks context, summarize the account state, and generate structured handoff notes for sales, customer success, or support teams."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "6sense",
+    "zoominfo",
+    "marketo",
+    "outreach"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RollWorks",
+    "domain": "rollworks.com",
+    "description": "RollWorks is a leading marketing company specializing in B2B marketing and sales. With over 15 years of experience, RollWorks has curated a robust database of 4.2 billion digital profiles, offering one of the most reliable buyer datasets in the industry. Utilizing AI and machine learning, RollWorks converts buyer data into actionable insights to drive full-funnel outcomes for customers. Their Account-Based Platform combines ABM and Advertising solutions, enabling growth-oriented B2B marketers to gain deep buyer understanding and deliver rapid business results. RollWorks stands out for its exceptional B2B advertising product and seamless integrations with 24 other marketing and sales tools. The RollWorks platform is known for providing a significant ROI, outperforming other ABM solutions in the market.",
+    "slogan": "Driving growth with comprehensive buyer data and innovative B2B solutions.",
+    "logoUrl": "https://media.brand.dev/053cda52-1fbe-46cc-a44d-84d46112bb2f.png",
+    "iconUrl": "https://media.brand.dev/6a4a3152-c9e8-44ff-b1bd-5e572e3a13a9.png",
+    "primaryColor": "#09be75",
+    "accentColor": "#7cdcbc",
+    "colors": [
+      {
+        "hex": "#09be75",
+        "name": "Fennel Fiesta"
+      },
+      {
+        "hex": "#7cdcbc",
+        "name": "Mint Majesty"
+      },
+      {
+        "hex": "#e6f7f0",
+        "name": "Soft Mint"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d051426a-2c85-4b97-8a43-d081d9ac2d4e.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.rollworks.com/get-in-touch/",
+      "privacy": null,
+      "blog": "https://rollworks.com/resources/blog/",
+      "pricing": "https://www.rollworks.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6a4a3152-c9e8-44ff-b1bd-5e572e3a13a9.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e1b25d02-3c52-4a2f-8cf9-cea0c6b391e2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/053cda52-1fbe-46cc-a44d-84d46112bb2f.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 121,
+        "height": 35,
+        "aspectRatio": 3.46
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/053cda52-1fbe-46cc-a44d-84d46112bb2f.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 121,
+      "height": 35,
+      "aspectRatio": 3.46
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a4a3152-c9e8-44ff-b1bd-5e572e3a13a9.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

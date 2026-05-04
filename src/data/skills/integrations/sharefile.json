@@ -1,0 +1,186 @@
+{
+  "slug": "sharefile",
+  "name": "ShareFile",
+  "domain": "sharefile.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Securely With ShareFile",
+  "metaTitle": "ShareFile AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use ShareFile for secure document lookups, file workflow updates, handoffs, and internal team automation with safe controls.",
+  "intro": "ShareFile helps businesses securely exchange files, manage documents, and support client-facing workflows. With DocsBot Skill Builder, you can describe the ShareFile workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve document status, prepare handoffs, and take approved actions in ShareFile while staying within secure rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a requested file, folder, or client document has been uploaded to ShareFile and respond with the current status.",
+    "Use a support agent to help customers find the right secure file request or document portal link in ShareFile without sending them through a manual support queue.",
+    "Have the agent summarize the latest ShareFile activity on a customer account so support can explain what was received, what is missing, and what happens next.",
+    "Enable the agent to create an internal handoff when required files are missing so a human team can follow up with the customer using the right ShareFile context.",
+    "Let the agent guide customers through secure document submission steps and trigger an approved follow-up workflow after a file is received in ShareFile."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up ShareFile folders, file status, and document activity without manually searching through storage portals.",
+    "Enable operations teams to ask the agent for a summary of client document collections in ShareFile and identify missing files before onboarding or renewal steps.",
+    "Give customer success teams an AI assistant that prepares follow-up checklists, handoff notes, or case summaries based on ShareFile document activity.",
+    "Allow internal teams to use chat, Slack, or Microsoft Teams to trigger approved ShareFile workflows such as file request follow-ups or document collection reminders.",
+    "Help employees complete document-driven SOPs by chatting with an agent that retrieves ShareFile information, explains the next step, and records bounded workflow updates."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks whether customer onboarding documents were uploaded to ShareFile.",
+    "An internal AI assistant that summarizes missing client files before a renewal or compliance review.",
+    "A DocsBot Skill that retrieves secure folder activity and explains document collection progress.",
+    "An agent that prepares escalation notes using ShareFile upload status and recent file history.",
+    "A workflow assistant that triggers approved reminders when required documents are still missing.",
+    "A team agent that answers questions about client file readiness inside Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with ShareFile, such as checking document status, summarizing file activity, or triggering a follow-up workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication approach, then keeps credentials out of chats and Skill content by protecting and proxying secrets through approved runtime settings."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum ShareFile access, users, records, and actions needed for the workflow, and it adds approval boundaries when a requested action should stay human-reviewed or tightly controlled."
+    },
+    {
+      "title": "Tests run automatically",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing safeguards, or weak instructions, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or internal team assistant so it can answer questions and take bounded actions in ShareFile."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ShareFile documents and folders?",
+      "answer": "With DocsBot Skill Builder, you describe the ShareFile task you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and workflow actions based on your ShareFile rules."
+    },
+    {
+      "question": "Can an AI support agent use ShareFile data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use ShareFile as a secure source for document status, file receipt checks, missing-item summaries, and handoff preparation while responding to customer questions. You can also limit which records and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with ShareFile?",
+      "answer": "A ShareFile-connected agent can confirm whether files were received, summarize document collection progress, guide customers to the right upload process, and create internal follow-up tasks when something is missing. Sensitive actions can be placed behind approval boundaries so the agent stays within safe operating rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with ShareFile?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve ShareFile information, summarize document activity, and complete document-driven SOPs faster. This is useful for operations, customer success, onboarding, and compliance teams."
+    },
+    {
+      "question": "How does DocsBot handle ShareFile authentication and secrets safely?",
+      "answer": "Skill Builder identifies the required connection details, stores secrets in secure runtime configuration, and proxies authentication so credentials do not appear in chat transcripts or generated Skill content. It also scopes access to the minimum permissions needed for the workflow."
+    },
+    {
+      "question": "Can I control which ShareFile actions an AI agent is allowed to take?",
+      "answer": "Yes, DocsBot Skills are built with bounded permissions, action limits, and approval controls based on the workflow you want. That lets your agent answer questions and take useful actions without giving it broad unrestricted access."
+    }
+  ],
+  "relatedSlugs": [
+    "box",
+    "dropbox",
+    "google-drive",
+    "onedrive",
+    "egnyte",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ShareFile",
+    "domain": "sharefile.com",
+    "description": "ShareFile is a secure file exchange and data storage platform for businesses, now part of Progress. It offers easy-to-use technology to streamline document and client-facing workflows, promoting efficiency and collaboration while maintaining world-class security. The platform allows businesses to exchange large files with clients and coworkers via custom-branded, password-protected sites, accessible from any computer or mobile device.",
+    "slogan": "Simplicity meets efficiency",
+    "logoUrl": "https://media.brand.dev/a205a402-7fab-49f6-b809-bef468a006ea.svg",
+    "iconUrl": "https://media.brand.dev/1f083818-9bdf-409e-b4f3-80488c52c2b8.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#d8d8d8",
+        "name": "Desired Dawn"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/af1d84cf-ffc9-4ac4-b9e7-2717bb5310cd.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "contact": "https://www.sharefile.com/contact-us",
+      "blog": "https://www.sharefile.com/resource/blogs/are-you-prepared-todays-modern-cyber-threats",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.sharefile.com/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6482b81b-ea59-4a15-8d80-08371cd07e61.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f454a0f0-3532-4e11-9f88-f37d1bb26573.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/be4208fd-ac2c-4f65-994a-dcea7ba56c74.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a205a402-7fab-49f6-b809-bef468a006ea.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 189,
+        "height": 26,
+        "aspectRatio": 7.27
+      },
+      {
+        "url": "https://media.brand.dev/1f083818-9bdf-409e-b4f3-80488c52c2b8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a205a402-7fab-49f6-b809-bef468a006ea.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 189,
+      "height": 26,
+      "aspectRatio": 7.27
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6482b81b-ea59-4a15-8d80-08371cd07e61.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    }
+  }
+}

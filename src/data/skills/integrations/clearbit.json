@@ -1,0 +1,170 @@
+{
+  "slug": "clearbit",
+  "name": "Clearbit",
+  "domain": "clearbit.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Clearbit for Support and Sales Research",
+  "metaTitle": "Build Clearbit AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Clearbit for enrichment, account research, routing, and safe workflow actions in customer support and internal team chat.",
+  "intro": "Clearbit helps B2B teams enrich records, identify accounts, and understand buying intent. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Clearbit data and approved actions. The result is an AI support or internal team agent that can answer questions, research companies, prepare handoffs, and trigger next steps without exposing sensitive access.",
+  "supportUseCases": [
+    "Use Clearbit data during a website chat or helpdesk reply to identify a company from an email or domain and tailor answers based on account profile and fit.",
+    "Enrich incoming support conversations with firmographic details so the agent can prioritize enterprise accounts and prepare cleaner escalations for human teams.",
+    "Look up company size, industry, location, and account context from Clearbit to route customers to the right support, success, or sales-assisted path.",
+    "Summarize Clearbit enrichment and account signals inside a support ticket so agents receive a fast handoff with relevant business context already attached.",
+    "Use approved Clearbit-backed workflows to flag high-value conversations for follow-up when a support interaction reveals expansion or sales interest."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to research companies, enrich lead records, and summarize account context from Clearbit.",
+    "Sales, support, and success teams can ask the agent to identify target accounts by firmographic traits and return structured summaries for outreach, routing, or prioritization.",
+    "Operations teams can use the agent to check enrichment coverage, investigate missing company data, and follow internal SOPs for account review without switching tools.",
+    "Revenue teams can ask the agent to prepare account briefs that combine Clearbit attributes with internal notes for handoffs, renewals, or expansion planning.",
+    "Employees can use the agent to trigger bounded workflows based on Clearbit signals, such as assigning follow-up tasks or preparing records for review with approval controls where needed."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that identifies a visitor's company from their email domain and personalizes responses.",
+    "An internal research assistant that returns firmographic summaries for named accounts or prospect lists.",
+    "A ticket enrichment Skill that adds company context before routing or escalation.",
+    "A sales-assist agent that flags likely enterprise accounts from incoming support conversations.",
+    "A Slack assistant that answers account research questions using Clearbit enrichment data.",
+    "A workflow Skill that prepares account handoff notes with buying signals and business context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Clearbit-enabled agent to do, such as enrich support tickets, research companies, or prepare sales handoffs, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the Clearbit data and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines safe action boundaries, appropriate user access, and approval steps for sensitive workflows so the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios, checks instructions and permission handling, finds bugs or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer, research, summarize, and trigger approved next steps with Clearbit."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Clearbit data?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, such as company enrichment, account research, or routing support conversations. Skill Builder then designs the Skill, secures the Clearbit connection, tests the workflow, and prepares it for deployment to the right AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Clearbit to personalize customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Clearbit data to identify company context, enrich tickets, and help tailor responses or routing paths. You can also set limits so the agent only performs approved lookups and handoff steps."
+    },
+    {
+      "question": "What can an internal AI assistant do with Clearbit for employees?",
+      "answer": "An internal DocsBot agent can help employees research companies, enrich records, summarize account details, and follow account review or handoff workflows inside chat, Slack, or Microsoft Teams. This reduces manual lookups and keeps research steps consistent across teams."
+    },
+    {
+      "question": "Can DocsBot use Clearbit for account enrichment and lead qualification workflows?",
+      "answer": "Yes, Skill Builder can create workflows where the agent retrieves Clearbit attributes, summarizes fit, and triggers approved next steps such as tagging, routing, or handoff preparation. Approval boundaries can be added for any action that should remain supervised."
+    },
+    {
+      "question": "How does DocsBot keep Clearbit access secure in an AI agent?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets securely, keeps credentials out of chats and Skill instructions, and scopes permissions to the minimum required access. It can also add approval controls and action limits for more sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Clearbit account data for sales or success teams?",
+      "answer": "Yes, the agent can turn Clearbit enrichment and account signals into short, useful summaries for sales, support, or customer success teams. These summaries can be used in handoffs, prioritization, and account planning workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "apollo",
+    "gong",
+    "intercom",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Clearbit",
+    "domain": "clearbit.com",
+    "description": "Clearbit is a go-to-market platform that helps B2B companies create, capture, and convert demand from ideal customers. Leveraging Artificial Intelligence, it enriches customer records, scores, routes, and reveals buying intent. The platform enables marketing and revenue teams to combine their data with first-party intent to create precise, real-time audiences.",
+    "slogan": "Set the new standard in business data",
+    "logoUrl": "https://media.brand.dev/7602fe99-3aa8-4e37-bbde-3e0e38c65e5c.png",
+    "iconUrl": "https://media.brand.dev/dd8d1d94-aa08-4297-a4b9-ae40554965de.png",
+    "primaryColor": "#148bfa",
+    "accentColor": "#4cb3fb",
+    "colors": [
+      {
+        "hex": "#148bfa",
+        "name": "Clear Chill"
+      },
+      {
+        "hex": "#4cb3fb",
+        "name": "Adamantine Blue"
+      },
+      {
+        "hex": "#233444",
+        "name": "Tahitian Pearl"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/eaf61f3d-7554-4b44-a550-52112b302105.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "privacy": "https://clearbit.com/privacy-policy",
+      "terms": "https://clearbit.com/legal",
+      "contact": "https://help.clearbit.com/",
+      "blog": "https://clearbit.com/blog",
+      "pricing": null,
+      "login": "https://app.clearbit.com/auth/login",
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/268730a5-e9a8-43c2-a763-281e3b62e3a3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dd8d1d94-aa08-4297-a4b9-ae40554965de.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7602fe99-3aa8-4e37-bbde-3e0e38c65e5c.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1000,
+        "height": 400,
+        "aspectRatio": 2.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7602fe99-3aa8-4e37-bbde-3e0e38c65e5c.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1000,
+      "height": 400,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/268730a5-e9a8-43c2-a763-281e3b62e3a3.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

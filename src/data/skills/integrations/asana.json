@@ -1,0 +1,164 @@
+{
+  "slug": "asana",
+  "name": "Asana",
+  "domain": "asana.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Asana",
+  "metaTitle": "Build AI Agents for Asana with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Asana to look up work, update tasks, trigger handoffs, and support employees or customers with safe approved actions.",
+  "intro": "Asana helps teams manage projects, tasks, goals, and execution across the business. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Asana, and DocsBot helps design, secure, test, improve, and deploy that Skill. The result is an AI support agent or internal assistant that can answer questions and take bounded action in Asana instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of onboarding, implementation, or service tasks in Asana and reply with a clear progress update.",
+    "Use an AI support agent to create an Asana task when a customer reports a bug, feature request, or follow-up need that requires team action.",
+    "Have the agent add customer-reported details, priority notes, or reproduction steps to an existing Asana task while responding in chat or over email tickets.",
+    "Let the agent summarize related Asana tasks and prepare a clean handoff for human support, success, or product teams when escalation is needed.",
+    "Use the agent to trigger an approved workflow in Asana for renewals, account reviews, launch support, or customer issue follow-up after collecting the right context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Asana tasks, projects, owners, due dates, blockers, or status updates without searching manually.",
+    "Use an internal AI assistant in Slack, Microsoft Teams, or chat to create standardized Asana tasks from requests such as launch prep, incident follow-up, or customer feedback review.",
+    "Help operations, support, or customer success teams ask the agent to summarize project progress in Asana and identify overdue work or missing owners.",
+    "Enable employees to follow SOPs through chat while the agent creates subtasks, updates task fields, assigns owners, and records next steps in Asana within approved limits.",
+    "Let managers and cross-functional teams use a private AI agent to turn meeting notes or chat requests into structured Asana work items and concise execution summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks implementation task progress before replying to customers.",
+    "An AI assistant that creates Asana tasks from bug reports or feature requests.",
+    "A private team agent that summarizes overdue projects, owners, and next steps.",
+    "A workflow assistant that opens escalation tasks and prepares handoff notes automatically.",
+    "An AI agent that turns meeting summaries into assigned Asana tasks and subtasks.",
+    "A customer success assistant that triggers onboarding or renewal follow-up workflows in Asana."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Asana in plain language, such as checking project status, creating tasks, or preparing escalations for approval."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, decides the safest workflow, identifies the needed Asana connection and configuration values, and keeps authentication handling secure by design."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so it can answer questions and take approved action in Asana."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Asana without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs the Asana workflow for you. It also handles secure connection setup, testing, improvements, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Asana to help answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Asana to look up project or task status, summarize progress, create follow-up work, and prepare escalations while replying to customers. You define which actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Asana?",
+      "answer": "Teams can build Skills that create bug follow-up tasks, check onboarding progress, update implementation work, prepare handoff notes, and trigger approved operational workflows in Asana. This helps support and success teams respond faster with live context."
+    },
+    {
+      "question": "Can an internal AI assistant update Asana tasks for employees?",
+      "answer": "Yes, private DocsBot agents can help employees create tasks, assign owners, update fields, add notes, summarize project status, and follow standard operating procedures in Asana. Access can be scoped so the agent only performs approved actions for the right teams."
+    },
+    {
+      "question": "How does DocsBot keep Asana actions secure?",
+      "answer": "Skill Builder defines the required configuration values, stores and proxies secrets through secure runtime controls, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and can add approval boundaries before sensitive records are updated or workflows are triggered."
+    },
+    {
+      "question": "Can DocsBot test an Asana Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run support and internal scenarios against the Skill. It identifies bugs, instruction gaps, and permission issues, then uses those findings to improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "clickup",
+    "monday-com",
+    "trello",
+    "notion",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Asana",
+    "domain": "asana.com",
+    "description": "Asana is a leading software company specializing in work management, productivity, and project execution. Their enterprise work management platform connects company-wide goals with strategic initiatives, enabling organizations to work smarter and more efficiently. With over 150,000 customers and millions of users across 200+ countries, Asana is trusted by notable companies such as Amazon, Roche, and T-Mobile. The platform offers tools for goal setting, tracking, capacity planning, and product launches, catering to the needs of both remote and distributed teams. Asana's mission is to keep organizations focused on their projects and tasks, allowing work to connect seamlessly regardless of location.",
+    "slogan": "Empowering organizations to work smarter, anytime, anywhere.",
+    "logoUrl": "https://media.brand.dev/9f0f5d1e-4095-43c3-a68d-97d7de415690.png",
+    "iconUrl": "https://media.brand.dev/9f0f5d1e-4095-43c3-a68d-97d7de415690.png",
+    "primaryColor": "#f36c6c",
+    "accentColor": "#f49c96",
+    "colors": [
+      {
+        "hex": "#f36c6c",
+        "name": "Breeze of Chilli"
+      },
+      {
+        "hex": "#f49c96",
+        "name": "Peach Punch"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/af12a138-7103-4614-8752-938ad8e48b15.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://asana.com/jobs",
+      "terms": "https://asana.com/terms",
+      "contact": "https://asana.com/sales",
+      "privacy": "https://asana.com/privacy",
+      "blog": null,
+      "pricing": "https://asana.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9f0f5d1e-4095-43c3-a68d-97d7de415690.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ef6f50e3-32e4-4551-b18b-a88e4b932a50.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1e9b3c30-bfb5-4f98-b490-2d203c4af0b0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9f0f5d1e-4095-43c3-a68d-97d7de415690.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9f0f5d1e-4095-43c3-a68d-97d7de415690.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "slug": "peoplestrong",
+  "name": "Peoplestrong",
+  "domain": "peoplestrong.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with PeopleStrong",
+  "metaTitle": "Build AI Agents for PeopleStrong with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use PeopleStrong data and workflows for employee support, HR operations, approvals, and internal assistant automation.",
+  "intro": "PeopleStrong helps organizations manage hiring, employees, HR operations, and talent processes across the employee lifecycle. With DocsBot Skill Builder, you can describe the PeopleStrong workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your agent answer questions, retrieve HR information, trigger approved actions, prepare handoffs, and summarize outcomes while staying within secure boundaries you define.",
+  "supportUseCases": [
+    "Use a customer-facing or employee-facing support bot to look up policy-linked HR details in PeopleStrong and answer routine questions about leave, attendance, onboarding steps, or document status.",
+    "Let a DocsBot agent connected to a helpdesk review a PeopleStrong employee record, summarize the current status, and draft a clean handoff for HR when a case needs human review.",
+    "Allow the agent to collect missing information in chat and create or update approved HR service requests in PeopleStrong while keeping the conversation moving.",
+    "Have the agent check onboarding progress in PeopleStrong and give the user a real-time summary of pending tasks, completed steps, and next actions.",
+    "Enable the agent to trigger approved workflow steps such as escalation, follow-up reminders, or case routing based on the PeopleStrong status tied to the support request."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat portal to retrieve PeopleStrong information such as leave balances, attendance summaries, onboarding task status, or HR policy guidance.",
+    "HR and operations teams can ask the agent to summarize employee lifecycle status from PeopleStrong, gather missing context, and prepare handoffs or follow-up tasks for specialists.",
+    "Managers can use the agent to review team-level PeopleStrong workflow status, surface pending approvals, and get concise summaries before taking action in the right process.",
+    "Recruiting and HR teams can chat with the agent to follow SOPs for onboarding, internal transfers, or exit workflows while the agent uses PeopleStrong data to guide each next step.",
+    "Internal teams can use the agent to generate case notes, escalation summaries, and standardized updates based on PeopleStrong records and approved workflow activity."
+  ],
+  "whatYouCanBuild": [
+    "An employee self-service agent that answers leave, attendance, and onboarding questions using PeopleStrong data.",
+    "A helpdesk assistant that creates HR case handoffs with PeopleStrong record summaries and missing context.",
+    "A manager assistant that reviews pending PeopleStrong approvals and summarizes what needs attention next.",
+    "An onboarding support agent that checks task completion and guides employees through remaining steps.",
+    "An HR operations assistant that updates approved service requests and logs status changes safely.",
+    "A private team agent that follows HR SOPs and uses PeopleStrong to gather live workflow details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with PeopleStrong, such as answer leave questions, summarize onboarding status, or route HR requests for approval."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "DocsBot Skill Builder turns that goal into a secure Skill design, identifies the PeopleStrong configuration it needs, and plans the safest lookup, update, summary, and workflow actions for the job."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication and runtime configuration, keeps credentials out of chats and Skill content, proxies secrets safely, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "DocsBot adds approval limits and action boundaries for sensitive PeopleStrong tasks so the agent can help confidently without exceeding the permissions or workflow rules you set."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined employee support and internal HR scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for PeopleStrong without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the PeopleStrong workflow you want in plain language and DocsBot designs the Skill, handles secure configuration, tests it, improves it, and helps deploy it to the right agent."
+    },
+    {
+      "question": "Can an AI support agent use PeopleStrong data to answer employee questions?",
+      "answer": "Yes, a DocsBot agent can use approved PeopleStrong data to look up status, summarize HR information, and guide employees through next steps for common support requests such as leave, attendance, onboarding, or case progress."
+    },
+    {
+      "question": "What PeopleStrong workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can support lookups, summaries, workflow routing, approval preparation, HR case handoffs, SOP guidance, and approved record updates based on the PeopleStrong processes you want to support."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in PeopleStrong?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved PeopleStrong workflows, with scoped permissions, secure secret handling, and approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "question": "Can a DocsBot agent create HR handoffs and escalation summaries from PeopleStrong?",
+      "answer": "Yes, the agent can gather relevant PeopleStrong context, summarize the current status, identify missing information, and prepare a clean handoff for HR, managers, or operations teams."
+    },
+    {
+      "question": "How does setup work for a PeopleStrong AI assistant?",
+      "answer": "You describe the desired outcome, and Skill Builder handles the secure design, required configuration values, authentication approach, testing scenarios, and deployment path without making you manually wire each technical step."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "successfactors",
+    "ukg-pro",
+    "rippling",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PeopleStrong",
+    "domain": "peoplestrong.com",
+    "description": "PeopleStrong is Asia's leading Human Capital Management SaaS platform, delivering a unique employee experience, data-driven decision-making, and business agility. They provide a comprehensive talent operating system, leveraging AI and ML, to simplify worklife for over 2 million employees across 500+ large enterprises in the Asia Pacific region, with capabilities spanning the employee lifecycle from hire to exit.",
+    "slogan": "Simplifying Work Life with Asia’s Leading Human Capital Management Platform",
+    "logoUrl": "https://media.brand.dev/435195b3-edbf-438b-a8c8-bd651fb29401.svg",
+    "iconUrl": "https://media.brand.dev/dc268081-deb9-4a78-8cbb-b28d0459c1d9.jpg",
+    "primaryColor": "#0c11d3",
+    "accentColor": "#6c4c64",
+    "colors": [
+      {
+        "hex": "#0c11d3",
+        "name": "True Blue"
+      },
+      {
+        "hex": "#6c4c64",
+        "name": "Hibernation"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5687bbc5-4f16-4187-8648-c7bf6d92118b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.peoplestrong.com/home",
+      "terms": null,
+      "contact": "https://www.peoplestrong.com/get-in-touch/",
+      "privacy": "https://www.peoplestrong.com/privacy-policy/",
+      "blog": "https://www.peoplestrong.com/news-listing/",
+      "pricing": "https://www.peoplestrong.com/succession-planning-software/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/dc268081-deb9-4a78-8cbb-b28d0459c1d9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/435195b3-edbf-438b-a8c8-bd651fb29401.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 752,
+        "height": 125,
+        "aspectRatio": 6.02
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/435195b3-edbf-438b-a8c8-bd651fb29401.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 752,
+      "height": 125,
+      "aspectRatio": 6.02
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/dc268081-deb9-4a78-8cbb-b28d0459c1d9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

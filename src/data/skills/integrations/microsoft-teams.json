@@ -1,0 +1,160 @@
+{
+  "slug": "microsoft-teams",
+  "name": "Microsoft Teams",
+  "domain": "microsoft.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Microsoft Teams",
+  "metaTitle": "Build Microsoft Teams AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Microsoft Teams for support handoffs, internal workflows, summaries, approvals, and team communication actions.",
+  "intro": "Microsoft Teams is widely used for team communication, collaboration, and operational coordination across support and internal work. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Teams, and DocsBot helps design, secure, test, and publish that reusable Skill. The result is a support or internal AI agent that can look up context, post updates, prepare handoffs, and trigger approved team workflows without making your staff handle every step manually.",
+  "supportUseCases": [
+    "A customer-facing DocsBot agent can post a structured escalation into Microsoft Teams when a customer issue needs human review, including conversation summary, account details, and next-step recommendations.",
+    "A support agent can send urgent product, billing, or incident questions to the right Teams channel while continuing to keep the customer informed in chat or by ticket reply.",
+    "A DocsBot helpdesk agent can create Teams handoff messages for specialists, with the customer problem, troubleshooting already completed, and any missing information still needed.",
+    "A customer support agent can summarize ticket trends or repeated complaints into Microsoft Teams so managers see emerging issues faster.",
+    "A DocsBot agent can notify a Teams channel when a high-value customer requests cancellation, refund review, or account intervention that requires approved follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to send structured updates into Microsoft Teams channels, notify the right group, and follow internal communication workflows without switching tools.",
+    "Support, success, or operations teams can ask an internal AI agent to summarize incidents, project updates, or customer patterns and post those summaries to Microsoft Teams for faster alignment.",
+    "Team members can use a private agent in chat, Slack, or Microsoft Teams to prepare escalation notes, route requests to the right Teams channel, and follow SOPs for internal handoffs.",
+    "Managers can chat with the agent to collect information from connected systems, generate a status update, and share it in Microsoft Teams for leadership or cross-functional review.",
+    "Employees can ask the agent to coordinate approval requests or follow-up reminders in Teams while keeping actions limited to approved channels, users, and message formats."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that posts customer escalation summaries into the correct Microsoft Teams channel.",
+    "A Skill that routes urgent support conversations to on-call Teams groups with context.",
+    "A Skill that creates internal handoff messages from helpdesk tickets and live chats.",
+    "A Skill that shares daily support issue summaries in Microsoft Teams for managers.",
+    "A Skill that notifies account teams when renewal, cancellation, or risk events need attention.",
+    "A Skill that prepares incident communication drafts and posts them to approved Teams channels."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Microsoft Teams, such as posting escalations, routing alerts, or sharing summaries, and Skill Builder turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed connection details, defines secure authentication and runtime configuration, protects and proxies secrets automatically, and scopes access to only the channels, users, actions, and data required."
+    },
+    {
+      "title": "Add safe action boundaries",
+      "description": "Skill Builder sets approval boundaries and action limits for sensitive steps, such as which Teams messages can be posted automatically and which workflows should wait for review before sending."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat agent, helpdesk agent, or private internal agent so teams can use Microsoft Teams actions safely in everyday work."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Microsoft Teams for customer support workflows?",
+      "answer": "With DocsBot Skill Builder, you can describe support outcomes in plain language, such as escalating urgent cases to Teams or posting handoff summaries for specialists. Skill Builder designs the workflow, secures the connection, tests scenarios, and publishes the Skill to your support agent with bounded actions."
+    },
+    {
+      "question": "Can a DocsBot support agent send Microsoft Teams messages during customer conversations?",
+      "answer": "Yes, a DocsBot agent can be designed to send approved Teams messages when a customer chat or helpdesk ticket requires escalation, review, or internal coordination. The Skill can limit which channels, message types, and situations are allowed so communication stays controlled."
+    },
+    {
+      "question": "What internal AI assistant workflows can Microsoft Teams support?",
+      "answer": "A private DocsBot agent can help employees create updates, route requests, prepare summaries, and trigger communication workflows in Microsoft Teams. This is useful for operations, support, customer success, and leadership reporting where teams need fast and consistent coordination."
+    },
+    {
+      "question": "Can an AI agent summarize support issues and post them in Microsoft Teams?",
+      "answer": "Yes, DocsBot can create a Skill that gathers context from conversations or connected systems, generates a clear summary, and posts it to the right Teams channel. You can define approval rules for sensitive summaries before anything is shared."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft Teams actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill source, proxies secrets through secure runtime handling, and scopes permissions to the minimum required access. It can also add approval steps or action boundaries for messages, channels, and escalation workflows."
+    },
+    {
+      "question": "Can employees use a private AI agent to trigger Microsoft Teams handoffs from Slack or chat?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in their approved interface and ask it to prepare or send Microsoft Teams handoffs as part of an internal workflow. The agent can follow SOPs, gather missing context, and keep actions within approved limits."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "zoom",
+    "google-chat",
+    "discord",
+    "jira",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

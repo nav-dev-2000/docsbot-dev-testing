@@ -1,0 +1,168 @@
+{
+  "slug": "egnyte",
+  "name": "Egnyte",
+  "domain": "egnyte.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Egnyte",
+  "metaTitle": "Build AI Support and Internal Agents for Egnyte",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely search, summarize, route, and take approved actions with Egnyte content and workflows.",
+  "intro": "Egnyte helps teams store, organize, protect, and act on business content across the company. With DocsBot Skill Builder, you can describe the Egnyte-powered workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. That lets your AI agent do more than answer questions by looking up files, summarizing content, preparing handoffs, and triggering approved actions inside Egnyte.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search approved Egnyte folders for policies, guides, manuals, or onboarding documents and answer questions with grounded summaries.",
+    "Use Egnyte file and folder metadata to help a support agent confirm the latest approved document version before replying to a customer ticket.",
+    "Have the agent retrieve customer-safe documents from Egnyte and generate a concise response, attachment suggestion, or follow-up summary for the helpdesk ticket.",
+    "Let the agent prepare escalations by collecting relevant Egnyte files, summarizing their contents, and packaging context for a human support specialist.",
+    "Use DocsBot to guide customers to the right forms, checklists, or implementation documents stored in Egnyte based on product, account type, or issue category."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find the right Egnyte files, summarize long documents, and surface key policy or process details without manual searching.",
+    "Give customer success, operations, or compliance teams an internal AI assistant that pulls approved Egnyte content into SOP answers, handoff notes, and research summaries.",
+    "Enable teams in Slack or Microsoft Teams to ask the agent for the latest contract template, training material, project checklist, or controlled document stored in Egnyte.",
+    "Use an internal agent to assemble document context from Egnyte for cross-functional workflows such as onboarding, audits, renewals, or project delivery reviews.",
+    "Help employees follow repeatable workflows by having the agent retrieve Egnyte reference material, summarize next steps, and generate structured outputs for downstream systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and summarizes customer-safe documents from Egnyte during live chats or tickets.",
+    "An internal assistant that answers employee questions using approved Egnyte files, folders, and document metadata.",
+    "A handoff workflow that gathers relevant Egnyte documents and prepares escalation notes for human teams.",
+    "A policy lookup agent that retrieves the latest controlled document and explains the key requirements clearly.",
+    "A renewal or onboarding assistant that assembles Egnyte materials and generates a tailored next-step checklist.",
+    "A compliance support agent that finds audit-ready files in Egnyte and summarizes evidence for internal review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Egnyte in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets, and scopes Egnyte access to the minimum folders, actions, users, and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries so the agent can search, summarize, prepare outputs, or take sensitive actions only when allowed."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios against the Skill, checks for bugs, missing permission controls, weak instructions, and workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder feeds those findings into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Egnyte files and folders?",
+      "answer": "With DocsBot Skill Builder, you describe the Egnyte workflow you want in plain language, such as searching documents, summarizing files, or preparing handoffs. Skill Builder then designs the Skill, handles secure connection setup, scopes permissions, tests scenarios, and helps deploy it to the right AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Egnyte content to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Egnyte content as a live source for answers, summaries, and follow-up guidance in chat or helpdesk replies. You can define which folders or document types are available so the agent stays within customer-safe boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Egnyte?",
+      "answer": "A DocsBot agent can search documentation, confirm the latest approved file, summarize relevant content, suggest attachments, and prepare escalations with Egnyte context. It can also route customers toward the right forms, guides, and next steps based on the conversation."
+    },
+    {
+      "question": "Can an internal AI assistant search Egnyte for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent that lets employees ask for files, summaries, templates, policies, and process documents stored in Egnyte from chat, Slack, or Microsoft Teams. This helps teams retrieve trusted information faster and complete SOP-driven work without manual searching."
+    },
+    {
+      "question": "How does DocsBot keep Egnyte access secure for AI actions?",
+      "answer": "Skill Builder is designed to define secure configuration values, keep credentials out of chats and generated content, proxy secrets through approved runtime settings, and limit access to the minimum Egnyte scope needed. It can also add approval boundaries for sensitive actions so the agent only works within your rules."
+    },
+    {
+      "question": "Can DocsBot summarize long documents stored in Egnyte for support or operations teams?",
+      "answer": "Yes, a Skill can retrieve approved Egnyte documents and turn them into concise summaries, key points, next steps, or structured handoff notes. This is useful for customer support, onboarding, compliance reviews, and internal research workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "box",
+    "dropbox",
+    "google-drive",
+    "onedrive",
+    "sharepoint",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Egnyte",
+    "domain": "egnyte.com",
+    "description": "Egnyte is a cloud‑based content platform that unifies content management, data security, and artificial intelligence. Serving over 22,000 customers, Egnyte helps organizations boost employee productivity, automate business processes, and protect critical information. The platform offers specialized content intelligence and automation tools tailored for sectors such as architecture, engineering, construction, life sciences, and financial services. By combining secure file storage, collaboration features, and AI‑driven insights, Egnyte enables businesses to manage, search, and act on their data safely and efficiently. Egnyte is backed by GI Partners and TA as a portfolio company.",
+    "slogan": "Where Content Collaboration Meets Secure AI",
+    "logoUrl": "https://media.brand.dev/db30c497-4018-46d7-83de-b3912169a84f.svg",
+    "iconUrl": "https://media.brand.dev/720280b0-7402-4ae7-a898-7c7bbe785630.png",
+    "primaryColor": "#1bbbb0",
+    "accentColor": "#040505",
+    "colors": [
+      {
+        "hex": "#1bbbb0",
+        "name": "Swagger"
+      },
+      {
+        "hex": "#040505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dbdbdb",
+        "name": "Pixel White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b70e8d9e-01f1-4685-9fb9-5a03c2392e2f.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.egnyte.com/blog/",
+      "careers": "https://www.egnyte.com/careers",
+      "terms": "https://www.egnyte.com/terms-and-conditions/10-2022",
+      "contact": "https://www.egnyte.com/contact",
+      "privacy": "https://www.egnyte.com/privacy-policy",
+      "pricing": "https://www.egnyte.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/673025aa-cd19-4eb2-91cd-42e8f8adfcda.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db30c497-4018-46d7-83de-b3912169a84f.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 287,
+        "height": 71,
+        "aspectRatio": 4.04
+      },
+      {
+        "url": "https://media.brand.dev/720280b0-7402-4ae7-a898-7c7bbe785630.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/db30c497-4018-46d7-83de-b3912169a84f.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 287,
+      "height": 71,
+      "aspectRatio": 4.04
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/673025aa-cd19-4eb2-91cd-42e8f8adfcda.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

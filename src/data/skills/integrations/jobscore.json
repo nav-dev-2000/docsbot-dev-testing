@@ -1,0 +1,159 @@
+{
+  "slug": "jobscore",
+  "name": "JobScore",
+  "domain": "jobscore.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JobScore",
+  "metaTitle": "Build JobScore AI Agents for Hiring and Support | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use JobScore to answer hiring questions, look up candidate details, update recruiting workflows, and assist internal teams safely.",
+  "intro": "JobScore helps teams manage sourcing, applicants, and hiring decisions in one recruiting platform. With DocsBot Skill Builder, you can describe the hiring or support workflow you want in plain language, and DocsBot can turn it into a reusable AI Skill that works with JobScore. The result is an AI agent that can answer questions, retrieve recruiting data, prepare handoffs, and take approved actions for customers or internal teams.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer candidate application questions by looking up JobScore records and summarizing the current hiring stage.",
+    "Let a support agent pull interview status, recruiter ownership, or next-step details from JobScore when replying to inbound candidate tickets.",
+    "Have the agent create a recruiting follow-up task or handoff in JobScore when a candidate needs help from a human recruiter.",
+    "Use the agent to gather missing candidate details in chat and prepare a structured escalation summary for the recruiting team inside JobScore.",
+    "Allow the agent to confirm whether an application was received and share approved status guidance based on JobScore data without exposing private hiring notes."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up candidate pipelines, open roles, and recruiter assignments from JobScore.",
+    "Recruiting teams can ask the agent to summarize applicant progress, flag stalled candidates, and prepare handoff notes for the next hiring step.",
+    "Hiring managers can use the agent to retrieve interview status, candidate history, and role details from JobScore without manually searching across records.",
+    "Operations or talent teams can chat with the agent to trigger approved recruiting workflows, such as creating follow-up tasks or routing requests to the right recruiter.",
+    "Employees can use the agent to follow internal hiring SOPs, with the agent gathering the right JobScore context, checking safe action limits, and preparing updates for approval when needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that answers candidate status questions using live JobScore data.",
+    "A helpdesk agent that summarizes application records and prepares recruiter handoffs from JobScore.",
+    "An internal talent operations bot that looks up roles, applicants, and interview progress.",
+    "A hiring workflow assistant that creates follow-up tasks after approved candidate conversations.",
+    "A recruiter copilot that gathers missing context and drafts consistent escalation summaries.",
+    "A private employee agent that answers JobScore questions inside Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the AI agent to do with JobScore, such as answer candidate questions, look up application status, prepare recruiter handoffs, or trigger approved hiring workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the JobScore connection details it needs, defines runtime configuration values, and keeps authentication and secrets protected and out of chats or generated content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder automatically limits the Skill to the minimum JobScore actions, records, users, and workflow boundaries required, and adds approval steps for sensitive updates when appropriate."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal recruiting scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into improvements."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or internal team assistant can use JobScore safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with JobScore?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting or support outcome you want in plain language, and DocsBot designs the Skill that connects to JobScore, handles secure configuration, and prepares the agent for testing and deployment."
+    },
+    {
+      "question": "Can an AI support agent use JobScore data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use JobScore to look up approved application details, summarize candidate status, and prepare recruiter handoffs while responding in chat or through helpdesk tickets."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with JobScore?",
+      "answer": "A private DocsBot agent can help employees retrieve candidate and role information, summarize pipelines, create approved follow-up actions, and guide teams through hiring SOPs across chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update JobScore records safely?",
+      "answer": "DocsBot Skill Builder can design bounded actions for updates, task creation, and workflow triggers with scoped permissions, protected credentials, and approval boundaries for more sensitive recruiting steps."
+    },
+    {
+      "question": "How does DocsBot keep JobScore credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of conversations and Skill content, and scopes access to only the needed users and actions."
+    },
+    {
+      "question": "Can an AI agent summarize recruiting activity from JobScore for hiring teams?",
+      "answer": "Yes, DocsBot can create an internal agent that summarizes candidate progress, interview status, stalled stages, and recruiter handoff context so teams can move faster without digging through records manually."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JobScore",
+    "domain": "jobscore.com",
+    "description": "JobScore is a recruiting software company that provides a comprehensive hiring platform. Their software helps teams streamline the hiring process by sourcing candidates, assessing applicants, and making informed hiring decisions. With JobScore, businesses can simplify their recruitment process and attract top talent.",
+    "slogan": "Simplify Your Hiring",
+    "logoUrl": "https://media.brand.dev/e37a3a29-df33-404c-b720-fb717d511804.png",
+    "iconUrl": "https://media.brand.dev/7862b410-8435-4344-96fa-aee4dc4d5aa1.png",
+    "primaryColor": "#3b5aac",
+    "accentColor": "#2a407e",
+    "colors": [
+      {
+        "hex": "#3b5aac",
+        "name": "Kakitsubata Blue"
+      },
+      {
+        "hex": "#2a407e",
+        "name": "Mazarine Blue"
+      },
+      {
+        "hex": "#424242",
+        "name": "Black Panther"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e5efb9c5-87ea-415f-ba6c-11b91a9cf2c2.png",
+    "industries": [],
+    "links": {
+      "careers": "https://jobscore.com/features/career-page/",
+      "terms": "https://jobscore.com/agreements/terms_of_service/",
+      "contact": "https://jobscore.com/about/",
+      "privacy": "https://jobscore.com/about/privacy_guarantee/",
+      "blog": "https://jobscore.com/blog/",
+      "pricing": "https://jobscore.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e37a3a29-df33-404c-b720-fb717d511804.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1600,
+        "height": 400,
+        "aspectRatio": 4
+      },
+      {
+        "url": "https://media.brand.dev/7862b410-8435-4344-96fa-aee4dc4d5aa1.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e37a3a29-df33-404c-b720-fb717d511804.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1600,
+      "height": 400,
+      "aspectRatio": 4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7862b410-8435-4344-96fa-aee4dc4d5aa1.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

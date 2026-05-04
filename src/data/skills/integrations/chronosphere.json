@@ -1,0 +1,148 @@
+{
+  "slug": "chronosphere",
+  "name": "Chronosphere",
+  "domain": "chronosphere.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Chronosphere",
+  "metaTitle": "Build AI Support and Internal Agents for Chronosphere",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up observability data, summarize incidents, trigger workflows, and support teams using Chronosphere.",
+  "intro": "Chronosphere helps teams monitor systems, analyze telemetry, and respond to reliability issues across modern infrastructure. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use Chronosphere for support and internal operations. The result is an AI agent that can answer questions, gather incident context, summarize system state, and take approved actions instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Chronosphere service status, alert conditions, or recent incident summaries when customers ask about outages or degraded performance.",
+    "Use the agent in website chat or helpdesk replies to summarize telemetry-backed issue context and prepare a clean handoff for human support or engineering teams.",
+    "Enable the agent to gather Chronosphere monitoring details tied to a product area so it can explain whether an issue appears isolated, widespread, or already under investigation.",
+    "Have the agent trigger approved escalation or incident-response workflows when a customer report matches predefined reliability or availability conditions.",
+    "Let the agent add a structured incident summary to a ticket reply or internal handoff so support teams do not need to manually collect monitoring context first."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve Chronosphere alert, incident, and telemetry context without switching tools.",
+    "Support, SRE, and operations teams can ask the agent to summarize service health, compare recent incidents, and prepare escalation notes for ongoing investigations.",
+    "Team members can use the agent to follow incident-response SOPs, including gathering Chronosphere evidence, creating handoff summaries, and triggering approved workflows across connected systems.",
+    "Customer success or account teams can ask the agent for a safe high-level summary of reliability events affecting a specific product area before speaking with customers.",
+    "Engineering leaders can chat with the agent to get concise rollups of active alerts, impacted services, and recent changes in observed system behavior."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Chronosphere service health before replying to outage-related customer questions.",
+    "A ticket assistant that adds monitoring-based incident summaries and escalation notes to helpdesk conversations.",
+    "An internal SRE assistant that gathers Chronosphere telemetry context and prepares incident handoff briefs.",
+    "A Slack agent that summarizes active alerts and affected services for operations teams.",
+    "A workflow Skill that triggers approved escalations when customer-reported symptoms match incident thresholds.",
+    "An AI assistant that converts observability data into plain-language updates for support and customer success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Chronosphere, such as checking service health, summarizing alerts, or preparing incident handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs the Skill",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the configuration values it needs, and defines secure authentication handling for Chronosphere automatically."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum actions and records needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds weak spots or missing checks, and feeds those findings into an automated improvement loop before release."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps deploy the improved Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so it can answer questions and take bounded action with Chronosphere."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Chronosphere?",
+      "answer": "With DocsBot Skill Builder, you describe the Chronosphere workflow you want in plain language, and DocsBot designs, secures, tests, and packages a reusable Skill for that agent. The finished agent can look up observability data, summarize incident state, prepare handoffs, and trigger approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Chronosphere data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Chronosphere Skill to retrieve approved monitoring context while responding in chat widgets or helpdesk tickets. That helps the agent confirm service status, summarize likely impact, and route or escalate issues with better evidence."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Chronosphere?",
+      "answer": "Teams can build workflows for service-health lookups, incident summaries, escalation prep, ticket enrichment, and approved incident-response triggers. This lets the agent move from answering questions to taking safe next-step actions when reliability issues are involved."
+    },
+    {
+      "question": "Can an internal AI assistant help SRE or operations teams with Chronosphere?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve alert context, summarize telemetry, compare incidents, and follow response SOPs using Chronosphere data. The agent can also prepare concise updates and handoffs for engineering, support, or leadership teams."
+    },
+    {
+      "question": "How does DocsBot keep Chronosphere access secure for AI agents?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated content. It also scopes permissions to approved actions and can require approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent trigger incident workflows based on Chronosphere findings?",
+      "answer": "Yes, you can build Skills that let the agent trigger bounded escalation or response workflows when approved conditions are met. The exact actions, limits, and approval requirements are defined during the Skill Builder process."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "grafana",
+    "pagerduty",
+    "opsgenie",
+    "splunk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Chronosphere",
+    "domain": "chronosphere.com",
+    "description": "cSphere Communications, Inc., operating under the Chronosphere brand (chronosphere.com), is a technology and communications company that designs, builds, and manages advanced networking and data‑flow solutions for enterprises. Founded in 1998, the firm delivers cloud‑native monitoring, real‑time analytics, and secure connectivity services that help organizations optimize performance, ensure reliability, and scale their digital operations. Chronosphere’s platform integrates telemetry, observability, and edge‑to‑cloud communications, enabling customers to gain actionable insights, automate infrastructure management, and maintain high‑availability across hybrid environments. The company serves sectors such as finance, healthcare, manufacturing, and SaaS, offering managed services, consulting, and custom integration to accelerate digital transformation.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/b9c7ea4b-02ae-4fc1-9440-363ccfa7e438.jpg",
+    "iconUrl": "https://media.brand.dev/b9c7ea4b-02ae-4fc1-9440-363ccfa7e438.jpg",
+    "primaryColor": "#4115ca",
+    "accentColor": "#0e0c27",
+    "colors": [
+      {
+        "hex": "#4115ca",
+        "name": "Interdimensional Blue"
+      },
+      {
+        "hex": "#0e0c27",
+        "name": "Corbeau"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/610be790-ea69-4f45-9968-d0f9a0d8a2b5.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b9c7ea4b-02ae-4fc1-9440-363ccfa7e438.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b9c7ea4b-02ae-4fc1-9440-363ccfa7e438.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b9c7ea4b-02ae-4fc1-9440-363ccfa7e438.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "slug": "getresponse",
+  "name": "GetResponse",
+  "domain": "getresponse.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with GetResponse",
+  "metaTitle": "Build AI Agents for GetResponse with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use GetResponse for subscriber lookups, campaign context, workflow triggers, and safe internal marketing actions.",
+  "intro": "GetResponse helps businesses manage email marketing, automation, and lead growth across owned channels. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use GetResponse data and actions. The result is a support or internal AI agent that can answer questions, check campaign or contact status, trigger approved workflows, and prepare handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact’s subscription status in GetResponse and explain whether they are currently opted in to specific email communications.",
+    "Allow a support agent connected to your helpdesk to check whether a customer received a campaign, autoresponder, or onboarding sequence before replying to a delivery or engagement question.",
+    "Use the AI agent to add or update a contact in GetResponse after collecting missing details from the customer in chat and confirming the approved action.",
+    "Have the agent summarize a customer’s GetResponse history, such as list membership or automation participation, to prepare a clean handoff for a human support or success teammate.",
+    "Enable the agent to trigger an approved follow-up workflow in GetResponse, such as adding a customer to a nurture path after a support conversation is completed."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up GetResponse contact records, list membership, and campaign participation without opening the marketing platform.",
+    "Help marketing or customer success teams ask the agent to summarize automation performance context for a lead or segment before taking the next step in a workflow.",
+    "Allow team members to use the agent to add contacts to approved lists, update fields, or trigger bounded lifecycle automations while following internal SOPs.",
+    "Give operations or revenue teams an internal AI assistant that researches contact status across GetResponse and related tools, then prepares a concise action summary for employees.",
+    "Support internal handoff workflows by letting employees ask the agent to gather campaign and subscriber context from GetResponse and package it for sales, support, or lifecycle marketing teams."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks subscriber status and campaign enrollment before answering delivery questions.",
+    "An AI assistant that updates GetResponse contacts after collecting approved details from a customer conversation.",
+    "A helpdesk agent that prepares escalation notes using list membership and automation history.",
+    "An internal marketing assistant that finds subscriber segments and summarizes campaign participation for employees.",
+    "A private team agent that triggers approved nurture workflows from chat with approval boundaries.",
+    "An operations assistant that researches contact records and creates handoff-ready summaries across teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with GetResponse in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, authentication flow, secret handling, and minimum access scope so credentials stay protected and the agent only gets the permissions it actually needs."
+    },
+    {
+      "title": "Bound actions are defined",
+      "description": "Skill Builder sets safe runtime rules for lookups, updates, workflow triggers, summaries, and approval boundaries so sensitive GetResponse actions can be reviewed or limited before the agent uses them."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant with logging, controlled settings, and reusable behavior."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for GetResponse?",
+      "answer": "With DocsBot Skill Builder, you describe the GetResponse workflow you want in plain language, such as checking subscriber status, updating contacts, or triggering approved automations. Skill Builder then designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use GetResponse data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved GetResponse information like contact status, list membership, or automation participation while responding in a chat widget or helpdesk flow. You can also define limits so the agent only retrieves the records and fields needed for support."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with GetResponse?",
+      "answer": "A DocsBot agent can help verify subscription status, check campaign or autoresponder participation, update contact details after confirmation, trigger approved follow-up workflows, and create clean handoff summaries for human teams. These actions are designed around your rules and can include approval steps for more sensitive changes."
+    },
+    {
+      "question": "Can DocsBot safely update GetResponse contacts or trigger automations?",
+      "answer": "Yes, Skill Builder can create bounded actions for contact updates and workflow triggers with scoped permissions and approval boundaries where needed. It also keeps secrets out of chats and generated content by routing authentication through secure runtime configuration."
+    },
+    {
+      "question": "How does DocsBot handle security for a GetResponse integration?",
+      "answer": "Skill Builder identifies the required connection settings, protects and proxies secrets, scopes access to the minimum records and actions required, and adds guardrails around sensitive workflows. This helps your AI agent work with GetResponse safely without exposing credentials in transcripts or Skill instructions."
+    },
+    {
+      "question": "Can I build an internal AI assistant for my marketing team that uses GetResponse?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web interface to research subscriber status, summarize campaign context, and complete approved GetResponse workflows. This is useful for marketing, customer success, and operations teams that need faster answers and repeatable SOP execution."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "activecampaign",
+    "klaviyo",
+    "constant-contact",
+    "convertkit"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "GetResponse",
+    "domain": "getresponse.com",
+    "description": "GetResponse is the email, automation, and AI platform that helps businesses grow across their owned channels. They provide marketing software that enables companies to automate sales, track revenue, and convert leads into loyal customers.",
+    "slogan": "Grow your business with the world's easiest all-in-one marketing platform.",
+    "logoUrl": "https://media.brand.dev/cd69b67c-592c-4dba-9372-730d23c480ed.svg",
+    "iconUrl": "https://media.brand.dev/a0aa0e7a-544b-491f-a034-b0572d90effe.png",
+    "primaryColor": "#34acdf",
+    "accentColor": "#6bc5eb",
+    "colors": [
+      {
+        "hex": "#34acdf",
+        "name": "Summer Sky"
+      },
+      {
+        "hex": "#6bc5eb",
+        "name": "Blue Mana"
+      },
+      {
+        "hex": "#04a3fb",
+        "name": "Krishna Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/14d591bb-e073-41b8-9659-9c316e719b7d.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.getresponse.com/legal",
+      "contact": "https://www.getresponse.com/features/support",
+      "privacy": "https://www.getresponse.com/legal/privacy",
+      "blog": "https://www.getresponse.com/blog",
+      "pricing": "https://www.getresponse.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/82a0cba8-d6f2-459c-9f4b-812985d02e5f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a0aa0e7a-544b-491f-a034-b0572d90effe.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 194,
+        "height": 194,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6007196f-c731-4b95-9884-5d11efdf2337.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8b1d3043-32ea-4e9b-bb81-bba748e6878d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 140,
+        "height": 19,
+        "aspectRatio": 7.37
+      },
+      {
+        "url": "https://media.brand.dev/cd69b67c-592c-4dba-9372-730d23c480ed.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 88,
+        "height": 56,
+        "aspectRatio": 1.57
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8b1d3043-32ea-4e9b-bb81-bba748e6878d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 140,
+      "height": 19,
+      "aspectRatio": 7.37
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/82a0cba8-d6f2-459c-9f4b-812985d02e5f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

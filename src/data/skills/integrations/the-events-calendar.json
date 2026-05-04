@@ -1,0 +1,176 @@
+{
+  "slug": "the-events-calendar",
+  "name": "The Events Calendar",
+  "domain": "theeventscalendar.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Event Management",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with The Events Calendar",
+  "metaTitle": "Build AI Agents for The Events Calendar with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use The Events Calendar to answer event questions, update records, trigger workflows, and support internal event operations safely.",
+  "intro": "The Events Calendar helps teams manage calendars, events, ticketing, and event-related workflows in WordPress. With DocsBot Skill Builder, you can describe the event support or operations workflow you want in plain language, and DocsBot helps create a reusable Skill for it. That lets your AI support agent or internal team assistant look up event details, prepare handoffs, update approved records, and trigger event workflows while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up event dates, locations, ticket availability, and registration details from The Events Calendar while answering questions in your website chat widget or helpdesk.",
+    "Use the agent to confirm whether an event has changed, summarize the latest schedule details, and send a clean handoff to a human team member when the request needs review.",
+    "Allow the agent to create or update approved attendee-related notes, support records, or event follow-up tasks tied to customer conversations.",
+    "Have the agent guide customers to the right event, class, webinar, or appointment option based on date, format, location, or availability.",
+    "Enable the agent to prepare escalation summaries for refund, access, rescheduling, or event issue tickets by pulling relevant event context from The Events Calendar."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve event schedules, venue details, organizer information, and current event status from The Events Calendar.",
+    "Operations and customer success teams can ask the agent to summarize upcoming events, identify scheduling conflicts, and prepare follow-up workflows across their event processes.",
+    "Marketing or event teams can chat with the agent to draft event briefs, pull calendar data for campaigns, and generate internal status summaries based on The Events Calendar records.",
+    "Support managers can use the agent to review recurring event issues, gather context for escalations, and complete event-related SOP steps without switching between systems.",
+    "Internal teams can ask the agent to trigger approved event workflows, create handoff notes, and keep event operations moving while following defined approval limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers live questions about event dates, venues, and availability.",
+    "A private event operations assistant that summarizes upcoming calendars and flags scheduling conflicts.",
+    "A helpdesk agent that gathers event context and prepares clean escalation notes for staff.",
+    "An internal assistant that drafts event briefs and campaign-ready summaries from calendar records.",
+    "A workflow agent that triggers approved follow-up tasks after registration or schedule changes.",
+    "A support bot that checks event status and explains reschedules, cancellations, or updates clearly."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with The Events Calendar in plain language, such as answering event questions, summarizing schedules, or triggering approved follow-up actions."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, decides what information and actions are needed, and defines the required configuration values without making you map the workflow manually."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up safe connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates so the agent can look up information, prepare changes, or take bounded actions only within your rules."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for The Events Calendar?",
+      "answer": "With DocsBot Skill Builder, you describe the event workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The resulting agent can look up event data, summarize status, trigger approved workflows, and support your team or customers through chat."
+    },
+    {
+      "question": "Can an AI support agent use The Events Calendar data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved access to event details such as dates, locations, availability, and schedule changes to answer questions in a website chat widget or helpdesk workflow. You control what the agent is allowed to read, update, or escalate."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with The Events Calendar?",
+      "answer": "A DocsBot agent can look up event details, explain schedule updates, prepare escalation notes, trigger follow-up workflows, and summarize the customer issue with event context attached. This helps resolve common event questions faster while handing off sensitive cases safely."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage event operations with The Events Calendar?",
+      "answer": "Yes, internal teams can chat with a private DocsBot agent to retrieve schedules, summarize upcoming events, identify conflicts, draft event summaries, and complete event-related SOP steps. This is useful for operations, marketing, support, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep The Events Calendar workflows secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, keeps credentials out of chats, and scopes access to the minimum actions and records required. It can also add approval boundaries for sensitive changes or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger actions in The Events Calendar instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as preparing updates, creating handoffs, triggering approved workflows, or modifying allowed records. The exact actions depend on the workflow you want and the permissions you choose to allow."
+    }
+  ],
+  "relatedSlugs": [
+    "eventbrite",
+    "calendly",
+    "acuity-scheduling",
+    "google-calendar",
+    "ticket-tailor",
+    "zoom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "The Events Calendar",
+    "domain": "theeventscalendar.com",
+    "description": "The Events Calendar is a leading provider of event management plugins and tools for the WordPress community. With a global team of developers, designers, and customer support specialists, they offer a range of products to simplify event management, from calendars and ticketing to marketing and powerful WordPress tools. As a StellarWP brand at Liquid Web, they continue to innovate and improve their offerings, fostering a culture of diversity and inclusion.",
+    "slogan": "Simplify event management with the leading WordPress calendar plugin.",
+    "logoUrl": "https://media.brand.dev/47027fa2-0a23-48dd-85db-bfe7f652bcb8.svg",
+    "iconUrl": "https://media.brand.dev/69455a21-1718-4c05-94e0-d2964b8e2ff3.jpg",
+    "primaryColor": "#0f0f34",
+    "accentColor": "#848c96",
+    "colors": [
+      {
+        "hex": "#0f0f34",
+        "name": "Spanish Roast"
+      },
+      {
+        "hex": "#848c96",
+        "name": "River Tour"
+      },
+      {
+        "hex": "#d2d2d9",
+        "name": "Spooky Ghost"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f3884536-7a37-4dca-80f2-d1098fa67c8c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://theeventscalendar.com/terms/",
+      "contact": "https://theeventscalendar.com/support/",
+      "privacy": "https://theeventscalendar.com/privacy-policy/",
+      "blog": "https://theeventscalendar.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/69455a21-1718-4c05-94e0-d2964b8e2ff3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/47027fa2-0a23-48dd-85db-bfe7f652bcb8.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 269,
+        "height": 58,
+        "aspectRatio": 4.64
+      },
+      {
+        "url": "https://media.brand.dev/cb4fff73-c717-459c-a0a2-9efe87541f3d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4b274481-001f-40b8-a857-2ae4da042de8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/47027fa2-0a23-48dd-85db-bfe7f652bcb8.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 269,
+      "height": 58,
+      "aspectRatio": 4.64
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cb4fff73-c717-459c-a0a2-9efe87541f3d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

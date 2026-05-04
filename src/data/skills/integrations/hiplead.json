@@ -1,0 +1,168 @@
+{
+  "slug": "hiplead",
+  "name": "Hiplead",
+  "domain": "hiplead.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with HipLead",
+  "metaTitle": "Build HipLead AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that securely look up lead data, summarize activity, trigger workflows, and prepare handoffs in HipLead.",
+  "intro": "HipLead helps teams with B2B lead generation, prospecting, outbound campaigns, and sales development support. With DocsBot Skill Builder, you can describe the HipLead workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve lead context, prepare handoffs, and take approved actions in HipLead while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a prospect or account already exists in HipLead and summarize the latest outreach context while replying in chat or over a helpdesk ticket.",
+    "Use an AI support agent to capture inbound partnership or demo interest from website conversations and create a structured lead handoff for sales or SDR follow-up in HipLead.",
+    "Have the agent collect missing qualification details during a support or sales-assist conversation and save an approved lead note or status update in HipLead.",
+    "Enable the agent to summarize lead research, outreach history, or account context from HipLead so customers and prospects get faster, more informed responses.",
+    "Let the agent prepare escalation notes for human sales or customer success teams by pulling HipLead data and turning it into a clean handoff summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to look up prospect, account, or outreach context stored in HipLead.",
+    "Sales, SDR, and operations teams can ask the agent to summarize lead lists, campaign status, or account research from HipLead before calls, follow-ups, or planning sessions.",
+    "Team members can use the agent to create standardized handoff notes, qualification summaries, or follow-up tasks based on HipLead records and internal SOPs.",
+    "Employees can ask the agent to gather lead-generation context from HipLead and combine it with approved business rules to recommend the next step for outreach or routing.",
+    "Operations teams can chat with the agent to trigger bounded HipLead workflows, update approved fields, and document outcomes without leaving their normal workspace."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks HipLead for existing lead or account context before responding.",
+    "An internal SDR assistant that summarizes prospect history and recommends the next outreach step.",
+    "A lead capture workflow that turns chat conversations into structured HipLead handoff records.",
+    "An AI assistant that updates approved qualification notes and lead statuses in HipLead.",
+    "A sales operations agent that prepares campaign summaries and escalation-ready account briefs.",
+    "A private team assistant that answers questions about prospecting activity and outbound progress."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the HipLead agent to do in plain language, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes HipLead access to the minimum actions and records needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries, user limits, and action controls so the agent can look up data, create handoffs, update approved records, or trigger workflows only within the rules you choose."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI assistant for ongoing use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HipLead?",
+      "answer": "With DocsBot Skill Builder, you describe the HipLead workflow you want in plain language, such as lead lookups, handoff creation, or approved record updates. Skill Builder then designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use HipLead data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a HipLead Skill to retrieve relevant lead or account context, summarize activity, and prepare a clean handoff while replying to customers in chat or through helpdesk tickets. You control what data the agent can access and which actions require boundaries or approval."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HipLead?",
+      "answer": "An internal DocsBot agent can help employees research prospects, summarize outreach context, create standardized notes, update approved fields, and trigger bounded workflows tied to SDR or sales operations processes. This helps teams complete routine work from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in HipLead?",
+      "answer": "Yes, Skill Builder is designed to create bounded actions with scoped permissions, secure authentication handling, and approval controls where needed. That lets your agent perform useful HipLead actions without exposing credentials or allowing unrestricted changes."
+    },
+    {
+      "question": "Can a DocsBot agent create lead handoffs from website chat conversations for HipLead?",
+      "answer": "Yes, you can build a workflow where the agent captures details from a website conversation, structures the information, and creates a lead handoff or follow-up package for your sales team in HipLead. This is useful for routing demo requests, partnership inquiries, or high-intent prospects."
+    },
+    {
+      "question": "How does setup work if my team is not technical?",
+      "answer": "You do not need to manually write code or map every implementation detail yourself. Skill Builder asks for the outcome you want, then handles workflow design, secure configuration, testing, improvement, and deployment guidance for the HipLead Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "apollo",
+    "outreach",
+    "salesloft",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HipLead",
+    "domain": "hiplead.com",
+    "description": "Hiplead is a leading lead generation agency specializing in B2B tech companies and startups. They provide a range of services including prospecting, outbound and inbound marketing, and SDR support, leveraging email, LinkedIn, and phone calls to generate high-quality leads. With a proprietary database of contacts and expertise in account-based marketing, Hiplead helps businesses scale their lead generation and provide their sales teams with the tools they need to succeed.",
+    "slogan": "Scaling B2B Sales with High-Quality Data and Proven Lead Generation",
+    "logoUrl": "https://media.brand.dev/d5b1ff48-02f6-4852-a74d-92bef947ce55.png",
+    "iconUrl": "https://media.brand.dev/75776468-dbae-4e10-8929-ca4568ec7afc.jpg",
+    "primaryColor": "#747272",
+    "accentColor": "#302f2f",
+    "colors": [
+      {
+        "hex": "#747272",
+        "name": "Industrial Revolution"
+      },
+      {
+        "hex": "#302f2f",
+        "name": "Off Black"
+      },
+      {
+        "hex": "#97c948",
+        "name": "Aromatic Herbs"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ddd06bea-a5c2-445c-9ff8-1202ccc3dce1.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/75776468-dbae-4e10-8929-ca4568ec7afc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d5b1ff48-02f6-4852-a74d-92bef947ce55.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 76,
+        "aspectRatio": 3.95
+      },
+      {
+        "url": "https://media.brand.dev/7b0b51d6-624e-4d92-8f9e-737b583170fe.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d5b1ff48-02f6-4852-a74d-92bef947ce55.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 76,
+      "aspectRatio": 3.95
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7b0b51d6-624e-4d92-8f9e-737b583170fe.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

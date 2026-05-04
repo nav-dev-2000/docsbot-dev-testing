@@ -1,0 +1,160 @@
+{
+  "slug": "gupshup",
+  "name": "Gupshup",
+  "domain": "gupshup.com",
+  "category": "Communications",
+  "trutoCategory": "WhatsApp",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Gupshup",
+  "metaTitle": "Build Gupshup AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read Gupshup messaging data, trigger approved workflows, and support customers or internal teams safely.",
+  "intro": "Gupshup helps teams manage messaging conversations and communication workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Gupshup for support and internal operations. The result is an AI agent that can answer questions, look up message context, trigger approved actions, and prepare clean handoffs instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Gupshup conversation status or recent message history so it can answer delivery, response, or escalation questions more accurately.",
+    "Use a support agent to summarize a Gupshup message thread and add that context to a helpdesk reply or human handoff.",
+    "Allow the agent to create or update approved communication records in Gupshup when a customer asks to continue a conversation, confirm contact details, or request follow-up.",
+    "Trigger bounded messaging workflows in Gupshup from a customer chat or ticket when the agent has collected the required information and the action is allowed.",
+    "Have the agent gather missing details from the customer, then prepare an escalation package based on Gupshup conversation activity for a support or success team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Gupshup conversation history, channel activity, or communication status without switching tools.",
+    "Customer success or operations teams can ask the agent to summarize outreach activity in Gupshup and prepare follow-up notes, handoffs, or next-step recommendations.",
+    "Teams can use the agent to complete communication SOPs, such as collecting required details, triggering an approved messaging workflow in Gupshup, and returning a summary of what happened.",
+    "Managers and support leads can chat with the agent to research messaging issues, review recent conversation patterns, and assemble context for escalations or quality checks.",
+    "Internal agents can help staff retrieve communication details from Gupshup and combine them with other systems to coordinate customer updates more efficiently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up Gupshup conversation details before replying to customers.",
+    "A ticket assistant that summarizes Gupshup messaging activity and prepares escalation handoff notes.",
+    "An internal operations agent that triggers approved Gupshup messaging workflows from chat requests.",
+    "A customer success assistant that checks communication status and suggests the best next step.",
+    "A private team agent that gathers message context and creates clean follow-up summaries.",
+    "An AI workflow assistant that collects missing information before sending approved updates through Gupshup."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Gupshup in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right connection pattern, identifies the required configuration values, handles authentication securely, protects and proxies secrets, and scopes access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds approval boundaries, safe action limits, and clear runtime instructions so the agent can look up data, update records, trigger workflows, and prepare handoffs only within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, weak prompts, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team agent so people can use it in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gupshup?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as looking up conversation context or triggering an approved messaging workflow, and Skill Builder designs, secures, tests, and packages the Skill for your agent. It also handles configuration planning, secret protection, and scoped permissions so the workflow stays controlled."
+    },
+    {
+      "question": "Can an AI support agent use Gupshup data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Gupshup Skill to retrieve allowed conversation details, summarize message history, prepare handoffs, or trigger approved actions while responding in a website chat widget or helpdesk flow. The customer conversation triggers DocsBot, and the Skill lets the agent act inside Gupshup within your defined limits."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Gupshup?",
+      "answer": "Teams can build workflows for conversation lookups, message-thread summaries, escalation prep, follow-up requests, and approved communication triggers based on customer input. This helps the agent resolve routine questions faster and hand off complex cases with better context."
+    },
+    {
+      "question": "Can an internal AI assistant use Gupshup for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve communication context, review message activity, trigger approved outreach steps, or complete SOP-driven workflows that involve Gupshup. This is useful in internal chat, Slack, or Microsoft Teams when teams want faster answers and fewer manual tool switches."
+    },
+    {
+      "question": "How does DocsBot keep Gupshup actions secure?",
+      "answer": "Skill Builder defines secure connection requirements, keeps credentials out of chats and generated content, proxies secrets through approved runtime configuration, and scopes permissions to the minimum records and actions required. It can also add approval checkpoints and action boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot test a Gupshup Skill before launch?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can simulate support and internal scenarios, find workflow gaps, permission issues, or unclear instructions, and improve the Skill before it goes live. That helps teams deploy with more confidence and fewer surprises."
+    }
+  ],
+  "relatedSlugs": [
+    "whatsapp",
+    "twilio",
+    "intercom",
+    "zendesk",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gupshup",
+    "domain": "gupshup.com",
+    "description": "Gupshup is a domain related service provider, Afternic is one of their services which is a marketplace for buying, selling, and parking domains, positioning itself as the world's premiere domain marketplace and exchange reseller.",
+    "slogan": "Your premier marketplace to buy, sell, and park domains effortlessly.",
+    "logoUrl": "https://media.brand.dev/20c3d85e-c0d0-48ad-af60-93e00abf9928.png",
+    "iconUrl": "https://media.brand.dev/ad50637e-99e8-42d9-b831-ad7d79f8d401.jpg",
+    "primaryColor": "#1d614a",
+    "accentColor": "#5c8c7c",
+    "colors": [
+      {
+        "hex": "#1d614a",
+        "name": "Brunswick"
+      },
+      {
+        "hex": "#5c8c7c",
+        "name": "Privet Hedge"
+      },
+      {
+        "hex": "#cadbd7",
+        "name": "Blue Cypress"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/18b44c7c-b836-42a3-822d-a0f5b4f43450.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ad50637e-99e8-42d9-b831-ad7d79f8d401.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/20c3d85e-c0d0-48ad-af60-93e00abf9928.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 2663,
+        "height": 512,
+        "aspectRatio": 5.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/20c3d85e-c0d0-48ad-af60-93e00abf9928.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 2663,
+      "height": 512,
+      "aspectRatio": 5.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ad50637e-99e8-42d9-b831-ad7d79f8d401.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "slug": "eventbrite",
+  "name": "Eventbrite",
+  "domain": "eventbrite.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Event Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Eventbrite",
+  "metaTitle": "Build Eventbrite AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Eventbrite for attendee lookups, event updates, support handoffs, internal workflows, and approved event operations.",
+  "intro": "Eventbrite helps teams create, manage, and support live and virtual events at scale. With DocsBot Skill Builder, you can describe the Eventbrite workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, check event details, prepare handoffs, and take approved actions inside Eventbrite without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up event details, ticket availability, schedules, and registration status from Eventbrite while answering attendee questions in chat or helpdesk tickets.",
+    "Use the agent to summarize an attendee's Eventbrite registration history and prepare a clean support handoff when a refund, transfer, or organizer review is needed.",
+    "Enable the agent to collect missing details from the customer and create or update approved support-related records or workflow steps tied to an Eventbrite event.",
+    "Have the agent confirm event logistics such as date, time, venue, and joining instructions by pulling the latest Eventbrite information into the customer conversation.",
+    "Allow the agent to trigger approved follow-up workflows after support conversations, such as notifying event operations teams or preparing escalation notes based on Eventbrite event context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Eventbrite event details, attendee counts, and organizer information without searching manually.",
+    "Enable operations teams to ask the agent to summarize registration trends, event status, and open issues across Eventbrite events for faster decision-making.",
+    "Help support, success, and event teams complete SOPs by having the agent gather Eventbrite context, draft internal notes, and route tasks to the right team.",
+    "Allow marketing or event staff to use the agent to check event setup information, compare live event status, and prepare pre-event or post-event summaries.",
+    "Give internal teams an AI assistant that can safely trigger approved Eventbrite-related workflows, prepare escalations, and document outcomes across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An attendee support agent that checks registration status and event details from Eventbrite.",
+    "A helpdesk assistant that prepares refund or transfer escalation summaries using Eventbrite context.",
+    "An internal operations agent that summarizes ticket sales and attendee activity across events.",
+    "A private team assistant that retrieves organizer, venue, and schedule information on demand.",
+    "An AI workflow that gathers missing attendee details before creating a support handoff.",
+    "An event support agent that confirms timing, access instructions, and location updates automatically."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the Eventbrite workflow you want in plain language, and Skill Builder turns that goal into a practical AI agent ability for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should work, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Eventbrite access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approval limits are added",
+      "description": "Skill Builder adds safe action boundaries and approval steps where needed so sensitive Eventbrite updates, workflow triggers, or record changes stay under your control."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds improvements back into the Skill."
+    },
+    {
+      "title": "It improves and publishes",
+      "description": "After reviewing the results, Skill Builder refines the Skill and helps deploy it to the right DocsBot agent, whether that is a customer-facing chat widget, a helpdesk agent, or a private internal assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Eventbrite?",
+      "answer": "With DocsBot Skill Builder, you describe the Eventbrite task you want in plain language, such as checking registrations, summarizing event details, or triggering an approved workflow. Skill Builder designs the Skill, secures the connection, tests scenarios, and helps publish it to your support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Eventbrite data to answer attendee questions?",
+      "answer": "Yes, a DocsBot support agent can use Eventbrite context to look up event details, schedules, registration information, and other approved data while replying in website chat or helpdesk tickets. You control what the agent is allowed to see and do through scoped permissions and approval boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Eventbrite?",
+      "answer": "Teams can build workflows for attendee lookups, event detail confirmation, support handoff preparation, escalation summaries, and approved follow-up actions tied to Eventbrite event records. This helps the agent do more than answer questions by also moving the support process forward."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Eventbrite operations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve event information, summarize attendee activity, prepare internal notes, and complete recurring event operations workflows. This is useful in Slack, Microsoft Teams, or an internal chat workspace."
+    },
+    {
+      "question": "How does DocsBot keep Eventbrite access secure?",
+      "answer": "Skill Builder defines the needed configuration values, keeps secrets out of chats and Skill source, proxies authentication through secure runtime settings, and limits access to the appropriate users, actions, and records. It can also add approval steps for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Eventbrite instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved updates, workflow triggers, handoff creation, and status summaries connected to Eventbrite processes. The exact actions are shaped around your rules, permissions, and review boundaries."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "google-calendar",
+    "calendly",
+    "hubspot",
+    "salesforce",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Eventbrite",
+    "domain": "eventbrite.com",
+    "description": "Eventbrite is a leading online platform dedicated to connecting people through events. Their mission is to empower event creators with the necessary tools to easily create, host, and manage a wide variety of events. Whether you're looking to discover concerts, workshops, yoga classes, charity events, or food and music festivals, Eventbrite offers a comprehensive solution for finding and attending experiences that ignite your passions. With a global reach, Eventbrite allows users to easily share and participate in diverse happenings, ensuring there is always something exciting to do nearby. For support and assistance, users can visit their help center for more information.",
+    "slogan": "Empowering event creators to share unforgettable experiences worldwide.",
+    "logoUrl": "https://media.brand.dev/52f7bb16-3c40-4e0b-91f3-58b8fd9e8493.png",
+    "iconUrl": "https://media.brand.dev/52f7bb16-3c40-4e0b-91f3-58b8fd9e8493.png",
+    "primaryColor": "#ec5536",
+    "accentColor": "#f4a491",
+    "colors": [
+      {
+        "hex": "#ec5536",
+        "name": "Fuego"
+      },
+      {
+        "hex": "#f4a491",
+        "name": "Peach Mimosa"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/daff1008-8e46-4c6d-915f-7a77f2b34850.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.eventbrite.com/l/legalterms/",
+      "contact": "https://www.eventbrite.com/l/contact-eventbrite-sales/",
+      "privacy": "https://www.eventbrite.com/help/en-us/articles/460838/eventbrite-privacy-policy/",
+      "blog": "https://www.eventbrite.com/blog/category/news-and-trends/",
+      "pricing": "https://www.eventbrite.com/organizer/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/52f7bb16-3c40-4e0b-91f3-58b8fd9e8493.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 401,
+        "height": 401,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dd942a25-d097-477a-ac43-236835ec8a07.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 194,
+        "height": 194,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1b72e592-bb9f-47bb-a41c-9c60bad7e693.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/827147e2-bc4d-423e-a622-464b117e323a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 1000,
+        "height": 1000,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/43649aa1-0b1f-4ffc-9b14-3818def62fd4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/827147e2-bc4d-423e-a622-464b117e323a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 1000,
+      "height": 1000,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/827147e2-bc4d-423e-a622-464b117e323a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 1000,
+      "height": 1000,
+      "aspectRatio": 1
+    }
+  }
+}

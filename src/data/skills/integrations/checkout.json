@@ -1,0 +1,169 @@
+{
+  "slug": "checkout",
+  "name": "Checkout",
+  "domain": "checkout.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Checkout.com",
+  "metaTitle": "Build Checkout.com AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Checkout.com for payment lookups, transaction summaries, safe updates, escalations, and internal payment operations workflows.",
+  "intro": "Checkout.com helps businesses process payments, manage transactions, and handle payouts across global operations. With DocsBot Skill Builder, you can describe the payment workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up payment details, prepare handoffs, and take bounded actions in Checkout.com within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up payment status or transaction details in Checkout.com while responding to billing questions in chat or helpdesk tickets.",
+    "Use the agent to summarize failed, pending, refunded, or captured payment activity so customers get a clearer explanation without waiting for a manual review.",
+    "Have the agent collect missing order or payment context from the customer, match it with Checkout.com records, and prepare an escalation for a billing or risk specialist.",
+    "Enable approved refund or follow-up workflow requests by having the agent gather details, check eligibility, and trigger the next step with the right approval boundary.",
+    "Let the agent create concise payment case summaries for handoff to human support when a dispute, payout issue, or verification concern needs review."
+  ],
+  "internalUseCases": [
+    "Give finance, support, and operations employees a private AI agent they can chat with to retrieve Checkout.com transaction, payout, or payment status information without searching manually.",
+    "Let team members ask the agent to summarize payment trends, failed transaction patterns, or recent refund activity to speed internal research and reporting workflows.",
+    "Help employees follow billing and payment SOPs by having the agent gather Checkout.com details, suggest the next approved step, and create clean handoff notes for specialists.",
+    "Enable support or operations teams to use a private DocsBot agent in Slack or Microsoft Teams to investigate customer payment issues across Checkout.com and related systems.",
+    "Allow internal teams to trigger bounded follow-up workflows, such as refund review queues or payout exception escalations, while keeping sensitive actions behind approval controls."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Checkout.com payment status from a customer chat conversation.",
+    "An AI assistant that summarizes transaction history before a billing escalation is assigned.",
+    "A private finance bot that answers employee questions about payouts, refunds, and payment events.",
+    "A helpdesk agent that prepares dispute or failed payment handoff notes automatically.",
+    "An internal operations assistant that gathers Checkout.com details and triggers approved review workflows.",
+    "A customer support workflow that verifies payment context before routing sensitive cases to humans."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Checkout.com, such as checking payment status, summarizing transactions, or preparing refund escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right workflow, defines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside chats and Skill source, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "For updates or workflow triggers, Skill Builder adds approval boundaries, user limits, and safe action rules so the agent can assist with payments responsibly instead of taking unrestricted actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal AI assistant for employees in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Checkout.com?",
+      "answer": "With DocsBot Skill Builder, you describe the payment or support outcome you want in plain language, and DocsBot designs the Skill, secures the connection, tests it, and helps deploy it to the right agent. The finished agent can use Checkout.com for lookups, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Checkout.com data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up transaction or payment status details in Checkout.com while responding to customer chats or helpdesk tickets. It can also summarize the situation, gather missing context, and prepare escalation notes for a human agent."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Checkout.com?",
+      "answer": "Common workflows include payment status lookups, failed payment summaries, refund intake, payout issue triage, dispute handoff preparation, and routing cases to the correct team. DocsBot can also add approval steps when an action should not be completed automatically."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research payments and payouts in Checkout.com?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Checkout.com information, summarize payment activity, and follow internal billing or operations SOPs from chat, Slack, or Microsoft Teams. This reduces manual searching and speeds payment investigations across teams."
+    },
+    {
+      "question": "How does DocsBot keep Checkout.com actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration, keeps credentials out of chats and generated content, proxies secrets through approved runtime settings, and scopes permissions to the minimum needed access. It can also require approvals or limit sensitive actions so the agent stays within your operational rules."
+    },
+    {
+      "question": "Can DocsBot test a Checkout.com AI workflow before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run imagined support and internal scenarios against the Skill design. It looks for bugs, missing safeguards, unclear instructions, or workflow gaps, then supports automated improvements before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "adyen",
+    "paypal",
+    "braintree",
+    "shopify"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Checkout.com",
+    "domain": "checkout.com",
+    "description": "Checkout.com is a financial technology company that provides a high-performance payments platform for businesses to process payments, manage transactions, and send payouts. With a global presence and offices in multiple continents, Checkout.com offers cloud-based solutions to enterprises and scaling businesses, enabling them to accept payments, reduce costs, and enhance customer experiences.",
+    "slogan": "Where the World Checks Out—Seamless Payments, Global Reach, Trusted Innovation",
+    "logoUrl": "https://media.brand.dev/75746ca5-da00-4538-87b8-3392b2695e7d.svg",
+    "iconUrl": "https://media.brand.dev/26dfc12f-f737-4b83-8582-3534ac72ee99.jpg",
+    "primaryColor": "#1c6cfb",
+    "accentColor": "#89b4f3",
+    "colors": [
+      {
+        "hex": "#1c6cfb",
+        "name": "Bluerocratic"
+      },
+      {
+        "hex": "#89b4f3",
+        "name": "Fly Away"
+      },
+      {
+        "hex": "#242c34",
+        "name": "Sky Captain"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b648afec-a88c-4e3a-82f0-507a43f5b358.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.checkout.com/careers",
+      "terms": "https://www.checkout.com/legal/terms-and-policies",
+      "contact": "https://www.checkout.com/contact-us",
+      "privacy": "https://www.checkout.com/legal/privacy-policy",
+      "blog": "https://www.checkout.com/newsroom",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.checkout.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/26dfc12f-f737-4b83-8582-3534ac72ee99.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/75746ca5-da00-4538-87b8-3392b2695e7d.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 156,
+        "height": 26,
+        "aspectRatio": 6
+      },
+      {
+        "url": "https://media.brand.dev/c67a8cf9-a29a-4663-a9fa-f7289df4a897.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 156,
+        "height": 28,
+        "aspectRatio": 5.57
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c67a8cf9-a29a-4663-a9fa-f7289df4a897.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 156,
+      "height": 28,
+      "aspectRatio": 5.57
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/26dfc12f-f737-4b83-8582-3534ac72ee99.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "google-meet",
+  "name": "Google Meet",
+  "domain": "google-meet.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Meet",
+  "metaTitle": "Google Meet AI Agent Skills for Support and Internal Teams",
+  "metaDescription": "Create DocsBot AI agents that use Google Meet to schedule sessions, share meeting details, prepare handoffs, and support internal workflows with safe actions.",
+  "intro": "Google Meet helps teams run secure video meetings across Google Workspace. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Meet, and DocsBot helps design, secure, test, and deploy that ability. This lets support teams and internal employees use AI agents that can look up meeting details, prepare follow-ups, trigger approved workflows, and keep conversations moving without manual back-and-forth.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up approved Google Meet joining details for an existing support session and share the right next steps in chat or by ticket reply.",
+    "Use a support agent to create a meeting request workflow when a customer needs live troubleshooting, then summarize the issue and prepare the handoff for the human team.",
+    "Have the agent confirm whether a support consultation call has been scheduled, summarize the current status, and explain what the customer should expect next.",
+    "Enable the agent to collect missing context from the customer, prepare a meeting-ready case summary, and pass it into an approved escalation workflow tied to a Google Meet session.",
+    "Use the agent to send customers meeting preparation guidance such as what account, device, or documents they should have ready before a scheduled call."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find upcoming Google Meet sessions, retrieve meeting links for approved events, and get quick context before joining.",
+    "Enable team members in Slack, Microsoft Teams, or private chat to ask the agent to prepare meeting briefs, summarize support cases before live calls, and follow internal handoff procedures.",
+    "Use an internal AI assistant to help operations teams coordinate customer escalation meetings by gathering the latest account notes, identifying owners, and packaging a clean meeting summary.",
+    "Allow customer success or support leaders to ask the agent for meeting-related follow-up tasks, summaries, and workflow guidance after a Google Meet session.",
+    "Help employees use a private AI agent to follow scheduling and escalation SOPs that involve Google Meet, related calendars, and approved customer communication steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that prepares Google Meet escalation handoffs from live customer chats.",
+    "A private team assistant that retrieves approved meeting details and summarizes pre-call context.",
+    "A workflow Skill that turns support escalations into structured meeting preparation checklists.",
+    "An internal agent that drafts post-meeting summaries and follow-up task outlines.",
+    "A customer support Skill that explains meeting readiness steps before a troubleshooting session.",
+    "An operations assistant that packages account notes for teams joining a Google Meet call."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Google Meet agent to do in plain language, such as sharing approved meeting details, preparing escalation handoffs, or guiding employees through meeting workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill design, asks for any missing business context, and decides the safest way for the agent to look up information or trigger approved Google Meet related actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder identifies the required configuration values, handles secure authentication and secret management through protected runtime settings, keeps credentials out of chats and Skill content, and scopes access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive meeting workflows, handoffs, or updates only happen within the rules you define for the right teams."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google Meet?",
+      "answer": "With DocsBot Skill Builder, you describe the meeting workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Google Meet during customer escalations?",
+      "answer": "Yes, a support agent can be designed to prepare meeting handoffs, confirm approved session details, collect missing context, and summarize the issue before a human joins a Google Meet call."
+    },
+    {
+      "question": "What can an internal AI assistant automate with Google Meet?",
+      "answer": "An internal assistant can help employees retrieve meeting details, prepare pre-call briefs, package support notes for live sessions, and follow meeting-related SOPs across support and customer success workflows."
+    },
+    {
+      "question": "Can an AI agent safely share Google Meet information with customers?",
+      "answer": "Yes, Skill Builder can design the workflow with scoped permissions, safe action limits, and approval boundaries so the agent only shares the meeting information and actions you allow."
+    },
+    {
+      "question": "Can DocsBot create post-meeting summaries and follow-up workflows connected to Google Meet?",
+      "answer": "Yes, you can build Skills that help agents generate summaries, draft follow-up notes, prepare task lists, and move the next step of the workflow forward after a meeting."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Google Meet with DocsBot?",
+      "answer": "Your team explains the desired outcome, and Skill Builder handles the design, secure configuration, secret protection, testing, improvements, and deployment path without requiring manual coding or complex integration work."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "google-calendar",
+    "gmail",
+    "slack",
+    "microsoft-teams",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "meet.google.com",
+    "description": "Google Workspace is Google’s integrated, cloud‑based suite of productivity and collaboration tools. It provides email (Gmail), file storage (Drive), video meetings (Meet), messaging (Chat), calendars, task management, and the full Office‑like apps Docs, Sheets, Slides, Forms, Sites, plus AI‑powered assistants such as Gemini, Notebook LM, and no‑code app builder AppSheet. Designed for individuals, small businesses, startups, large enterprises, frontline workers, educators, nonprofits, and developers, the platform offers security, admin controls, and industry‑specific solutions across finance, healthcare, retail, manufacturing, government, and more. Google Workspace enables teams to create, communicate, and collaborate securely from anywhere, with AI automation and integration options through a marketplace of add‑ons and partners.",
+    "slogan": "Everything you need to get anything done, now in one place.",
+    "logoUrl": "https://media.brand.dev/ebe4cbff-43be-466c-b5eb-b16f45fcbfe7.svg",
+    "iconUrl": "https://media.brand.dev/a44631de-f881-4043-882c-ecf609593c1d.svg",
+    "primaryColor": "#e65625",
+    "accentColor": "#34ab54",
+    "colors": [
+      {
+        "hex": "#e65625",
+        "name": "Scorpio Scarlet Seal"
+      },
+      {
+        "hex": "#34ab54",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#4483f3",
+        "name": "Seljuk Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/258114e8-796a-45b4-9173-16259719e36d.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a44631de-f881-4043-882c-ecf609593c1d.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ebe4cbff-43be-466c-b5eb-b16f45fcbfe7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 3995,
+        "height": 512,
+        "aspectRatio": 7.8
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ebe4cbff-43be-466c-b5eb-b16f45fcbfe7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 3995,
+      "height": 512,
+      "aspectRatio": 7.8
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a44631de-f881-4043-882c-ecf609593c1d.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

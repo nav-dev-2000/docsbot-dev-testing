@@ -1,0 +1,168 @@
+{
+  "slug": "qualtrics-corexm",
+  "name": "Qualtrics CoreXM",
+  "domain": "qualtrics-corexm.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Qualtrics CoreXM",
+  "metaTitle": "Qualtrics CoreXM AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Qualtrics CoreXM for survey lookups, feedback summaries, case handoffs, workflow triggers, and safe internal actions.",
+  "intro": "Qualtrics CoreXM helps teams collect and act on customer, employee, and product feedback across the experience lifecycle. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Qualtrics CoreXM, and Skill Builder creates a secure reusable Skill for support or internal workflows. The result is an AI agent that can answer questions, pull feedback context, summarize trends, and take bounded actions inside your approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent survey responses or experience records in Qualtrics CoreXM to provide more personalized support.",
+    "Use the agent to summarize customer sentiment, satisfaction history, or recurring feedback themes from Qualtrics CoreXM while replying to a helpdesk ticket.",
+    "Have the agent create a structured handoff for a human team when Qualtrics CoreXM feedback suggests churn risk, low satisfaction, or an urgent product issue.",
+    "Enable the agent to log approved follow-up requests or trigger downstream workflows after a customer reports a poor experience in chat.",
+    "Let the agent combine Qualtrics CoreXM feedback context with the current conversation so it can explain next steps without making the customer repeat details."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Qualtrics CoreXM survey results, response summaries, or trend snapshots without manually digging through dashboards.",
+    "Customer success or support leaders can ask the agent to research common pain points across recent Qualtrics CoreXM feedback and prepare escalation-ready summaries.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to trigger approved follow-up workflows based on negative feedback thresholds or priority segments.",
+    "Product and experience teams can chat with the agent to compare themes across feedback programs and generate concise briefs for planning or review meetings.",
+    "HR or people teams can use an internal agent to summarize employee feedback patterns from Qualtrics CoreXM while keeping access scoped to approved audiences and workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that pulls relevant survey feedback before answering a customer ticket.",
+    "A private team assistant that summarizes Qualtrics CoreXM trends by segment, product, or time period.",
+    "A handoff Skill that packages negative feedback into a clean escalation summary for human review.",
+    "A workflow Skill that triggers approved follow-up actions when satisfaction scores drop below a threshold.",
+    "A research assistant that answers employee questions using live Qualtrics CoreXM response data and summaries.",
+    "A reporting Skill that turns recent feedback activity into briefings for support or customer success leaders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Qualtrics CoreXM in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for updates, workflow triggers, handoffs, or other sensitive steps so the agent operates within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill, prepares it for deployment to the right DocsBot agent, and helps you publish it to your website chat, helpdesk agent, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Qualtrics CoreXM?",
+      "answer": "With DocsBot Skill Builder, you describe the Qualtrics CoreXM workflow you want in plain language, such as looking up responses, summarizing feedback, or triggering a follow-up process. Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Qualtrics CoreXM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Qualtrics CoreXM data to look up survey context, summarize sentiment, identify follow-up needs, and prepare better responses or escalations. Access and actions can be scoped so the agent only uses the records and workflows you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Qualtrics CoreXM?",
+      "answer": "A DocsBot agent can help with feedback lookups, sentiment summaries, escalation preparation, follow-up request creation, and approved workflow triggers tied to poor experience signals. This helps support teams respond with more context and faster next steps."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Qualtrics CoreXM?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve feedback insights, compare response themes, and complete approved follow-up workflows. This gives teams faster access to experience data without requiring them to search manually."
+    },
+    {
+      "question": "How does DocsBot keep Qualtrics CoreXM actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill source, proxies secrets through protected runtime settings, and scopes permissions to the minimum necessary access. It can also add approval steps and action boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot summarize Qualtrics CoreXM survey responses for support or success teams?",
+      "answer": "Yes, a Skill can summarize recent responses, satisfaction patterns, recurring complaints, or priority themes from Qualtrics CoreXM and present them in a format support or success teams can act on. It can also prepare concise handoff notes for human review."
+    }
+  ],
+  "relatedSlugs": [
+    "surveymonkey",
+    "typeform",
+    "medallia",
+    "zendesk",
+    "intercom",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Qualtrics",
+    "domain": "qualtrics.com",
+    "description": "Qualtrics is a software company that creates Experience Management technology used by top brands worldwide. They help businesses deliver exceptional customer experiences, build high-performing teams, and design loved products through their platform, serving over 19,000 clients globally. Founded in 2002, Qualtrics aims to close experience gaps with their technology, providing three suites to create exceptional customer frontlines, high-performing teams, and products people love, all on one platform.",
+    "slogan": "Transform insights into impact with the world's leading Experience Management platform.",
+    "logoUrl": "https://media.brand.dev/c2a6de51-6ed6-44f8-98b7-9af2a5f7eb7b.svg",
+    "iconUrl": "https://media.brand.dev/5d12ec96-8807-4708-8650-134d9753b530.jpg",
+    "primaryColor": "#46515e",
+    "accentColor": "#a4acb2",
+    "colors": [
+      {
+        "hex": "#46515e",
+        "name": "Night Tide"
+      },
+      {
+        "hex": "#a4acb2",
+        "name": "Gull Grey"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4c7fb138-799f-428c-bbc0-b14b74015cfd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.qualtrics.com/careers",
+      "terms": "https://www.qualtrics.com/legal/customers/gtcs/",
+      "contact": "https://www.qualtrics.com/customer-experience/contact-center-analytics/",
+      "privacy": "https://www.qualtrics.com/privacy-statement/",
+      "blog": "https://www.qualtrics.com/articles/news/",
+      "pricing": "https://www.qualtrics.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5d12ec96-8807-4708-8650-134d9753b530.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c2a6de51-6ed6-44f8-98b7-9af2a5f7eb7b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 147,
+        "height": 47,
+        "aspectRatio": 3.13
+      },
+      {
+        "url": "https://media.brand.dev/77ba6107-c862-4aef-935b-e1342d99d81d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c2a6de51-6ed6-44f8-98b7-9af2a5f7eb7b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 147,
+      "height": 47,
+      "aspectRatio": 3.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/77ba6107-c862-4aef-935b-e1342d99d81d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "slug": "givewp",
+  "name": "GiveWP",
+  "domain": "givewp.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with GiveWP Donations and Donor Data",
+  "metaTitle": "GiveWP AI Agents for Donations, Donor Support, and Team Workflows",
+  "metaDescription": "Build DocsBot AI agents that use GiveWP to answer donor questions, look up donation details, trigger approved workflows, and support internal fundraising teams safely.",
+  "intro": "GiveWP helps nonprofits accept donations, manage donors, and track fundraising activity inside WordPress. With DocsBot Skill Builder, you can describe the donor support or internal workflow you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent safely look up GiveWP data, prepare handoffs, trigger approved actions, and summarize outcomes. This helps customer-facing support agents and private team assistants do more than answer questions by taking bounded action inside your rules.",
+  "supportUseCases": [
+    "A DocsBot support agent can look up a donor’s recent GiveWP donation status and explain whether a gift was received, pending, or failed while replying in website chat or a helpdesk ticket.",
+    "The agent can help donors find the right campaign, donation form, or recurring giving option by retrieving GiveWP fundraising details during a live support conversation.",
+    "The agent can summarize a donor’s giving history from GiveWP and prepare a clean handoff for a human team member when a refund, tribute gift, or payment issue needs review.",
+    "The agent can collect missing donor details in chat and trigger an approved follow-up workflow for donation receipt issues, campaign questions, or recurring donation updates.",
+    "The agent can answer common donor questions about fundraising progress, campaign availability, or receipt timing by using GiveWP data instead of relying only on static help content."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up donor records, campaign performance, recurring gift activity, or recent donation trends from GiveWP without manually searching through WordPress screens.",
+    "Fundraising and support teams can ask the agent to summarize donor activity, identify the next support step, and draft internal handoff notes for finance or donor relations workflows.",
+    "Operations staff can use the agent in Slack, Microsoft Teams, or private chat to follow SOPs for reviewing failed donations, checking receipt issues, and escalating sensitive donor requests with the right context.",
+    "Team members can ask the agent to combine GiveWP information with internal policies and knowledge sources so employees get both live donation data and the correct process guidance in one conversation."
+  ],
+  "whatYouCanBuild": [
+    "A donor support agent that checks donation status and explains next steps.",
+    "An AI assistant that summarizes donor history before a human follow-up.",
+    "A fundraising operations agent that reviews failed or pending donation scenarios.",
+    "A private team assistant for recurring donation support and escalation prep.",
+    "An agent that drafts donor handoff notes using live GiveWP context.",
+    "A support workflow that gathers missing details before creating an internal case."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the donor support or fundraising workflow you want in plain language, and Skill Builder turns that goal into a practical GiveWP-enabled AI action plan."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should retrieve GiveWP data, structure responses, ask for missing context, and limit actions to the safest workflow for your team."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, handles authentication through secure runtime configuration, protects and proxies secrets by default, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder applies the minimum access needed for the workflow, scopes actions to the right records and users, and adds approval boundaries for sensitive updates or escalation steps."
+    },
+    {
+      "title": "Tests improve the Skill",
+      "description": "DocsBot’s automated testing agent runs imagined donor support and internal team scenarios, finds bugs or workflow gaps, and feeds improvements back into the Skill before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for GiveWP donor support?",
+      "answer": "With DocsBot Skill Builder, you describe the donor questions and actions you want handled, such as checking donation status, summarizing donor history, or preparing an escalation. Skill Builder designs the workflow, secures the GiveWP connection, tests scenarios, and helps deploy the finished Skill to your support agent."
+    },
+    {
+      "question": "Can an AI support agent use GiveWP data during live donor conversations?",
+      "answer": "Yes, a DocsBot agent can use a GiveWP Skill to retrieve approved donation, campaign, or donor information while replying in website chat or helpdesk workflows. This lets the agent provide more accurate answers and prepare better handoffs when a human needs to step in."
+    },
+    {
+      "question": "What GiveWP workflows can an internal AI assistant help automate?",
+      "answer": "A private DocsBot agent can help employees research donor activity, summarize campaign performance, review failed donation cases, and follow internal SOPs for escalations or donor support. It can also gather context across systems so staff spend less time switching tools."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to GiveWP workflows?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions such as starting approved follow-up workflows, preparing internal cases, or updating related process records where allowed. Skill Builder defines safe limits, scopes permissions, and can require approvals for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot keep GiveWP credentials and access secure?",
+      "answer": "Skill Builder defines the connection requirements, stores secrets in secure runtime configuration, and proxies authentication so credentials do not appear in chats or generated content. It also scopes access to the minimum records, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a GiveWP AI agent help with donation receipt or failed payment support?",
+      "answer": "Yes, the agent can gather the donor’s details, look up relevant GiveWP status information, explain what is known, and route the case into the correct internal process. That gives donors faster answers while helping your team work from a cleaner handoff."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "paypal",
+    "woocommerce",
+    "shopify",
+    "quickbooks",
+    "xero"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "GiveWP",
+    "domain": "givewp.com",
+    "description": "GiveWP is a leading provider of online donation solutions, offering a powerful and customizable donation plugin for WordPress users. With GiveWP, you can easily accept online donations, track fundraising progress, and manage donors, making it a one-stop-shop for non-profits and charitable organizations to maximize their fundraising potential.",
+    "slogan": "Democratize Generosity",
+    "logoUrl": "https://media.brand.dev/dda72476-3371-4b0d-861d-166b96b92059.svg",
+    "iconUrl": "https://media.brand.dev/b9670269-19f1-4148-968a-685995f24b72.png",
+    "primaryColor": "#66ba6c",
+    "accentColor": "#e8f4e8",
+    "colors": [
+      {
+        "hex": "#66ba6c",
+        "name": "Forest Fern"
+      },
+      {
+        "hex": "#e8f4e8",
+        "name": "Aqua Spring"
+      },
+      {
+        "hex": "#050705",
+        "name": "Black Metal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/12783b00-33b2-4e2b-8a27-ce0b9df9967a.png",
+    "industries": [],
+    "links": {
+      "careers": "https://givewp.com/careers/",
+      "terms": "https://givewp.com/terms/",
+      "contact": "https://givewp.com/contact-us/",
+      "privacy": "https://givewp.com/privacy-policy/",
+      "blog": "https://givewp.com/blog/",
+      "pricing": "https://givewp.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0815e512-2cc4-475d-8a92-67e2a8fcdd26.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/abf79672-0d25-4e51-a678-0ed9b3e4eabf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dda72476-3371-4b0d-861d-166b96b92059.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 360,
+        "height": 117,
+        "aspectRatio": 3.08
+      },
+      {
+        "url": "https://media.brand.dev/b9670269-19f1-4148-968a-685995f24b72.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dda72476-3371-4b0d-861d-166b96b92059.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 360,
+      "height": 117,
+      "aspectRatio": 3.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0815e512-2cc4-475d-8a92-67e2a8fcdd26.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

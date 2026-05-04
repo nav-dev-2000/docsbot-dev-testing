@@ -1,0 +1,160 @@
+{
+  "slug": "jetbrains",
+  "name": "Jetbrains",
+  "domain": "jetbrains.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JetBrains",
+  "metaTitle": "Build JetBrains AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use JetBrains data and workflows to answer questions, trigger approved actions, and support customers or internal teams safely.",
+  "intro": "JetBrains helps teams build software with powerful IDEs and developer tools, and DocsBot Skill Builder helps you turn those systems into practical AI agent actions. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets your DocsBot agent look up information, summarize work, trigger approved workflows, and prepare handoffs. The result is an AI support or internal assistant that can do more than answer questions while staying within the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check JetBrains project or issue status and give customers a clear progress summary during a chat or ticket reply.",
+    "Use a support agent to create or update approved development-related records in JetBrains tools when a customer reports a bug, feature request, or urgent product problem.",
+    "Have the agent gather reproduction details from the customer, format them into a structured handoff, and send that context into JetBrains workflows for engineering follow-up.",
+    "Enable the agent to summarize recent activity, blockers, or resolution progress from JetBrains systems so customers receive more accurate status updates without waiting for a manual lookup.",
+    "Let the agent trigger approved escalation or triage workflows in JetBrains-connected processes when a support conversation meets defined urgency or impact rules."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up project status, issue details, build context, or recent development activity stored in JetBrains tools.",
+    "Engineering, support, and success teams can ask the agent to prepare bug reports, escalation summaries, or release-readiness updates using JetBrains data and company SOPs.",
+    "Team members can use the agent in chat, Slack, or Microsoft Teams to trigger approved workflows such as issue creation, triage routing, or follow-up tasks across JetBrains-based processes.",
+    "Managers and operations teams can ask the agent to summarize development progress, open blockers, or workload signals from JetBrains systems for faster decision-making.",
+    "Internal teams can use the agent to follow repeatable workflows, with the agent collecting missing information, checking rules, and completing safe JetBrains actions inside approved boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that turns customer bug reports into structured JetBrains issue handoffs.",
+    "An internal assistant that summarizes project, issue, or build status from JetBrains tools.",
+    "An AI workflow that gathers missing reproduction steps before creating an engineering ticket.",
+    "A triage agent that routes urgent customer problems into approved JetBrains escalation workflows.",
+    "A private team assistant that creates release notes or status summaries from JetBrains activity.",
+    "An operations agent that checks workflow state and recommends the next approved step for teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the JetBrains agent to do, such as checking issue status, creating a handoff, or triggering a safe workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right connection approach, defines the required configuration values, handles authentication and secret proxying securely, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and JetBrains systems needed for the workflow, and it adds approval boundaries anywhere a sensitive update or trigger should require extra control."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action in JetBrains workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with JetBrains?",
+      "answer": "With DocsBot Skill Builder, you describe the JetBrains workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your DocsBot agent. That Skill can handle lookups, summaries, record updates, workflow triggers, and handoffs within the limits you approve."
+    },
+    {
+      "question": "Can a DocsBot support agent use JetBrains data during customer chats or ticket replies?",
+      "answer": "Yes, a support agent can use a JetBrains Skill to look up relevant project or issue information, summarize status, prepare escalation context, and trigger approved follow-up actions while responding to customers. This helps support teams give faster, more accurate answers without exposing unrestricted system access."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with JetBrains?",
+      "answer": "A DocsBot agent can collect bug details, create structured handoffs for engineering, update approved records, summarize work in progress, and trigger triage or escalation workflows connected to JetBrains processes. The exact actions are defined by the workflow you want and the guardrails you set."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work across JetBrains tools?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a web interface, Slack, or Microsoft Teams to retrieve JetBrains information, summarize development activity, and complete repeatable workflows. This is useful for engineering, support, operations, and cross-functional teams that need faster access to project context."
+    },
+    {
+      "question": "How does DocsBot keep JetBrains actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration, protects and proxies secrets, scopes access to the minimum required systems and actions, and adds approval boundaries for sensitive steps. That lets your AI agent take bounded action without giving it open-ended control."
+    },
+    {
+      "question": "Do I need to write code to create a JetBrains Skill for DocsBot?",
+      "answer": "No, the process is designed for non-technical users to describe the desired outcome in plain language. Skill Builder handles the workflow design, secure setup, testing, improvement, and deployment details behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jira",
+    "linear",
+    "youtrack",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JetBrains",
+    "domain": "jetbrains.com",
+    "description": "JetBrains is a software development company that creates intelligent tools to boost developer productivity and enjoyment. It offers a suite of over 30 products, including IDEs such as IntelliJ IDEA, PyCharm, WebStorm, and more, supporting a wide range of programming languages and technologies. JetBrains also provides collaboration and CI/CD solutions like YouTrack, TeamCity, and Space. The company is the creator of Kotlin, a cross‑platform language adopted by millions and endorsed by Google for Android. Trusted by 11.4 million professionals and 88 of the Fortune Global 100, JetBrains helps developers write better code faster.",
+    "slogan": "Powerful IDEs for every language, with built-in AI agents.",
+    "logoUrl": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+    "iconUrl": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+    "primaryColor": "#ed216f",
+    "accentColor": "#7c847c",
+    "colors": [
+      {
+        "hex": "#ed216f",
+        "name": "Furious Fuchsia"
+      },
+      {
+        "hex": "#7c847c",
+        "name": "Stone Craft"
+      },
+      {
+        "hex": "#070405",
+        "name": "Pupil"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6f46d6d0-b79b-4ba1-b3e7-0bc1a29ada09.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.jetbrains.com/careers/",
+      "terms": "https://www.jetbrains.com/legal/docs/store/terms/",
+      "contact": "https://www.jetbrains.com/company/contacts/",
+      "privacy": "https://www.jetbrains.com/privacy-security/",
+      "blog": "https://www.jetbrains.com/resources/newsletters/",
+      "pricing": "https://www.jetbrains.com/icpc/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 298,
+        "height": 64,
+        "aspectRatio": 4.66
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 298,
+      "height": 64,
+      "aspectRatio": 4.66
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

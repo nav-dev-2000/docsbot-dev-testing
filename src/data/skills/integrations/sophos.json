@@ -1,0 +1,168 @@
+{
+  "slug": "sophos",
+  "name": "Sophos",
+  "domain": "sophos.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build Sophos AI Agents with DocsBot Skill Builder",
+  "metaTitle": "Build Sophos AI Agents for Support and Security Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Sophos for secure lookups, incident summaries, escalations, and controlled security workflows in support and internal operations.",
+  "intro": "Sophos helps organizations monitor threats, manage security operations, and respond faster across endpoint, network, email, cloud, and identity environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Sophos data and approved actions. The result is a support or internal AI agent that can answer questions, summarize security state, prepare handoffs, and trigger bounded workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of a reported security issue in Sophos and reply with a safe, customer-appropriate update.",
+    "Let the agent summarize relevant Sophos alerts, detections, or case history when a helpdesk ticket mentions suspicious activity or a blocked user action.",
+    "Have the agent gather customer details from the conversation, create a structured escalation summary, and hand the issue to the security team with Sophos context attached.",
+    "Enable the agent to confirm whether a known incident is already being investigated in Sophos before creating a duplicate support escalation.",
+    "Use the agent to provide approved next steps based on Sophos incident status, severity, and recent response activity without exposing sensitive internal details to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Sophos alerts, incidents, detections, or response status without opening multiple security consoles.",
+    "Enable security and IT teams to ask the agent for incident summaries, affected assets, recent activity, and recommended SOP steps drawn from Sophos and internal documentation.",
+    "Have employees use the agent to prepare escalation notes, shift handoff summaries, or manager-ready incident briefs based on Sophos activity and team rules.",
+    "Allow analysts to chat with the agent to trigger approved workflows such as assigning follow-up tasks, routing cases, or requesting human approval for sensitive response actions.",
+    "Support internal research by letting team members ask the agent to correlate Sophos findings with internal runbooks, policies, and past incident patterns before taking action."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Sophos incident status before replying to customers.",
+    "A private security assistant that summarizes Sophos alerts and recommends the next approved SOP step.",
+    "An escalation Skill that turns customer reports into structured security handoff notes.",
+    "An internal agent that answers employee questions about current threats, impacted assets, and response progress.",
+    "A workflow assistant that routes Sophos cases to the right team with approval controls.",
+    "An AI agent that prepares daily security summaries from Sophos activity for operations leaders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Sophos-enabled agent to do, such as summarize incidents, look up alert status, prepare escalations, or trigger approved workflows, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the safest way to connect Sophos, defines the required configuration values, handles authentication and secret storage through secure runtime controls, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Actions are scoped carefully",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries for sensitive security changes or response workflows so the agent acts only within your rules."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so teams can safely use Sophos through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Sophos data?",
+      "answer": "With DocsBot Skill Builder, you describe the Sophos workflow you want in plain language, and Skill Builder creates a secure Skill that can look up security information, summarize incident state, and trigger bounded actions. It also defines configuration, protects secrets, scopes permissions, and prepares the Skill for deployment to the right agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Sophos during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use a Sophos Skill to check incident status, summarize approved context, prepare escalations, and help support teams respond faster. The customer chat or helpdesk ticket triggers DocsBot, and the Skill lets the agent safely use Sophos as part of that response workflow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Sophos?",
+      "answer": "An internal DocsBot agent can help employees and security teams retrieve alerts, summarize investigations, prepare handoffs, route cases, and follow SOP-driven response steps. You can keep actions bounded with scoped access and approval requirements for sensitive tasks."
+    },
+    {
+      "question": "Can an AI agent summarize Sophos incidents for security operations teams?",
+      "answer": "Yes, DocsBot can be given a Skill that gathers relevant Sophos details and turns them into concise summaries for analysts, managers, or shift handoffs. This helps teams understand current status faster without manually pulling together multiple pieces of information."
+    },
+    {
+      "question": "How does DocsBot keep Sophos access secure in an AI workflow?",
+      "answer": "Skill Builder designs the connection securely by defining the needed configuration values, protecting and proxying secrets through approved runtime settings, and keeping credentials out of chat transcripts and generated content. It also scopes the Skill to the minimum actions and records required and can add approval boundaries before sensitive actions run."
+    },
+    {
+      "question": "Can a Sophos AI agent trigger actions or only answer questions?",
+      "answer": "DocsBot Skills can go beyond answering questions by performing bounded AI Actions such as creating handoffs, updating records, routing work, generating summaries, or triggering approved workflows. The exact actions are defined by your rules, permissions, and approval requirements."
+    }
+  ],
+  "relatedSlugs": [
+    "crowdstrike",
+    "okta",
+    "sentinelone",
+    "microsoft-defender",
+    "pagerduty",
+    "servicenow"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sophos",
+    "domain": "sophos.com",
+    "description": "Sophos is a global cybersecurity leader that protects over 600,000 organizations with an AI‑driven platform and expert‑led services. The company delivers managed detection and response (MDR), extended detection and response (XDR), identity threat detection and response (ITDR), next‑gen SIEM, and a full suite of endpoint, network, email and cloud security technologies. By combining machine‑learning, automation, real‑time threat intelligence and 24/7 human expertise from Sophos X‑Ops, Sophos provides continuous threat monitoring, detection and rapid response. Sophos also offers advisory services and works through a worldwide partner ecosystem of MSPs, MSSPs, resellers and distributors, giving customers flexible, scalable protection that grows with their security maturity.",
+    "slogan": "Defeat Cyberattacks with Cybersecurity as a Service",
+    "logoUrl": "https://media.brand.dev/210976de-329a-496e-835b-0ff0b277d479.svg",
+    "iconUrl": "https://media.brand.dev/91da1bde-77ec-4400-890d-ff080eac0c76.jpg",
+    "primaryColor": "#2109ee",
+    "accentColor": "#8c7cdc",
+    "colors": [
+      {
+        "hex": "#2109ee",
+        "name": "Burning Ultrablue"
+      },
+      {
+        "hex": "#8c7cdc",
+        "name": "Matt Purple"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ac130596-41df-42e4-94ae-d51a722cde24.jpg",
+    "industries": [],
+    "links": {
+      "contact": "https://docs.sophos.com/support/help/en-us/contact/index.html",
+      "careers": "https://www.sophos.com/en-us/company/careers",
+      "terms": "https://www.sophos.com/en-us/secureworks/legal/product-terms",
+      "privacy": "https://www.sophos.com/en-us/trust/privacy",
+      "blog": "https://www.sophos.com/en-us/blog",
+      "pricing": "https://www.sophos.com/en-us/support/technical-support"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/91da1bde-77ec-4400-890d-ff080eac0c76.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/210976de-329a-496e-835b-0ff0b277d479.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 185,
+        "height": 20,
+        "aspectRatio": 9.25
+      },
+      {
+        "url": "https://media.brand.dev/2c721bc0-a1f6-41c1-9afb-058ed2a6823d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/210976de-329a-496e-835b-0ff0b277d479.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 185,
+      "height": 20,
+      "aspectRatio": 9.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2c721bc0-a1f6-41c1-9afb-058ed2a6823d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

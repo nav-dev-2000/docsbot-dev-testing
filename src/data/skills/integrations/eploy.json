@@ -1,0 +1,168 @@
+{
+  "slug": "eploy",
+  "name": "Eploy",
+  "domain": "eploy.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Eploy",
+  "metaTitle": "Build AI Agents for Eploy with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Eploy to answer hiring questions, update recruiting records, trigger workflows, and support internal teams.",
+  "intro": "Eploy helps hiring teams manage recruiting, candidate engagement, assessment, and onboarding in one talent acquisition platform. With DocsBot Skill Builder, you can describe the Eploy workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up recruiting data, prepare handoffs, and take approved actions inside Eploy while staying within your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check an applicant’s recruiting status in Eploy and respond with a safe, policy-based update through your website chat or helpdesk.",
+    "Let a support agent create or update candidate follow-up records in Eploy after collecting missing details from a job applicant in chat.",
+    "Have the agent summarize a candidate’s application stage, recent communications, and next steps from Eploy before replying to a helpdesk ticket.",
+    "Use DocsBot to trigger approved recruiting workflows in Eploy, such as routing a candidate inquiry to the right hiring team or preparing an escalation handoff.",
+    "Let the agent capture referral or application questions from candidates, log the context in Eploy, and create a clean handoff for recruiters to review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up job requisitions, candidate records, pipeline stages, and recruiting activity stored in Eploy.",
+    "Recruiters can ask an internal AI agent to summarize a candidate’s history in Eploy and prepare outreach notes, interview briefings, or escalation handoffs.",
+    "Hiring teams can use the agent in Slack or Microsoft Teams to complete SOPs such as updating candidate statuses, logging notes, or routing requests through approved Eploy workflows.",
+    "Talent operations teams can chat with the agent to research recruiting bottlenecks, retrieve Eploy data, and generate summaries for stakeholders without manually digging through records.",
+    "Internal teams can use a DocsBot agent to gather missing hiring context, suggest next steps, and trigger bounded actions in Eploy with approvals where needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting support agent that checks applicant status and shares approved next-step updates.",
+    "A private recruiter assistant that summarizes candidate timelines and recent activity from Eploy.",
+    "An internal hiring operations agent that updates candidate records after manager approval.",
+    "A helpdesk agent that logs applicant inquiries into Eploy and prepares recruiter handoffs.",
+    "A talent acquisition assistant that retrieves requisition details and routes questions to the right team.",
+    "An AI agent that generates interview briefing summaries from candidate and requisition data in Eploy."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Eploy in plain language, such as checking applicant status, updating a record, or preparing a recruiter handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and plans how the agent should look up data, take actions, and stay within your business rules."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through approved runtime configuration, and scopes access to the minimum Eploy data and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines safe action boundaries so sensitive updates, escalations, or record changes can require the right approvals, users, or workflow conditions before the agent proceeds."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Eploy without custom development?",
+      "answer": "You can describe the hiring or recruiting workflow you want in plain language, and DocsBot Skill Builder can design, secure, test, and package a reusable Skill for an AI agent that works with Eploy. It handles connection planning, authentication flow, action boundaries, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Eploy data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Eploy data to look up application status, summarize next steps, and prepare recruiter handoffs while responding in chat or through a helpdesk. You define what the agent is allowed to access and which actions it may take."
+    },
+    {
+      "question": "What Eploy workflows can an internal AI assistant automate for recruiting teams?",
+      "answer": "An internal DocsBot agent can help recruiters and hiring teams retrieve candidate or requisition information, summarize recruiting activity, update records, log notes, and trigger approved workflow steps inside Eploy. It can also support repeatable SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update candidate or recruiting records in Eploy?",
+      "answer": "DocsBot Skill Builder can create Skills that perform bounded updates in Eploy with scoped permissions, approval checks, and clear workflow limits. That helps your AI agent take useful action without giving it broad or uncontrolled access."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Eploy?",
+      "answer": "Skill Builder can design the Skill so higher-risk actions such as status changes, escalations, or sensitive record updates require approval boundaries before they run. This lets the agent help with the workflow while keeping people in control of important decisions."
+    },
+    {
+      "question": "Can a DocsBot agent create recruiter handoffs from applicant conversations?",
+      "answer": "Yes, the agent can collect context from a customer chat or ticket, summarize the issue, and create or prepare a structured handoff tied to the right recruiting workflow in Eploy. This reduces manual copy and helps recruiters start with better context."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "personio",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Eploy",
+    "domain": "eploy.com",
+    "description": "Eploy is a UK‑based talent acquisition platform that provides an all‑in‑one applicant tracking system (ATS) and suite of recruitment tools. Their solution lets in‑house hiring teams flexibly manage job requisitions, candidate attraction, engagement, assessment, and onboarding without extra fees. Eploy also offers employee referral programs, recruitment marketing, self‑service analytics, and a marketplace of integrations with background checks, assessments, payroll, video interviewing and more. The platform supports multiple sectors—from charities to construction—and is designed for volume, early‑career, and multinational hiring. By centralising workflows, communications and data, Eploy helps organisations recruit quickly, at scale, and improve hiring outcomes.",
+    "slogan": "Everything is in your control with Eploy’s flexible talent acquisition platform",
+    "logoUrl": "https://media.brand.dev/26a84fa7-c706-4b7a-affc-9c3d6eb62487.svg",
+    "iconUrl": "https://media.brand.dev/c769a242-9b75-46c9-9a1e-4ee496791027.png",
+    "primaryColor": "#f46728",
+    "accentColor": "#f9b48c",
+    "colors": [
+      {
+        "hex": "#f46728",
+        "name": "Durotar Fire"
+      },
+      {
+        "hex": "#f9b48c",
+        "name": "Peach Velour"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/19e61b70-4f63-405b-b0ab-74497caf44ee.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.eploy.com/resources/blog/",
+      "careers": "https://www.eploy.com/about-eploy/services/careers-sites/",
+      "privacy": "https://www.eploy.com/about-eploy/security-compliance/privacy-statement/",
+      "terms": "https://www.eploy.com/about-eploy/security-compliance/terms-of-use/",
+      "contact": "https://www.eploy.com/contact/",
+      "pricing": "https://www.eploy.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/66ca6495-0c93-49d3-8f9a-3b199d137c33.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 768,
+        "height": 768,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c769a242-9b75-46c9-9a1e-4ee496791027.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/26a84fa7-c706-4b7a-affc-9c3d6eb62487.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1344,
+        "height": 517,
+        "aspectRatio": 2.6
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/26a84fa7-c706-4b7a-affc-9c3d6eb62487.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1344,
+      "height": 517,
+      "aspectRatio": 2.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/66ca6495-0c93-49d3-8f9a-3b199d137c33.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 768,
+      "height": 768,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "zoho-books",
+  "name": "Zoho Books",
+  "domain": "zoho-books.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Zoho Books",
+  "metaTitle": "Build AI Agents for Zoho Books with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Books for safe lookups, invoice updates, support workflows, and internal finance actions with approval controls.",
+  "intro": "Zoho Books helps businesses manage invoices, expenses, payments, and financial records in one cloud accounting system. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely work with Zoho Books. That means customer support bots and internal team assistants can answer questions, retrieve account details, prepare handoffs, and take approved finance-related actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up invoice status, payment history, or outstanding balances in Zoho Books while replying to billing questions in chat or helpdesk tickets.",
+    "Enable the agent to create draft payment reminders or internal follow-up tasks based on overdue Zoho Books invoices before handing the conversation to a human agent.",
+    "Use the agent to summarize a customer's billing record from Zoho Books and prepare a clean escalation note for finance or support teams.",
+    "Allow the agent to confirm whether a payment has been recorded in Zoho Books and explain the next approved step to the customer.",
+    "Have the agent collect missing billing details from the customer and create or update approved contact or invoice-related records in Zoho Books when policy allows."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve invoice, expense, customer, and payment details from Zoho Books without logging into multiple systems.",
+    "Enable finance or operations teams to ask the agent to summarize overdue accounts, recent payments, or account activity from Zoho Books for faster decision-making.",
+    "Allow team members to use the agent to prepare draft invoices, log approved updates, or trigger bounded billing workflows in Zoho Books with approval checks for sensitive actions.",
+    "Help customer success and finance employees chat with the agent to follow billing SOPs, gather account context, and generate handoff notes using Zoho Books data.",
+    "Support internal research by letting employees ask the agent for account summaries, reconciliation context, or transaction history tied to approved Zoho Books records."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks invoice status and payment records in Zoho Books.",
+    "A billing assistant that summarizes outstanding balances and prepares escalation handoff notes.",
+    "An internal finance agent that retrieves customer payment history across approved Zoho Books records.",
+    "A support workflow that collects billing details and creates approved record updates in Zoho Books.",
+    "An AI assistant that drafts payment follow-up messages using live Zoho Books account data.",
+    "A private operations agent that summarizes overdue invoices and next-step recommendations for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Books in plain language, such as checking invoice status, summarizing balances, or creating approved billing updates."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Zoho Books actions and records required, and adds approval boundaries for sensitive financial changes."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or missing edge cases, and reports what should improve."
+    },
+    {
+      "title": "The Skill improves itself",
+      "description": "Skill Builder uses those test findings to refine instructions, tighten safety controls, fix workflow issues, and improve the Skill before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Books?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Books workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Books data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho Books data to look up invoices, payment status, balances, and related billing context while responding in chat or helpdesk tickets. Access can be limited to the exact records and actions your team allows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Zoho Books?",
+      "answer": "A DocsBot agent can retrieve billing details, summarize account status, prepare escalations, collect missing payment information, and create approved follow-up actions tied to Zoho Books workflows. Sensitive record changes can require approval boundaries before anything is updated."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Zoho Books?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve account details, summarize overdue invoices, research payment history, and follow finance or operations SOPs using Zoho Books data. This gives teams faster answers and bounded actions from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot handle Zoho Books credentials and security?",
+      "answer": "Skill Builder identifies the required connection settings, keeps secrets out of chat transcripts and Skill source, and proxies authentication through secure runtime configuration. It also scopes permissions to the minimum actions, users, and records needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot AI agent update Zoho Books records safely?",
+      "answer": "Yes, when you want approved actions, Skill Builder can create Skills that update or create bounded Zoho Books records within the limits you define. Approval steps and action restrictions can be added for higher-risk finance workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "freshbooks",
+    "stripe",
+    "chargebee",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho Books",
+    "domain": "zoho-books.com",
+    "description": "Zoho Books is a cloud‑based accounting and invoicing platform that helps small businesses and freelancers manage their finances online. It offers tools for creating and sending professional invoices, tracking expenses, reconciling bank statements, managing inventory, and generating detailed financial reports. Integrated with the broader Zoho suite, Zoho Books enables seamless workflow across CRM, projects, and payment gateways, supporting automated recurring billing, multi‑currency handling, and tax compliance. The service is accessible via web and mobile apps, providing real‑time visibility into cash flow and simplifying tax preparation. By automating routine bookkeeping tasks, Zoho Books empowers users to focus on growth while maintaining accurate, up‑to‑date financial records.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

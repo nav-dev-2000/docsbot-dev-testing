@@ -1,0 +1,172 @@
+{
+  "slug": "bill",
+  "name": "Bill",
+  "domain": "bill.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with BILL",
+  "metaTitle": "Build AI Agents for BILL with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use BILL for finance lookups, approved updates, workflow triggers, and internal team support actions.",
+  "intro": "BILL helps businesses automate accounts payable, receivable, expenses, and other financial operations. With DocsBot Skill Builder, you can describe the BILL workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve finance status, prepare handoffs, and take approved actions inside BILL within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice or payment status in BILL and explain the current state to a customer in chat or over a helpdesk ticket.",
+    "Use a support agent to confirm whether a bill, payment, or receivable record exists in BILL before preparing an accurate response for the customer.",
+    "Have the agent collect missing billing details from a customer and create a structured handoff for your finance or support team based on BILL-related context.",
+    "Enable the agent to summarize account payment activity from BILL so customers get a clear update without waiting for a manual lookup.",
+    "Use the agent to trigger approved follow-up workflows, such as routing a billing issue for review, when a customer reports a payment problem or invoice dispute."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve BILL invoice, bill, payment, expense, or vendor status without opening multiple systems.",
+    "Give finance, support, or operations teams an AI assistant that summarizes BILL records, explains the next step in a workflow, and prepares internal handoffs when exceptions appear.",
+    "Help employees use a private AI agent to collect required details for accounts payable or receivable workflows and trigger approved BILL-related follow-up actions.",
+    "Enable team members to ask the agent for a concise summary of billing operations, payment history, or outstanding items from BILL before contacting a customer or vendor.",
+    "Use an internal AI assistant to support SOPs by gathering BILL context, organizing notes, and guiding employees through approved finance workflows with the right approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks payment or invoice status in BILL during customer conversations.",
+    "A finance assistant that summarizes overdue bills, receivables, or expense activity for internal teams.",
+    "A workflow Skill that gathers missing billing details and prepares a structured escalation handoff.",
+    "An internal agent that helps employees follow accounts payable and receivable SOPs with BILL context.",
+    "A support workflow that routes invoice disputes to the right team with a BILL-based summary.",
+    "An AI assistant that generates billing update messages using live BILL record data and safe action limits."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with BILL, such as checking payment status, summarizing invoice records, or routing finance issues, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required BILL connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and Skill source, and scopes access to only the records, actions, and users needed for the workflow."
+    },
+    {
+      "title": "Bound actions are added",
+      "description": "Skill Builder sets safe runtime rules for lookups, summaries, updates, workflow triggers, and approval boundaries so the agent can act inside BILL without exceeding the permissions or risk limits you want."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee AI assistant so teams can start using BILL-aware AI actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with BILL?",
+      "answer": "With DocsBot Skill Builder, you describe the BILL workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. That can include live lookups, summaries, approved updates, handoffs, and workflow triggers based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use BILL data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use BILL to look up payment, invoice, or billing-related status and return a clear customer-friendly answer in chat or tickets. You can also limit the agent to read-only access or require approval for more sensitive actions."
+    },
+    {
+      "question": "What BILL workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve invoice and payment context, summarize finance records, guide AP or AR workflows, and prepare handoffs or follow-up actions. This is useful for finance, support, operations, and customer success teams that need fast answers across systems."
+    },
+    {
+      "question": "Can DocsBot trigger safe actions in BILL instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating a structured handoff, updating allowed records, or triggering an approved workflow connected to BILL. Skill Builder adds scoped permissions and approval boundaries so actions stay within your defined controls."
+    },
+    {
+      "question": "How does DocsBot keep BILL credentials and finance access secure?",
+      "answer": "Skill Builder defines secure configuration for the BILL connection, keeps secrets out of chat transcripts and generated copy, and proxies authentication through approved runtime settings. It also scopes access to the minimum records, actions, and users required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help with billing escalations and finance handoffs using BILL?",
+      "answer": "Yes, the agent can gather missing context from the customer or employee, pull relevant BILL details, and generate a structured summary for escalation to finance or support teams. This helps reduce back-and-forth and speeds up issue resolution."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "stripe",
+    "square",
+    "freshbooks"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bill",
+    "domain": "bill.com",
+    "description": "BILL is a premier developer of financial automation software specifically designed for small and midsize businesses (SMBs). Operating under the ticker symbol NYSE: BILL, the company offers a leading financial operations platform that streamlines financial workflows such as accounts payable, accounts receivable, and expense management. With a commitment to automating the future of finance, BILL empowers hundreds of thousands of businesses to manage their financial operations effectively and efficiently. Their comprehensive solutions allow organizations to create and pay bills, manage expenses, control budgets, and access necessary credit, helping them to thrive in a competitive market.",
+    "slogan": "Automating the future of finance for small and midsize businesses.",
+    "logoUrl": "https://media.brand.dev/101dd5dc-c034-4a2f-9dfa-959c67d04c37.png",
+    "iconUrl": "https://media.brand.dev/20658113-7434-427c-8643-22affcc421b3.jpg",
+    "primaryColor": "#fb5c0c",
+    "accentColor": "#fcb480",
+    "colors": [
+      {
+        "hex": "#fb5c0c",
+        "name": "Orange Tiger"
+      },
+      {
+        "hex": "#fcb480",
+        "name": "Baltic Amber"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/510e9909-8573-47ed-9264-d2bec79b3df3.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://bill.com/careers",
+      "terms": "https://bill.com/legal/terms-of-service",
+      "contact": "https://bill.com/contact-us",
+      "privacy": "https://bill.com/privacy",
+      "blog": "https://bill.com/blog",
+      "pricing": "https://bill.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/20658113-7434-427c-8643-22affcc421b3.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/101dd5dc-c034-4a2f-9dfa-959c67d04c37.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 869,
+        "height": 530,
+        "aspectRatio": 1.64
+      },
+      {
+        "url": "https://media.brand.dev/a044dee8-7aca-4b88-b688-458b53f0d578.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 106,
+        "height": 70,
+        "aspectRatio": 1.51
+      },
+      {
+        "url": "https://media.brand.dev/2950f67d-ad2f-48bd-8776-97ac8f63e155.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/101dd5dc-c034-4a2f-9dfa-959c67d04c37.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 869,
+      "height": 530,
+      "aspectRatio": 1.64
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/20658113-7434-427c-8643-22affcc421b3.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

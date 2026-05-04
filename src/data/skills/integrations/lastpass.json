@@ -1,0 +1,166 @@
+{
+  "slug": "lastpass",
+  "name": "LastPass",
+  "domain": "lastpass.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With LastPass",
+  "metaTitle": "Build LastPass AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use LastPass data and actions for support workflows, employee requests, and secure internal operations.",
+  "intro": "LastPass helps businesses manage passwords, secure notes, shared credentials, and identity access workflows across teams. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely look up LastPass information, prepare actions, and support approved workflows. This helps customer-facing support agents and private internal AI assistants answer faster, gather context, and complete bounded security-related tasks without exposing secrets.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify whether an account has completed required security setup steps, such as password reset enrollment or multi-factor authentication status, before guiding the customer to the next step.",
+    "Let a support agent summarize relevant LastPass account or policy context for a helpdesk ticket so human agents receive a clean handoff with the right security details.",
+    "Have the agent guide customers through secure access recovery workflows by checking allowed status information and triggering approved follow-up processes when escalation is required.",
+    "Use the agent to confirm whether a customer belongs to a managed business account, then tailor support instructions based on the organization’s security policies and access setup.",
+    "Let the agent collect missing information during a support conversation and prepare a structured escalation summary for identity or access issues that require manual review."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up LastPass policy guidance, vault-sharing procedures, and approved access workflows.",
+    "Let IT or security teams ask the agent to summarize user access state, shared credential ownership, or admin policy context from LastPass before taking action.",
+    "Help service desk employees use a private AI assistant to follow password reset, onboarding, offboarding, and credential-sharing SOPs with LastPass-backed context.",
+    "Allow managers or operations staff to ask the agent which security steps are required for a role, then generate a checklist or handoff for IT based on LastPass-related policies.",
+    "Support internal security operations by having employees chat with the agent to prepare access-review summaries, collect missing request details, and route approvals to the right team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks LastPass-related account security status before answering login or recovery questions.",
+    "A helpdesk assistant that prepares access issue escalations with LastPass context and recommended next steps.",
+    "An internal IT agent that guides employees through password manager onboarding and secure sharing procedures.",
+    "A security operations assistant that summarizes LastPass admin policy information for employee requests and audits.",
+    "An AI workflow that collects access request details and routes approval-ready handoffs to IT teams.",
+    "A private employee assistant that answers vault-sharing questions using approved internal security guidance and LastPass context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with LastPass in plain language, such as checking security status, preparing an escalation, or guiding an employee through an access workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and defines how the agent should safely use LastPass data, actions, and workflow limits."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication planning by keeping credentials out of chat and Skill instructions, proxying secrets through approved runtime configuration, and scoping access to the minimum users, actions, and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action rules for sensitive security tasks so the agent can assist confidently without taking unrestricted identity or credential actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LastPass?",
+      "answer": "With DocsBot Skill Builder, you describe the LastPass workflow you want in plain language, and the builder designs a reusable Skill for lookups, summaries, handoffs, and approved actions. It also plans secure configuration, secret handling, permission scope, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use LastPass data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved LastPass context to check status, gather relevant account details, summarize security-related issues, and prepare escalations while responding to customers. Sensitive actions can be limited behind approval rules and safe workflow boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with LastPass?",
+      "answer": "A private DocsBot agent can help employees and IT teams with onboarding steps, password manager guidance, access request intake, shared credential workflows, policy lookups, and escalation preparation. It can also generate summaries and structured handoffs across your support and security processes."
+    },
+    {
+      "question": "Can DocsBot safely control LastPass-related actions?",
+      "answer": "DocsBot Skill Builder is designed to define secure connection settings, keep secrets out of chats and generated copy, proxy authentication through protected runtime configuration, and restrict actions to approved scopes. It can also require approvals for sensitive workflows before any bounded action is taken."
+    },
+    {
+      "question": "Can I use DocsBot with LastPass for helpdesk ticket automation?",
+      "answer": "Yes, a DocsBot agent connected to your helpdesk can use LastPass context to enrich tickets, collect missing information, summarize identity or access issues, and prepare cleaner handoffs for human agents. This helps speed up resolution without giving the AI unrestricted control."
+    },
+    {
+      "question": "How does testing work for a LastPass AI Skill?",
+      "answer": "After Skill Builder creates the Skill, DocsBot’s automated testing agent can run realistic support and internal team scenarios to check instructions, permissions, edge cases, and workflow quality. The results feed into an automated self-improvement loop before you deploy the Skill to a live agent."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "auth0",
+    "microsoft-entra-id",
+    "duo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LastPass",
+    "domain": "lastpass.com",
+    "description": "LastPass is a leading identity and password manager that simplifies secure login for individuals, families, small businesses, and enterprises. Trusted by over 100,000 businesses and millions of users, it stores and encrypts passwords, notes, and other credentials, providing effortless access across devices while protecting privacy. The platform offers features such as password generation, secure sharing, multi‑factor authentication, and centralized admin controls for organizations. By combining advanced security with user‑friendly tools, LastPass helps users manage their digital identities safely and conveniently.",
+    "slogan": "We make security simple.",
+    "logoUrl": "https://media.brand.dev/26544563-bd53-4381-aac0-cbe642f985d4.svg",
+    "iconUrl": "https://media.brand.dev/fed55194-1389-456c-b929-dda8cf62c1c2.jpg",
+    "primaryColor": "#d31544",
+    "accentColor": "#d9849c",
+    "colors": [
+      {
+        "hex": "#d31544",
+        "name": "Blueberry Lemonade"
+      },
+      {
+        "hex": "#d9849c",
+        "name": "Primrose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f9cf4c9d-0347-4d03-9864-7ec3c16c868a.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://blog.lastpass.com/",
+      "careers": "https://www.lastpass.com/company/careers",
+      "terms": "https://www.lastpass.com/legal-center/terms-of-service/business",
+      "contact": "https://www.lastpass.com/contact-sales",
+      "privacy": "https://www.lastpass.com/legal-center/privacy-notice",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.lastpass.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fed55194-1389-456c-b929-dda8cf62c1c2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/26544563-bd53-4381-aac0-cbe642f985d4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 104,
+        "height": 24,
+        "aspectRatio": 4.33
+      },
+      {
+        "url": "https://media.brand.dev/b9d08acc-7cd0-47a4-9ccf-e5176340e08f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/26544563-bd53-4381-aac0-cbe642f985d4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 104,
+      "height": 24,
+      "aspectRatio": 4.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fed55194-1389-456c-b929-dda8cf62c1c2.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

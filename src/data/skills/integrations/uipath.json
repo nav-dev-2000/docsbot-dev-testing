@@ -1,0 +1,172 @@
+{
+  "slug": "uipath",
+  "name": "UiPath",
+  "domain": "uipath.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI Agents That Work with UiPath",
+  "metaTitle": "Build UiPath AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use UiPath to trigger automations, retrieve workflow status, prepare handoffs, and support teams with safe, tested actions.",
+  "intro": "UiPath helps teams automate business processes, workflows, and repetitive operational tasks across systems. With DocsBot Skill Builder, you can describe the UiPath-powered agent behavior you want in plain language and have DocsBot build a reusable Skill for customer support or internal operations. The result is an AI agent that can answer questions and take bounded action through UiPath while staying within your approved rules, permissions, and review controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent trigger an approved UiPath automation to start a refund review, account update, or onboarding workflow while replying to a customer.",
+    "Enable the agent to check UiPath job or process status and give customers a clear progress update without sending them to another team.",
+    "Use UiPath through the support agent to gather required details, create a structured handoff, and route the case into the right back-office workflow.",
+    "Allow the agent to summarize the current state of an automation run, including waiting steps or completed tasks, before escalating to a human agent.",
+    "Have the agent launch a bounded follow-up process in UiPath after a support conversation, such as sending documents, validating data, or opening an internal task."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to trigger approved UiPath automations for common internal workflows.",
+    "Enable operations teams to ask the agent for the status of UiPath jobs, queues, and recent automation outcomes without opening multiple systems.",
+    "Help support and success teams use the agent to collect required context and start standard operating procedures in UiPath from a simple chat request.",
+    "Allow employees to chat with the agent to summarize automation failures, identify the next review step, and prepare handoffs for operations specialists.",
+    "Give internal teams an AI assistant that can coordinate lookup, workflow triggering, and outcome summaries across UiPath and connected business systems."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that starts approved UiPath workflows from customer chat or ticket conversations.",
+    "An internal assistant that checks UiPath job status and explains workflow progress in plain language.",
+    "A DocsBot Skill that creates structured handoffs when automation exceptions need human review.",
+    "An agent that gathers missing details before launching a UiPath process with safe approval limits.",
+    "A team assistant that summarizes queue outcomes, recent runs, and failed automations for operations staff.",
+    "A support workflow that uses UiPath to trigger follow-up tasks after warranty, billing, or onboarding requests."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with UiPath, such as checking automation status, starting a workflow, or preparing a handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime settings so credentials stay out of chats and generated Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum actions, users, records, and UiPath workflows the agent should access, and it adds approval boundaries wherever a sensitive trigger, update, or escalation should require tighter control."
+    },
+    {
+      "title": "Scenarios are tested and improved",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can use UiPath actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with UiPath?",
+      "answer": "With DocsBot Skill Builder, you describe the UiPath workflow or lookup you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can answer questions and take bounded actions such as status checks, workflow triggers, summaries, and handoff preparation."
+    },
+    {
+      "question": "Can a DocsBot support agent use UiPath during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use UiPath to trigger approved back-office automations, check workflow status, collect missing details, and prepare escalations while responding to customers. This helps support teams resolve requests faster without exposing customers to internal process complexity."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with UiPath?",
+      "answer": "A DocsBot agent can support workflows such as starting onboarding steps, launching document or data validation processes, checking automation progress, and creating structured handoffs for human review. The exact actions are defined by your approved UiPath processes and the limits you set for the agent."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use UiPath from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a private chat interface to trigger approved UiPath workflows, check job outcomes, and follow internal SOPs. This makes automation easier to access without requiring every employee to work directly inside UiPath."
+    },
+    {
+      "question": "How does DocsBot keep UiPath actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps authentication and secrets out of chat transcripts and generated copy, and proxies credentials through approved runtime settings. It also scopes access to the minimum workflows and actions needed and can add approval boundaries for sensitive updates or automation triggers."
+    },
+    {
+      "question": "Can a DocsBot agent summarize UiPath automation failures or exceptions?",
+      "answer": "Yes, a DocsBot agent can retrieve automation state, summarize failures or queue exceptions in plain language, and prepare the next-step handoff for a support, operations, or engineering team. That gives employees faster situational awareness before they investigate the issue further."
+    }
+  ],
+  "relatedSlugs": [
+    "zapier",
+    "make",
+    "n8n",
+    "microsoft-power-automate",
+    "servicenow",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "UiPath",
+    "domain": "uipath.com",
+    "description": "UiPath is a leading software company specializing in robotic process automation (RPA) and artificial intelligence (AI) applications. With a visionary approach to enhancing human potential, UiPath aims to transform business operations through innovative automation solutions. The UiPath Platform™ facilitates a new era of 'agentic automation', where robots, AI models, and human input work together seamlessly to enhance decision-making and operational efficiency. Focused on security, accuracy, and resilience, UiPath empowers businesses to streamline workflows and increase productivity by leveraging state-of-the-art AI technologies that mimic human intelligence. Through their advanced automation capabilities, UiPath is dedicated to revolutionizing various industries and driving AI transformation at all organizational levels.",
+    "slogan": "Empower your business with AI-driven agentic automation and innovation.",
+    "logoUrl": "https://media.brand.dev/c0483a54-bd77-440e-a9de-a9ff488012c6.svg",
+    "iconUrl": "https://media.brand.dev/704eafb8-7edc-42de-9f23-4c50295fb086.png",
+    "primaryColor": "#fc4414",
+    "accentColor": "#eea484",
+    "colors": [
+      {
+        "hex": "#fc4414",
+        "name": "Coin Slot"
+      },
+      {
+        "hex": "#eea484",
+        "name": "Mamey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7c9cad29-1e80-498d-b1e2-7616b5ce4133.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.uipath.com/careers",
+      "terms": "https://www.uipath.com/legal/terms-of-use",
+      "contact": "https://www.uipath.com/solutions/department/contact-center-automation",
+      "privacy": "https://www.uipath.com/legal/privacy-policy",
+      "blog": "https://www.uipath.com/blog/ai/agentic-ai-summit-highlights",
+      "pricing": "https://www.uipath.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/704eafb8-7edc-42de-9f23-4c50295fb086.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f532cbdb-91ec-4807-b30d-454eba90784b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 120,
+        "height": 120,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/66aae002-03cb-429f-8cda-8cef55508760.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c0483a54-bd77-440e-a9de-a9ff488012c6.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 94,
+        "height": 32,
+        "aspectRatio": 2.94
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c0483a54-bd77-440e-a9de-a9ff488012c6.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 94,
+      "height": 32,
+      "aspectRatio": 2.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/704eafb8-7edc-42de-9f23-4c50295fb086.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

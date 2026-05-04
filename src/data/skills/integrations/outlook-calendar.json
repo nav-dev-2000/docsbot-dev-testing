@@ -1,0 +1,160 @@
+{
+  "slug": "outlook-calendar",
+  "name": "Outlook Calendar",
+  "domain": "microsoft.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Scheduling",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Outlook Calendar",
+  "metaTitle": "Outlook Calendar AI Agent for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read Outlook Calendar availability, schedule approved events, prepare handoffs, and support internal workflows safely.",
+  "intro": "Outlook Calendar helps teams manage meetings, availability, and scheduling across Microsoft environments. With DocsBot Skill Builder, you can describe the scheduling outcome you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, check calendar state, create approved events, and coordinate follow-up actions without exposing sensitive access or requiring manual work from your team.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check appointment availability in Outlook Calendar and offer approved meeting times during a website chat or helpdesk conversation.",
+    "Use the agent to create or update calendar events for demos, onboarding calls, service appointments, or escalation meetings while responding to customer requests.",
+    "Have the agent summarize upcoming meetings, invite status, or scheduling changes from Outlook Calendar so support can give customers a clear next-step update.",
+    "Enable the agent to prepare a human handoff by creating a follow-up meeting request in Outlook Calendar and attaching the relevant customer context for the internal team.",
+    "Let the agent reschedule approved customer meetings when a ticket or chat conversation confirms a new preferred time and your workflow allows that action."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find available meeting windows in Outlook Calendar and coordinate scheduling across teammates without opening multiple tools.",
+    "Teams can ask the agent to create recurring internal meetings, project check-ins, or interview blocks in Outlook Calendar based on standard operating procedures.",
+    "Customer success or operations staff can use the agent in Slack or Microsoft Teams to summarize a person’s upcoming schedule before a call or escalation.",
+    "Managers can chat with the agent to identify scheduling conflicts, prepare meeting follow-up workflows, or trigger handoff calendars for cross-functional work.",
+    "Internal teams can use the agent to research calendar availability, collect missing context, and complete approved scheduling workflows across Outlook Calendar and related systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks available appointment slots before offering customers a booking option.",
+    "A scheduling Skill that creates onboarding, demo, or follow-up meetings with approved invite details.",
+    "An internal assistant that summarizes calendars before sales calls, renewals, or escalation meetings.",
+    "A team workflow Skill that reschedules meetings and updates invite context after customer changes.",
+    "A handoff assistant that creates escalation meetings and includes ticket summaries for the assigned team.",
+    "A private employee agent that finds mutual availability across stakeholders for time-sensitive decisions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the scheduling goal",
+      "description": "You tell Skill Builder what you want the agent to do in plain language, such as checking Outlook Calendar availability, creating approved meetings, or preparing escalation handoffs."
+    },
+    {
+      "title": "Skill Builder designs the workflow",
+      "description": "Skill Builder turns that outcome into a secure Skill design, identifies the required configuration values, and plans how the agent should look up calendar data or take approved actions."
+    },
+    {
+      "title": "Connections are secured automatically",
+      "description": "Skill Builder defines safe authentication handling, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes access to the minimum calendars, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive scheduling steps so the agent can help confidently without making unrestricted calendar changes."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Outlook Calendar?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling workflow you want in plain language and Skill Builder creates a reusable Skill that can read calendar data, summarize availability, create approved events, or update meetings safely."
+    },
+    {
+      "question": "Can an AI support agent use Outlook Calendar to schedule customer meetings?",
+      "answer": "Yes, a DocsBot support agent can use Outlook Calendar during a customer chat or ticket workflow to check availability, suggest times, create approved meetings, and prepare handoffs for human follow-up."
+    },
+    {
+      "question": "Can DocsBot use Outlook Calendar data without giving the AI unrestricted access?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect and proxy secrets, and set approval boundaries so the agent only has the minimum access needed for the scheduling workflow you approve."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Outlook Calendar?",
+      "answer": "Internal agents can help employees find mutual availability, create recurring meetings, summarize upcoming schedules, flag conflicts, and complete scheduling steps inside broader operating procedures."
+    },
+    {
+      "question": "Can a DocsBot agent reschedule Outlook Calendar events for support or success teams?",
+      "answer": "Yes, the Skill can be designed to update approved meetings when customer requests or internal workflows allow it, with rules and approvals around which events can be changed."
+    },
+    {
+      "question": "How does testing work for an Outlook Calendar AI Skill?",
+      "answer": "Skill Builder includes an automated testing agent that runs realistic support and employee scenarios, checks for workflow gaps or permission issues, and improves the Skill before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "google-calendar",
+    "microsoft-teams",
+    "outlook",
+    "office-365",
+    "calendly",
+    "zoom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

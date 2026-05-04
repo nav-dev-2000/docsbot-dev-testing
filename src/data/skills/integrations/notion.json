@@ -1,0 +1,184 @@
+{
+  "slug": "notion",
+  "name": "Notion",
+  "domain": "notion.so",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Notion for Support and Team Work",
+  "metaTitle": "Build AI Agents for Notion with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Notion to answer questions, retrieve knowledge, update records, prepare handoffs, and support internal workflows safely.",
+  "intro": "Notion is a flexible workspace for docs, databases, projects, and shared knowledge, which makes it a strong system for both support context and internal team operations. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Notion, and Skill Builder designs, secures, tests, and deploys that ability for you. The result is a support or internal AI agent that can look up information, summarize page content, update approved records, and trigger bounded workflows inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Notion pages and databases to answer product, policy, onboarding, or account questions from your website chat widget or helpdesk tickets.",
+    "Use the agent to summarize long Notion documents into concise customer-ready answers while preserving the important steps, requirements, or limitations.",
+    "Have the agent create a structured handoff page or database item in Notion when a customer issue needs escalation to success, support, or operations teams.",
+    "Enable the agent to update approved Notion records such as support status notes, follow-up tasks, or case summaries after a customer conversation ends.",
+    "Let the agent gather troubleshooting steps from multiple Notion knowledge bases and return the most relevant answer based on the customer’s product area or issue type."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to search Notion across docs, wikis, project pages, and databases without digging through multiple workspaces.",
+    "Teams can ask the agent to summarize meeting notes, project updates, or operating procedures from Notion and return a short action-focused brief.",
+    "Support, success, and operations employees can chat with the agent to create approved Notion pages, update database records, and document outcomes while following internal SOPs.",
+    "New team members can use the agent to retrieve onboarding information, role guides, and process documentation from Notion in a conversational format.",
+    "Managers and operators can ask the agent to compile information from related Notion pages into structured summaries, status reports, or internal handoff notes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer questions using your Notion knowledge base and team documentation.",
+    "A helpdesk assistant that creates Notion escalation pages with ticket summaries, urgency, and next-step context.",
+    "An internal AI assistant that searches Notion databases and returns policy, process, or project answers.",
+    "A DocsBot workflow that updates approved Notion records after support chats or internal requests.",
+    "An agent that turns long Notion SOPs into short guided responses for employees or customers.",
+    "A team assistant that creates meeting summaries, follow-up tasks, and handoff notes in Notion."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Notion in plain language, such as answering from specific pages, updating certain databases, or creating escalation notes for approved cases."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum Notion actions, records, and users needed, and adds approval boundaries for sensitive updates or record creation."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing guardrails, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can take bounded action inside your approved Notion workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Notion to answer customer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as searching specific Notion pages or databases for accurate answers. Skill Builder then designs the Skill, secures the connection, tests real support scenarios, and deploys it to your website chat widget or helpdesk agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Notion data during live chat or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a Skill to retrieve and summarize approved Notion content while responding to customers. You can define which workspaces, pages, or databases the agent may use and keep actions within safe boundaries."
+    },
+    {
+      "question": "Can an AI support agent create Notion pages or update records after a customer conversation?",
+      "answer": "Yes, Skill Builder can create workflows where the agent prepares escalation notes, follow-up tasks, or case summaries in Notion after a support interaction. Sensitive actions can be limited to approved record types and protected with review or approval boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Notion?",
+      "answer": "Internal DocsBot agents can help employees search documentation, summarize project pages, create meeting notes, update approved databases, and complete SOP-driven knowledge workflows. This is especially useful for support, operations, customer success, and onboarding teams."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in Notion?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining secure configuration values, proxying secrets, and keeping credentials out of chats and generated content. It also scopes permissions and adds approval limits so the agent can only perform the actions you allow."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Notion workflows?",
+      "answer": "No, the setup is centered on describing the desired outcome in plain language. Skill Builder handles the workflow design, secure connection details, testing, improvement, and deployment for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "confluence",
+    "slab",
+    "airtable",
+    "clickup",
+    "asana",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Notion",
+    "domain": "notion.so",
+    "description": "Notion is an AI‑powered workspace that unifies notes, docs, projects, databases, and automation into a single collaborative platform. It lets teams and individuals create and organize content, manage tasks, and build custom AI agents that can search across all apps, generate text, schedule meetings, and handle repetitive work. By integrating AI tools such as search, chat, writing assistants, and workflow automation, Notion reduces the need for multiple separate tools, helping users streamline processes, boost productivity, and focus on higher‑value work. Trusted by millions worldwide, including Fortune 100 companies and startups, Notion offers a flexible, extensible environment for knowledge management, project coordination, and AI‑enhanced collaboration.",
+    "slogan": "The AI workspace where teams get more done, faster and smarter.",
+    "logoUrl": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+    "iconUrl": "https://media.brand.dev/b9b9b614-6975-4508-a429-39b3605ce579.svg",
+    "primaryColor": "#f7e158",
+    "accentColor": "#7c6c32",
+    "colors": [
+      {
+        "hex": "#f7e158",
+        "name": "Flame Seal"
+      },
+      {
+        "hex": "#7c6c32",
+        "name": "Time Honored"
+      },
+      {
+        "hex": "#12110e",
+        "name": "Sinister"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/14250921-043a-4557-b29a-8236a2b2d290.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.notion.so/28ffdd083dc3473e9c2da6ec011b58ac",
+      "careers": null,
+      "contact": null,
+      "privacy": "https://www.notion.so/28ffdd083dc3473e9c2da6ec011b58ac",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/841d20bb-3d70-4f09-b3b5-ecebdafe19dd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/70cdd74b-c37e-4ce1-912c-6b83cbcdf4ce.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed00aff8-0b11-4d61-93b1-9e3a6ba6b7c7.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b9b9b614-6975-4508-a429-39b3605ce579.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 33,
+        "height": 34,
+        "aspectRatio": 0.97
+      },
+      {
+        "url": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 105,
+        "height": 30,
+        "aspectRatio": 3.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e1db4dab-ba03-498d-ad84-2fe67a6751f7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 105,
+      "height": 30,
+      "aspectRatio": 3.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/841d20bb-3d70-4f09-b3b5-ecebdafe19dd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

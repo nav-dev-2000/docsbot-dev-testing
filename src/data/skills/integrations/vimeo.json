@@ -1,0 +1,168 @@
+{
+  "slug": "vimeo",
+  "name": "Vimeo",
+  "domain": "vimeo.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Vimeo",
+  "metaTitle": "Build Vimeo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Vimeo to answer support questions, look up video details, trigger workflows, and help teams manage video operations safely.",
+  "intro": "Vimeo helps teams create, manage, and share video content across customer and internal experiences. With DocsBot Skill Builder, you can describe the Vimeo-powered workflow you want in plain language, and DocsBot can turn it into a reusable Skill for a support bot or private team agent. That means your AI agent can do more than answer questions. It can safely look up video information, prepare handoffs, trigger approved actions, and summarize outcomes inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Vimeo video status, privacy settings, embed availability, or publishing details while answering customer questions in chat or helpdesk tickets.",
+    "Use a support agent to look up a specific video or showcase record in Vimeo and summarize the current state before preparing a clean escalation for a human team member.",
+    "Enable the agent to gather missing context from a customer, then trigger an approved Vimeo workflow such as creating or updating a video-related record where that action fits your process.",
+    "Have the agent confirm whether a customer-facing video is live, restricted, replaced, or awaiting review, then explain the next step in plain language.",
+    "Allow the bot to prepare support handoffs by pulling Vimeo metadata, links, ownership details, and recent changes into a concise internal summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure web chat to find Vimeo videos, review metadata, and retrieve links without manually searching the platform.",
+    "Marketing, training, and support teams can ask the agent to summarize Vimeo library contents, identify the right video asset for a campaign or knowledge article, and prepare follow-up actions.",
+    "Operations teams can use an internal AI agent to walk through video publishing or review SOPs, gather required context, and complete approved Vimeo-related workflow steps.",
+    "Customer success and enablement teams can chat with the agent to locate onboarding, webinar, or product education videos and get quick summaries for customer communications.",
+    "Internal teams can use the agent to generate handoff notes, status summaries, or task lists based on Vimeo content records and related workflow context."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Vimeo video availability before replying to customers.",
+    "A private team assistant that finds the right Vimeo asset and summarizes its metadata.",
+    "A workflow Skill that collects missing context and prepares Vimeo publishing handoffs.",
+    "An internal agent that helps employees follow video review and approval SOPs.",
+    "A support Skill that summarizes video status, ownership, and sharing details for escalations.",
+    "An AI assistant that generates internal notes from Vimeo records and customer context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Vimeo, such as checking video status, finding assets, or preparing a support handoff, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, handles secure authentication and secret proxying, and scopes Vimeo access to the minimum actions, records, and users needed."
+    },
+    {
+      "title": "Bound actions are added",
+      "description": "Skill Builder sets approval boundaries and safe action limits so the agent can perform lookups, updates, summaries, and workflow triggers only within the rules you approve."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant with the right runtime settings and controls."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Vimeo?",
+      "answer": "With DocsBot Skill Builder, you describe the Vimeo workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Vimeo data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Vimeo lookups to check video details, summarize status, confirm availability, and prepare escalations while responding in chat or helpdesk tickets."
+    },
+    {
+      "question": "What Vimeo workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help teams find videos, summarize metadata, support publishing or review processes, generate handoff notes, and complete bounded Vimeo-related workflow steps across team tools."
+    },
+    {
+      "question": "Can DocsBot safely connect an AI agent to Vimeo?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining needed configuration values, protecting and proxying secrets, scoping permissions, and adding approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger actions in Vimeo?",
+      "answer": "It can be designed to perform approved Vimeo actions within the limits you set, such as updating specific records, preparing workflow steps, or triggering bounded follow-up processes with review controls where needed."
+    },
+    {
+      "question": "How does testing work for a Vimeo AI Skill?",
+      "answer": "DocsBot includes an automated testing agent that runs realistic support and employee scenarios, identifies issues or improvement opportunities, and uses those findings to strengthen the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "youtube",
+    "wistia",
+    "loom",
+    "vidyard",
+    "zoom",
+    "google-drive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Vimeo",
+    "domain": "vimeo.com",
+    "description": "Vimeo is a leading video experience platform known for its innovative approach to video creation, management, and sharing. Catering to a diverse community of 287 million users, including creative storytellers, entrepreneurs, and major global corporations, Vimeo empowers individuals and teams to produce high-quality videos that effectively convey their ideas and foster connections. With billions of views each month, Vimeo stands out as a trusted resource for those seeking to enhance their video content and engage audiences through stunning visual experiences.",
+    "slogan": "Create, manage, and share stunning videos effortlessly.",
+    "logoUrl": "https://media.brand.dev/4fc84b0d-3aad-4d6c-b156-752ab7b02276.png",
+    "iconUrl": "https://media.brand.dev/4fc84b0d-3aad-4d6c-b156-752ab7b02276.png",
+    "primaryColor": "#040404",
+    "accentColor": "#1cd3fa",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1cd3fa",
+        "name": "Vaporwave Blue"
+      },
+      {
+        "hex": "#d2f4f7",
+        "name": "Windswept"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1342cb3f-f860-4fa5-8c14-16c7c88ec601.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://vimeo.com/careers",
+      "terms": "https://vimeo.com/terms",
+      "contact": "https://vimeo.com/enterprise/contact-us",
+      "privacy": "https://vimeo.com/privacy",
+      "blog": "https://vimeo.com/blog",
+      "pricing": "https://vimeo.com/upgrade-plan"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4fc84b0d-3aad-4d6c-b156-752ab7b02276.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5574b489-ba2f-40e1-a404-6d1da2ed4e07.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/57044b63-f8eb-4a02-a1e5-ef70afd57870.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/57044b63-f8eb-4a02-a1e5-ef70afd57870.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/57044b63-f8eb-4a02-a1e5-ef70afd57870.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

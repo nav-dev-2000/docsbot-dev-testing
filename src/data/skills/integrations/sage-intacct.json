@@ -1,0 +1,113 @@
+{
+  "slug": "sage-intacct",
+  "name": "Sage Intacct",
+  "domain": "sage-intacct.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sage Intacct",
+  "metaTitle": "Build AI Agents for Sage Intacct with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Sage Intacct for safe financial lookups, workflow actions, internal requests, and support handoffs with secure controls.",
+  "intro": "Sage Intacct helps finance teams manage accounting, reporting, billing, and multi-entity operations in the cloud. With DocsBot Skill Builder, you can describe the Sage Intacct workflow you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions, retrieve approved financial context, prepare handoffs, and take bounded actions inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up invoice status, payment history, or billing details in Sage Intacct so it can answer account questions without sending every case to finance.",
+    "Use a support agent connected to your helpdesk to summarize Sage Intacct account balances, recent transactions, or subscription billing context before replying to a customer ticket.",
+    "Enable the agent to collect missing details from the customer, then prepare a finance-ready handoff with Sage Intacct records and conversation context attached.",
+    "Allow the agent to trigger approved follow-up workflows such as creating a billing review request or escalation task when Sage Intacct data suggests a payment or account issue.",
+    "Have the agent explain the current state of a customer's billing or payment record using Sage Intacct data while staying within your approved response and action boundaries."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Sage Intacct invoice, vendor, customer, or account details without logging into multiple systems.",
+    "Help finance and operations teams ask the agent for summarized transaction history, account balances, subscription billing status, or multi-entity context drawn from Sage Intacct.",
+    "Enable staff to complete SOPs through chat, such as gathering billing context, preparing month-end review notes, or creating an approval-ready summary based on Sage Intacct records.",
+    "Allow customer success or account management teams to ask the agent for finance-aware account snapshots before renewals, escalations, or executive reviews.",
+    "Support internal handoffs by having the agent assemble Sage Intacct details, related notes, and next-step recommendations for finance, support, or leadership teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing assistant that checks invoice status and summarizes customer payment questions.",
+    "A finance support Skill that prepares account handoffs using Sage Intacct records and ticket context.",
+    "An internal agent that retrieves customer balances, transactions, and billing summaries on demand.",
+    "A month-end helper that assembles review notes and highlights missing financial context.",
+    "An approval-aware workflow that drafts billing escalation requests for finance team review.",
+    "A customer success assistant that creates account snapshots before renewal or risk conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Sage Intacct agent to do, such as answer billing questions, prepare finance handoffs, or retrieve account summaries, and it turns that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime settings so credentials stay out of chats and Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum Sage Intacct actions, records, users, and systems needed for the workflow and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings back into improvements."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder uses test results to refine prompts, logic, safeguards, and action handling so the Sage Intacct Skill is stronger and safer before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Sage Intacct without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Sage Intacct task you want in plain language, and Skill Builder designs, secures, tests, and packages the workflow for your AI agent. It handles configuration planning, authentication setup, and deployment guidance so non-technical teams can move faster."
+    },
+    {
+      "question": "Can an AI support agent use Sage Intacct data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use a Sage Intacct Skill to retrieve approved invoice, payment, or account details while responding in a website chat or helpdesk ticket flow. You control what data can be accessed and what actions require approval."
+    },
+    {
+      "question": "What Sage Intacct workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal agents can retrieve financial records, summarize account history, prepare approval packets, assemble handoff notes, and support finance or operations SOPs across chat, Slack, or Microsoft Teams. The workflows are designed around bounded actions and the permissions you allow."
+    },
+    {
+      "question": "Can DocsBot create Sage Intacct handoffs and escalation summaries for finance teams?",
+      "answer": "Yes, a Skill can gather the relevant Sage Intacct context, summarize the issue, and prepare a structured handoff for finance or operations review. This helps teams avoid manual copy-paste and speeds up escalations with better context."
+    },
+    {
+      "question": "How does DocsBot keep Sage Intacct actions secure?",
+      "answer": "Skill Builder defines secure connection and authentication handling, keeps secrets out of conversations and generated content, and routes credentials through protected runtime configuration. It also scopes permissions and can add approval checkpoints for sensitive lookups, updates, or triggered workflows."
+    },
+    {
+      "question": "Can I control which Sage Intacct records or actions the AI agent can use?",
+      "answer": "Yes, the Skill can be designed with narrow permissions for specific record types, teams, and actions so the agent only does what is appropriate for the workflow. Approval boundaries can be added when an action should be reviewed before it runs."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "stripe",
+    "chargebee",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sage Intacct",
+    "domain": "sage-intacct.com",
+    "description": "Sage Intacct is a leading provider of cloud‑based financial management and accounting software. The company delivers robust, scalable solutions that help midsize and large organizations automate core accounting processes, improve financial visibility, and drive strategic decision‑making. Sage Intacct’s platform offers real‑time reporting, multi‑entity consolidation, subscription billing, and extensive integrations with ERP, CRM, and payroll systems. Designed for finance teams, the software streamlines tasks such as accounts payable, revenue recognition, and expense management while ensuring compliance and security. By leveraging the cloud, Sage Intacct enables businesses to access financial data anytime, anywhere, supporting growth and operational efficiency.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

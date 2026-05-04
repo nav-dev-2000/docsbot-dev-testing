@@ -1,0 +1,176 @@
+{
+  "slug": "checkr",
+  "name": "Checkr",
+  "domain": "checkr.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Background Verification",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With Checkr",
+  "metaTitle": "Build Checkr AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Checkr data and workflows for support, recruiting operations, and internal team assistance.",
+  "intro": "Checkr helps businesses manage background screening and hiring-related verification workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create a secure AI Skill that lets a support or internal agent look up status, summarize screening progress, prepare handoffs, and trigger approved next steps. This helps customer-facing teams respond faster and gives recruiting, HR, and operations teams an AI agent that can take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a background screening invitation or report and explain the current stage in plain language during a website chat or helpdesk reply.",
+    "Use a support agent to gather missing applicant details, verify which screening step is pending, and prepare a clean handoff for a human team when the case needs review.",
+    "Enable the agent to summarize screening progress, turnaround expectations, and next approved actions for candidates who ask why their hiring process is delayed.",
+    "Let the agent create or update an internal follow-up task when a candidate reports an issue with a background check invitation, document upload, or report status.",
+    "Use the agent to trigger approved workflow steps, such as sending a candidate to the right support path or escalating sensitive disputes to the proper team with a complete case summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Checkr screening status, package details, or candidate workflow progress without switching systems.",
+    "Recruiting and operations teams can ask the agent to summarize delayed screenings, identify pending actions, and create structured handoff notes for recruiting coordinators or compliance reviewers.",
+    "HR staff can chat with the agent to follow SOPs for screening exceptions, gather required context, and trigger approved internal workflows while staying within defined approval limits.",
+    "Talent operations teams can use the agent to answer repetitive process questions, retrieve Checkr-related policy guidance, and generate candidate-ready update drafts for review.",
+    "Managers and coordinators can ask the agent for a summary of open screening issues across candidates, along with the next recommended actions and any cases that require human approval."
+  ],
+  "whatYouCanBuild": [
+    "A candidate screening status lookup Skill for support chats and helpdesk replies.",
+    "An internal recruiting assistant that summarizes Checkr cases and next steps.",
+    "A workflow Skill that escalates report disputes with structured handoff notes.",
+    "A safe lookup agent for screening packages, invitation progress, and pending actions.",
+    "An HR operations assistant that follows background check SOPs inside chat.",
+    "A case summary Skill that prepares recruiter updates from Checkr workflow data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Checkr, such as checking screening status, summarizing delays, or preparing escalations, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right connection approach, defines the required configuration values, handles authentication securely, protects and proxies secrets through runtime settings, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive Checkr workflows so the agent can assist confidently without taking higher-risk actions unless you allow them."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and sends those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team agent so people can start using it in chat right away."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Checkr?",
+      "answer": "With DocsBot Skill Builder, you describe the Checkr workflow you want in plain language, and Skill Builder creates a secure Skill that can look up data, summarize status, trigger approved actions, and route cases to the right team."
+    },
+    {
+      "question": "Can an AI support agent use Checkr data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use a Checkr Skill to retrieve approved screening details, explain progress, summarize delays, and prepare escalations or handoffs while replying in website chat or helpdesk tickets."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Checkr?",
+      "answer": "Teams can build workflows for screening status lookups, missing-information triage, dispute routing, recruiter handoff preparation, and approved follow-up actions that help resolve repetitive candidate questions faster."
+    },
+    {
+      "question": "Can an internal AI assistant help recruiting or HR teams with Checkr?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Checkr status information, follow screening SOPs, summarize open issues, and coordinate next steps across recruiting, HR, and operations workflows."
+    },
+    {
+      "question": "How does DocsBot keep Checkr actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated content, proxies secrets through protected runtime settings, scopes permissions to the minimum required access, and adds approval controls for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger workflows in Checkr?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved updates, workflow triggers, and structured handoffs, with action limits and approval boundaries based on the rules your team sets."
+    }
+  ],
+  "relatedSlugs": [
+    "veriff",
+    "onfido",
+    "persona",
+    "auth0",
+    "okta",
+    "jumio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Checkr",
+    "domain": "checkr.com",
+    "description": "Checkr is a technology company that provides a data platform to help businesses make informed hiring decisions. They offer background screening solutions that use AI to streamline the hiring process, enabling companies to fill roles faster and drive revenue.",
+    "slogan": "Building a fairer future with modern, reliable background checks.",
+    "logoUrl": "https://media.brand.dev/c72d6719-26f9-43c4-aa56-630f8f849057.svg",
+    "iconUrl": "https://media.brand.dev/a5e319b8-bb0d-4ea6-8bc1-473e625f3c66.jpg",
+    "primaryColor": "#79acc0",
+    "accentColor": "#065e85",
+    "colors": [
+      {
+        "hex": "#79acc0",
+        "name": "Glacier"
+      },
+      {
+        "hex": "#065e85",
+        "name": "Adriatic Sea"
+      },
+      {
+        "hex": "#c4dae3",
+        "name": "Getting Wet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dfa3574a-e2f9-4124-a40f-b1553302f6f9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://checkr.com/company/careers",
+      "terms": "https://checkr.com/legal/terms-of-service",
+      "contact": "https://checkr.com/contact",
+      "privacy": "https://checkr.com/legal/privacy-policy",
+      "blog": "https://checkr.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a5e319b8-bb0d-4ea6-8bc1-473e625f3c66.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c72d6719-26f9-43c4-aa56-630f8f849057.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 180,
+        "height": 63,
+        "aspectRatio": 2.86
+      },
+      {
+        "url": "https://media.brand.dev/65afd7d2-af1c-4115-bf53-066619d24683.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 182,
+        "height": 75,
+        "aspectRatio": 2.43
+      },
+      {
+        "url": "https://media.brand.dev/5ecb5a72-9b8c-45e6-a10e-a037e475b090.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 90,
+        "height": 22,
+        "aspectRatio": 4.09
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ecb5a72-9b8c-45e6-a10e-a037e475b090.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 90,
+      "height": 22,
+      "aspectRatio": 4.09
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a5e319b8-bb0d-4ea6-8bc1-473e625f3c66.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

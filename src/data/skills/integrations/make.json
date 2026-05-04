@@ -1,0 +1,160 @@
+{
+  "slug": "make",
+  "name": "Make",
+  "domain": "make.com",
+  "category": "Automation",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with Make workflows",
+  "metaTitle": "DocsBot AI Agents for Make Workflow Automation",
+  "metaDescription": "Build DocsBot AI agents that use Make to trigger workflows, gather data, create handoffs, and automate support or internal operations with safe controls.",
+  "intro": "Make is a visual automation platform teams use to connect apps and orchestrate workflows across the business. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent interact with Make safely. The result is a support or internal AI agent that can answer questions, trigger approved automations, summarize outcomes, and move work forward instead of stopping at advice.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent trigger a Make scenario to create a support handoff, send follow-up information, or start an approved resolution workflow while chatting with a customer.",
+    "Use a helpdesk-connected DocsBot agent to pass ticket details into Make so it can enrich the case, notify the right team, and return a summary for the customer reply.",
+    "Have the agent launch Make workflows that collect missing order, account, or product context from connected systems before responding to a support question.",
+    "Enable the agent to use Make to create escalation records, route urgent cases, and prepare a clean summary of the customer issue for human follow-up.",
+    "Let the agent trigger post-resolution Make automations such as survey sends, CRM updates, onboarding steps, or customer success notifications after a support interaction is completed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to trigger Make scenarios that run SOPs across connected business tools.",
+    "Operations teams can ask the agent to gather status from several systems through Make and return one concise summary with the next recommended action.",
+    "Customer success or support managers can use the agent to start cross-functional workflows in Make for renewals, escalations, onboarding tasks, or risk reviews without switching tools.",
+    "Internal teams can ask the agent to create handoffs, route requests, notify stakeholders, or generate follow-up tasks by using Make as the workflow engine behind the conversation.",
+    "Employees can use the agent to research a request, collect data from multiple apps through Make, and produce a structured update, checklist, or action summary for the team."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that triggers Make scenarios to enrich tickets and route escalations.",
+    "An internal AI assistant that runs multi-step SOPs across apps through Make.",
+    "A customer chat agent that starts approved follow-up workflows after issue resolution.",
+    "An employee agent that gathers cross-system status and returns one actionable summary.",
+    "A DocsBot Skill that sends structured handoff data from conversations into Make.",
+    "An AI agent that creates tasks, notifications, and updates by launching Make automations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Make in plain language, such as trigger a workflow, collect information, prepare a handoff, or update downstream systems."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Make."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum actions and systems needed, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks instructions and permissions, finds bugs or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot agent or your private employee agent so it can take bounded action through Make."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Make workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow outcome you want in plain language and it creates a Skill that lets your AI agent trigger or coordinate Make scenarios safely. The Skill can include lookups, summaries, handoffs, workflow launches, and other bounded actions based on your rules."
+    },
+    {
+      "question": "Can a DocsBot support agent use Make for customer support automation?",
+      "answer": "Yes, a DocsBot support agent can use Make as the automation layer behind customer conversations or helpdesk tickets. That lets the agent trigger approved workflows, enrich cases, notify teams, create handoffs, and summarize results while it responds to the customer."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Make?",
+      "answer": "An internal DocsBot agent can use Make to run SOPs across sales, success, operations, finance, or IT tools. Employees can ask for status checks, request routing, follow-up creation, notifications, and multi-step workflow execution from one chat interface."
+    },
+    {
+      "question": "Can an AI agent use Make to gather data from multiple systems before answering?",
+      "answer": "Yes, the Skill can let DocsBot trigger Make scenarios that pull together information from connected apps and return a structured result to the agent. This is useful when the best answer depends on data from several systems instead of one source."
+    },
+    {
+      "question": "How do safe approvals and action limits work with DocsBot and Make?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. You can limit which workflows run, what records can be touched, and when the agent must pause for human approval."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalations in Make?",
+      "answer": "Yes, a Skill can be designed so the agent sends structured conversation details into Make to create escalations, route work, notify owners, or start downstream service processes. This helps teams receive cleaner context and faster follow-up."
+    }
+  ],
+  "relatedSlugs": [
+    "zapier",
+    "n8n",
+    "airtable",
+    "slack",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Make",
+    "domain": "make.com",
+    "description": "Make is a visual‑first, no‑code automation platform that lets teams build, orchestrate, and scale AI‑powered workflows and agents in real time. By offering a drag‑and‑drop interface, a library of 3,000+ pre‑built app integrations (including OpenAI, Salesforce, HubSpot, and more), and robust security compliance (GDPR, SOC 2/3), Make enables businesses of any size to automate simple tasks or complex, enterprise‑wide processes without writing code. Users can design autonomous AI agents, monitor them on a live visual map, and customize automations to boost efficiency, reduce manual work, and accelerate innovation across IT, marketing, sales, finance, and CX functions. Over 350,000 organizations trust Make to streamline operations, improve collaboration, and unlock the full potential of AI and automation.",
+    "slogan": "AI automation you can visually build and orchestrate in real time",
+    "logoUrl": "https://media.brand.dev/1e8d8e49-c3ec-456d-8416-455b1e85441c.png",
+    "iconUrl": "https://media.brand.dev/9fdad4a5-3a57-4ec8-9c25-5dfe6be4b8ba.jpg",
+    "primaryColor": "#9108f9",
+    "accentColor": "#f5eef7",
+    "colors": [
+      {
+        "hex": "#9108f9",
+        "name": "Cosmic Heart"
+      },
+      {
+        "hex": "#f5eef7",
+        "name": "Sentimental Pink"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/555b91e1-a3a6-466b-87cf-d0afe71048fe.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.make.com/en/careers",
+      "terms": "https://www.make.com/en/terms-and-conditions",
+      "contact": "https://www.make.com/en/contact-us",
+      "privacy": "https://www.make.com/en/privacy-notice",
+      "blog": "https://www.make.com/en/blog",
+      "pricing": "https://www.make.com/en/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1e8d8e49-c3ec-456d-8416-455b1e85441c.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1449,
+        "height": 512,
+        "aspectRatio": 2.83
+      },
+      {
+        "url": "https://media.brand.dev/9fdad4a5-3a57-4ec8-9c25-5dfe6be4b8ba.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1e8d8e49-c3ec-456d-8416-455b1e85441c.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1449,
+      "height": 512,
+      "aspectRatio": 2.83
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9fdad4a5-3a57-4ec8-9c25-5dfe6be4b8ba.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

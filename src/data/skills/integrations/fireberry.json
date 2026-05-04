@@ -1,0 +1,176 @@
+{
+  "slug": "fireberry",
+  "name": "Fireberry",
+  "domain": "fireberry.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Fireberry CRM",
+  "metaTitle": "Build Fireberry AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Fireberry to answer customers, look up CRM data, update records, trigger workflows, and support internal teams safely.",
+  "intro": "Fireberry brings sales, service, and marketing data into one CRM, which makes it a strong system for AI-driven lookups and approved actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent work with Fireberry. That means your agent can do more than answer questions because it can safely retrieve context, update records, prepare handoffs, and trigger bounded workflows inside your CRM.",
+  "supportUseCases": [
+    "When a customer starts a chat or submits a ticket, the DocsBot agent can look up their Fireberry contact, account, or recent activity to personalize the response.",
+    "The agent can create or update Fireberry leads, contacts, cases, or follow-up tasks while helping a customer in the website chat widget or helpdesk.",
+    "The agent can summarize a customer's open service history from Fireberry and use that context to prepare a faster escalation or handoff to a human team member.",
+    "The agent can log qualified sales interest, product questions, or callback requests in Fireberry so support conversations turn into clean CRM records.",
+    "The agent can trigger approved Fireberry workflows after a customer conversation, such as assigning an owner, setting a status, or creating a next-step task."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Fireberry accounts, contacts, opportunities, and service records without switching tools.",
+    "Sales or customer success teams can ask the agent to summarize recent Fireberry activity before a renewal call, handoff, or account review.",
+    "Operations staff can use the agent to create records, update statuses, assign owners, and complete repeatable CRM workflows through guided chat requests.",
+    "Managers can ask the agent to research Fireberry pipeline or service information across records and return concise summaries for planning and follow-up.",
+    "Employees can use the agent to follow SOPs that combine Fireberry lookups, note creation, task generation, and escalation preparation in one guided workflow."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Fireberry contact and case history before replying to customers.",
+    "A sales assistant that creates or enriches Fireberry leads from inbound chat conversations.",
+    "An internal renewal prep agent that summarizes account activity, tasks, and recent service interactions.",
+    "A handoff Skill that writes structured Fireberry notes and assigns the right owner automatically.",
+    "A workflow agent that updates statuses, creates follow-up tasks, and prepares escalation summaries.",
+    "A customer success assistant that retrieves account details and suggests the next approved action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Fireberry agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the Fireberry configuration values it needs, and defines secure connection and authentication handling without asking you to map every technical detail."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive Fireberry updates."
+    },
+    {
+      "title": "It drafts and tests",
+      "description": "Skill Builder creates the Skill, then its automated testing agent runs imagined customer and employee scenarios to catch bugs, weak instructions, permission gaps, and workflow issues before launch."
+    },
+    {
+      "title": "It improves and deploys",
+      "description": "Skill Builder feeds test findings into an automated self-improvement loop, refines the Fireberry workflow, and helps publish the finished Skill to the right DocsBot agent for customer support or internal team use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Fireberry CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Fireberry workflow you want in plain language, such as looking up contacts, updating records, or creating follow-up tasks. Skill Builder then designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to your DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Fireberry data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Fireberry Skill to retrieve CRM context such as contacts, account details, service history, and ownership so responses are more informed. It can also take approved actions like creating records, updating statuses, or preparing escalations within the limits you define."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate in Fireberry?",
+      "answer": "A DocsBot agent can help automate CRM lookups, case and lead creation, record updates, follow-up task creation, ownership assignment, and structured handoff summaries. These workflows are bounded by the permissions, approvals, and action rules defined during Skill setup."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Fireberry from Slack or Teams?",
+      "answer": "Yes, private DocsBot agents can let employees chat from Slack, Microsoft Teams, or an internal interface to retrieve Fireberry information and complete approved CRM workflows. This is useful for sales, customer success, and operations teams that want faster access to records and guided actions."
+    },
+    {
+      "question": "How does DocsBot keep Fireberry actions secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, and keeps credentials out of conversations and generated content. It also scopes permissions to the minimum needed and can add approval boundaries for sensitive actions like record updates or workflow triggers."
+    },
+    {
+      "question": "Can a Fireberry AI agent create handoffs and escalation summaries?",
+      "answer": "Yes, a DocsBot Skill can gather Fireberry context, summarize relevant history, and generate a structured handoff for a human rep or specialized team. This helps reduce back-and-forth and ensures the next person gets the right account and issue details quickly."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "monday-sales-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fireberry",
+    "domain": "fireberry.com",
+    "description": "Fireberry is an all-in-one CRM platform that helps businesses of all sizes operate more efficiently by unifying sales, service, and marketing into one system. With AI-powered automation, customizable modules, and native integrations, Fireberry enables teams to centralize data, streamline processes, and collaborate effectively, making it an ideal solution for businesses across various industries.",
+    "slogan": "Empowering Businesses to Grow Smarter with All-in-One CRM Solutions",
+    "logoUrl": "https://media.brand.dev/2c94c41e-1591-4b21-abbb-6d2ee24e4752.svg",
+    "iconUrl": "https://media.brand.dev/dae89efa-e5a7-417a-b128-20f93390dae8.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#060606",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#060606",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#dedede",
+        "name": "Kingly Cloud"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dd3d6ef6-9996-4f9a-a041-566f17608be6.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.fireberry.com/careers",
+      "terms": "https://www.fireberry.com/legal/terms-of-service",
+      "contact": "https://www.fireberry.com/contact-sales",
+      "privacy": "https://www.fireberry.com/legal/privacy-policy",
+      "blog": "https://www.fireberry.com/blog",
+      "pricing": "https://www.fireberry.com/pricing-marketing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ed972bd7-7a6c-40b9-8d4d-cf7870213db2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dae89efa-e5a7-417a-b128-20f93390dae8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 334,
+        "height": 334,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e2209fa3-2728-4c11-954d-c1eafc3807aa.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2c94c41e-1591-4b21-abbb-6d2ee24e4752.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 183,
+        "height": 40,
+        "aspectRatio": 4.58
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c94c41e-1591-4b21-abbb-6d2ee24e4752.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 183,
+      "height": 40,
+      "aspectRatio": 4.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e2209fa3-2728-4c11-954d-c1eafc3807aa.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

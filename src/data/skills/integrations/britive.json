@@ -1,0 +1,168 @@
+{
+  "slug": "britive",
+  "name": "Britive",
+  "domain": "britive.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Securely with Britive",
+  "metaTitle": "Build AI Agents for Britive with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Britive for access lookups, request guidance, approvals, handoffs, and internal access operations.",
+  "intro": "Britive helps organizations manage privileged access with just-in-time controls and least-privilege security across cloud and on-premise systems. With DocsBot Skill Builder, you can describe the access workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up access details, guide requests, trigger approved workflows, and summarize outcomes. This helps support teams and internal operations teams move faster while keeping sensitive actions controlled.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to explain the status of an access request by looking up approved Britive request details and summarizing the next steps for the user.",
+    "Let a support agent gather the information needed for an access issue, create a structured handoff for the security or IT team, and include relevant Britive context in the escalation.",
+    "Have the agent answer common customer questions about temporary privileged access policies, approval expectations, and request progress using approved Britive data and internal guidance.",
+    "Enable a helpdesk-connected DocsBot agent to review ticket details, check Britive access request status, and draft a precise response that reduces back-and-forth.",
+    "Use the agent to identify when a user needs human review for a sensitive access matter and route the case with a clear summary of Britive-related details and requested resources."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Teams, or a web chat to check the status of Britive access requests, entitlements, or approval steps without opening multiple admin tools.",
+    "Enable internal IT or security teams to use an AI agent to gather required context for privileged access workflows, summarize policy-relevant details, and trigger approved next steps.",
+    "Help operations or engineering employees ask the agent who should approve a just-in-time access request, what access path is available, and what prerequisites still need to be completed.",
+    "Allow service desk teams to chat with the agent to prepare access-review handoffs, summarize historical request activity, and follow standard operating procedures more consistently.",
+    "Support internal audits by letting employees ask the agent for structured summaries of Britive request activity, access timelines, and approval context within allowed permissions."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Britive access request status and explains next steps to users.",
+    "A support workflow that gathers access issue details and prepares a security team handoff.",
+    "An internal assistant that summarizes privileged access approvals and outstanding prerequisites for employees.",
+    "An AI agent that guides users through just-in-time access request policies and approval expectations.",
+    "A helpdesk assistant that enriches tickets with Britive request context before escalation.",
+    "An internal operations bot that triggers approved access workflows with human approval boundaries in place."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Britive in plain language, such as checking request status, guiding access requests, or preparing secure escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and sets up secure authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder scopes the Skill to the minimum Britive actions, users, records, and systems needed, and it adds approval boundaries or safe action limits for sensitive privileged-access workflows."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations against the Skill, finds bugs, weak instructions, or permission gaps, and feeds improvements back into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so the agent can take bounded action safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Britive without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the access workflow you want in plain language and Skill Builder designs the Skill for you. It handles secure connection details, configuration, testing, and deployment so your agent can use Britive safely."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Britive data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Britive data to check request status, explain access workflow steps, summarize relevant context, and prepare escalations. Sensitive actions can be restricted behind approvals and scoped permissions."
+    },
+    {
+      "question": "What Britive workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees check access request progress, understand approval paths, gather required context, summarize privileged access activity, and trigger approved workflow steps. This is useful for IT, security, operations, and service desk teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger access-related actions in Britive?",
+      "answer": "DocsBot Skill Builder can create Skills that perform bounded actions in Britive within the rules you define. It scopes permissions, protects secrets through secure runtime configuration, and adds approval boundaries for sensitive requests or updates."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Britive?",
+      "answer": "Skill Builder defines the needed configuration values, secures authentication handling, and keeps credentials out of chat transcripts and generated Skill content. It also limits access to the minimum required records and actions for each workflow."
+    },
+    {
+      "question": "Can a Britive AI agent help with support ticket escalations and handoffs?",
+      "answer": "Yes, DocsBot can gather the relevant access details from the conversation, look up approved Britive context, and generate a structured handoff for security or IT teams. This helps support teams escalate faster with clearer case summaries."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "cyberark",
+    "ping-identity",
+    "duo-security"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Britive",
+    "domain": "britive.com",
+    "description": "Britive is a cloud-native Privileged Access Management (PAM) company that provides a SaaS-based platform for managing access to cloud and on-premise infrastructure. Britive's platform enables organizations to enforce least privilege access, eliminate standing privileges, and ensure secure access to resources without disrupting workflows. With its API-first approach and just-in-time access controls, Britive helps organizations achieve Zero Trust security and maintain the agility needed to drive business success.",
+    "slogan": "Secure Multi-Cloud Privileged Access with Zero Trust and Just-In-Time Security",
+    "logoUrl": "https://media.brand.dev/bfa8c2e1-09a3-4bd0-9f92-3ffb9dd91940.svg",
+    "iconUrl": "https://media.brand.dev/e84e0de7-ecf1-4567-ad85-95a7a029934b.png",
+    "primaryColor": "#8c94a4",
+    "accentColor": "#1f1e3c",
+    "colors": [
+      {
+        "hex": "#8c94a4",
+        "name": "Ozone"
+      },
+      {
+        "hex": "#1f1e3c",
+        "name": "Midnight Express"
+      },
+      {
+        "hex": "#d2d2d8",
+        "name": "Spooky Ghost"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ac51898b-c0f3-44cd-a62e-84a198ebb02a.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.britive.com/company/careers",
+      "contact": "https://www.britive.com/contact",
+      "privacy": "https://www.britive.com/privacy-policy",
+      "blog": "https://www.britive.com/resources/blog",
+      "pricing": "https://www.britive.com/britive-privileged-access-management-pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e84e0de7-ecf1-4567-ad85-95a7a029934b.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4a48d1b6-e33f-465f-9aff-a037b7bb871a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bfa8c2e1-09a3-4bd0-9f92-3ffb9dd91940.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 113,
+        "height": 40,
+        "aspectRatio": 2.83
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bfa8c2e1-09a3-4bd0-9f92-3ffb9dd91940.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 113,
+      "height": 40,
+      "aspectRatio": 2.83
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4a48d1b6-e33f-465f-9aff-a037b7bb871a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

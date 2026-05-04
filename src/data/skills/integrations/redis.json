@@ -1,0 +1,183 @@
+{
+  "slug": "redis",
+  "name": "Redis",
+  "domain": "redis.io",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Redis with DocsBot Skills",
+  "metaTitle": "Build Redis AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query, update, and summarize Redis data for customer support and internal team workflows.",
+  "intro": "Redis powers fast data access, caching, vector search, semantic search, and AI memory for modern applications. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Redis, and Skill Builder designs, secures, tests, and packages that ability for deployment. The result is a support or internal AI agent that can look up live state, summarize data, trigger bounded actions, and help teams move faster without exposing sensitive systems.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Redis-backed session, cache, or application state to answer account, status, or troubleshooting questions in real time.",
+    "Use a support agent to look up feature flags, rate-limit counters, temporary holds, or workflow state stored in Redis before responding to a customer ticket.",
+    "Enable the agent to summarize Redis activity or key data patterns so support teams can prepare faster escalations and cleaner engineering handoffs.",
+    "Allow the agent to write approved support markers, temporary status values, or workflow signals into Redis when a customer confirms a requested action.",
+    "Use Redis vector or semantic search data to help the agent retrieve relevant product context while answering customer questions through chat or helpdesk replies."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Redis-backed application state, cache values, counters, feature settings, or real-time workflow signals without switching tools.",
+    "Enable operations or support teams to ask the agent to investigate incidents by summarizing Redis keys, recent patterns, or service state across approved environments.",
+    "Give engineers, success managers, or analysts an internal AI assistant that uses Redis search or vector data to find relevant context, prior activity, or application memory faster.",
+    "Allow team members in Slack or Microsoft Teams to trigger approved Redis updates for workflow coordination, temporary flags, or controlled operational runbooks.",
+    "Use a private agent to guide employees through SOPs that depend on Redis checks, then create summaries, handoff notes, or next-step recommendations automatically."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Redis session and cache state before answering troubleshooting questions.",
+    "A private assistant that summarizes Redis counters, flags, and real-time workflow data for operations teams.",
+    "A DocsBot Skill that writes approved temporary status markers into Redis after customer confirmation.",
+    "An internal incident helper that reviews Redis-backed signals and drafts escalation notes for engineers.",
+    "A team assistant that searches Redis vector data to retrieve relevant product or workflow context.",
+    "A workflow agent that validates Redis state before triggering downstream actions in other business systems."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Redis, such as checking application state, summarizing signals, or writing approved values during a support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "DocsBot Skill Builder turns that goal into a reusable Skill, asks for any missing context, and automatically defines the safest workflow design, needed configuration values, and secure connection approach for Redis."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill content, protects and proxies secrets through secure runtime configuration, scopes access to the minimum keys, actions, users, and environments required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, the Skill is deployed to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so it can answer questions and take bounded Redis actions inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Redis data?",
+      "answer": "With DocsBot Skill Builder, you describe the Redis lookup or action you want in plain language, and Skill Builder creates a secure Skill that can query, summarize, or update approved Redis data. It also handles configuration, authentication, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Redis to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Redis as a fast data source for session state, workflow signals, counters, cached values, or other approved application context while replying to customers. This helps the agent give real-time answers and prepare better escalations or handoffs."
+    },
+    {
+      "question": "What Redis workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve Redis-backed state, investigate issues, check feature settings, summarize patterns, and perform approved operational updates from chat, Slack, or Microsoft Teams. It can also guide teams through SOPs that depend on Redis checks or workflow signals."
+    },
+    {
+      "question": "Can DocsBot safely update Redis from an AI agent?",
+      "answer": "Yes, Skill Builder can design bounded Redis actions with scoped permissions, approved key patterns, and approval steps for sensitive changes. Secrets are protected through secure runtime configuration so credentials do not appear in chat transcripts or generated content."
+    },
+    {
+      "question": "Can an AI agent use Redis vector search or semantic search data?",
+      "answer": "Yes, DocsBot can be designed to query approved Redis search or vector-backed data to retrieve relevant context for support answers, internal research, or workflow assistance. This can improve grounding when the agent needs fast access to semantic memory or application knowledge."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Redis with DocsBot?",
+      "answer": "You describe the business outcome you want, and Skill Builder handles the technical design behind the scenes, including secure connection details, configuration values, permission limits, testing scenarios, and deployment. The process is built to feel like defining goals, not wiring code manually."
+    }
+  ],
+  "relatedSlugs": [
+    "postgres",
+    "mongodb",
+    "supabase",
+    "elasticsearch",
+    "firebase"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Redis",
+    "domain": "redis.io",
+    "description": "Redis is the world’s fastest data platform, offering cloud and on‑premise solutions for caching, vector search, AI memory, semantic search, and real‑time data queries. Trusted by thousands of customers and recognized as Fast Company’s Most Innovative Company of 2026, Redis provides a fully managed, low‑latency memory layer that integrates seamlessly with any tech stack. Developers can build, scale, and deploy high‑performance applications using Redis Enterprise, open‑source Redis 8, or Redis Flex, with features like active‑active geo‑distribution, automatic failover, clustering, and CDC data integration. Available on all major clouds, on‑prem, or hybrid environments, Redis empowers digital businesses to accelerate app speed, reduce LLM costs, and deliver AI‑powered experiences.",
+    "slogan": "Think fast. Build faster. Get ready-to-use tools for AI apps today.",
+    "logoUrl": "https://media.brand.dev/530b4df2-0b39-4eb5-8988-e5efb3fd22e4.svg",
+    "iconUrl": "https://media.brand.dev/6c191d36-796d-4db3-9841-7c163aff3bd2.svg",
+    "primaryColor": "#fc473e",
+    "accentColor": "#fca49c",
+    "colors": [
+      {
+        "hex": "#fc473e",
+        "name": "Dusk Orange"
+      },
+      {
+        "hex": "#fca49c",
+        "name": "Candlelight Peach"
+      },
+      {
+        "hex": "#f8f2ef",
+        "name": "Bright White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c7f2c291-b4f1-4dc7-ae44-978d763f165a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://redis.io/company/careers/",
+      "terms": "https://redis.io/legal/redis-website-terms-of-use/",
+      "contact": null,
+      "privacy": "https://redis.io/legal/privacy-policy/",
+      "blog": "https://redis.io/blog/",
+      "pricing": "https://redis.io/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1629927b-8ce0-48e6-932a-ca0fa8351fda.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7909296e-7f37-4da3-ba06-cc7db40c3f42.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6c191d36-796d-4db3-9841-7c163aff3bd2.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/936cae5f-7a44-4bf9-863b-3f7193f6e9f8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/530b4df2-0b39-4eb5-8988-e5efb3fd22e4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 85,
+        "height": 27,
+        "aspectRatio": 3.15
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/530b4df2-0b39-4eb5-8988-e5efb3fd22e4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 85,
+      "height": 27,
+      "aspectRatio": 3.15
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1629927b-8ce0-48e6-932a-ca0fa8351fda.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "circleci",
+  "name": "CircleCI",
+  "domain": "circleci.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with CircleCI",
+  "metaTitle": "Build CircleCI AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use CircleCI to check pipeline status, summarize failures, trigger approved workflows, and support teams or customers safely.",
+  "intro": "CircleCI helps teams automate builds, tests, and software delivery. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up pipeline data, summarize release status, and trigger approved CI/CD actions. This helps customer support teams answer delivery-related questions faster and gives internal teams a private AI assistant for release, DevOps, and incident workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a deployment or build tied to a customer environment and reply with a clear progress update.",
+    "Use the agent to summarize recent CircleCI job failures in plain language so support can explain delays without exposing raw pipeline logs.",
+    "Have the agent gather pipeline, workflow, and job context from CircleCI and prepare a support handoff when a customer issue needs engineering review.",
+    "Allow the agent to confirm whether a fix has passed tests and reached the right deployment stage before replying to a customer ticket.",
+    "Enable the agent to trigger an approved rerun or follow-up workflow in CircleCI for narrowly defined support recovery scenarios with the right approval boundary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up failed builds, workflow history, and deployment status in CircleCI without leaving the conversation.",
+    "DevOps and engineering teams can ask the agent to summarize why a pipeline failed, compare recent runs, and suggest the next troubleshooting step using CircleCI data.",
+    "Release managers can use the agent to check promotion readiness across projects, summarize test outcomes, and prepare release status updates for stakeholders.",
+    "On-call teams can chat with the agent to gather CircleCI pipeline context during incidents and create a structured handoff summary for engineering response.",
+    "Teams can use the agent to trigger approved CircleCI workflows, reruns, or notifications as part of internal SOPs while keeping actions within scoped permissions and approval rules."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks build and deployment status before answering release-related customer questions.",
+    "An internal DevOps assistant that summarizes failed jobs and highlights likely causes from recent pipeline runs.",
+    "A release operations agent that prepares stakeholder updates from CircleCI workflow and test results.",
+    "An incident support agent that gathers CI/CD evidence and creates engineering handoff summaries.",
+    "A private team assistant that triggers approved reruns or workflows with human approval for sensitive actions.",
+    "A QA support agent that verifies whether fixes passed automated tests before customer follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with CircleCI, such as checking build status, summarizing failures, or triggering an approved workflow, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder identifies the CircleCI connection details and configuration values required, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum projects, actions, and users needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "When the workflow includes reruns, triggers, or other sensitive CI/CD actions, Skill Builder adds approval boundaries and safe action limits so the agent only takes the bounded steps you allow."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill based on test results and helps publish it to the right DocsBot agent, whether that is a customer-facing chat widget, a helpdesk agent, or a private employee assistant in Slack, Teams, or chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with CircleCI?",
+      "answer": "With DocsBot Skill Builder, you describe the CircleCI workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up pipeline data, summarize status, and trigger approved actions. It also handles secure configuration, secret protection, permission scoping, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use CircleCI data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use CircleCI to check build, test, and deployment status so it can answer release-related questions with current information. It can also prepare clean summaries and handoffs for engineering when deeper investigation is needed."
+    },
+    {
+      "question": "What CircleCI workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can retrieve pipeline history, summarize failed jobs, check deployment readiness, prepare release updates, and trigger approved reruns or workflows. The actions can be limited to specific projects, environments, users, and approval rules."
+    },
+    {
+      "question": "Can DocsBot trigger CircleCI pipelines or rerun jobs safely?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions for approved CircleCI triggers, reruns, or workflow steps. It designs the Skill with scoped permissions, secure authentication handling, and approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep CircleCI credentials secure in an AI workflow?",
+      "answer": "Skill Builder defines the required connection settings and keeps secrets out of chat transcripts and Skill instructions by proxying them through secure runtime configuration. It also limits access to only the records, projects, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize CircleCI failures for support or operations teams?",
+      "answer": "Yes, the agent can pull job and workflow context from CircleCI and turn it into a plain-language summary for support, DevOps, or release teams. This helps teams act faster without reading raw build details line by line."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jenkins",
+    "bitbucket",
+    "pagerduty",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "CircleCI",
+    "domain": "circleci.com",
+    "description": "CircleCI is a leading continuous integration and delivery platform focused on streamlining development workflows and IT operations. Their software delivery engine empowers teams to release software faster and more confidently by providing top-notch CI/CD solutions. Their goal is to revolutionize software development by helping teams accelerate innovation and growth through automated processes. The platform, developed by a team of expert DevOps professionals, emphasizes the importance of speed, focus, and consistency in delivery to ensure high-quality products reach customers reliably. CircleCI is committed to fostering inclusivity and diversity in the workplace and offers CI/CD services for any platform, whether in their cloud or on internal infrastructure, at no cost.",
+    "slogan": "Ship software faster with confidence using CircleCI's CI/CD platform",
+    "logoUrl": "https://media.brand.dev/9be153f0-a064-4318-93b3-237a37fb37fc.svg",
+    "iconUrl": "https://media.brand.dev/141ca5a4-f76e-4347-b6d7-55a59e59e75f.png",
+    "primaryColor": "#040404",
+    "accentColor": "#848484",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#dddddd",
+        "name": "Steam"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0aef6b49-1d8e-4c6f-85e4-51e250e16079.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://circleci.com/careers/",
+      "terms": "https://circleci.com/legal/terms-of-use/",
+      "contact": null,
+      "privacy": "https://circleci.com/legal/privacy/",
+      "blog": "https://circleci.com/blog/",
+      "pricing": "https://circleci.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6f9d2806-a52c-41bc-812f-69fcbd6ded5d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/61e56323-43a4-43bc-9be1-3864d0e56f1d.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1801,
+        "height": 1801,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/141ca5a4-f76e-4347-b6d7-55a59e59e75f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9be153f0-a064-4318-93b3-237a37fb37fc.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 116,
+        "height": 25,
+        "aspectRatio": 4.64
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9be153f0-a064-4318-93b3-237a37fb37fc.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 116,
+      "height": 25,
+      "aspectRatio": 4.64
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/61e56323-43a4-43bc-9be1-3864d0e56f1d.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1801,
+      "height": 1801,
+      "aspectRatio": 1
+    }
+  }
+}

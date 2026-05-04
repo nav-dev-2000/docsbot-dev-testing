@@ -1,0 +1,168 @@
+{
+  "slug": "airtable",
+  "name": "Airtable",
+  "domain": "airtable.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Airtable",
+  "metaTitle": "Build Airtable AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Airtable for live lookups, record updates, handoffs, workflow triggers, and internal team automation with safe controls.",
+  "intro": "Airtable helps teams manage operational data, workflows, and custom business processes in one flexible system. With DocsBot Skill Builder, you can describe the Airtable-powered agent you want in plain language, and DocsBot helps design, secure, test, and deploy the Skill for support or internal use. The result is an AI agent that can answer questions and take approved action in Airtable instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order, onboarding, account, or request records in Airtable and answer status questions with current information.",
+    "Have the agent create new Airtable records from website chat or helpdesk tickets so customer issues, requests, or follow-ups are captured automatically.",
+    "Enable the agent to update approved Airtable fields such as ticket stage, priority, owner, or follow-up status while resolving a customer conversation.",
+    "Use the agent to summarize related Airtable records and prepare a clean handoff for a human support or success teammate when escalation is needed.",
+    "Allow the agent to trigger Airtable-based workflows after customer confirmation, such as submitting a request, logging a bug report, or starting a service process."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to find Airtable records, summarize account activity, and retrieve operational details quickly.",
+    "Teams can ask the agent to create or update Airtable records as part of standard workflows such as intake, triage, follow-up tracking, and project coordination.",
+    "Operations staff can use the agent to guide SOP-driven workflows by gathering missing context, writing structured Airtable entries, and routing work to the right owner.",
+    "Customer success or support leaders can ask the agent to summarize Airtable pipelines, open requests, or blocked items and prepare internal status updates.",
+    "Internal teams can use the agent to research related information across Airtable and other approved systems, then generate notes, handoff summaries, or next-step checklists."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Airtable record status before replying to customers.",
+    "A customer intake agent that creates Airtable records from chat conversations automatically.",
+    "An escalation assistant that summarizes Airtable history and prepares human handoff notes.",
+    "An internal ops agent that updates Airtable stages, owners, and follow-up fields safely.",
+    "A team assistant that answers questions using Airtable data and approved connected systems.",
+    "A workflow agent that logs requests in Airtable and triggers downstream operational processes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Airtable agent to do, such as look up records, create requests, update approved fields, or prepare escalations, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, decides the safest workflow design, identifies the required Airtable configuration values, and defines secure authentication handling without exposing credentials in chat or Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes Airtable access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team conversations against the Skill, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Airtable Skill to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer questions and take bounded action in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Airtable?",
+      "answer": "With DocsBot Skill Builder, you describe the Airtable workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and helps publish it to the right DocsBot agent. The finished agent can look up records, create entries, update approved fields, trigger workflows, and summarize results."
+    },
+    {
+      "question": "Can an AI support agent use Airtable data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Airtable as a live source for approved record lookups so it can answer status, request, onboarding, or account questions with current information. It can also create or update Airtable records when the workflow allows it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Airtable?",
+      "answer": "DocsBot can help automate request intake, status lookups, follow-up logging, escalation preparation, bug or issue capture, and workflow triggers tied to Airtable records. The agent can gather missing details from the customer, write structured updates, and prepare clean handoffs for human teams."
+    },
+    {
+      "question": "Can an internal AI assistant update Airtable records for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create and update Airtable records within the permissions and action limits you define. This is useful for operations, support, customer success, and project workflows that rely on Airtable as a system of record."
+    },
+    {
+      "question": "How does DocsBot keep Airtable actions safe?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and generated content, proxies secrets through protected runtime settings, and scopes access to the minimum actions and data needed. It can also add approval boundaries so sensitive record changes or workflow triggers require the right guardrails."
+    },
+    {
+      "question": "Can DocsBot summarize Airtable records before handing a case to a human teammate?",
+      "answer": "Yes, a DocsBot agent can review approved Airtable records, summarize relevant history, and create a concise handoff for support, success, or operations teams. This helps reduce context switching and speeds up escalations."
+    }
+  ],
+  "relatedSlugs": [
+    "smartsheet",
+    "monday",
+    "clickup",
+    "notion",
+    "asana",
+    "trello"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Airtable",
+    "domain": "airtable.com",
+    "description": "Airtable is an AI-native platform that enables organizations to build custom AI applications to accelerate business operations and streamline workflows. With its AI app builder and agent software, teams can create apps that drive innovation, improve customer experiences, and enhance governance, allowing businesses to work more efficiently and effectively.",
+    "slogan": "Build custom AI apps quickly—no code, no limits, your work reimagined.",
+    "logoUrl": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+    "iconUrl": "https://media.brand.dev/e1bc46c3-639e-4ce9-be5a-1170433be24b.png",
+    "primaryColor": "#1bbdfc",
+    "accentColor": "#b42244",
+    "colors": [
+      {
+        "hex": "#1bbdfc",
+        "name": "Cherenkov Radiation"
+      },
+      {
+        "hex": "#b42244",
+        "name": "Cherryade"
+      },
+      {
+        "hex": "#1c1c24",
+        "name": "Satin Deep Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c7249ddc-1126-4ec9-a732-1acc00f9e332.png",
+    "industries": [],
+    "links": {
+      "contact": "https://support.airtable.com/docs/contacting-airtable-support",
+      "pricing": "https://airtable.com/pricing",
+      "careers": "https://www.airtable.com/careers",
+      "terms": "https://www.airtable.com/company/terms-and-policies",
+      "privacy": "https://www.airtable.com/company/privacy",
+      "blog": "https://www.airtable.com/newsroom"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aac2d506-7454-42e1-b9c2-e904e3cdb796.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e1bc46c3-639e-4ce9-be5a-1170433be24b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 170,
+        "aspectRatio": 1.18
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 170,
+      "aspectRatio": 1.18
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/aac2d506-7454-42e1-b9c2-e904e3cdb796.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

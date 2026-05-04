@@ -1,0 +1,160 @@
+{
+  "slug": "sonarqube-cloud",
+  "name": "SonarQube Cloud",
+  "domain": "sonarqube-cloud.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SonarQube Cloud",
+  "metaTitle": "Build AI Agents for SonarQube Cloud with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use SonarQube Cloud to surface code quality findings, summarize issues, trigger handoffs, and support secure internal workflows.",
+  "intro": "SonarQube Cloud helps teams monitor code quality, security findings, and analysis results across repositories and delivery workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up SonarQube Cloud data, summarize risk, trigger approved workflows, and support customers or internal teams. This makes it easier to turn code quality and security insights into practical AI Actions instead of leaving teams to manually gather context across tools.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a reported product issue matches known SonarQube Cloud bugs, vulnerabilities, or recent code quality findings before drafting a response.",
+    "Use the agent in website chat or helpdesk replies to summarize the latest analysis status for a product area and prepare a clean escalation handoff for engineering.",
+    "Enable the agent to gather relevant SonarQube Cloud issue details tied to a customer-reported defect and include a concise severity and impact summary in the support reply.",
+    "Have the agent create or update an internal escalation record after it reviews SonarQube Cloud findings and confirms the issue meets your support-to-engineering handoff rules.",
+    "Let the agent trigger an approved follow-up workflow when SonarQube Cloud findings suggest a customer-facing incident may relate to a security or reliability regression."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve SonarQube Cloud project health, issue counts, quality gate results, and recent analysis summaries without opening multiple dashboards.",
+    "Engineering, support, and operations teams can ask the agent to summarize high-priority vulnerabilities or code smells by repository, team, or release so they can research risk faster.",
+    "Team members can use the agent to follow internal triage workflows that combine SonarQube Cloud findings with SOP guidance, escalation rules, and next-step recommendations.",
+    "Managers can ask the agent for plain-language summaries of quality trends, unresolved issues, and release readiness across projects to support planning and cross-team communication.",
+    "Internal agents can prepare handoff notes, incident context, or review-ready summaries based on SonarQube Cloud data and your private documentation."
+  ],
+  "whatYouCanBuild": [
+    "A support escalation Skill that summarizes relevant SonarQube Cloud findings for customer-reported defects.",
+    "An internal release readiness assistant that checks quality gate status before deployment decisions.",
+    "A vulnerability triage Skill that groups critical findings and prepares engineering handoff notes.",
+    "A repository health lookup Skill for Slack or Microsoft Teams employee questions.",
+    "A workflow Skill that triggers approved follow-up actions when severe issues are detected.",
+    "A summary Skill that explains code quality trends in plain language for non-engineering teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SonarQube Cloud agent to do, such as summarize code quality findings, prepare escalations, or answer internal team questions, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, identifies the configuration values the Skill needs, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the projects, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive updates or workflow triggers, Skill Builder adds approval boundaries and safe action limits so the agent can help decisively without exceeding the permissions and rules you set."
+    },
+    {
+      "title": "The Skill is tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the SonarQube Cloud Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or private internal assistant so teams can start using SonarQube Cloud insights in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SonarQube Cloud?",
+      "answer": "With DocsBot Skill Builder, you describe the SonarQube Cloud workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up analysis results, summarize findings, trigger approved actions, and deploy to the right DocsBot agent. It also handles secure configuration, authentication design, scoped permissions, testing, and improvement before rollout."
+    },
+    {
+      "question": "Can an AI support agent use SonarQube Cloud data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use a SonarQube Cloud Skill to pull relevant code quality or security context, summarize likely engineering impact, and prepare a cleaner support escalation or customer reply. This is especially useful when customer-reported issues may connect to known defects, vulnerabilities, or recent analysis changes."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with SonarQube Cloud?",
+      "answer": "An internal DocsBot agent can answer repository health questions, summarize quality gate status, surface high-priority findings, prepare release-readiness summaries, and guide employees through triage or escalation SOPs. It can also generate handoff notes and other artifacts using SonarQube Cloud data plus your private documentation."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions based on SonarQube Cloud findings?",
+      "answer": "Yes, Skill Builder can create bounded workflows where the agent triggers approved follow-up actions, updates records, or prepares escalations under your rules. It designs the Skill with scoped permissions, secure secret handling, and approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Do I need to manually configure APIs or write code to connect SonarQube Cloud?",
+      "answer": "No, the experience is designed for non-technical users to describe the desired outcome rather than wire every detail by hand. Skill Builder figures out the connection approach, required configuration values, secure authentication flow, and testing plan for the workflow you want."
+    },
+    {
+      "question": "Can a SonarQube Cloud AI assistant work in Slack or Microsoft Teams?",
+      "answer": "Yes, you can publish the Skill to a private DocsBot agent that employees access in chat, Slack, or Microsoft Teams. That lets teams ask natural-language questions about SonarQube Cloud findings and complete research or triage workflows without switching tools constantly."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jira",
+    "linear",
+    "sentry",
+    "datadog"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SonarSource",
+    "domain": "sonarcloud.io",
+    "description": "Sonar (Sonarcloud) provides developers and organizations with AI‑aware code quality and security tooling. Their platform automatically scans both AI‑generated and human‑written code to detect bugs, vulnerabilities, and code‑smell, helping teams prevent outages and protect customer trust. By integrating continuous analysis into CI/CD pipelines, Sonar enables rapid feedback, enforces best‑practice standards, and fuels AI‑enabled development with confidence in every line of code.",
+    "slogan": "Catch Bugs and Secure Code with SonarCloud’s Intelligent Analysis",
+    "logoUrl": "https://media.brand.dev/d6677509-bc22-4a69-b0f9-f30df59804b5.svg",
+    "iconUrl": "https://media.brand.dev/64bd7484-2aaf-4960-8c03-a600abca76dc.png",
+    "primaryColor": "#2c0444",
+    "accentColor": "#f13155",
+    "colors": [
+      {
+        "hex": "#2c0444",
+        "name": "Edge of Space"
+      },
+      {
+        "hex": "#f13155",
+        "name": "Radish Lips"
+      },
+      {
+        "hex": "#d5cbdf",
+        "name": "Languid Lavender"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d57715f8-722c-442d-aea3-93c84fb9b7de.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d6677509-bc22-4a69-b0f9-f30df59804b5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 101,
+        "height": 32,
+        "aspectRatio": 3.16
+      },
+      {
+        "url": "https://media.brand.dev/64bd7484-2aaf-4960-8c03-a600abca76dc.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 361,
+        "height": 360,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d6677509-bc22-4a69-b0f9-f30df59804b5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 101,
+      "height": 32,
+      "aspectRatio": 3.16
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/64bd7484-2aaf-4960-8c03-a600abca76dc.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 361,
+      "height": 360,
+      "aspectRatio": 1
+    }
+  }
+}

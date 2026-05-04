@@ -1,0 +1,176 @@
+{
+  "slug": "ceipal",
+  "name": "Ceipal",
+  "domain": "ceipal.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Ceipal",
+  "metaTitle": "Build Ceipal AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up candidates, update recruiting records, trigger workflows, and summarize Ceipal activity.",
+  "intro": "Ceipal helps teams manage recruiting, staffing, and talent acquisition workflows, making it a strong system for AI-powered lookups and approved actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to Ceipal. The result is a support or internal AI agent that can answer questions, gather context, update records, prepare handoffs, and trigger bounded recruiting workflows without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a candidate application in Ceipal and return a clear update in chat or in a helpdesk reply.",
+    "Use a support agent to collect missing applicant details from a conversation and create or update a Ceipal record for recruiter follow-up.",
+    "Have the agent summarize a candidate or requisition record from Ceipal so support teams can respond with accurate next steps.",
+    "Enable the agent to prepare an escalation handoff by pulling relevant Ceipal activity, notes, and status into a concise summary for a human recruiter or coordinator.",
+    "Let the agent trigger approved recruiting workflows in Ceipal, such as flagging a record for review or routing a request to the right hiring team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up candidate, job, and application details stored in Ceipal.",
+    "Recruiting and operations teams can ask the agent to summarize pipeline status, recent record activity, or open requisition context before taking action.",
+    "Team members can use the agent to create structured handoff notes, recruiter follow-up drafts, and candidate status summaries based on Ceipal data.",
+    "Employees can ask the agent to complete repeatable SOPs such as capturing intake details, updating approved fields, and routing recruiting tasks to the right owner.",
+    "Internal teams can use the agent to research recruiting questions across Ceipal and connected knowledge sources without switching between systems."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup Skill for customer-facing chat and ticket responses.",
+    "An internal recruiter assistant that summarizes Ceipal candidate and requisition records on demand.",
+    "A hiring workflow Skill that captures missing context and updates approved Ceipal fields safely.",
+    "An escalation handoff Skill that turns Ceipal activity into concise notes for human recruiters.",
+    "A recruiting operations assistant that triggers approved Ceipal workflow steps after confirmation.",
+    "A private team agent that answers pipeline and application questions using Ceipal data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Ceipal agent to do, such as checking application status, updating approved records, or preparing recruiter handoffs, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest way to connect Ceipal, identifies the required configuration values, handles authentication and secret storage through secure runtime configuration, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum actions, users, records, and systems the Skill should reach, and it adds approval boundaries for sensitive updates or workflow triggers before anything is deployed."
+    },
+    {
+      "title": "The Skill is drafted and reviewed",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, and any needed actions, then reviews the workflow for missing context, weak spots, or safer alternatives."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined support and internal team scenarios, finds bugs, permission gaps, or confusing behavior, and feeds those results into an automated self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Ceipal?",
+      "answer": "With DocsBot Skill Builder, you describe the Ceipal workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your AI agent. That Skill can handle lookups, summaries, approved updates, and workflow triggers inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use Ceipal data to answer candidate or application questions?",
+      "answer": "Yes, a DocsBot support agent can use Ceipal to retrieve approved candidate, application, or requisition details and turn them into clear chat or ticket responses. It can also gather missing information and prepare a clean handoff when a recruiter should take over."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Ceipal?",
+      "answer": "Internal AI assistants can help recruiters and operations teams look up records, summarize pipeline activity, draft handoff notes, update approved fields, and trigger repeatable recruiting workflows. This helps teams move faster while keeping actions controlled and auditable."
+    },
+    {
+      "question": "Can DocsBot update Ceipal records safely through AI Actions?",
+      "answer": "Yes, Skill Builder can create bounded Ceipal actions for approved record updates, routing steps, and workflow triggers. It scopes permissions carefully, protects secrets through secure runtime configuration, and can require approvals for more sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiting handoffs using Ceipal?",
+      "answer": "Yes, an agent can gather the relevant Ceipal context, summarize candidate or requisition history, and produce a structured handoff for a recruiter, coordinator, or support team member. This reduces manual copy-paste and helps the next person act faster."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Ceipal with DocsBot?",
+      "answer": "You do not need to manually design the integration flow yourself. Skill Builder asks for the outcome you want, defines the secure connection and configuration, tests the Skill against realistic scenarios, improves it, and helps deploy it to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "jobvite",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Ceipal",
+    "domain": "ceipal.com",
+    "description": "Ceipal is a cutting-edge technology company that offers an AI-powered Total Talent Acquisition Platform designed to streamline communication, boost recruiter productivity, and foster adaptive talent strategies. Its innovative staffing software simplifies the hiring process, enabling teams to focus on meaningful connections. With a scalable and intelligent solution, Ceipal empowers talent professionals to efficiently find, hire, and manage top talent, transforming the way organizations approach talent acquisition.",
+    "slogan": "Empowering Talent Strategy with AI-Powered Staffing Solutions",
+    "logoUrl": "https://media.brand.dev/7715d06a-4032-4d21-8eb1-19eeaa2a4765.svg",
+    "iconUrl": "https://media.brand.dev/b22c99cf-4a3f-4c0a-b745-f74a017ef579.png",
+    "primaryColor": "#ef7344",
+    "accentColor": "#2565a4",
+    "colors": [
+      {
+        "hex": "#ef7344",
+        "name": "Debrito"
+      },
+      {
+        "hex": "#2565a4",
+        "name": "Distant Blue"
+      },
+      {
+        "hex": "#c7cdd9",
+        "name": "Link Water"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4f0208d0-5a90-4765-b8db-3278034571dc.png",
+    "industries": [],
+    "links": {
+      "careers": "https://ceipal.com/careers",
+      "terms": "https://ceipal.com/legal/privacy-policy",
+      "contact": "https://ceipal.com/contact",
+      "privacy": "https://ceipal.com/legal/privacy-policy",
+      "blog": "https://ceipal.com/resources",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e7e674fe-cb01-481a-84c6-d0d8c79f0968.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d3943fe1-70f9-43cb-a0ae-fc5f8e6f4dd5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 424,
+        "height": 424,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b22c99cf-4a3f-4c0a-b745-f74a017ef579.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7715d06a-4032-4d21-8eb1-19eeaa2a4765.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 682,
+        "height": 224,
+        "aspectRatio": 3.04
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7715d06a-4032-4d21-8eb1-19eeaa2a4765.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 682,
+      "height": 224,
+      "aspectRatio": 3.04
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e7e674fe-cb01-481a-84c6-d0d8c79f0968.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

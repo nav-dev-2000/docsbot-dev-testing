@@ -1,0 +1,168 @@
+{
+  "slug": "breathe",
+  "name": "Breathe",
+  "domain": "breathe.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Breathe",
+  "metaTitle": "Build Breathe AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Breathe for HR lookups, employee support, record updates, workflow handoffs, and safe internal actions.",
+  "intro": "Breathe helps teams manage core HR information, employee records, and people processes. With DocsBot Skill Builder, you can describe the HR assistant or support workflow you want in plain language, and DocsBot can design a reusable Skill that lets your AI agent safely look up information, prepare updates, trigger approved workflows, and summarize outcomes. This helps customer-facing support teams and internal employee help agents move from answers alone to bounded AI Actions.",
+  "supportUseCases": [
+    "Use a DocsBot website chat widget or helpdesk agent to check employee-facing HR policy context stored alongside Breathe records and answer questions with up-to-date status details.",
+    "Let a support or people-operations agent look up an employee profile in Breathe during a conversation, confirm basic details, and prepare the next approved HR handoff.",
+    "Have the agent summarize leave balances, employment details, or policy-related record context from Breathe so it can respond clearly without exposing unnecessary private data.",
+    "Allow the agent to create or update approved HR follow-up records based on a helpdesk ticket, then confirm that the request has been routed correctly.",
+    "Use the agent to gather missing information from an employee in chat, package the request with Breathe context, and send a clean escalation summary to HR or payroll teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat portal to look up approved Breathe information such as leave status, manager details, or employment record summaries.",
+    "HR and operations teams can ask the agent to gather Breathe record context, summarize an employee case, and prepare the next SOP step for onboarding, policy review, or issue resolution.",
+    "Managers can use the agent to retrieve team-related HR information from Breathe within allowed permissions and generate clean handoff notes for people operations.",
+    "People teams can chat with the agent to collect missing workflow inputs, trigger approved administrative steps, and keep routine HR processes moving without switching tools constantly.",
+    "Internal support staff can use the agent to research employee questions across Breathe and related systems, then return a concise answer with the right escalation path when needed."
+  ],
+  "whatYouCanBuild": [
+    "An employee self-service agent that answers HR questions using approved Breathe data.",
+    "A leave and absence assistant that checks balances and prepares follow-up actions.",
+    "An HR helpdesk agent that summarizes employee record context before escalation.",
+    "A manager assistant that retrieves team details within scoped internal permissions.",
+    "An onboarding workflow agent that gathers missing information and triggers approved tasks.",
+    "A people operations assistant that drafts case summaries from Breathe record context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Breathe agent to do in plain language, such as answering employee questions, checking leave details, or preparing HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Breathe connection details, and defines the safest workflow, runtime instructions, and action boundaries for the job."
+    },
+    {
+      "title": "Secure access is configured",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through protected runtime configuration, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission checks, user scoping, and approval boundaries for sensitive HR actions so the agent can help with lookups, updates, and workflow triggers without overreaching."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined employee support and internal HR scenarios, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Breathe?",
+      "answer": "With DocsBot Skill Builder, you describe the HR or employee-support outcome you want in plain language, and Skill Builder creates a reusable Skill that can look up Breathe data, prepare updates, trigger approved workflows, and summarize results. It also handles secure configuration, scoped access, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Breathe data to answer employee questions?",
+      "answer": "Yes, a DocsBot agent can use approved Breathe data to answer questions about items like leave status, employment details, or HR process context. The workflow can be limited to safe lookups, approved updates, and controlled escalations based on your rules."
+    },
+    {
+      "question": "What employee helpdesk workflows can DocsBot automate with Breathe?",
+      "answer": "You can build workflows for HR question triage, leave and policy lookups, employee record summaries, escalation prep, and approved follow-up actions. The agent can gather missing context from the employee, use Breathe for the needed data, and hand off a complete case summary when human review is needed."
+    },
+    {
+      "question": "Can an internal AI assistant help HR and operations teams with Breathe?",
+      "answer": "Yes, private DocsBot agents can help employees, HR staff, and managers retrieve approved Breathe information, research cases, and complete routine people-operations workflows. This is useful for internal chat, Slack, or Microsoft Teams experiences where teams want quick answers and bounded actions."
+    },
+    {
+      "question": "How does DocsBot keep Breathe integrations secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated Skill content. It also scopes permissions to the minimum necessary records, users, and actions, with approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger actions in Breathe?",
+      "answer": "It can be designed to perform approved updates or workflow triggers when that fits your process and permissions model. Skill Builder helps define safe action limits, review points, and approval boundaries so the agent only takes the actions you allow."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "hibob",
+    "gusto",
+    "workday",
+    "sage-hr"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Breathe",
+    "domain": "breathe.com",
+    "description": "breathe.com is a premium, short, and memorable domain name currently for sale. Ideal for health, wellness, lifestyle, or any brand focused on breathing, relaxation, or well‑being, this 8‑character .com offers instant credibility and global recognition. Listed at $795,000, the purchase includes a simple, secure transfer process backed by GoDaddy’s 24/7 support, ensuring a smooth acquisition for businesses looking to establish a strong online presence.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/3a43b08d-898b-4039-93c9-2036e400c716.svg",
+    "iconUrl": "https://media.brand.dev/b530c700-8015-42ba-949c-55885900bde2.png",
+    "primaryColor": "#040404",
+    "accentColor": "#51bfc7",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#51bfc7",
+        "name": "Gem Turquoise"
+      },
+      {
+        "hex": "#347474",
+        "name": "Myrtle Green"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fe1f07c1-c3c7-40e5-b1ba-304ec3aeb371.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 833,
+        "height": 833,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b530c700-8015-42ba-949c-55885900bde2.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3a43b08d-898b-4039-93c9-2036e400c716.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 161,
+        "height": 40,
+        "aspectRatio": 4.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3a43b08d-898b-4039-93c9-2036e400c716.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 161,
+      "height": 40,
+      "aspectRatio": 4.03
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fe1f07c1-c3c7-40e5-b1ba-304ec3aeb371.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 833,
+      "height": 833,
+      "aspectRatio": 1
+    }
+  }
+}

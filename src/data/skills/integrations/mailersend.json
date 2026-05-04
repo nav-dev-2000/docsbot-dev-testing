@@ -1,0 +1,184 @@
+{
+  "slug": "mailersend",
+  "name": "Mailersend",
+  "domain": "mailersend.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with MailerSend",
+  "metaTitle": "Build MailerSend AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use MailerSend for email lookups, delivery summaries, workflow triggers, and safe support or internal team actions.",
+  "intro": "MailerSend helps teams send and monitor transactional email at scale, from templates and dynamic content to delivery analytics. With DocsBot Skill Builder, you can describe the MailerSend workflow you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions, check email status, prepare handoffs, and take bounded actions inside MailerSend without exposing sensitive credentials or broad permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a transactional email was sent, delivered, bounced, or still pending in MailerSend while replying to a support chat or ticket.",
+    "Use a support agent to look up recent MailerSend activity for a customer and summarize delivery events before escalating the case to a human agent.",
+    "Enable the agent to trigger an approved resend workflow or create an internal follow-up when a customer reports a missing verification, receipt, or password reset email.",
+    "Have the agent confirm which transactional template or message flow was used for a customer communication and explain the likely next step in plain language.",
+    "Let the agent gather email delivery context from MailerSend and prepare a clean handoff note for support teams when deliverability troubleshooting needs human review."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to check MailerSend delivery activity, message status, and recent email events without logging into multiple tools.",
+    "Let customer success or operations teams ask an internal AI agent to summarize failed or delayed transactional email patterns and surface likely follow-up actions.",
+    "Enable employees in Slack or Microsoft Teams to use an AI assistant to prepare incident notes, escalation summaries, or workflow handoffs based on MailerSend delivery data.",
+    "Help internal teams use a private agent to review transactional email template usage, research customer communication history, and follow standard operating procedures more consistently.",
+    "Allow approved team members to chat with the agent to trigger bounded MailerSend-related workflows, such as internal alerts or resend requests, with approval controls for sensitive actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks MailerSend delivery status for password reset and verification emails.",
+    "A helpdesk assistant that summarizes bounced, delayed, or failed transactional email events for support teams.",
+    "An internal AI agent that prepares escalation notes using MailerSend activity and customer context.",
+    "A workflow assistant that triggers approved resend or follow-up processes after delivery failures.",
+    "A private operations agent that monitors transactional email issues and generates summary reports for teams.",
+    "A support Skill that explains recent MailerSend message events in simple customer-friendly language."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with MailerSend, such as checking delivery status, summarizing events, or triggering an approved resend workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect MailerSend, identifies the required configuration values, handles authentication through secure runtime configuration, keeps secrets out of chats and Skill content, and scopes access to only the actions and records the workflow needs."
+    },
+    {
+      "title": "It adds action limits",
+      "description": "DocsBot defines the right approval boundaries, user permissions, and safe action limits so the agent can take helpful bounded actions without gaining broader access than necessary."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, missing instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, DocsBot helps deploy it to your customer-facing support bot or your private team assistant so people can use MailerSend workflows through chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with MailerSend?",
+      "answer": "With DocsBot Skill Builder, you describe the MailerSend outcome you want in plain language, and DocsBot designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use MailerSend data to answer customer email delivery questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up MailerSend delivery events, message status, and related email activity so it can answer customer questions, summarize issues, and prepare handoffs for human support when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with MailerSend?",
+      "answer": "Common workflows include checking whether transactional emails were sent or delivered, summarizing bounce or delay events, triggering approved follow-up actions, and creating cleaner escalation notes for support teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with MailerSend in Slack or Microsoft Teams?",
+      "answer": "Yes, teams can use a private DocsBot agent to research MailerSend activity, summarize email incidents, follow support or operations SOPs, and trigger bounded internal workflows from chat."
+    },
+    {
+      "question": "How does DocsBot keep MailerSend credentials and actions secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through approved runtime settings, keeps credentials out of chats and generated content, and scopes permissions and approval boundaries to the minimum required workflow."
+    },
+    {
+      "question": "Can a DocsBot agent trigger MailerSend-related actions instead of only explaining what to do?",
+      "answer": "Yes, DocsBot Skills can support bounded AI Actions such as approved resend requests, follow-up workflow triggers, summary generation, and handoff preparation within the rules your team defines."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "mailgun",
+    "postmark",
+    "customer-io",
+    "brevo",
+    "smtp2go"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "MailerSend",
+    "domain": "mailersend.com",
+    "description": "MailerSend is a cloud-based transactional email system that enables developers to work faster and smarter with a powerful infrastructure to scale quickly. It offers intuitively-designed tools like a drag & drop builder and dynamic content templates, allowing non-technical teams to contribute without coding. Built by deliverability experts, MailerSend ensures high email deliverability and provides real-time analytics to optimize email campaigns. With flexible payment plans and 24/7 customer support, it's a reliable solution for businesses to streamline their email sending process via API or SMTP.",
+    "slogan": "Powerful, scalable transactional emails for developers and teams alike.",
+    "logoUrl": "https://media.brand.dev/393be3ea-a5cd-4a75-8f2c-9ae1c8a9b495.svg",
+    "iconUrl": "https://media.brand.dev/3a31cac2-64e7-4897-a7c0-8850ce2ea056.svg",
+    "primaryColor": "#3c3c44",
+    "accentColor": "#4cafc9",
+    "colors": [
+      {
+        "hex": "#3c3c44",
+        "name": "Ship Grey"
+      },
+      {
+        "hex": "#4cafc9",
+        "name": "Viking"
+      },
+      {
+        "hex": "#4c4cde",
+        "name": "Dark Soft Violet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3f68483e-31c0-4963-869e-a40a9713b887.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.mailersend.com/jobs",
+      "terms": "https://www.mailersend.com/legal/terms-of-use",
+      "contact": "https://www.mailersend.com/contact-us",
+      "privacy": "https://www.mailersend.com/legal/privacy-policy",
+      "blog": "https://www.mailersend.com/blog",
+      "pricing": "https://www.mailersend.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/decbbb88-c008-4b41-8dd2-49dc84cfeadf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/393be3ea-a5cd-4a75-8f2c-9ae1c8a9b495.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 171,
+        "height": 30,
+        "aspectRatio": 5.7
+      },
+      {
+        "url": "https://media.brand.dev/3a31cac2-64e7-4897-a7c0-8850ce2ea056.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 80,
+        "height": 80,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/911a3449-7bf4-47cd-8402-e79698eb8265.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 483,
+        "height": 483,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6e661c5a-fae0-4496-85b8-eb6516de213b.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/393be3ea-a5cd-4a75-8f2c-9ae1c8a9b495.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 171,
+      "height": 30,
+      "aspectRatio": 5.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/911a3449-7bf4-47cd-8402-e79698eb8265.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 483,
+      "height": 483,
+      "aspectRatio": 1
+    }
+  }
+}

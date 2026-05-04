@@ -1,0 +1,144 @@
+{
+  "slug": "zowie",
+  "name": "Zowie",
+  "domain": "zowie.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zowie Using DocsBot Skills",
+  "metaTitle": "Build Zowie AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zowie for support lookups, handoffs, summaries, and safe workflow actions in customer and internal chats.",
+  "intro": "Zowie helps teams automate and manage customer service across chat and support channels. With DocsBot Skill Builder, you can describe the Zowie workflow you want in plain language, and DocsBot can create a reusable Skill your AI agent uses to look up data, prepare handoffs, summarize conversations, and take approved actions. This helps teams deliver faster support externally and gives employees a private AI assistant for support operations and service workflows.",
+  "supportUseCases": [
+    "Let a DocsBot website or helpdesk agent look up relevant Zowie conversation details and summarize the current support state before replying to a customer.",
+    "Use a DocsBot support agent to prepare escalation handoffs in Zowie with the customer issue, prior conversation context, and recommended next steps.",
+    "Enable the agent to capture missing details from the customer and create or update the right support record in Zowie within approved limits.",
+    "Have the agent review a Zowie interaction history and generate a concise case summary for faster ticket resolution.",
+    "Trigger approved follow-up workflows from a customer conversation, such as routing a complex issue for human review based on Zowie context and rules you define."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to retrieve Zowie conversation history, support status, and escalation context without switching tools.",
+    "Let support managers ask an internal AI agent to summarize recurring Zowie issues, identify open handoffs, and prepare next-step recommendations for the team.",
+    "Enable operations or customer success teams to chat with an agent that helps complete support SOPs using Zowie data, including triage preparation and escalation notes.",
+    "Allow team members in Slack or Microsoft Teams to ask a DocsBot agent for a clean summary of a Zowie case before taking over a customer conversation.",
+    "Help internal teams generate consistent handoff notes, follow-up drafts, and case summaries based on approved Zowie records and workflows."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that summarizes Zowie conversations before the agent responds to customers.",
+    "A Skill that creates structured escalation notes from chat and ticket context.",
+    "A Skill that updates approved Zowie case fields after collecting missing customer details.",
+    "A Skill that retrieves conversation history and prepares a human handoff summary.",
+    "A Skill that flags complex cases and routes them into the right support workflow.",
+    "A Skill that helps employees research open support issues from Slack or Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zowie-enabled agent to do in plain language, such as summarize conversations, prepare handoffs, or update approved support records."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, and handles connection and authentication setup in a safe way without exposing credentials in chats or Skill instructions."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder scopes the Skill to the minimum data, actions, users, and Zowie records needed, and it adds approval boundaries or safe action limits for sensitive updates and workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent for employees in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zowie for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it can create a Skill that lets your agent use Zowie data for lookups, summaries, handoffs, and other approved actions. Skill Builder also defines secure connection settings, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zowie conversation data while replying to customers?",
+      "answer": "Yes, a DocsBot agent can be configured to use Zowie as a support system during customer chats or helpdesk replies so it can retrieve context, summarize history, and prepare the next step. You control which records and actions are allowed, and sensitive actions can require approval boundaries."
+    },
+    {
+      "question": "What Zowie workflows can a DocsBot AI agent automate safely?",
+      "answer": "A Skill can safely automate bounded tasks such as conversation lookups, case summaries, escalation preparation, approved record updates, and routing triggers. Skill Builder designs the workflow with minimum necessary access, protected secrets, and clear limits on what the agent is allowed to do."
+    },
+    {
+      "question": "Can I use DocsBot with Zowie for internal team assistants too?",
+      "answer": "Yes, employees can use a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Zowie case context, summarize customer issues, and complete support workflows faster. This is useful for support leads, operations teams, and customer success staff who need quick answers and guided actions across systems."
+    },
+    {
+      "question": "How does DocsBot keep Zowie credentials and actions secure?",
+      "answer": "Skill Builder handles secure configuration by defining the needed connection values, protecting and proxying secrets through runtime settings, and keeping credentials out of chat transcripts and generated content. It also scopes access to approved users, records, and actions and can add approval steps for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot test a Zowie AI workflow before my team uses it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill to find bugs, weak instructions, and missing permission checks. Those findings can be used in an automated self-improvement loop before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "gorgias",
+    "helpscout",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zowie",
+    "domain": "zowie.com",
+    "description": "Zowie is an AI‑driven customer service platform that helps businesses automate and enhance their support operations. Leveraging natural language processing and machine learning, Zowie’s chatbots and virtual assistants handle routine inquiries, triage tickets, and provide instant, personalized responses across web, mobile, and messaging channels. The solution integrates with popular help‑desk, CRM, and e‑commerce systems, enabling seamless handoffs to human agents when needed. By reducing response times and operational costs, Zowie empowers brands to deliver consistent, high‑quality support at scale while gathering actionable insights to continuously improve the customer experience.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/abace343-ebad-4dfa-9d8c-d5a298566ef5.png",
+    "iconUrl": "https://media.brand.dev/abace343-ebad-4dfa-9d8c-d5a298566ef5.png",
+    "primaryColor": "#04449c",
+    "accentColor": "#04449c",
+    "colors": [
+      {
+        "hex": "#04449c",
+        "name": "Fright Night"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/abace343-ebad-4dfa-9d8c-d5a298566ef5.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/abace343-ebad-4dfa-9d8c-d5a298566ef5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/abace343-ebad-4dfa-9d8c-d5a298566ef5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

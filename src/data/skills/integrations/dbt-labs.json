@@ -1,0 +1,152 @@
+{
+  "slug": "dbt-labs",
+  "name": "dbt Labs",
+  "domain": "dbt-labs.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with dbt Labs",
+  "metaTitle": "Build AI Agents for dbt Labs with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use dbt Labs data and workflows for support answers, internal analytics operations, approvals, summaries, and safe task automation.",
+  "intro": "dbt Labs helps teams manage data transformation, analytics workflows, and trusted business reporting. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use dbt Labs, and DocsBot helps design, secure, test, and publish that ability. The result is a support or internal AI agent that can answer questions, retrieve pipeline context, summarize model status, and take approved actions inside clear boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check dbt job or model status when a customer reports stale analytics or missing data in your product.",
+    "Use the agent to summarize recent dbt run results and explain likely causes of delayed dashboards before handing the case to a human team.",
+    "Allow the agent to gather account, workspace, or environment details from the conversation and prepare a clean escalation handoff with relevant dbt context attached.",
+    "Enable the agent to trigger approved investigation or remediation workflows after confirming the issue fits defined support rules.",
+    "Have the agent look up documentation-linked model ownership or dependency context so support replies can be more accurate and specific."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up dbt job history, model lineage notes, or transformation status without leaving Slack, Teams, or an internal chat.",
+    "Enable data, support, and operations teams to ask the agent for summaries of failed runs, affected downstream assets, and likely next steps based on your SOPs.",
+    "Allow team members to use the agent to prepare incident updates, handoff notes, or stakeholder-ready summaries from dbt workflow data.",
+    "Use an internal AI assistant to guide employees through analytics troubleshooting workflows and complete approved follow-up actions across connected systems.",
+    "Help analysts and operations teams retrieve trusted dbt context during investigations so they can research issues faster and follow consistent internal processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks dbt job health when customers report outdated analytics.",
+    "A private assistant that summarizes failed dbt runs and suggests next troubleshooting steps.",
+    "A workflow Skill that prepares escalation notes with model, job, and dependency context.",
+    "An internal agent that answers employee questions about transformation status across environments.",
+    "A bounded action Skill that triggers approved remediation or investigation workflows after review.",
+    "An assistant that turns dbt run details into customer-friendly status explanations and updates."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the dbt Labs agent to do, such as check run status, summarize failures, or prepare escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, handles secure authentication and secret proxying, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum users, actions, records, and systems needed, and adds approval boundaries wherever a lookup, update, or trigger should stay under human control."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds weak instructions, bugs, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Skill to your customer-facing support bot or private employee agent so it can answer questions and take bounded action with dbt Labs."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with dbt Labs?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking run status or summarizing failed transformations, and Skill Builder creates a reusable Skill with secure configuration, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use dbt Labs data to answer customer issues about stale dashboards or missing analytics?",
+      "answer": "Yes, a DocsBot support agent can use a dbt Labs Skill to look up run status, summarize recent failures, identify affected models, and prepare a clearer customer response or escalation within the limits you define."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with dbt Labs?",
+      "answer": "Internal agents can help employees research job history, summarize transformation issues, assemble incident notes, guide troubleshooting steps, and trigger approved follow-up workflows tied to your analytics operations process."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in dbt Labs instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can support bounded actions such as approved workflow triggers or follow-up steps, with scoped permissions, protected secrets, and approval boundaries designed by Skill Builder."
+    },
+    {
+      "question": "How does security work when connecting DocsBot to dbt Labs?",
+      "answer": "Skill Builder identifies the needed connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of chat transcripts, and scopes access to only the actions and records required for the workflow."
+    },
+    {
+      "question": "Can a dbt Labs AI agent help with escalations and incident handoffs?",
+      "answer": "Yes, the agent can gather context from the conversation and dbt Labs, summarize the issue, include relevant model or run details, and create a consistent handoff package for human teams."
+    }
+  ],
+  "relatedSlugs": [
+    "snowflake",
+    "databricks",
+    "bigquery",
+    "looker",
+    "tableau",
+    "airbyte"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "DBT Labs",
+    "domain": "dbt-labs.com",
+    "description": "Laboratoires DBT is a French‑based research and development company that specializes in data transformation, analytics and business intelligence solutions. Leveraging the open‑source dbt (data build tool) framework, the firm provides consulting, training, and custom implementation services to help organizations build reliable, version‑controlled data pipelines. In addition to its core dbt expertise, Laboratoires DBT develops proprietary tools, offers support subscriptions, and publishes best‑practice guides for modern data engineering teams. The company’s mission is to empower data professionals to turn raw data into trusted, actionable insights through scalable, maintainable workflows.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/a05afba2-e0bf-4cd8-81a3-91ff8afba608.jpg",
+    "iconUrl": "https://media.brand.dev/a05afba2-e0bf-4cd8-81a3-91ff8afba608.jpg",
+    "primaryColor": "#ba9a52",
+    "accentColor": "#7b6c3c",
+    "colors": [
+      {
+        "hex": "#ba9a52",
+        "name": "Tangy Green"
+      },
+      {
+        "hex": "#7b6c3c",
+        "name": "Gold Sparkle"
+      },
+      {
+        "hex": "#1b1a17",
+        "name": "Twilight Zone"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/39f236b3-36d5-4210-801f-585312978a49.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a05afba2-e0bf-4cd8-81a3-91ff8afba608.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a05afba2-e0bf-4cd8-81a3-91ff8afba608.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a05afba2-e0bf-4cd8-81a3-91ff8afba608.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

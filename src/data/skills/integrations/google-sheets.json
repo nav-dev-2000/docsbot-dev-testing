@@ -1,0 +1,159 @@
+{
+  "slug": "google-sheets",
+  "name": "Google Sheets",
+  "domain": "sheets.google.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Sheets",
+  "metaTitle": "Build AI Agents for Google Sheets with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that read, update, summarize, and route work through Google Sheets for customer support and internal team workflows.",
+  "intro": "Google Sheets often holds the operational data teams use to answer questions, track requests, and coordinate follow-up work. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Google Sheets during support conversations or internal workflows. That means your agent can do more than answer questions. It can look up rows, update statuses, create records, prepare handoffs, and summarize spreadsheet data inside clear approval and permission boundaries.",
+  "supportUseCases": [
+    "Use customer-provided details from a website chat or helpdesk ticket to look up order, onboarding, warranty, or account-tracking rows in Google Sheets and answer with the latest status.",
+    "Create a new row in Google Sheets when a customer reports an issue, requests a callback, or submits a manual review case that your team tracks in a shared spreadsheet.",
+    "Update approved columns such as case status, assigned owner, follow-up date, or escalation level in Google Sheets while the agent responds to the customer.",
+    "Summarize matching spreadsheet records from Google Sheets so the agent can explain account history, open actions, or fulfillment progress in a clear support reply.",
+    "Prepare an escalation handoff by gathering key customer details, relevant spreadsheet data, and next-step notes, then recording that handoff state in Google Sheets for the human team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve live spreadsheet data from Google Sheets without searching across tabs and filters manually.",
+    "Operations, support, and customer success teams can ask the agent to add rows, update trackers, or summarize spreadsheet changes while following approved workflow rules.",
+    "Team members can use the agent to research spreadsheet-backed metrics, open work items, ownership gaps, or exception lists and receive a concise summary with recommended next steps.",
+    "Employees can trigger SOP-style workflows through chat, such as logging a new issue, marking a task complete, assigning follow-up ownership, or preparing a management handoff recorded in Google Sheets."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks customer status or request trackers stored in Google Sheets.",
+    "A ticket assistant that creates and updates spreadsheet rows during support conversations.",
+    "An internal operations agent that summarizes spreadsheet queues and recommends next actions.",
+    "A customer success assistant that logs renewals, risk flags, and follow-up tasks in Sheets.",
+    "A QA or compliance agent that records review outcomes and escalation notes in a shared spreadsheet.",
+    "A reporting assistant that turns spreadsheet rows into concise status summaries for teams and managers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google Sheets, such as looking up a customer row, updating a status, or creating a handoff record, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside of chats and Skill source, and scopes access to only the sheets, actions, and users needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "For updates that should be controlled, Skill Builder adds approval boundaries, action limits, and clear rules so the agent can take safe bounded actions while escalating sensitive cases for human review when needed."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so teams can use Google Sheets through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google Sheets for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as looking up a customer record or updating a status row, and Skill Builder creates a secure Skill for your DocsBot agent. The agent can then use Google Sheets during website chats or helpdesk replies to retrieve live data, record updates, and prepare handoffs within your approved limits."
+    },
+    {
+      "question": "Can an AI support agent read and update Google Sheets during customer conversations?",
+      "answer": "Yes, a DocsBot Skill can be designed to read rows, summarize matching records, add new entries, or update approved fields in Google Sheets while the agent responds to customers. Skill Builder scopes those actions carefully and can add approval boundaries for higher-risk changes."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Google Sheets?",
+      "answer": "Teams can automate spreadsheet lookups, case logging, status changes, escalation tracking, callback requests, onboarding trackers, and support handoff preparation. This is especially useful when Google Sheets acts as a lightweight operations system for support or customer success."
+    },
+    {
+      "question": "Can an internal AI assistant use Google Sheets for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve spreadsheet data, update trackers, log new work, and summarize operational queues stored in Google Sheets. This helps teams complete SOPs faster without manually opening and editing spreadsheets for every request."
+    },
+    {
+      "question": "How does DocsBot keep Google Sheets actions safe?",
+      "answer": "Skill Builder defines the needed configuration, secures authentication, keeps secrets out of chats and generated content, and scopes permissions to the smallest practical set of sheets and actions. It can also require approvals or limit the agent to specific columns, records, or workflow steps."
+    },
+    {
+      "question": "Can DocsBot summarize spreadsheet data from Google Sheets for agents and teams?",
+      "answer": "Yes, a Skill can gather rows from Google Sheets and turn them into clear summaries, status updates, exception lists, or handoff notes for support agents and internal teams. That helps people act faster without reading through raw spreadsheet data."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "airtable",
+    "notion",
+    "confluence",
+    "coda",
+    "microsoft-excel-online"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "sheets.google.com",
+    "description": "Google Workspace provides a cloud‑based suite of productivity and collaboration tools for individuals, businesses, and enterprises. It combines Gmail, Drive, Meet, Chat, Calendar, Docs, Sheets, Slides, Forms, Sites, and AI‑powered apps like Gemini, Notebook LM, and AppSheet into an integrated platform. Users can communicate, create documents, manage projects, store files, and automate workflows from any device. The service offers tailored solutions for small businesses, startups, large enterprises, frontline workers, developers, educators, and nonprofits, with built‑in security, admin controls, and industry‑specific features. Google Workspace enables teams to work remotely, stay secure, and boost efficiency through seamless, AI‑enhanced collaboration.",
+    "slogan": "Work Safer. Protect organizations from cyberattacks.",
+    "logoUrl": "https://media.brand.dev/e101d608-c2bf-4316-8700-a2a9982dfe3a.svg",
+    "iconUrl": "https://media.brand.dev/9b5ce675-68f6-4b8c-9c7a-66d6ded5cbbc.svg",
+    "primaryColor": "#e65625",
+    "accentColor": "#34ab54",
+    "colors": [
+      {
+        "hex": "#e65625",
+        "name": "Scorpio Scarlet Seal"
+      },
+      {
+        "hex": "#34ab54",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#4483f3",
+        "name": "Seljuk Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bfa4eac4-b316-4fbb-a603-512b194c9ea0.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": "https://sheets.google.com/pricing.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9b5ce675-68f6-4b8c-9c7a-66d6ded5cbbc.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e101d608-c2bf-4316-8700-a2a9982dfe3a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 3995,
+        "height": 512,
+        "aspectRatio": 7.8
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e101d608-c2bf-4316-8700-a2a9982dfe3a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 3995,
+      "height": 512,
+      "aspectRatio": 7.8
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9b5ce675-68f6-4b8c-9c7a-66d6ded5cbbc.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

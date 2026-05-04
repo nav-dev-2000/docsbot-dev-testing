@@ -1,0 +1,176 @@
+{
+  "slug": "erpnext",
+  "name": "ERPNext",
+  "domain": "erpnext.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ERPNext",
+  "metaTitle": "Build ERPNext AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ERPNext for support lookups, approved updates, workflow handoffs, and internal team automation with secure controls.",
+  "intro": "ERPNext brings accounting, inventory, sales, projects, HR, and support data into one system, which makes it a strong source of truth for AI agents. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that safely connects your agent to ERPNext. The result is an AI support agent or internal team assistant that can answer questions, retrieve live records, take bounded actions, and summarize work across approved workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up invoice status, payment details, order history, or shipment-related ERPNext records while replying in chat or helpdesk tickets.",
+    "Enable the agent to check product availability, item details, or order fulfillment status in ERPNext before answering customer sales and support questions.",
+    "Allow the agent to create or update support-related records, notes, or follow-up tasks in ERPNext when a customer reports an issue.",
+    "Have the agent gather account context from ERPNext, summarize the customer’s open transactions or service history, and prepare a clean handoff for a human team member.",
+    "Use ERPNext data to verify subscription, contract, warranty, or service eligibility before the agent offers next-step guidance or escalation options."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to retrieve ERPNext customer, invoice, inventory, purchasing, project, or supplier information without navigating multiple screens.",
+    "Let finance, operations, and customer success teams ask the agent to summarize account health, outstanding payments, order exceptions, or fulfillment issues across ERPNext records.",
+    "Enable team members in Slack, Microsoft Teams, or internal chat to have the agent create follow-up tasks, draft handoff notes, or update approved ERPNext fields as part of standard workflows.",
+    "Help employees complete SOPs by having the agent gather missing ERPNext context, suggest the next approved step, and trigger bounded workflows for collections, purchasing, or service follow-up.",
+    "Support managers with an internal AI assistant that can compile ERPNext record summaries, generate status updates, and prepare escalation briefs for cross-functional teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing assistant that checks ERPNext invoice, payment, and account status before responding.",
+    "A support agent that summarizes customer orders, shipments, and service history from ERPNext.",
+    "An internal finance copilot that surfaces overdue invoices and drafts follow-up actions.",
+    "An operations assistant that checks stock levels and approved fulfillment details in ERPNext.",
+    "A customer success agent that prepares handoff notes using ERPNext account and project context.",
+    "A private employee bot that updates approved ERPNext records after manager confirmation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in plain language, such as checking invoice status, summarizing account activity, or updating an approved ERPNext record during a support conversation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the ERPNext connection details it needs, and defines secure runtime configuration without exposing credentials in chat or Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets, limits the Skill to the minimum ERPNext actions, records, and users required, and adds approval boundaries wherever updates, escalations, or sensitive financial actions need extra control."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk-connected agent, or private internal assistant so teams can use ERPNext data and actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ERPNext without custom coding?",
+      "answer": "With DocsBot Skill Builder, you describe the business outcome you want in plain language and the builder creates the Skill, secure connection design, testing plan, and deployment path for your ERPNext-powered agent."
+    },
+    {
+      "question": "Can an AI support agent use ERPNext data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use ERPNext as a live source for approved lookups such as invoices, orders, account details, inventory status, and service context while responding in chat or helpdesk tickets."
+    },
+    {
+      "question": "What ERPNext workflows can a DocsBot AI agent automate for customer support?",
+      "answer": "A Skill can look up records, summarize account history, create follow-up tasks, prepare escalation notes, update approved fields, and trigger bounded workflows that help resolve customer requests faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside ERPNext?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in internal chat, Slack, or Microsoft Teams to retrieve ERPNext information, summarize records, and complete approved workflows across finance, operations, sales, and support."
+    },
+    {
+      "question": "How does DocsBot keep ERPNext actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and generated content, scopes permissions to the minimum required access, and adds approval boundaries for sensitive ERPNext updates or financial actions."
+    },
+    {
+      "question": "Can a DocsBot agent update ERPNext records instead of only answering questions?",
+      "answer": "Yes, if you approve those actions, the Skill can be designed to create records, update specific fields, add notes, trigger tasks, or prepare handoffs within the boundaries you define."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "stripe",
+    "freshbooks",
+    "zoho-books"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ERPNext",
+    "domain": "erpnext.com",
+    "description": "ERPNext is an open‑source, web‑based ERP platform that enables small, medium and enterprise businesses to manage accounting, inventory, sales, purchase, manufacturing, projects, customer support and website operations from a single system. Delivered as a hosted cloud service with affordable annual plans, ERPNext also offers a full suite of complementary apps—including HR, CRM, Helpdesk, Builder, Lending, and analytics tools—built on the Frappe framework, which lets developers create and customize full‑stack web applications without code. The company provides implementation partners, community resources, and training to help organizations adopt and extend the platform, empowering them to streamline processes, gain insights, and scale efficiently.",
+    "slogan": "Open Source Software Empowering Businesses to Innovate and Grow",
+    "logoUrl": "https://media.brand.dev/22319f4c-9958-4fbb-9de4-761225898254.svg",
+    "iconUrl": "https://media.brand.dev/684d5527-0cda-4d85-b2f0-f825c732ff40.jpg",
+    "primaryColor": "#141414",
+    "accentColor": "#048bfb",
+    "colors": [
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      },
+      {
+        "hex": "#048bfb",
+        "name": "Too Blue to be True"
+      },
+      {
+        "hex": "#7cd4f4",
+        "name": "Medium Sky Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6d4e8278-1fe1-48ab-9486-eddf507bbb56.jpg",
+    "industries": [],
+    "links": {
+      "privacy": null,
+      "blog": "https://erpnext.com/blog",
+      "careers": "https://erpnext.com/careers",
+      "terms": null,
+      "contact": null,
+      "pricing": "https://erpnext.com/partners/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/684d5527-0cda-4d85-b2f0-f825c732ff40.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b42366e8-4b1c-45ec-99e0-22b2d2f5a4e9.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/22319f4c-9958-4fbb-9de4-761225898254.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 62,
+        "height": 18,
+        "aspectRatio": 3.44
+      },
+      {
+        "url": "https://media.brand.dev/66cbd056-5ac5-4359-babc-f418f5dd861f.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 33,
+        "height": 33,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/22319f4c-9958-4fbb-9de4-761225898254.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 62,
+      "height": 18,
+      "aspectRatio": 3.44
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/684d5527-0cda-4d85-b2f0-f825c732ff40.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

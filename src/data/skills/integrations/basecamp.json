@@ -1,0 +1,168 @@
+{
+  "slug": "basecamp",
+  "name": "Basecamp",
+  "domain": "basecamp.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Basecamp",
+  "metaTitle": "Build AI Agents for Basecamp with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Basecamp to answer questions, summarize work, update project records, and trigger safe workflows for support and internal teams.",
+  "intro": "Basecamp gives teams one place to organize projects, discussions, to-dos, and shared work. With DocsBot Skill Builder, you can describe the Basecamp workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent do more than answer questions by looking up project details, preparing handoffs, updating approved records, and triggering bounded actions inside Basecamp.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Basecamp project status, milestones, or recent updates so it can answer delivery and implementation questions with live context.",
+    "Use a support agent to create a Basecamp to-do, message, or project handoff item when a customer reports a bug, onboarding blocker, or account issue.",
+    "Have the agent summarize the latest Basecamp discussions, decisions, and open tasks before replying to a helpdesk ticket or escalating a case.",
+    "Enable the agent to collect missing details from a customer conversation and turn them into a structured Basecamp follow-up for the right team.",
+    "Let the agent prepare escalation notes that combine the customer issue with related Basecamp activity, owners, deadlines, and next steps."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to find Basecamp project updates, open to-dos, upcoming deadlines, and discussion summaries without searching manually.",
+    "Let teams ask the agent to create Basecamp tasks, post status updates, or draft handoff notes while following approved internal workflow rules.",
+    "Enable operations or customer success teams to chat with the agent in Slack or Microsoft Teams to pull Basecamp context and generate action-ready summaries for meetings or escalations.",
+    "Use an internal AI assistant to guide employees through SOPs that depend on Basecamp records, such as onboarding projects, launch checklists, or incident follow-up coordination.",
+    "Help managers and cross-functional teams research project state across Basecamp and related systems, then return a concise summary with recommended next actions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Basecamp project progress before answering customer timeline questions.",
+    "An AI assistant that creates Basecamp follow-up tasks from chat conversations or helpdesk tickets.",
+    "A DocsBot workflow that summarizes Basecamp discussions and open to-dos for escalations.",
+    "An internal agent that posts approved status updates into the right Basecamp project.",
+    "A team assistant that turns meeting notes into Basecamp tasks and next-step summaries.",
+    "A customer success agent that gathers issue details and prepares a Basecamp handoff for specialists."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Basecamp agent to do, such as checking project status, creating follow-up tasks, or preparing escalation notes, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required Basecamp connection details, defines secure authentication and runtime configuration, keeps credentials out of chats and Skill content, and scopes access to the minimum actions and records needed."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right guardrails for lookups, updates, workflow triggers, and approvals so the agent can help inside Basecamp without exceeding the action limits you want."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Basecamp without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Basecamp workflow you want in plain language and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. It handles configuration, authentication, and safe action boundaries behind the scenes."
+    },
+    {
+      "question": "Can an AI support agent use Basecamp data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Basecamp Skill to look up project status, open tasks, recent discussions, or handoff details while responding in a chat widget or helpdesk context. You control what data and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Basecamp?",
+      "answer": "A Basecamp Skill can help your support agent summarize project activity, create follow-up tasks, prepare escalation notes, capture missing customer details, and route issues to the right team. This helps the agent move from answering questions to taking bounded action."
+    },
+    {
+      "question": "Can an internal AI assistant create or update Basecamp tasks for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create tasks, post updates, draft handoffs, and retrieve project context from Basecamp while working in chat, Slack, or Microsoft Teams. Skill Builder can also add approval steps for more sensitive updates."
+    },
+    {
+      "question": "How does DocsBot keep Basecamp authentication and secrets secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes permissions so the agent only has access to the records and actions required for the workflow."
+    },
+    {
+      "question": "Can DocsBot add approval controls before an AI agent changes something in Basecamp?",
+      "answer": "Yes, Skill Builder can design Basecamp workflows with approval boundaries for actions such as creating tasks, updating records, or posting messages. That lets the agent gather context and prepare the action before a person approves the final step when needed."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "trello",
+    "monday",
+    "clickup",
+    "jira-cloud",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Basecamp",
+    "domain": "basecamp.com",
+    "description": "Basecamp is a leading project management software company that provides a private and secure online space for teams to collaborate, organize, and discuss. Trusted by millions, Basecamp offers a refreshingly simple approach to managing projects, working with clients, and facilitating company-wide communication. With all the essential tools in one place, Basecamp is the go-to solution for businesses looking for a calm and organized way to streamline their workflow and increase productivity.",
+    "slogan": "Calm, organized project management for millions",
+    "logoUrl": "https://media.brand.dev/b4a91cc9-3433-44cc-b392-53590429def0.png",
+    "iconUrl": "https://media.brand.dev/a914914f-1076-4c8a-9b2a-497602dbb44e.png",
+    "primaryColor": "#f3db0d",
+    "accentColor": "#857414",
+    "colors": [
+      {
+        "hex": "#f3db0d",
+        "name": "Yellowl"
+      },
+      {
+        "hex": "#857414",
+        "name": "Soft Fig"
+      },
+      {
+        "hex": "#848486",
+        "name": "Dover Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c9fe7a4b-aeb8-46c3-a4a5-4f49773c59c3.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://basecamp.com/support",
+      "privacy": null,
+      "blog": "https://basecamp.com/newsletter",
+      "pricing": "https://basecamp.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a914914f-1076-4c8a-9b2a-497602dbb44e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b4a91cc9-3433-44cc-b392-53590429def0.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 266,
+        "height": 80,
+        "aspectRatio": 3.33
+      },
+      {
+        "url": "https://media.brand.dev/34190e2f-9118-4b5a-a1f8-7b18f54c32cf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 180,
+        "height": 40,
+        "aspectRatio": 4.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/34190e2f-9118-4b5a-a1f8-7b18f54c32cf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 180,
+      "height": 40,
+      "aspectRatio": 4.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a914914f-1076-4c8a-9b2a-497602dbb44e.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

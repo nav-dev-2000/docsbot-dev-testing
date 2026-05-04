@@ -1,0 +1,159 @@
+{
+  "slug": "jazzhr",
+  "name": "JazzHR",
+  "domain": "jazzhr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JazzHR",
+  "metaTitle": "Build AI Agents for JazzHR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use JazzHR to answer hiring questions, update recruiting workflows, prepare handoffs, and support internal recruiting teams safely.",
+  "intro": "JazzHR helps small businesses manage recruiting and applicant tracking in one place. With DocsBot Skill Builder, you can describe the hiring or support workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent look up recruiting data, prepare updates, and trigger approved actions in JazzHR. This helps teams respond faster, reduce manual recruiting work, and give employees a more useful AI assistant.",
+  "supportUseCases": [
+    "Use a customer-facing or candidate-facing DocsBot agent to check job opening details in JazzHR and answer questions about role status, location, or application steps.",
+    "Let a DocsBot agent connected to your helpdesk review candidate or requisition context from JazzHR and prepare a clean handoff for a recruiter or hiring manager.",
+    "Allow the agent to create or update approved notes, tags, or follow-up tasks in JazzHR after a candidate support conversation.",
+    "Use the agent to summarize an applicant's current stage, recent activity, and next approved step in JazzHR while replying to inbound questions.",
+    "Have the agent collect missing candidate details in chat and package that information for an approved recruiting workflow in JazzHR."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up job postings, candidate pipeline status, and hiring progress from JazzHR.",
+    "Recruiting teams can ask the agent to summarize candidate records, interview activity, and open requisitions in JazzHR before standups, hiring reviews, or recruiter handoffs.",
+    "Hiring managers can chat with the agent to retrieve structured recruiting information and complete guided workflows or SOPs tied to JazzHR updates and approvals.",
+    "Talent operations teams can use the agent to prepare recruiting summaries, collect missing context, and trigger approved next-step workflows across JazzHR and related systems.",
+    "Internal teams can ask the agent to research recruiting activity in JazzHR and generate follow-up notes, handoff briefs, or status summaries without digging through records manually."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that answers job and application status questions using JazzHR data.",
+    "A helpdesk agent that prepares recruiter handoffs with candidate history and current pipeline stage.",
+    "An internal hiring assistant that summarizes open roles, applicants, and upcoming recruiting actions.",
+    "A workflow Skill that captures missing candidate details and writes approved updates into JazzHR.",
+    "A recruiting operations agent that generates hiring summaries and escalates exceptions for review.",
+    "A manager assistant that retrieves requisition details and guides approved hiring process steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with JazzHR, such as answering hiring questions, summarizing candidates, or preparing recruiter handoffs, and Skill Builder turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the secure workflow, identifies the required connection and configuration values, protects and proxies secrets through secure runtime handling, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder defines the minimum JazzHR access needed for the workflow, limits which users and records the agent can act on, and adds approval boundaries for sensitive updates or recruiting actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal recruiting scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds findings back into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After testing, Skill Builder refines the Skill, helps validate the final behavior, and publishes it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for JazzHR without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting or hiring workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the JazzHR-connected Skill for deployment. It also handles configuration planning, secret protection, scoped permissions, and safe action boundaries."
+    },
+    {
+      "question": "Can an AI support agent use JazzHR data to answer application or job opening questions?",
+      "answer": "Yes, a DocsBot agent can use a JazzHR Skill to look up approved recruiting information such as job details, candidate stage, or application status while responding in a website chat widget or helpdesk flow. You control what the agent is allowed to access, summarize, and update."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with JazzHR?",
+      "answer": "An internal DocsBot agent can retrieve recruiting records, summarize candidate pipelines, prepare hiring review notes, collect missing context, and trigger approved follow-up workflows tied to JazzHR. This helps recruiters, hiring managers, and operations teams complete routine steps faster."
+    },
+    {
+      "question": "Can DocsBot update records in JazzHR safely?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved JazzHR updates such as adding notes, moving workflow details forward, or preparing handoffs when your rules allow it. Skill Builder scopes permissions carefully and can add approval checkpoints for more sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep JazzHR credentials and access secure?",
+      "answer": "Skill Builder identifies the connection details a JazzHR workflow needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also narrows access to the minimum users, actions, and records needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiter handoffs from JazzHR activity?",
+      "answer": "Yes, the agent can collect relevant JazzHR context, summarize candidate or requisition status, and generate a structured handoff for a recruiter, hiring manager, or support team. This reduces manual review and helps the next person act faster."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "bamboohr",
+    "workable",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JazzHR",
+    "domain": "jazzhr.com",
+    "description": "JazzHR is a recruiting software company that provides an Applicant Tracking System to help small businesses streamline their hiring process. They empower companies to find and hire talent quickly by automating manual tasks, saving time and money. With JazzHR, businesses can hire better candidates faster, making the hiring process more efficient and effective.",
+    "slogan": "Hire better candidates, faster with JazzHR's streamlined recruiting software.",
+    "logoUrl": "https://media.brand.dev/a3c28b8f-3ec4-4fe2-a445-42862dcfa219.png",
+    "iconUrl": "https://media.brand.dev/afbc1076-d3bc-48c0-bcf1-a8bc6c299f0f.png",
+    "primaryColor": "#b474d4",
+    "accentColor": "#d4abe9",
+    "colors": [
+      {
+        "hex": "#b474d4",
+        "name": "Lavender"
+      },
+      {
+        "hex": "#d4abe9",
+        "name": "Petal Plush"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.jazzhr.com/terms-of-service/",
+      "contact": "https://www.jazzhr.com/contact-us/",
+      "privacy": null,
+      "blog": "https://www.jazzhr.com/blog/",
+      "pricing": "https://www.jazzhr.com/capabilities/offers-esignatures/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a3c28b8f-3ec4-4fe2-a445-42862dcfa219.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1920,
+        "height": 245,
+        "aspectRatio": 7.84
+      },
+      {
+        "url": "https://media.brand.dev/afbc1076-d3bc-48c0-bcf1-a8bc6c299f0f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 254,
+        "height": 254,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a3c28b8f-3ec4-4fe2-a445-42862dcfa219.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1920,
+      "height": 245,
+      "aspectRatio": 7.84
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/afbc1076-d3bc-48c0-bcf1-a8bc6c299f0f.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 254,
+      "height": 254,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "demandbase",
+  "name": "Demandbase",
+  "domain": "demandbase.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Demandbase",
+  "metaTitle": "Build Demandbase AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Demandbase to look up account insights, summarize intent, trigger workflows, and support teams with safe, bounded actions.",
+  "intro": "Demandbase helps go-to-market teams unify account data, insights, and actions across account-based growth workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Demandbase data and approved actions. That means a support or internal AI agent can answer questions, prepare handoffs, summarize account context, and trigger bounded workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up Demandbase account context for a company, summarize relevant firmographic or engagement signals, and give support reps better background during a live conversation or ticket reply.",
+    "Let the agent identify likely account ownership, segment, or strategic tier from Demandbase data so it can route high-value customer issues to the right success, sales, or support team.",
+    "Have the agent prepare an escalation summary that combines the customer’s issue with Demandbase account insights, helping human teams prioritize and personalize follow-up.",
+    "Use the agent to capture account-related details from a support conversation and trigger an approved internal workflow for customer success outreach when Demandbase context suggests expansion or risk.",
+    "Let the agent summarize Demandbase activity or intent signals for a known account while replying to a ticket, giving support teams a clearer picture before they respond or hand off the case."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Demandbase account insights, buying signals, and account summaries without switching systems.",
+    "Revenue, customer success, and operations teams can ask the agent to research a target account in Demandbase, summarize key findings, and suggest the next approved workflow or handoff.",
+    "Team members can use the agent to create standardized account briefings from Demandbase data for renewals, executive outreach, support escalations, or account planning meetings.",
+    "Internal teams can chat with the agent to check account tier, ownership, engagement status, or intent trends in Demandbase and then trigger bounded follow-up tasks in connected systems.",
+    "Employees can ask the agent to follow SOPs that use Demandbase context to qualify accounts, prepare handoff notes, and route work to the right team with approvals where needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support assistant that enriches customer conversations with Demandbase account context.",
+    "An internal revenue agent that summarizes target accounts before sales or success outreach.",
+    "A handoff Skill that combines support tickets with Demandbase account signals for escalation.",
+    "An account research agent that answers employee questions using live Demandbase data.",
+    "A workflow Skill that routes strategic accounts to the correct team using approvals.",
+    "A briefing generator that creates renewal, expansion, or risk summaries from Demandbase insights."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Demandbase in plain language, and it turns that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, and sets up secure authentication and secret handling so credentials stay protected and out of chats or generated content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries for sensitive updates, routing steps, or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, reference material, and approved actions your DocsBot agent needs to work with Demandbase."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing guardrails, weak instructions, or workflow gaps, and feeds improvements back into the Skill."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Demandbase data?",
+      "answer": "With DocsBot Skill Builder, you describe the account lookups, summaries, routing rules, or workflow triggers you want in plain language, and Skill Builder designs the Skill to use Demandbase safely. It handles secure connection details, scoped permissions, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Demandbase during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Demandbase as a background system to look up account context, summarize signals, and prepare smarter escalations or handoffs while responding to a customer in chat or through a helpdesk. Actions can be limited to safe lookups and approved workflows based on your rules."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Demandbase?",
+      "answer": "An internal agent can help employees research accounts, generate account briefings, check ownership or tiering, summarize intent or engagement signals, and trigger follow-up workflows across revenue and success operations. Skill Builder can also add approvals for sensitive steps before anything is updated or routed."
+    },
+    {
+      "question": "Can DocsBot create account summaries and handoff notes from Demandbase?",
+      "answer": "Yes, a Skill can pull the right Demandbase context and turn it into concise summaries, escalation notes, renewal prep, or executive briefings for your team. This helps employees move faster while keeping the workflow standardized."
+    },
+    {
+      "question": "How does DocsBot keep Demandbase access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, keeps credentials out of chat transcripts and Skill source, and scopes access to the minimum actions and records needed. It can also enforce approval boundaries for updates or workflow triggers."
+    },
+    {
+      "question": "Do I need a developer to set up a Demandbase AI workflow in DocsBot?",
+      "answer": "Usually not for the planning and setup process. You describe the business outcome you want, and Skill Builder handles the design, safe connection model, testing, improvements, and deployment path in a non-technical workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "marketo",
+    "hubspot",
+    "salesforce",
+    "6sense",
+    "gong",
+    "outreach"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Demandbase",
+    "domain": "demandbase.com",
+    "description": "Demandbase is a pipeline AI platform that empowers go-to-market teams to automate growth at scale. It provides a unified view of data, insights, actions, and outcomes, enabling B2B enterprises to align and execute account-based strategies with confidence, maximizing revenue and minimizing waste.",
+    "slogan": "Automate Growth, Maximize Revenue, Seamlessly Align Your GTM Strategy.",
+    "logoUrl": "https://media.brand.dev/720e9c84-28a4-4604-8d0f-6326d16d7a5b.svg",
+    "iconUrl": "https://media.brand.dev/a25962ef-06a5-48bf-ab0a-69120eef9c8c.png",
+    "primaryColor": "#2f5fa2",
+    "accentColor": "#88b7e4",
+    "colors": [
+      {
+        "hex": "#2f5fa2",
+        "name": "Perfect Ocean"
+      },
+      {
+        "hex": "#88b7e4",
+        "name": "Blue Eyed Boy"
+      },
+      {
+        "hex": "#d9e4ed",
+        "name": "Ocean Air"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/58c21147-06a5-48b7-8007-90784fba1921.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.demandbase.com/about-us/careers/",
+      "terms": "https://www.demandbase.com/terms-of-use/",
+      "contact": "https://www.demandbase.com/about-us/contact-us/",
+      "privacy": "https://www.demandbase.com/privacy/",
+      "blog": "https://www.demandbase.com/blog/",
+      "pricing": "https://www.demandbase.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a8070ae0-fccd-4c6e-bee9-eb31c1f1719c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 360,
+        "height": 361,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/720e9c84-28a4-4604-8d0f-6326d16d7a5b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 182,
+        "height": 21,
+        "aspectRatio": 8.67
+      },
+      {
+        "url": "https://media.brand.dev/a25962ef-06a5-48bf-ab0a-69120eef9c8c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/720e9c84-28a4-4604-8d0f-6326d16d7a5b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 182,
+      "height": 21,
+      "aspectRatio": 8.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a8070ae0-fccd-4c6e-bee9-eb31c1f1719c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 360,
+      "height": 361,
+      "aspectRatio": 1
+    }
+  }
+}

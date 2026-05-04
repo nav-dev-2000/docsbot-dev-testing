@@ -1,0 +1,184 @@
+{
+  "slug": "talentlyft",
+  "name": "TalentLyft",
+  "domain": "talentlyft.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with TalentLyft Recruiting Workflows",
+  "metaTitle": "Build AI Agents for TalentLyft with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use TalentLyft to answer hiring questions, look up candidate data, trigger workflows, and support recruiters safely.",
+  "intro": "TalentLyft helps teams manage recruiting, candidate pipelines, and hiring workflows in one place. With DocsBot Skill Builder, you can describe the TalentLyft actions you want in plain language, and DocsBot can design, secure, test, and deploy a reusable Skill for support or internal team agents. That gives you an AI agent that can answer questions, retrieve recruiting data, prepare handoffs, and take bounded actions inside approved hiring processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant questions by checking TalentLyft job status details and summarizing next steps from the recruiting workflow.",
+    "Let a support agent create or update candidate-related records in TalentLyft after collecting missing information from an applicant in chat or by email ticket.",
+    "Have the agent look up open roles, application stages, or interview status in TalentLyft and respond with a clear, policy-aligned update for candidates.",
+    "Automatically prepare recruiter handoffs by summarizing the applicant conversation and attaching the relevant TalentLyft record context for follow-up.",
+    "Trigger approved TalentLyft workflow steps, such as routing a candidate inquiry to the right recruiter or team, while the agent keeps the applicant informed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up candidate pipelines, open roles, and hiring status from TalentLyft without leaving the conversation.",
+    "Recruiters can ask the agent to summarize a candidate record, interview progress, or role activity in TalentLyft before outreach or hiring meetings.",
+    "Hiring teams can use the agent to collect missing hiring context, generate structured recruiter notes, and create clean handoffs tied to TalentLyft workflows.",
+    "Operations teams can chat with the agent to trigger approved recruiting tasks, route requests, or update non-sensitive TalentLyft records within defined permission limits.",
+    "People teams can use the agent to follow internal SOPs for screening, escalation, and candidate communication while the agent retrieves the right TalentLyft data and summarizes outcomes."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that looks up candidate status and explains next steps to applicants.",
+    "A private recruiter bot that summarizes TalentLyft candidate pipelines for hiring managers on demand.",
+    "A support agent that collects applicant details and updates approved TalentLyft records safely.",
+    "An internal assistant that prepares recruiter handoffs with TalentLyft context and conversation summaries.",
+    "A hiring operations bot that triggers approved workflow steps for routing candidate inquiries.",
+    "An AI agent that answers job opening questions using live TalentLyft role and pipeline data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with TalentLyft in plain language, and it turns that goal into a practical agent workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, what TalentLyft data or actions are needed, and which configuration values and connection details should be defined for a safe setup."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically protects and proxies secrets, keeps credentials out of chats and Skill source, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive recruiting steps."
+    },
+    {
+      "title": "It drafts and tests",
+      "description": "Skill Builder creates the Skill, then its automated testing agent runs imagined applicant, recruiter, and operations scenarios to find bugs, weak instructions, missing checks, or workflow gaps."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "DocsBot uses those test results to refine the Skill, strengthen instructions, tighten safe action limits, and improve the workflow before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for TalentLyft recruiting workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting outcome you want in plain language, such as checking candidate status or routing inquiries, and Skill Builder designs, secures, tests, and prepares the TalentLyft Skill for deployment. The resulting agent can handle live lookups, summaries, handoffs, and approved actions inside your hiring process."
+    },
+    {
+      "question": "Can an AI support agent use TalentLyft data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use TalentLyft data to look up role status, application progress, or recruiting context and respond with approved next steps. You can also define boundaries so the agent only accesses the records and actions that fit your hiring policies."
+    },
+    {
+      "question": "What TalentLyft workflows can an internal AI assistant automate for recruiters?",
+      "answer": "An internal DocsBot agent can help recruiters retrieve candidate information, summarize pipeline activity, prepare interview or hiring handoffs, and trigger approved workflow steps. This helps teams move faster while keeping actions within scoped permissions and approval rules."
+    },
+    {
+      "question": "Can DocsBot update TalentLyft records safely through an AI agent?",
+      "answer": "DocsBot Skill Builder can create Skills for bounded record updates when you want the agent to take action, such as adding structured notes or routing a request. Skill Builder defines secure connection handling, scopes permissions carefully, and can require approvals for more sensitive changes."
+    },
+    {
+      "question": "How do approval controls work for TalentLyft AI actions?",
+      "answer": "Skill Builder can add approval boundaries so the agent can gather context, prepare updates, or draft handoffs first and only complete certain TalentLyft actions when the right person approves them. That makes it easier to automate recruiting workflows without giving the agent unlimited access."
+    },
+    {
+      "question": "Does setting up a TalentLyft Skill require technical work from my team?",
+      "answer": "No, the goal is to let non-technical teams describe what they want the agent to do while Skill Builder handles the workflow design, secure configuration, authentication handling, testing, and deployment guidance. It can also improve the Skill through automated scenario testing before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "recruitee",
+    "smartrecruiters"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TalentLyft",
+    "domain": "talentlyft.com",
+    "description": "TalentLyft is an all-in-one recruiting software that streamlines the hiring process. It offers a comprehensive Applicant Tracking System (ATS) and Recruitment Marketing platform, helping companies find, attract, and hire top talent. With TalentLyft, businesses can simplify their recruitment process and make informed hiring decisions.",
+    "slogan": "Recruiting software that makes hiring easy!",
+    "logoUrl": "https://media.brand.dev/e7bc59b7-7009-491d-952d-9383c751b136.svg",
+    "iconUrl": "https://media.brand.dev/2992330c-6da6-49ce-9019-77dcea638d6c.png",
+    "primaryColor": "#f33555",
+    "accentColor": "#ec94ac",
+    "colors": [
+      {
+        "hex": "#f33555",
+        "name": "Radish Lips"
+      },
+      {
+        "hex": "#ec94ac",
+        "name": "Illusion"
+      },
+      {
+        "hex": "#242c3c",
+        "name": "Spinel Stone Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3acb756c-fa7e-4cd1-8d50-c2f780fef0cd.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.talentlyft.com/careers-url",
+      "terms": "https://help.talentlyft.com/en/articles/21993-terms-and-conditions",
+      "contact": "https://www.talentlyft.com/contact-us",
+      "privacy": "https://www.talentlyft.com/security-and-privacy",
+      "blog": "https://www.talentlyft.com/resources",
+      "pricing": "https://www.talentlyft.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/be5dc1df-7a0b-4579-b2a0-faea4baccd69.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/29536ab5-1628-41c5-9ba4-05170a8e404f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/78234998-1a75-4801-9ebe-d1ef1d556760.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2992330c-6da6-49ce-9019-77dcea638d6c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e7bc59b7-7009-491d-952d-9383c751b136.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 116,
+        "height": 40,
+        "aspectRatio": 2.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e7bc59b7-7009-491d-952d-9383c751b136.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 116,
+      "height": 40,
+      "aspectRatio": 2.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/be5dc1df-7a0b-4579-b2a0-faea4baccd69.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

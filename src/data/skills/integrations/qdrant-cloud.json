@@ -1,0 +1,156 @@
+{
+  "slug": "qdrant-cloud",
+  "name": "Qdrant Cloud",
+  "domain": "qdrant-cloud.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Qdrant Cloud",
+  "metaTitle": "Build AI Agents for Qdrant Cloud with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Qdrant Cloud for semantic search, knowledge lookups, summaries, and safe workflow actions in support and internal operations.",
+  "intro": "Qdrant Cloud is a managed vector search platform for storing and querying embeddings at scale, which makes it useful for semantic search, retrieval, and AI-powered knowledge experiences. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Qdrant Cloud, and Skill Builder designs, secures, tests, and packages that ability for reuse. The result is a support or internal AI agent that can perform grounded lookups, summarize relevant context, and take approved next-step actions instead of only giving generic answers.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Qdrant Cloud for the most relevant help content, product guidance, or troubleshooting context before replying in chat or over helpdesk tickets.",
+    "Use Qdrant Cloud to retrieve semantically related past resolutions so the support agent can suggest likely fixes and prepare a more complete response for the customer.",
+    "Have the agent summarize the top matching knowledge fragments from Qdrant Cloud into a plain-language answer tailored to the customer issue.",
+    "Enable the agent to gather relevant context from Qdrant Cloud and prepare a clean escalation handoff with the likely issue category, supporting evidence, and recommended next steps.",
+    "Let the support agent check whether a customer question matches known troubleshooting patterns stored in Qdrant Cloud and then route the conversation to the right workflow or team."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that chats with Qdrant Cloud to find the most relevant SOPs, playbooks, research notes, and internal documentation across large knowledge collections.",
+    "Let operations or support teams ask the agent to summarize semantically similar incidents, resolutions, or product notes retrieved from Qdrant Cloud before taking action.",
+    "Enable employees in Slack, Microsoft Teams, or internal chat to use a DocsBot agent for grounded research that pulls the best matching records from Qdrant Cloud and turns them into concise answers.",
+    "Help team members complete workflows by having the agent retrieve the right procedural context from Qdrant Cloud, then guide or trigger the next approved step in an SOP.",
+    "Allow internal agents to prepare onboarding briefs, case summaries, or policy digests by combining Qdrant Cloud retrieval with DocsBot-generated summaries and bounded follow-up actions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves the best semantic matches before answering customer questions.",
+    "An internal research assistant that searches vectorized SOPs, notes, and product documentation.",
+    "A ticket triage helper that finds similar issues and drafts escalation summaries.",
+    "A knowledge-grounding layer that improves answer quality with Qdrant Cloud retrieval.",
+    "An agent that summarizes matching records and recommends the next approved action.",
+    "A workflow assistant that uses retrieved context to guide teams through internal procedures."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Qdrant Cloud in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime configuration so credentials stay out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Qdrant Cloud collections, actions, users, and connected systems required, and it adds approval boundaries for any sensitive updates, triggers, or downstream actions."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the right instructions, runtime behavior, retrieval logic, and approved actions so your DocsBot agent can use Qdrant Cloud safely and consistently."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team scenarios against the Skill, checks for weak answers, workflow gaps, permission issues, and edge cases, and records what should improve."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Qdrant Cloud for semantic search?",
+      "answer": "With DocsBot Skill Builder, you describe the retrieval job you want in plain language, such as searching vectorized docs, finding similar cases, or summarizing matches. Skill Builder then designs the Skill, secures the connection, tests the workflow, and deploys it to the right support or internal DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Qdrant Cloud data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use Qdrant Cloud as a retrieval layer to find the most relevant product, support, or troubleshooting context before replying to customers. This helps the agent produce more grounded answers, cleaner escalations, and better next-step guidance."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Qdrant Cloud?",
+      "answer": "A DocsBot agent can search for semantically similar issues, summarize the best matching guidance, draft handoff notes, and help route the case to the right team or workflow. You define the allowed actions and boundaries so the agent stays focused on approved support tasks."
+    },
+    {
+      "question": "Can an internal AI assistant use Qdrant Cloud to search company knowledge?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve and summarize relevant internal knowledge stored or indexed for Qdrant Cloud retrieval. This is useful for SOP lookup, incident research, policy guidance, and operational decision support."
+    },
+    {
+      "question": "How does DocsBot keep a Qdrant Cloud integration secure?",
+      "answer": "Skill Builder identifies the required configuration and authentication details, keeps secrets out of conversations and generated content, and proxies credentials through secure runtime settings. It also scopes access to the right collections, actions, and users and can add approval checkpoints for sensitive workflows."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Qdrant Cloud?",
+      "answer": "No, the setup is framed around describing the outcome you want, not manually building the integration yourself. Skill Builder handles the design, secure configuration, testing, and improvement process for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "pinecone",
+    "weaviate",
+    "elasticsearch",
+    "algolia",
+    "mongodb",
+    "snowflake"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cloud Qdrant",
+    "domain": "cloud.qdrant.io",
+    "description": "Qdrant provides a cloud‑native vector search platform that enables developers to store, index, and query high‑dimensional vectors at scale, powering AI‑driven applications such as recommendation, semantic search, and anomaly detection. Their managed service, Qdrant Cloud, delivers high‑performance, low‑latency similarity search with built‑in scalability and enterprise‑grade security (SOC2 Type 2, GDPR, HIPAA). Users can access the platform via email, Google, or GitHub and integrate it through popular marketplaces. Qdrant focuses on offering reliable, secure, and easy‑to‑use vector database solutions for enterprises and developers.",
+    "slogan": "High-Performance Vector Search at Scale",
+    "logoUrl": "https://media.brand.dev/b17cc2dd-8189-4e65-8320-5a4584075024.svg",
+    "iconUrl": "https://media.brand.dev/df1b224a-35e2-4f3e-95a5-ae14579a846f.png",
+    "primaryColor": "#141c24",
+    "accentColor": "#dc244c",
+    "colors": [
+      {
+        "hex": "#141c24",
+        "name": "Coarse Wool"
+      },
+      {
+        "hex": "#dc244c",
+        "name": "Cosmic Red"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://cloud.qdrant.io/privacy-policy",
+      "terms": "https://cloud.qdrant.io/service-agreement",
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b17cc2dd-8189-4e65-8320-5a4584075024.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 752,
+        "height": 200,
+        "aspectRatio": 3.76
+      },
+      {
+        "url": "https://media.brand.dev/df1b224a-35e2-4f3e-95a5-ae14579a846f.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b17cc2dd-8189-4e65-8320-5a4584075024.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 752,
+      "height": 200,
+      "aspectRatio": 3.76
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/df1b224a-35e2-4f3e-95a5-ae14579a846f.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

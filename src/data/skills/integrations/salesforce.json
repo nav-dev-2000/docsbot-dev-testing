@@ -1,0 +1,156 @@
+{
+  "slug": "salesforce",
+  "name": "Salesforce",
+  "domain": "salesforce.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Salesforce",
+  "metaTitle": "Build DocsBot AI Agents for Salesforce Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that safely look up, update, and trigger Salesforce workflows.",
+  "intro": "Salesforce is a central system for customer records, cases, accounts, opportunities, and service workflows. With DocsBot Skill Builder, you can describe the Salesforce actions you want in plain language and have DocsBot create a secure reusable Skill for your support bot or internal AI agent. That lets your agent answer questions, retrieve live CRM context, update approved records, prepare handoffs, and trigger bounded actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Salesforce contacts, accounts, cases, or order-related CRM context while answering questions in your website chat or helpdesk replies.",
+    "Allow the agent to create or update Salesforce cases from a customer conversation, including issue summaries, priority suggestions, and structured handoff notes for human teams.",
+    "Use the agent to check case status, ownership, and recent activity in Salesforce so customers receive clearer updates without waiting for a manual lookup.",
+    "Enable the agent to collect missing details from the customer, then write a clean Salesforce case summary that support teams can review and continue.",
+    "Have the agent trigger approved Salesforce follow-up workflows, task creation, or escalation preparation when a conversation meets your defined rules."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve Salesforce account, contact, case, and opportunity details without switching tools.",
+    "Enable sales, success, and support teams to ask the agent for Salesforce record summaries, recent activity, open risks, and next steps before customer calls or renewals.",
+    "Allow employees to use the agent to create follow-up tasks, update approved Salesforce fields, and prepare handoff notes while the Skill enforces scoped permissions and approval boundaries.",
+    "Help operations teams use a private AI assistant to follow CRM workflows and SOPs, such as triaging incoming issues, checking ownership, and routing work to the right team.",
+    "Give managers an internal agent that summarizes pipeline, service backlog, or customer account history from Salesforce data for faster decision-making and research."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that looks up Salesforce case status and summarizes the latest activity for customers.",
+    "An AI handoff Skill that creates Salesforce cases with conversation summaries and structured issue details.",
+    "A customer success assistant that retrieves account health context and recent CRM activity before meetings.",
+    "An internal sales assistant that summarizes opportunities, contacts, and next steps from Salesforce records.",
+    "A workflow Skill that updates approved Salesforce fields after collecting missing details from a conversation.",
+    "An escalation Skill that prepares Salesforce tasks, notes, and routing context for human follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Salesforce, such as looking up case status, creating handoffs, or updating approved CRM fields, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required Salesforce connection details, defines secure authentication and runtime configuration, protects and proxies secrets automatically, and scopes access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds safe action limits, approval boundaries, and clear instructions so the agent can retrieve information and take bounded Salesforce actions without overstepping your rules."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, missing permission checks, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "The Skill is improved and published",
+      "description": "Skill Builder refines the Skill based on test results, prepares it for deployment, and helps publish it to the right DocsBot agent for your website chat, helpdesk, Slack, Teams, or internal workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Salesforce data?",
+      "answer": "With DocsBot Skill Builder, you describe the Salesforce workflow you want in plain language, and Skill Builder creates a secure Skill that can look up records, summarize context, update approved fields, and trigger bounded actions. It also handles configuration, secret protection, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Salesforce to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Salesforce during customer chats or helpdesk replies to look up cases, contacts, account context, and recent activity. You control which records and actions are allowed, and Skill Builder can add approval steps for sensitive updates."
+    },
+    {
+      "question": "What Salesforce support workflows can an AI agent automate?",
+      "answer": "A DocsBot agent can gather missing details, create or update cases, summarize issues for handoff, check status, prepare escalations, and trigger approved follow-up workflows. The exact actions are defined by the Skill you build and the safety limits you approve."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Salesforce?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve account details, summarize opportunities, check case ownership, create follow-up tasks, and complete CRM SOPs more quickly. This helps teams work from Salesforce data without manually searching through multiple screens."
+    },
+    {
+      "question": "How does DocsBot keep Salesforce access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection setup, keeps secrets out of chats and generated content, proxies authentication through secure runtime configuration, and scopes permissions to the minimum necessary access. It can also add approval boundaries and action limits for higher-risk workflows."
+    },
+    {
+      "question": "Can a DocsBot agent update Salesforce records safely?",
+      "answer": "Yes, the agent can be configured to update only specific fields, records, or workflows that you approve. Skill Builder designs those limits into the Skill so updates stay within your rules and can require review when needed."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "zoho-crm",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Salesforce",
+    "domain": "salesforce.com",
+    "description": "Salesforce is a leading cloud-based software company specializing in customer relationship management (CRM). Renowned as the #1 AI CRM, Salesforce empowers businesses to foster meaningful connections with their customers by seamlessly integrating CRM with artificial intelligence, data analytics, and a strong emphasis on trust. Their innovative Einstein 1 platform consolidates these elements, enabling organizations to enhance customer interactions and drive growth. Whether providing support through social media or delivering exceptional services, Salesforce positions itself as the 'customer company,' dedicated to transforming how companies engage with their clientele.",
+    "slogan": "Salesforce: The #1 AI CRM for customer connection and trust.",
+    "logoUrl": "https://media.brand.dev/23ebcdd5-203a-4f8a-97b8-fa625dc047a1.png",
+    "iconUrl": "https://media.brand.dev/23ebcdd5-203a-4f8a-97b8-fa625dc047a1.png",
+    "primaryColor": "#04a4e3",
+    "accentColor": "#5bc3eb",
+    "colors": [
+      {
+        "hex": "#04a4e3",
+        "name": "Vanadyl Blue"
+      },
+      {
+        "hex": "#5bc3eb",
+        "name": "Clean Pool"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/07d3b975-7101-46af-97d7-96ca404820f8.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.salesforce.com/company/careers/blog/",
+      "terms": null,
+      "contact": "https://www.salesforce.com/fr/service/contact-center/",
+      "privacy": "https://www.salesforce.com/fr/platform/security-privacy-software/",
+      "blog": "https://www.salesforce.com/fr/blog/",
+      "pricing": "https://www.salesforce.com/fr/agentforce/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/23ebcdd5-203a-4f8a-97b8-fa625dc047a1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/33a89cb1-483b-4283-af89-48fd0d293bdc.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/23ebcdd5-203a-4f8a-97b8-fa625dc047a1.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/23ebcdd5-203a-4f8a-97b8-fa625dc047a1.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

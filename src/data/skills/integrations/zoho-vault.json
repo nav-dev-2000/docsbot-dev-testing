@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-vault",
+  "name": "Zoho Vault",
+  "domain": "zoho-vault.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Vault",
+  "metaTitle": "Build AI Agents for Zoho Vault with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Zoho Vault for lookups, approvals, password request workflows, and internal access support actions.",
+  "intro": "Zoho Vault helps teams manage passwords, secrets, and shared access safely across the business. With DocsBot Skill Builder, you can describe the Zoho Vault workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, guide access requests, summarize vault status, and trigger bounded actions while keeping security controls central.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify the status of a customer access or credential-sharing request and provide a safe status update without exposing secrets.",
+    "Let a support agent gather the details needed for an access problem, create an internal handoff, and trigger an approved Zoho Vault request workflow for the right team.",
+    "Have the agent summarize password request history, ownership, or approval state from Zoho Vault so support staff can respond faster in tickets.",
+    "Use the agent to collect missing context from a customer, prepare an escalation summary, and route the issue to internal admins who manage Zoho Vault access.",
+    "Allow a helpdesk-connected DocsBot agent to answer policy questions about shared credential access and explain the next approved step based on Zoho Vault workflow data."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to request access guidance, check approval status, or retrieve non-sensitive vault metadata from Zoho Vault.",
+    "Enable internal teams to ask the agent who owns a shared credential set, which vault item is tied to a workflow, or what approval step is blocking access.",
+    "Use an internal AI assistant to kick off password access requests, collect business justification, and send the request through the approved Zoho Vault process with clear boundaries.",
+    "Help IT and operations teams chat with the agent to summarize recent access activity, review pending requests, and generate handoff notes for sensitive follow-up.",
+    "Give employees an AI assistant that walks them through credential access SOPs, confirms required details, and completes the right Zoho Vault workflow without exposing stored secrets."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks password request status and explains the next approved step.",
+    "A support workflow that gathers access issue details and creates an internal escalation summary.",
+    "An internal assistant that starts Zoho Vault access requests with required business justification.",
+    "A private AI agent that identifies vault item owners and pending approval blockers.",
+    "An employee help agent that answers credential access policy questions using approved reference material.",
+    "A workflow assistant that summarizes recent approval activity for IT or security teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Vault agent to do, such as check request status, guide access requests, or prepare escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder secures it",
+      "description": "Skill Builder determines the required connection details, sets up secure authentication handling, keeps secrets out of chats and Skill content, and proxies credentials through protected runtime configuration by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder designs the Skill with the minimum actions, records, and users needed for the workflow, and adds approval boundaries or safe action limits for sensitive Zoho Vault operations."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds those findings into an improvement loop automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing support bot or your private internal assistant so teams can safely use Zoho Vault through DocsBot."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Vault?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Vault workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can support lookups, request workflows, summaries, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Vault data during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho Vault metadata and workflow status to answer questions, collect missing context, and prepare handoffs without exposing passwords or secrets. Skill Builder helps scope what the agent can read, summarize, or trigger."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zoho Vault?",
+      "answer": "An internal DocsBot agent can help employees start access requests, check approval status, identify owners, follow credential access SOPs, and prepare summaries for IT or security teams. The workflow can be limited to approved actions and reviewed steps."
+    },
+    {
+      "question": "Can DocsBot trigger Zoho Vault request or approval workflows safely?",
+      "answer": "DocsBot Skill Builder can create Skills that trigger approved Zoho Vault workflows with clear action boundaries, scoped permissions, and approval checkpoints where needed. This helps the agent take useful action without giving it unrestricted access."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Vault credentials and secrets safe?",
+      "answer": "Skill Builder defines secure connection handling, keeps credentials out of chat transcripts and generated Skill content, and uses protected runtime configuration to proxy secrets safely. It also limits access to only the users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help with access request escalations and handoffs from Zoho Vault?",
+      "answer": "Yes, the agent can gather the necessary details, summarize the issue, identify the right owner or admin path, and create a clean handoff for human follow-up. This is especially useful for support teams and internal IT workflows that need faster escalation prep."
+    }
+  ],
+  "relatedSlugs": [
+    "1password",
+    "okta",
+    "lastpass",
+    "bitwarden",
+    "jira",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "teamviewer",
+  "name": "TeamViewer",
+  "domain": "teamviewer.com",
+  "category": "Customer Support",
+  "trutoCategory": "Remote Support",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with TeamViewer",
+  "metaTitle": "Build TeamViewer AI Agents for Support and Internal Teams",
+  "metaDescription": "Create DocsBot AI agents that use TeamViewer for remote support lookups, session handoffs, workflow triggers, and safe internal IT assistance.",
+  "intro": "TeamViewer helps organizations deliver remote support, manage devices, and automate digital workplace tasks. With DocsBot Skill Builder, you can describe the TeamViewer-powered workflow you want in plain language, and DocsBot designs a reusable Skill for your support agent or internal AI assistant. That lets your agent answer questions, look up remote support context, prepare handoffs, and trigger approved actions without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up the status of a remote support request or active service session in TeamViewer while replying to a customer.",
+    "Let the agent gather troubleshooting details in chat and prepare a TeamViewer handoff with a summarized issue description for a human support technician.",
+    "Enable a support bot connected to your helpdesk to add TeamViewer session notes or attach a remote support summary to the customer ticket after an approved interaction.",
+    "Have the agent share approved next steps for joining a TeamViewer remote support session based on the customer’s device, issue type, or support workflow.",
+    "Allow the bot to trigger a bounded remote support workflow in TeamViewer after confirming identity, support eligibility, or required approval conditions."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up TeamViewer device or support session information without searching across multiple IT tools.",
+    "IT teams can ask the agent to summarize recent TeamViewer activity, open issues, or technician handoff details for faster triage and shift changes.",
+    "Help desk staff can use the agent in Slack or Microsoft Teams to generate consistent remote support intake notes and follow the correct escalation SOP before launching a TeamViewer workflow.",
+    "Operations teams can chat with the agent to retrieve TeamViewer-related process guidance, compare support history, and complete approved internal workflows with less manual copying between systems.",
+    "Internal teams can use the agent to prepare remote assistance handoffs, draft incident summaries, and route work to the right technician when a live session is needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks TeamViewer session status and explains the next support step.",
+    "A helpdesk assistant that prepares TeamViewer handoffs with issue summaries and required troubleshooting context.",
+    "An internal IT agent that retrieves device support history and summarizes recent remote assistance activity.",
+    "A workflow assistant that triggers approved TeamViewer support actions after identity and approval checks.",
+    "A support bot that adds structured remote session notes back into ticket or case workflows.",
+    "An employee-facing assistant that guides technicians through remote support SOPs using TeamViewer context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the TeamViewer agent to do in plain language, such as checking support session details, preparing handoffs, or triggering approved remote support workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, identifies the needed configuration values, and sets up safe connection and authentication handling without asking you to manually engineer the workflow."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, and scopes TeamViewer access to the minimum users, actions, records, and systems required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive actions, Skill Builder adds approval boundaries, action limits, and routing rules so the agent can assist confidently while staying inside the permissions and controls you define."
+    },
+    {
+      "title": "Scenarios are automatically tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing safeguards, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with TeamViewer?",
+      "answer": "You can describe the TeamViewer workflow you want in plain language, and DocsBot Skill Builder can create a Skill that lets your agent look up support information, prepare handoffs, trigger approved actions, and summarize outcomes. Skill Builder also handles secure connection design, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use TeamViewer during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use TeamViewer context while responding in a website chat widget or helpdesk flow to check session details, prepare remote support handoffs, and share approved next steps. Sensitive actions can be limited behind approvals and role-based boundaries."
+    },
+    {
+      "question": "What TeamViewer workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve TeamViewer information, summarize support activity, follow IT support SOPs, and trigger approved remote assistance workflows. This is useful in private chat, Slack, or Microsoft Teams when staff need faster access to support context and process guidance."
+    },
+    {
+      "question": "Can DocsBot safely trigger TeamViewer-related actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoffs, updating notes, launching approved workflows, or preparing escalation artifacts. Skill Builder defines secure authentication handling, scopes access, and adds approval checkpoints where needed."
+    },
+    {
+      "question": "How does setup work for a non-technical TeamViewer AI workflow?",
+      "answer": "You explain the business outcome you want, and Skill Builder handles the workflow design, connection requirements, secret protection, test scenarios, and improvement cycle. You do not need to manually write the integration logic step by step."
+    },
+    {
+      "question": "Can a TeamViewer AI agent help with escalations and technician handoffs?",
+      "answer": "Yes, a DocsBot agent can collect customer details, summarize the problem, attach relevant TeamViewer context, and prepare a clean handoff for a technician or higher-tier support team. This helps reduce repeated questions and speeds up remote support resolution."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "jira-service-management",
+    "servicenow",
+    "intercom",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TeamViewer",
+    "domain": "teamviewer.com",
+    "description": "TeamViewer provides a Digital Workplace platform that connects people with technology, enabling, improving and automating digital processes to make work work better. Founded in 2005 with remote‑access software, it became the de‑facto standard for remote support, allowing users to control computers and devices from anywhere, reducing travel and boosting productivity. Today over 635,000 customers—from SMBs to global enterprises—use its suite to manage IT and industrial endpoints, prevent downtime, and empower desk‑based and frontline workers. The platform adds augmented‑reality assistance, AI‑driven automation, and integrations with leading tech partners, helping organizations accelerate onboarding, increase productivity, and enhance employee and customer satisfaction.",
+    "slogan": "Go beyond remote support. Automated IT, powered by AI.",
+    "logoUrl": "https://media.brand.dev/fd9469ba-c51c-44e1-9e22-c0f4e076edb0.jpg",
+    "iconUrl": "https://media.brand.dev/fd9469ba-c51c-44e1-9e22-c0f4e076edb0.jpg",
+    "primaryColor": "#070e55",
+    "accentColor": "#7c84a4",
+    "colors": [
+      {
+        "hex": "#070e55",
+        "name": "Interstellar Blue"
+      },
+      {
+        "hex": "#7c84a4",
+        "name": "Velvet Curtain"
+      },
+      {
+        "hex": "#cccddb",
+        "name": "Floral Note"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a0a2fdf8-57b8-43e8-b0de-127c7707badf.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.teamviewer.com/en-us/global/company/careers/",
+      "terms": null,
+      "contact": "https://www.teamviewer.com/en-us/global/contact-sales/",
+      "blog": "https://www.teamviewer.com/en-us/resources/news-insights/",
+      "privacy": "https://www.teamviewer.com/en-us/legal/privacy-and-cookies/",
+      "pricing": "https://www.teamviewer.com/en-us/products/remote/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fd9469ba-c51c-44e1-9e22-c0f4e076edb0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/de4f364c-d4f6-472d-8aed-99db4dfc336c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 177,
+        "height": 179,
+        "aspectRatio": 0.99
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/de4f364c-d4f6-472d-8aed-99db4dfc336c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 177,
+      "height": 179,
+      "aspectRatio": 0.99
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/de4f364c-d4f6-472d-8aed-99db4dfc336c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 177,
+      "height": 179,
+      "aspectRatio": 0.99
+    }
+  }
+}

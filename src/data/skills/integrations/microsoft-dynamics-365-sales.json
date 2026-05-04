@@ -1,0 +1,160 @@
+{
+  "slug": "microsoft-dynamics-365-sales",
+  "name": "Microsoft Dynamics 365 Sales",
+  "domain": "microsoft-dynamics-365-sales.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Microsoft Dynamics 365 Sales",
+  "metaTitle": "Microsoft Dynamics 365 Sales AI Agent for Support and Teams",
+  "metaDescription": "Build DocsBot AI agents that use Microsoft Dynamics 365 Sales for customer support lookups, safe record updates, handoffs, and internal sales workflows.",
+  "intro": "Microsoft Dynamics 365 Sales helps teams manage accounts, contacts, opportunities, and sales activity across the customer lifecycle. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Dynamics 365 Sales, and DocsBot helps design, secure, test, improve, and deploy that capability. The result is a support or internal AI agent that can answer questions, look up CRM context, prepare handoffs, and take approved actions without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Use a customer chat widget or helpdesk agent to look up account, contact, lead, or opportunity details in Microsoft Dynamics 365 Sales while answering customer questions.",
+    "Let the AI agent verify customer ownership or account status from Dynamics 365 Sales before sharing renewal, onboarding, or sales-related guidance.",
+    "Create or update lead, contact, or account notes in Microsoft Dynamics 365 Sales after a customer conversation so follow-up context is not lost.",
+    "Have the agent summarize recent sales activity, open opportunities, or customer history from Dynamics 365 Sales to prepare a clean handoff to a human rep.",
+    "Trigger approved follow-up workflows such as assigning a sales owner, creating a task, or flagging an account for outreach based on the customer conversation."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve account, contact, and opportunity details from Microsoft Dynamics 365 Sales.",
+    "Let sales, success, and support teams ask the agent for a concise summary of CRM history, open pipeline, recent activity, and next recommended actions before a customer meeting.",
+    "Help employees complete repeatable workflows such as creating follow-up tasks, logging notes, updating opportunity stages, or preparing escalation handoffs through guided chat.",
+    "Allow operations or revenue teams to use the agent to research account records, identify missing CRM fields, and follow internal SOPs for record cleanup and routing.",
+    "Support managers with AI-generated summaries of pipeline changes, account risk signals, and rep activity pulled from Microsoft Dynamics 365 Sales for faster review and coaching."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks account ownership before sharing customer-specific sales information.",
+    "A helpdesk assistant that creates CRM notes and follow-up tasks after ticket resolution.",
+    "A website chat agent that captures qualified leads directly into Microsoft Dynamics 365 Sales.",
+    "An internal sales assistant that summarizes account history before calls and renewals.",
+    "A revenue operations agent that updates opportunity fields with approval for sensitive changes.",
+    "A customer success assistant that prepares handoff briefs from CRM activity and conversation context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Microsoft Dynamics 365 Sales, such as looking up account details, logging notes, or creating follow-up tasks, and it turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder identifies the needed configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill content, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines safe action boundaries for updates or workflow triggers, including approvals for sensitive CRM changes, so the agent can act only within the rules you choose."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so teams and customers can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Microsoft Dynamics 365 Sales?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and it helps create a Skill that can safely look up CRM data, update approved records, trigger follow-up actions, and respond through your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Microsoft Dynamics 365 Sales data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Dynamics 365 Sales as a source of live CRM context for lookups, summaries, note creation, and approved handoff preparation while replying in a chat widget or helpdesk flow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Microsoft Dynamics 365 Sales?",
+      "answer": "Common examples include checking account details, summarizing customer history, creating lead or contact notes, assigning follow-up tasks, and preparing escalation context for a sales or success team."
+    },
+    {
+      "question": "Can an internal AI assistant update Microsoft Dynamics 365 Sales records safely?",
+      "answer": "Yes, DocsBot Skill Builder can define bounded CRM actions such as note updates, task creation, or stage changes with scoped permissions and approval boundaries for sensitive changes."
+    },
+    {
+      "question": "Can DocsBot create handoffs and follow-up tasks in Microsoft Dynamics 365 Sales?",
+      "answer": "Yes, the agent can be designed to create structured handoffs, add CRM notes, assign tasks, and summarize what happened so the next team member has the right context."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft Dynamics 365 Sales access secure?",
+      "answer": "Skill Builder plans secure configuration by default, protects and proxies secrets through runtime settings, keeps credentials out of conversations, scopes permissions to the minimum required access, and adds approval controls where needed."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "microsoft-dynamics-365-customer-service",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

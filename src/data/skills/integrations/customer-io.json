@@ -1,0 +1,112 @@
+{
+  "slug": "customer-io",
+  "name": "Customer.io",
+  "domain": "customer-io.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Customer.io",
+  "metaTitle": "Customer.io AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Customer.io for safe lookups, campaign actions, handoffs, and internal workflows in support and operations.",
+  "intro": "Customer.io helps teams send behavior-driven messages across email, SMS, push, and in-app channels. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Customer.io data and actions. This helps customer support teams and internal staff move from answering questions to taking approved action inside messaging and lifecycle workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer is enrolled in a lifecycle campaign and explain the current messaging status during a support chat or ticket reply.",
+    "Use Customer.io profile and event data to help the agent summarize recent communication history before responding to a billing, onboarding, or product adoption question.",
+    "Allow the agent to add or update approved customer attributes in Customer.io when a customer confirms a preference, contact detail, or onboarding milestone.",
+    "Trigger a bounded Customer.io workflow such as a follow-up message, onboarding sequence, or re-engagement campaign after the agent gathers the required customer consent or context.",
+    "Prepare a clean handoff for a human teammate by summarizing Customer.io segments, recent sends, delivery state, and relevant event activity in the support ticket."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Customer.io profiles, segments, campaign status, and messaging history without switching tools.",
+    "Customer success and lifecycle teams can ask the agent to summarize why a user entered a campaign, what messages were sent, and what events happened next for faster account research.",
+    "Operations or marketing team members can chat with the agent to update approved attributes, enroll contacts in allowed workflows, or pause sensitive actions behind an approval boundary.",
+    "Teams can use the agent to follow SOPs such as preparing outreach lists, checking segment membership, and generating internal summaries for retention or onboarding reviews."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Customer.io message history before answering customer questions.",
+    "An AI assistant that updates approved contact attributes after collecting customer confirmation.",
+    "A private team agent that summarizes campaign enrollment, sends, and event timelines.",
+    "A workflow agent that triggers onboarding or re-engagement journeys with approval controls.",
+    "A handoff assistant that adds Customer.io communication context to support tickets automatically.",
+    "An internal research agent that explains segment membership and recent lifecycle activity."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Customer.io agent to do in plain language, and it translates that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest way to connect to Customer.io, defines the required configuration values, handles authentication through secure runtime setup, and keeps credentials out of chats and Skill content by proxying secrets securely."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries for sensitive updates, enrollments, or workflow triggers before anything is deployed."
+    },
+    {
+      "title": "The Skill is drafted and tested",
+      "description": "Skill Builder creates the Skill, then its automated testing agent runs imagined customer support and internal team scenarios to catch bugs, weak instructions, missing checks, or workflow gaps."
+    },
+    {
+      "title": "DocsBot improves and publishes",
+      "description": "Skill Builder feeds test findings into a self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, Slack, Microsoft Teams, or internal workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Customer.io?",
+      "answer": "With DocsBot Skill Builder, you describe the Customer.io workflow you want in plain language, such as checking campaign status or updating approved attributes, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The result is a reusable AI capability your DocsBot agent can use in support or internal operations."
+    },
+    {
+      "question": "Can an AI support agent use Customer.io data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Customer.io Skill to look up profile details, campaign enrollment, segments, message history, and event context while responding to customers. You can also define approved actions such as updating attributes or triggering a bounded follow-up workflow when appropriate."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Customer.io?",
+      "answer": "A DocsBot agent can summarize communication history, confirm lifecycle status, update permitted customer fields, prepare handoffs, and trigger approved onboarding or retention actions. This helps support teams resolve issues faster without making the agent operate outside your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Customer.io?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to research contact history, review segment membership, understand campaign behavior, and complete approved Customer.io tasks from chat, Slack, or Microsoft Teams. This is useful for lifecycle, support, success, and operations teams that need quick answers and bounded actions."
+    },
+    {
+      "question": "How does DocsBot handle Customer.io authentication and secrets safely?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, stores secrets in secure runtime configuration, and proxies authentication so credentials stay out of chat transcripts and generated Skill content. It also scopes access and can add approval steps for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger Customer.io campaigns or journeys with approval controls?",
+      "answer": "Yes, Skill Builder can create workflows where the agent prepares the action, checks required context, and then triggers a Customer.io campaign or journey only within the limits you define. For higher-risk actions, it can require explicit approval before the agent proceeds."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "intercom",
+    "zendesk",
+    "klaviyo",
+    "mailchimp",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Customer.io",
+    "domain": "customer-io.com",
+    "description": "Customer.io is a marketing automation platform that helps businesses send personalized, behavior‑driven messages across email, SMS, push notifications, and in‑app channels. By integrating with product data and user events, the service enables marketers to create targeted campaigns, trigger real‑time communications, and segment audiences without needing deep technical expertise. Features include a visual workflow builder, robust API, A/B testing, analytics, and compliance tools for GDPR and CAN‑SPAM. Customer.io empowers companies to nurture leads, retain customers, and drive revenue through automated, data‑rich messaging that scales with growth.",
+    "slogan": "Custom joinery tailored to your space, style, and needs.",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "http://customer-io.com/topics/news.html",
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": "http://customer-io.com/topics/insurance.html"
+    }
+  }
+}

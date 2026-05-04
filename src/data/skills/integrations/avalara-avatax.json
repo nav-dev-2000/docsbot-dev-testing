@@ -1,0 +1,176 @@
+{
+  "slug": "avalara-avatax",
+  "name": "Avalara AvaTax",
+  "domain": "avalara.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Avalara AvaTax",
+  "metaTitle": "Build AI Agents for Avalara AvaTax with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that look up tax details, summarize compliance data, trigger workflows, and handle approved AvaTax actions safely.",
+  "intro": "Avalara AvaTax helps businesses automate tax calculation and compliance workflows across transactions and jurisdictions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use AvaTax for lookups, summaries, handoffs, and approved actions. The result is a support or internal AI agent that can answer questions and take bounded next steps instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up transaction tax details in Avalara AvaTax and explain charges shown on an order or invoice.",
+    "Use the agent to summarize exemption or taxability context from Avalara AvaTax so support teams can give customers faster and more consistent answers.",
+    "Have the agent gather order details from the conversation, prepare a tax review handoff, and attach a concise AvaTax summary for finance or compliance teams.",
+    "Enable a helpdesk-connected agent to check whether a transaction was committed, adjusted, or needs internal review before replying to the customer.",
+    "Let the agent trigger approved internal follow-up workflows when a customer disputes tax on a purchase and the case needs escalation or documentation review."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Avalara AvaTax transaction details, tax summaries, and compliance context without searching multiple systems manually.",
+    "Let finance, support, or operations teams ask the agent to prepare case summaries for disputed tax charges and route them into the correct review workflow.",
+    "Enable employees in Slack or Microsoft Teams to use the agent for guided SOPs around tax exception research, escalation preparation, and documentation collection.",
+    "Have the agent help internal teams compare conversation details with AvaTax records, identify missing context, and recommend the next approved action.",
+    "Let operations teams chat with the agent to generate audit-ready summaries of transaction tax information for internal review before human approval steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains transaction tax charges using Avalara AvaTax data.",
+    "A helpdesk assistant that summarizes tax dispute context and prepares escalation notes.",
+    "An internal finance agent that retrieves AvaTax transaction status and tax calculation details.",
+    "A private operations assistant that guides employees through tax review SOPs.",
+    "An AI workflow that gathers order details and creates a compliance review handoff.",
+    "A support agent that checks exemption-related context before suggesting the next step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Avalara AvaTax, such as explain tax charges, summarize transaction status, or prepare an escalation, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through approved runtime settings by default."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum AvaTax records, actions, users, and systems needed for the workflow and adds approval boundaries or safe action limits for any sensitive updates or triggers."
+    },
+    {
+      "title": "An agent tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for weak instructions, bugs, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Skill Builder improves and deploys",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and help publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Avalara AvaTax?",
+      "answer": "With DocsBot Skill Builder, you describe the AvaTax workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, scopes permissions, tests scenarios, and prepares it for deployment. The finished agent can look up tax data, summarize compliance context, trigger approved workflows, and support human handoffs."
+    },
+    {
+      "question": "Can an AI support agent use Avalara AvaTax data to answer customer tax questions?",
+      "answer": "Yes, a DocsBot support agent can use AvaTax data to look up transaction-related tax details, summarize what happened, and help prepare the next approved support step. You control what records and actions the agent can access so customer support stays accurate and bounded."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Avalara AvaTax?",
+      "answer": "Teams can build workflows for tax charge lookups, dispute triage, escalation preparation, transaction status summaries, and handoffs to finance or compliance reviewers. This helps support agents respond faster while keeping sensitive actions behind defined approval boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Avalara AvaTax in Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve AvaTax information, research transaction context, follow tax review SOPs, and prepare internal summaries or workflow handoffs from chat. This is useful for finance, operations, customer success, and support teams that need quick answers across systems."
+    },
+    {
+      "question": "How does DocsBot keep Avalara AvaTax actions secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of chat conversations and generated Skill content. It also scopes access to approved users, records, and actions, with approval boundaries for higher-risk workflows."
+    },
+    {
+      "question": "Can DocsBot trigger follow-up workflows from Avalara AvaTax findings?",
+      "answer": "Yes, a Skill can be designed to take bounded actions after a lookup or summary, such as creating a handoff, routing a case, generating a review summary, or triggering an approved downstream workflow. The exact actions are defined around your process and safety requirements."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "stripe",
+    "zuora",
+    "bill-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Avalara",
+    "domain": "avalara.com",
+    "description": "Avalara is a tax and compliance technology company that provides AI-driven solutions to automate end-to-end tax compliance for businesses worldwide. With over two decades of experience, Avalara offers an extensive library of tax content and integrations, serving more than 200,000 direct and indirect customers in over 75 countries. Its purpose-built AI agents handle tax calculations, return filings, exemption certificate management, and other compliance tasks with high precision, helping companies simplify and scale their tax operations.",
+    "slogan": "Join 43,000+ customers across 75+ countries using Avalara.",
+    "logoUrl": "https://media.brand.dev/515f8c6d-4add-4422-a88e-287484fd2a7b.svg",
+    "iconUrl": "https://media.brand.dev/81d363a3-2d13-4de0-9f35-2522ee287214.jpg",
+    "primaryColor": "#fc6404",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#fc6404",
+        "name": "Blaze Orange"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#149bcd",
+        "name": "Structural Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/80ebd9e2-9ed8-4fdf-bfa3-0aa42474e083.jpg",
+    "industries": [],
+    "links": {
+      "contact": "https://www.avalara.com/simplify/en/contact/avalara-private-equity-and-venture-capital.html",
+      "privacy": "https://legal.avalara.com/dpa",
+      "blog": "https://www.avalara.com/blog/en/north-america.html",
+      "pricing": "https://www.avalara.com/us/en/products/pricing.html",
+      "careers": "https://careers.avalara.com/careers-home/",
+      "terms": "http://legal.avalara.com/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/81d363a3-2d13-4de0-9f35-2522ee287214.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/515f8c6d-4add-4422-a88e-287484fd2a7b.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 673,
+        "height": 146,
+        "aspectRatio": 4.61
+      },
+      {
+        "url": "https://media.brand.dev/0058452d-c4f0-4894-9beb-fab27009ffc9.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 154,
+        "height": 32,
+        "aspectRatio": 4.81
+      },
+      {
+        "url": "https://media.brand.dev/39c9e8b7-f533-42bc-b67d-12dbf50c2bb6.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/515f8c6d-4add-4422-a88e-287484fd2a7b.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 673,
+      "height": 146,
+      "aspectRatio": 4.61
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/39c9e8b7-f533-42bc-b67d-12dbf50c2bb6.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 600,
+      "height": 600,
+      "aspectRatio": 1
+    }
+  }
+}

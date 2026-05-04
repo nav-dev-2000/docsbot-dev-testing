@@ -1,0 +1,160 @@
+{
+  "slug": "cockroachdb-cloud",
+  "name": "CockroachDB Cloud",
+  "domain": "cockroachdb-cloud.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with CockroachDB Cloud",
+  "metaTitle": "Build AI Agents for CockroachDB Cloud with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that safely use CockroachDB Cloud for live lookups, approved updates, workflow triggers, and internal or support automation.",
+  "intro": "CockroachDB Cloud powers mission-critical application data, and DocsBot Skill Builder helps you turn that data access into a practical AI agent capability. In plain language, you describe what the agent should do, and Skill Builder designs, secures, tests, and packages a reusable Skill for customer support or internal team workflows. The result is an AI agent that can answer questions and take bounded action against CockroachDB Cloud within rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order, account, subscription, or usage records stored in CockroachDB Cloud and answer customers with current status information.",
+    "Use the agent to summarize a customer's recent database-backed activity and prepare a clean handoff for a support rep when an issue needs escalation.",
+    "Allow the agent to create approved support-side records or flags in CockroachDB Cloud, such as callback requests, incident markers, or verification outcomes tied to a customer profile.",
+    "Enable the agent to update limited fields in database records after customer confirmation, such as contact preferences, case notes, or onboarding checkpoints.",
+    "Have the agent compare multiple related records in CockroachDB Cloud to explain billing, fulfillment, or account state discrepancies during a live support conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve customer, product, usage, or operational data from CockroachDB Cloud without writing queries manually.",
+    "Support and operations teams can ask the agent to summarize record history, identify likely next steps, and generate internal notes or escalation briefs from CockroachDB Cloud data.",
+    "Customer success teams can use the agent in Slack or Microsoft Teams to check account health signals, onboarding milestones, or renewal-related data stored in CockroachDB Cloud.",
+    "Operations staff can ask the agent to complete SOP-driven updates in CockroachDB Cloud with bounded permissions, approval steps, and logged actions.",
+    "Internal teams can use the agent to research issues across database records, compare entities, and produce structured summaries for investigations or cross-functional reviews."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks live account or order data in CockroachDB Cloud before replying.",
+    "A billing assistant that explains database-backed usage or entitlement records to customers and agents.",
+    "An internal operations agent that updates approved record fields after confirmation and approval.",
+    "A customer success assistant that summarizes onboarding progress and account health from application data.",
+    "An escalation prep Skill that gathers related records and drafts a handoff summary automatically.",
+    "A Slack or Teams assistant that answers employee questions using current CockroachDB Cloud data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with CockroachDB Cloud in plain language, such as checking account status, updating an approved field, or preparing an escalation summary."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow design, defining the required configuration values, and planning how the agent should look up data or take bounded action."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, approval steps for sensitive updates, and clear action limits so the agent can help confidently without exceeding the rules you set."
+    },
+    {
+      "title": "Testing improves the Skill",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds those improvements back into the Skill before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses CockroachDB Cloud data?",
+      "answer": "With DocsBot Skill Builder, you describe the business outcome you want in plain language, and it creates a Skill that can query, summarize, and optionally update CockroachDB Cloud data within approved limits. Skill Builder also handles secure configuration, authentication, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use CockroachDB Cloud to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use CockroachDB Cloud as a live data source for things like order status, account information, usage details, or support history stored in application tables. The agent can answer with current information and prepare handoffs or follow-up actions when escalation is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with CockroachDB Cloud?",
+      "answer": "Teams can build workflows for live record lookups, issue summaries, approved field updates, callback requests, escalation notes, and other bounded support actions tied to database records. The agent responds to the customer conversation or ticket, then uses CockroachDB Cloud behind the scenes to complete the defined workflow safely."
+    },
+    {
+      "question": "Can an internal AI assistant query CockroachDB Cloud for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve and summarize data from CockroachDB Cloud without manually querying the database. This is useful for operations, support, customer success, and investigation workflows."
+    },
+    {
+      "question": "Can DocsBot safely update records in CockroachDB Cloud?",
+      "answer": "DocsBot Skill Builder can create Skills for approved updates when your workflow allows it, such as changing limited fields, adding notes, or setting internal status markers. It designs scoped permissions, secure secret handling, and approval boundaries so the agent only performs the actions you authorize."
+    },
+    {
+      "question": "How does DocsBot keep CockroachDB Cloud access secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum users, records, and actions required and can add approval steps for sensitive operations."
+    }
+  ],
+  "relatedSlugs": [
+    "postgresql",
+    "mysql",
+    "supabase",
+    "snowflake",
+    "bigquery",
+    "mongodb"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cockroach Labs",
+    "domain": "cockroachlabs.com",
+    "description": "Cockroach Labs creates CockroachDB, a cloud‑native, distributed SQL database that enables enterprises to run mission‑critical applications with high scalability, disaster resilience, and global availability.",
+    "slogan": "Distributed SQL for always-on customer experiences",
+    "logoUrl": "https://media.brand.dev/3bfca0b7-7b64-4bfd-aaab-62979147a45b.png",
+    "iconUrl": "https://media.brand.dev/7010962e-1031-407f-8b6d-4e40a955c609.jpg",
+    "primaryColor": "#160e31",
+    "accentColor": "#6144c9",
+    "colors": [
+      {
+        "hex": "#160e31",
+        "name": "Spanish Roast"
+      },
+      {
+        "hex": "#6144c9",
+        "name": "Dragonlord Purple"
+      },
+      {
+        "hex": "#203a96",
+        "name": "Navy Seal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3a9c4bb5-11e1-4c14-82cb-7c68809b9aea.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.cockroachlabs.com/careers/",
+      "contact": "https://www.cockroachlabs.com/contact/",
+      "privacy": "https://www.cockroachlabs.com/privacy/",
+      "blog": "https://www.cockroachlabs.com/blog/",
+      "pricing": "https://www.cockroachlabs.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7010962e-1031-407f-8b6d-4e40a955c609.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3bfca0b7-7b64-4bfd-aaab-62979147a45b.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 340,
+        "height": 48,
+        "aspectRatio": 7.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3bfca0b7-7b64-4bfd-aaab-62979147a45b.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 340,
+      "height": 48,
+      "aspectRatio": 7.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7010962e-1031-407f-8b6d-4e40a955c609.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

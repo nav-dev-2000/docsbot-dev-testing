@@ -1,0 +1,167 @@
+{
+  "slug": "fountain",
+  "name": "Fountain",
+  "domain": "fountain.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Fountain",
+  "metaTitle": "Build Fountain AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Fountain to look up candidates, update hiring records, trigger workflows, and support recruiters or operations teams safely.",
+  "intro": "Fountain helps companies hire, onboard, and manage frontline workforces at scale. With DocsBot Skill Builder, you can describe the Fountain workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. That lets your AI agent answer questions, retrieve hiring data, prepare handoffs, and take approved actions in Fountain without exposing sensitive access or making your team handle manual steps.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check a candidate's application stage in Fountain and give a status update during website chat or ticket support.",
+    "Let the agent collect missing applicant details from a conversation and create or update the candidate record in Fountain for recruiter follow-up.",
+    "Have the agent summarize interview progress, onboarding status, or required next steps from Fountain before handing the conversation to a human team member.",
+    "Enable the agent to trigger approved hiring or onboarding workflows in Fountain after confirming eligibility or collecting required information from the applicant.",
+    "Use the agent to prepare escalation notes from the chat or ticket and attach a clean summary for recruiting or operations teams working in Fountain."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate stages, onboarding progress, or workforce records stored in Fountain.",
+    "Help recruiting and operations teams ask the agent for summaries of applicant pipelines, bottlenecks, or next actions so they can move faster without searching manually.",
+    "Enable employees to use chat to update approved fields in Fountain, trigger workflow steps, or create structured handoff notes while the agent follows defined permissions and approval limits.",
+    "Support internal SOPs by having team members ask the agent to gather Fountain context, explain the next step, and complete allowed workflow actions across recruiting and onboarding processes.",
+    "Give managers and coordinators an internal AI assistant that researches workforce status in Fountain and returns concise summaries for daily operations, escalations, or exception handling."
+  ],
+  "whatYouCanBuild": [
+    "A hiring status lookup Skill for candidate and applicant support conversations.",
+    "An onboarding progress assistant that summarizes milestones and required next steps.",
+    "A recruiter handoff Skill that creates structured escalation notes from chat context.",
+    "A workflow action Skill that updates approved Fountain records after confirmation.",
+    "An internal recruiting assistant that answers pipeline questions from Slack or Teams.",
+    "A frontline workforce operations bot that summarizes exceptions and pending tasks in Fountain."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Fountain, such as checking application status, updating a hiring record, or preparing a recruiter handoff, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a secure Skill design, identifies the Fountain connection details it needs, defines configuration values, and plans the right lookups, updates, summaries, and workflow actions for the agent."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder handles authentication safely, keeps secrets out of chat transcripts and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action in Fountain."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Fountain?",
+      "answer": "With DocsBot Skill Builder, you describe the Fountain workflow you want in plain language, and the builder creates a reusable Skill that can look up records, summarize status, update approved fields, and trigger allowed actions. It also designs the secure connection, handles secrets safely, tests scenarios, and prepares the Skill for deployment."
+    },
+    {
+      "question": "Can an AI support agent use Fountain data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Fountain as the system behind the conversation to check application stages, onboarding progress, missing information, or next steps while responding in website chat or helpdesk tickets. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Fountain?",
+      "answer": "Teams can build workflows for candidate status lookups, intake of missing details, onboarding updates, recruiter handoff summaries, and approved workflow triggers inside Fountain. This helps the agent move from answering questions to completing bounded support actions."
+    },
+    {
+      "question": "Can an internal AI assistant help recruiters and operations teams use Fountain?",
+      "answer": "Yes, private DocsBot agents can help employees search Fountain records, summarize hiring pipelines, identify blockers, and complete approved recruiting or onboarding steps from chat, Slack, or Microsoft Teams. This reduces manual searching and helps teams follow standard workflows faster."
+    },
+    {
+      "question": "How does DocsBot keep Fountain actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies authentication through runtime settings, keeps credentials out of generated content and chats, and scopes permissions to the minimum needed for the workflow. It can also add approval boundaries so sensitive updates require the right level of control."
+    },
+    {
+      "question": "Can DocsBot update Fountain records or trigger workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as approved record updates, workflow triggers, escalation prep, and structured summaries in addition to information retrieval. The exact actions are bounded by the rules, permissions, and approvals your team sets."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fountain",
+    "domain": "fountain.com",
+    "description": "Fountain is a company that provides an AI-native operating system for frontline workforces, enabling businesses to streamline operations and manage their workforce more efficiently. With its innovative solutions, Fountain helps top brands in various industries, including healthcare and logistics, to hire, train, and retain talent, while also providing tools for talent management and workforce optimization.",
+    "slogan": "Streamlining frontline hiring with automation, data, and global reach.",
+    "logoUrl": "https://media.brand.dev/af1efe37-134c-4279-bf33-1c7a160ed8d7.svg",
+    "iconUrl": "https://media.brand.dev/3203fd89-7fb2-4f8a-a9a7-c7c5c67c81ea.jpg",
+    "primaryColor": "#1c45b8",
+    "accentColor": "#7aa7e1",
+    "colors": [
+      {
+        "hex": "#1c45b8",
+        "name": "Denim"
+      },
+      {
+        "hex": "#7aa7e1",
+        "name": "Jordy Blue"
+      },
+      {
+        "hex": "#2c0c74",
+        "name": "Persian Indigo"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ad164c7e-4406-4032-9661-c85365c305b5.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.fountain.com/careers-fountain",
+      "terms": "https://privacy.fountain.com/policies/en/",
+      "contact": "https://www.fountain.com/contact-us",
+      "privacy": "https://privacy.fountain.com/policies/en/",
+      "blog": "https://www.fountain.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3203fd89-7fb2-4f8a-a9a7-c7c5c67c81ea.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/af1efe37-134c-4279-bf33-1c7a160ed8d7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 125,
+        "height": 20,
+        "aspectRatio": 6.25
+      },
+      {
+        "url": "https://media.brand.dev/83fbefe6-4914-4f18-b8ce-2447beac65f4.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/af1efe37-134c-4279-bf33-1c7a160ed8d7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 125,
+      "height": 20,
+      "aspectRatio": 6.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/83fbefe6-4914-4f18-b8ce-2447beac65f4.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

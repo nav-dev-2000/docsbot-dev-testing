@@ -1,0 +1,156 @@
+{
+  "slug": "woocommerce",
+  "name": "WooCommerce",
+  "domain": "woocommerce.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with WooCommerce",
+  "metaTitle": "WooCommerce AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use WooCommerce to answer customers, check orders, update records, trigger workflows, and support internal commerce teams safely.",
+  "intro": "WooCommerce powers flexible online stores, and DocsBot Skill Builder helps you turn store workflows into reusable AI agent abilities without needing to write the integration yourself. Describe the outcome you want in plain language, and Skill Builder designs, secures, tests, and deploys a Skill your support or internal agent can use. The result is an AI agent that can answer questions and take approved WooCommerce actions inside clear business rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check WooCommerce order status, payment state, shipment details, or refund progress while responding in website chat or helpdesk tickets.",
+    "Use the agent to look up products, stock availability, pricing, variants, and order history so customers get fast answers without waiting for a human agent.",
+    "Allow the agent to create support handoffs with a WooCommerce order summary, customer details, and the actions already attempted for smoother escalations.",
+    "Enable the agent to update approved order notes, attach internal context, or tag issues so support teams receive cleaner case histories.",
+    "Have the agent collect missing order information from the customer, verify it against WooCommerce records, and prepare the next approved support step automatically."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve WooCommerce order, product, customer, and fulfillment information without manually searching the admin area.",
+    "Customer success, operations, and support teams can ask the agent to summarize order issues, refund patterns, low-stock risks, or recent customer activity for faster decision-making.",
+    "Team members can use the agent in Slack or Microsoft Teams to follow SOPs for cancellations, returns, exception handling, and escalation prep across WooCommerce workflows.",
+    "Internal teams can ask the agent to create structured handoff notes, draft follow-up messages, or prepare case summaries using WooCommerce data plus company policies.",
+    "Operations staff can chat with the agent to trigger approved workflows such as internal alerts, fulfillment follow-ups, or inventory review requests based on WooCommerce events and records."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks WooCommerce order status and explains the next steps to customers.",
+    "A refund triage Skill that gathers context, summarizes the order, and prepares an approval-based handoff.",
+    "A product lookup Skill that answers stock, variant, pricing, and availability questions from live store data.",
+    "An internal assistant that summarizes customer purchase history before support or success outreach.",
+    "A workflow Skill that tags order issues and triggers internal follow-up tasks for operations teams.",
+    "A returns assistant that collects missing details and routes cases into the right support process."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the WooCommerce agent to do, such as checking orders, summarizing refunds, or preparing escalations, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed WooCommerce connection details, defines secure configuration values, keeps authentication and secrets out of chats and source files, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps such as updates, refunds, cancellations, or workflow triggers so the agent acts only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, missing instructions, weak permission handling, or workflow gaps, and captures improvements automatically."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds test results into a self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for WooCommerce customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking orders or summarizing refund status, and Skill Builder creates a reusable WooCommerce Skill with secure access, testing, and deployment handled for you."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use WooCommerce data during live customer chats?",
+      "answer": "Yes, a DocsBot agent can use a WooCommerce Skill to look up approved order, product, and customer details while responding in a website chat widget or helpdesk context. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What WooCommerce workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal agents can help employees retrieve store data, summarize order issues, prepare handoffs, follow SOPs for returns or cancellations, and trigger approved operational workflows across support and commerce teams."
+    },
+    {
+      "question": "Can an AI agent update WooCommerce records safely?",
+      "answer": "DocsBot Skill Builder can design bounded actions such as adding notes, tagging issues, or preparing update workflows with scoped permissions and approval steps where needed. This helps the agent assist with record changes without giving it unlimited access."
+    },
+    {
+      "question": "How does DocsBot handle WooCommerce authentication and secrets?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also limits access to the minimum actions and records needed for the workflow."
+    },
+    {
+      "question": "Can a WooCommerce AI agent help with support escalations and handoffs?",
+      "answer": "Yes, the agent can gather missing customer details, summarize the relevant WooCommerce order or account history, and create a clean handoff package for a human support rep or specialized team."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "stripe",
+    "paypal",
+    "wordpress",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "WooCommerce",
+    "domain": "woocommerce.com",
+    "description": "Woo is the maker of WooCommerce, an open-source ecommerce platform built on WordPress, helping millions of merchants build successful online businesses. They provide a flexible ecommerce solution that is customizable and scalable, supporting merchants from their first sale to millions in revenue.",
+    "slogan": "Build, grow, and succeed online with WooCommerce and WordPress.",
+    "logoUrl": "https://media.brand.dev/bc2aac19-b9d7-4f00-a963-2cba08411501.svg",
+    "iconUrl": "https://media.brand.dev/b13a5aa5-06b9-4404-82af-e5b7cc58dde9.jpg",
+    "primaryColor": "#843cfb",
+    "accentColor": "#c49cf2",
+    "colors": [
+      {
+        "hex": "#843cfb",
+        "name": "Sweet Escape"
+      },
+      {
+        "hex": "#c49cf2",
+        "name": "Lavender Cream"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/342ed69b-3713-45ac-b788-0d0e8d7977d3.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://woocommerce.com/contact-us/",
+      "privacy": null,
+      "blog": "https://woocommerce.com/blog/",
+      "pricing": "https://woocommerce.com/product-category/woocommerce-extensions/merchandising/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b13a5aa5-06b9-4404-82af-e5b7cc58dde9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bc2aac19-b9d7-4f00-a963-2cba08411501.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 95,
+        "height": 26,
+        "aspectRatio": 3.65
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bc2aac19-b9d7-4f00-a963-2cba08411501.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 95,
+      "height": 26,
+      "aspectRatio": 3.65
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b13a5aa5-06b9-4404-82af-e5b7cc58dde9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "sage-business-cloud-accounting",
+  "name": "Sage Business Cloud Accounting",
+  "domain": "sage-business-cloud-accounting.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sage Business Cloud Accounting",
+  "metaTitle": "DocsBot AI Agents for Sage Business Cloud Accounting",
+  "metaDescription": "Build DocsBot AI agents that securely use Sage Business Cloud Accounting for support lookups, internal finance workflows, summaries, handoffs, and approved actions.",
+  "intro": "Sage Business Cloud Accounting helps businesses manage core financial records, invoices, customers, and day-to-day accounting activity. With DocsBot Skill Builder, you can describe the accounting workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, retrieve accounting context, prepare handoffs, and take bounded actions inside Sage Business Cloud Accounting under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice status, payment history, or account details in Sage Business Cloud Accounting while replying to billing questions in chat or tickets.",
+    "Use the agent to summarize a customer's outstanding balance, recent transactions, or open invoices and present the information in a clear support-friendly response.",
+    "Allow the agent to create a finance handoff or escalation package with relevant Sage Business Cloud Accounting details when a billing issue needs human review.",
+    "Enable the agent to capture corrected billing information from a customer and prepare or submit approved updates to customer records in Sage Business Cloud Accounting.",
+    "Have the agent trigger approved follow-up workflows, such as notifying finance or marking a billing case for review, based on Sage Business Cloud Accounting data gathered during the support conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve customer balances, invoice details, payment summaries, or account history from Sage Business Cloud Accounting.",
+    "Finance and support teams can ask the agent to compile account summaries, investigate billing issues, and prepare standardized escalation notes using Sage Business Cloud Accounting data.",
+    "Operations teams can use the agent to follow internal SOPs for payment follow-up, invoice review, and exception handling with guided steps backed by Sage Business Cloud Accounting records.",
+    "Customer success employees can chat with the agent to confirm account standing before renewal or outreach conversations and receive concise summaries drawn from Sage Business Cloud Accounting.",
+    "Internal teams can use the agent to trigger approved finance workflows, request record updates, or generate handoff artifacts while keeping sensitive accounting actions within defined approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing support agent that checks invoice and payment status before answering customers.",
+    "A finance assistant that summarizes account history and prepares clean escalation notes for human review.",
+    "An internal Slack bot that retrieves customer balances and recent transactions from Sage Business Cloud Accounting.",
+    "A support workflow agent that captures billing corrections and routes approved updates to finance teams.",
+    "An AI assistant that generates payment follow-up summaries and next-step recommendations from accounting records.",
+    "A private team agent that guides employees through invoice investigation and exception handling SOPs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Sage Business Cloud Accounting, such as checking invoice status, summarizing account activity, or preparing a billing escalation, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure workflow, identifies the required configuration values, sets up safe connection and authentication handling, protects and proxies secrets outside of chats and Skill source, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive accounting workflows, including approval boundaries, action limits, and clear rules for when the agent should answer, gather more context, hand off, or stop."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so teams can safely use Sage Business Cloud Accounting through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Sage Business Cloud Accounting?",
+      "answer": "With DocsBot Skill Builder, you describe the accounting task you want in plain language, and Skill Builder creates a secure Skill that can look up data, summarize records, prepare handoffs, or take approved actions in Sage Business Cloud Accounting. It also handles connection design, authentication protection, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Sage Business Cloud Accounting data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use Sage Business Cloud Accounting as a live source for invoice status, payment details, balances, and account context while responding to customer chats or tickets. You define what data the agent may access and what actions it may take, with guardrails for sensitive workflows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Sage Business Cloud Accounting?",
+      "answer": "DocsBot can help automate billing lookups, payment status checks, account summaries, escalation prep, corrected billing detail capture, and approved workflow triggers for finance follow-up. The agent can answer directly when appropriate or gather context and prepare a clean handoff for a human teammate."
+    },
+    {
+      "question": "What can an internal AI assistant do with Sage Business Cloud Accounting?",
+      "answer": "An internal DocsBot agent can help employees retrieve financial account details, summarize invoice or payment history, guide billing investigation steps, and generate standardized notes or follow-up artifacts. This makes it easier for support, finance, and operations teams to complete repeatable workflows through chat."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Sage Business Cloud Accounting?",
+      "answer": "Yes, when you choose to allow updates or workflow triggers, Skill Builder designs the Skill with scoped permissions, secure secret handling, and approval boundaries around sensitive actions. That lets the agent take bounded action without exposing credentials or giving broader access than necessary."
+    },
+    {
+      "question": "How does DocsBot keep Sage Business Cloud Accounting credentials and financial data secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum users, records, and actions required and can require approvals for higher-risk steps."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks-online",
+    "xero",
+    "freshbooks",
+    "netsuite",
+    "stripe",
+    "chargebee"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sage",
+    "domain": "sage.com",
+    "description": "Sage is a company that provides software and services to small and medium-sized businesses, helping them manage finances, operations, and people. They offer simple and easy-to-use accounting and ERP software solutions, powered by AI and machine learning, to support businesses from startup to enterprise level. Sage aims to knock down barriers and give businesses confidence by providing the insights and tools they need to thrive.",
+    "slogan": "Knock down barriers. Business flow.",
+    "logoUrl": "https://media.brand.dev/3582de12-9665-45a1-81a3-974fc1b71da3.png",
+    "iconUrl": "https://media.brand.dev/3582de12-9665-45a1-81a3-974fc1b71da3.png",
+    "primaryColor": "#04b02e",
+    "accentColor": "#045917",
+    "colors": [
+      {
+        "hex": "#04b02e",
+        "name": "Kelley Green"
+      },
+      {
+        "hex": "#045917",
+        "name": "Evergreen Shade"
+      },
+      {
+        "hex": "#040504",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e978fca9-5582-4ede-bde6-6887ad31a520.png",
+    "industries": [],
+    "links": {
+      "careers": "https://sage.com/en-us/company/careers/",
+      "terms": null,
+      "contact": "https://sage.com/en-us/about-us/contact-us/",
+      "privacy": "https://sage.com/en-us/legal/privacy/",
+      "blog": "https://www.sage.com/en-us/blog/",
+      "pricing": "https://sage.com/en-us/sage-business-cloud/intacct/product-capabilities/extended-capabilities/financial-planning-budgeting/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3582de12-9665-45a1-81a3-974fc1b71da3.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d44e2018-e2a8-43ab-a026-2c7fb89803da.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ea0caa5f-ef34-4044-8727-63f404e28233.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b04408f0-99cd-403e-afa6-6ae0b915fe7f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d44e2018-e2a8-43ab-a026-2c7fb89803da.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d44e2018-e2a8-43ab-a026-2c7fb89803da.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

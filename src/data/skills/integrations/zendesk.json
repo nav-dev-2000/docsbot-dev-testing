@@ -1,0 +1,178 @@
+{
+  "slug": "zendesk",
+  "name": "Zendesk",
+  "domain": "zendesk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zendesk",
+  "metaTitle": "Build Zendesk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zendesk for support lookups, ticket updates, handoffs, and internal workflows with secure actions and testing built in.",
+  "intro": "Zendesk helps teams manage customer and employee service across chat, tickets, and workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zendesk, and Skill Builder designs, secures, tests, improves, and deploys that reusable Skill for you. The result is a support or internal AI agent that can answer questions and take approved action in Zendesk instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer’s Zendesk ticket status, recent conversations, and assigned owner before responding with a helpful update.",
+    "Use a DocsBot helpdesk agent to create new Zendesk tickets from customer messages, including a clean summary, priority, and routing details for the right team.",
+    "Enable the agent to add internal notes to Zendesk tickets that summarize customer context, troubleshooting already attempted, and recommended next steps for human follow-up.",
+    "Have the agent update approved Zendesk ticket fields such as category, priority, tags, or status when customers provide new information during a chat or ticket exchange.",
+    "Let the agent prepare escalation handoffs in Zendesk by drafting a concise case summary, attaching relevant conversation details, and routing the issue to billing, technical support, or customer success as appropriate."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent that can search Zendesk tickets, help center content, and conversation history to answer service questions without opening multiple tools.",
+    "Let support managers chat with an internal agent to summarize Zendesk backlog trends, open escalations, and agent workload for faster daily decision-making.",
+    "Enable customer success or operations teams to ask the agent to create or update Zendesk tickets as part of internal SOPs, with approval boundaries for sensitive actions.",
+    "Help IT or employee service teams use a private agent in Slack or Microsoft Teams to look up Zendesk requests, check status, and prepare handoffs across internal service workflows.",
+    "Allow team members to chat with the agent to generate consistent Zendesk ticket summaries, escalation briefs, and follow-up drafts based on approved internal processes."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Zendesk ticket status and explains the latest update to customers.",
+    "A chat agent that creates Zendesk tickets with structured summaries and routing details.",
+    "An AI assistant that adds internal notes and escalation context to Zendesk cases.",
+    "A private team agent that searches Zendesk history and summarizes recurring service issues.",
+    "An operations assistant that updates approved Zendesk ticket fields based on customer replies.",
+    "A handoff workflow that prepares Zendesk escalations for billing, technical, or success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Zendesk, such as checking ticket status, updating fields, creating handoffs, or summarizing support context, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns your goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Zendesk."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill instructions, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded Zendesk actions safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zendesk?",
+      "answer": "With DocsBot Skill Builder, you describe the Zendesk workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up records, update approved ticket fields, create handoffs, and summarize support context inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Zendesk data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Zendesk as the system behind the conversation to retrieve ticket status, conversation history, ownership, and other approved support details. It can also prepare or perform bounded actions such as ticket creation, note drafting, routing, or status updates when you allow them."
+    },
+    {
+      "question": "What Zendesk customer support workflows can DocsBot automate?",
+      "answer": "DocsBot can help automate ticket lookups, ticket creation, internal note generation, escalation prep, field updates, status summaries, and routing workflows tied to customer conversations or helpdesk tickets. The exact actions are defined by the Skill you build and the approval limits you choose."
+    },
+    {
+      "question": "Can I use DocsBot with Zendesk for internal employee or team workflows?",
+      "answer": "Yes, teams can use a private DocsBot agent in chat, Slack, or Microsoft Teams to search Zendesk records, summarize service issues, create internal requests, and follow SOPs across support and employee service workflows. This is useful for operations, customer success, IT, and leadership teams that need quick answers or controlled actions."
+    },
+    {
+      "question": "How does DocsBot keep Zendesk actions safe?",
+      "answer": "Skill Builder designs the Zendesk Skill with secure configuration, protected secret handling, scoped permissions, and approval boundaries for more sensitive actions. That helps ensure the agent can only access the records, users, and workflow steps you want it to use."
+    },
+    {
+      "question": "Can a DocsBot agent update Zendesk tickets automatically?",
+      "answer": "Yes, a Skill can be designed to update specific Zendesk ticket fields, add internal notes, assign routing details, or move a case through approved workflow steps. Skill Builder helps define those limits so the agent acts within clear boundaries rather than making unrestricted changes."
+    }
+  ],
+  "relatedSlugs": [
+    "intercom",
+    "freshdesk",
+    "jira-service-management",
+    "salesforce-service-cloud",
+    "hubspot",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zendesk",
+    "domain": "zendesk.com",
+    "description": "Zendesk is a cloud‑based service platform that helps businesses deliver AI‑enhanced support for customers and employees. Its Resolution Platform combines AI agents, analytics, and a marketplace of 1,800+ integrations to automate ticketing, live chat, voice, and IT service management across all channels. Products include Customer Service, Employee Service, Contact Center, AI‑driven Copilot, Quality Assurance, and Workforce Management, all designed to improve resolution speed, quality, and scalability. Zendesk serves over 100,000 companies worldwide, offering enterprise‑grade security, AI governance, and self‑improving agents that learn from each interaction.",
+    "slogan": "Deliver beautifully simple service with Zendesk AI Agents",
+    "logoUrl": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+    "iconUrl": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+    "primaryColor": "#040404",
+    "accentColor": "#848480",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848480",
+        "name": "Tank Grey"
+      },
+      {
+        "hex": "#e6e6e3",
+        "name": "Pearl Brite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/39996815-cc09-4d55-8c52-14694631ee55.png",
+    "industries": [],
+    "links": {
+      "login": null,
+      "signup": null,
+      "careers": "http://www.zendesk.com/company/careers/",
+      "terms": "http://www.zendesk.com/company/agreements-and-terms/terms-of-use/",
+      "contact": "http://www.zendesk.com/service/contact-center/",
+      "privacy": "http://www.zendesk.com/company/agreements-and-terms/privacy-notice/",
+      "blog": "http://www.zendesk.com/blog/",
+      "pricing": "http://www.zendesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 56,
+        "aspectRatio": 1.39
+      },
+      {
+        "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 84,
+        "height": 16,
+        "aspectRatio": 5.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 84,
+      "height": 16,
+      "aspectRatio": 5.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

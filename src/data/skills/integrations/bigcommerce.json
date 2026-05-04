@@ -1,0 +1,168 @@
+{
+  "slug": "bigcommerce",
+  "name": "Bigcommerce",
+  "domain": "bigcommerce.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build BigCommerce AI Agents for Support and Store Operations",
+  "metaTitle": "BigCommerce AI Agents for Support and Store Operations | DocsBot",
+  "metaDescription": "Build DocsBot AI agents that connect to BigCommerce for customer support, store lookups, order workflows, and internal team automation with safe actions and approvals.",
+  "intro": "BigCommerce powers modern ecommerce operations, and DocsBot Skill Builder helps you turn that store data and workflow access into practical AI agent abilities. In plain language, you describe what you want the agent to do, and Skill Builder designs, secures, tests, and packages the Skill for customer support or internal team use. The result is an AI agent that can answer questions and take bounded actions inside BigCommerce instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order status, shipping details, or product availability in BigCommerce while answering shoppers in chat or helpdesk tickets.",
+    "Enable the agent to collect missing order information from a customer, then create a clean handoff summary for a human support teammate with the relevant BigCommerce context attached.",
+    "Allow the agent to check catalog details, pricing, variant information, and stock levels in BigCommerce so shoppers get fast, accurate purchase answers.",
+    "Use the agent to trigger approved post-purchase workflows, such as flagging an order issue or preparing an escalation when a refund, replacement, or manual review is needed.",
+    "Have the agent summarize a customer's recent ecommerce history from BigCommerce to improve support replies without making the customer repeat key details."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve BigCommerce order, product, customer, and store information without switching between dashboards.",
+    "Let support and operations teams ask the agent to research order exceptions, summarize account activity, and prepare escalation notes using BigCommerce data.",
+    "Enable merchandising or ecommerce staff to use a chat-based agent in Slack or Microsoft Teams to check product details, availability, and catalog changes during daily workflows.",
+    "Help customer success or operations employees complete SOPs by chatting with an agent that gathers BigCommerce context, drafts next-step summaries, and triggers approved internal workflows.",
+    "Support cross-functional teams with an internal AI assistant that combines BigCommerce lookups with handoff preparation, policy guidance, and status summaries for faster decisions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks BigCommerce order status and explains shipment progress to customers.",
+    "A product information assistant that answers variant, pricing, and inventory questions from live BigCommerce data.",
+    "A returns or issue triage Skill that gathers context and prepares a human escalation summary.",
+    "An internal store operations agent that researches order exceptions and summarizes likely next steps.",
+    "A merchandising assistant that retrieves catalog details and helps teams validate product availability quickly.",
+    "A customer history lookup Skill that gives support agents cleaner context before sensitive conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the BigCommerce agent to do in plain language, such as checking order status, summarizing customer context, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable Skill, deciding the safest workflow design, the required configuration values, and the right way to connect BigCommerce without exposing credentials in chats or source."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder automatically defines secure authentication handling, protects and proxies secrets through approved runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the BigCommerce Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for BigCommerce customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that lets your agent safely look up BigCommerce data, summarize order context, and trigger approved support workflows. Skill Builder also handles secure connection design, testing, and deployment to your chat widget or helpdesk agent."
+    },
+    {
+      "question": "Can an AI support agent use BigCommerce data to answer order and product questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use BigCommerce for live lookups such as order status, product details, variant information, and inventory context. You control what data and actions are allowed, and Skill Builder scopes access and adds safeguards around sensitive workflows."
+    },
+    {
+      "question": "What BigCommerce workflows can an AI agent automate without giving it unlimited access?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved lookups, handoff preparation, escalation triggers, summaries, and limited record updates where appropriate. Skill Builder defines scoped permissions, secure authentication handling, and approval boundaries so the agent stays within customer-defined rules."
+    },
+    {
+      "question": "Can I use DocsBot with BigCommerce for internal team workflows?",
+      "answer": "Yes, teams can use a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve BigCommerce information, research store issues, summarize account or order context, and complete SOP-driven workflows. This helps employees move faster without needing direct access to every system screen."
+    },
+    {
+      "question": "How does DocsBot keep BigCommerce credentials and actions secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also limits the agent to the right users, records, and actions, with approvals added where a workflow needs extra control."
+    },
+    {
+      "question": "Can a BigCommerce AI agent prepare support handoffs and escalations?",
+      "answer": "Yes, a DocsBot Skill can gather customer context from the conversation and BigCommerce, then generate a structured summary for a human teammate. This makes escalations faster, more consistent, and easier to resolve."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "woocommerce",
+    "stripe",
+    "hubspot",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BigCommerce",
+    "domain": "bigcommerce.com",
+    "description": "BigCommerce is an enterprise ecommerce platform that provides a flexible and scalable solution for businesses to grow and adapt to their unique challenges. With an open architecture, it allows brands and B2B sellers to connect to the tools they need without being locked into rigid systems, empowering flexible and innovative growth for modern commerce.",
+    "slogan": "Empowering flexible, innovative growth for modern commerce.",
+    "logoUrl": "https://media.brand.dev/078f65bc-fdeb-470f-a4e3-17578e4bfca2.svg",
+    "iconUrl": "https://media.brand.dev/faa6f709-487a-4b43-b5a4-383511320c06.jpg",
+    "primaryColor": "#14141c",
+    "accentColor": "#948d94",
+    "colors": [
+      {
+        "hex": "#14141c",
+        "name": "Absence of Light"
+      },
+      {
+        "hex": "#948d94",
+        "name": "Aragonite Grey"
+      },
+      {
+        "hex": "#34343c",
+        "name": "Hawk’s Eye"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/310aa0ee-d7df-4e0b-9e37-01cdcbc48122.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.bigcommerce.com/company/careers/",
+      "terms": null,
+      "contact": "https://www.bigcommerce.com/contact-sales/",
+      "privacy": null,
+      "blog": "https://www.bigcommerce.com/blog/",
+      "pricing": "https://www.bigcommerce.com/enterprise-pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/faa6f709-487a-4b43-b5a4-383511320c06.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 706,
+        "height": 706,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/078f65bc-fdeb-470f-a4e3-17578e4bfca2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 500,
+        "height": 125,
+        "aspectRatio": 4
+      },
+      {
+        "url": "https://media.brand.dev/358935ff-635a-4a52-8bd4-629ef2de3e2c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/078f65bc-fdeb-470f-a4e3-17578e4bfca2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 500,
+      "height": 125,
+      "aspectRatio": 4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/358935ff-635a-4a52-8bd4-629ef2de3e2c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "hive",
+  "name": "Hive",
+  "domain": "hive.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Hive",
+  "metaTitle": "Build Hive AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read and update Hive work, trigger workflows, and support customers or internal teams with safe approved actions.",
+  "intro": "Hive helps teams manage projects, tasks, approvals, time, and reporting in one flexible workspace. With DocsBot Skill Builder, you can describe the Hive workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent do more than answer questions by safely looking up project status, updating work items, preparing handoffs, and triggering approved next steps inside Hive.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Hive task or project status and give customers a live progress update from your delivery or implementation workflow.",
+    "Use a support agent to create or update Hive tasks from customer chat or helpdesk tickets so follow-up work is captured without manual re-entry.",
+    "Have the agent summarize related Hive activity, owners, due dates, blockers, and recent updates before replying to a customer or preparing a handoff.",
+    "Enable the agent to open escalation tasks in Hive when a customer reports a bug, missed deadline, onboarding issue, or approval bottleneck.",
+    "Let the agent attach customer context from the conversation to a Hive action item so the internal team receives a clearer and faster handoff."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that can look up Hive projects, tasks, assignees, due dates, approvals, and status updates through chat, Slack, or Microsoft Teams.",
+    "Let team members ask the agent to create Hive tasks, assign work, update statuses, or log follow-up actions while staying inside their normal conversation flow.",
+    "Use an internal agent to summarize project health, overdue work, team workload, and recent activity from Hive for managers and operations teams.",
+    "Help customer success, implementation, or operations teams follow SOPs by chatting with an agent that checks Hive records and triggers the next approved workflow step.",
+    "Allow employees to ask the agent for a cross-project summary or meeting-ready brief generated from Hive activity, deadlines, and ownership details."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Hive task status before replying to customer delivery questions.",
+    "A helpdesk assistant that creates Hive follow-up tasks from escalated tickets with full conversation context.",
+    "An internal project assistant that summarizes overdue items, owners, blockers, and next steps across Hive.",
+    "A customer success agent that opens Hive onboarding tasks when new customer requests are approved.",
+    "A team assistant that updates Hive task fields from Slack or Microsoft Teams conversations.",
+    "An AI workflow agent that prepares project handoffs and escalation summaries from Hive activity history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Hive agent to do in plain language, such as checking project status, creating follow-up tasks, or preparing escalation summaries for your team."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, chooses the needed Hive actions and guidance, and defines the right configuration values without making you map every implementation detail yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and limits Hive access to the minimum records and actions the workflow requires."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds scoped permissions, approval steps, and safe action limits so sensitive Hive updates, assignments, or workflow triggers only happen within the rules you choose."
+    },
+    {
+      "title": "Scenarios get tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Hive?",
+      "answer": "With DocsBot Skill Builder, you describe the Hive workflow you want in plain language and Skill Builder creates the Skill, secure connection setup, action boundaries, and deployment path for your DocsBot agent. The result can support live lookups, approved updates, workflow triggers, and summaries inside Hive."
+    },
+    {
+      "question": "Can an AI support agent use Hive data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Hive as a working system for project and task lookups, status summaries, escalation prep, and approved follow-up actions while responding in a website chat widget or helpdesk flow. You control which records and actions the agent can access."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Hive?",
+      "answer": "A DocsBot agent can check project progress, summarize blockers, create follow-up tasks, prepare handoffs for internal teams, and trigger approved escalation workflows in Hive. This helps support teams move from answering questions to actually advancing the work behind the request."
+    },
+    {
+      "question": "Can an internal AI assistant update Hive tasks for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create tasks, change statuses, assign work, summarize project activity, and follow SOP-driven workflows in Hive. Skill Builder can also add approvals or limits for more sensitive updates."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in Hive?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with secure authentication handling, protected secrets, scoped permissions, and approval boundaries for sensitive actions. That means your agent can take bounded actions in Hive without broad uncontrolled access."
+    },
+    {
+      "question": "Can DocsBot create Hive handoffs and escalation summaries automatically?",
+      "answer": "Yes, you can build a Skill that gathers customer context, summarizes the current Hive state, and creates a clear handoff or escalation artifact for your internal team. This is useful for support, onboarding, implementation, and operations workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "clickup",
+    "monday",
+    "jira",
+    "trello",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Hive",
+    "domain": "hive.com",
+    "description": "Hive is a project management platform that helps teams move faster by providing a customizable and flexible toolset. They offer a range of features including project management, task management, time-tracking, proofing and approvals, and reporting and analytics, allowing teams to collaborate and manage projects of any size. With the ability to integrate tools and customize the platform to their needs, Hive aims to guarantee success for its users.",
+    "slogan": "Move faster with Hive: flexible, customizable project management for teams.",
+    "logoUrl": "https://media.brand.dev/68a4ec60-1ff1-4f3a-8a4b-d93b978f97c7.svg",
+    "iconUrl": "https://media.brand.dev/b7dbc122-e8e8-4f88-85bb-1f351cc5d070.png",
+    "primaryColor": "#8398b2",
+    "accentColor": "#2f3236",
+    "colors": [
+      {
+        "hex": "#8398b2",
+        "name": "Polished Metal"
+      },
+      {
+        "hex": "#2f3236",
+        "name": "Ebony"
+      },
+      {
+        "hex": "#c6b0a8",
+        "name": "Vintage Charm"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6ffc7d59-b2f8-4ad1-9af2-6b40d0703c38.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://hive.com/terms-of-service/",
+      "contact": "https://hive.com/contact-sales-team/",
+      "privacy": "https://hive.com/privacy-policy/",
+      "blog": "https://hive.com/blog/",
+      "pricing": "https://hive.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b7dbc122-e8e8-4f88-85bb-1f351cc5d070.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2db74dbd-1f78-4fbe-b6c2-c260a13eab67.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/68a4ec60-1ff1-4f3a-8a4b-d93b978f97c7.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 84,
+        "height": 20,
+        "aspectRatio": 4.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/68a4ec60-1ff1-4f3a-8a4b-d93b978f97c7.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 84,
+      "height": 20,
+      "aspectRatio": 4.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b7dbc122-e8e8-4f88-85bb-1f351cc5d070.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

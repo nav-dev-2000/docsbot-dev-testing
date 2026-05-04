@@ -1,0 +1,160 @@
+{
+  "slug": "sharepoint",
+  "name": "SharePoint",
+  "domain": "microsoft.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SharePoint",
+  "metaTitle": "Build SharePoint AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SharePoint for safe document lookups, updates, summaries, handoffs, and internal workflow automation.",
+  "intro": "SharePoint is a common place for documents, team knowledge, lists, and internal process content, which makes it valuable for both customer support and employee-facing AI agents. With DocsBot Skill Builder, you can describe in plain language how you want an agent to use SharePoint, and Skill Builder designs, secures, tests, improves, and deploys the Skill for you. The result is a reusable AI capability that helps support teams answer faster and helps internal teams retrieve information, update records, and complete approved workflows from chat.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search approved SharePoint sites and documents to answer product, policy, onboarding, or account-related questions with current internal content.",
+    "Use SharePoint lists as a controlled source of status, eligibility, or process data so the support agent can look up information and respond with accurate next steps.",
+    "Have the agent summarize long SharePoint documents, SOPs, or knowledge pages into customer-friendly answers while linking agents to the original internal source for review.",
+    "Create support handoff notes from a customer conversation and save them into a SharePoint list or document library for operations or escalation teams.",
+    "Let the agent collect missing details from a customer, then create or update a SharePoint item that starts an approved follow-up workflow handled by a human team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to search SharePoint sites, folders, pages, and documents and get concise answers without manually digging through multiple team spaces.",
+    "Teams can ask the agent to summarize policies, SOPs, project documents, or meeting materials stored in SharePoint and return the key decisions, risks, and next steps.",
+    "Operations staff can use the agent in chat, Slack, or Microsoft Teams to create or update approved SharePoint list items as part of recurring workflows and SOPs.",
+    "Internal teams can ask the agent to compare information across SharePoint documents, highlight differences, and prepare a draft summary for review.",
+    "Managers and support leads can use the agent to generate handoff notes, checklists, or status summaries from SharePoint content and route them into the right internal process."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that searches SharePoint knowledge and answers customer questions with approved internal sources.",
+    "An internal assistant that summarizes SharePoint policies and SOPs for employees in chat.",
+    "A workflow agent that creates SharePoint list items from customer issue details.",
+    "An escalation assistant that saves case summaries and handoff notes into SharePoint.",
+    "A research assistant that compares multiple SharePoint documents and highlights key differences.",
+    "A compliance helper that retrieves current policy language from approved SharePoint locations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with SharePoint in plain language, such as finding documents, summarizing policies, updating a list, or creating a handoff record."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and setting up secure connection and authentication handling without exposing credentials in chat or Skill source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes SharePoint access to the minimum sites, lists, documents, and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds weak instructions, missing checks, bugs, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can safely answer questions and take bounded actions in SharePoint."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses SharePoint documents to answer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the answers and actions you want in plain language, and it creates a Skill that can search approved SharePoint content, summarize it, and return grounded responses. Skill Builder also handles secure connection setup, permission scoping, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use SharePoint data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use SharePoint as a source for approved document lookups, list data, summaries, and handoff preparation while responding to customer messages or helpdesk tickets. You can keep the agent within defined content areas and add approval boundaries for any record changes."
+    },
+    {
+      "question": "What SharePoint workflows can an internal AI assistant help automate?",
+      "answer": "An internal DocsBot agent can retrieve documents, summarize SOPs, compare files, create or update list items, and generate notes or checklists for employees in chat, Slack, or Microsoft Teams. The workflow can be limited to the exact sites, records, and actions your team approves."
+    },
+    {
+      "question": "Can DocsBot safely update SharePoint lists or records?",
+      "answer": "Yes, Skill Builder can create bounded SharePoint actions such as creating or updating approved list items while applying scoped permissions and approval steps where needed. Secrets and authentication details are kept out of chats and handled through secure runtime configuration."
+    },
+    {
+      "question": "How does DocsBot keep SharePoint-connected AI actions secure?",
+      "answer": "Skill Builder identifies the required configuration values, protects and proxies secrets, scopes access to the minimum necessary SharePoint resources, and adds action limits or approvals for sensitive steps. It also tests realistic scenarios to catch permission gaps or unsafe behavior before rollout."
+    },
+    {
+      "question": "Can a SharePoint AI assistant help employees find the latest policy or procedure?",
+      "answer": "Yes, a private DocsBot agent can search approved SharePoint locations, retrieve the most relevant policy or procedure content, and summarize it in a clear answer for employees. This helps teams get faster answers without manually navigating multiple SharePoint sites."
+    }
+  ],
+  "relatedSlugs": [
+    "onedrive",
+    "microsoft-teams",
+    "office-365",
+    "confluence",
+    "google-drive",
+    "box"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

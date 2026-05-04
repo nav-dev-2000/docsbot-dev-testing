@@ -1,0 +1,159 @@
+{
+  "slug": "easy-digital-downloads",
+  "name": "Easy Digital Downloads",
+  "domain": "easydigitaldownloads.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work With Easy Digital Downloads",
+  "metaTitle": "Easy Digital Downloads AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Easy Digital Downloads to answer customer questions, check orders, manage digital purchase workflows, and support internal teams safely.",
+  "intro": "Easy Digital Downloads helps businesses sell digital products through WordPress, from ebooks and files to plugins and other downloadable goods. With DocsBot Skill Builder, you can describe the support or operations outcome you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to Easy Digital Downloads. The result is an AI support agent or internal assistant that can do secure lookups, trigger approved actions, prepare handoffs, and summarize account or order details instead of only giving static answers.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a buyer's purchase history, payment status, or download access in Easy Digital Downloads while replying in chat or by helpdesk ticket.",
+    "Use an AI support agent to confirm whether a digital order was completed, identify failed or pending payments, and explain the next approved step to the customer.",
+    "Allow the agent to look up product details, license information, or download entitlements from Easy Digital Downloads to answer pre-sales and post-purchase questions faster.",
+    "Have the agent create a clean support handoff that summarizes the customer's order, download issue, payment status, and previous troubleshooting before escalation.",
+    "Enable the agent to trigger approved follow-up workflows, such as notifying a human team about suspicious purchase activity or repeated download failures tied to an order."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant they can chat with to retrieve Easy Digital Downloads order, product, customer, and download information without digging through WordPress screens manually.",
+    "Let finance, support, or operations teams ask the agent for summaries of sales activity, refund-related patterns, failed payments, or product performance pulled from Easy Digital Downloads.",
+    "Help team members follow support or store operations SOPs by having the agent gather the right Easy Digital Downloads records, summarize the situation, and guide or complete approved next steps.",
+    "Allow employees in Slack, Microsoft Teams, or a private chat to research customer purchase history and prepare escalation notes before responding through other business systems.",
+    "Use an internal DocsBot agent to generate daily or weekly summaries of digital sales, download issues, customer trends, or exception cases based on Easy Digital Downloads data."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks purchase status and download access for customers.",
+    "A billing helper that summarizes failed, pending, or completed Easy Digital Downloads payments.",
+    "A digital product assistant that answers license, file access, and order history questions.",
+    "An internal operations agent that prepares refund review and escalation summaries.",
+    "A support handoff Skill that packages order details and troubleshooting context for agents.",
+    "A sales summary assistant that reports product trends and purchase activity to teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Easy Digital Downloads agent to do, such as checking purchases, summarizing download issues, or preparing support handoffs, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed Easy Digital Downloads connection details, and defines the right runtime behavior without making you map the workflow manually."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure configuration values, keeps authentication and secrets out of chats and Skill source, proxies credentials through approved runtime controls, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Safety limits are added",
+      "description": "Skill Builder applies permission boundaries, user scoping, and approval steps for sensitive Easy Digital Downloads actions so the agent can take bounded action safely inside your rules."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Easy Digital Downloads?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking purchases, summarizing download problems, or preparing escalations. Skill Builder designs the workflow, secures the connection, tests the Skill, and helps deploy it to a customer-facing or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Easy Digital Downloads data to help customers?",
+      "answer": "Yes, a DocsBot agent can use Easy Digital Downloads data for approved lookups like purchase status, download access, product details, or payment state while responding in chat or through helpdesk tickets. You control what data and actions the agent is allowed to use."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Easy Digital Downloads?",
+      "answer": "A DocsBot Skill can help with order lookups, digital access questions, payment-status summaries, escalation prep, and approved workflow triggers tied to support issues. This helps the agent move from answering questions to taking bounded action when your rules allow it."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Easy Digital Downloads?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve order and customer information, summarize store activity, research issues, and follow operational SOPs from chat, Slack, or Microsoft Teams. That gives teams faster access to the information and actions they need across systems."
+    },
+    {
+      "question": "How does DocsBot keep Easy Digital Downloads actions safe?",
+      "answer": "Skill Builder defines secure configuration, protects and proxies secrets, scopes permissions to the minimum required access, and can add approval boundaries for sensitive actions. The result is an agent that can act inside controlled limits rather than getting broad unrestricted access."
+    },
+    {
+      "question": "Can DocsBot prepare support handoffs using Easy Digital Downloads records?",
+      "answer": "Yes, a Skill can gather the relevant purchase, payment, and download details from Easy Digital Downloads and package them into a clean summary for a human agent. That reduces back-and-forth and gives escalations more complete context."
+    }
+  ],
+  "relatedSlugs": [
+    "woocommerce",
+    "shopify",
+    "stripe",
+    "paypal",
+    "wordpress"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Easy Digital Downloads",
+    "domain": "easydigitaldownloads.com",
+    "description": "Easy Digital Downloads is a user-friendly platform designed for effortlessly selling digital products through WordPress. With a simple setup process, this WordPress plugin caters to various digital products like eBooks, WordPress plugins, PDF files, and more. Trusted by over 50,000 website owners, Easy Digital Downloads streamlines the process of selling digital downloads online. Whether you are an individual or a business, this plugin makes it easy to set up an online store and start selling digital products promptly.",
+    "slogan": "Selling digital products made easy with Easy Digital Downloads WordPress plugin",
+    "logoUrl": "https://media.brand.dev/0c847ea7-d077-4394-a4ea-c599f6a20584.png",
+    "iconUrl": "https://media.brand.dev/0c847ea7-d077-4394-a4ea-c599f6a20584.png",
+    "primaryColor": "#057ed8",
+    "accentColor": "#868c8c",
+    "colors": [
+      {
+        "hex": "#057ed8",
+        "name": "Electron Blue"
+      },
+      {
+        "hex": "#868c8c",
+        "name": "Heavy Metal Armor"
+      },
+      {
+        "hex": "#1e2627",
+        "name": "Washed Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c0bfd28b-673e-45af-b559-665e37359abb.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://easydigitaldownloads.com/docs/terms-and-conditions-and-refund-policy/",
+      "contact": null,
+      "privacy": "https://easydigitaldownloads.com/privacy-policy",
+      "blog": "https://easydigitaldownloads.com/blog/",
+      "pricing": "https://easydigitaldownloads.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0c847ea7-d077-4394-a4ea-c599f6a20584.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/11dd1414-9e2e-4e28-acdb-6477d52063b3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0c847ea7-d077-4394-a4ea-c599f6a20584.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0c847ea7-d077-4394-a4ea-c599f6a20584.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

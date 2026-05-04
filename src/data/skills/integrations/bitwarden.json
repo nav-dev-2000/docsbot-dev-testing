@@ -1,0 +1,168 @@
+{
+  "slug": "bitwarden",
+  "name": "Bitwarden",
+  "domain": "bitwarden.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Securely With Bitwarden",
+  "metaTitle": "Build Bitwarden AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Bitwarden for password, secrets, and vault workflows in customer support and internal team operations.",
+  "intro": "Bitwarden helps organizations securely manage passwords, secrets, and sensitive access details. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Bitwarden, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can perform safe lookups, guided access workflows, handoffs, and approved actions without exposing credentials in chat.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent confirm whether a shared login guide, vault item reference, or approved access resource exists before sending the customer the right next step.",
+    "Use Bitwarden data to help a support agent verify which secure credential handoff process applies to a customer account and prepare an escalation summary for a human teammate.",
+    "Enable a helpdesk-connected DocsBot agent to collect the details needed for an access issue, look up the correct internal secret or vault reference, and route the case to the right team without revealing sensitive values.",
+    "Have the agent summarize the status of a password reset, credential rotation, or secure access request workflow so customers receive clear updates while sensitive actions stay bounded.",
+    "Allow the agent to trigger an approved internal workflow related to credential support, such as creating a handoff task or requesting human review, when Bitwarden-related access issues need escalation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the correct Bitwarden vault item, secret reference, or access procedure without manually searching across internal systems.",
+    "Security, IT, and operations teams can ask the agent to guide password rotation, access review, or credential-sharing SOPs while using Bitwarden as the secure system of record.",
+    "Teams can use the agent in Slack or Microsoft Teams to gather the context for a secrets request, check policy rules, and prepare an approval-ready handoff before any sensitive action is taken.",
+    "Internal agents can summarize Bitwarden-related records, access workflows, or credential management steps for onboarding, offboarding, and incident response processes.",
+    "Employees can ask the agent research questions about where credentials are stored, who should own a request, and which approved next step matches company policy, with Bitwarden data used inside bounded workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that finds the right Bitwarden item reference and explains the approved access process.",
+    "A support agent that gathers credential issue details and prepares a secure escalation handoff.",
+    "An internal assistant that walks employees through password rotation and secrets management SOPs.",
+    "A DocsBot workflow that checks Bitwarden context before routing an access request to IT.",
+    "An AI assistant that summarizes credential request status without exposing secret values in chat.",
+    "A private team agent that helps verify which vault or collection should be used for a workflow."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Bitwarden-powered agent to do, such as look up vault context, guide access workflows, or prepare secure handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder secures it",
+      "description": "Skill Builder determines the required configuration values, sets up safe connection and authentication handling, keeps secrets out of chats and Skill source, and proxies credentials through secure runtime controls by default."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes the Skill to the minimum records, users, and actions needed, and it adds approval boundaries or safe action limits for sensitive Bitwarden workflows."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the workflow is ready where your team needs it."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Bitwarden?",
+      "answer": "With DocsBot Skill Builder, you describe the Bitwarden workflow you want in plain language, and Skill Builder designs the Skill, secures authentication, scopes access, tests scenarios, and helps deploy it to the right AI agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Bitwarden data during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Bitwarden-connected Skill for safe lookups, workflow checks, escalation prep, and status summaries while keeping sensitive credentials and secret values out of customer conversations."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Bitwarden?",
+      "answer": "Internal DocsBot agents can help employees find the right credential process, prepare access requests, summarize vault-related procedures, support onboarding or offboarding SOPs, and trigger approved handoffs for security or IT teams."
+    },
+    {
+      "question": "Can an AI agent reveal passwords or secret values from Bitwarden in chat?",
+      "answer": "You can design the Skill so sensitive values remain protected and are never exposed in chat, while the agent still confirms status, retrieves non-sensitive context, or routes the request through an approved human review step."
+    },
+    {
+      "question": "How does DocsBot keep a Bitwarden integration secure?",
+      "answer": "Skill Builder identifies the needed configuration, stores and proxies secrets through secure runtime settings, limits permissions to the smallest practical scope, and adds approval boundaries for actions that should not run automatically."
+    },
+    {
+      "question": "Can I use Bitwarden with an employee AI assistant in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent available in chat, Slack, or Microsoft Teams so employees can ask for credential workflow guidance, retrieve approved context, and complete secure internal processes."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "1password",
+    "lastpass",
+    "jumpcloud",
+    "azure-active-directory",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bitwarden",
+    "domain": "bitwarden.com",
+    "description": "Bitwarden is a security-focused company that offers password manager, secrets manager, and passkey solutions for both enterprises and individuals, enabling users to securely store, share, and manage sensitive information online.",
+    "slogan": "The Most Trusted Password Manager",
+    "logoUrl": "https://media.brand.dev/fdb089df-bea5-4c74-aaf4-ba3d88b86bb7.svg",
+    "iconUrl": "https://media.brand.dev/bc99aaa4-1e6f-433c-a3a4-b2d9d1617c91.png",
+    "primaryColor": "#040404",
+    "accentColor": "#1d5dda",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1d5dda",
+        "name": "Bnei Brak Bay"
+      },
+      {
+        "hex": "#8cb4ec",
+        "name": "Electric Eel"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/09a17b29-7e86-412e-893a-ffc9001e19b7.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://bitwarden.com/careers/",
+      "terms": "https://bitwarden.com/terms/",
+      "privacy": "https://bitwarden.com/privacy/",
+      "blog": "https://bitwarden.com/blog/",
+      "pricing": "https://bitwarden.com/pricing/business/",
+      "contact": "https://bitwarden.com/contact-sales/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7e343f86-4ca1-4578-8aa6-9a51dc9a11f0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bc99aaa4-1e6f-433c-a3a4-b2d9d1617c91.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fdb089df-bea5-4c74-aaf4-ba3d88b86bb7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 528,
+        "height": 83,
+        "aspectRatio": 6.36
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fdb089df-bea5-4c74-aaf4-ba3d88b86bb7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 528,
+      "height": 83,
+      "aspectRatio": 6.36
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7e343f86-4ca1-4578-8aa6-9a51dc9a11f0.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

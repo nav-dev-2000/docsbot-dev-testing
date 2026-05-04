@@ -1,0 +1,170 @@
+{
+  "slug": "github",
+  "name": "GitHub",
+  "domain": "github.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with GitHub Using DocsBot Skills",
+  "metaTitle": "Build GitHub AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use GitHub to answer support questions, look up issues and pull requests, trigger workflows, and assist internal teams safely.",
+  "intro": "GitHub is a central system for product, engineering, and developer support workflows, which makes it a strong fit for DocsBot AI Actions. With DocsBot Skill Builder, you can describe the GitHub tasks you want an AI agent to handle in plain language, and Skill Builder designs, secures, tests, and packages that ability for support or internal use. The result is an AI agent that can answer questions and take bounded action in GitHub while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check GitHub issue status and summarize confirmed bugs or feature requests while replying in chat or over helpdesk tickets.",
+    "Use a support agent to create a GitHub issue from a qualified customer report, attach the conversation summary, and prepare a clean handoff for engineering.",
+    "Enable the agent to look up linked pull requests, releases, or commit references in GitHub and explain progress updates to customers in plain language.",
+    "Have the agent trigger an approved GitHub workflow for support-only operations, such as collecting diagnostic context or starting a predefined follow-up process.",
+    "Let the agent add structured labels or comments to existing GitHub issues when a customer conversation provides new reproduction details or severity signals."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to find GitHub issues, pull requests, discussions, releases, and repository activity without searching manually.",
+    "Let support, product, and engineering teams ask the agent to create well-structured GitHub issues from meeting notes, Slack threads, or incident summaries.",
+    "Enable employees to chat with the agent in Slack or Microsoft Teams to summarize open pull requests, blocked work, recent commits, or release readiness across repositories.",
+    "Use an internal agent to guide teams through SOPs such as triaging bugs, escalating customer-impacting defects, or preparing engineering handoffs with GitHub context attached.",
+    "Allow team members to ask the agent for research across GitHub records, such as which customers are affected by a known issue or which repositories include a specific change."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks GitHub issue status before answering customer bug questions.",
+    "A DocsBot Skill that creates GitHub issues from support chats with structured reproduction details.",
+    "An internal assistant that summarizes pull request queues and highlights blocked reviewers.",
+    "A private AI agent that searches repositories, issues, and releases across approved GitHub projects.",
+    "A workflow assistant that adds labels, comments, or assignees based on triage rules.",
+    "A release support agent that explains whether a customer-reported fix has shipped yet."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the GitHub agent to do, such as checking issue status, creating engineering handoffs, or triggering an approved workflow, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes GitHub access to the minimum actions and repositories required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for your workflow, including limits on which users can run the Skill, which records can be updated, and where approval boundaries should apply before sensitive GitHub actions are taken."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so it can assist customers in chat or helpdesk workflows and support employees in private chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with GitHub?",
+      "answer": "With DocsBot Skill Builder, you describe the GitHub workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize repository activity, create records, or trigger approved actions safely."
+    },
+    {
+      "question": "Can a customer support AI agent use GitHub data while replying to users?",
+      "answer": "Yes, a DocsBot support agent can use a GitHub Skill to check issue status, review related pull requests or releases, create engineering handoffs, and summarize progress while responding to customer chats or tickets."
+    },
+    {
+      "question": "What GitHub workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees search issues and pull requests, create structured bug reports, summarize repository activity, prepare release updates, and guide triage or escalation SOPs across teams."
+    },
+    {
+      "question": "Can DocsBot take actions in GitHub instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating issues, adding comments, applying labels, updating approved records, generating summaries, or triggering predefined workflows inside your rules."
+    },
+    {
+      "question": "How does DocsBot keep GitHub access secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, keeps credentials out of chats and generated content, scopes permissions to the minimum needed, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can an AI agent use GitHub to prepare engineering handoffs from support conversations?",
+      "answer": "Yes, a DocsBot agent can turn a support conversation into a structured GitHub handoff with reproduction steps, customer impact, severity notes, and linked context so engineering receives a cleaner ticket."
+    }
+  ],
+  "relatedSlugs": [
+    "gitlab",
+    "jira",
+    "linear",
+    "bitbucket",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Github",
+    "domain": "github.com",
+    "description": "GitHub is an AI-powered developer platform that enables developers to build, scale, and deliver secure software. It provides a comprehensive platform for developers to collaborate, write, and deliver high-quality code, with features powered by artificial intelligence. With a vast community of over 100 million users, including 90 of the Fortune 100 companies, GitHub is the go-to platform for developers to build, share, and innovate.",
+    "slogan": "Build, collaborate, and innovate with the world's leading AI-powered developer platform.",
+    "logoUrl": "https://media.brand.dev/5ffd6ce4-2434-4b4b-920a-f8cacac8b48b.svg",
+    "iconUrl": "https://media.brand.dev/6b2cc787-98b4-4b88-b6ad-4bf3e9afe2bb.png",
+    "primaryColor": "#848c8e",
+    "accentColor": "#11161e",
+    "colors": [
+      {
+        "hex": "#848c8e",
+        "name": "Necron Compound"
+      },
+      {
+        "hex": "#11161e",
+        "name": "Kuroi Black"
+      },
+      {
+        "hex": "#cfd0d2",
+        "name": "Ancestral Water"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d7e1081a-9e00-4725-a5ec-707a71e31881.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+      "contact": "https://support.github.com/",
+      "privacy": "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+      "pricing": "https://github.com/pricing",
+      "blog": "https://github.com/newsroom",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2b01fe20-c04b-4a1d-a2f9-1d2789c50a7a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 392,
+        "height": 392,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6b2cc787-98b4-4b88-b6ad-4bf3e9afe2bb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5ffd6ce4-2434-4b4b-920a-f8cacac8b48b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 122,
+        "height": 30,
+        "aspectRatio": 4.07
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ffd6ce4-2434-4b4b-920a-f8cacac8b48b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 122,
+      "height": 30,
+      "aspectRatio": 4.07
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2b01fe20-c04b-4a1d-a2f9-1d2789c50a7a.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 392,
+      "height": 392,
+      "aspectRatio": 1
+    }
+  }
+}

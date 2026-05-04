@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-lens",
+  "name": "Zoho Lens",
+  "domain": "zoho-lens.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Lens",
+  "metaTitle": "Build AI Agents for Zoho Lens with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Lens for guided support, remote troubleshooting handoffs, summaries, and safe internal workflows.",
+  "intro": "Zoho Lens helps teams support customers with remote visual assistance and troubleshooting sessions. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Lens, and DocsBot can design a reusable Skill for customer support or internal operations. The result is an AI agent that can answer questions, prepare guided support workflows, create handoffs, summarize session context, and trigger approved actions inside your rules.",
+  "supportUseCases": [
+    "Let a DocsBot support agent create or prepare a Zoho Lens remote assistance session when a customer needs live visual troubleshooting.",
+    "Have the agent look up Zoho Lens session details and summarize the current troubleshooting state before replying to a customer ticket.",
+    "Use the agent to gather the device issue, environment details, and urgency from the customer, then prepare a clean handoff for a Zoho Lens-assisted support specialist.",
+    "Enable the agent to add notes or structured troubleshooting context so support teams enter a Zoho Lens session with the right background.",
+    "Let the agent explain next steps to the customer while triggering an approved workflow that routes the case toward a Zoho Lens visual support session."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Zoho Lens session information, review support context, and prepare remote troubleshooting workflows faster.",
+    "Support managers can ask the agent to summarize recent Zoho Lens activity, common issue patterns, or escalation reasons for internal reporting and coaching.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to collect required details, follow SOPs, and prepare a Zoho Lens handoff without switching tools repeatedly.",
+    "IT or customer success employees can chat with the agent to generate session-ready checklists, case summaries, and follow-up notes based on Zoho Lens-related workflows.",
+    "Operations teams can use a private agent to coordinate approved updates, escalation prep, and post-session documentation around Zoho Lens support processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that prepares Zoho Lens session handoffs from website chat conversations.",
+    "A customer service Skill that summarizes troubleshooting history before a visual support escalation.",
+    "An internal assistant that gathers required diagnostics and drafts structured Zoho Lens case notes.",
+    "A private team agent that follows remote support SOPs and prepares next-step recommendations.",
+    "An AI workflow that routes eligible issues into a Zoho Lens-assisted support process.",
+    "A DocsBot action that generates follow-up summaries after remote troubleshooting sessions are completed."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Zoho Lens in plain language, such as preparing remote support handoffs, looking up session context, or triggering approved troubleshooting workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and plans how the agent should retrieve information or take bounded action inside Zoho Lens."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines safe action boundaries, appropriate permissions, and approval steps for sensitive updates or escalations so the agent only acts within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Lens?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Lens workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Lens during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Lens as part of a guided workflow to prepare handoffs, look up session context, summarize troubleshooting details, and trigger approved next steps while replying to customers."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Lens?",
+      "answer": "DocsBot can help automate issue intake, remote troubleshooting handoff prep, session-context summaries, escalation routing, structured note creation, and follow-up documentation tied to your Zoho Lens process."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Zoho Lens workflows?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Zoho Lens-related information, follow support SOPs, generate summaries, and complete approved troubleshooting or escalation workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Lens actions secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, scopes access to approved users and actions, and adds approval boundaries where sensitive steps need extra control."
+    },
+    {
+      "question": "Can DocsBot test a Zoho Lens Skill before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal scenarios, identifies bugs or weak spots, and improves the Skill before you publish it to a live agent."
+    }
+  ],
+  "relatedSlugs": [
+    "zoho-desk",
+    "freshdesk",
+    "zendesk",
+    "jira-service-management",
+    "intercom",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

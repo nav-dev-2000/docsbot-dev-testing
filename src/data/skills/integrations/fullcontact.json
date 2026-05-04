@@ -1,0 +1,168 @@
+{
+  "slug": "fullcontact",
+  "name": "FullContact",
+  "domain": "fullcontact.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with FullContact",
+  "metaTitle": "Build FullContact AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely use FullContact for identity lookups, summaries, handoffs, and approved workflows.",
+  "intro": "FullContact helps teams unify identity data and apply privacy-safe customer insights across support, success, and operations workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely use FullContact data. The result is a support or internal AI agent that can answer questions, prepare handoffs, and take bounded actions instead of only explaining the next step.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up identity profile details in FullContact and summarize relevant context before answering an account or personalization question.",
+    "Let a helpdesk-connected DocsBot agent use FullContact data to enrich customer tickets with identity signals, linked profiles, or confidence context for faster human review.",
+    "Have the agent prepare a clean escalation handoff that summarizes what FullContact reveals about a customer record, likely matches, and any missing information needed to continue.",
+    "Enable the agent to gather missing identifiers from the customer in chat, then run an approved FullContact lookup and explain the result in simple language.",
+    "Use FullContact insights to help the agent route sensitive support cases to the right queue when identity confidence, verification needs, or duplicate-profile signals require human attention."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to research a person or account in FullContact and receive a concise identity summary for support, success, or operations work.",
+    "Enable sales, success, or operations teams to ask the agent to compare profile signals, flag possible duplicates, and prepare next-step recommendations based on FullContact data.",
+    "Give team members an internal AI assistant in Slack or Microsoft Teams that uses FullContact to enrich records before outreach, escalation reviews, or account planning workflows.",
+    "Allow employees to follow SOPs through chat by having the agent collect identifiers, run approved FullContact lookups, and generate a standardized handoff or case note.",
+    "Help compliance or operations teams use a private agent to review identity-resolution context, summarize findings, and request approval before any sensitive downstream action is taken."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that enriches tickets with FullContact identity context before replying.",
+    "A private assistant that summarizes FullContact profile insights for support and success teams.",
+    "A workflow Skill that gathers identifiers and runs approved identity lookups through chat.",
+    "An escalation assistant that prepares handoff notes using FullContact match and profile data.",
+    "A record-enrichment agent that adds identity context to downstream CRM or helpdesk workflows.",
+    "An internal research assistant that compares identity signals and flags possible duplicate profiles."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with FullContact, and Skill Builder turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required FullContact connection details, defines secure authentication and runtime configuration, protects and proxies secrets, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for anything sensitive, such as profile updates, downstream enrichment steps, or escalations that should require human review."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and captures improvements automatically."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into a self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses FullContact data?",
+      "answer": "With DocsBot Skill Builder, you describe the lookup, summary, enrichment, or workflow outcome you want, and Skill Builder designs the FullContact-powered Skill for you. It also handles secure connection setup, scoped permissions, testing, and deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use FullContact during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use FullContact during a customer conversation or helpdesk workflow to retrieve identity context, summarize relevant signals, and prepare handoffs or routing decisions. Actions can be limited to approved lookups and bounded workflows you define."
+    },
+    {
+      "question": "What FullContact workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees research identities, enrich records, compare profile signals, prepare case notes, and follow standard operating procedures through chat. The workflow can include approvals and access limits so teams only perform the actions they are allowed to take."
+    },
+    {
+      "question": "Can DocsBot safely control FullContact lookups and updates?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration values, protecting credentials in secure runtime settings, and keeping secrets out of chats and generated content. It can also scope what the agent is allowed to look up, modify, or trigger."
+    },
+    {
+      "question": "How does approval control work for AI actions with FullContact?",
+      "answer": "Skill Builder can add approval boundaries for sensitive actions so the agent can gather context, prepare recommendations, and pause for human review before completing the next step. This helps teams use automation without giving the agent unrestricted access."
+    },
+    {
+      "question": "Can I use FullContact with a private AI assistant in Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot can deploy a private agent for employees that is accessed through chat, Slack, or Microsoft Teams and uses FullContact for research, summaries, enrichment, and SOP-driven workflows. The agent can be configured with the right access limits for each team."
+    }
+  ],
+  "relatedSlugs": [
+    "clearbit",
+    "apollo",
+    "hubspot",
+    "salesforce",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FullContact",
+    "domain": "fullcontact.com",
+    "description": "FullContact is a real-time, privacy-safe Identity Resolution SaaS platform that builds trust between people and brands by unifying data and applying insights to create tailored customer experiences, improve ad targeting, and enhance identity verification. They safeguard consumer data, providing transparency and trustworthiness, and deliver actionable insights for personalized brand relationships.",
+    "slogan": "Building trust through privacy-safe, real-time identity resolution and personalized experiences.",
+    "logoUrl": "https://media.brand.dev/3f34628c-b70d-43d5-aea3-5831386f72a4.svg",
+    "iconUrl": "https://media.brand.dev/ffd76236-140e-4125-9338-9603701ddd96.png",
+    "primaryColor": "#4ec3e7",
+    "accentColor": "#1c1e3d",
+    "colors": [
+      {
+        "hex": "#4ec3e7",
+        "name": "Clean Pool"
+      },
+      {
+        "hex": "#1c1e3d",
+        "name": "Cool Balaclavas Are Forever"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c4576626-2b89-4300-a497-3f7a5c7204fa.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.fullcontact.com/careers/",
+      "terms": "https://www.fullcontact.com/privacy/terms-of-use/",
+      "contact": "https://www.fullcontact.com/contact/",
+      "privacy": "https://www.fullcontact.com/privacy/",
+      "blog": "https://www.fullcontact.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e966cc5d-2f24-4aae-855e-5c08da9ea30d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3f34628c-b70d-43d5-aea3-5831386f72a4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 308,
+        "height": 57,
+        "aspectRatio": 5.4
+      },
+      {
+        "url": "https://media.brand.dev/ffd76236-140e-4125-9338-9603701ddd96.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3f34628c-b70d-43d5-aea3-5831386f72a4.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 308,
+      "height": 57,
+      "aspectRatio": 5.4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e966cc5d-2f24-4aae-855e-5c08da9ea30d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

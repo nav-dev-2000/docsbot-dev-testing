@@ -1,0 +1,160 @@
+{
+  "slug": "ringlead",
+  "name": "RingLead",
+  "domain": "ringlead.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with RingLead Data Workflows",
+  "metaTitle": "DocsBot AI Agents for RingLead Data Quality Workflows",
+  "metaDescription": "Build DocsBot AI agents that use RingLead to look up, clean, enrich, route, and summarize data workflows for customer support and internal teams.",
+  "intro": "RingLead helps teams clean, standardize, enrich, validate, segment, and route sales and customer data across their systems. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent work with RingLead. That means support and operations teams can deploy AI agents that answer questions, check data status, trigger approved data workflows, and prepare clean handoffs without making employees dig through multiple tools.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a lead or contact record has already been deduplicated, enriched, validated, or routed before replying to a customer.",
+    "Let the support agent summarize data quality issues tied to a customer, such as duplicate records, missing fields, or validation failures, and explain the next approved step.",
+    "Trigger an approved RingLead cleanup or enrichment workflow from a support conversation when a customer reports outdated company or contact details.",
+    "Create a handoff for sales or operations by having the agent package the customer context, record status, and recommended routing action into a clean summary.",
+    "Use helpdesk ticket context to look up lead routing history so the agent can explain who owns follow-up and reduce delays caused by bad assignment data."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up duplicate status, enrichment state, field quality, or routing outcomes for a lead or account.",
+    "Revenue operations teams can ask the agent to summarize why records were routed a certain way, what standardization rules applied, and where data quality issues are blocking follow-up.",
+    "Sales and support managers can use the agent to trigger approved cleanup, segmentation, validation, or routing workflows without leaving their chat workspace.",
+    "Employees can ask the agent to prepare SOP-based handoffs when lead ownership is unclear, including relevant record details, suspected duplicates, and the recommended next team.",
+    "Internal teams can use the agent to research data quality trends across records and generate concise summaries for pipeline reviews, territory planning, or process improvement discussions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks contact validation and enrichment status before answering account questions.",
+    "A RevOps assistant that summarizes duplicate risks and suggests the next approved cleanup workflow.",
+    "An internal agent that triggers bounded lead routing workflows from Slack or Microsoft Teams.",
+    "A handoff assistant that packages customer context with RingLead data quality findings for sales follow-up.",
+    "A support workflow that flags missing fields and prepares a clean escalation summary for operations.",
+    "A private AI agent that explains why a record was standardized, segmented, or routed a certain way."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with RingLead in plain language, such as checking data quality, triggering cleanup, or preparing a routing handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and defines safe authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder automatically protects and proxies secrets through secure runtime configuration, scopes the Skill to the minimum records, actions, and users required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can take bounded action inside RingLead when conversations require it."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for RingLead workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and Skill Builder designs a secure Skill that can look up RingLead data, trigger approved actions, and return useful summaries. It also handles configuration, authentication protection, testing, and deployment guidance for the finished agent."
+    },
+    {
+      "question": "Can an AI support agent use RingLead data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use RingLead to check record quality, routing history, enrichment state, or validation issues while responding in a chat widget or helpdesk context. You can keep actions bounded so the agent only performs the lookups and approved workflow triggers you allow."
+    },
+    {
+      "question": "What RingLead tasks can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees review duplicate status, explain routing outcomes, trigger approved cleanup or segmentation workflows, and prepare structured handoffs for sales or operations. This lets teams complete common RevOps steps from chat instead of switching between tools."
+    },
+    {
+      "question": "Can DocsBot trigger safe updates or workflows in RingLead?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as starting cleanup, enrichment, validation, segmentation, or routing workflows when your rules allow it. Skill Builder adds scoped permissions and approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep RingLead credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and Skill source. It also scopes access to the minimum systems, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize data quality issues from RingLead for support or RevOps teams?",
+      "answer": "Yes, a DocsBot agent can gather RingLead results and turn them into clear summaries of duplicates, missing fields, validation failures, enrichment status, or routing outcomes. Those summaries can be used in customer replies, internal triage, or escalation handoffs."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "marketo",
+    "clearbit",
+    "zoominfo",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RingLead",
+    "domain": "ringlead.com",
+    "description": "Ringlead is a cloud-based data quality platform that offers a comprehensive suite of solutions to clean, protect, and enhance company and contact information. Their Data Orchestration Platform enables users to remove duplicates, normalize and standardize data, enrich fields, validate contact information, segment data, and route leads to the right sales personnel. Ringlead aims to accelerate RevOps and consolidate TechStacks by eliminating the need for multiple point solutions and expensive IT consultants, providing a unified platform for data management.",
+    "slogan": "Clean, protect, and enhance your data for smarter business outcomes.",
+    "logoUrl": "https://media.brand.dev/8630f469-bcff-40ec-86eb-d78426dda772.png",
+    "iconUrl": "https://media.brand.dev/61155d55-9a47-4be4-b6ed-bd9a77fe7791.jpg",
+    "primaryColor": "#040c14",
+    "accentColor": "#18bae4",
+    "colors": [
+      {
+        "hex": "#040c14",
+        "name": "Dark Rift"
+      },
+      {
+        "hex": "#18bae4",
+        "name": "Caribbean Blue"
+      },
+      {
+        "hex": "#57177a",
+        "name": "Violethargic"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/094b61dc-1337-4b95-ab74-c5de116377a1.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/61155d55-9a47-4be4-b6ed-bd9a77fe7791.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8630f469-bcff-40ec-86eb-d78426dda772.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 600,
+        "height": 163,
+        "aspectRatio": 3.68
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8630f469-bcff-40ec-86eb-d78426dda772.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 600,
+      "height": 163,
+      "aspectRatio": 3.68
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/61155d55-9a47-4be4-b6ed-bd9a77fe7791.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

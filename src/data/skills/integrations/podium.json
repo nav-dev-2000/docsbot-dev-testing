@@ -1,0 +1,168 @@
+{
+  "slug": "podium",
+  "name": "Podium",
+  "domain": "podium.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Podium",
+  "metaTitle": "Build AI Agents for Podium with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Podium for messaging lookups, customer updates, handoffs, summaries, and safe workflow actions in support and internal operations.",
+  "intro": "Podium helps businesses manage customer conversations, reviews, payments, and text-based outreach in one place. With DocsBot Skill Builder, you can describe the Podium workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up live Podium context, prepare handoffs, and take approved actions without exposing sensitive access details.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Podium conversations and summarize the latest customer interaction before replying in chat or a helpdesk ticket.",
+    "Use a DocsBot support agent to create or update a contact-related record in Podium after collecting missing details from the customer.",
+    "Have the agent prepare an escalation summary from Podium message history so human staff can take over with full context.",
+    "Enable the agent to check communication status in Podium and explain whether a follow-up text, review request, or outreach step has already been sent.",
+    "Let the agent trigger an approved Podium workflow after a support conversation, such as sending a follow-up message or flagging a customer for manual outreach."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Podium conversation history, customer contact details, and recent communication activity without switching tools.",
+    "Sales, support, or operations teams can ask the agent to summarize a Podium thread and prepare the next-step handoff for a teammate.",
+    "Customer success teams can use the agent in Slack or Microsoft Teams to identify customers who need follow-up and trigger approved Podium outreach workflows.",
+    "Front-desk or service teams can chat with the agent to complete SOPs that combine Podium lookups, internal notes, and escalation prep across systems.",
+    "Managers can ask the agent for quick research summaries on messaging activity, review request status, or customer communication trends stored in Podium."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Podium conversations before answering returning customers.",
+    "An internal assistant that summarizes message threads and drafts clean handoff notes.",
+    "A workflow that creates or updates customer contact details from chat conversations.",
+    "An agent that triggers approved Podium follow-up outreach after support resolutions.",
+    "A private team assistant that answers questions about recent customer communication activity.",
+    "A handoff Skill that packages Podium context for escalations and manager review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Podium-connected agent to do, such as look up conversations, update records, prepare handoffs, or trigger follow-up workflows, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime settings, and scopes Podium access to the minimum actions and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries for sensitive Podium updates so the agent can help confidently without overstepping what your team allows."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak prompts, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Podium without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Podium workflow you want in plain language and the builder designs the Skill, handles secure connection details, tests the workflow, and prepares it for deployment. This makes it practical for non-technical teams to create Podium-powered AI actions for support or internal use."
+    },
+    {
+      "question": "Can an AI support agent use Podium data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Podium Skill to retrieve conversation context, summarize communication history, check customer status, and take approved follow-up actions while responding in a website chat or helpdesk flow. Access can be limited to the exact records and actions your team approves."
+    },
+    {
+      "question": "What Podium workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees look up customer messaging history, summarize threads, prepare handoffs, trigger approved outreach steps, and support repeatable communication SOPs. Teams can access that assistant in a private chat interface, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Podium?",
+      "answer": "Yes, Skill Builder is designed to create bounded actions with scoped permissions, protected authentication, and approval steps when needed. That lets your agent perform useful Podium updates or workflow triggers without exposing credentials or allowing open-ended access."
+    },
+    {
+      "question": "Can a DocsBot agent create better escalations using Podium conversation history?",
+      "answer": "Yes, the agent can gather relevant Podium messages, summarize what happened, note unresolved issues, and prepare a clean handoff for a human teammate. This helps reduce repeated questions and speeds up escalation handling."
+    },
+    {
+      "question": "How does setup work for a Podium Skill in DocsBot?",
+      "answer": "You explain the result you want, and Skill Builder handles the technical design, secure configuration, secret protection, testing, and deployment guidance for the Skill. It can also identify missing requirements and improve the workflow before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "hubspot",
+    "salesforce",
+    "twilio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Podium",
+    "domain": "podium.com",
+    "description": "Podium is a technology platform that helps local businesses grow and manage their customer interactions. Founded in 2014 after a frustrated call from the CEO’s dad about low review volume, Podium created a simple text‑based system to request reviews. Since then it has expanded into a multi‑product suite that lets businesses collect reviews, accept payments, run text marketing campaigns, and centralize all communications in one easy‑to‑use dashboard. By turning everyday messaging into a powerful business tool, Podium enables small and medium‑sized local firms to attract more customers, boost their online reputation, and streamline operations.",
+    "slogan": "AI that converts leads and makes you money.",
+    "logoUrl": "https://media.brand.dev/36ff3d78-9803-47fc-8fc4-6bdb6812df8c.svg",
+    "iconUrl": "https://media.brand.dev/80798070-60c8-4288-9103-e0880b7b41fc.jpg",
+    "primaryColor": "#aa4d30",
+    "accentColor": "#1c1c1c",
+    "colors": [
+      {
+        "hex": "#aa4d30",
+        "name": "Rose of Sharon"
+      },
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8eb12930-7031-4dfc-99ba-95f66fffb3fb.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://legal.podium.com/",
+      "privacy": "https://privacy.podium.com/",
+      "careers": "https://www.podium.com/careers",
+      "contact": "https://www.podium.com/product/contacts",
+      "blog": "https://www.podium.com/resource-center",
+      "pricing": "https://www.podium.com/getpricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/80798070-60c8-4288-9103-e0880b7b41fc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/36ff3d78-9803-47fc-8fc4-6bdb6812df8c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 11,
+        "height": 20,
+        "aspectRatio": 0.55
+      },
+      {
+        "url": "https://media.brand.dev/3236c21e-ef95-48c1-ad91-0bb9ebc6ee3b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 118,
+        "height": 26,
+        "aspectRatio": 4.54
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3236c21e-ef95-48c1-ad91-0bb9ebc6ee3b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 118,
+      "height": 26,
+      "aspectRatio": 4.54
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/80798070-60c8-4288-9103-e0880b7b41fc.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

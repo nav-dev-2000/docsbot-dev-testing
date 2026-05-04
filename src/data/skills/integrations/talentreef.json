@@ -1,0 +1,176 @@
+{
+  "slug": "talentreef",
+  "name": "TalentReef",
+  "domain": "talentreef.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with TalentReef",
+  "metaTitle": "TalentReef AI Agent Integration for Support and HR Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up TalentReef data, support hiring workflows, and assist internal HR and operations teams.",
+  "intro": "TalentReef helps teams recruit, hire, and manage hourly workforces, making it a strong system of record for hiring and employee-related workflows. With DocsBot Skill Builder, you can describe the TalentReef-powered agent you want in plain language and have DocsBot design, secure, test, and publish the Skill for you. The result is an AI support or internal team agent that can answer questions, retrieve hiring information, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check applicant or hiring-status information in TalentReef and give candidates a clear next-step update without exposing private HR data.",
+    "Let a helpdesk-connected DocsBot agent collect missing details from a candidate, summarize the conversation, and prepare a recruiting handoff tied to the right TalentReef record.",
+    "Enable the agent to answer common applicant questions about interview stages, required documents, or next actions by referencing TalentReef workflow data and your hiring policies.",
+    "Allow the agent to create or update approved recruiting notes in TalentReef after a candidate support conversation so HR teams receive cleaner context.",
+    "Have the agent trigger approved follow-up workflows, such as notifying recruiting staff when a candidate reports an urgent issue with an application or onboarding step."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up candidate status, requisition details, or hiring workflow progress from TalentReef.",
+    "Recruiters and hiring managers can ask the agent to summarize recent applicant activity, identify blockers, and prepare outreach or interview follow-up based on TalentReef records.",
+    "HR and operations teams can use the agent to complete SOP-driven workflows, such as gathering required hiring context, drafting handoff summaries, and routing exceptions for approval.",
+    "Team members can ask the agent research-style questions across TalentReef and internal documentation so they get policy-aware answers without manually switching systems.",
+    "Managers can use the agent to generate consistent status summaries for open roles, onboarding queues, or location-level hiring activity using approved TalentReef data."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that looks up candidate or requisition status and explains the next approved step.",
+    "A helpdesk agent that summarizes applicant issues and creates structured TalentReef handoff notes for HR teams.",
+    "A private HR assistant that answers employee questions about hiring workflows using TalentReef data and internal SOPs.",
+    "An operations agent that flags stalled hiring pipelines and prepares escalation summaries for recruiting leaders.",
+    "A workflow assistant that collects missing applicant details and routes exceptions to the right hiring manager.",
+    "A reporting helper that generates location-level hiring summaries from TalentReef activity for internal team review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the TalentReef-connected agent to do, and Skill Builder turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, while keeping credentials out of chats and proxying secrets through protected runtime settings."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum actions, records, users, and systems the Skill should reach, and adds approval boundaries for sensitive TalentReef updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, reference material, and approved actions so the DocsBot agent can look up data, summarize context, and take bounded action."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or missing permission checks, and feeds those results back into improvement."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with TalentReef?",
+      "answer": "With DocsBot Skill Builder, you describe the TalentReef workflow you want in plain language, such as checking candidate status or preparing HR handoffs, and Skill Builder designs, secures, tests, and packages that ability for your agent."
+    },
+    {
+      "question": "Can an AI support agent use TalentReef data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use approved TalentReef data to check status, summarize next steps, gather missing context, and prepare escalations while following your access rules and privacy limits."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with TalentReef?",
+      "answer": "Internal agents can help recruiters, HR teams, and managers retrieve applicant details, summarize pipeline activity, prepare handoffs, follow SOPs, and trigger approved workflow steps across hiring operations."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in TalentReef?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved TalentReef updates and workflow triggers, with scoped permissions, protected authentication, and approval steps for sensitive changes."
+    },
+    {
+      "question": "How does setup work for a non-technical team using TalentReef with DocsBot?",
+      "answer": "Your team describes the outcome you want, and Skill Builder handles the workflow design, secure configuration, secret handling, scenario testing, and deployment guidance so you do not need to manually wire everything together."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiting handoffs from TalentReef conversations?",
+      "answer": "Yes, the agent can collect applicant details, summarize the conversation, and prepare a structured handoff for recruiters or HR staff so the next person gets complete context quickly."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "bamboohr",
+    "workday",
+    "jobvite",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TalentReef",
+    "domain": "talentreef.com",
+    "description": "TalentReef is a leading provider of talent management systems, simplifying recruiting, hiring, and retention for HR professionals and business owners. They offer intuitive solutions for applicants, automated systems for hiring managers, and mobile-optimized tools for employees, driving talent growth and enriching employee engagement for service industry brands. As the No. 1 provider for social recruiting and talent management systems for the hourly workforce, TalentReef delivers proven HR software solutions.",
+    "slogan": "Simplifying talent management for hourly workforces with innovative, mobile solutions.",
+    "logoUrl": "https://media.brand.dev/cd5494f3-ca1e-4901-9a30-f1468e786fbd.png",
+    "iconUrl": "https://media.brand.dev/8d4f5a93-79c7-482d-aaee-73712ed1271d.jpg",
+    "primaryColor": "#1bbad4",
+    "accentColor": "#071b48",
+    "colors": [
+      {
+        "hex": "#1bbad4",
+        "name": "Caribbean Blue"
+      },
+      {
+        "hex": "#071b48",
+        "name": "Oxford Blue"
+      },
+      {
+        "hex": "#ebf5f6",
+        "name": "Indigo White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/66eb0695-8fed-460c-bafc-e187edf8dc91.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "privacy": null,
+      "careers": null,
+      "contact": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8d4f5a93-79c7-482d-aaee-73712ed1271d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0b5aa0f3-92ed-4363-9819-d62711f68f07.webp",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cd5494f3-ca1e-4901-9a30-f1468e786fbd.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 909,
+        "height": 512,
+        "aspectRatio": 1.78
+      },
+      {
+        "url": "https://media.brand.dev/f2961cae-5f17-4bf7-b711-2957906fd476.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cd5494f3-ca1e-4901-9a30-f1468e786fbd.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 909,
+      "height": 512,
+      "aspectRatio": 1.78
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8d4f5a93-79c7-482d-aaee-73712ed1271d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

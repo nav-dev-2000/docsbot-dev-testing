@@ -1,0 +1,160 @@
+{
+  "slug": "sentry",
+  "name": "Sentry",
+  "domain": "sentry.io",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Sentry for Support and Engineering Work",
+  "metaTitle": "Build AI Agents for Sentry with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Sentry to look up issues, summarize incidents, prepare escalations, and support internal engineering workflows safely.",
+  "intro": "Sentry helps teams monitor application errors, performance issues, and software quality across products and services. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Sentry, and Skill Builder designs, secures, tests, and publishes that ability for customer support or internal teams. The result is an AI agent that can answer questions, gather incident context, prepare handoffs, and take approved actions without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Sentry issue status and summarize known incidents when users report bugs in your website chat or support tickets.",
+    "Use the agent to match a customer-reported error message or event ID to related Sentry issues and provide a clearer status update during the conversation.",
+    "Have the agent gather recent error frequency, affected releases, and impacted environments from Sentry to prepare a faster support-to-engineering handoff.",
+    "Enable the agent to create an internal escalation record with a Sentry issue link and customer context when a conversation meets your escalation rules.",
+    "Let the agent summarize whether a reported problem appears to be a known regression, a performance spike, or an isolated case before replying to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up Sentry issues, incidents, and release-related error trends.",
+    "Enable engineering or support teams to ask the agent for a plain-language summary of a Sentry issue, including suspected impact, frequency, and recent activity.",
+    "Use the agent to collect Sentry context for incident reviews, bug triage, and escalation workflows so teams can follow SOPs faster.",
+    "Allow team members to ask the agent which release introduced a spike, which environment is affected, or whether an issue is already assigned and being investigated.",
+    "Have the agent generate handoff notes that combine Sentry issue details with internal troubleshooting steps for engineering, support, or success teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Sentry for known errors before responding to bug reports.",
+    "A private engineering assistant that summarizes Sentry issues by project, release, or environment.",
+    "An escalation workflow that packages customer context with relevant Sentry issue links and status.",
+    "A triage assistant that identifies duplicate error reports and suggests the next approved workflow.",
+    "A release-monitoring assistant that explains recent error spikes in plain language for non-engineering teams.",
+    "An internal incident bot that prepares Sentry-based summaries for support, success, and operations teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Sentry in plain language, such as checking issue status, summarizing incident impact, or preparing an escalation from a support conversation."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that goal into a reusable Skill, identifies the required configuration values, handles authentication securely, protects and proxies secrets through runtime configuration, and scopes access to only the Sentry projects, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries where needed so the agent can retrieve context, prepare updates, or trigger approved workflows without taking sensitive actions outside your rules."
+    },
+    {
+      "title": "Test real scenarios automatically",
+      "description": "Skill Builder’s testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so teams can use Sentry context in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Sentry to help with customer support?",
+      "answer": "You can use DocsBot Skill Builder to create an agent that reads Sentry issue data during website chats or support tickets, then uses that context to explain known problems, summarize impact, and prepare escalations. Skill Builder handles the secure connection, scoped permissions, testing, and deployment flow for you."
+    },
+    {
+      "question": "Can an AI support agent use Sentry data to respond to bug reports?",
+      "answer": "Yes, a DocsBot agent can use Sentry data to look up relevant issues, compare reported symptoms to known errors, and summarize current incident status before replying. You control what data and actions are allowed, and Skill Builder adds safe boundaries around the workflow."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Sentry?",
+      "answer": "An internal DocsBot agent can help employees retrieve issue details, summarize release impact, support triage workflows, generate handoff notes, and gather incident context for engineering or support SOPs. It can also trigger approved follow-up workflows when you want the agent to move work forward instead of only reporting findings."
+    },
+    {
+      "question": "Can DocsBot create Sentry-based escalations and handoff summaries automatically?",
+      "answer": "Yes, Skill Builder can create a workflow where the agent gathers customer context, links the right Sentry issue or incident details, and prepares a clean escalation summary for engineering or operations teams. Approval boundaries can be added for any sensitive handoff or update step."
+    },
+    {
+      "question": "Is it safe to let an AI agent connect to Sentry?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration, keeping secrets out of chats and source content, proxying authentication through secure runtime settings, and limiting access to the minimum actions and records needed. It can also require approvals for higher-risk actions."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Sentry incidents for non-technical teams?",
+      "answer": "Yes, you can build an agent that translates Sentry issues, spikes, and performance problems into plain-language summaries for support, success, or operations teams. This helps non-engineering employees understand impact and next steps without digging through monitoring tools directly."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "jira",
+    "github",
+    "pagerduty",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sentry",
+    "domain": "sentry.io",
+    "description": "Sentry is a leading application monitoring software used by 4 million developers to identify and resolve errors, improve application performance, and enhance overall software quality. The company provides a robust platform for developers and software teams to monitor, analyze, and fix issues efficiently, ensuring continuous learning and improvement.",
+    "slogan": "See Errors Clearer, Solve Issues Faster",
+    "logoUrl": "https://media.brand.dev/e2178d57-83b0-406d-8009-8e055c29f63a.svg",
+    "iconUrl": "https://media.brand.dev/e2178d57-83b0-406d-8009-8e055c29f63a.svg",
+    "primaryColor": "#5b3876",
+    "accentColor": "#ac93b6",
+    "colors": [
+      {
+        "hex": "#5b3876",
+        "name": "Loden Purple"
+      },
+      {
+        "hex": "#ac93b6",
+        "name": "Superstitious"
+      },
+      {
+        "hex": "#d9d0df",
+        "name": "Dusty Plum"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4bf858fb-b193-497c-a60b-875ccad23d03.png",
+    "industries": [],
+    "links": {
+      "careers": "https://sentry.io/careers/",
+      "terms": "https://sentry.io/terms/",
+      "contact": "https://sentry.io/contact/enterprise/",
+      "privacy": "https://sentry.io/privacy/",
+      "blog": "https://blog.sentry.io/",
+      "pricing": "https://sentry.io/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2f338d6d-6b34-49c6-9ca6-ab4d0c17ddc0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 400,
+        "height": 119,
+        "aspectRatio": 3.36
+      },
+      {
+        "url": "https://media.brand.dev/e2178d57-83b0-406d-8009-8e055c29f63a.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 400,
+        "height": 119,
+        "aspectRatio": 3.36
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2f338d6d-6b34-49c6-9ca6-ab4d0c17ddc0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 400,
+      "height": 119,
+      "aspectRatio": 3.36
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2f338d6d-6b34-49c6-9ca6-ab4d0c17ddc0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 400,
+      "height": 119,
+      "aspectRatio": 3.36
+    }
+  }
+}

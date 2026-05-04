@@ -1,0 +1,144 @@
+{
+  "slug": "regie",
+  "name": "Regie",
+  "domain": "regie.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Regie",
+  "metaTitle": "Build AI Agents for Regie with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Regie to draft content, summarize messaging, support handoffs, and automate safe sales and marketing workflows.",
+  "intro": "Regie helps teams create AI-assisted sales and marketing content at scale, from outreach messaging to campaign copy and performance-informed drafts. With DocsBot Skill Builder, you can describe the agent behavior you want in plain language and turn it into a secure reusable Skill that lets your AI agent read from Regie, generate approved content artifacts, summarize messaging, and support customer or internal workflows. This gives support, success, sales, and operations teams an AI agent that can answer questions and take bounded action instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Regie messaging snippets and draft polished reply suggestions for common product, onboarding, or renewal questions.",
+    "Use a support agent connected to your helpdesk to summarize the customer issue, generate a tailored follow-up draft in your brand voice with Regie, and prepare a clean handoff for a human teammate.",
+    "Enable the agent to create first-pass outreach or recovery copy for at-risk accounts after a support conversation, then route it for approval before it is used.",
+    "Have the agent turn long ticket threads into concise summaries and use Regie to draft customer-ready recap messages, next-step emails, or escalation notes.",
+    "Allow the agent to generate personalized renewal, adoption, or win-back messaging based on the support context while keeping sensitive actions behind approval boundaries."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to generate Regie-based email drafts, call follow-ups, and campaign variations for specific account situations.",
+    "Enable sales, success, and marketing teams to ask the agent for messaging ideas, persona-specific copy angles, or summary drafts based on internal playbooks and approved Regie workflows.",
+    "Use an internal AI agent to turn meeting notes, support summaries, or CRM context into polished outreach drafts and handoff documents employees can review before sending.",
+    "Help revenue teams complete repeatable SOPs by asking the agent to gather context from connected systems, generate Regie content artifacts, and package the result for approval or launch.",
+    "Allow employees to research prior messaging patterns, compare content approaches, and get faster draft creation through a single private AI assistant instead of switching between tools."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that drafts customer follow-up emails in approved brand voice using Regie.",
+    "A private sales assistant that turns account notes into personalized outbound messaging drafts.",
+    "An internal agent that creates renewal, onboarding, or win-back copy from support context.",
+    "A helpdesk agent that summarizes tickets and prepares Regie-powered escalation or handoff messages.",
+    "A revenue operations assistant that generates campaign variations for specific segments and scenarios.",
+    "An employee-facing AI agent that turns meeting notes into polished follow-up content artifacts."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Regie-powered agent to do, such as drafting follow-ups, summarizing messaging, or preparing handoffs, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets through approved runtime settings, and scopes the Skill to the minimum actions and data needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails so the agent can retrieve information, generate artifacts, update approved records, or trigger workflows only within the user roles, limits, and approval boundaries you choose."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill before publishing it to your DocsBot support agent or internal team assistant so it is easier to trust, easier to manage, and ready for real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Regie for sales and support messaging?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and it creates a Skill that lets your AI agent securely use Regie to draft content, summarize messaging, and support approved workflows. The Skill can then be deployed to a customer-facing support bot or a private internal assistant."
+    },
+    {
+      "question": "Can an AI support agent use Regie to draft customer follow-ups after a helpdesk ticket?",
+      "answer": "Yes, a DocsBot agent can use ticket context to generate customer-ready follow-up drafts, recap messages, or escalation notes with Regie while keeping any sensitive actions behind review or approval controls. This helps teams respond faster without giving the agent unlimited autonomy."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Regie?",
+      "answer": "Internal agents can help employees turn notes, account context, or support summaries into outreach drafts, campaign copy variations, handoff documents, and other reusable content artifacts. They can also support SOP-driven workflows where a team member asks for a result and the agent gathers context, drafts output, and routes it for approval."
+    },
+    {
+      "question": "Can DocsBot safely connect Regie to other business workflows?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect credentials, proxy secrets through runtime settings, and scope access to only the systems and actions needed for the workflow. It can also add approval boundaries for actions that should stay human-reviewed."
+    },
+    {
+      "question": "Can an AI agent generate personalized messaging with Regie without exposing credentials in chat?",
+      "answer": "Yes, Skill Builder keeps secrets out of chat transcripts and generated Skill source by using secure runtime configuration and approved authentication handling. That lets your agent use Regie capabilities while reducing risk around credential exposure."
+    },
+    {
+      "question": "How does testing work for a Regie Skill in DocsBot?",
+      "answer": "DocsBot includes an automated testing agent that can run realistic support and internal team scenarios against the Skill, identify bugs or weak spots, and feed improvements back into the Skill before deployment. This helps you launch a more reliable agent without manually scripting every case."
+    }
+  ],
+  "relatedSlugs": [
+    "outreach",
+    "salesloft",
+    "apollo",
+    "hubspot",
+    "gong",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Regie",
+    "domain": "regie.com",
+    "description": "Regie is an AI‑powered content creation platform that helps businesses and marketers generate high‑quality copy, social media posts, email campaigns, and other marketing assets at scale. Leveraging advanced language models, Regie automates the brainstorming, drafting, and optimization processes, allowing teams to produce personalized, data‑driven content faster and more efficiently. The platform integrates with popular marketing tools, offers collaborative editing, and provides performance analytics to continuously improve messaging. By combining AI with human expertise, Regie enables brands to maintain consistent voice, increase engagement, and accelerate growth without the typical bottlenecks of traditional content production.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/a3faac12-3652-4e94-9bfd-43ebe2068c79.png",
+    "iconUrl": "https://media.brand.dev/a3faac12-3652-4e94-9bfd-43ebe2068c79.png",
+    "primaryColor": "#04449c",
+    "accentColor": "#04449c",
+    "colors": [
+      {
+        "hex": "#04449c",
+        "name": "Fright Night"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a3faac12-3652-4e94-9bfd-43ebe2068c79.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a3faac12-3652-4e94-9bfd-43ebe2068c79.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a3faac12-3652-4e94-9bfd-43ebe2068c79.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "slug": "lemlist",
+  "name": "Lemlist",
+  "domain": "lemlist.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Lemlist",
+  "metaTitle": "Build AI Agents for Lemlist with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Lemlist for safe lookups, campaign updates, handoffs, and internal sales workflows through guided Skill Builder setup.",
+  "intro": "Lemlist helps teams run personalized outreach, manage campaigns, and work leads across email, LinkedIn, and calling workflows. With DocsBot Skill Builder, you can describe the Lemlist-powered action you want in plain language and let DocsBot design, secure, test, and deploy the Skill for your support or internal AI agent. The result is an AI agent that can answer questions and take approved actions in Lemlist instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a prospect has already been contacted in Lemlist before routing a sales or partnership inquiry.",
+    "Use a support or website chat agent to create a qualified lead handoff with conversation notes so the sales team can follow up in Lemlist.",
+    "Have a DocsBot agent summarize a lead's Lemlist campaign status and recent outreach stage when a customer asks to speak with sales.",
+    "Allow the agent to capture missing qualification details in chat and prepare a structured record or follow-up task for the team managing Lemlist outreach.",
+    "Use the agent to trigger an approved internal sales notification or handoff workflow when a high-intent website visitor requests pricing, a demo, or enterprise contact."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Lemlist lead, campaign, or outreach status without opening the platform directly.",
+    "Enable sales or operations teams to ask the agent to summarize campaign progress, recent activity, and next-step recommendations from Lemlist data.",
+    "Give SDRs an internal AI assistant that gathers missing context, prepares outreach handoff notes, and updates approved Lemlist records within defined limits.",
+    "Help managers use a private agent to review lead assignment status, campaign coverage, and follow-up gaps across Lemlist workflows.",
+    "Support revenue operations teams by letting employees chat with the agent to complete SOPs that combine Lemlist lookups, summaries, approvals, and follow-up task creation."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Lemlist campaign membership before creating a sales handoff.",
+    "A support agent that captures qualification details and sends structured lead notes into Lemlist.",
+    "An internal sales assistant that summarizes outreach history for any lead or account.",
+    "A private team agent that updates approved Lemlist lead fields after manager review.",
+    "An AI workflow that prepares escalation notes when a high-intent visitor requests enterprise pricing.",
+    "A DocsBot agent that routes website conversations based on Lemlist campaign or owner status."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Lemlist in plain language, such as checking outreach status, creating a handoff, or updating approved lead details."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the needed configuration values, and plans how the agent should use Lemlist during customer or employee conversations."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes access to the minimum Lemlist actions, users, and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates so the AI agent can take bounded action without overreaching beyond your rules."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Lemlist without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Lemlist workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for your AI agent. It handles connection details, secret protection, scoped permissions, and deployment guidance for you."
+    },
+    {
+      "question": "Can a DocsBot support agent use Lemlist data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot agent can use a Lemlist Skill to perform approved lookups, summarize campaign or lead status, and prepare sales handoffs while responding to website visitors or ticket conversations. This helps support and sales teams share context without making the customer wait for manual follow-up."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Lemlist?",
+      "answer": "A DocsBot agent can qualify inbound interest, check whether someone is already in outreach, collect missing details, prepare structured handoff notes, and trigger approved follow-up workflows tied to Lemlist. You define the allowed actions and approval boundaries based on your process."
+    },
+    {
+      "question": "Can an internal AI assistant help sales teams work inside Lemlist?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Lemlist information, summarize outreach activity, update approved fields, and complete routine sales or operations workflows. This is useful for Slack, Microsoft Teams, or internal chat experiences where teams want faster answers and fewer manual steps."
+    },
+    {
+      "question": "How does DocsBot keep Lemlist actions safe and controlled?",
+      "answer": "Skill Builder designs Skills with secure authentication handling, protected runtime secrets, and access scoped to the minimum records and actions needed. It can also add approval steps and bounded action rules for updates, handoffs, and other sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot test a Lemlist Skill before my team uses it?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises likely support and internal scenarios, identifies bugs or missing guardrails, and improves the Skill before deployment. This helps you launch a more reliable AI agent with clearer behavior and safer actions."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "apollo",
+    "outreach",
+    "pipedrive",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lemlist",
+    "domain": "lemlist.com",
+    "description": "lemlist is a sales automation platform that enables B2B businesses to build relationships with potential customers through personalized outreach. It offers a suite of tools for lead discovery, email, LinkedIn, and call automation, leveraging AI to create effective campaigns. With access to a database of 450M+ contacts, lemlist provides an all-in-one solution for businesses to grow without requiring technical skills or third-party tools.",
+    "slogan": "Make Cold Emails Unique and Unforgettable",
+    "logoUrl": "https://media.brand.dev/93239b11-3c21-4d11-9871-aa0d89d49f83.png",
+    "iconUrl": "https://media.brand.dev/93239b11-3c21-4d11-9871-aa0d89d49f83.png",
+    "primaryColor": "#346bf8",
+    "accentColor": "#94b4e4",
+    "colors": [
+      {
+        "hex": "#346bf8",
+        "name": "Gentian Flower"
+      },
+      {
+        "hex": "#94b4e4",
+        "name": "Adrift on the Nile"
+      },
+      {
+        "hex": "#f0f4f8",
+        "name": "Child of Light"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e32c3872-35bf-461a-865a-651d2c9c83c1.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.lemlist.com/terms",
+      "contact": "https://www.lemlist.com/contact-sales",
+      "privacy": "https://www.lemlist.com/privacy-policy",
+      "blog": "https://www.lemlist.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.lemlist.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/24655f83-1f3d-4d9c-a9b2-bfd2c8c7ddda.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 428,
+        "height": 428,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/93239b11-3c21-4d11-9871-aa0d89d49f83.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7e37bf40-db63-4ffb-a238-d70e15df534c.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 56,
+        "height": 57,
+        "aspectRatio": 0.98
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/24655f83-1f3d-4d9c-a9b2-bfd2c8c7ddda.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 428,
+      "height": 428,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/24655f83-1f3d-4d9c-a9b2-bfd2c8c7ddda.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 428,
+      "height": 428,
+      "aspectRatio": 1
+    }
+  }
+}

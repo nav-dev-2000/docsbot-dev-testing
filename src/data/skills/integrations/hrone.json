@@ -1,0 +1,176 @@
+{
+  "slug": "hrone",
+  "name": "HROne",
+  "domain": "hrone.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with HROne",
+  "metaTitle": "Build HROne AI Agents for HR Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use HROne for HR lookups, case handoffs, workflow updates, and internal employee assistance.",
+  "intro": "HROne helps companies manage employment, HR, and payroll operations in China, especially for international businesses that need compliant local support. With DocsBot Skill Builder, you can describe the HROne workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, look up approved HR information, prepare handoffs, and trigger bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an HR, payroll, or employment support request in HROne and reply with a clear progress summary.",
+    "Use the agent to collect missing employment or payroll context from a customer conversation and create a structured handoff for the HROne team.",
+    "Have the agent summarize policy-related questions, gather the right business details, and route the case for follow-up in HROne.",
+    "Enable the agent to provide customers with approved next-step guidance based on HROne case data, timelines, or service status.",
+    "Use a helpdesk-connected DocsBot agent to prepare escalations that include customer history, requested action, urgency, and relevant HROne record references."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve approved HROne information about payroll, onboarding, employment support, or case status.",
+    "Enable HR and operations teams to ask the agent for a summary of open HROne requests, blockers, deadlines, and recommended next actions.",
+    "Use an internal AI assistant to collect the required details for a payroll or employment workflow and prepare the correct handoff or record update in HROne.",
+    "Help customer success or people operations staff follow SOPs by chatting with the agent to generate compliant intake notes, follow-up checklists, and case summaries tied to HROne workflows.",
+    "Allow managers or operations employees to ask the agent to draft a status update, escalation summary, or service handoff using approved HROne data."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks HROne request status and explains next steps to customers.",
+    "A support Skill that gathers employment or payroll issue details and prepares a HROne handoff.",
+    "An internal HR assistant that summarizes open HROne cases, deadlines, and blockers for employees.",
+    "A workflow Skill that drafts onboarding, payroll, or employment support intake summaries from chat.",
+    "An AI assistant that routes sensitive HROne actions through approval before any record update is made.",
+    "A team agent that creates standardized case notes and escalation summaries using HROne data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the HROne agent to do, such as checking request status, preparing handoffs, or summarizing HR cases, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure setup, identifies the configuration values the Skill needs, defines safe authentication handling, protects and proxies secrets, and scopes access to the minimum HROne actions, records, and users required."
+    },
+    {
+      "title": "Actions get clear boundaries",
+      "description": "Skill Builder adds the right instructions, workflow logic, and approval boundaries so the agent can answer questions and take bounded action without overreaching into sensitive HR operations."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the HROne Skill, finds bugs, weak spots, or missing permission checks, and feeds improvements back into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so your team can use HROne actions through chat with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HROne?",
+      "answer": "With DocsBot Skill Builder, you describe the HROne workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up information, prepare handoffs, summarize cases, and trigger approved actions. It also handles secure configuration, authentication design, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use HROne data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved HROne data to check request status, summarize case progress, gather missing details, and prepare escalations while replying to customers. Access can be limited to the exact records, actions, and fields you want the agent to use."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HROne?",
+      "answer": "An internal DocsBot agent can help employees retrieve case information, summarize open HR or payroll items, collect intake details, draft handoff notes, and follow HR operations SOPs tied to HROne workflows. This is useful for HR, operations, customer success, and leadership teams that need faster answers and cleaner process execution."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in HROne?",
+      "answer": "DocsBot Skill Builder can create Skills for approved updates and workflow triggers with scoped permissions and approval boundaries for sensitive actions. That means your AI agent can take bounded action while staying within the controls you define."
+    },
+    {
+      "question": "How does DocsBot keep HROne credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chat transcripts and Skill source, and proxies authentication through secure runtime configuration. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare HR or payroll handoffs from customer conversations?",
+      "answer": "Yes, the agent can gather the right context from a website chat or helpdesk ticket, organize it into a structured summary, and create a clean handoff for your HROne-related workflow. This helps reduce back-and-forth and speeds up follow-up by your HR or operations team."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "deel",
+    "rippling",
+    "gusto",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HROne",
+    "domain": "hrone.com",
+    "description": "HROne is a leading HR agency based in China, offering employment solutions for foreign small to medium-sized enterprises (SMEs) navigating through local employment, HR, and payroll challenges. Founded in 2005, HROne is one of the few non-state-owned and fully licensed companies specializing in Employer of Record services, PEO, payroll outsourcing, and employee leasing in the region. With a focus on international clients, HROne hires employees on behalf of their clients, even for those without a subsidiary in China. The company is ISO 9001 & ISO 27001 certified for management and data storage security, ensuring compliance, efficiency, and tailored services. Recognized as the top B2B firm in China by Clutch in 2020 & 2021, HROne has offices in Shanghai, Hong Kong, and San Jose, California. For inquiries, contact info@HROne.com or visit www.hrone.com.",
+    "slogan": "Leading HR solutions for foreign SMEs operating in China",
+    "logoUrl": "https://media.brand.dev/bdf76755-3412-4003-89c7-4a4bf2882987.png",
+    "iconUrl": "https://media.brand.dev/926f398a-6c2a-4337-889c-ab8ffb3bb816.png",
+    "primaryColor": "#ab2c2c",
+    "accentColor": "#125ca4",
+    "colors": [
+      {
+        "hex": "#ab2c2c",
+        "name": "Cross My Heart"
+      },
+      {
+        "hex": "#125ca4",
+        "name": "Sonic Blue"
+      },
+      {
+        "hex": "#dcc7c9",
+        "name": "Misty Blush"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4b01d524-ba85-4f54-962a-effa8b9f5dc4.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://hrone.com/legal-terms/",
+      "contact": "https://hrone.com/contact-us/",
+      "privacy": "https://hrone.com/privacy-policy/",
+      "blog": "https://hrone.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/926f398a-6c2a-4337-889c-ab8ffb3bb816.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bdf76755-3412-4003-89c7-4a4bf2882987.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 141,
+        "height": 80,
+        "aspectRatio": 1.76
+      },
+      {
+        "url": "https://media.brand.dev/9116669a-d985-44e2-a88c-f2c71c362986.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1509,
+        "height": 777,
+        "aspectRatio": 1.94
+      },
+      {
+        "url": "https://media.brand.dev/9caccebc-6bba-4f9d-ac3c-535732b9f7ca.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1509,
+        "height": 777,
+        "aspectRatio": 1.94
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9116669a-d985-44e2-a88c-f2c71c362986.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1509,
+      "height": 777,
+      "aspectRatio": 1.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/926f398a-6c2a-4337-889c-ab8ffb3bb816.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

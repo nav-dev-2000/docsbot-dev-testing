@@ -1,0 +1,175 @@
+{
+  "slug": "zscaler-zpa-scim",
+  "name": "Zscaler ZPA SCIM",
+  "domain": "zscaler-zpa.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zscaler ZPA SCIM",
+  "metaTitle": "Build AI Agents for Zscaler ZPA SCIM with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Zscaler ZPA SCIM for secure identity lookups, provisioning workflows, approvals, and internal access operations.",
+  "intro": "Zscaler ZPA SCIM helps organizations manage identity provisioning and access-related user records in a zero trust environment. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up users, summarize provisioning state, trigger approved updates, and support internal access workflows. The result is an AI support or internal operations agent that can answer questions and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a user's access provisioning record exists and summarize the current onboarding or access state during a support conversation.",
+    "Let a helpdesk-connected DocsBot agent gather missing identity details from a ticket, look up the related ZPA SCIM user record, and prepare a clean escalation summary for the access or security team.",
+    "Enable the agent to confirm whether an account update request has already been reflected in provisioning data before responding to a customer about next steps.",
+    "Allow the agent to trigger an approved internal handoff when a customer reports access problems that require identity or provisioning review in Zscaler workflows.",
+    "Use the agent to summarize recent provisioning-related status for a user so support teams can give faster, more accurate responses without manually switching systems."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up Zscaler ZPA SCIM user provisioning details and understand access status faster.",
+    "Enable IT and operations teams to ask the agent to gather identity context across onboarding or offboarding workflows, summarize the current record state, and suggest the next approved step.",
+    "Give service desk employees an AI assistant that can prepare access review handoffs, collect missing user attributes, and follow internal SOPs for provisioning investigations.",
+    "Allow managers or IT coordinators to chat with the agent to verify whether a user has been provisioned correctly before escalating to security or identity administrators.",
+    "Use an internal agent to generate standardized summaries of provisioning exceptions, pending actions, and access-related follow-up tasks for operations teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up SCIM user provisioning records and explains access status in plain language.",
+    "A helpdesk assistant that prepares identity and access escalation summaries from customer tickets.",
+    "An internal IT bot that collects missing onboarding details before triggering an approved provisioning workflow.",
+    "A private operations agent that checks user record state and recommends the next SOP step.",
+    "An AI assistant that creates handoff notes for access issues requiring security team review.",
+    "A workflow agent that summarizes provisioning exceptions and pending follow-up actions for service desk teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the result you want in plain language, such as checking provisioning status, gathering user context, or preparing an access handoff, and Skill Builder turns that into a practical agent workflow."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should connect to Zscaler ZPA SCIM, defines the required configuration values, handles authentication and secret protection through secure runtime configuration, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries wherever a lookup, update, or trigger should stay under human control."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the finished Skill to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use it with safe, logged, bounded AI actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zscaler ZPA SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and DocsBot designs a reusable Skill that can look up records, summarize provisioning state, trigger approved actions, and route escalations safely. Skill Builder also handles secure connection setup, scoped permissions, testing, and deployment guidance for the finished agent."
+    },
+    {
+      "question": "Can an AI support agent use Zscaler ZPA SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zscaler ZPA SCIM data to check provisioning status, confirm whether a user record exists, summarize access-related context, and prepare handoffs for internal teams. This helps support teams answer faster while keeping actions bounded by your configured rules and approval limits."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zscaler ZPA SCIM?",
+      "answer": "An internal DocsBot agent can help employees look up user provisioning details, collect missing onboarding information, summarize exceptions, prepare escalation notes, and support access-related SOPs. It can also trigger approved workflows when your team wants the agent to move work forward instead of only explaining the next step."
+    },
+    {
+      "question": "Can DocsBot safely perform updates or workflow triggers related to Zscaler ZPA SCIM?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with scoped access, protected authentication, and approval boundaries for sensitive actions. That means your agent can be limited to safe lookups, specific record updates, or approved workflow triggers based on the controls you define."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Zscaler ZPA SCIM with DocsBot?",
+      "answer": "You do not need to manually design the integration flow step by step. You describe the business outcome you want, and Skill Builder handles the Skill design, secure configuration requirements, secret handling, scenario testing, improvement, and publishing process."
+    },
+    {
+      "question": "Can a DocsBot agent help with access onboarding and offboarding processes through Zscaler ZPA SCIM?",
+      "answer": "Yes, DocsBot can support onboarding and offboarding workflows by gathering the right context, checking provisioning state, summarizing outstanding tasks, and triggering approved next steps. This is especially useful for IT, service desk, and operations teams that want a chat-based assistant for repeatable identity workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "okta-scim",
+    "onelogin-scim",
+    "jumpcloud",
+    "azure-active-directory",
+    "zscaler"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zscaler",
+    "domain": "zscaler.com",
+    "description": "Zscaler is a leading global cloud-based information security company that facilitates secure digital transformation for organizations embracing a mobile and cloud-first approach. Known for operating the world's largest cloud security platform, Zscaler delivers services that simplify and enhance IT operations with unmatched security. Their flagship offerings, Zscaler Internet Access and Zscaler Private Access, ensure fast, secure connections between users and applications, regardless of device, location, or network. With a presence in over 185 countries, Zscaler protects thousands of enterprises and government agencies from cyber threats and data loss through a fully cloud-delivered solution that outperforms traditional appliances and hybrid security models. As a pioneer in zero trust cybersecurity, Zscaler accelerates digital transformation by providing robust, secure access across any network.",
+    "slogan": "Securely transform your networks for a mobile and cloud-first world.",
+    "logoUrl": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+    "iconUrl": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+    "primaryColor": "#286df2",
+    "accentColor": "#8cbcec",
+    "colors": [
+      {
+        "hex": "#286df2",
+        "name": "Retro Blue"
+      },
+      {
+        "hex": "#8cbcec",
+        "name": "Electric Eel"
+      },
+      {
+        "hex": "#0574bc",
+        "name": "Bumangués Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0e9d5bd5-1896-4509-a3bd-dad3ec2d303b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://zscaler.com/careers",
+      "terms": null,
+      "contact": "https://zscaler.com/company/contact",
+      "privacy": "https://zscaler.com/privacy/overview",
+      "blog": "https://zscaler.com/blogs",
+      "pricing": "https://zscaler.com/pricing-and-plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5688ef93-a7c3-4e80-b57e-012f6b81817f.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/58a8a829-4c3b-4a1d-89ab-9218b540db9d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d282adec-a8f3-4aae-a9fe-ba2879665c04.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cba366cb-d247-4066-9107-bd8d7afd6904.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

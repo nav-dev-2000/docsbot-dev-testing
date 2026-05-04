@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-assist",
+  "name": "Zoho Assist",
+  "domain": "zoho-assist.com",
+  "category": "Customer Support",
+  "trutoCategory": "Remote Support",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Assist",
+  "metaTitle": "Build AI Agents for Zoho Assist with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Assist for remote support lookups, session workflows, handoffs, and internal technician assistance with safe controls.",
+  "intro": "Zoho Assist helps teams deliver remote support and unattended access workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Assist, and Skill Builder will design, secure, test, and package that ability for customer support or internal team use. The result is an AI agent that can answer questions and take approved remote-support-related actions without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a remote support session and explain the next step to the customer in chat or by helpdesk reply.",
+    "Use the agent to collect device details from the customer, create a structured support handoff, and prepare technicians for a Zoho Assist session.",
+    "Allow the agent to summarize prior remote support activity so customers get a clear update without waiting for a human to review every detail.",
+    "Have the agent guide customers through approved pre-session troubleshooting steps and then trigger the next support workflow when escalation is needed.",
+    "Enable the agent to prepare ticket notes that reference Zoho Assist session context for faster technician follow-up and cleaner handoffs."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Zoho Assist session details and technician activity without opening multiple tools.",
+    "Enable support teams to ask the agent for a concise summary of recent remote support interactions, session outcomes, and recommended next actions.",
+    "Use an internal AI assistant to gather required context for a remote troubleshooting SOP, then create a structured escalation or technician handoff based on Zoho Assist data.",
+    "Allow operations or support leads to ask the agent for remote support workflow status, identify blocked cases, and generate follow-up notes for the team.",
+    "Help technicians use a private AI agent to retrieve approved session information, document outcomes, and complete repeatable remote support workflows faster."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks remote session status and explains updates to customers.",
+    "An AI handoff workflow that gathers issue details before a technician joins a session.",
+    "A ticket assistant that summarizes Zoho Assist activity for cleaner escalations and follow-ups.",
+    "An internal technician bot that retrieves session history and recommends next troubleshooting steps.",
+    "A workflow agent that prepares remote support notes and generates structured case summaries.",
+    "An AI assistant that identifies when a remote support issue should be escalated for human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Assist agent to do in plain language, such as checking session status, preparing handoffs, or summarizing remote support activity for customers or employees."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and secure connection approach."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and secret management through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes Zoho Assist access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Safe actions are enforced",
+      "description": "Skill Builder adds guardrails such as approval boundaries, action limits, and clear rules for when the agent should look up information, prepare a handoff, or stop and route to a human."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing instructions, or permission gaps, and feeds those results into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Assist?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Assist workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Assist during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Assist data and approved actions to check session context, summarize status, prepare escalations, and help customers move to the right next support step."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Assist?",
+      "answer": "Teams can build workflows for session lookups, pre-support intake, escalation prep, technician handoffs, support note generation, and remote support status summaries with bounded actions and approval rules."
+    },
+    {
+      "question": "Can an internal AI assistant help technicians with Zoho Assist workflows?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve session information, summarize prior activity, follow troubleshooting SOPs, and complete repeatable remote support tasks across chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Assist actions secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, keeps credentials out of conversations, scopes permissions to the minimum necessary access, and can add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation notes from Zoho Assist activity?",
+      "answer": "Yes, you can build Skills that gather session context, summarize relevant activity, and generate structured handoff notes or escalation summaries for technicians and support teams."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "jira-service-management",
+    "zoho-desk",
+    "teamviewer"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

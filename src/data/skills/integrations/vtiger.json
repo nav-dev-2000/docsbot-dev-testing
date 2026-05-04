@@ -1,0 +1,176 @@
+{
+  "slug": "vtiger",
+  "name": "Vtiger",
+  "domain": "vtiger.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Vtiger",
+  "metaTitle": "Build AI Agents for Vtiger with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Vtiger for customer support, CRM lookups, record updates, handoffs, and internal team workflows with safe controls.",
+  "intro": "Vtiger helps teams manage sales, marketing, and customer relationships in one CRM. With DocsBot Skill Builder, you can describe the Vtiger workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, look up CRM context, update approved records, prepare handoffs, and trigger next steps inside the boundaries you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up contact, deal, case, or account details in Vtiger so it can answer status questions with current CRM context.",
+    "Use the agent to create or update Vtiger leads, contacts, or support records from website chat conversations and helpdesk tickets when customers provide new information.",
+    "Have the agent summarize a customer's recent Vtiger activity, open issues, and ownership details before handing the conversation to a human rep.",
+    "Allow the agent to log follow-up notes, callback requests, or meeting preferences in Vtiger while confirming the next step to the customer.",
+    "Enable the agent to route urgent conversations by creating a Vtiger task, escalation note, or internal handoff record for the right team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Vtiger contact histories, deal summaries, and account activity without opening the CRM.",
+    "Sales, success, and support teams can ask the agent to create follow-up tasks, update approved CRM fields, or prepare structured handoff notes in Vtiger as part of daily workflows.",
+    "Operations teams can use the agent to research account status across Vtiger, summarize pipeline or customer context, and complete SOP-driven record maintenance with approval limits where needed.",
+    "Managers can ask the agent to generate concise summaries of lead progress, open customer issues, or recent account interactions pulled from Vtiger for internal reviews.",
+    "Internal teams can use the agent to gather missing CRM details, standardize notes, and trigger next-step workflows so employees spend less time on repetitive data entry."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Vtiger account, contact, and case details before answering customers.",
+    "A chat workflow that creates Vtiger leads from qualified website conversations with approval rules.",
+    "An internal assistant that summarizes deals, activities, and next steps for sales reps.",
+    "A success team agent that logs renewal notes and follow-up tasks in Vtiger.",
+    "A handoff Skill that prepares structured escalation summaries from chat into Vtiger records.",
+    "An employee assistant that finds account owners and recent interactions across Vtiger records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Vtiger agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed Vtiger connection details, defines secure authentication and configuration values, keeps credentials out of chats and source, and proxies secrets through protected runtime settings."
+    },
+    {
+      "title": "Permissions stay bounded",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems required, and it adds approval boundaries for sensitive Vtiger updates or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, missing instructions, or weak permission checks, and feeds those results into self-improvement before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or internal team assistant so it can take approved action in Vtiger."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Vtiger?",
+      "answer": "With DocsBot Skill Builder, you describe the Vtiger workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up CRM data, create or update approved records, summarize account context, and trigger next steps."
+    },
+    {
+      "question": "Can an AI support agent use Vtiger data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Vtiger as a live source of CRM context while responding in a website chat widget or through helpdesk tickets. It can retrieve customer, account, deal, or case details, summarize them for the conversation, and take approved follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Vtiger?",
+      "answer": "A DocsBot agent can look up account status, create or update leads and support-related records, log notes, prepare escalations, assign follow-up tasks, and summarize customer history for handoffs. The exact actions are defined by the workflow and limits you want Skill Builder to enforce."
+    },
+    {
+      "question": "Can an internal AI assistant help employees update Vtiger records safely?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve CRM information and complete approved updates in Vtiger through chat, Slack, or Microsoft Teams. Skill Builder can scope those actions to specific fields, record types, teams, and approval requirements so changes stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Vtiger credentials and actions secure?",
+      "answer": "Skill Builder defines secure configuration values, stores and proxies secrets through protected runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum necessary permissions and can require approvals for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot create CRM handoffs and escalation summaries from Vtiger data?",
+      "answer": "Yes, DocsBot can assemble structured summaries from Vtiger records and conversation context to help support, sales, or customer success teams take over quickly. It can also create notes, tasks, or handoff records as part of an approved workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Vtiger",
+    "domain": "vtiger.com",
+    "description": "Vtiger is a leading Cloud CRM provider that offers affordable and easy-to-use solutions for small and mid-sized businesses. With over 300,000 companies trusting Vtiger to enhance their sales, marketing, and support functions, the platform is recognized as a top player in the CRM industry. Their latest offering, Vtiger Cloud CRM V9, includes AI/ML-powered capabilities to support exceptional customer experiences throughout the purchasing journey. Vtiger CRM helps businesses optimize sales, boost marketing ROI, and deliver excellent customer service. Try Vtiger CRM free for 15 days and see how it can help your business thrive.",
+    "slogan": "Empower teams with AI/ML CRM for exceptional customer experiences",
+    "logoUrl": "https://media.brand.dev/a56e6f25-9f92-4845-b555-6c9b858d6527.png",
+    "iconUrl": "https://media.brand.dev/0cdf6e62-6d1b-443e-8c35-e8075af07ffb.png",
+    "primaryColor": "#2e89a9",
+    "accentColor": "#b6da3c",
+    "colors": [
+      {
+        "hex": "#2e89a9",
+        "name": "Carol"
+      },
+      {
+        "hex": "#b6da3c",
+        "name": "Lime Popsicle"
+      },
+      {
+        "hex": "#077aee",
+        "name": "Níu Zǎi Sè Denim"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a7b22542-f374-4fca-b1bd-ca74828b9a65.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.vtiger.com/careers/",
+      "terms": "https://www.vtiger.com/policy-legal-center/terms-of-service/",
+      "contact": "https://vtiger.com/features/contact-management/",
+      "privacy": "https://www.vtiger.com/policy-legal-center/privacy-policy/",
+      "blog": "https://www.vtiger.com/blog/",
+      "pricing": "https://vtiger.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0cdf6e62-6d1b-443e-8c35-e8075af07ffb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a56e6f25-9f92-4845-b555-6c9b858d6527.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 143,
+        "height": 59,
+        "aspectRatio": 2.42
+      },
+      {
+        "url": "https://media.brand.dev/49e0a23f-6450-4f40-b932-d16edf252abf.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1084,
+        "height": 1084,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/af91f347-6e49-4d03-8829-ce12f6edc11f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 460,
+        "height": 460,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a56e6f25-9f92-4845-b555-6c9b858d6527.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 143,
+      "height": 59,
+      "aspectRatio": 2.42
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0cdf6e62-6d1b-443e-8c35-e8075af07ffb.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

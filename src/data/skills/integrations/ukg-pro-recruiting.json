@@ -1,0 +1,152 @@
+{
+  "slug": "ukg-pro-recruiting",
+  "name": "UKG Pro Recruiting",
+  "domain": "ukg-pro-recruiting.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with UKG Pro Recruiting",
+  "metaTitle": "Build AI Agents for UKG Pro Recruiting with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up recruiting data, trigger workflows, summarize hiring status, and assist teams in UKG Pro Recruiting.",
+  "intro": "UKG Pro Recruiting helps teams manage recruiting workflows, candidate activity, and hiring progress inside the broader UKG workforce platform. With DocsBot Skill Builder, you can describe the recruiting task you want an AI agent to handle in plain language, and DocsBot can turn it into a reusable Skill that connects safely to UKG Pro Recruiting. The result is a support or internal AI agent that can answer questions, retrieve recruiting details, prepare handoffs, and take approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a candidate-related inquiry in UKG Pro Recruiting and provide a clear next-step summary in chat or by helpdesk reply.",
+    "Use the agent to collect missing applicant details from a customer or candidate conversation, then create or update an approved recruiting record in UKG Pro Recruiting.",
+    "Have the agent summarize open hiring activity, application progress, or recruiter notes from UKG Pro Recruiting before handing the conversation to a human team member.",
+    "Enable the agent to trigger approved follow-up workflows, such as escalation or recruiter handoff preparation, based on customer or candidate questions.",
+    "Use the agent to generate a clean case summary that combines the customer conversation with relevant UKG Pro Recruiting record details for faster human review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up candidate status, requisition details, or recruiting workflow history from UKG Pro Recruiting.",
+    "Enable recruiting or operations teams to ask the agent for summarized hiring pipeline updates, stalled application reviews, or recruiter activity across approved records.",
+    "Use an internal AI assistant to gather missing context from employees, then prepare recruiter handoffs, escalation notes, or standardized follow-up summaries based on UKG Pro Recruiting data.",
+    "Allow team members to complete recruiting SOPs by chatting with the agent, which can retrieve UKG Pro Recruiting information, suggest the next step, and trigger approved workflow actions.",
+    "Help HR and talent teams use the agent for quick research across recruiting records so employees spend less time navigating systems and more time moving hiring work forward."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup assistant that answers approved hiring progress questions using UKG Pro Recruiting data.",
+    "A recruiting handoff Skill that summarizes candidate context and prepares escalation notes for recruiters.",
+    "An internal hiring pipeline assistant that surfaces open requisitions, status changes, and stalled workflows.",
+    "A follow-up workflow Skill that gathers missing details and triggers approved recruiting actions.",
+    "A helpdesk assistant that combines conversation context with UKG Pro Recruiting record summaries.",
+    "A recruiter support agent that creates standardized case notes and next-step recommendations for teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with UKG Pro Recruiting, such as checking recruiting status, summarizing candidate activity, or triggering an approved handoff, and Skill Builder translates that into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest way to connect UKG Pro Recruiting, defines the required configuration values, handles authentication and secret storage through secure runtime controls, keeps credentials out of chats and Skill content, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Add safe action boundaries",
+      "description": "Skill Builder adds clear runtime instructions, permission limits, and approval boundaries so the agent can perform bounded lookups, updates, summaries, and workflow triggers without exceeding the rules you want in place."
+    },
+    {
+      "title": "Test real scenarios automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak prompts, missing permission checks, and workflow gaps, then feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can start using UKG Pro Recruiting through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for UKG Pro Recruiting?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up recruiting information, summarize status, prepare handoffs, and take approved actions inside your defined limits."
+    },
+    {
+      "question": "Can an AI support agent use UKG Pro Recruiting data during customer or candidate conversations?",
+      "answer": "Yes, a DocsBot support agent can use UKG Pro Recruiting as a system of record for approved lookups, summaries, and workflow actions while responding in a website chat or helpdesk context. You control what the agent is allowed to access, update, or escalate."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with UKG Pro Recruiting?",
+      "answer": "An internal DocsBot agent can help employees retrieve candidate or requisition details, summarize hiring pipeline activity, prepare recruiter handoffs, and trigger approved recruiting workflows. This is especially useful for HR, recruiting, and operations teams that want faster answers and more consistent SOP execution."
+    },
+    {
+      "question": "Can DocsBot safely update records in UKG Pro Recruiting?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved record updates, but it designs those actions with scoped permissions, protected authentication handling, and approval steps where needed. That helps your agent act safely instead of making unrestricted changes."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiting handoffs and escalations from UKG Pro Recruiting?",
+      "answer": "Yes, the agent can gather the relevant recruiting record details, combine them with the live conversation, and generate a structured handoff or escalation summary for a human recruiter or support team member. This reduces manual copy-paste work and improves context during transitions."
+    },
+    {
+      "question": "How does setup work for a non-technical team using UKG Pro Recruiting with DocsBot?",
+      "answer": "Your team explains the outcome you want, and DocsBot Skill Builder handles the design, secure configuration, secret protection, testing, and deployment path. You do not need to manually write code or map every workflow step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday-recruiting",
+    "bamboohr",
+    "smartrecruiters",
+    "jobvite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "UKG",
+    "domain": "ukg.com",
+    "description": "UKG is a workforce operating platform that leverages the world’s largest collection of workforce insights and people‑first AI to help organizations build trust, boost productivity, and empower talent. By turning data into actionable intelligence, UKG enables customers across all industries to solve complex challenges, optimize human capital, and treat their workforce as a competitive advantage.",
+    "slogan": "Empower the people who power your business",
+    "logoUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "iconUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "primaryColor": "#e2f225",
+    "accentColor": "#7a8c2e",
+    "colors": [
+      {
+        "hex": "#e2f225",
+        "name": "Herbery Honey"
+      },
+      {
+        "hex": "#7a8c2e",
+        "name": "Sassy Grass"
+      },
+      {
+        "hex": "#1d3b21",
+        "name": "Queen of Trees"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/910029d1-4323-4abd-99b9-f5a1c5ac1795.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.ukg.com/terms-of-use",
+      "careers": "https://www.ukg.com/company/careers",
+      "contact": "https://www.ukg.com/industry-solutions/contact-centers",
+      "privacy": "https://www.ukg.com/privacy",
+      "blog": "https://www.ukg.com/company/newsroom/archive",
+      "pricing": "https://www.ukg.com/products/features/strategic-workforce-planning"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

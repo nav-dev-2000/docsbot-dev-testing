@@ -1,0 +1,170 @@
+{
+  "slug": "keka",
+  "name": "Keka",
+  "domain": "keka.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Keka for HR and Payroll",
+  "metaTitle": "Build Keka AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Keka for HR lookups, payroll-related workflows, employee support, and safe internal team actions.",
+  "intro": "Keka helps teams manage HR, payroll, and employee experience in one system. With DocsBot Skill Builder, you can describe the HR or employee support outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up data, update records, trigger workflows, and prepare handoffs. That makes it easier to support employees, automate routine HR requests, and give internal teams a faster way to complete approved work.",
+  "supportUseCases": [
+    "Use a customer-facing or employee-facing support agent to answer common HR questions by checking Keka leave balances, holiday calendars, attendance status, or policy-linked employee details.",
+    "Let a DocsBot agent connected to your helpdesk review an employee support ticket, pull the relevant Keka profile details, and summarize the case for an HR handoff.",
+    "Enable the agent to help employees start approved HR requests by creating or updating leave, attendance, or profile-related records in Keka within defined limits.",
+    "Have the agent collect missing information during an employee support conversation and then prepare a clean escalation summary for payroll or HR operations teams.",
+    "Use the agent to confirm onboarding or offboarding status from Keka and give employees or managers a clear next-step response based on approved workflow rules."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Keka employee records, leave information, attendance details, and payroll-related status without searching manually.",
+    "HR teams can use an internal AI agent to guide staff through onboarding, offboarding, policy checks, and approval workflows while pulling the latest context from Keka.",
+    "Managers can ask the agent to summarize team attendance, pending leave requests, or employee status changes from Keka and receive a concise action-oriented overview.",
+    "Operations teams can chat with the agent to complete SOPs that combine Keka data lookups, ticket summaries, manager notifications, and approved follow-up actions.",
+    "Internal support teams can use the agent to gather employee context from Keka before responding, then generate handoff notes or workflow summaries for payroll and HR specialists."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks leave balances and explains next steps for time-off requests.",
+    "A private HR assistant that summarizes attendance issues and routes exceptions to the right team.",
+    "An employee support bot that gathers onboarding questions and prepares HR handoff notes.",
+    "A manager assistant that pulls team leave status and summarizes pending approvals from Keka.",
+    "A payroll support agent that collects issue details and packages a clean escalation summary.",
+    "An internal agent that retrieves employee profile data and follows approved HR SOPs in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Keka agent to do in plain language, such as answering leave questions, preparing payroll handoffs, or updating approved HR records."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling for Keka."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill instructions, protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive HR or payroll actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill based on test results and then helps publish it to the right DocsBot agent for your website chat, helpdesk workflow, or private employee assistant in Slack, Teams, or chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Keka for employee support?",
+      "answer": "With DocsBot Skill Builder, you describe the employee support task in plain language and it designs a Skill that lets your agent safely look up Keka data, summarize status, collect missing details, and trigger approved next steps."
+    },
+    {
+      "question": "Can an AI support agent use Keka data to answer leave or attendance questions?",
+      "answer": "Yes, a DocsBot agent can be configured to use Keka for live leave, attendance, holiday, or employee-status lookups so it can respond with current information and escalate only when needed."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Keka?",
+      "answer": "Internal DocsBot agents can help with onboarding, offboarding, attendance reviews, leave request guidance, policy lookups, payroll issue triage, and manager support workflows that use Keka as a source of truth."
+    },
+    {
+      "question": "Can DocsBot update Keka records or trigger HR workflows safely?",
+      "answer": "DocsBot Skill Builder can create bounded actions for approved Keka workflows, such as creating requests, updating allowed fields, or preparing handoffs, while applying scoped permissions and approval controls for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Keka information for HR or payroll teams?",
+      "answer": "Yes, the agent can gather relevant Keka context and turn it into concise summaries, escalation notes, or case handoff packages so HR and payroll teams can act faster."
+    },
+    {
+      "question": "How do approval boundaries work for AI actions in Keka?",
+      "answer": "Skill Builder designs the Skill with safe action limits, scoped permissions, and approval steps for higher-risk actions so the agent only performs the tasks your team explicitly allows."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "greythr",
+    "gusto",
+    "namely",
+    "workday",
+    "adp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Keka",
+    "domain": "keka.com",
+    "description": "Keka is a cloud-based HR and payroll software designed to provide an exceptional employee experience. Born out of frustration with cumbersome HR software, the company aims to serve small and medium-sized businesses with an easy-to-use platform. Keka HR offers a comprehensive HR management system, including payroll processing, and is considered one of the best HRMS software in India, available for a 7-day free trial.",
+    "slogan": "Creating Awesome Employee Experiences",
+    "logoUrl": "https://media.brand.dev/297afc8b-6df5-49ce-9ccd-70890138c8af.svg",
+    "iconUrl": "https://media.brand.dev/39ad3c01-cb51-4c9e-a339-53782551ad5f.png",
+    "primaryColor": "#5414ac",
+    "accentColor": "#ac84d4",
+    "colors": [
+      {
+        "hex": "#5414ac",
+        "name": "Indiviolet Sunset"
+      },
+      {
+        "hex": "#ac84d4",
+        "name": "Middy’s Purple"
+      },
+      {
+        "hex": "#e6dbef",
+        "name": "Lingering Lilac"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/575153a5-4cfb-4b58-88ab-47ba73d583f4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.keka.com/careers",
+      "terms": "https://www.keka.com/terms-of-services",
+      "contact": "https://www.keka.com/contact-us",
+      "privacy": "https://www.keka.com/privacy-policy",
+      "blog": "https://www.keka.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.keka.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/39ad3c01-cb51-4c9e-a339-53782551ad5f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c1a5847a-88b7-42ab-9fb6-eb5aa8fa3879.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/297afc8b-6df5-49ce-9ccd-70890138c8af.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 86,
+        "height": 30,
+        "aspectRatio": 2.87
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/297afc8b-6df5-49ce-9ccd-70890138c8af.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 86,
+      "height": 30,
+      "aspectRatio": 2.87
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/39ad3c01-cb51-4c9e-a339-53782551ad5f.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "slug": "readme",
+  "name": "Readme",
+  "domain": "readme.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ReadMe",
+  "metaTitle": "Build AI Agents and Support Workflows with ReadMe",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that search, summarize, update, and trigger approved workflows in ReadMe for support and internal teams.",
+  "intro": "ReadMe helps teams publish interactive API hubs, documentation, and developer experience content that customers and internal teams rely on every day. With DocsBot Skill Builder, you can describe the ReadMe-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve documentation context, prepare handoffs, and take bounded actions in ReadMe while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search ReadMe docs and return the most relevant API setup steps, authentication guidance, or troubleshooting content during a live chat or support ticket reply.",
+    "Use ReadMe data to summarize the current status of a product guide, changelog, or endpoint documentation page before the agent responds to a customer with a clear next step.",
+    "Enable the agent to collect missing implementation details from a customer, match them to the right ReadMe documentation, and generate a more precise support response.",
+    "Have the agent prepare escalation handoffs by pulling related ReadMe reference content, known setup instructions, and relevant documentation links into the ticket summary.",
+    "Allow the agent to suggest or trigger approved documentation follow-up workflows when repeated customer questions reveal missing or unclear ReadMe content."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that chats with ReadMe to find the latest API docs, onboarding guides, changelog details, and developer enablement content without manual searching.",
+    "Let support, success, and product teams ask the agent to summarize documentation gaps in ReadMe based on recurring customer issues and prepare a handoff for the docs team.",
+    "Enable internal teams to chat with an agent in Slack or Microsoft Teams to retrieve ReadMe page details, compare guidance across docs sections, and follow documentation review SOPs faster.",
+    "Help developer relations or support operations teams use a private agent to draft documentation improvement requests, collect supporting examples, and organize follow-up actions tied to ReadMe content.",
+    "Allow employees to ask the agent for step-by-step answers sourced from ReadMe while it follows approved workflows for escalation prep, internal research, and documentation maintenance."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches ReadMe and answers API setup questions with precise documentation links.",
+    "A ticket assistant that summarizes relevant ReadMe pages before drafting a support reply or escalation note.",
+    "An internal docs helper that finds onboarding guides, changelog updates, and endpoint references in seconds.",
+    "A workflow assistant that flags repeated support issues that may require ReadMe documentation updates.",
+    "A private team agent that compares multiple ReadMe articles and produces a concise implementation summary.",
+    "An escalation prep Skill that gathers ReadMe context and generates a clean handoff for engineering or docs teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with ReadMe, such as finding API setup docs, summarizing documentation gaps, or preparing support handoffs, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the ReadMe connection details it needs, and defines the safest workflow, runtime behavior, and action boundaries for the agent."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up the required configuration values, keeps secrets and authentication out of chats and Skill source, proxies credentials through secure runtime settings, and scopes access to only the ReadMe content and actions the workflow requires."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder applies permission boundaries, approval steps for sensitive updates, and safe action limits so the agent can look up information or take bounded action in ReadMe without overreaching."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ReadMe documentation to answer customer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, and it creates a Skill that can search ReadMe content, summarize the right guidance, and return answers inside your website chat or helpdesk workflow. Skill Builder also defines secure access, scoped permissions, and approval limits for any action beyond simple lookups."
+    },
+    {
+      "question": "Can an AI support agent use ReadMe data during live chat or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a ReadMe Skill to retrieve relevant documentation, summarize implementation steps, gather missing context from the customer, and prepare cleaner support responses or escalation notes. The customer conversation triggers the DocsBot agent, and the Skill lets that agent safely use ReadMe as a source of truth."
+    },
+    {
+      "question": "What ReadMe workflows can an internal AI assistant help automate?",
+      "answer": "A private DocsBot agent can help employees find docs faster, compare articles, summarize changelog or onboarding content, prepare documentation improvement requests, and support internal SOPs around support and developer enablement. It can also generate handoff summaries and other artifacts based on approved ReadMe workflows."
+    },
+    {
+      "question": "Can DocsBot safely update or trigger workflows related to ReadMe content?",
+      "answer": "DocsBot Skill Builder can design bounded actions around updates or follow-up workflows when you want more than read-only answers. It defines the needed configuration, protects secrets, scopes access, and adds approval boundaries so sensitive changes stay controlled."
+    },
+    {
+      "question": "Do I need to manually configure the ReadMe integration to create an AI agent?",
+      "answer": "No, the process is designed for non-technical teams. You describe the outcome you want, and Skill Builder handles the workflow design, secure connection setup, testing, improvement, and deployment details for the Skill."
+    },
+    {
+      "question": "Can a DocsBot agent help identify documentation gaps from recurring support issues?",
+      "answer": "Yes, you can build a Skill that connects support conversations with ReadMe context so the agent can spot repeated questions, summarize where documentation may be unclear, and prepare follow-up recommendations for your docs or product team. This helps turn support volume into actionable developer experience improvements."
+    }
+  ],
+  "relatedSlugs": [
+    "confluence",
+    "notion",
+    "gitbook",
+    "slab",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ReadMe",
+    "domain": "readme.com",
+    "description": "ReadMe is a platform that enables companies to create interactive developer hubs for their APIs, helping users succeed with their API integrations. They provide tools for creating and documenting APIs, as well as analytics to track API usage and identify areas for improvement, allowing teams to build better developer experiences and improve their APIs.",
+    "slogan": "Build better developer experiences with ReadMe's interactive API hubs.",
+    "logoUrl": "https://media.brand.dev/6377e16b-6954-4648-9bea-1a5137ef32e1.svg",
+    "iconUrl": "https://media.brand.dev/e6fd61b5-1379-4bac-992a-227f64e5ae17.png",
+    "primaryColor": "#048cf4",
+    "accentColor": "#98d4f0",
+    "colors": [
+      {
+        "hex": "#048cf4",
+        "name": "Too Blue to be True"
+      },
+      {
+        "hex": "#98d4f0",
+        "name": "Over the Sky"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/58c7fc03-5821-45da-a399-1edf8b7aef4a.png",
+    "industries": [],
+    "links": {
+      "terms": "https://readme.com/tos",
+      "privacy": "https://readme.com/privacy",
+      "blog": "https://blog.readme.com/",
+      "pricing": "https://readme.com/pricing",
+      "careers": "https://readme.com/careers",
+      "contact": "https://readme.com/growth"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e6fd61b5-1379-4bac-992a-227f64e5ae17.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6377e16b-6954-4648-9bea-1a5137ef32e1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 35,
+        "aspectRatio": 5.71
+      },
+      {
+        "url": "https://media.brand.dev/8bb0018b-5a2d-4c9f-bb98-8d34a14bd8cf.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6377e16b-6954-4648-9bea-1a5137ef32e1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 35,
+      "aspectRatio": 5.71
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8bb0018b-5a2d-4c9f-bb98-8d34a14bd8cf.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

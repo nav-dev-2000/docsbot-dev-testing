@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-pagesense",
+  "name": "Zoho PageSense",
+  "domain": "zoho-pagesense.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Zoho PageSense with DocsBot",
+  "metaTitle": "Zoho PageSense AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Zoho PageSense data for support insights, visitor summaries, handoffs, and internal workflow automation with safe controls.",
+  "intro": "Zoho PageSense helps teams understand visitor behavior, experiments, funnels, and on-page engagement. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use that PageSense data or trigger approved workflows, and DocsBot helps design, secure, test, and deploy the Skill. The result is a support or internal AI agent that can answer questions, summarize behavior signals, prepare handoffs, and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Zoho PageSense experiment or funnel context to explain why a user may be seeing a different page variant or journey.",
+    "Use Zoho PageSense session, page, or conversion insights to help the support agent summarize likely friction points before replying to a customer ticket.",
+    "Have the agent create a structured escalation note that includes relevant PageSense behavior signals, such as drop-off steps, engagement patterns, or campaign variation context.",
+    "Enable the support agent to look up whether a reported issue appears tied to a specific landing page, test variation, or segment tracked in Zoho PageSense.",
+    "Let the agent trigger an approved internal follow-up workflow when repeated customer complaints suggest a conversion or usability problem in a PageSense-tracked experience."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Zoho PageSense funnel, experiment, and page-performance context without manually digging through dashboards.",
+    "Enable marketing, product, or support teams to ask the agent for summaries of visitor behavior patterns and likely friction points across tracked journeys.",
+    "Use a private AI agent in Slack or Microsoft Teams to prepare experiment handoff notes, optimization briefs, or escalation summaries grounded in Zoho PageSense data.",
+    "Help operations or customer success teams chat with the agent to research whether onboarding or self-service issues align with specific page variants or session behavior trends.",
+    "Support internal SOPs where employees ask the agent to gather PageSense context, draft a next-step recommendation, and route the issue for approval or follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes PageSense funnel drop-offs before replying to frustrated users.",
+    "A website chat agent that checks active test variations to explain inconsistent page experiences.",
+    "An internal assistant that turns PageSense metrics into concise optimization briefs for marketing teams.",
+    "A support triage Skill that packages visitor behavior context for product and UX escalations.",
+    "An employee AI agent that researches engagement trends and drafts recommended follow-up actions.",
+    "A workflow Skill that flags repeated support complaints linked to a tracked landing page experience."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho PageSense in plain language, such as summarizing funnel friction, checking experiment context, or preparing escalation notes."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable Skill, deciding the safest workflow, the needed Zoho PageSense configuration values, and the right runtime behavior for your DocsBot agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes access to only the PageSense data and actions the workflow requires."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets safe action boundaries, limits who can use sensitive capabilities, and adds approval steps where updates, triggers, or escalations should stay under human control."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or missed edge cases, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zoho PageSense data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it designs a Skill that can retrieve PageSense insights, summarize them for the conversation, and take approved follow-up actions. It also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zoho PageSense during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zoho PageSense context to help explain page experience differences, summarize likely friction in a journey, or prepare better escalations for human teams. The customer chat or ticket triggers the agent, and the Skill lets that agent safely use PageSense information while responding."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho PageSense?",
+      "answer": "Teams can build workflows for live lookups, issue summaries, escalation prep, repeated-complaint pattern detection, and approved triggers to notify product, UX, or marketing owners. This helps support move from guesswork to evidence-backed responses and handoffs."
+    },
+    {
+      "question": "Can an internal AI assistant answer questions about experiments and funnels in Zoho PageSense?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve experiment context, funnel summaries, and visitor behavior insights. The agent can also draft internal briefs, recommendations, and follow-up notes based on that data."
+    },
+    {
+      "question": "How does DocsBot keep Zoho PageSense connections secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and can add approval boundaries so the agent only uses the data and actions you allow."
+    },
+    {
+      "question": "Can DocsBot test a Zoho PageSense Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios, finds bugs or workflow gaps, and improves the Skill before deployment. That helps teams launch with clearer instructions, safer permissions, and better real-world behavior."
+    }
+  ],
+  "relatedSlugs": [
+    "hotjar",
+    "google-analytics",
+    "mixpanel",
+    "amplitude",
+    "optimizely",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

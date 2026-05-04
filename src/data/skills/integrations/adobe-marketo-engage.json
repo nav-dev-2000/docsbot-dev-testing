@@ -1,0 +1,148 @@
+{
+  "slug": "adobe-marketo-engage",
+  "name": "Adobe Marketo Engage",
+  "domain": "adobe-marketo-engage.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Adobe Marketo Engage",
+  "metaTitle": "Adobe Marketo Engage AI Agents for Support and Operations",
+  "metaDescription": "Build DocsBot AI agents that use Adobe Marketo Engage for live lookups, safe updates, workflow triggers, handoffs, and internal marketing operations.",
+  "intro": "Adobe Marketo Engage helps teams manage marketing automation, lead data, campaigns, and engagement workflows across the customer lifecycle. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use Marketo data and approved actions. The result is an AI support or internal team agent that can answer questions, gather context, trigger workflows, and complete bounded tasks instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a lead or contact status in Adobe Marketo Engage and explain the customer’s current campaign or nurture enrollment while replying in chat or over a helpdesk ticket.",
+    "Use the agent to verify whether a form submission, event registration, or marketing request was recorded in Adobe Marketo Engage and summarize the latest activity for the customer.",
+    "Allow the agent to create or update lead records with approved fields after collecting missing details from the customer during a support conversation.",
+    "Have the agent add qualifying notes, source details, or follow-up context into Adobe Marketo Engage so sales or success teams receive a cleaner handoff.",
+    "Let the agent trigger an approved campaign, nurture flow, or follow-up workflow in Adobe Marketo Engage when a customer asks for content, onboarding help, or a callback request."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to look up Adobe Marketo Engage lead activity, campaign membership, and engagement history without leaving the conversation.",
+    "Marketing and operations teams can ask the agent to summarize program performance context, recent record changes, or lead journey details before they take the next step.",
+    "Sales, success, and marketing employees can use the agent to complete SOPs such as creating follow-up tasks, updating approved lead fields, or preparing handoff summaries tied to Adobe Marketo Engage records.",
+    "Teams can ask the agent to research why a person did or did not enter a campaign, then return a concise explanation based on available Adobe Marketo Engage data and rules.",
+    "Internal agents can collect missing details from employees, apply approval boundaries where needed, and trigger bounded Adobe Marketo Engage workflows for routing, follow-up, or segmentation support."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks lead status and recent campaign activity during support conversations.",
+    "A support assistant that confirms form fills, webinar registrations, or nurture enrollment details.",
+    "An internal agent that summarizes lead journeys before sales or customer success outreach.",
+    "A workflow assistant that updates approved Marketo fields after collecting missing context.",
+    "An AI handoff tool that prepares lead history summaries for human follow-up teams.",
+    "A private ops agent that triggers approved campaign or segmentation workflows with safeguards."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Adobe Marketo Engage agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets outside chat and source content, and scopes access to only the records, actions, and users required."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder defines safe action limits, approval boundaries for sensitive updates or triggers, and clear runtime instructions so the agent can act inside your rules instead of taking open-ended actions."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps deploy the finished Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant for ongoing monitored use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Adobe Marketo Engage without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and the builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. It can create agents that look up data, update approved fields, trigger workflows, and summarize outcomes within your rules."
+    },
+    {
+      "question": "Can an AI support agent use Adobe Marketo Engage data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Adobe Marketo Engage as a system of record for approved lookups and actions while responding to customers. For example, it can check lead status, confirm submissions or campaign membership, collect missing details, and prepare a clean handoff for a human team."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Adobe Marketo Engage?",
+      "answer": "A DocsBot agent can automate lead lookups, activity summaries, approved record updates, nurture or campaign triggers, and escalation prep tied to Adobe Marketo Engage. This helps support teams resolve requests faster while keeping actions bounded and auditable."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Adobe Marketo Engage?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Adobe Marketo Engage information, investigate lead journeys, and complete routine workflows or SOPs. The agent can also gather missing context and trigger approved next steps without exposing raw credentials or broad system access."
+    },
+    {
+      "question": "How does DocsBot keep Adobe Marketo Engage actions safe?",
+      "answer": "Skill Builder designs the Skill with secure authentication handling, protected runtime secrets, scoped permissions, and approval boundaries for sensitive actions. It keeps credentials out of chat transcripts and generated content while limiting the agent to the records and operations you allow."
+    },
+    {
+      "question": "Can DocsBot trigger Adobe Marketo Engage campaigns or follow-up workflows?",
+      "answer": "DocsBot Skills can be designed to trigger approved Adobe Marketo Engage workflows such as follow-up campaigns, routing steps, or segmentation-related actions. Skill Builder adds the necessary guardrails so the agent only performs those actions under the conditions you define."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce-marketing-cloud",
+    "pardot",
+    "mailchimp",
+    "activecampaign",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adobe Learning Manager",
+    "domain": "business.adobe.com",
+    "description": "Adobe is a company that provides a cloud-based Learning Platform, Adobe Learning Manager, to train employees, customers, and partners. It offers a next-gen Learning Management System to develop skills, increase sales, and engage customers. Adobe also provides powerful digital marketing, analytics, commerce, AI, and automation tools to drive growth and deliver personalized experiences across channels.",
+    "slogan": "Empowering Learning and Engagement with Adobe’s Next-Gen Digital Solutions",
+    "logoUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "iconUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "primaryColor": "#ea1507",
+    "accentColor": "#dc8484",
+    "colors": [
+      {
+        "hex": "#ea1507",
+        "name": "Uproar Red"
+      },
+      {
+        "hex": "#dc8484",
+        "name": "Peaches of Immortality"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2a29d8d2-48b0-436e-80ef-c6a6ca0e3c12.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

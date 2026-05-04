@@ -1,0 +1,183 @@
+{
+  "slug": "paypal",
+  "name": "PayPal",
+  "domain": "paypal.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with PayPal",
+  "metaTitle": "Build PayPal AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use PayPal for payment lookups, issue workflows, handoffs, and internal finance support.",
+  "intro": "PayPal helps businesses and customers manage online payments, transactions, and account activity. With DocsBot Skill Builder, you can describe the PayPal workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, check payment details, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up PayPal payment status, transaction details, or refund state while answering billing questions in chat or tickets.",
+    "Use the agent to collect missing order or payer details, summarize the PayPal issue, and prepare a clean handoff for a human billing specialist.",
+    "Allow the agent to trigger approved refund review, payment follow-up, or dispute escalation workflows based on the customer conversation.",
+    "Have the agent summarize recent PayPal activity tied to an order so customers get faster answers without waiting for manual investigation.",
+    "Enable the agent to identify common payment problems such as pending payments or failed transactions and guide customers to the next approved step."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve PayPal transaction information without switching tools.",
+    "Give finance or support teams an AI assistant that summarizes payment history, flags exceptions, and prepares internal case notes from PayPal records.",
+    "Help operations teams complete refund review, payment reconciliation, or escalation workflows by chatting with an agent that follows approved SOPs.",
+    "Allow customer success or billing employees to ask the agent for PayPal-related research across orders, payment events, and open issues before contacting a customer.",
+    "Use an internal AI agent to generate handoff summaries and workflow checklists when teams need to coordinate around payment disputes or account problems."
+  ],
+  "whatYouCanBuild": [
+    "A billing support agent that checks PayPal transaction status during customer chats.",
+    "An AI assistant that prepares refund investigation summaries from PayPal payment records.",
+    "A helpdesk agent that gathers missing payment details before escalating to finance.",
+    "An internal finance bot that answers employee questions about PayPal transaction history.",
+    "A workflow assistant that triggers approved dispute review or payment follow-up steps.",
+    "A support agent that summarizes order and PayPal payment context in one response."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PayPal agent to do, such as checking payment status, preparing refund handoffs, or guiding billing support conversations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required PayPal connection details, defines secure authentication and configuration values, keeps credentials out of chats and source, proxies secrets through secure runtime settings, and scopes the Skill to the minimum actions and records needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries, user limits, and safe action rules so sensitive steps such as refunds, escalations, or account-affecting workflows only happen within the permissions and controls you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so people can start using PayPal-aware AI actions in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with PayPal?",
+      "answer": "With DocsBot Skill Builder, you describe the PayPal task you want in plain language, and Skill Builder creates a reusable Skill that can look up payment information, summarize issues, trigger approved workflows, and support handoffs. It also designs the secure connection, configuration, permissions, and testing process for you."
+    },
+    {
+      "question": "Can an AI support agent use PayPal data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use PayPal data for live payment lookups, transaction summaries, refund-state checks, and escalation prep while responding to customer chats or helpdesk tickets. You control what information it can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with PayPal?",
+      "answer": "A DocsBot agent can help with payment-status checks, failed-payment investigation, refund triage, dispute escalation prep, and handoff summaries for billing teams. The agent can gather missing context from the customer, use PayPal information within approved limits, and move the case to the next step faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with PayPal workflows?",
+      "answer": "Yes, internal teams can chat with a private DocsBot agent to research transactions, summarize payment history, prepare finance notes, and follow refund or reconciliation SOPs. This helps employees complete PayPal-related work without manually searching across systems."
+    },
+    {
+      "question": "How does DocsBot keep PayPal actions secure?",
+      "answer": "Skill Builder defines the needed configuration values, handles authentication safely, keeps secrets out of chats and generated copy, and proxies credentials through secure runtime settings. It also scopes access and adds approval boundaries so the agent only performs the PayPal lookups and actions you authorize."
+    },
+    {
+      "question": "Can a DocsBot agent trigger refunds or payment workflows in PayPal?",
+      "answer": "DocsBot Skill Builder can create bounded workflows for actions such as refund review, escalation routing, or other approved payment operations, depending on the process you want to support. Sensitive actions can be placed behind approval steps and limited permissions for extra control."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "braintree",
+    "square",
+    "shopify",
+    "quickbooks"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PayPal",
+    "domain": "paypal.com",
+    "description": "PayPal is a leading financial service company that specializes in providing seamless online payment solutions to users worldwide. Committed to empowering individuals and businesses, PayPal makes financial transactions fast, easy, and enjoyable. With a mission to unlock opportunities in everyday life, the company fosters trust among millions who utilize its services for sending, spending, and managing money. PayPal also caters to businesses by offering merchant accounts for enhanced financial management. In addition to its core services, PayPal values diversity and inclusivity, offering numerous employment opportunities and generous benefits to support the well-being of its employees. For assistance, users can access the PayPal Help Center.",
+    "slogan": "Championing possibilities for everyone with fast, easy, and enjoyable payments.",
+    "logoUrl": "https://media.brand.dev/f0ca01c8-20cb-4866-a140-f68720a39ed0.png",
+    "iconUrl": "https://media.brand.dev/f0ca01c8-20cb-4866-a140-f68720a39ed0.png",
+    "primaryColor": "#0c9cdb",
+    "accentColor": "#21367a",
+    "colors": [
+      {
+        "hex": "#0c9cdb",
+        "name": "Structural Blue"
+      },
+      {
+        "hex": "#21367a",
+        "name": "Surf the Web"
+      },
+      {
+        "hex": "#cdd9e2",
+        "name": "Pale Cornflower"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f245ea93-7b9f-4fc6-a23d-8ad592cfd057.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/93b4fa78-6e6f-41cb-b247-e5f96e332a36.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f0ca01c8-20cb-4866-a140-f68720a39ed0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 259,
+        "height": 259,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a011aa9b-4f04-4303-9081-85100e7489ff.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5fb1da5a-01fd-4149-bd3d-c78a46b26138.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 114,
+        "height": 114,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9c806f8c-b5be-43ab-b0ca-0887689127fa.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/93b4fa78-6e6f-41cb-b247-e5f96e332a36.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/93b4fa78-6e6f-41cb-b247-e5f96e332a36.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

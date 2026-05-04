@@ -1,0 +1,183 @@
+{
+  "slug": "teamwork-crm",
+  "name": "Teamwork CRM",
+  "domain": "teamwork-crm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Teamwork CRM",
+  "metaTitle": "Build AI Support and Internal Agents for Teamwork CRM",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely read and update Teamwork CRM data for customer support, sales operations, and internal team workflows.",
+  "intro": "Teamwork CRM helps teams manage contacts, deals, and relationship activity across the customer lifecycle. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use Teamwork CRM for lookups, updates, handoffs, and workflow actions. The result is a support or internal AI agent that does more than answer questions by taking approved action inside your CRM rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up contact, company, or deal details in Teamwork CRM so it can answer account-specific questions with current context.",
+    "Use the agent to create a CRM note or activity record during a support conversation so important customer interactions are captured automatically.",
+    "Have the agent summarize recent deal or relationship history from Teamwork CRM before handing a customer issue to sales, success, or an account owner.",
+    "Allow the agent to update approved contact fields or relationship status values in Teamwork CRM after collecting missing information from the customer.",
+    "Trigger a follow-up workflow in Teamwork CRM when a customer requests a callback, demo, renewal discussion, or account review through chat or a helpdesk ticket."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Teamwork CRM contact, company, pipeline, and activity details without leaving the conversation.",
+    "Sales and success teams can ask the agent to prepare account summaries, recent interaction recaps, and next-step recommendations using Teamwork CRM records.",
+    "Operations teams can use the agent to create notes, log activities, or update approved CRM fields while following internal SOPs through chat.",
+    "Managers can ask the agent to research deal status, overdue follow-ups, or ownership gaps across Teamwork CRM and return a concise action summary.",
+    "Internal teams can use the agent to gather context from Teamwork CRM before escalating issues, routing tasks, or starting cross-functional account workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Teamwork CRM account context before replying to customers.",
+    "An AI assistant that logs call requests, follow-ups, and relationship notes into Teamwork CRM.",
+    "A private sales assistant that summarizes deals, contacts, and recent CRM activity on demand.",
+    "An internal operations agent that updates approved contact and company fields through chat.",
+    "A handoff workflow that packages Teamwork CRM history for sales or customer success teams.",
+    "An AI agent that collects missing customer details and writes validated updates to the CRM."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Teamwork CRM agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required Teamwork CRM connection details, defines secure authentication and configuration values, protects and proxies secrets, and scopes access to only the records and actions the workflow actually needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear instructions, safe action limits, and approval boundaries for sensitive Teamwork CRM updates so the agent can help without exceeding the rules you want enforced."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak spots, or permission gaps, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so employees and customers can use the workflow where they already chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Teamwork CRM without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Teamwork CRM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. It can support lookups, summaries, updates, and workflow triggers within the permissions and approval limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Teamwork CRM data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use Teamwork CRM to pull account context, recent activities, contact details, or deal history while responding in a website chat widget or helpdesk flow. That helps the agent provide more personalized answers and prepare cleaner handoffs when a human team member needs to step in."
+    },
+    {
+      "question": "What Teamwork CRM actions can a DocsBot AI agent take safely?",
+      "answer": "A Teamwork CRM Skill can be designed for bounded actions such as reading records, creating notes, updating approved fields, summarizing relationship history, or triggering follow-up workflows. Skill Builder sets scoped permissions, secure authentication handling, and approval boundaries for any sensitive action."
+    },
+    {
+      "question": "Can I use DocsBot with Teamwork CRM for internal sales or customer success workflows?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve CRM information, summarize accounts, log activities, and complete approved SOPs from chat, Slack, or Microsoft Teams. This gives teams faster access to CRM context without asking them to navigate multiple systems manually."
+    },
+    {
+      "question": "How does DocsBot keep Teamwork CRM credentials and data access secure?",
+      "answer": "Skill Builder identifies the connection values the workflow needs, keeps secrets out of chat transcripts and Skill source, and proxies authentication through secure runtime configuration. It also scopes access to the minimum users, records, and actions needed for the Teamwork CRM workflow."
+    },
+    {
+      "question": "Can a Teamwork CRM AI agent prepare handoffs and escalations for human teams?",
+      "answer": "Yes, the agent can collect the customer request, look up relevant Teamwork CRM context, and generate a concise summary for sales, success, or operations teams. It can also create notes or trigger the next approved step so the handoff is documented and easier to act on."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Teamwork",
+    "domain": "teamwork.com",
+    "description": "Teamwork.com is a project management platform that combines powerful project management with streamlined operations, designed for managing client projects profitably. Headquartered in Cork, Ireland, the company was founded by a team with agency experience and has grown to serve over 20,000 customers worldwide with a global team of over 350 employees.",
+    "slogan": "Streamline teamwork, boost productivity, and manage projects profitably worldwide.",
+    "logoUrl": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+    "iconUrl": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+    "primaryColor": "#db3f9c",
+    "accentColor": "#141c2c",
+    "colors": [
+      {
+        "hex": "#db3f9c",
+        "name": "Prunus Avium"
+      },
+      {
+        "hex": "#141c2c",
+        "name": "Sambucus"
+      },
+      {
+        "hex": "#848c94",
+        "name": "Common Feldspar"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9f57141e-3866-4046-a37d-629733826801.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.teamwork.com/careers/",
+      "terms": "https://www.teamwork.com/legal/",
+      "contact": "https://www.teamwork.com/contact/sales/",
+      "privacy": "https://www.teamwork.com/legal/privacy-notice/",
+      "blog": "https://www.teamwork.com/blog/",
+      "pricing": "https://www.teamwork.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/db8a8559-1bcb-4d12-9da1-2ccd88551000.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d1d49327-1745-4b6e-99f5-31b8a39d8bc8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 565,
+        "height": 565,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 181,
+        "height": 20,
+        "aspectRatio": 9.05
+      },
+      {
+        "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 181,
+      "height": 20,
+      "aspectRatio": 9.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "truto",
+  "name": "Truto",
+  "domain": "truto.one",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Take Action Through Truto",
+  "metaTitle": "Build Truto AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that use Truto for safe lookups, updates, workflow triggers, and handoffs.",
+  "intro": "Truto helps businesses connect systems and speed up integration work across their software stack. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create an AI Skill that lets your support agent or internal assistant use Truto to retrieve data, trigger workflows, and complete approved actions. This makes DocsBot useful not only for answering questions, but also for taking bounded action inside the systems your team already uses through Truto.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent use Truto-connected systems to look up order, account, or subscription status and respond with a current summary in chat or tickets.",
+    "Enable the agent to trigger approved workflows through Truto, such as opening a follow-up task, creating a support handoff, or starting a fulfillment check while speaking with the customer.",
+    "Use Truto to gather context from multiple connected tools so the agent can prepare a cleaner escalation summary for human support teams.",
+    "Allow the agent to update allowed fields in connected systems through Truto, such as support notes, case tags, or customer follow-up preferences, after confirming the right conditions.",
+    "Have the agent collect information from the customer, pass it through Truto-powered workflows, and confirm that a request was submitted to the correct downstream system."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with in Slack, Microsoft Teams, or a web workspace to retrieve information across Truto-connected business systems.",
+    "Let operations or customer success teams ask the agent to run SOPs that span multiple tools, with Truto handling the underlying workflow steps behind the scenes.",
+    "Enable team members to ask for a summary of account, billing, CRM, or ticket history aggregated from connected systems before taking action.",
+    "Help employees trigger approved internal workflows through chat, such as creating follow-up tasks, updating records, or routing requests to the right system using Truto.",
+    "Allow internal teams to use the agent for guided data collection, approvals, and handoff preparation across multiple applications connected through Truto."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks live customer status across connected systems through Truto.",
+    "A helpdesk assistant that creates handoff records and follow-up workflows from customer conversations.",
+    "An internal operations agent that runs repeatable SOPs across several business tools.",
+    "A customer success assistant that summarizes account context before renewal or escalation calls.",
+    "A private team agent that updates approved records in connected systems after confirmation.",
+    "An AI workflow assistant that gathers missing details and triggers downstream processes safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Truto in plain language, such as looking up account details, updating a record, or triggering a workflow during a support conversation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the configuration values needed, and plans how the DocsBot agent should use Truto during support or internal chats."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines secure authentication and runtime configuration for Truto, keeps secrets out of chat and source content, proxies credentials safely, and scopes access to the minimum systems, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, user scoping, confirmation steps, and approval requirements for sensitive Truto actions so the agent only takes bounded actions you allow."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, or missing checks, and feeds improvements back into the Skill before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Truto to take actions across my business tools?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and it creates a Skill that lets your AI agent use Truto for lookups, updates, workflow triggers, and handoffs. Skill Builder also handles safe connection design, scoped permissions, and approval boundaries before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Truto data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use Truto to retrieve live context from connected systems while responding to customer questions in chat widgets or ticket workflows. It can also prepare summaries, trigger follow-ups, and update approved records when your rules allow it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Truto?",
+      "answer": "Teams can build workflows for account lookups, request intake, escalation prep, follow-up task creation, ticket enrichment, and approved status updates across connected tools. The agent can gather missing information from the customer, use Truto to act in downstream systems, and confirm what happened."
+    },
+    {
+      "question": "Can an internal AI assistant use Truto for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve information and complete approved workflows across Truto-connected systems. This is useful for operations, support, customer success, and other teams that need one conversational entry point into multiple tools."
+    },
+    {
+      "question": "How does DocsBot keep Truto-connected AI actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration automatically, protect and proxy secrets through runtime settings, and keep credentials out of chats and generated Skill content. It also scopes access to allowed actions and can require approvals or confirmations for sensitive updates and workflow triggers."
+    },
+    {
+      "question": "Do I need to manually wire every Truto step or write integration code to use DocsBot?",
+      "answer": "No, the setup is centered on describing the outcome you want, not manually building the implementation. Skill Builder handles the workflow design, connection requirements, testing, self-improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "zapier",
+    "make",
+    "workato",
+    "n8n",
+    "pipedream",
+    "microsoft-power-automate"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Truto",
+    "domain": "truto.one",
+    "description": "Truto is a company that enables businesses to build native integrations quickly and efficiently. By leveraging Truto's capabilities, companies can offload integration work, allowing their top engineers to focus on high-priority tasks such as architecture, design, and product development, thereby streamlining their operations and improving productivity.",
+    "slogan": "Integration is a solved problem",
+    "logoUrl": "https://media.brand.dev/25f5f2b2-20f5-44ff-bb70-530806c09e55.svg",
+    "iconUrl": "https://media.brand.dev/7abd5d61-5aad-48e3-9acb-9931e0a68eb6.png",
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7abd5d61-5aad-48e3-9acb-9931e0a68eb6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/25f5f2b2-20f5-44ff-bb70-530806c09e55.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 76,
+        "height": 24,
+        "aspectRatio": 3.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/25f5f2b2-20f5-44ff-bb70-530806c09e55.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 76,
+      "height": 24,
+      "aspectRatio": 3.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7abd5d61-5aad-48e3-9acb-9931e0a68eb6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "primaryColor": "#040414",
+    "accentColor": "#7c7c84",
+    "colors": [
+      {
+        "hex": "#040414",
+        "name": "Obsidian Shard"
+      },
+      {
+        "hex": "#7c7c84",
+        "name": "Silver Filigree"
+      },
+      {
+        "hex": "#f2f2ec",
+        "name": "Cloud White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/11dcd9f1-63ce-408d-b7e5-e858c7670bd5.png",
+    "industries": [],
+    "links": {
+      "careers": "https://truto.one/integrations/detail/jobscore",
+      "terms": "https://truto.one/tos",
+      "contact": "https://forms.truto.one/contact",
+      "privacy": "https://truto.one/privacy",
+      "blog": "https://truto.one/blog",
+      "pricing": "https://truto.one/pricing"
+    }
+  }
+}

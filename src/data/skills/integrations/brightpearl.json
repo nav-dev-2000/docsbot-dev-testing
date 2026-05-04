@@ -1,0 +1,160 @@
+{
+  "slug": "brightpearl",
+  "name": "Brightpearl",
+  "domain": "brightpearl.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build Brightpearl AI Agents for Support and Retail Operations",
+  "metaTitle": "Brightpearl AI Agent for Support and Operations | DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Brightpearl for order lookups, inventory checks, financial context, workflow actions, and internal retail operations support.",
+  "intro": "Brightpearl helps retail and wholesale businesses manage post-purchase operations, including orders, inventory, financial workflows, and customer records. With DocsBot Skill Builder, you can describe the Brightpearl workflow you want in plain language and have DocsBot create a secure reusable Skill for your AI agent. The result is a customer support or internal operations agent that can answer questions, retrieve live Brightpearl data, and take bounded actions inside approved rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order, fulfillment, and shipping status in Brightpearl while replying in your website chat or helpdesk.",
+    "Use the agent to check inventory availability in Brightpearl before promising replacements, exchanges, or backorder timing to customers.",
+    "Have the agent summarize a customer's recent orders, account history, and relevant Brightpearl record details to speed up support conversations.",
+    "Enable the agent to create or update approved Brightpearl notes, case details, or follow-up fields so handoffs are cleaner for human agents.",
+    "Let the agent gather missing order information from the customer, then prepare a structured escalation or fulfillment handoff using Brightpearl context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Brightpearl order, inventory, customer, and financial context without switching tools.",
+    "Operations teams can ask the agent to summarize exceptions, fulfillment issues, or account activity from Brightpearl and prepare next-step recommendations for internal review.",
+    "Customer success and support managers can use the agent to generate clean handoff summaries, account overviews, and follow-up notes based on Brightpearl records.",
+    "Warehouse or retail teams can chat with the agent to check stock availability, order status, and product movement details while following internal SOPs.",
+    "Finance and operations employees can use the agent to collect Brightpearl data for approved workflow preparation, reporting support, and cross-team coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Brightpearl order status before answering delivery questions.",
+    "A retail operations assistant that summarizes inventory, order, and customer account context for employees.",
+    "A helpdesk agent that prepares escalations using Brightpearl records and customer-provided order details.",
+    "An internal AI assistant that retrieves Brightpearl financial and fulfillment information for team workflows.",
+    "A support workflow that updates approved Brightpearl notes after a customer chat or ticket.",
+    "An AI agent that checks stock levels in Brightpearl before offering replacements or alternatives."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Brightpearl agent to do, such as checking order status, summarizing account context, or preparing a support handoff, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder identifies the Brightpearl connection details and required configuration values, sets up secure authentication handling, protects and proxies secrets outside chats and source, and scopes access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder defines what the agent may look up, update, summarize, or trigger in Brightpearl, and it adds approval boundaries or other limits for sensitive actions so the workflow stays controlled."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Brightpearl Skill, finds bugs, weak instructions, or permission gaps, and feeds improvements back into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can use Brightpearl actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Brightpearl data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as order lookups, inventory checks, or escalation prep, and Skill Builder creates a secure Skill your support agent can use during chats or ticket replies. The agent can then retrieve Brightpearl context and perform approved actions within the boundaries you define."
+    },
+    {
+      "question": "Can a DocsBot support agent check Brightpearl orders and inventory while chatting with customers?",
+      "answer": "Yes, a DocsBot agent can be designed to look up Brightpearl order details, fulfillment status, customer history, and stock availability while responding to customers in a website chat widget or helpdesk flow. Skill Builder also helps limit access and add approval controls where needed."
+    },
+    {
+      "question": "What Brightpearl workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve order and inventory data, summarize account context, prepare handoffs, support reporting workflows, and guide team members through retail operations SOPs. Skill Builder structures those workflows so the agent takes only the allowed actions across the connected systems."
+    },
+    {
+      "question": "Can an AI agent update Brightpearl records safely?",
+      "answer": "DocsBot Skills can be designed for approved updates such as adding notes, preparing follow-up details, or triggering bounded workflow steps. Skill Builder handles secure authentication, keeps secrets out of conversations, scopes permissions, and can require approval boundaries for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot connect to Brightpearl securely for AI actions?",
+      "answer": "Skill Builder determines the configuration values needed for the Brightpearl connection, stores and proxies credentials through secure runtime configuration, and keeps secrets out of chat transcripts and generated content. It also narrows access to the minimum actions and records required for the workflow."
+    },
+    {
+      "question": "Can I use Brightpearl with a private AI assistant in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees and let team members chat with it in a secure interface, Slack, or Microsoft Teams to retrieve Brightpearl data and complete approved workflows. This is useful for support, operations, warehouse, and finance teams that need quick answers and guided actions."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "shopify",
+    "bigcommerce",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Brightpearl",
+    "domain": "brightpearl.com",
+    "description": "Brightpearl is a Retail Operating System that integrates and automates post-purchase operations for e-commerce, multichannel retail brands, and wholesalers. It provides a complete back office solution, including financial management, inventory management, and CRM, with a scalable platform that supports hyper-scalable e-commerce and business growth.",
+    "slogan": "Automate, Integrate, Grow: The Retail Operating System for Fearless Expansion.",
+    "logoUrl": "https://media.brand.dev/66ae767d-1248-46dc-b126-8eae5e0065a7.svg",
+    "iconUrl": "https://media.brand.dev/1e249989-0a6b-44fd-99ce-050e5beea6db.jpg",
+    "primaryColor": "#13c644",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#13c644",
+        "name": "Walled Garden"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#d2d2d2",
+        "name": "Silver Spoon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4590182b-924b-4075-b578-50331849f991.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.brightpearl.com/customer-terms",
+      "contact": "https://www.brightpearl.com/contact-support",
+      "privacy": "https://www.brightpearl.com/privacy-policy",
+      "blog": "https://www.brightpearl.com/blog",
+      "pricing": "https://www.brightpearl.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1e249989-0a6b-44fd-99ce-050e5beea6db.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/66ae767d-1248-46dc-b126-8eae5e0065a7.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 231,
+        "height": 45,
+        "aspectRatio": 5.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/66ae767d-1248-46dc-b126-8eae5e0065a7.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 231,
+      "height": 45,
+      "aspectRatio": 5.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1e249989-0a6b-44fd-99ce-050e5beea6db.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

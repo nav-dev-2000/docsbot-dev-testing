@@ -1,0 +1,184 @@
+{
+  "slug": "monday-com",
+  "name": "Monday.com",
+  "domain": "monday.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Monday.com",
+  "metaTitle": "Build Monday.com AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Monday.com to look up work, update records, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Monday.com helps teams organize projects, requests, operations, and customer work in one place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read from and act inside Monday.com. That means a support bot or internal team agent can answer questions, update work items, prepare handoffs, and trigger approved workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Monday.com boards for order issues, implementation tasks, onboarding status, or open requests while replying in chat or over helpdesk tickets.",
+    "Use the agent to create a new Monday.com item from a customer conversation so follow-up work, bugs, service requests, or account tasks are captured immediately.",
+    "Allow the agent to update approved Monday.com fields such as priority, status, owner, due date, or customer notes after gathering the right context from the conversation.",
+    "Have the agent summarize related Monday.com items and prepare a clean escalation handoff for a human support or success team member.",
+    "Enable the agent to trigger a defined Monday.com workflow when a customer reports a problem, asks for onboarding help, or requests a next step that requires internal action."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find Monday.com project status, blockers, owners, due dates, and recent changes without opening multiple boards.",
+    "Give operations or customer success teams an internal agent that creates Monday.com tasks, assigns owners, and documents next steps from a simple conversational request.",
+    "Help managers ask the agent for rollup summaries across Monday.com boards so they can review pipeline health, implementation progress, or delayed work faster.",
+    "Allow employees to use the agent to follow SOPs that update Monday.com records, launch handoff workflows, and generate standardized project or account notes.",
+    "Support internal research by letting team members ask the agent to collect Monday.com context, summarize related work, and recommend the next approved action."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Monday.com task or request status during customer conversations.",
+    "An AI assistant that creates Monday.com follow-up items from support tickets or chat transcripts.",
+    "A private operations agent that updates owners, priorities, and deadlines in Monday.com safely.",
+    "A customer success agent that summarizes onboarding progress from Monday.com boards for account reviews.",
+    "An internal team agent that prepares escalation handoffs using Monday.com items and activity context.",
+    "A workflow assistant that triggers approved Monday.com processes after collecting the required details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Monday.com, and it turns that plain-language goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure setup, identifies the configuration values it needs, defines how Monday.com authentication should be handled, and keeps credentials protected through secure runtime configuration instead of chats or Skill text."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum boards, records, users, and actions required, and it adds approval boundaries or safe action limits for sensitive updates, handoffs, or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Monday.com workflow, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team agent so it can answer questions and take bounded action in Monday.com."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Monday.com?",
+      "answer": "With DocsBot Skill Builder, you describe the Monday.com workflow you want in plain language, and DocsBot designs a reusable Skill that can look up records, update approved fields, trigger workflows, and summarize work safely. Skill Builder also handles secure connection details, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Monday.com data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Monday.com Skill to retrieve board items, check status, review assigned work, prepare escalations, or create follow-up tasks while responding to customers. You control what data and actions are allowed so the agent stays within defined boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Monday.com?",
+      "answer": "DocsBot can help automate ticket-to-task creation, status lookups, escalation preparation, internal handoffs, approved field updates, and workflow triggers tied to customer requests. This helps support teams move from answering questions to completing the next approved action."
+    },
+    {
+      "question": "Can an internal AI assistant update Monday.com records for employees?",
+      "answer": "Yes, a private DocsBot agent can help employees create items, change status, assign owners, add notes, and summarize work in Monday.com when those actions are approved. Skill Builder scopes access and can add approval checks for more sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Monday.com access secure?",
+      "answer": "Skill Builder defines the required configuration, protects and proxies secrets through secure runtime settings, keeps credentials out of conversations and generated content, and scopes permissions to the minimum records and actions needed. It can also add approval boundaries before high-impact updates or workflow triggers are allowed."
+    },
+    {
+      "question": "Can DocsBot test a Monday.com AI workflow before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run support and internal team scenarios, identify bugs, missing instructions, or permission issues, and improve the Skill before deployment. That testing loop helps you launch a more reliable Monday.com agent with less manual trial and error."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "clickup",
+    "jira",
+    "trello",
+    "airtable",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Monday",
+    "domain": "monday.com",
+    "description": "The company specializes in providing customizable solutions designed to enhance workflow efficiency and improve visibility across various sectors. They offer tailored tools for project management, customer relationship management (CRM), information technology (IT), and software development. By focusing on streamlining processes, the company helps organizations achieve better productivity and collaboration, ensuring that teams can efficiently manage their tasks and projects. With an emphasis on adaptability, their solutions cater to the unique needs of each client, making it easier for businesses to optimize operations and drive success in a fast-paced environment.",
+    "slogan": "Customizable solutions to streamline workflows and enhance project visibility.",
+    "logoUrl": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+    "iconUrl": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+    "primaryColor": "#fccc04",
+    "accentColor": "#04d545",
+    "colors": [
+      {
+        "hex": "#fccc04",
+        "name": "Tangerine Yellow"
+      },
+      {
+        "hex": "#04d545",
+        "name": "Dasyphyllous Green"
+      },
+      {
+        "hex": "#fc3c54",
+        "name": "Sizzling Red"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://monday.com/careers",
+      "terms": "https://monday.com/terms/gdpr",
+      "contact": "https://monday.com/sales/contact-us",
+      "privacy": "https://monday.com/l/privacy/privacy-policy/",
+      "blog": "https://monday.com/blog",
+      "pricing": "https://monday.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5fbb7740-8e7b-4f8e-966e-74badf9bab12.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 337,
+        "height": 84,
+        "aspectRatio": 4.01
+      },
+      {
+        "url": "https://media.brand.dev/5aa290fd-62cf-48e3-b236-a0c927da1607.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed72c65f-ae02-4e4c-8291-b23fba90a378.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 337,
+      "height": 84,
+      "aspectRatio": 4.01
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

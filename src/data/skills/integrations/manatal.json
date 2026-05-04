@@ -1,0 +1,168 @@
+{
+  "slug": "manatal",
+  "name": "Manatal",
+  "domain": "manatal.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Manatal Recruiting Workflows",
+  "metaTitle": "Build AI Agents for Manatal with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Manatal to look up candidate data, update hiring workflows, prepare handoffs, and support recruiting teams safely.",
+  "intro": "Manatal is a recruitment and onboarding platform used to manage candidates, jobs, hiring pipelines, and recruiting operations. With DocsBot Skill Builder, you can describe the Manatal workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal team assistant. That lets your AI agent answer questions, retrieve recruiting data, prepare handoffs, and take approved actions inside Manatal while staying within your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check application status in Manatal and give candidates a clear, up-to-date response in chat or over helpdesk tickets.",
+    "Let the agent collect missing candidate details from a conversation and create or enrich a profile in Manatal for recruiter follow-up.",
+    "Have the agent summarize a candidate's current stage, assigned recruiter, and recent activity from Manatal before replying to an applicant.",
+    "Enable the agent to create a recruiting handoff by capturing the conversation, attaching notes, and routing the case to the right hiring or talent team in Manatal.",
+    "Allow the agent to trigger approved follow-up workflows, such as flagging a candidate record for review or updating a status after a verified support interaction."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal workspace to look up candidate records, job openings, and pipeline status from Manatal without leaving the conversation.",
+    "Recruiters can ask the agent to summarize a candidate's history, recent notes, and next recommended steps so they can move faster during screening and handoff workflows.",
+    "Hiring teams can use the agent to create standardized updates in Manatal, prepare interview handoff notes, and follow internal recruiting SOPs through simple chat prompts.",
+    "Operations or talent leaders can ask the agent for structured summaries of open roles, stalled candidates, and recruiter activity pulled from Manatal for quick decision support.",
+    "Internal teams can use the agent to gather information across recruiting conversations and turn it into approved record updates or escalation-ready summaries inside Manatal."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate or application status from Manatal during support conversations.",
+    "A recruiting assistant that creates candidate notes and recruiter handoff summaries from chat transcripts.",
+    "An internal hiring agent that retrieves job, candidate, and pipeline details on demand.",
+    "A workflow assistant that updates approved Manatal record fields after collecting missing information.",
+    "An AI agent that prepares escalation summaries for recruiters when applicants need human follow-up.",
+    "A talent operations assistant that flags stalled applications or missing next steps for review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Manatal agent to do in plain language, such as checking applicant status, creating recruiter handoffs, or updating approved fields after a conversation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what Manatal data and actions are needed, and defines the required configuration values without making you map the workflow yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes access to the minimum records and actions the workflow needs."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder applies approval boundaries, user limits, and action guardrails so sensitive recruiting updates, record changes, or escalations only happen within the permissions and conditions you approve."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot's automated testing agent runs imagined support and internal recruiting scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Manatal recruiting workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the Manatal workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The finished agent can look up candidate information, summarize hiring status, create handoffs, or trigger approved updates inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Manatal data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Manatal as the system behind candidate-facing chat or helpdesk replies for approved lookups such as application status, assigned recruiter context, or next-step summaries. You control which data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Manatal?",
+      "answer": "An internal agent can help recruiters and hiring teams retrieve candidate records, summarize pipeline progress, prepare interview handoffs, create notes, and complete repeatable recruiting SOPs through chat. It can also trigger bounded record updates or follow-up workflows when you allow them."
+    },
+    {
+      "question": "Can DocsBot safely update candidate or hiring records in Manatal?",
+      "answer": "DocsBot Skill Builder can create Skills for approved updates, such as adding notes, changing statuses, or routing follow-up tasks, while applying scoped permissions and approval boundaries. Skill Builder also keeps secrets protected and avoids exposing credentials in chats or generated content."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Manatal?",
+      "answer": "Skill Builder can define when the agent is allowed to act automatically and when it must stop for approval before changing records or triggering sensitive workflows. That helps teams use AI Actions for recruiting operations without giving the agent unlimited access."
+    },
+    {
+      "question": "Do I need technical setup knowledge to connect DocsBot to Manatal?",
+      "answer": "No, the process is designed for non-technical users who can explain the outcome they want in normal language. Skill Builder handles workflow design, secure connection details, configuration planning, testing, and deployment guidance behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby",
+    "teamtailor"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Manatal",
+    "domain": "manatal.com",
+    "description": "Manatal is a cloud-based recruitment and onboarding SaaS platform that streamlines hiring processes from sourcing to onboarding. It offers AI-powered tools, social media enrichment, and a reporting suite to simplify recruitment for HR teams, agencies, and headhunters.",
+    "slogan": "Hire better, smarter, and faster with AI-powered recruitment",
+    "logoUrl": "https://media.brand.dev/8d1fa5f6-1cef-4a59-94fc-4962cd07741c.png",
+    "iconUrl": "https://media.brand.dev/8d1fa5f6-1cef-4a59-94fc-4962cd07741c.png",
+    "primaryColor": "#1b73d2",
+    "accentColor": "#0c3c6f",
+    "colors": [
+      {
+        "hex": "#1b73d2",
+        "name": "Bright Navy Blue"
+      },
+      {
+        "hex": "#0c3c6f",
+        "name": "Ashenvale Nights"
+      },
+      {
+        "hex": "#040609",
+        "name": "Eight Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/56eece56-b9a2-4046-b788-8bc36053d855.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://manatal.com/terms-of-service",
+      "contact": "https://manatal.com/contact-us",
+      "privacy": "https://manatal.com/privacy-policy",
+      "blog": "https://manatal.com/blog",
+      "pricing": "https://manatal.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8d1fa5f6-1cef-4a59-94fc-4962cd07741c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1322,
+        "height": 1322,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2d30cba2-8c45-44c2-80fd-1c7b017f93a0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b43949dd-c949-41f5-a8fe-c7adb3c4ab64.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 24,
+        "height": 25,
+        "aspectRatio": 0.96
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b43949dd-c949-41f5-a8fe-c7adb3c4ab64.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 24,
+      "height": 25,
+      "aspectRatio": 0.96
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b43949dd-c949-41f5-a8fe-c7adb3c4ab64.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 24,
+      "height": 25,
+      "aspectRatio": 0.96
+    }
+  }
+}

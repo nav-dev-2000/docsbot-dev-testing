@@ -1,0 +1,152 @@
+{
+  "slug": "ukg-ready",
+  "name": "UKG Ready",
+  "domain": "ukg-ready.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with UKG Ready",
+  "metaTitle": "Build AI Agents for UKG Ready with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use UKG Ready for employee lookups, HR workflows, support handoffs, and approved workforce updates.",
+  "intro": "UKG Ready helps teams manage workforce and HR operations, and DocsBot Skill Builder helps you turn that data and those workflows into practical AI agent abilities. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets a DocsBot agent safely look up records, summarize status, trigger HR workflows, and prepare handoffs. This gives support teams and internal teams an AI agent that can answer questions and take bounded action inside UKG Ready under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an employee onboarding, payroll, or HR request in UKG Ready and explain the next approved step.",
+    "Use a support agent connected to your helpdesk to gather missing details from a customer or employee, then create or update an HR-related request in UKG Ready for follow-up.",
+    "Enable the agent to summarize attendance, time-off, or workforce record context from UKG Ready so support teams can respond faster and more accurately.",
+    "Have the agent prepare a clean handoff for HR or operations by pulling relevant UKG Ready details and attaching a structured case summary to the ticket.",
+    "Allow the agent to trigger approved workflow steps in UKG Ready, such as routing a request for review or notifying the right team when escalation is needed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up approved UKG Ready information such as time-off balances, schedule details, or request status.",
+    "HR and operations teams can ask the agent to collect context across requests, summarize workforce records, and complete standard SOPs that involve UKG Ready updates or workflow routing.",
+    "Managers can use an internal AI agent to retrieve team status, draft follow-up summaries, and trigger approved next steps for routine workforce processes.",
+    "People operations staff can chat with the agent to research policy-related questions, gather UKG Ready record details, and prepare escalation notes for sensitive cases that still require human review.",
+    "Internal teams can use the agent to standardize repetitive HR workflows by having it gather inputs, validate required context, and submit bounded actions in UKG Ready when allowed."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks employee request status and explains the next HR step.",
+    "A support workflow that creates structured UKG Ready handoffs from chat or ticket conversations.",
+    "An internal assistant that retrieves time-off, scheduling, or attendance details for employees.",
+    "A manager assistant that summarizes team workforce data and drafts operational follow-ups.",
+    "An HR workflow agent that collects missing context before routing requests for review.",
+    "A private AI assistant that updates approved UKG Ready records within defined action limits."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with UKG Ready, such as checking request status, summarizing workforce records, or submitting an approved HR action, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and keeps credentials out of chats and Skill source by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder defines the minimum access needed for the workflow, scopes actions to the right users, records, and systems, and adds approval boundaries or safe action limits for sensitive UKG Ready updates."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the agent can answer questions and take approved action with UKG Ready."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for UKG Ready without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the UKG Ready workflow you want in plain language and the builder designs the Skill, handles secure configuration, and prepares it for deployment. It can create Skills for lookups, summaries, updates, handoffs, and other bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use UKG Ready data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot support agent can use a UKG Ready Skill to retrieve approved record details, summarize request status, gather missing context, and prepare handoffs while responding in chat or tickets. Access can be limited to the specific records, fields, and actions you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with UKG Ready?",
+      "answer": "Internal AI assistants can help employees and HR teams check balances, review request status, summarize workforce information, route standard requests, and complete repeatable SOPs tied to UKG Ready. More sensitive actions can be gated behind approval boundaries or restricted roles."
+    },
+    {
+      "question": "Can DocsBot safely update UKG Ready records through an AI agent?",
+      "answer": "DocsBot Skill Builder can create Skills for approved UKG Ready updates when you want the agent to take action instead of only answering questions. It designs scoped permissions, secure authentication handling, and approval controls so updates stay within the limits you define."
+    },
+    {
+      "question": "How does DocsBot handle security for a UKG Ready AI integration?",
+      "answer": "Skill Builder identifies the needed configuration values, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent escalate HR or workforce issues from UKG Ready to human teams?",
+      "answer": "Yes, the agent can gather the relevant UKG Ready context, create a structured summary, and trigger an approved handoff or escalation workflow for HR, payroll, or operations teams. This helps human reviewers start with the right information instead of reconstructing the case manually."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "paylocity",
+    "namely",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "UKG",
+    "domain": "ukg.com",
+    "description": "UKG is a workforce operating platform that leverages the world’s largest collection of workforce insights and people‑first AI to help organizations build trust, boost productivity, and empower talent. By turning data into actionable intelligence, UKG enables customers across all industries to solve complex challenges, optimize human capital, and treat their workforce as a competitive advantage.",
+    "slogan": "Empower the people who power your business",
+    "logoUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "iconUrl": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+    "primaryColor": "#e2f225",
+    "accentColor": "#7a8c2e",
+    "colors": [
+      {
+        "hex": "#e2f225",
+        "name": "Herbery Honey"
+      },
+      {
+        "hex": "#7a8c2e",
+        "name": "Sassy Grass"
+      },
+      {
+        "hex": "#1d3b21",
+        "name": "Queen of Trees"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/910029d1-4323-4abd-99b9-f5a1c5ac1795.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.ukg.com/terms-of-use",
+      "careers": "https://www.ukg.com/company/careers",
+      "contact": "https://www.ukg.com/industry-solutions/contact-centers",
+      "privacy": "https://www.ukg.com/privacy",
+      "blog": "https://www.ukg.com/company/newsroom/archive",
+      "pricing": "https://www.ukg.com/products/features/strategic-workforce-planning"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5ce78cfd-693d-4d76-8eb7-f87c7d5a2eb4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

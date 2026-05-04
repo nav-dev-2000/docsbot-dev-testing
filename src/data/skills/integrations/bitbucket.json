@@ -1,0 +1,176 @@
+{
+  "slug": "bitbucket",
+  "name": "Bitbucket",
+  "domain": "bitbucket.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Bitbucket",
+  "metaTitle": "Build AI Support and Internal Agents for Bitbucket",
+  "metaDescription": "Create DocsBot AI agents that use Bitbucket to look up repository activity, summarize development status, trigger workflows, and support safe team handoffs.",
+  "intro": "Bitbucket helps development teams manage code, repositories, and CI/CD workflows. With DocsBot Skill Builder, you can describe the Bitbucket actions you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, gather engineering context, summarize repository activity, and take bounded actions inside approved workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Bitbucket repository, branch, commit, pull request, or pipeline status when a customer asks about a bug fix or release.",
+    "Use the agent to summarize recent Bitbucket activity tied to an incident so support can give customers a clearer update without reading raw developer records.",
+    "Have the agent collect bug report details from a customer, prepare a structured engineering handoff, and create or update the right Bitbucket-linked workflow record when approved.",
+    "Allow the agent to review Bitbucket deployment or pipeline outcomes and explain whether a fix has been merged, built, or is still waiting on review.",
+    "Use the agent in helpdesk replies to gather commit, pull request, or branch context and draft a precise escalation summary for engineering teams."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Bitbucket repository activity, pull request status, branch details, and pipeline summaries.",
+    "Give engineering, support, and operations teams an internal AI assistant that researches Bitbucket changes and turns them into plain-language release notes or status updates.",
+    "Allow team members to ask the agent to prepare handoffs between support and engineering by pulling relevant Bitbucket context and assembling a clean summary.",
+    "Use an internal agent to guide employees through release or incident SOPs by checking Bitbucket state, identifying missing context, and suggesting the next approved step.",
+    "Help managers and cross-functional teams chat with the agent to understand current development progress without needing direct Bitbucket expertise."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks pull request and pipeline status for customer-facing bug updates.",
+    "An internal assistant that summarizes recent repository activity for release readiness reviews.",
+    "A handoff workflow that turns support bug reports into structured engineering escalation notes.",
+    "A team agent that explains branch, commit, and merge activity in plain language.",
+    "A release assistant that gathers Bitbucket changes and drafts customer-safe update summaries.",
+    "An operations agent that reviews pipeline outcomes and flags when approvals are needed before the next step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Bitbucket-enabled agent to do, such as checking pull request status, summarizing pipeline results, or preparing engineering handoffs, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Bitbucket connection details, defines secure configuration values, handles authentication safely, protects and proxies secrets through approved runtime settings, and scopes access to only the repositories, actions, and users required."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right guardrails for lookups, summaries, updates, and workflow triggers, including approval boundaries and action limits for any sensitive Bitbucket changes or cross-team handoffs."
+    },
+    {
+      "title": "The testing agent improves it",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can use Bitbucket-powered AI actions in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Bitbucket?",
+      "answer": "With DocsBot Skill Builder, you describe the Bitbucket workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up repository data, summarize activity, and take approved actions safely. It also handles secure connection design, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Bitbucket data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Bitbucket as a source of live development context, such as pull request status, branch progress, commit activity, or pipeline outcomes, when responding to customer questions. You control what the agent is allowed to read, summarize, and trigger."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Bitbucket?",
+      "answer": "A DocsBot agent can gather engineering context for bug reports, summarize release progress, prepare escalation notes, check whether a fix has been merged or deployed, and trigger approved handoff workflows. This helps support teams give faster and more informed responses without exposing raw development complexity to customers."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work across Bitbucket and other teams?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve Bitbucket information, summarize code and pipeline activity, and complete SOP-driven handoffs across support, engineering, and operations. This makes it easier for non-developers to get reliable status updates through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Bitbucket actions secure?",
+      "answer": "Skill Builder defines the required configuration values, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes permissions to the minimum actions and records needed. It can also add approval steps and safe action boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot create Bitbucket handoff and escalation summaries automatically?",
+      "answer": "Yes, DocsBot can assemble structured summaries from customer conversations and Bitbucket context to prepare engineering handoffs, escalation notes, or release-status updates. That helps teams move issues forward with clearer context and less manual copying."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "github",
+    "gitlab",
+    "linear",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bitbucket",
+    "domain": "bitbucket.com",
+    "description": "Bitbucket Cloud is a collaborative tool designed specifically for development teams utilizing Jira. It leverages a Git-based platform to facilitate efficient code management and version control. With integrated continuous integration and continuous deployment (CI/CD) capabilities, Bitbucket Cloud streamlines the development workflow, allowing teams to automate their delivery processes and enhance productivity. Its seamless integration with Jira ensures that project management and development teams remain in sync, promoting better communication and collaboration. Bitbucket Cloud is an ideal solution for teams seeking to optimize their development pipeline while maintaining a clear overview of their projects.",
+    "slogan": "Optimized Git and CI/CD for teams using Jira.",
+    "logoUrl": "https://media.brand.dev/3de07a9e-2be6-4984-b419-929ea61d8a6e.png",
+    "iconUrl": "https://media.brand.dev/7cd61f3b-5661-4a9b-9e14-afdb46368a7a.png",
+    "primaryColor": "#7b849b",
+    "accentColor": "#243656",
+    "colors": [
+      {
+        "hex": "#7b849b",
+        "name": "Tempest"
+      },
+      {
+        "hex": "#243656",
+        "name": "Boatswain"
+      },
+      {
+        "hex": "#2180f9",
+        "name": "Clear Blue"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://bitbucket.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0e4fe235-c654-4ece-9ced-dc1ee098cb26.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 195,
+        "height": 35,
+        "aspectRatio": 5.57
+      },
+      {
+        "url": "https://media.brand.dev/3de07a9e-2be6-4984-b419-929ea61d8a6e.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 540,
+        "height": 67,
+        "aspectRatio": 8.06
+      },
+      {
+        "url": "https://media.brand.dev/7cd61f3b-5661-4a9b-9e14-afdb46368a7a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6b803c63-5cb5-484a-96f0-747ddc0f5c11.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0e4fe235-c654-4ece-9ced-dc1ee098cb26.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 195,
+      "height": 35,
+      "aspectRatio": 5.57
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6b803c63-5cb5-484a-96f0-747ddc0f5c11.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "zoom",
+  "name": "Zoom",
+  "domain": "zoom.us",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoom",
+  "metaTitle": "Build Zoom AI Agents for Support and Internal Teams",
+  "metaDescription": "Create DocsBot AI agents that use Zoom to look up meetings, summarize sessions, trigger workflows, and support employees or customers with safe actions.",
+  "intro": "Zoom helps teams meet, message, present, and collaborate across customer conversations and internal operations. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoom, and Skill Builder designs, secures, tests, and deploys that reusable Skill for you. The result is a support or internal AI agent that can answer questions, gather context, summarize activity, and take approved actions inside Zoom.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up upcoming Zoom meeting details and share the right join information, schedule context, or follow-up guidance during a support chat.",
+    "Let a support agent create or update Zoom meeting records for onboarding calls, troubleshooting sessions, or success check-ins while replying to customer tickets.",
+    "Have the agent summarize Zoom meeting or webinar details so customers receive a clear handoff, recap, or next-step message without waiting for a human agent.",
+    "Trigger approved Zoom workflows such as creating a support session, preparing a webinar follow-up, or gathering meeting metadata to help route the customer to the right team.",
+    "Use Zoom data in a helpdesk-connected DocsBot agent to prepare escalation notes, meeting context, and conversation summaries before a human support rep takes over."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find Zoom meeting details, webinar schedules, recordings, or participation context without searching across multiple systems.",
+    "Customer success, sales, or operations teams can ask the agent to create Zoom meetings, prepare invite workflows, and summarize session history as part of repeatable SOPs.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to retrieve Zoom activity, generate meeting recaps, and coordinate handoffs between support, success, and account teams.",
+    "Enable employees to ask the agent for Zoom webinar or event information, attendance context, and follow-up tasks so they can move faster without manual admin work.",
+    "Give team members a private AI assistant that combines Zoom context with internal documentation to answer process questions and complete approved meeting-related workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates Zoom troubleshooting sessions from customer chat conversations.",
+    "A private assistant that finds upcoming Zoom meetings and summarizes their purpose for employees.",
+    "A workflow Skill that prepares webinar follow-up notes and routes next steps to the right team.",
+    "An internal agent that retrieves Zoom recording or meeting metadata for operations research.",
+    "A support Skill that builds escalation handoff summaries using Zoom session context and ticket details.",
+    "An employee assistant that creates standard customer onboarding calls in Zoom with approval limits."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Zoom, and Skill Builder turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Zoom access to only the users, actions, and data needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for meeting creation, updates, handoffs, or other sensitive workflows so the agent acts within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoom?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoom workflow you want in plain language, such as looking up meeting details, creating sessions, or summarizing webinars, and Skill Builder designs and deploys the Skill for you. It also handles secure connection setup, scoped permissions, and testing before launch."
+    },
+    {
+      "question": "Can an AI support agent use Zoom during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Zoom as a connected system to retrieve meeting information, prepare handoffs, create approved sessions, or summarize meeting context while responding to customers. This helps support teams resolve issues faster without making customers wait for manual back-office work."
+    },
+    {
+      "question": "What Zoom workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees find meetings, create standard sessions, summarize webinar activity, retrieve recording context, and complete meeting-related SOPs across support, success, sales, or operations teams. The workflows can be limited to approved actions and user roles."
+    },
+    {
+      "question": "Can DocsBot safely create or update Zoom records through AI Actions?",
+      "answer": "DocsBot Skill Builder is designed to create bounded AI Actions with secure authentication handling, protected secrets, scoped access, and approval steps where needed. That means your agent can take useful action in Zoom without broad or uncontrolled permissions."
+    },
+    {
+      "question": "Can an AI agent summarize Zoom meetings or webinars for follow-up workflows?",
+      "answer": "Yes, a DocsBot Skill can collect Zoom meeting or webinar context and turn it into recaps, handoff notes, follow-up tasks, or support summaries. This is useful for both customer-facing support workflows and internal team coordination."
+    },
+    {
+      "question": "How does setup work for a non-technical team that wants to connect Zoom to DocsBot?",
+      "answer": "You do not need to manually design the integration step by step. You describe the business outcome you want, and Skill Builder handles the workflow design, secure configuration, authentication approach, testing, improvement, and deployment process."
+    }
+  ],
+  "relatedSlugs": [
+    "microsoft-teams",
+    "slack",
+    "google-meet",
+    "webex",
+    "calendly",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoom",
+    "domain": "zoom.us",
+    "description": "Zoom is a leading AI‑first work platform that connects teams, reimagines workspaces, and engages audiences worldwide. It offers a suite of secure video communication tools—including Zoom Meetings, AI Companion, Team Chat, Phone, Events, Rooms, Webinar, and Contact Center—catering to enterprises, schools, healthcare, finance, government, and small businesses. Driven by a core value of Care, Zoom’s global employees help customers communicate more effectively, foster meaningful connections, and boost productivity. The company emphasizes innovation, frictionless experiences, and rapid, customer‑focused solution design, providing opportunities for employees to grow in a collaborative, growth‑focused environment.",
+    "slogan": "One platform. Endless ways to work together.",
+    "logoUrl": "https://media.brand.dev/754d67a0-38f1-47c5-8fa3-77357644d350.png",
+    "iconUrl": "https://media.brand.dev/f5e37b04-003a-4b7a-b758-cb4f3453fe8b.jpg",
+    "primaryColor": "#0b58d8",
+    "accentColor": "#d9e9f4",
+    "colors": [
+      {
+        "hex": "#0b58d8",
+        "name": "Chun-Li Blue"
+      },
+      {
+        "hex": "#d9e9f4",
+        "name": "Azureish White"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3aaf8794-b1ae-46c3-9f92-f1ea448d8016.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.zoom.us/home",
+      "terms": null,
+      "contact": null,
+      "blog": "https://news.zoom.us/",
+      "pricing": "https://zoom.us/pricing",
+      "privacy": "https://explore.zoom.us/en/privacy/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f5e37b04-003a-4b7a-b758-cb4f3453fe8b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/754d67a0-38f1-47c5-8fa3-77357644d350.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 188,
+        "height": 43,
+        "aspectRatio": 4.37
+      },
+      {
+        "url": "https://media.brand.dev/abdcc853-6b3d-4b5d-aa09-19979ca4f647.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/754d67a0-38f1-47c5-8fa3-77357644d350.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 188,
+      "height": 43,
+      "aspectRatio": 4.37
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/abdcc853-6b3d-4b5d-aa09-19979ca4f647.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

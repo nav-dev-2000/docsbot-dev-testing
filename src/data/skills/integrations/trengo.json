@@ -1,0 +1,168 @@
+{
+  "slug": "trengo",
+  "name": "Trengo",
+  "domain": "trengo.com",
+  "category": "Customer Support",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Trengo",
+  "metaTitle": "Build Trengo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Trengo to look up conversations, update records, trigger handoffs, and automate safe support and team workflows.",
+  "intro": "Trengo helps teams manage customer conversations across channels from one platform, making it a strong system for AI-assisted support and operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read from and act inside Trengo. The result is a support or internal AI agent that can answer questions, prepare handoffs, update conversation state, and trigger approved workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "When a customer starts a chat or submits a ticket, the DocsBot agent can look up the matching Trengo conversation history and summarize recent interactions before replying.",
+    "The agent can create or update Trengo tickets, notes, tags, or conversation status so customer issues are tracked without forcing the user to repeat details.",
+    "The agent can prepare a clean handoff in Trengo with the customer summary, issue category, priority, and next recommended action for a human teammate.",
+    "The agent can check whether a conversation has already been assigned or escalated in Trengo and give the customer an accurate status update.",
+    "The agent can trigger approved follow-up workflows in Trengo after collecting missing details from the customer in chat or through a helpdesk reply."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find Trengo conversations, review account history, and get a fast summary before responding to a customer.",
+    "Support and success teams can ask the agent to create internal notes, update conversation ownership, or move a Trengo item into the right queue using approved rules.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to research open Trengo cases, identify patterns, and generate shift handoff summaries.",
+    "Managers can ask the agent to pull Trengo activity details for coaching, workload reviews, or escalation follow-up without digging through the dashboard manually.",
+    "Internal teams can use the agent to follow SOPs around escalation intake, callback preparation, or complaint review while the agent gathers context from Trengo and connected systems."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that reads Trengo conversation history before answering customers.",
+    "An AI workflow that creates Trengo tickets and attaches structured issue summaries.",
+    "A handoff assistant that updates Trengo notes, tags, and ownership after triage.",
+    "An internal agent that surfaces open Trengo cases and summarizes urgency by queue.",
+    "A QA assistant that reviews Trengo conversations and drafts coaching notes for managers.",
+    "An escalation bot that gathers customer details and prepares a Trengo handoff package."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Trengo agent to do in plain language, such as summarizing conversations, updating ticket status, or preparing escalations for human follow-up."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a secure Skill design, identifies the required Trengo configuration values, and sets up safe authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically protects and proxies secrets through secure runtime configuration, scopes access to the minimum Trengo actions and records needed, and adds approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Trengo Skill to your customer-facing DocsBot, helpdesk agent, or private internal assistant so it can take bounded actions with clear logs and controls."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Trengo customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as looking up conversation history, updating ticket status, or preparing handoffs, and Skill Builder creates a reusable Trengo-connected Skill for your agent. It also handles secure connection design, scoped permissions, testing, and deployment guidance for customer-facing chat or helpdesk use."
+    },
+    {
+      "question": "Can an AI support agent use Trengo data while chatting with customers?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved Trengo data during a customer conversation to retrieve context, summarize prior interactions, and support accurate responses. Actions and access can be limited to the records, workflows, and updates you explicitly allow."
+    },
+    {
+      "question": "What Trengo workflows can DocsBot automate for support teams?",
+      "answer": "DocsBot can help automate lookups, ticket or conversation updates, tagging, note creation, routing support, escalation prep, and handoff summaries inside Trengo. The exact workflow is shaped around your rules so the agent takes bounded action instead of making unrestricted changes."
+    },
+    {
+      "question": "Can I create an internal AI assistant that works with Trengo for my team?",
+      "answer": "Yes, you can build a private DocsBot agent for employees that searches Trengo conversations, summarizes queue activity, updates records under approved rules, and supports SOP-driven tasks in chat, Slack, or Microsoft Teams. This is useful for support leads, customer success, and operations teams that need fast access to conversation context."
+    },
+    {
+      "question": "How does DocsBot keep a Trengo integration secure?",
+      "answer": "Skill Builder defines the needed configuration values, keeps secrets out of chats and Skill source, proxies authentication through secure runtime configuration, and scopes access to the minimum actions required. It can also add approval boundaries for higher-risk actions such as escalations, assignment changes, or sensitive record updates."
+    },
+    {
+      "question": "Can a DocsBot agent escalate or hand off issues in Trengo?",
+      "answer": "Yes, the agent can be designed to gather missing details, prepare a summary, and create or update the Trengo record for a clean human handoff. Approval steps can be added when you want a person to confirm the action before it is completed."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "gorgias",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Trengo",
+    "domain": "trengo.com",
+    "description": "Trengo is a customer engagement platform that helps businesses turn conversations into relationships. They provide an AI-powered platform that automates workflows and manages omnichannel communication from a single dashboard, enhancing customer interactions and driving growth through moments of genuine delight.",
+    "slogan": "Turning Conversations into Relationships for Genuine Customer Delight",
+    "logoUrl": "https://media.brand.dev/6e5b6352-df7b-4639-bfb2-6622e4da6fb1.svg",
+    "iconUrl": "https://media.brand.dev/9a945160-87d3-4d3d-8f9a-6410b8193afa.png",
+    "primaryColor": "#041434",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#041434",
+        "name": "Squid Ink Powder"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4ee2e306-256a-4581-8161-633616b4b689.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://trengo.com/careers",
+      "terms": "https://trengo.com/terms-and-conditions",
+      "contact": "https://trengo.com/contact",
+      "privacy": "https://trengo.com/privacy-statement",
+      "blog": "https://trengo.com/blog",
+      "pricing": "https://trengo.com/cases/your-apartment"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9a945160-87d3-4d3d-8f9a-6410b8193afa.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6e5b6352-df7b-4639-bfb2-6622e4da6fb1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 145,
+        "height": 32,
+        "aspectRatio": 4.53
+      },
+      {
+        "url": "https://media.brand.dev/9cb96d43-cbfe-4f83-8118-0c593505eaed.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6e5b6352-df7b-4639-bfb2-6622e4da6fb1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 145,
+      "height": 32,
+      "aspectRatio": 4.53
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9a945160-87d3-4d3d-8f9a-6410b8193afa.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

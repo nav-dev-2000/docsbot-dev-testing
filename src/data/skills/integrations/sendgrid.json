@@ -1,0 +1,168 @@
+{
+  "slug": "sendgrid",
+  "name": "SendGrid",
+  "domain": "sendgrid.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SendGrid",
+  "metaTitle": "Build SendGrid AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SendGrid for safe email lookups, campaign workflows, ticket handoffs, summaries, and approved actions in support or internal operations.",
+  "intro": "SendGrid helps teams send transactional and marketing email at scale, and DocsBot Skill Builder helps you turn that capability into a practical AI agent action. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets your DocsBot agent safely look up SendGrid data, trigger approved email workflows, and summarize delivery or campaign activity. This helps customer support and internal teams move from answering questions to taking bounded action inside SendGrid.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check SendGrid message status and explain whether an email was delivered, deferred, bounced, or blocked while replying to a customer in chat or a ticket.",
+    "Use the agent to look up recent email activity for a customer and summarize what was sent, when it was sent, and any delivery issues before preparing a support response.",
+    "Allow the agent to trigger an approved resend or follow-up workflow when a customer says they never received a password reset, verification, or onboarding email.",
+    "Have the agent collect missing details from the customer, create a clean support handoff, and attach a summary of SendGrid delivery evidence for the human team.",
+    "Use the agent to identify patterns such as repeated bounces or suppressions and explain the next safe step the customer should take to restore email delivery."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve SendGrid delivery data, investigate failed transactional emails, and get a plain-language summary without digging through dashboards.",
+    "Support and operations teams can ask the agent to follow SOPs for email troubleshooting, including checking events, reviewing suppressions, and preparing escalation notes for engineering or messaging teams.",
+    "Marketing and lifecycle teams can use the agent in Slack or Microsoft Teams to summarize campaign performance context or confirm whether a send completed before taking the next action.",
+    "Internal teams can ask the agent to generate customer communication drafts based on SendGrid delivery outcomes and route sensitive follow-up steps through approval boundaries.",
+    "Employees can use the agent to coordinate cross-system workflows where SendGrid activity is combined with helpdesk, CRM, or product context to complete investigations faster."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks email delivery events and explains customer-facing next steps.",
+    "An internal troubleshooting assistant that reviews bounces, blocks, and suppression status for employees.",
+    "A workflow Skill that triggers approved resend actions for missing transactional emails.",
+    "A handoff Skill that summarizes SendGrid evidence for support escalations and engineering review.",
+    "A campaign operations assistant that reports send status and highlights delivery anomalies.",
+    "A private team agent that follows email incident response SOPs across support workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the SendGrid-enabled agent to do, such as checking delivery status, summarizing email activity, or triggering an approved resend, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets outside chats and Skill source, and scopes SendGrid access to the minimum actions, users, and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right runtime instructions, action boundaries, and approval steps so sensitive updates or sends happen only within the rules you define for support or internal workflows."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer and employee scenarios, finds bugs, weak guidance, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps publish the SendGrid Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action where it is needed."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses SendGrid data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking delivery events or triggering an approved email workflow, and Skill Builder creates the secure Skill design for that job. It handles connection details, secret protection, permission scoping, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can a customer support AI agent check SendGrid delivery status for users?",
+      "answer": "Yes, a DocsBot support agent can use a SendGrid Skill to look up message events, summarize delivery outcomes, and help explain why a customer did or did not receive an email. You can also define safe next steps such as preparing a handoff or triggering an approved resend workflow."
+    },
+    {
+      "question": "What SendGrid workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees investigate failed sends, review suppressions, summarize campaign or transactional email activity, and follow troubleshooting SOPs across teams. It can also prepare escalation notes, draft communications, and trigger bounded actions where approvals are required."
+    },
+    {
+      "question": "Can DocsBot take actions in SendGrid instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as approved lookups, updates, workflow triggers, summaries, and handoff creation inside customer-defined limits. Skill Builder adds guardrails so the agent acts only within the permissions, records, and approval boundaries you allow."
+    },
+    {
+      "question": "How does DocsBot keep SendGrid authentication and secrets secure?",
+      "answer": "Skill Builder identifies the required connection settings and keeps credentials out of chat transcripts and generated Skill content by using secure runtime configuration and secret proxying. It also scopes access carefully and can restrict which users, actions, or workflows the agent is allowed to use."
+    },
+    {
+      "question": "Can I use a SendGrid AI agent for helpdesk tickets as well as website chat?",
+      "answer": "Yes, the same type of Skill can support a customer-facing website agent or a DocsBot agent connected to your helpdesk. In both cases, the customer conversation or ticket triggers DocsBot, and the Skill lets the agent look up SendGrid data or perform approved actions while replying."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "intercom",
+    "zendesk",
+    "salesforce",
+    "gmail"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SendGrid",
+    "domain": "sendgrid.com",
+    "description": "Twilio SendGrid is a leading cloud-based customer communication platform focused on driving engagement and business growth. With a proven track record of successfully delivering over 45 billion emails every month, SendGrid caters to a wide range of clients from internet and mobile-based companies like Airbnb, Pandora, and Uber to more traditional enterprises like Taco Bell and Costco. Through their trusted email API and marketing campaigns platform, SendGrid enables companies to send at scale, handling a staggering 148+ billion emails monthly. With a customer-centric approach, Twilio SendGrid continuously aims to be the platform of choice for companies seeking to elevate their customer engagement strategies.",
+    "slogan": "Send at scale with SendGrid's trusted email API and platform!",
+    "logoUrl": "https://media.brand.dev/945fc686-3455-4a7c-99c2-350000f03661.svg",
+    "iconUrl": "https://media.brand.dev/9786a0c5-b15f-41fe-93fa-8f9ce2eb39c9.jpg",
+    "primaryColor": "#54abe3",
+    "accentColor": "#93c9e3",
+    "colors": [
+      {
+        "hex": "#54abe3",
+        "name": "High Blue"
+      },
+      {
+        "hex": "#93c9e3",
+        "name": "Medical Mask"
+      },
+      {
+        "hex": "#119ce2",
+        "name": "Out of the Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/191b436e-417d-463d-a6f6-bce8a11c583b.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://sendgrid.com/en-us/contact-us-form",
+      "privacy": "https://sendgrid.com/en-us/policies/security",
+      "blog": null,
+      "pricing": "https://sendgrid.com/en-us/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9786a0c5-b15f-41fe-93fa-8f9ce2eb39c9.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/98839f80-7cc0-4954-ab09-f8f5583dacc4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 771,
+        "height": 724,
+        "aspectRatio": 1.06
+      },
+      {
+        "url": "https://media.brand.dev/945fc686-3455-4a7c-99c2-350000f03661.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 136,
+        "height": 38,
+        "aspectRatio": 3.58
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/945fc686-3455-4a7c-99c2-350000f03661.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 136,
+      "height": 38,
+      "aspectRatio": 3.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9786a0c5-b15f-41fe-93fa-8f9ce2eb39c9.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "leandata",
+  "name": "LeanData",
+  "domain": "leandata.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with LeanData",
+  "metaTitle": "Build AI Agents for LeanData with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LeanData for routed lookups, record updates, handoffs, and workflow actions in support and internal team conversations.",
+  "intro": "LeanData helps revenue teams turn CRM data, signals, and routing logic into coordinated action across the customer journey. With DocsBot Skill Builder, you can describe the LeanData workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or private internal AI agent. The result is an AI agent that can answer questions, look up routing context, prepare handoffs, trigger approved actions, and summarize outcomes inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check lead, account, or ownership routing context in LeanData so it can explain who is handling a request and prepare a clean handoff.",
+    "Use a helpdesk-connected DocsBot agent to gather missing qualification details from a customer, then create or update an approved routing-related workflow tied to the right team.",
+    "Have the agent summarize account coverage, buying group context, or lifecycle motion details from LeanData before escalating a complex sales or success inquiry.",
+    "Enable the bot to trigger approved speed-to-lead or post-sales coordination workflows in LeanData after a customer requests contact, onboarding help, or follow-up.",
+    "Let the agent create a structured internal handoff note based on the customer conversation and LeanData context so sales or customer success teams receive a complete case summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up LeanData routing decisions, ownership context, and lifecycle coverage without opening multiple tools.",
+    "Revenue operations teams can ask the agent to research account alignment, summarize signals across records, and prepare next-step recommendations for lead routing or account action.",
+    "Sales and customer success employees can use the agent to trigger approved LeanData workflows, create handoff summaries, and complete SOP-driven coordination steps from chat.",
+    "Managers can ask the agent to summarize how leads or accounts are being routed, identify missing context needed for assignment decisions, and prepare escalation notes for ops review.",
+    "Internal teams can use the agent to collect the required details for a routing or ownership issue, then package the findings into a clean action summary for the right downstream team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains account ownership and routing status using LeanData context.",
+    "A private revenue ops assistant that summarizes lead routing logic and next-step recommendations.",
+    "A helpdesk agent that gathers missing qualification details before triggering an approved handoff workflow.",
+    "An internal assistant that prepares account coverage summaries for sales and customer success teams.",
+    "A chat agent that creates structured escalation notes using LeanData routing and lifecycle data.",
+    "An AI assistant that triggers speed-to-lead follow-up actions within defined approval boundaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with LeanData, such as checking routing context, preparing handoffs, or triggering an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder decides the safest way to connect LeanData, defines the required configuration values, handles authentication through secure runtime settings, and keeps secrets out of chats and generated Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill, prepares it for the right DocsBot agent, and helps publish it so your support bot or internal AI assistant can use LeanData safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for LeanData without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the LeanData outcome you want in plain language and the builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. This lets non-technical teams create AI actions around LeanData lookups, summaries, handoffs, and approved workflow steps."
+    },
+    {
+      "question": "Can an AI support agent use LeanData data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use LeanData context during a customer conversation to look up routing details, summarize account or ownership information, and prepare internal handoffs. Actions can be limited to approved workflows so the agent stays within your operational rules."
+    },
+    {
+      "question": "What customer support workflows can an AI agent handle with LeanData?",
+      "answer": "A DocsBot agent can gather missing customer context, check routing or ownership status, prepare escalation notes, trigger approved follow-up workflows, and summarize the outcome for the next team. This is especially useful when support, sales, and customer success need a clean coordinated handoff."
+    },
+    {
+      "question": "Can an internal AI assistant help revenue teams work inside LeanData from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve LeanData routing context, summarize account coverage, research ownership issues, and complete approved coordination workflows. The experience stays conversational while the Skill handles the system actions in the background."
+    },
+    {
+      "question": "How does DocsBot keep LeanData actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies credentials through runtime settings, and scopes the Skill to only the users, records, and actions you approve. It can also add approval boundaries for sensitive updates or workflow triggers before anything is carried out."
+    },
+    {
+      "question": "Can DocsBot trigger LeanData workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions as well as answers, including approved workflow triggers, handoff creation, record updates, and generated summaries. You decide what the agent is allowed to do and where human approval is required."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "salesloft",
+    "marketo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LeanData",
+    "domain": "leandata.com",
+    "description": "LeanData helps teams align to the customer journey by uniting CRM data, signals, and tools from the first buying signal to closed‑won and beyond. It delivers accurate, actionable data and insights to automate sophisticated customer lifecycle motions such as buying groups, ABX, post‑sales, and speed‑to‑lead. By increasing efficiency, capturing more revenue, and improving customer experiences, LeanData serves as the execution engine behind GTM strategies.",
+    "slogan": "Turn buyer signals into action that drives revenue across your GTM.",
+    "logoUrl": "https://media.brand.dev/d9f152ed-7632-4c32-886d-b9e0b96f7df9.svg",
+    "iconUrl": "https://media.brand.dev/9aef6b34-b997-45eb-85e6-a9763a42eae1.jpg",
+    "primaryColor": "#24d47c",
+    "accentColor": "#347c5c",
+    "colors": [
+      {
+        "hex": "#24d47c",
+        "name": "Shivering Green"
+      },
+      {
+        "hex": "#347c5c",
+        "name": "Liquid Green Stuff"
+      },
+      {
+        "hex": "#2a2d2c",
+        "name": "Blackadder"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a0fd22f1-1309-466f-913b-54664723de9a.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.leandata.com/company/careers/",
+      "contact": "https://www.leandata.com/contact-us/",
+      "privacy": "https://www.leandata.com/privacy/",
+      "blog": "https://www.leandata.com/blog/",
+      "pricing": "https://www.leandata.com/platform/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9aef6b34-b997-45eb-85e6-a9763a42eae1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d9f152ed-7632-4c32-886d-b9e0b96f7df9.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 140,
+        "height": 25,
+        "aspectRatio": 5.6
+      },
+      {
+        "url": "https://media.brand.dev/0544687b-6821-4821-a668-603585568662.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d9f152ed-7632-4c32-886d-b9e0b96f7df9.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 140,
+      "height": 25,
+      "aspectRatio": 5.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0544687b-6821-4821-a668-603585568662.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

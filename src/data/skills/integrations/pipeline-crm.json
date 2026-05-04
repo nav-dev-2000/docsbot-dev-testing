@@ -1,0 +1,168 @@
+{
+  "slug": "pipeline-crm",
+  "name": "Pipeline CRM",
+  "domain": "pipeline-crm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Pipeline CRM",
+  "metaTitle": "Build AI Agents for Pipeline CRM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Pipeline CRM for safe lookups, record updates, handoffs, and workflow automation in support and internal team workflows.",
+  "intro": "Pipeline CRM helps teams manage deals, contacts, and sales activity in one simple system. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Pipeline CRM data and actions. That means support teams and internal employees can get answers, trigger workflows, prepare handoffs, and complete approved CRM tasks directly from an AI chat experience.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, contact, or deal details in Pipeline CRM so it can answer status questions with current information.",
+    "Use the agent to create a follow-up task or sales handoff in Pipeline CRM when a customer asks for a demo, pricing conversation, or callback.",
+    "Have the agent summarize recent Pipeline CRM activity on a customer record to prepare a clean escalation for a sales or success teammate.",
+    "Allow the agent to update approved contact fields, notes, or deal context in Pipeline CRM after collecting missing details from a customer conversation.",
+    "Use the agent in helpdesk replies to identify the correct owner in Pipeline CRM and prepare a routed handoff with conversation history and next-step notes."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve Pipeline CRM contact, company, deal, and activity information without switching tabs.",
+    "Sales and customer success teams can ask the agent to summarize open pipeline, recent touchpoints, and next actions for an account before a meeting or renewal call.",
+    "Employees can use the agent to create contacts, log notes, add follow-up tasks, or update approved deal fields in Pipeline CRM through guided chat workflows.",
+    "Operations teams can chat with the agent to follow SOPs for lead routing, handoff preparation, and CRM data cleanup while keeping actions inside defined approval boundaries.",
+    "Managers can ask the agent to research Pipeline CRM records and produce concise handoff summaries, follow-up drafts, or meeting prep artifacts for their teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Pipeline CRM records before answering account-related questions.",
+    "A handoff Skill that creates follow-up tasks and assigns the right Pipeline CRM owner.",
+    "An internal sales assistant that summarizes deal history and recent activity on demand.",
+    "A CRM update Skill that collects missing details and writes approved notes or field changes.",
+    "A renewal prep agent that gathers contact context, open deals, and next recommended actions.",
+    "A lead routing assistant that logs inquiries and prepares handoffs for sales teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Pipeline CRM, such as look up deal status, create follow-up tasks, or prepare handoff notes, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the agent should retrieve data or take approved actions in Pipeline CRM."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles authentication design, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder sets appropriate permission limits, user scope, and approval boundaries so sensitive updates or workflow triggers only happen within the controls you define."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Pipeline CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the CRM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Pipeline CRM data during customer chats?",
+      "answer": "Yes, a DocsBot agent can use Pipeline CRM to look up contacts, deals, owners, and recent activity while responding to customers, as long as the actions and data access are within the permissions and boundaries you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Pipeline CRM?",
+      "answer": "You can build workflows for live account lookups, sales handoff preparation, follow-up task creation, note logging, owner identification, and conversation summaries that help support teams route customers faster."
+    },
+    {
+      "question": "Can an internal AI assistant update Pipeline CRM records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees create contacts, log notes, update approved fields, and trigger follow-up workflows in Pipeline CRM with scoped permissions and optional approval steps for sensitive changes."
+    },
+    {
+      "question": "How do approval controls work for AI actions in Pipeline CRM?",
+      "answer": "Skill Builder can define approval boundaries and action limits so the agent can safely perform low-risk lookups automatically while holding sensitive updates, ownership changes, or important workflow triggers for review."
+    },
+    {
+      "question": "Is it possible to use DocsBot with Pipeline CRM for sales handoffs and meeting prep?",
+      "answer": "Yes, you can build Skills that gather deal context, summarize recent activity, identify the right owner, and generate handoff notes or meeting prep summaries from Pipeline CRM records."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "close",
+    "zoho-crm",
+    "freshsales"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Pipeline CRM",
+    "domain": "pipelinecrm.com",
+    "description": "A sales CRM software provider offering a pipeline management system, known for its rapid setup and ease of use, featuring a range of innovative tools to streamline sales processes.",
+    "slogan": "Close More Deals",
+    "logoUrl": "https://media.brand.dev/2d74c605-be5a-4605-ab2c-c4929e417bc6.svg",
+    "iconUrl": "https://media.brand.dev/805e3c7a-49b7-4728-a95a-5919132ee6e9.png",
+    "primaryColor": "#1672be",
+    "accentColor": "#84bcdc",
+    "colors": [
+      {
+        "hex": "#1672be",
+        "name": "Beautiful Blue"
+      },
+      {
+        "hex": "#84bcdc",
+        "name": "Enchanting"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/22ce39a9-f8ee-40f1-a680-8671aa0f6731.png",
+    "industries": [],
+    "links": {
+      "careers": "https://pipelinecrm.com/careers/",
+      "terms": "https://pipelinecrm.com/terms/",
+      "contact": "https://pipelinecrm.com/contact-us/",
+      "privacy": "https://pipelinecrm.com/privacy-policy/",
+      "blog": "https://pipelinecrm.com/blog/",
+      "pricing": "https://pipelinecrm.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/805e3c7a-49b7-4728-a95a-5919132ee6e9.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2d74c605-be5a-4605-ab2c-c4929e417bc6.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 262,
+        "height": 57,
+        "aspectRatio": 4.6
+      },
+      {
+        "url": "https://media.brand.dev/37405deb-1d15-4640-8496-290428abddd7.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2d74c605-be5a-4605-ab2c-c4929e417bc6.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 262,
+      "height": 57,
+      "aspectRatio": 4.6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/37405deb-1d15-4640-8496-290428abddd7.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

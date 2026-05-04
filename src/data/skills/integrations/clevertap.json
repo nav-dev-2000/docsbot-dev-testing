@@ -1,0 +1,158 @@
+{
+  "slug": "clevertap",
+  "name": "CleverTap",
+  "domain": "clevertap.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use CleverTap for Support and Engagement",
+  "metaTitle": "Build CleverTap AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use CleverTap to look up profiles, summarize engagement, trigger approved workflows, and support customers or internal teams safely.",
+  "intro": "CleverTap helps brands manage customer engagement, journeys, and personalized experiences across the lifecycle. With DocsBot Skill Builder, you can describe the CleverTap-powered agent you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support or internal agent that can answer questions, retrieve customer engagement context, trigger bounded actions, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "When a customer starts a chat or submits a ticket, the DocsBot agent can look up their CleverTap profile and summarize recent campaigns, journeys, or engagement activity to personalize the response.",
+    "The agent can use CleverTap data to identify whether a customer received a message, opened an email, clicked a push notification, or entered a campaign before answering delivery or engagement questions.",
+    "A support agent can collect missing context from the customer and then create or trigger an approved CleverTap workflow such as adding a user to a segment or starting a follow-up engagement path.",
+    "The agent can summarize a customer's recent lifecycle activity from CleverTap and prepare a structured handoff for a human support or customer success teammate.",
+    "For billing, onboarding, or retention conversations, the agent can combine the ticket context with CleverTap engagement history to suggest the next approved outreach or escalation path."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve CleverTap customer profile details, recent campaign engagement, and lifecycle status without manually searching through dashboards.",
+    "Marketing and customer success teams can ask the agent to summarize segment performance context or customer journey participation before planning outreach or follow-up actions.",
+    "Team members can use the agent in Slack or Microsoft Teams to trigger approved CleverTap actions, such as adding users to segments or launching bounded engagement workflows, with approval checks where needed.",
+    "Operations teams can chat with the agent to assemble a concise activity summary from CleverTap for escalations, account reviews, or retention playbooks.",
+    "Employees can use the agent to follow internal SOPs for campaign troubleshooting, customer outreach preparation, or handoff creation across CleverTap and related systems."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks CleverTap engagement history before replying to customer questions.",
+    "An internal agent that summarizes campaign, segment, and journey context for account teams.",
+    "A workflow Skill that adds qualified users to approved CleverTap audience segments.",
+    "An escalation assistant that prepares human handoff notes using CleverTap lifecycle activity.",
+    "A retention support agent that flags engagement gaps and suggests approved next actions.",
+    "A customer success assistant that retrieves profile activity and recent messaging interactions safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the CleverTap agent to do in plain language, such as looking up engagement history, summarizing journey status, or triggering approved follow-up actions."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required CleverTap configuration values, and defines safe authentication handling without putting technical setup work on you."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "It tests realistic scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into improvements."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to the right DocsBot agent so it can answer questions and take bounded action in your website chat, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses CleverTap data?",
+      "answer": "With DocsBot Skill Builder, you describe the CleverTap workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The agent can then use approved CleverTap data for lookups, summaries, and bounded actions inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use CleverTap to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use CleverTap context during a customer chat or ticket reply to look up engagement history, campaign participation, profile details, or lifecycle activity. That helps the agent respond with more context and prepare better handoffs or follow-up actions."
+    },
+    {
+      "question": "What CleverTap workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees retrieve customer engagement context, summarize segments or journeys, trigger approved audience updates, and follow SOPs for escalation or outreach preparation. Approval boundaries and scoped permissions can be added for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in CleverTap instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved updates, workflow triggers, handoff creation, and summary generation. Skill Builder defines the secure configuration, protects secrets, and limits what the agent is allowed to do."
+    },
+    {
+      "question": "How does DocsBot keep CleverTap access secure for AI agents?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions to the minimum necessary access and can add approval steps for sensitive operations."
+    },
+    {
+      "question": "Can a DocsBot agent summarize CleverTap engagement before escalating a customer issue?",
+      "answer": "Yes, the agent can gather recent profile activity, campaign interactions, and lifecycle signals from CleverTap, then produce a clean escalation summary for a human teammate. This helps support and success teams pick up the case with better context and less manual research."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "braze",
+    "mailchimp",
+    "intercom",
+    "zendesk",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "CleverTap",
+    "domain": "clevertap.com",
+    "description": "CleverTap is a leading customer engagement platform that empowers brands to unlock limitless customer lifetime value through personalized experiences. With its all-in-one platform, CleverTap enables businesses to build strong relationships with their customers, driving loyalty and growth. Backed by top-tier investors, CleverTap is trusted by over 2000 brands worldwide, providing a suite of tools to help businesses connect with their audience at every stage of the customer journey.",
+    "slogan": "Unlock limitless customer lifetime value with CleverTap’s all-in-one engagement platform.",
+    "logoUrl": "https://media.brand.dev/ff203897-5ed6-44dc-8314-47ae775f2caa.jpg",
+    "iconUrl": "https://media.brand.dev/ff203897-5ed6-44dc-8314-47ae775f2caa.jpg",
+    "primaryColor": "#dc2525",
+    "accentColor": "#ec8c8c",
+    "colors": [
+      {
+        "hex": "#dc2525",
+        "name": "Chicken Comb"
+      },
+      {
+        "hex": "#ec8c8c",
+        "name": "Flamingo Dream"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5f70d025-c02d-4a7f-8c5b-6cfc6bd6f950.png",
+    "industries": [],
+    "links": {
+      "careers": "https://clevertap.com/careers/",
+      "terms": "https://clevertap.com/terms-service/",
+      "contact": "https://clevertap.com/contact-us/",
+      "privacy": "https://clevertap.com/privacy-policy/",
+      "blog": "https://clevertap.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://clevertap.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ff203897-5ed6-44dc-8314-47ae775f2caa.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c310c7db-b189-412c-9b10-ca2745187be5.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c310c7db-b189-412c-9b10-ca2745187be5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c310c7db-b189-412c-9b10-ca2745187be5.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

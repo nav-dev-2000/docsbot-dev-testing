@@ -1,0 +1,160 @@
+{
+  "slug": "kommo",
+  "name": "Kommo",
+  "domain": "kommo.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Kommo",
+  "metaTitle": "Build AI Agents for Kommo with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Kommo to look up leads, update deals, trigger follow-ups, and support sales or service workflows safely.",
+  "intro": "Kommo is a sales automation and CRM platform built to help teams manage leads, conversations, and deals across the sales pipeline. With DocsBot Skill Builder, you can describe the Kommo workflow you want in plain language and have DocsBot create a reusable Skill for your support agent or internal AI assistant. That lets your AI agent do more than answer questions by safely looking up CRM data, updating records, preparing handoffs, and triggering approved actions inside Kommo.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Kommo contact or lead details during a website chat so it can personalize replies and confirm account context before handing off to sales or support.",
+    "Use a DocsBot helpdesk agent to create or update Kommo leads from inbound tickets, including notes about the customer issue, product interest, or urgency.",
+    "Have the agent summarize the current deal stage, recent activity, and assigned owner from Kommo when a customer asks for a status update on a sales or onboarding conversation.",
+    "Enable the agent to log customer chat outcomes into Kommo as notes so human reps receive a clean record of what was asked, promised, and resolved.",
+    "Let the agent trigger approved follow-up workflows in Kommo after a support or pre-sales conversation, such as scheduling a callback or flagging a deal for review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Kommo contact records, open deals, conversation history, and latest pipeline status without leaving the conversation.",
+    "Sales and customer success teams can ask the agent to create leads, add notes, update stages, or assign owners in Kommo while following internal workflow rules and approval boundaries.",
+    "Managers can use the agent to summarize Kommo pipeline activity, highlight stalled deals, and prepare handoff notes for account reviews or team standups.",
+    "Operations teams can chat with the agent to complete SOPs that combine Kommo lookups, record updates, and follow-up task creation across customer-facing workflows.",
+    "Employees can ask the agent to research an account in Kommo and produce a concise brief with recent interactions, owner details, next steps, and risks before a call."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up Kommo leads and contact history during live customer conversations.",
+    "A helpdesk assistant that creates Kommo notes and handoff summaries from support tickets automatically.",
+    "A private sales assistant that updates deal stages in Kommo after manager-approved requests.",
+    "An internal agent that prepares account briefs from Kommo before renewals, demos, or escalations.",
+    "A workflow agent that routes qualified chats into Kommo and assigns them to the right owner.",
+    "An AI assistant that summarizes pipeline health and highlights deals needing human follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Kommo-connected agent to do, such as look up deals, update leads, prepare handoffs, or trigger follow-ups, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder asks for any missing business context, chooses the safest workflow pattern, defines the required configuration values, and plans how the agent should use Kommo within clear action limits."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure authentication design, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and safeguards",
+      "description": "Skill Builder adds approval boundaries and permission checks for sensitive Kommo actions so the agent can take bounded action confidently without exceeding the rules you set."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing safeguards, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Kommo without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Kommo workflow you want in plain language and DocsBot designs, secures, tests, and packages the Skill for your agent. It can include live lookups, record updates, summaries, workflow triggers, and approval-aware actions."
+    },
+    {
+      "question": "Can a DocsBot support agent use Kommo data during customer chats or tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Kommo Skill to retrieve lead, contact, deal, or activity data while responding in a website chat widget or helpdesk workflow. That helps the agent personalize replies, prepare handoffs, and log outcomes into Kommo when allowed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Kommo?",
+      "answer": "A DocsBot agent can look up account context, create or update leads, add conversation notes, summarize deal status, and trigger approved follow-up workflows in Kommo. It can also prepare escalations or handoff records for sales, support, or customer success teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Kommo?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Kommo records, research account history, update deals, assign owners, and complete sales or success workflows faster. The agent can also generate account briefs, pipeline summaries, and next-step recommendations based on approved access."
+    },
+    {
+      "question": "How does DocsBot keep Kommo actions safe and controlled?",
+      "answer": "Skill Builder defines secure connection handling, keeps secrets out of chats, scopes permissions to the minimum required access, and can add approval boundaries for sensitive updates. That means the agent can act inside Kommo within customer-defined rules instead of operating with broad unrestricted access."
+    },
+    {
+      "question": "Can DocsBot test a Kommo Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that exercises support and internal scenarios, checks for bugs or workflow gaps, and improves the Skill before deployment. This helps teams launch Kommo-connected AI actions more confidently."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Kommo",
+    "domain": "kommo.com",
+    "description": "Kommo is a sales automation platform designed for small sales teams to cut through noise and close more deals. It automates the entire sales workflow—from lead capture to won sale—and includes a recurring sales pipeline tailored for SaaS businesses. Despite its powerful capabilities, Kommo is ultra‑easy to adopt, with teams able to start using it in under 15 minutes. The company also provides free setup assistance, onboarding, and ongoing support to ensure users get the most out of the solution.",
+    "slogan": "Discover the #1 platform for selling with messengers",
+    "logoUrl": "https://media.brand.dev/ccfe41a3-2c5a-4a3e-99a5-7382538c85cf.svg",
+    "iconUrl": "https://media.brand.dev/d407eaa2-f49f-44f5-a47e-3bbdbac34ecd.jpg",
+    "primaryColor": "#5c44d2",
+    "accentColor": "#ac9bd3",
+    "colors": [
+      {
+        "hex": "#5c44d2",
+        "name": "Iris"
+      },
+      {
+        "hex": "#ac9bd3",
+        "name": "Biloba Flower"
+      },
+      {
+        "hex": "#e9e4f3",
+        "name": "Modest Violet"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/84ea43a5-48db-42f3-8474-e721bf7968a9.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.kommo.com/terms/",
+      "contact": "https://www.kommo.com/contact-us/",
+      "privacy": "https://www.kommo.com/privacy/",
+      "blog": "https://www.kommo.com/blog/",
+      "pricing": "https://www.kommo.com/whatsapp-pricing-calculator/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d407eaa2-f49f-44f5-a47e-3bbdbac34ecd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ccfe41a3-2c5a-4a3e-99a5-7382538c85cf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 132,
+        "height": 28,
+        "aspectRatio": 4.71
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ccfe41a3-2c5a-4a3e-99a5-7382538c85cf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 132,
+      "height": 28,
+      "aspectRatio": 4.71
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d407eaa2-f49f-44f5-a47e-3bbdbac34ecd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "hr-partner",
+  "name": "HR Partner",
+  "domain": "hr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work With HR Partner",
+  "metaTitle": "Build HR Partner AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use HR Partner for secure employee lookups, HR workflow support, summaries, handoffs, and approved internal actions.",
+  "intro": "HR Partner helps teams manage employee information and HR workflows, and DocsBot Skill Builder helps you turn that data into practical AI Actions. In plain language, you can describe the outcome you want, and Skill Builder designs a reusable Skill that lets your DocsBot agent safely look up records, summarize status, prepare handoffs, and take approved actions. This makes it easier to support employees, streamline HR operations, and give teams a private AI assistant that can do more than answer questions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved HR-related policy or status information linked to HR Partner records and respond with a clear summary.",
+    "Use a support agent connected to your helpdesk to gather missing employee details from a ticket, look up the matching HR Partner record, and prepare an HR handoff.",
+    "Have the agent summarize onboarding or employment status details from HR Partner so support teams can route the request to the right HR process.",
+    "Enable the agent to create a structured escalation note that includes relevant HR Partner information, customer-reported context, and next-step recommendations.",
+    "Let the agent trigger approved follow-up workflows after an employee support conversation, such as notifying HR staff or creating an internal review task."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up approved employee profile details and HR status information from HR Partner.",
+    "HR and operations teams can ask the agent to summarize onboarding progress, missing information, or record history from HR Partner before taking the next step.",
+    "Managers can chat with the agent to prepare standardized HR handoff notes, case summaries, or follow-up checklists based on HR Partner data.",
+    "People operations staff can use the agent to complete repeatable SOPs, such as collecting required context, checking HR Partner records, and drafting the next action for approval.",
+    "Internal teams can ask the agent to research employee-related questions across connected knowledge sources and HR Partner, then return a concise answer with recommended next steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up employee records and summarizes approved HR Partner details.",
+    "A support workflow that prepares HR escalations from chat or helpdesk conversations.",
+    "An internal assistant that checks onboarding status and identifies missing employee information.",
+    "A private HR bot that drafts case summaries and next-step recommendations for staff.",
+    "An agent that triggers approved HR follow-up workflows after collecting required context.",
+    "A manager assistant that answers policy questions using knowledge sources plus HR Partner lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with HR Partner in plain language, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right workflow, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for updates, workflow triggers, or sensitive HR steps so the agent operates within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve before launch",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions, tighten safeguards, and improve reliability before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HR Partner?",
+      "answer": "With DocsBot Skill Builder, you describe the HR outcome you want in plain language, such as employee lookups, onboarding summaries, or escalation prep, and Skill Builder designs the workflow, secures the connection, tests it, and prepares it for deployment."
+    },
+    {
+      "question": "Can an AI support agent use HR Partner data during employee support conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved HR Partner data to look up employee information, summarize status, collect missing context, and prepare safe handoffs or follow-up actions while responding in chat or through a helpdesk."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with HR Partner?",
+      "answer": "An internal DocsBot agent can help employees and HR teams retrieve approved employee information, summarize onboarding progress, draft case notes, prepare handoffs, and trigger bounded HR workflows based on your rules."
+    },
+    {
+      "question": "Can DocsBot limit what an HR Partner AI agent is allowed to do?",
+      "answer": "Yes, Skill Builder defines scoped permissions, secure authentication handling, and approval boundaries so the agent only accesses the right records and only performs the actions you allow."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger actions in HR Partner safely?",
+      "answer": "It can be designed to take approved actions such as updating fields, preparing internal tasks, or triggering follow-up workflows, with action limits and approval steps for more sensitive HR operations."
+    },
+    {
+      "question": "How does setup work for a non-technical team using HR Partner with DocsBot?",
+      "answer": "You do not need to map every technical detail yourself. Skill Builder asks for missing context, determines the secure setup, handles configuration and secret protection, tests scenarios, improves the Skill, and helps publish it to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "gusto",
+    "hibob",
+    "workday",
+    "personio",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HR",
+    "domain": "hr.com",
+    "description": "HR.com is a social networking and resource site for HR professionals, committed to advancing their careers and enhancing job performance. With a range of products and resources, including education, research, and cutting-edge technology, they provide best-in-class learning, certification exam preparation, and customized solutions to help HR professionals succeed.",
+    "slogan": "Empowering HR Professionals to Grow, Learn, and Lead Together",
+    "logoUrl": "https://media.brand.dev/7b03ab25-de99-4d50-a79c-ed5c22d75d31.png",
+    "iconUrl": "https://media.brand.dev/4d6ca5ef-71ee-4f7a-9ad1-9e97a2d95f28.jpg",
+    "primaryColor": "#c22834",
+    "accentColor": "#2b323f",
+    "colors": [
+      {
+        "hex": "#c22834",
+        "name": "Lolita"
+      },
+      {
+        "hex": "#2b323f",
+        "name": "Diamond Black"
+      },
+      {
+        "hex": "#cc9853",
+        "name": "Sugar Glazed Cashew"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cb21e494-9e0d-4298-8fe1-aa6ba7e61e6b.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3afe82a9-8b40-48c0-a506-e96d9dc59cf1.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 720,
+        "height": 360,
+        "aspectRatio": 2
+      },
+      {
+        "url": "https://media.brand.dev/7b03ab25-de99-4d50-a79c-ed5c22d75d31.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 207,
+        "height": 98,
+        "aspectRatio": 2.11
+      },
+      {
+        "url": "https://media.brand.dev/4d6ca5ef-71ee-4f7a-9ad1-9e97a2d95f28.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7c18a508-b741-4638-b63e-00be870afdab.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3afe82a9-8b40-48c0-a506-e96d9dc59cf1.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 720,
+      "height": 360,
+      "aspectRatio": 2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4d6ca5ef-71ee-4f7a-9ad1-9e97a2d95f28.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

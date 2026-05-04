@@ -1,0 +1,113 @@
+{
+  "slug": "groove",
+  "name": "Groove",
+  "domain": "groove.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Groove",
+  "metaTitle": "Build AI Agents for Groove with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Groove to look up tickets, update cases, prepare handoffs, and support teams with safe, scoped actions.",
+  "intro": "Groove helps teams manage customer conversations and support workflows, and DocsBot Skill Builder helps you turn that system into an AI agent capability without needing to design it all yourself. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets your DocsBot agent safely read ticket context, update records, prepare handoffs, and trigger approved support actions. The result is a support or internal AI agent that can answer questions and take bounded action inside Groove instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Use a DocsBot website chat agent to look up a customer’s recent Groove ticket history and respond with accurate status updates.",
+    "Let a DocsBot helpdesk agent create a new Groove conversation or ticket when a customer issue needs formal follow-up.",
+    "Enable the agent to add internal notes in Groove that summarize the customer’s issue, troubleshooting steps, and promised next action.",
+    "Allow the agent to update ticket fields, tags, or priority in Groove based on the customer’s request and your approval rules.",
+    "Have the agent prepare a clean handoff in Groove for a human support rep when an issue needs escalation or account review.`\n\nOops, I included a stray character in that line. I will provide a corrected full JSON below."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Teams, or chat to find Groove ticket history, account patterns, and previous resolutions before replying to customers.",
+    "Support leads can ask the agent to summarize open Groove queues, recurring issue themes, and escalation trends for team planning.",
+    "Customer success or operations teams can use the agent to create or update Groove records as part of documented support workflows and handoff procedures.",
+    "New team members can chat with the agent to follow support SOPs, retrieve relevant Groove context, and prepare consistent replies or escalation notes.",
+    "Managers can ask the agent to assemble ticket summaries from Groove for incident reviews, QA checks, or cross-team follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Groove ticket status before answering customers.",
+    "A DocsBot Skill that creates Groove tickets from chat conversations that need follow-up.",
+    "An agent workflow that tags, prioritizes, or routes Groove conversations using your business rules.",
+    "A handoff assistant that writes internal notes and escalation summaries into Groove.",
+    "A private employee agent that retrieves prior Groove resolutions for similar issues.",
+    "A support operations assistant that summarizes queue trends and open case themes from Groove."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Groove in plain language, such as checking ticket status, creating handoffs, or updating approved fields for support workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow design, identifies the required configuration values, handles secure connection and authentication setup, and keeps secrets protected and proxied through secure runtime configuration instead of exposing them in chats or instructions."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum permissions, allowed actions, record scope, and approval boundaries needed so the Groove Skill can operate within safe limits for the right users and workflows."
+    },
+    {
+      "title": "The Skill is drafted and reviewed",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, and any approved actions needed for Groove, then reviews the design for missing steps, weak guidance, or safer alternatives."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Groove workflow, finds bugs, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Groove?",
+      "answer": "With DocsBot Skill Builder, you describe the Groove workflow you want in plain language, and Skill Builder designs, secures, tests, and packages that ability as a reusable Skill for your DocsBot agent. That agent can then use Groove for lookups, updates, handoffs, summaries, and other approved actions you define."
+    },
+    {
+      "question": "Can an AI support agent use Groove data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use a Groove Skill to retrieve relevant ticket context, summarize prior conversations, check status, and prepare approved updates while responding in a chat widget or helpdesk flow. Access can be scoped so the agent only reads or changes what you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Groove?",
+      "answer": "Teams can build workflows for ticket lookups, ticket creation, status summaries, tagging, note creation, escalation prep, routing support, and other bounded actions connected to customer conversations. DocsBot can also prepare clean handoffs for human agents when a case needs review."
+    },
+    {
+      "question": "Can DocsBot update Groove tickets safely?",
+      "answer": "Yes, Skill Builder can design the Groove workflow with scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. That lets the agent update only the records and fields you approve under your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Groove?",
+      "answer": "Yes, private DocsBot agents can help employees search Groove history, summarize similar cases, follow support SOPs, prepare responses, and complete approved support operations tasks from chat, Slack, or Microsoft Teams. This is useful for support, customer success, and operations teams that need faster access to case context."
+    },
+    {
+      "question": "How does DocsBot keep Groove credentials and connections secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs and handles secrets through secure runtime configuration rather than exposing them in chat transcripts or generated content. It also scopes access to the minimum systems, actions, and records required for the Groove workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "gorgias",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Groove",
+    "domain": "groove.com",
+    "description": "",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

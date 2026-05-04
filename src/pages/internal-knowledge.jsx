@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import AIActionContextSection from '@/components/AIActionContextSection'
 import { SplitSection, Section, SectionContent, Highlights, Button } from "@/components/elements"
 import JsonLd from '@/components/seo/JsonLd'
 import {
@@ -756,6 +757,10 @@ export default function InternalKnowledge() {
                   />
                 </div>
               </SplitSection>
+            </SectionReveal>
+
+            <SectionReveal direction="down" amount={0.25}>
+              <AIActionContextSection variant="internal" className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

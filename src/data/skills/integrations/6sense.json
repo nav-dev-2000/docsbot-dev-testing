@@ -1,0 +1,168 @@
+{
+  "slug": "6sense",
+  "name": "6sense",
+  "domain": "6sense.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use 6sense for Support and Revenue Workflows",
+  "metaTitle": "Build AI Agents for 6sense with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use 6sense data for support, sales, and internal workflows with secure lookups, summaries, handoffs, and approved actions.",
+  "intro": "6sense helps revenue teams identify likely buyers, prioritize accounts, and guide next-best actions with revenue intelligence. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use 6sense data and workflows. That gives customer-facing support teams and internal revenue teams an AI agent that can answer questions, gather context, prepare handoffs, and take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, segment, or engagement context from 6sense so it can personalize responses for high-value prospects or customers.",
+    "Use 6sense intent and account insights during ticket handling so the AI agent can summarize revenue context before escalating a sales-related or renewal-related support conversation.",
+    "Have the agent prepare a clean handoff for sales or customer success by attaching 6sense account signals, recent engagement trends, and recommended next steps to the ticket.",
+    "Enable the AI agent to identify when a support conversation involves an in-market account and trigger an approved internal follow-up workflow for sales or success teams.",
+    "Let the agent summarize 6sense buying-stage or account-priority information for helpdesk replies when a customer asks about demos, pricing, enterprise onboarding, or account ownership."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve 6sense account intelligence, intent signals, and prioritization guidance without opening multiple tools.",
+    "Help sales and customer success teams ask the agent which accounts are showing stronger buying signals so they can research opportunities and plan outreach faster.",
+    "Enable revenue operations employees to chat with the agent to generate account summaries, territory handoff notes, and follow-up recommendations using 6sense data plus internal SOPs.",
+    "Support internal workflows where employees ask the agent to prepare executive-ready summaries of target accounts, buying-group activity, and suggested next actions before meetings.",
+    "Give teams an AI assistant that can combine 6sense insights with internal documentation to guide qualification, routing, escalation, and account-planning workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that enriches tickets with 6sense account and intent context before escalation.",
+    "A private sales assistant that answers account-priority questions using live 6sense signals and summaries.",
+    "A customer success agent that prepares renewal or expansion handoff notes from 6sense engagement data.",
+    "An internal revops assistant that generates account research briefs for sellers before meetings.",
+    "A triage workflow that flags strategic accounts and routes conversations to the right team.",
+    "An AI agent that summarizes buying-stage indicators and recommended follow-up actions for employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with 6sense in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the needed configuration values, defines secure authentication handling, protects and proxies secrets, and scopes access to the minimum 6sense data, actions, users, and records required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so sensitive updates, routing steps, or workflow triggers happen only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs or weak spots, and finds permission or workflow gaps before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test results to improve the Skill, then helps publish it to the correct DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses 6sense data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as account lookups, prioritization summaries, or handoff preparation, and Skill Builder creates a secure reusable Skill for that workflow. It handles connection design, authentication, testing, and deployment so your agent can use 6sense safely."
+    },
+    {
+      "question": "Can an AI support agent use 6sense during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use 6sense context during website chats or helpdesk tickets to enrich responses, summarize account importance, and prepare better handoffs to sales or customer success. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with 6sense?",
+      "answer": "Teams can build workflows that look up account intelligence, attach revenue context to tickets, flag strategic accounts, prepare escalation notes, and trigger approved follow-up processes. This helps support conversations move faster while giving internal teams better context."
+    },
+    {
+      "question": "What can an internal AI assistant do with 6sense for sales or revenue teams?",
+      "answer": "An internal DocsBot agent can answer employee questions about account signals, summarize likely opportunities, prepare meeting briefs, and support routing or account-planning workflows. It can also combine 6sense insights with your private SOPs and documentation for more useful recommendations."
+    },
+    {
+      "question": "Can DocsBot take actions in 6sense instead of only answering questions?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved workflow triggers, record-related updates, note generation, and handoff preparation when those actions fit your rules. Skill Builder defines the guardrails, scoped permissions, and approvals needed to keep those actions controlled."
+    },
+    {
+      "question": "How does DocsBot keep a 6sense integration secure?",
+      "answer": "Skill Builder identifies the required configuration values, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes access to the minimum permissions needed. It can also add approval boundaries for sensitive actions and test the workflow before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "marketo",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "6sense",
+    "domain": "6sense.com",
+    "description": "6sense is a Revenue Intelligence Platform that empowers B2B sales and marketing teams to predict which anonymous buying groups are most likely to purchase and to recommend optimal engagement actions. Their Revenue AI solution creates, manages, and converts high‑quality pipeline into revenue, delivering measurable results such as doubled average contract values, quadrupled win rates, and 20‑40% faster deal closures. By unifying data and AI‑driven insights, 6sense helps organizations build predictable pipelines and close deals with speed and certainty.",
+    "slogan": "AI That Knows What Matters. Agents That Act on It.",
+    "logoUrl": "https://media.brand.dev/cfe1e3f6-dd77-4e5f-aa0f-69b65998b318.jpg",
+    "iconUrl": "https://media.brand.dev/cfe1e3f6-dd77-4e5f-aa0f-69b65998b318.jpg",
+    "primaryColor": "#1c8081",
+    "accentColor": "#7c7c84",
+    "colors": [
+      {
+        "hex": "#1c8081",
+        "name": "Riviera Sea"
+      },
+      {
+        "hex": "#7c7c84",
+        "name": "Silver Filigree"
+      },
+      {
+        "hex": "#f2f3f3",
+        "name": "Anti-Flash White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/30a7b1f4-3b56-4649-b7cd-24a23f4ed3b4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://6sense.com/about-us/careers/",
+      "terms": "https://6sense.com/terms-of-use/",
+      "privacy": "https://6sense.com/privacy-policy/",
+      "blog": "https://6sense.com/blog/",
+      "pricing": "https://6sense.com/platform/sales/pricing/",
+      "contact": "https://6sense.com/platform/b2b-buyer-data/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cfe1e3f6-dd77-4e5f-aa0f-69b65998b318.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5ae2d577-e99a-46ae-89e4-c610e7898419.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bac5e81f-3e3d-40fe-978f-6687b7890576.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cfe1e3f6-dd77-4e5f-aa0f-69b65998b318.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cfe1e3f6-dd77-4e5f-aa0f-69b65998b318.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

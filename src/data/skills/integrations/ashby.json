@@ -1,0 +1,178 @@
+{
+  "slug": "ashby",
+  "name": "Ashby",
+  "domain": "ashby.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Ashby",
+  "metaTitle": "Build Ashby AI Agents for Recruiting and Support with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up recruiting data in Ashby, update approved records, route handoffs, and assist teams securely.",
+  "intro": "Ashby is an all-in-one recruiting platform for sourcing, interviewing, and hiring at scale. With DocsBot Skill Builder, you can describe the recruiting or support workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Ashby. The result is a support or internal AI agent that can answer questions, retrieve hiring information, prepare handoffs, and take bounded actions inside your approved process.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check candidate application status in Ashby and share an approved update with job applicants through your website chat or helpdesk replies.",
+    "Use a support agent to collect missing applicant details, create a recruiting handoff, and route the conversation to the right hiring or recruiting team with Ashby context attached.",
+    "Have the agent summarize interview progress, recruiter notes, or next-step status from Ashby so candidates receive faster and more consistent responses.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying recruiting operations or creating an internal review task when a candidate reports an issue.",
+    "Use Ashby data in ticket replies so your support team can confirm whether a referral, interview, or application record exists before escalating the case."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up candidate status, open roles, interview stages, and recruiting ownership from Ashby.",
+    "Enable recruiting coordinators and hiring managers to ask the agent for structured summaries of pipeline health, interview progress, and upcoming candidate actions pulled from Ashby.",
+    "Help internal teams complete recruiting SOPs by having the agent gather Ashby context, draft handoff notes, and prepare escalation summaries for recruiters or interviewers.",
+    "Allow employees to use a private AI assistant to update approved fields, trigger workflow steps, or record follow-up actions in Ashby within defined permission boundaries.",
+    "Support recruiting operations research by letting team members ask the agent questions across hiring activity and receive concise Ashby-backed answers without manually searching records."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and prepares approved applicant responses.",
+    "A recruiting assistant that summarizes interview stages and next steps from Ashby records.",
+    "A private team agent that finds open roles, owners, and active hiring pipeline details.",
+    "An agent that creates recruiting handoffs with candidate context and issue summaries.",
+    "An internal assistant that drafts escalation notes for hiring managers and recruiters.",
+    "A support workflow that verifies applicant records before routing complex cases to humans."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Ashby-connected agent to do, such as check candidate status, summarize recruiting activity, or prepare a handoff, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the configuration values the Skill needs, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Ashby access to the minimum records and actions required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits, appropriate user access, and approval boundaries for sensitive steps such as updating recruiting records or triggering downstream workflows so the agent only acts within your rules."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings back into improvement cycles."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private employee assistant can use Ashby safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Ashby for recruiting workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting outcome you want in plain language, and Skill Builder designs a secure Skill that lets your agent look up Ashby data, summarize records, trigger approved workflows, or update allowed fields."
+    },
+    {
+      "question": "Can an AI support agent use Ashby data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Ashby to check approved application details, confirm status, summarize next steps, and prepare clean handoffs for recruiting teams when a case needs human review."
+    },
+    {
+      "question": "What internal AI assistant workflows can teams automate with Ashby?",
+      "answer": "Internal agents can help employees retrieve candidate and role information, summarize pipeline activity, prepare interview or escalation notes, and complete recruiting SOPs with bounded actions inside Ashby."
+    },
+    {
+      "question": "Can DocsBot safely update records in Ashby through an AI agent?",
+      "answer": "Yes, when you allow it, Skill Builder can create workflows for approved Ashby updates while applying scoped permissions, secure authentication handling, and approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can a DocsBot agent create recruiting handoffs from customer or applicant conversations?",
+      "answer": "Yes, the agent can gather the conversation context, summarize the issue, attach relevant Ashby details, and route the case to the right recruiting or hiring owner for follow-up."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Ashby with DocsBot?",
+      "answer": "You describe the workflow you want, and Skill Builder handles the design, secure configuration, secret protection, testing, and deployment details so your team does not need to manually wire the integration."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "personio",
+    "recruitee"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Ashby",
+    "domain": "ashbyhq.com",
+    "description": "Ashby helps scaling companies achieve ambitious growth targets by providing a fast, efficient hiring platform that streamlines recruitment for teams of any size. Trusted by high‑growth firms such as Snowflake, Reddit, Notion, Deel, Modern Treasury, Opendoor, and Figma, Ashby’s software automates sourcing, interviewing, and decision‑making, enabling organizations to hire top talent quickly and scale their workforce.",
+    "slogan": "The all-in-one recruiting platform that evolves at the speed of AI",
+    "logoUrl": "https://media.brand.dev/96671fbd-687b-49be-889b-535805e8005d.png",
+    "iconUrl": "https://media.brand.dev/9b789684-e808-41c0-8df2-8413ab3e283a.jpg",
+    "primaryColor": "#453dcb",
+    "accentColor": "#a59cd0",
+    "colors": [
+      {
+        "hex": "#453dcb",
+        "name": "Blue With A Hint Of Purple"
+      },
+      {
+        "hex": "#a59cd0",
+        "name": "Wistful"
+      },
+      {
+        "hex": "#efeef5",
+        "name": "Silver Phoenix"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e1225d30-7233-4b48-8aa6-a8a3c6f6b27d.png",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.ashbyhq.com/careers",
+      "terms": "https://www.ashbyhq.com/resources/terms-and-policies",
+      "blog": "https://www.ashbyhq.com/blog/all",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.ashbyhq.com/pricing",
+      "privacy": "https://www.ashbyhq.com/resources/privacy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9b789684-e808-41c0-8df2-8413ab3e283a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/96671fbd-687b-49be-889b-535805e8005d.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1506,
+        "height": 512,
+        "aspectRatio": 2.94
+      },
+      {
+        "url": "https://media.brand.dev/531748be-41c2-49ec-83fc-b47fb1a29adf.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c43b0cdc-d30a-48c1-8a88-70ba4183bb00.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1001,
+        "height": 328,
+        "aspectRatio": 3.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c43b0cdc-d30a-48c1-8a88-70ba4183bb00.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1001,
+      "height": 328,
+      "aspectRatio": 3.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/531748be-41c2-49ec-83fc-b47fb1a29adf.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "freshchat",
+  "name": "Freshchat",
+  "domain": "freshworks.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Freshchat",
+  "metaTitle": "Build Freshchat AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshchat to look up conversations, update records, trigger handoffs, and support teams with safe automated actions.",
+  "intro": "Freshchat helps teams manage customer conversations across chat and messaging channels. With DocsBot Skill Builder, you can describe the Freshchat workflows you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. The result is an AI agent that can answer questions, retrieve live context, take approved actions, and help teams resolve work faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s recent Freshchat conversations and summarize the current issue before replying.",
+    "Use DocsBot in a website chat widget or helpdesk flow to create a Freshchat conversation or handoff when a customer needs human follow-up.",
+    "Allow the agent to add internal notes in Freshchat with a summary of what the customer already tried and what should happen next.",
+    "Enable the agent to update conversation status, priority, or routing fields in Freshchat based on approved support rules.",
+    "Have the agent gather missing information from the customer, then prepare a clean Freshchat escalation for billing, technical, or account teams."
+  ],
+  "internalUseCases": [
+    "Give support employees a private DocsBot agent they can chat with to retrieve Freshchat conversation history, participant details, and status without opening multiple tools.",
+    "Let customer success or operations teams chat with an internal agent in Slack or Microsoft Teams to summarize Freshchat backlog trends and identify urgent follow-ups.",
+    "Enable team members to ask the agent to prepare handoff notes, tag conversations, or trigger approved Freshchat workflow steps as part of support SOPs.",
+    "Help managers use an internal AI assistant to review Freshchat conversations, surface unresolved themes, and generate coaching or QA summaries for the team."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that retrieves recent Freshchat conversations for a customer and summarizes the issue history.",
+    "A Skill that creates Freshchat handoffs with structured notes collected during the DocsBot conversation.",
+    "A Skill that updates Freshchat conversation fields when the agent confirms the right routing or priority.",
+    "A Skill that adds internal Freshchat notes with troubleshooting steps already completed by the customer.",
+    "A Skill that generates escalation summaries for technical, billing, or account management teams.",
+    "A Skill that helps employees search Freshchat records and return concise conversation overviews in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Freshchat in plain language, and it turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should connect to Freshchat, defines the required configuration values, handles authentication securely, protects and proxies secrets, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Boundaries are built in",
+      "description": "Skill Builder adds safe action limits, user scoping, and approval boundaries for sensitive Freshchat updates so the agent only takes the actions you want it to take."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs or weak spots, and feeds improvements back into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent so teams can start using Freshchat-connected AI actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Freshchat?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshchat workflow you want in plain language, such as looking up conversations, creating handoffs, or updating records. Skill Builder then designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Freshchat data while replying to customers?",
+      "answer": "Yes, a DocsBot agent can use a Freshchat Skill to retrieve conversation context, summarize history, collect missing details, and prepare approved follow-up actions while responding to a customer. This helps the agent resolve issues with live context instead of giving generic answers."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Freshchat?",
+      "answer": "A DocsBot agent can help with conversation lookups, internal note creation, structured escalations, status updates, routing preparation, and summary generation. The exact actions are defined by the workflow you want to allow and the approval boundaries you set."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Freshchat?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a chat interface, Slack, or Microsoft Teams to retrieve Freshchat information, summarize conversations, and complete approved support workflows. This can reduce tool switching and speed up SOP execution for support and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep Freshchat actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill source, proxies secrets through approved runtime settings, and scopes access to the smallest set of records and actions required. It can also add approval steps or action limits for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot prepare escalations and handoffs in Freshchat?",
+      "answer": "Yes, a Skill can gather the right customer details, summarize the issue, and create a structured handoff or escalation record in Freshchat for a human team. That makes transfers cleaner and helps the next agent pick up the conversation faster."
+    }
+  ],
+  "relatedSlugs": [
+    "freshdesk",
+    "zendesk",
+    "intercom",
+    "helpscout",
+    "gorgias",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshworks",
+    "domain": "freshworks.com",
+    "description": "Freshworks Inc. is a software development company providing modern cloud-based service software worldwide. Founded in 2010 and headquartered in San Mateo, California, Freshworks offers enterprise-grade solutions that are easy to use and deliver exceptional customer and employee experiences. With a people-first approach to AI, their software automates helpdesk support, fueling customer loyalty and service efficiency for over 72,000 companies globally.",
+    "slogan": "Delivering Exceptional Customer and Employee Experiences",
+    "logoUrl": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+    "iconUrl": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+    "primaryColor": "#d79b2b",
+    "accentColor": "#21b2b7",
+    "colors": [
+      {
+        "hex": "#d79b2b",
+        "name": "Glitzy Gold"
+      },
+      {
+        "hex": "#21b2b7",
+        "name": "Mermaid Treasure"
+      },
+      {
+        "hex": "#88bae3",
+        "name": "Blue Eyed Boy"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/065d156d-be5f-4499-8290-9a9069cabc7e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.freshworks.com/company/careers/",
+      "terms": "https://www.freshworks.com/site-terms/",
+      "contact": "https://www.freshworks.com/contact/",
+      "privacy": "https://www.freshworks.com/privacy/",
+      "blog": "https://www.freshworks.com/newsroom/press-releases/",
+      "pricing": "https://www.freshworks.com/freshdesk/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/20588e78-9915-4fd9-bd38-f8c991328a31.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1f37a30f-2cc0-4510-b994-d2326c2a8c68.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

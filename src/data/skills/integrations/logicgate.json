@@ -1,0 +1,168 @@
+{
+  "slug": "logicgate",
+  "name": "Logicgate",
+  "domain": "logicgate.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with LogicGate",
+  "metaTitle": "Build AI Agents for LogicGate with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LogicGate to look up risk and compliance data, prepare handoffs, update records, and trigger governed workflows safely.",
+  "intro": "LogicGate helps enterprises manage governance, risk, and compliance with workflow-driven processes and live operational visibility. With DocsBot Skill Builder, you can describe the LogicGate actions you want in plain language and have DocsBot build a reusable Skill for support or internal AI agents. The result is an AI agent that can answer questions, retrieve approved LogicGate data, prepare updates, and trigger bounded workflows while following your security and approval rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a reported compliance issue or request in LogicGate and explain the current stage in plain language.",
+    "Use DocsBot in helpdesk replies to gather customer-reported risk details, create a structured handoff or intake record in LogicGate, and confirm next steps.",
+    "Allow the agent to summarize open investigation, remediation, or review progress from LogicGate so support teams can give faster and more accurate updates.",
+    "Have the agent collect missing context from a customer conversation and prepare a LogicGate-ready case summary for a human risk or compliance team to review.",
+    "Enable approved workflow triggers in LogicGate when a customer report meets specific criteria, such as escalating a privacy, security, or policy concern for review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up LogicGate records, control statuses, owners, and due dates without leaving the conversation.",
+    "Help risk, compliance, and operations teams ask the agent for summaries of incidents, assessments, policy exceptions, or remediation work stored in LogicGate.",
+    "Allow employees to use the agent to prepare new intake records, vendor risk reviews, issue updates, or escalation notes in LogicGate using guided prompts and approved fields.",
+    "Support internal SOPs by letting team members ask the agent what to do next, then have the agent retrieve the right LogicGate context and draft the required handoff or follow-up.",
+    "Give managers an internal AI assistant that can compile LogicGate updates into concise status summaries for leadership reviews, audits, or cross-functional check-ins."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks LogicGate case status and explains next steps to customers.",
+    "An intake assistant that turns customer reports into structured LogicGate risk or compliance records.",
+    "A helpdesk agent that drafts escalation summaries using LogicGate workflow and ownership data.",
+    "An internal assistant that retrieves open issues, control gaps, and remediation deadlines from LogicGate.",
+    "A compliance workflow agent that prepares updates and routes sensitive actions for human approval.",
+    "A team assistant that summarizes LogicGate assessments for audits, reviews, and leadership reporting."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LogicGate-powered agent to do, such as look up case status, create intake records, summarize risk workflows, or prepare escalations, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed LogicGate connection details, defines secure configuration values, protects and proxies secrets through approved runtime settings, and scopes the Skill to the minimum data, actions, users, and records required."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so the agent can answer questions, perform approved lookups or updates, and pause for human review on sensitive LogicGate actions."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps deploy the Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so your team can start using LogicGate-powered AI actions with clear controls and logs."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for LogicGate without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it designs the LogicGate Skill for you. It handles secure configuration, authentication setup, scoped permissions, testing, and deployment so the agent can safely perform approved actions."
+    },
+    {
+      "question": "Can a DocsBot support agent use LogicGate data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a LogicGate Skill to retrieve approved record details, summarize workflow status, gather missing context, and prepare escalations while responding to customers. You control which data and actions are allowed and where human approval is required."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with LogicGate?",
+      "answer": "A DocsBot agent can help check case or issue status, create structured intake records from customer reports, summarize remediation progress, and prepare handoffs to risk or compliance teams. It can also trigger approved LogicGate workflows when your rules allow it."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside LogicGate from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve LogicGate information, draft updates, follow SOPs, and prepare workflow steps without switching systems constantly. This is useful for risk, compliance, security, legal, and operations teams that need faster access to governed process data."
+    },
+    {
+      "question": "How does DocsBot keep LogicGate actions secure?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and limits access to the specific records and actions the workflow needs. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot summarize LogicGate records for audits, investigations, or leadership reviews?",
+      "answer": "Yes, a LogicGate Skill can let the agent assemble concise summaries from approved records, workflow stages, owners, and deadlines. That helps teams produce faster updates for audits, status meetings, and executive reporting."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "jira",
+    "zendesk",
+    "salesforce",
+    "okta",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LogicGate",
+    "domain": "logicgate.com",
+    "description": "LogicGate is an AI‑powered GRC (governance, risk, and compliance) platform for enterprises. Its cloud‑based Risk Cloud delivers a holistic, real‑time view of enterprise risk through AI‑driven workflows, analytics, and seamless integrations. The no‑code solution includes over 40 purpose‑built applications that can be customized to any environment, enabling risk teams to quantify impact, align with business priorities, and move beyond compliance toward predictive risk management. By automating processes and providing actionable intelligence, LogicGate helps organizations improve operational efficiency, support sustainable growth, and enhance resilience.",
+    "slogan": "The Leading AI GRC Platform for the Enterprise",
+    "logoUrl": "https://media.brand.dev/0aa1e5bd-3b9a-496d-a5fa-90c32bb9387a.svg",
+    "iconUrl": "https://media.brand.dev/6fa1a28f-04c1-463f-9913-86e0eda2da48.jpg",
+    "primaryColor": "#0d2ccf",
+    "accentColor": "#7996d4",
+    "colors": [
+      {
+        "hex": "#0d2ccf",
+        "name": "Sapphire Glitter"
+      },
+      {
+        "hex": "#7996d4",
+        "name": "Pannikin"
+      },
+      {
+        "hex": "#ecf0f6",
+        "name": "Powder White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4f42b9ff-5882-4c05-9340-3bda33515ef5.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.logicgate.com/company/careers/",
+      "terms": null,
+      "contact": "https://www.logicgate.com/company/contact-us/",
+      "privacy": "https://www.logicgate.com/solutions/data-privacy/",
+      "blog": "https://www.logicgate.com/blog/",
+      "pricing": "https://www.logicgate.com/platform/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6fa1a28f-04c1-463f-9913-86e0eda2da48.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6d650454-9723-452d-91eb-60cd6ce20ffa.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 390,
+        "height": 390,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0aa1e5bd-3b9a-496d-a5fa-90c32bb9387a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 162,
+        "height": 27,
+        "aspectRatio": 6
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0aa1e5bd-3b9a-496d-a5fa-90c32bb9387a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 162,
+      "height": 27,
+      "aspectRatio": 6
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6d650454-9723-452d-91eb-60cd6ce20ffa.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 390,
+      "height": 390,
+      "aspectRatio": 1
+    }
+  }
+}

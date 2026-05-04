@@ -1,0 +1,148 @@
+{
+  "slug": "adobe-workfront",
+  "name": "Adobe Workfront",
+  "domain": "adobe-workfront.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Adobe Workfront",
+  "metaTitle": "Adobe Workfront AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that look up Workfront data, update records, trigger workflows, and summarize project status safely.",
+  "intro": "Adobe Workfront helps teams manage projects, requests, tasks, and operational workflows across the business. With DocsBot Skill Builder, you can describe the Workfront actions you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, retrieve live Workfront context, prepare handoffs, update approved records, and trigger bounded actions instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Adobe Workfront request status and summarize the latest task, owner, due date, or approval state during a support conversation.",
+    "Use a helpdesk-connected DocsBot agent to create a Workfront intake request or follow-up work item when a customer issue needs fulfillment by another team.",
+    "Allow the agent to add approved notes or customer context to an existing Workfront record so the handoff is complete and agents do not need to retype details.",
+    "Have the agent summarize open Workfront tasks, blockers, and recent updates before escalating a customer case to operations or implementation teams.",
+    "Enable the agent to trigger a bounded Workfront workflow, such as routing a request for review or notifying the next team, when the customer meets defined criteria."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Adobe Workfront projects, tasks, requests, and statuses without opening multiple tools.",
+    "Team members can ask the agent to prepare project summaries, blocker reports, overdue task lists, or handoff notes using live Workfront data.",
+    "Operations or customer success teams can chat with the agent to create standardized Workfront requests, assign approved owners, and follow internal SOPs more consistently.",
+    "Managers can use the agent to research work progress across projects, collect recent updates, and generate concise executive-ready status summaries.",
+    "Employees can ask the agent to guide and complete repeatable workflows that combine Workfront lookups, approvals, notes, and follow-up actions within safe permission limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Workfront request and task status for customers.",
+    "A ticket triage Skill that creates Workfront intake requests from support conversations.",
+    "An escalation assistant that summarizes blockers and prepares Workfront handoff notes automatically.",
+    "An internal project assistant that retrieves project health, owners, dates, and next steps.",
+    "A workflow Skill that updates approved Workfront fields after a team member confirms changes.",
+    "A reporting assistant that generates daily summaries of overdue tasks and active blockers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Adobe Workfront agent to do, such as check request status, create intake work, update approved fields, or prepare escalation summaries, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, chooses how the agent should interact with Workfront, and defines the safest workflow for the job."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds approval steps and safe action limits for sensitive updates so the agent can retrieve information freely but only make bounded Workfront changes within your rules."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, unclear instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Adobe Workfront without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs, secures, tests, and packages the Workfront Skill for your agent. It can define the connection details, protect secrets, scope permissions, and prepare the Skill for deployment to a support bot or internal assistant."
+    },
+    {
+      "question": "Can an AI support agent use Adobe Workfront data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Workfront Skill to look up live project, request, or task information while replying to customers in a chat widget or helpdesk flow. That lets the agent provide status updates, gather context, prepare handoffs, and trigger approved workflows when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Adobe Workfront?",
+      "answer": "DocsBot can help automate request lookups, intake creation, escalation preparation, note updates, workflow routing, and status summaries tied to Workfront records. You define which actions are allowed, and Skill Builder adds approval boundaries for anything sensitive."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Adobe Workfront from Slack or Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Workfront details, summarize project progress, create standardized requests, and complete routine operational workflows. This helps teams move faster without forcing everyone to navigate Workfront manually for every task."
+    },
+    {
+      "question": "How does DocsBot keep Adobe Workfront actions safe and controlled?",
+      "answer": "Skill Builder is designed to handle authentication securely, keep secrets out of conversations, and scope access to the minimum data and actions required. It can also require approvals or confirmation boundaries before updates, record creation, or other sensitive actions are allowed."
+    },
+    {
+      "question": "Can DocsBot update Adobe Workfront records as part of an AI workflow?",
+      "answer": "Yes, DocsBot Skills can be designed to update approved Workfront records, add notes, create requests, or trigger follow-up steps when those actions fit your workflow rules. The Skill Builder helps define exactly what the agent may change and under what conditions."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "jira",
+    "monday-com",
+    "clickup",
+    "smartsheet",
+    "trello"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Adobe Learning Manager",
+    "domain": "business.adobe.com",
+    "description": "Adobe is a company that provides a cloud-based Learning Platform, Adobe Learning Manager, to train employees, customers, and partners. It offers a next-gen Learning Management System to develop skills, increase sales, and engage customers. Adobe also provides powerful digital marketing, analytics, commerce, AI, and automation tools to drive growth and deliver personalized experiences across channels.",
+    "slogan": "Empowering Learning and Engagement with Adobe’s Next-Gen Digital Solutions",
+    "logoUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "iconUrl": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+    "primaryColor": "#ea1507",
+    "accentColor": "#dc8484",
+    "colors": [
+      {
+        "hex": "#ea1507",
+        "name": "Uproar Red"
+      },
+      {
+        "hex": "#dc8484",
+        "name": "Peaches of Immortality"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2a29d8d2-48b0-436e-80ef-c6a6ca0e3c12.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/861be50d-2227-42eb-89ac-4fa4743e8a57.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

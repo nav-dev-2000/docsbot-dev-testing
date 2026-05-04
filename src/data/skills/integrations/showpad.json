@@ -1,0 +1,176 @@
+{
+  "slug": "showpad",
+  "name": "Showpad",
+  "domain": "showpad.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Showpad",
+  "metaTitle": "Build AI Agents for Showpad with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Showpad to find content, summarize sales materials, support handoffs, and automate approved internal workflows safely.",
+  "intro": "Showpad helps teams organize sales content, readiness materials, and engagement insights in one revenue effectiveness platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Showpad data and actions. The result is a support or internal AI agent that can answer questions, retrieve the right materials, prepare handoffs, and complete approved workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent find the most relevant Showpad content or product document while answering pre-sales questions in chat.",
+    "Use Showpad content metadata to help the agent summarize the latest approved brochures, presentations, or collateral before responding to a customer ticket.",
+    "Have the agent prepare a sales or customer success handoff by collecting the customer question, matching related Showpad assets, and summarizing next steps for a human teammate.",
+    "Enable the agent to surface region-specific or role-specific materials from Showpad when a prospect asks for product information, case studies, or pricing-adjacent resources.",
+    "Let the agent create a structured follow-up summary that references the Showpad materials shared with the customer and logs the outcome for the next team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right Showpad sales deck, playbook, or onboarding content without manually searching across folders.",
+    "Sales enablement and customer success teams can ask the agent to summarize Showpad content collections, compare available materials, and recommend the best asset for a given scenario.",
+    "Reps can use the agent in Slack or Microsoft Teams to retrieve approved content for a target industry, persona, or sales stage and get a short explanation of why it fits.",
+    "Internal teams can ask the agent to assemble a handoff brief that combines Showpad materials, account context, and next-step guidance for sales, support, or success workflows.",
+    "Operations or enablement employees can chat with the agent to follow repeatable SOPs for content lookup, readiness support, and escalation preparation across Showpad-driven processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that finds the best Showpad asset for a customer question or sales scenario.",
+    "A support assistant that summarizes approved product collateral before replying to complex pre-sales inquiries.",
+    "An internal enablement agent that recommends decks, battlecards, and playbooks by persona or funnel stage.",
+    "A handoff workflow that packages customer context with relevant Showpad materials for human follow-up.",
+    "A Slack or Teams assistant that retrieves onboarding and readiness content for sales and success teams.",
+    "An AI workflow that summarizes Showpad content collections and prepares reusable follow-up notes or briefs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Showpad, such as finding assets, summarizing content, or preparing handoffs, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right connection approach, defines the required configuration values, handles authentication securely, protects and proxies secrets, and scopes Showpad access to the minimum data and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for higher-impact steps so the agent can retrieve information and assist with workflows without exceeding the permissions or records you allow."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings back into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot agent or your private team assistant so people can use Showpad through natural chat conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Showpad?",
+      "answer": "With DocsBot Skill Builder, you describe the Showpad workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up content, summarize materials, prepare handoffs, and trigger approved actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Showpad data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Showpad Skill to retrieve approved content, summarize relevant materials, and package context for sales or success follow-up while staying within the permissions and action boundaries you define."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Showpad?",
+      "answer": "Internal agents can help employees find decks, playbooks, readiness materials, and content by persona, industry, or stage, then summarize the results or prepare workflow briefs for the next team member."
+    },
+    {
+      "question": "Can DocsBot safely connect to Showpad for lookups and approved actions?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, keep credentials out of chats and Skill source, proxy secrets through runtime controls, and limit access to the users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent create sales or customer success handoff summaries from Showpad content?",
+      "answer": "Yes, you can build a Skill that gathers the relevant Showpad materials, summarizes what was shared or recommended, and creates a clean handoff brief for a human rep, success manager, or support specialist."
+    },
+    {
+      "question": "Do I need to configure the Showpad workflow manually to get started?",
+      "answer": "No, you describe the outcome you want, and Skill Builder handles the design, secure connection setup, testing, improvement cycle, and deployment path so non-technical teams can move faster."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "highspot",
+    "seismic",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Showpad",
+    "domain": "showpad.com",
+    "description": "Showpad, now merged with Bigtincan, provides an AI‑powered revenue effectiveness platform that unifies content, readiness, engagement, and intelligence into a single operating system for field selling. The solution helps over 2,000 global customers across manufacturing, healthcare, consumer goods, and enterprise tech accelerate growth and scale their sales motions. Recognized as a leader by Forrester and Gartner and praised by thousands of 5‑star reviews, Showpad’s platform delivers AI‑driven insights, personalized content delivery, and readiness tools that empower reps to engage prospects more effectively and close deals faster.",
+    "slogan": "Welcome to the new era of revenue effectiveness.",
+    "logoUrl": "https://media.brand.dev/924c8f30-fa9d-4745-aff4-4758c9e07059.svg",
+    "iconUrl": "https://media.brand.dev/e2c8aff2-5e87-4c6d-a86f-ba4c17fea8e8.jpg",
+    "primaryColor": "#2d2d84",
+    "accentColor": "#949cb4",
+    "colors": [
+      {
+        "hex": "#2d2d84",
+        "name": "Cosmic Cobalt"
+      },
+      {
+        "hex": "#949cb4",
+        "name": "Skyline"
+      },
+      {
+        "hex": "#ededf1",
+        "name": "White Whale"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a2511db6-f389-4e6e-8cef-3fcb1fd676b4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.showpad.com/careers",
+      "terms": "https://www.showpad.com/online-terms",
+      "contact": "https://www.showpad.com/company/contact",
+      "privacy": "https://www.showpad.com/privacy-policy",
+      "blog": "https://www.showpad.com/blog",
+      "pricing": "https://www.showpad.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e2c8aff2-5e87-4c6d-a86f-ba4c17fea8e8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 352,
+        "height": 352,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/924c8f30-fa9d-4745-aff4-4758c9e07059.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 553,
+        "height": 67,
+        "aspectRatio": 8.25
+      },
+      {
+        "url": "https://media.brand.dev/b6d43fba-c803-4599-9d5b-3a40a26bb6fa.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2620288f-593b-437f-9f88-5475a7e07246.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 866,
+        "height": 156,
+        "aspectRatio": 5.55
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2620288f-593b-437f-9f88-5475a7e07246.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 866,
+      "height": 156,
+      "aspectRatio": 5.55
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b6d43fba-c803-4599-9d5b-3a40a26bb6fa.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

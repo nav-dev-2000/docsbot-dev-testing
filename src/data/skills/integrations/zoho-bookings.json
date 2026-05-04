@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-bookings",
+  "name": "Zoho Bookings",
+  "domain": "zoho-bookings.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Bookings",
+  "metaTitle": "Build AI Agents for Zoho Bookings with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that look up bookings, trigger workflows, and handle scheduling tasks in Zoho Bookings.",
+  "intro": "Zoho Bookings helps businesses manage appointments, availability, and scheduling workflows across teams. With DocsBot Skill Builder, you can describe the scheduling help you want in plain language and have DocsBot create a secure reusable Skill for your support agent or internal AI assistant. That lets your AI agent answer questions, check booking details, update approved records, and trigger next steps inside Zoho Bookings without making your team do the work manually.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check appointment status in Zoho Bookings and answer customer questions about scheduled sessions from a website chat or helpdesk ticket.",
+    "Allow the agent to help customers reschedule or cancel appointments in Zoho Bookings when the request matches your approved rules and permissions.",
+    "Use the agent to look up available time slots in Zoho Bookings and guide customers toward the right next booking option during a support conversation.",
+    "Have the agent create a clean handoff summary for a human team member when a booking issue needs manual review or exception handling.",
+    "Let the agent confirm booking details, assigned staff, service type, or meeting timing before responding to customers about scheduling issues."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up upcoming appointments, staff schedules, or booking records in Zoho Bookings.",
+    "Let customer success or operations teams ask the agent to summarize daily or weekly booking activity and highlight conflicts, gaps, or follow-up needs.",
+    "Help team members complete scheduling SOPs by having the agent retrieve booking details, prepare reschedule options, and trigger approved updates inside Zoho Bookings.",
+    "Allow employees to use a private AI assistant to gather appointment context before outreach, escalations, or service delivery follow-ups.",
+    "Support internal teams with an agent that researches scheduling patterns across booking records and returns concise summaries for planning and staffing decisions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks appointment status and explains the next scheduling step.",
+    "A booking assistant that finds available slots and suggests approved reschedule options.",
+    "A helpdesk agent that cancels or updates bookings after collecting the required customer confirmation.",
+    "An internal scheduling copilot that summarizes daily appointments and flags conflicts for operations teams.",
+    "A customer success assistant that prepares handoff notes from Zoho Bookings activity and customer context.",
+    "An employee AI agent that retrieves staff calendars, services, and appointment details in one chat flow."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Bookings, such as checking appointments, updating bookings, or preparing scheduling handoffs, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder figures out the needed configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and source content, and proxies credentials through protected runtime settings by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Zoho Bookings actions, records, users, and workflows required, and it adds approval boundaries anywhere a cancellation, update, or other sensitive action should be reviewed before completion."
+    },
+    {
+      "title": "Tests and improvements run automatically",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams and customers can use it with the right controls in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Bookings?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling outcome you want in plain language, and it creates a Skill that can look up bookings, update approved appointment records, trigger workflows, and respond through your support or internal agent. Skill Builder also handles secure configuration, scoped permissions, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Bookings data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Zoho Bookings Skill to check appointment details, availability, assigned staff, or booking status while replying to customer chats or tickets. You control which actions are allowed and where approval steps are required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Bookings?",
+      "answer": "A DocsBot agent can answer booking questions, retrieve appointment details, suggest reschedule options, process approved cancellations or updates, and prepare handoff summaries for human teams. This helps customers get faster answers while keeping sensitive actions within your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage scheduling tasks in Zoho Bookings?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve booking records, review upcoming schedules, summarize appointment activity, and complete approved scheduling workflows. This is useful for operations, customer success, and service teams that need quick access to booking information."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Bookings actions secure?",
+      "answer": "Skill Builder is designed to define secure connection settings, protect and proxy secrets, and keep credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum needed actions and can add approval boundaries for sensitive updates like cancellations or booking changes."
+    },
+    {
+      "question": "Can DocsBot test a Zoho Bookings Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run realistic support and employee scenarios against the Skill, identify workflow gaps or permission issues, and improve the Skill before deployment. That testing process helps reduce mistakes and makes the agent more reliable from the start."
+    }
+  ],
+  "relatedSlugs": [
+    "calendly",
+    "acuity-scheduling",
+    "google-calendar",
+    "outlook-calendar",
+    "hubspot-meetings",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "beehiiv",
+  "name": "Beehiiv",
+  "domain": "beehiiv.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Beehiiv",
+  "metaTitle": "Build Beehiiv AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Beehiiv data and actions for customer support, newsletter operations, and internal workflows.",
+  "intro": "Beehiiv helps teams grow and monetize newsletters with audience, signup, referral, and analytics tools. With DocsBot Skill Builder, you can describe the Beehiiv workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. That lets your AI agent answer questions, look up subscriber or publication context, trigger approved newsletter workflows, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check newsletter signup status, subscription details, or audience segment membership in Beehiiv while replying in chat or over helpdesk tickets.",
+    "Use an AI support agent to help customers troubleshoot missing welcome emails, referral rewards, or newsletter access issues by summarizing relevant Beehiiv subscriber activity.",
+    "Allow the agent to create or update approved subscriber records in Beehiiv after confirming customer intent, such as correcting an email address or adjusting eligible preferences.",
+    "Have the agent gather signup source, publication status, and recent campaign context from Beehiiv so it can prepare a faster handoff to human support.",
+    "Enable the agent to trigger bounded follow-up workflows connected to Beehiiv, such as resending onboarding steps or flagging a subscriber for manual review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up subscriber counts, publication performance, referral activity, or segment definitions from Beehiiv without logging into multiple dashboards.",
+    "Marketing and customer success teams can ask the agent to summarize newsletter growth trends, campaign results, or audience changes from Beehiiv for faster reporting and decision-making.",
+    "Team members can use the agent in Slack or Microsoft Teams to follow newsletter operations SOPs, such as checking publication health, reviewing audience issues, and preparing escalation notes.",
+    "Internal teams can ask the agent to generate campaign briefs, audience summaries, or handoff notes using Beehiiv data combined with company documentation and policies.",
+    "Operations staff can use a private AI assistant to trigger approved Beehiiv workflows, queue review tasks, or validate subscriber-related requests within defined permission boundaries."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Beehiiv subscriber status and explains next steps to customers.",
+    "An AI assistant that summarizes newsletter growth, engagement, and referral performance for internal teams.",
+    "A customer service workflow that updates approved subscriber fields after confirmation and policy checks.",
+    "An internal agent that prepares campaign performance summaries from Beehiiv for weekly team reviews.",
+    "A handoff assistant that collects Beehiiv audience context before escalating a subscriber issue.",
+    "A private operations agent that follows newsletter SOPs and triggers approved Beehiiv workflows safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Beehiiv agent to do, such as checking subscriber status, updating approved fields, or summarizing newsletter performance, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the Beehiiv connection details it needs, defines secure authentication and runtime configuration, protects and proxies secrets by default, and scopes the Skill to the minimum actions and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible permission boundaries, approval steps, and action limits so sensitive Beehiiv updates, workflow triggers, or escalations only happen within the rules you choose."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Beehiiv Skill, finds bugs, unclear instructions, or missing safeguards, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so employees or customers can use the workflow in chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Beehiiv?",
+      "answer": "With DocsBot Skill Builder, you describe the Beehiiv workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. The finished agent can handle lookups, summaries, approved updates, and workflow triggers inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Beehiiv data to help newsletter subscribers?",
+      "answer": "Yes, a DocsBot support agent can use Beehiiv context to check subscriber status, review signup or referral details, summarize account history, and prepare handoffs for support teams. Skill Builder can also add approval boundaries for any action that changes subscriber records or triggers follow-up workflows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Beehiiv?",
+      "answer": "A Beehiiv-connected agent can help with signup troubleshooting, welcome email issues, referral reward questions, newsletter access checks, and subscriber preference requests. It can also gather context, update approved records, and create clearer escalations for human support."
+    },
+    {
+      "question": "Can an internal AI assistant use Beehiiv for marketing and operations teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Beehiiv metrics, review audience segments, summarize campaign performance, and follow newsletter operations workflows. This is useful in chat, Slack, or Microsoft Teams when teams need fast answers or guided execution."
+    },
+    {
+      "question": "How does DocsBot keep Beehiiv access secure?",
+      "answer": "Skill Builder defines the required configuration values, handles authentication through secure runtime configuration, keeps secrets out of chat transcripts and Skill source, and scopes access to only the users, actions, and records needed. It can also require approvals or enforce action limits for more sensitive Beehiiv workflows."
+    },
+    {
+      "question": "Can DocsBot update Beehiiv records or trigger newsletter workflows?",
+      "answer": "Yes, Skill Builder can create Skills that perform approved Beehiiv actions such as updating subscriber fields, initiating bounded workflows, or generating summaries and handoff artifacts. Those actions can be limited by policy, record scope, and approval rules before the Skill is deployed."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "convertkit",
+    "hubspot",
+    "intercom",
+    "zendesk",
+    "klaviyo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Beehiiv",
+    "domain": "beehiiv.com",
+    "description": "beehiiv is a newsletter platform that serves as the operating system for the content economy, providing creators with growth‑focused tools to build, manage, and monetize their newsletters. It offers customizable sign‑up forms, audience segmentation, detailed analytics, and automated referral programs, enabling both emerging and established newsletters to scale their reach and revenue.",
+    "slogan": "The all-in-one platform built for creators to grow and earn.",
+    "logoUrl": "https://media.brand.dev/78feb32d-53fe-4efc-abe2-d172a5166377.svg",
+    "iconUrl": "https://media.brand.dev/44d502c6-b7b6-4772-b90c-56e8c0743d66.png",
+    "primaryColor": "#7b4ec9",
+    "accentColor": "#d47acb",
+    "colors": [
+      {
+        "hex": "#7b4ec9",
+        "name": "Fuchsia Blue"
+      },
+      {
+        "hex": "#d47acb",
+        "name": "Purple Kush"
+      },
+      {
+        "hex": "#b9adda",
+        "name": "Delicate Lilac"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/afd00b22-98d0-4123-8ee0-e9e520abcfdc.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "privacy": "https://beehiiv.com/privacy",
+      "blog": "https://beehiiv.com/newsletter-platform",
+      "pricing": "https://beehiiv.com/pricing",
+      "terms": "https://beehiiv.com/tou",
+      "contact": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5f3ad7b5-f85b-4a4d-a49b-32a4ce20944d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/44d502c6-b7b6-4772-b90c-56e8c0743d66.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/78feb32d-53fe-4efc-abe2-d172a5166377.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 439,
+        "height": 110,
+        "aspectRatio": 3.99
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/78feb32d-53fe-4efc-abe2-d172a5166377.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 439,
+      "height": 110,
+      "aspectRatio": 3.99
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5f3ad7b5-f85b-4a4d-a49b-32a4ce20944d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

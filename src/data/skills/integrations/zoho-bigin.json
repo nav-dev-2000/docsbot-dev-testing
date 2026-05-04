@@ -1,0 +1,160 @@
+{
+  "slug": "zoho-bigin",
+  "name": "Zoho Bigin",
+  "domain": "zoho-bigin.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Bigin",
+  "metaTitle": "Build AI Agents for Zoho Bigin with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Bigin to look up CRM data, update records, route handoffs, and automate safe support and team workflows.",
+  "intro": "Zoho Bigin helps small teams manage customer relationships, deals, onboarding, and follow-up work in one CRM. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read Bigin data, update records, trigger workflows, and prepare handoffs. This helps customer-facing support agents and internal team assistants move from answering questions to taking approved action.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact, company, or deal in Zoho Bigin to give customers a more informed status update during chat or ticket replies.",
+    "Use the agent to create or update Bigin contact records when a customer shares new phone numbers, business details, or onboarding information.",
+    "Have the agent summarize recent CRM activity, open deals, notes, or tasks from Zoho Bigin before responding to a customer or escalating the conversation.",
+    "Enable the agent to create a follow-up task or handoff record in Zoho Bigin when a support conversation needs sales, onboarding, or account management attention.",
+    "Let the agent log a structured interaction summary in Zoho Bigin after a customer conversation so teams keep a consistent CRM history without manual copy and paste."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Zoho Bigin contact histories, deal details, and recent activity without opening the CRM.",
+    "Sales, success, and operations teams can ask the agent to create follow-up tasks, update pipeline fields, and record meeting outcomes in Zoho Bigin through approved workflows.",
+    "Team members can use the agent to research account context across conversations and have it summarize Bigin records before renewals, onboarding calls, or escalation reviews.",
+    "Employees can chat with the agent to complete CRM SOPs such as qualifying a lead, preparing a handoff, or logging post-call notes while the agent follows the right steps and permissions.",
+    "Managers can use the agent to generate concise pipeline or activity summaries from Zoho Bigin records to support internal reporting and coaching workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Zoho Bigin contacts and deals before answering customer questions.",
+    "A private sales assistant that creates follow-up tasks and updates Bigin records from chat.",
+    "An onboarding agent that logs customer milestones, notes, and next steps into Zoho Bigin.",
+    "A handoff workflow that sends qualified conversations from support into the right CRM pipeline.",
+    "A deal-summary assistant that prepares clean account context for renewals, demos, and escalation reviews.",
+    "A CRM note-taking Skill that turns chat or ticket conversations into structured Zoho Bigin updates."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Zoho Bigin, such as looking up contacts, updating deal fields, creating follow-up tasks, or preparing handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, handles connection and authentication safely, and keeps secrets protected and proxied through secure runtime settings instead of exposing them in chats or Skill source."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Zoho Bigin access needed, scopes actions to the right records and users, and adds approval boundaries or safe action limits for sensitive updates before anything is deployed."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private employee agent so it can answer questions and take bounded action inside Zoho Bigin."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Bigin without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the CRM workflow you want in plain language and DocsBot designs the Skill for you. It handles secure connection details, scoped permissions, testing, and deployment so your agent can safely use Zoho Bigin data and actions."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Bigin data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved Zoho Bigin records such as contacts, deals, notes, tasks, or recent activity while responding to customers. That gives the agent live CRM context for better answers, faster handoffs, and cleaner follow-up work."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Bigin?",
+      "answer": "You can build workflows for contact lookups, account status summaries, CRM note creation, follow-up task generation, escalation prep, and structured handoffs to sales or customer success. The agent can answer the customer and take approved CRM actions in the same flow."
+    },
+    {
+      "question": "Can an internal AI assistant update Zoho Bigin records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees create tasks, log notes, update deal or contact fields, and summarize account context in Zoho Bigin. Skill Builder can also add approval boundaries so sensitive changes stay controlled."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in Zoho Bigin?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with secure authentication handling, protected secrets, scoped permissions, and bounded actions. It can restrict who can use the Skill, what records it can access, and which updates require approval."
+    },
+    {
+      "question": "Can DocsBot create Zoho Bigin handoffs from support to sales or onboarding?",
+      "answer": "Yes, you can build a Skill that turns a support conversation into a structured CRM handoff with account context, notes, next steps, and task creation in Zoho Bigin. This helps teams avoid manual re-entry and keeps follow-up work consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Bigin",
+    "domain": "bigin.com",
+    "description": "BigIn is a software development company that builds custom enterprise systems, mobile apps, and striking websites for global enterprises, startups, and SMEs in the US, Vietnam, and Singapore. Headquartered in Ho Chi Minh City with sales offices in Dallas and Singapore, BigIn integrates advanced technology into business strategies to deliver efficient, effective digital solutions. The firm fosters an entrepreneurial culture, encouraging innovation and long‑term value for clients and employees alike. In addition to its development services, BigIn offers Bigin by Zoho CRM—a simple yet powerful CRM tailored for small businesses, helping them unify marketing, sales, onboarding, delivery, and support. BigIn is committed to creating world‑class products while nurturing a supportive workplace for personal and professional growth.",
+    "slogan": "Empowering Businesses with Innovative, Custom Digital Solutions and Trusted CRM",
+    "logoUrl": "https://media.brand.dev/4d0bce50-9af4-4e3e-b380-faa5d2b32aa9.jpg",
+    "iconUrl": "https://media.brand.dev/4d0bce50-9af4-4e3e-b380-faa5d2b32aa9.jpg",
+    "primaryColor": "#0ecb6d",
+    "accentColor": "#84e2bd",
+    "colors": [
+      {
+        "hex": "#0ecb6d",
+        "name": "Underwater Fern"
+      },
+      {
+        "hex": "#84e2bd",
+        "name": "Āsmānī Sky"
+      },
+      {
+        "hex": "#eb6e1f",
+        "name": "24 Carrot"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fa8568c4-236b-402e-89fe-80535c065ea2.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.bigin.com/terms.html",
+      "contact": "https://www.bigin.com/contact-us.html",
+      "privacy": null,
+      "blog": "https://www.bigin.com/monthly-newsletter.html",
+      "pricing": "https://www.bigin.com/pricing.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4d0bce50-9af4-4e3e-b380-faa5d2b32aa9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bd9c35fc-e8fe-415f-b9b3-6a4b235a2ca3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4d0bce50-9af4-4e3e-b380-faa5d2b32aa9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4d0bce50-9af4-4e3e-b380-faa5d2b32aa9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

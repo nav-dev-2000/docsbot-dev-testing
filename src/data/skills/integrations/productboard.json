@@ -1,0 +1,168 @@
+{
+  "slug": "productboard",
+  "name": "Productboard",
+  "domain": "productboard.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Productboard",
+  "metaTitle": "Build Productboard AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Productboard to look up feedback, summarize priorities, update records, and route product-related support and internal requests safely.",
+  "intro": "Productboard helps teams centralize customer feedback, feature priorities, and product decisions. With DocsBot Skill Builder, you can describe the Productboard workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve live Productboard context, prepare handoffs, and take bounded actions inside rules you approve.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up relevant Productboard feature ideas, statuses, or roadmap notes when customers ask about requested functionality.",
+    "Let the agent capture customer feedback from chat or support tickets and create or append Productboard notes for product team review.",
+    "Enable the agent to summarize related customer demand in Productboard before replying with a more informed update on a feature request.",
+    "Have the agent prepare a clean escalation handoff that links the customer issue to existing Productboard insights, feature requests, or prioritization context.",
+    "Allow the agent to tag, structure, or route product-related support conversations into approved Productboard workflows for follow-up by product or customer success teams."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve Productboard context on features, customer needs, and roadmap status.",
+    "Enable product, support, and success teams to ask the agent for summaries of related Productboard feedback before account reviews, renewals, or executive updates.",
+    "Give internal teams an agent that can capture new customer evidence, attach it to the right Productboard records, and follow your approved documentation workflow.",
+    "Help employees research recurring requests by asking the agent to compare Productboard notes, summarize trends, and suggest the next internal handoff or follow-up step.",
+    "Support SOP-driven workflows where employees ask the agent to gather Productboard context, prepare stakeholder summaries, and route updates across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that logs feature requests from customer chats into Productboard.",
+    "A helpdesk assistant that checks Productboard before answering roadmap and product feedback questions.",
+    "An internal product assistant that summarizes Productboard evidence for upcoming customer meetings.",
+    "A cross-functional agent that turns support conversations into structured Productboard insights.",
+    "An employee AI assistant that finds related feature ideas and summarizes their current status.",
+    "A workflow agent that prepares escalation notes using Productboard context and customer history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Productboard, and Skill Builder turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, while keeping credentials out of chats and Skill source through protected runtime configuration."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum Productboard actions, records, users, and systems needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the instructions, runtime behavior, and any approved actions the DocsBot agent needs to look up data, create records, summarize context, or prepare handoffs in Productboard."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Productboard?",
+      "answer": "With DocsBot Skill Builder, you describe the Productboard workflow you want in plain language, and the builder designs, secures, tests, and prepares the Skill for deployment to a support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Productboard data when answering customer questions?",
+      "answer": "Yes, a DocsBot agent can use a Productboard Skill to look up approved feature context, feedback history, prioritization signals, or roadmap notes so responses are more informed and consistent."
+    },
+    {
+      "question": "Can DocsBot capture customer feedback from chat and send it to Productboard?",
+      "answer": "Yes, you can build a Skill that turns support chats or tickets into structured Productboard feedback records or updates, with fields, routing, and approval rules defined around your process."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Productboard?",
+      "answer": "Internal agents can summarize feedback trends, retrieve feature context, prepare meeting briefs, create structured evidence records, and guide employees through repeatable product feedback and escalation workflows."
+    },
+    {
+      "question": "Can a Productboard AI workflow include approval controls for sensitive actions?",
+      "answer": "Yes, Skill Builder can add approval boundaries and safe action limits so the agent can research and draft updates freely while holding certain Productboard changes for human review."
+    },
+    {
+      "question": "Is setup technical if I want DocsBot to connect to Productboard?",
+      "answer": "No, the setup is framed around the outcome you want. Skill Builder handles the connection design, required configuration values, secret protection, scoped permissions, testing, and deployment path for you."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "trello",
+    "monday",
+    "clickup"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Productboard",
+    "domain": "productboard.com",
+    "description": "Productboard is an intelligent product management platform that enables product teams to uncover customer needs, align strategy, and deliver exceptional products with clarity and confidence. Used by over 6,000 companies such as Zoom, Salesforce, and Medtronic, it centralizes feedback, prioritizes features, and drives evidence‑based decisions. The platform’s AI agent, Productboard Spark, synthesizes insights at scale, turning scattered data into strategic clarity and continuously improving organizational intelligence. With offices in Prague and San Francisco, Productboard is backed by leading investors and serves as a hub for future‑ready product development.",
+    "slogan": "AI built for PMs.",
+    "logoUrl": "https://media.brand.dev/2320c9f0-929b-49ad-a491-4ad9d4d23a9c.jpg",
+    "iconUrl": "https://media.brand.dev/2320c9f0-929b-49ad-a491-4ad9d4d23a9c.jpg",
+    "primaryColor": "#fb851b",
+    "accentColor": "#f3443c",
+    "colors": [
+      {
+        "hex": "#fb851b",
+        "name": "Glorious Sunset"
+      },
+      {
+        "hex": "#f3443c",
+        "name": "Vermilion Bird"
+      },
+      {
+        "hex": "#0871db",
+        "name": "Blue Ruin"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0a2ba613-47f0-4b64-89f0-03db41a01885.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "blog": null,
+      "careers": "https://www.productboard.com/careers/",
+      "terms": "https://www.productboard.com/website-terms-of-use/",
+      "privacy": "https://www.productboard.com/privacy-policy/",
+      "pricing": "https://www.productboard.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2320c9f0-929b-49ad-a491-4ad9d4d23a9c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d46e6fc8-d5c3-4335-82a0-bd6f72ace6e6.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/130acd19-7370-4e73-a967-092d24c7a531.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d46e6fc8-d5c3-4335-82a0-bd6f72ace6e6.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d46e6fc8-d5c3-4335-82a0-bd6f72ace6e6.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

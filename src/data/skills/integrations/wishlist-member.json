@@ -1,0 +1,168 @@
+{
+  "slug": "wishlist-member",
+  "name": "WishList Member",
+  "domain": "wishlistmember.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with WishList Member",
+  "metaTitle": "Build AI Agents for WishList Member with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use WishList Member to verify access, answer membership questions, update records, and support internal membership operations safely.",
+  "intro": "WishList Member helps businesses run membership sites, online courses, and protected content inside WordPress. With DocsBot Skill Builder, you can describe the membership support or operations workflow you want in plain language, and DocsBot can create a reusable Skill that lets your AI agent safely look up membership details, update approved records, trigger workflows, and summarize outcomes. This helps customer-facing support bots and private team assistants handle membership questions and actions faster without exposing sensitive access controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a member’s access level, subscription status, or protected content eligibility before answering account questions in chat or tickets.",
+    "Enable the agent to help troubleshoot why a customer cannot access a course, download, or member-only page by reviewing membership details and summarizing likely next steps.",
+    "Allow the agent to create a support-ready handoff that includes the member’s current level, recent access issue summary, and recommended escalation notes for a human teammate.",
+    "Use the agent to confirm whether a member should have access after a purchase or renewal and explain the current account state in simple language.",
+    "Let the agent trigger an approved workflow to request a membership access review or content access reset when a customer reports a permissions problem."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant they can chat with to look up member status, access levels, and protected content eligibility without manually checking multiple admin screens.",
+    "Let support and customer success teams ask the agent to summarize a member’s access history and prepare handoff notes before escalating a billing, login, or course access issue.",
+    "Enable operations teams to chat with the agent to follow membership support SOPs, such as reviewing failed access cases, requesting approved updates, and logging next steps.",
+    "Help training or community teams use a private DocsBot agent in Slack or Microsoft Teams to confirm enrollment status and gather context before responding to member questions.",
+    "Allow internal teams to ask the agent for membership-related research and workflow guidance, including which access rules or approval paths apply to a specific support scenario."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks membership access before answering account questions.",
+    "A member access troubleshooting assistant for course, download, and protected content issues.",
+    "A private team agent that summarizes member status and prepares escalation notes.",
+    "An AI workflow that requests approved access reviews for reported permission problems.",
+    "A support bot that explains renewal and access state using live membership data.",
+    "An internal assistant that guides employees through membership support SOPs and handoffs."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with WishList Member, such as checking access, troubleshooting member issues, or preparing support handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the configuration values it needs, protects and proxies secrets through secure runtime settings, and scopes access to only the records, actions, and users required for the workflow."
+    },
+    {
+      "title": "Actions and approvals are defined",
+      "description": "Skill Builder maps the agent’s allowed lookups, updates, summaries, workflow triggers, and handoff steps, and it adds approval boundaries wherever sensitive membership changes or higher-risk actions should be reviewed before execution."
+    },
+    {
+      "title": "An AI tester improves it",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, unclear instructions, or permission gaps, and feeds those results into a self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, DocsBot helps deploy it to your customer-facing chat widget, helpdesk agent, or private employee assistant so it can answer questions and take bounded action inside your approved rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for WishList Member?",
+      "answer": "With DocsBot Skill Builder, you describe the membership workflow you want in plain language, and DocsBot designs a reusable Skill that can look up member data, summarize account state, trigger approved actions, and respond through support or internal chat channels."
+    },
+    {
+      "question": "Can an AI support agent use WishList Member data to answer member access questions?",
+      "answer": "Yes, a DocsBot agent can be configured to use WishList Member data for safe lookups such as membership status, access eligibility, and protected content troubleshooting, then answer customers with the right context or prepare a human handoff when needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with WishList Member?",
+      "answer": "A DocsBot agent can help verify access, explain membership state, summarize reported access problems, trigger approved review workflows, and prepare escalation notes for support teams handling course or membership issues."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage membership support operations in WishList Member?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve member details, follow support SOPs, research access issues, and create structured handoffs or summaries inside chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep WishList Member actions secure?",
+      "answer": "Skill Builder defines secure connection handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, scopes permissions to the minimum necessary access, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot test and improve a WishList Member AI workflow before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run support and internal scenarios, identify bugs or weak spots, and improve the Skill before you publish it to a live AI agent."
+    }
+  ],
+  "relatedSlugs": [
+    "memberpress",
+    "woocommerce-memberships",
+    "teachable",
+    "thinkific",
+    "kajabi",
+    "wordpress"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "WishList Products",
+    "domain": "wishlistmember.com",
+    "description": "WishList Products is an online software development company that focuses on providing easy-to-use tools and training for creating impactful membership sites, online courses, and communities. Their flagship product, WishList Member, transforms WordPress websites into comprehensive membership systems. With WishList Member, users can securely protect digital downloads, online courses, and content in just minutes, making it an essential tool for those looking to build successful online communities.",
+    "slogan": "Membership sites made easy. Impactful content creation in minutes. #wishlistmember",
+    "logoUrl": "https://media.brand.dev/23e12dbb-4606-4775-afbf-9dc74968dbf2.svg",
+    "iconUrl": "https://media.brand.dev/35670a9c-a10e-4e65-990f-c0ee7395ed44.png",
+    "primaryColor": "#9bcb04",
+    "accentColor": "#1c7ec1",
+    "colors": [
+      {
+        "hex": "#9bcb04",
+        "name": "Waywatcher Green"
+      },
+      {
+        "hex": "#1c7ec1",
+        "name": "Skylla"
+      },
+      {
+        "hex": "#333333",
+        "name": "Carbon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8f37040d-6977-406f-9fc0-91361bb40700.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://wishlistmember.com/terms-and-conditions/",
+      "contact": null,
+      "privacy": "https://wishlistmember.com/privacy-policy/",
+      "blog": "https://wishlistmember.com/blog/",
+      "pricing": "https://wishlistmember.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/35670a9c-a10e-4e65-990f-c0ee7395ed44.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/23e12dbb-4606-4775-afbf-9dc74968dbf2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 190,
+        "height": 78,
+        "aspectRatio": 2.44
+      },
+      {
+        "url": "https://media.brand.dev/8ce077a8-135e-4894-91c6-42c86dc2652e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 190,
+        "height": 78,
+        "aspectRatio": 2.44
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/23e12dbb-4606-4775-afbf-9dc74968dbf2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 190,
+      "height": 78,
+      "aspectRatio": 2.44
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/35670a9c-a10e-4e65-990f-c0ee7395ed44.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

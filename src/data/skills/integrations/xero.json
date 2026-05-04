@@ -1,0 +1,176 @@
+{
+  "slug": "xero",
+  "name": "Xero",
+  "domain": "xero.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Xero",
+  "metaTitle": "Build AI Support and Internal Agents for Xero with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that securely use Xero for accounting lookups, invoice updates, payment workflows, summaries, and internal finance assistance.",
+  "intro": "Xero is a cloud accounting platform teams use for invoicing, billing, cash-flow visibility, and day-to-day financial operations. With DocsBot Skill Builder, you can describe the Xero workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve approved accounting details, prepare finance handoffs, and take bounded actions inside Xero while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice status, payment history, or outstanding balances in Xero before replying to a billing question.",
+    "Use a support agent to create draft billing follow-up tasks or prepare a finance handoff with the relevant Xero account, invoice, and conversation summary.",
+    "Allow the agent to confirm whether a payment has been recorded in Xero and explain the next approved step to the customer.",
+    "Have the agent summarize a customer's recent invoices, credits, or account activity from Xero for a helpdesk ticket response.",
+    "Enable the agent to collect missing billing details from the customer and pass a structured escalation package to the finance team using Xero context."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Xero invoice details, payment status, customer balances, or account summaries without manually searching across systems.",
+    "Let finance, support, or customer success teams ask the agent to prepare collections follow-ups, billing exception summaries, or account review notes based on Xero records.",
+    "Enable team members in Slack or Microsoft Teams to use an AI assistant that guides billing SOPs, gathers the right Xero context, and completes approved workflow steps.",
+    "Allow operations staff to chat with the agent to research overdue invoices, identify payment trends, and generate handoff summaries for finance review.",
+    "Help employees use a private DocsBot agent to trigger approved Xero-related workflows, such as creating escalation packets or updating downstream records after review."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing support agent that checks invoice and payment status in Xero before replying.",
+    "A finance assistant that summarizes overdue accounts and prepares follow-up notes for internal teams.",
+    "A support workflow that gathers customer billing details and creates a structured finance handoff.",
+    "An internal AI agent that explains account activity using live Xero record lookups.",
+    "A Slack or Teams assistant that helps staff follow billing and collections SOPs with Xero context.",
+    "An AI action that confirms recorded payments and summarizes the result for customers or employees."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Xero agent to do in plain language, such as checking invoice status, summarizing balances, or preparing billing handoffs for your team."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that request into a secure Skill design, identifies the Xero connection details it needs, and defines the right runtime behavior, configuration values, and approved actions for the workflow."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder handles authentication and secret storage through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can safely use Xero in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Xero?",
+      "answer": "With DocsBot Skill Builder, you describe the Xero workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize records, trigger approved actions, and route handoffs safely. It also handles secure configuration, testing, and deployment for the finished agent."
+    },
+    {
+      "question": "Can an AI support agent use Xero data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use approved Xero data such as invoice status, payment history, balances, or account summaries while responding in a website chat widget or helpdesk ticket flow. You control what records and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Xero?",
+      "answer": "Teams can build workflows for invoice lookups, payment confirmation, billing summaries, finance handoff preparation, escalation notes, and structured collection of missing billing details. The agent can answer the customer and take bounded next steps inside your defined rules instead of only suggesting what a human should do."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Xero?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Xero information, summarize account status, prepare follow-ups, and complete finance-related SOP steps. This helps teams move faster without giving broad uncontrolled access to accounting actions."
+    },
+    {
+      "question": "How does DocsBot keep a Xero integration secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of chat transcripts, and scopes permissions to the minimum records and actions needed. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows related to Xero?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as preparing updates, triggering approved downstream workflows, or modifying records when your process allows it. Sensitive steps can be limited to specific users, records, or approval checkpoints before anything is finalized."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "freshbooks",
+    "stripe",
+    "chargebee",
+    "netsuite",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Xero",
+    "domain": "xero.com",
+    "description": "Xero is a cloud‑based accounting platform trusted by over 4.4 million users worldwide. It provides small‑ and medium‑size businesses with real‑time cash‑flow visibility and tools to automate invoicing, payroll, billing, banking, and more. By connecting directly to banks, accountants, bookkeepers, and a wide ecosystem of business apps, Xero streamlines financial management, helping companies run on “cruise control” and focus on growth.",
+    "slogan": "Supercharge your small business with real-time, beautiful online accounting software.",
+    "logoUrl": "https://media.brand.dev/b36759b5-9e26-42e1-9824-5cb2453eaa28.svg",
+    "iconUrl": "https://media.brand.dev/d6a9ecf7-3a7c-4618-bacd-a111679b96b7.svg",
+    "primaryColor": "#3ec0f1",
+    "accentColor": "#040c55",
+    "colors": [
+      {
+        "hex": "#3ec0f1",
+        "name": "Megaman"
+      },
+      {
+        "hex": "#040c55",
+        "name": "Interstellar Blue"
+      },
+      {
+        "hex": "#14b4ec",
+        "name": "Zima Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3b5b477b-4306-46e7-8585-8c3e3ab9896a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.xero.com/",
+      "terms": "https://www.xero.com/us/legal/terms/",
+      "contact": "https://www.xero.com/us/about/contact/",
+      "privacy": "https://www.xero.com/us/legal/privacy/",
+      "blog": "https://blog.xero.com/",
+      "pricing": "https://www.xero.com/us/pricing-plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/89074f52-b683-439e-99b8-9a30c92419b9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d6a9ecf7-3a7c-4618-bacd-a111679b96b7.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/25ab9987-d490-4007-a103-f58fc1ac73bd.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b36759b5-9e26-42e1-9824-5cb2453eaa28.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 79,
+        "height": 22,
+        "aspectRatio": 3.59
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b36759b5-9e26-42e1-9824-5cb2453eaa28.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 79,
+      "height": 22,
+      "aspectRatio": 3.59
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/89074f52-b683-439e-99b8-9a30c92419b9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

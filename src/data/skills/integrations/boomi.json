@@ -1,0 +1,168 @@
+{
+  "slug": "boomi",
+  "name": "Boomi",
+  "domain": "boomi.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Boomi",
+  "metaTitle": "Build Boomi AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Boomi to look up data, trigger workflows, update records, and support customers or internal teams safely.",
+  "intro": "Boomi helps businesses connect systems and automate processes across their operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent use Boomi for lookups, updates, workflow triggers, summaries, and handoffs. This helps customer support teams and internal employees move from answering questions to taking safe, approved action.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent use Boomi to look up order, account, or workflow status across connected systems while replying in chat or over helpdesk tickets.",
+    "Enable the agent to trigger approved Boomi workflows such as resending provisioning jobs, syncing customer records, or starting issue remediation steps during a support conversation.",
+    "Use Boomi-connected data to summarize what happened across multiple systems so the agent can explain delays, sync failures, or account state in clear customer language.",
+    "Allow the agent to create structured escalation handoffs that include Boomi workflow results, relevant system context, and the next recommended support action.",
+    "Let the agent collect missing customer details in chat and then pass that information into a Boomi-driven workflow for follow-up processing or back-office resolution."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent that they can chat with to check Boomi process status, investigate failed integrations, and retrieve cross-system summaries without opening multiple tools.",
+    "Let operations teams ask the agent to trigger approved Boomi workflows for common SOPs such as data sync retries, onboarding flows, or routine process handoffs.",
+    "Help support and customer success employees chat with the agent to research customer issues across connected systems and prepare escalation notes or resolution summaries.",
+    "Enable internal teams in Slack or Microsoft Teams to ask the agent for Boomi-backed workflow visibility, exception reports, and next-step guidance for recurring operational problems.",
+    "Allow employees to use a private agent to complete bounded workflows that combine Boomi automation with approvals, documentation, and status updates across business systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Boomi-connected order and provisioning status before answering customers.",
+    "A private operations agent that summarizes failed integrations and recommends the next approved recovery step.",
+    "A DocsBot Skill that triggers Boomi workflows after collecting required details from a customer.",
+    "An internal assistant that prepares escalation handoffs with Boomi process history and system context.",
+    "A support workflow that retries approved sync jobs and reports the result back to the customer.",
+    "An employee agent that retrieves cross-system status through Boomi and turns it into plain-language summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Boomi, such as checking status, triggering a workflow, or preparing a handoff, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, handles authentication through protected runtime configuration, keeps secrets out of chats and source, and scopes Boomi access to the minimum actions and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right action limits, user scope, and approval boundaries so sensitive updates or workflow triggers only happen within the rules you define for support or internal teams."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer conversations and employee requests against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private team agent so it can answer questions and take approved action through Boomi."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Boomi?",
+      "answer": "With DocsBot Skill Builder, you describe the Boomi-based outcome you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Boomi data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Boomi-connected Skill to retrieve status, summarize cross-system activity, and trigger approved follow-up workflows while responding in chat or through helpdesk tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Boomi?",
+      "answer": "Teams can build workflows for status lookups, sync verification, escalation preparation, workflow triggering, remediation follow-up, and plain-language summaries of what happened across connected systems."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage Boomi workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to check process status, research failed integrations, trigger approved routines, and complete operational SOPs tied to Boomi."
+    },
+    {
+      "question": "How does DocsBot keep Boomi actions safe for AI agents?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies credentials through runtime configuration, limits permissions to the right users and actions, and adds approval boundaries for sensitive changes or workflow triggers."
+    },
+    {
+      "question": "Can a DocsBot agent trigger Boomi processes instead of only explaining what to do?",
+      "answer": "Yes, DocsBot AI Actions are built for bounded execution, so your agent can be configured to trigger approved Boomi workflows, create handoffs, update records, or generate summaries within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "mulesoft",
+    "workato",
+    "zapier",
+    "make",
+    "n8n",
+    "tray-io"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Boomi",
+    "domain": "boomi.com",
+    "description": "Boomi is a leading provider of cloud integration solutions through a SaaS-based platform, enabling providers to maintain seamless connections with their consumers. Their innovative iPaaS solutions empower businesses to drive future success by facilitating intelligent integration and automation, connecting everyone to everything, anywhere. Boomi's industry-leading platform offers intelligent connectivity and automation, allowing businesses to accelerate operations, connect all facets of their business, engage with customers across all channels, and ensure flexibility to run operations anywhere. With a focus on connectivity and automation, Boomi is dedicated to supporting businesses in achieving their goals efficiently and effectively.",
+    "slogan": "Connect everything, everywhere, with Boomi.",
+    "logoUrl": "https://media.brand.dev/5a5e68dc-c08b-4754-8fa6-c2a6e4faec77.png",
+    "iconUrl": "https://media.brand.dev/c62f47eb-2d87-4b36-b9f0-517a9e716fd6.png",
+    "primaryColor": "#cf3854",
+    "accentColor": "#dfbea1",
+    "colors": [
+      {
+        "hex": "#cf3854",
+        "name": "Pezzottaite"
+      },
+      {
+        "hex": "#dfbea1",
+        "name": "Apple Blossom"
+      },
+      {
+        "hex": "#543156",
+        "name": "Purple Prose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/fcb89c7c-543c-454b-bdd6-206f25bae8aa.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c62f47eb-2d87-4b36-b9f0-517a9e716fd6.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5a5e68dc-c08b-4754-8fa6-c2a6e4faec77.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 308,
+        "height": 111,
+        "aspectRatio": 2.77
+      },
+      {
+        "url": "https://media.brand.dev/9834a228-2360-4917-9917-266b2489ba72.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5a5e68dc-c08b-4754-8fa6-c2a6e4faec77.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 308,
+      "height": 111,
+      "aspectRatio": 2.77
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c62f47eb-2d87-4b36-b9f0-517a9e716fd6.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

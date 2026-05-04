@@ -1,0 +1,184 @@
+{
+  "slug": "certn",
+  "name": "Certn",
+  "domain": "certn.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Background Verification",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build DocsBot AI agents that work with Certn",
+  "metaTitle": "Build AI agents for Certn with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Certn for safe background-check lookups, status summaries, handoffs, and internal verification workflows.",
+  "intro": "Certn helps organizations verify identity and background information quickly and securely across hiring and compliance workflows. With DocsBot Skill Builder, you can describe the Certn-powered agent behavior you want in plain language, and DocsBot can design, secure, test, and package that ability as a reusable Skill. The result is an AI support agent or internal AI assistant that can look up verification status, summarize screening progress, prepare handoffs, and trigger approved next steps without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a candidate screening or identity verification request in Certn and explain the current step in plain language.",
+    "Use a DocsBot helpdesk agent to summarize what screenings have been completed, which ones are still pending, and what follow-up is needed before a case can move forward.",
+    "Allow the agent to collect missing customer details in chat, then prepare a clean handoff or approved workflow trigger for a human team managing the Certn process.",
+    "Enable the agent to create ticket-ready summaries of verification delays, required documents, or review notes so support teams can respond faster and more consistently.",
+    "Have the agent surface approved policy guidance around screening timelines, compliance expectations, or next steps while grounding the response in Certn record status."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to retrieve Certn screening statuses and summarize where each candidate or case stands.",
+    "Enable recruiting, operations, or compliance teams to ask the agent for a concise overview of outstanding background checks, blocked onboarding steps, or exceptions that need review.",
+    "Allow internal teams to use the agent to gather required context for a screening workflow, then trigger approved follow-up actions or route the case to the right owner.",
+    "Help HR or support staff chat with the agent to produce handoff notes, escalation summaries, or SOP-based next-step recommendations using Certn data.",
+    "Support employee research workflows where the agent combines Certn status information with internal process guidance to answer operational questions faster."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that checks Certn verification or background-check status during a support conversation.",
+    "A Skill that summarizes completed, pending, and exception screenings for recruiting or operations teams.",
+    "A Skill that gathers missing applicant details and prepares a compliant handoff for human review.",
+    "A Skill that triggers approved internal follow-up workflows when a screening reaches a defined state.",
+    "A Skill that drafts helpdesk replies based on Certn case status and required next steps.",
+    "A Skill that creates escalation summaries for delayed checks, document issues, or verification exceptions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Certn-enabled agent to do, such as check screening status, summarize results, or prepare a handoff, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder identifies the configuration values the Skill needs, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Certn access to the minimum records and actions required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits, user scoping, and approval boundaries for sensitive updates or workflow triggers so the agent can help without taking unrestricted actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can start using Certn through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Certn?",
+      "answer": "With DocsBot Skill Builder, you describe the Certn workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can perform bounded lookups, summaries, handoffs, and approved workflow actions around your Certn processes."
+    },
+    {
+      "question": "Can an AI support agent use Certn data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Certn Skill to retrieve allowed status information, summarize progress, collect missing context, and prepare escalations or ticket updates. Access can be scoped so the agent only uses the records and actions you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Certn?",
+      "answer": "Teams can build workflows for screening-status lookups, pending-step summaries, document follow-up preparation, delay explanations, and structured handoffs to compliance or operations staff. The agent responds in chat or helpdesk context while Certn acts as the system of record behind the scenes."
+    },
+    {
+      "question": "Can an internal AI assistant help recruiting or operations teams with Certn?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve screening status, summarize exceptions, identify next steps, and trigger approved internal workflows tied to Certn. This is useful for HR, recruiting, onboarding, compliance, and support teams that need fast operational answers."
+    },
+    {
+      "question": "How does DocsBot keep Certn actions secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, and keeps credentials out of conversations and generated content. It also scopes permissions and can add approval boundaries so sensitive actions require the right controls."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Certn records?",
+      "answer": "Yes, a Skill can turn Certn status and workflow context into concise handoff notes, escalation summaries, or ticket-ready updates for human teams. This helps support and operations teams move cases forward without manually rewriting the same context each time."
+    }
+  ],
+  "relatedSlugs": [
+    "checkr",
+    "onfido",
+    "veriff",
+    "persona",
+    "jumio",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Certn",
+    "domain": "certn.com",
+    "description": "Certn is a global background‑check platform that helps businesses, staffing agencies, and individuals verify the identity and history of candidates quickly and securely. Through its suite of products—ranging from criminal, international, and social‑media screenings to identity, employment, education, credential, credit, and driver’s abstract checks—Certn delivers fast, accurate results for over 200 countries. The service integrates with ATS and HR tools via low‑code APIs, supports high‑volume enterprise hiring, and offers tailored solutions for industries such as healthcare, finance, hospitality, logistics, and the gig economy. Certn also provides personal background checks, compliance resources, and partner programs, enabling organizations to mitigate risk, ensure safety, and make informed hiring decisions.",
+    "slogan": "Fast, accurate background checks for smarter hiring.",
+    "logoUrl": "https://media.brand.dev/de253baf-31ea-4266-aef1-483eb1740d58.svg",
+    "iconUrl": "https://media.brand.dev/bdccb670-b5ac-4a06-a874-f38bd9626d07.svg",
+    "primaryColor": "#040404",
+    "accentColor": "#aafa6b",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#aafa6b",
+        "name": "Stinging Wasabi"
+      },
+      {
+        "hex": "#162f05",
+        "name": "Lindworm Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/88e5e691-0fac-4e71-bac9-5a3b671d6ba6.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/de253baf-31ea-4266-aef1-483eb1740d58.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 167,
+        "height": 48,
+        "aspectRatio": 3.48
+      },
+      {
+        "url": "https://media.brand.dev/bdccb670-b5ac-4a06-a874-f38bd9626d07.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9a807eb3-0a57-453b-b64d-a00229c51d84.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4b2dffd0-7e36-4950-b138-32d7a03f1940.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0f7c0fed-2c0b-479c-8173-cdba455e7b3b.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/de253baf-31ea-4266-aef1-483eb1740d58.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 167,
+      "height": 48,
+      "aspectRatio": 3.48
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4b2dffd0-7e36-4950-b138-32d7a03f1940.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

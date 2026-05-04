@@ -1,0 +1,159 @@
+{
+  "slug": "wix",
+  "name": "Wix",
+  "domain": "wix.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Wix Using DocsBot Skills",
+  "metaTitle": "Build Wix AI Agents for Support and Internal Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Wix to answer customers, look up site and store data, trigger approved actions, and support internal team workflows safely.",
+  "intro": "Wix helps businesses run websites, stores, bookings, and other online experiences from one platform. With DocsBot Skill Builder, you can describe the Wix-powered workflow you want in plain language, and DocsBot can create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that not only answers questions, but can also use approved Wix data and actions to resolve requests faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Wix store order details and summarize status while replying to shoppers in chat or helpdesk tickets.",
+    "Use a Wix Skill to help the agent check site, product, or booking information so customers get faster answers without waiting for a human lookup.",
+    "Enable the agent to create approved support handoffs with relevant Wix context, such as the customer, order, site section, or issue summary.",
+    "Let the agent update bounded customer-facing records in Wix after collecting missing details and confirming the requested change.",
+    "Use Wix data to help the agent explain account, subscription, storefront, or content-related issues with more accurate context during support conversations."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Wix site, store, booking, or content information without manually searching across dashboards.",
+    "Help support and operations teams use an internal agent to summarize Wix activity, prepare escalations, and follow standard operating procedures faster.",
+    "Enable marketing, content, or e-commerce teams to ask the agent for Wix record lookups, page or product context, and approved workflow triggers from Slack, Teams, or chat.",
+    "Give customer success or web operations staff an AI assistant that gathers Wix details, drafts handoff notes, and completes repeatable admin workflows within defined limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Wix order or storefront details before answering a customer.",
+    "A customer service Skill that collects missing information and creates a structured handoff with Wix context.",
+    "An internal assistant that summarizes Wix site, store, or booking records for operations teams.",
+    "A private AI agent that helps employees follow Wix-related SOPs and complete approved admin tasks.",
+    "A support workflow that updates allowed Wix records only after confirmation and approval rules are met.",
+    "An internal research assistant that combines Wix data with company documentation to answer team questions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the Wix workflow you want in plain language, and Skill Builder turns that goal into a practical AI agent ability for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, what Wix information or actions are needed, which configuration values to request, and how to keep the workflow simple for non-technical users."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines secure authentication handling, protects and proxies secrets through runtime configuration, keeps credentials out of chats and Skill source, and scopes Wix access to the minimum records and actions required."
+    },
+    {
+      "title": "Safety rules are applied",
+      "description": "Skill Builder adds approval boundaries, user limits, and other action controls so sensitive Wix updates, workflow triggers, or record changes happen only within the rules you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and reports what should improve."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Wix customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the Wix support outcome you want, such as order lookups, site information checks, or structured handoffs, and Skill Builder designs and secures the workflow for your agent. The finished Skill can be deployed to a website chat widget or helpdesk-connected DocsBot agent so it can answer and take bounded actions during real support conversations."
+    },
+    {
+      "question": "Can an AI support agent use Wix data to answer customer questions?",
+      "answer": "Yes, a DocsBot Skill can let your support agent retrieve approved Wix information such as store, site, booking, or content details to respond with better context. Skill Builder defines the allowed data access, protects authentication, and scopes permissions so the agent only uses the Wix data you authorize."
+    },
+    {
+      "question": "What Wix workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees look up Wix records, summarize site or store status, prepare escalations, generate handoff notes, and complete repeatable SOP-driven workflows. Skill Builder can also add approval steps and safe action limits for updates or triggers that should not run automatically for every user."
+    },
+    {
+      "question": "Can DocsBot update Wix records safely through AI Actions?",
+      "answer": "DocsBot Skills can be designed for bounded Wix updates when that fits your process, such as modifying approved fields after collecting the right context. Skill Builder applies secure configuration, minimum necessary permissions, and approval boundaries so the agent acts within defined limits instead of making unrestricted changes."
+    },
+    {
+      "question": "How does DocsBot keep Wix credentials and API access secure?",
+      "answer": "Skill Builder identifies the connection details the Skill needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated instructions. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a Wix AI agent prepare escalations and handoffs for human teams?",
+      "answer": "Yes, a DocsBot agent can gather Wix context from the conversation and the approved Wix data it can access, then create clear summaries or handoff artifacts for support, success, or operations teams. This helps human agents start with the relevant details instead of repeating discovery work."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "woocommerce",
+    "stripe",
+    "zendesk",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wix",
+    "domain": "wix.com",
+    "description": "Wix is a leading cloud-based platform that empowers millions of users globally to create, manage, and grow their online businesses. More than just a simple website builder, Wix transforms your vision into reality with its robust technology and unmatched design capabilities. Catering to both newcomers and seasoned professionals, Wix offers an array of features and solutions for building personalized and professional web presences. The platform fosters a unique ecosystem for partners, developers, and web designers to market their apps and services to a vast audience. With integrated hosting, business solutions, and AI tools, Wix provides everything needed to establish a distinctive online identity. Whether you're an entrepreneur, a creative professional, or a business owner, Wix supports your journey with creative freedom and intuitive tools. Start building your website for free and experience how Wix helps you grow.",
+    "slogan": "Achieve your vision with Wix—create your website, your way.",
+    "logoUrl": "https://media.brand.dev/d4dc2e23-b91e-4e54-b06f-9ca208e378da.svg",
+    "iconUrl": "https://media.brand.dev/eff6b8cc-216e-4bca-98d7-6367f4baa519.png",
+    "primaryColor": "#040404",
+    "accentColor": "#7c7c7c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#c2c2c2",
+        "name": "Magnesium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d6d685cf-aa94-409b-9636-a785be813834.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.wix.com/",
+      "terms": "https://www.wix.com/about/terms-of-use",
+      "contact": "https://www.wix.com/contact",
+      "privacy": "https://www.wix.com/manage/privacy-security-hub",
+      "blog": "https://www.wix.com/start/blog",
+      "pricing": "https://www.wix.com/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/eff6b8cc-216e-4bca-98d7-6367f4baa519.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d4dc2e23-b91e-4e54-b06f-9ca208e378da.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 75,
+        "height": 30,
+        "aspectRatio": 2.5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d4dc2e23-b91e-4e54-b06f-9ca208e378da.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 75,
+      "height": 30,
+      "aspectRatio": 2.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/eff6b8cc-216e-4bca-98d7-6367f4baa519.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

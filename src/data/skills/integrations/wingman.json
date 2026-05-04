@@ -1,0 +1,148 @@
+{
+  "slug": "wingman",
+  "name": "Wingman",
+  "domain": "wingman.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Wingman",
+  "metaTitle": "Build Wingman AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Wingman data and workflows for support assistance, call research, summaries, handoffs, and safe internal team actions.",
+  "intro": "Wingman helps teams capture conversational insights, call context, and sales or coaching intelligence that can be useful during support and internal workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up call details, summarize conversations, prepare handoffs, and trigger approved follow-up actions. This helps customer-facing and internal agents move from answering questions to taking bounded action with Wingman data inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up relevant Wingman call notes or conversation summaries to give customers faster, more informed answers.",
+    "Use Wingman conversation data to help the agent summarize prior discussions before replying to a support ticket or chat escalation.",
+    "Have the agent prepare a clean handoff for a human teammate by pulling key call highlights, objections, commitments, and next steps from Wingman.",
+    "Enable the agent to retrieve approved coaching or conversation context when a customer asks about prior promises, follow-up items, or implementation discussions.",
+    "Let the agent create structured escalation summaries that combine the live customer issue with Wingman conversation insights for support or success teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Wingman call summaries, meeting takeaways, and follow-up context without searching manually.",
+    "Customer success or sales teams can ask the agent to summarize recent Wingman conversations for an account before renewal, onboarding, or escalation calls.",
+    "Managers can use the agent to surface coaching insights, recurring objections, or talk-track patterns from Wingman to support team reviews and enablement workflows.",
+    "Operations teams can chat with the agent to assemble handoff notes, research account history, and complete internal SOPs using Wingman conversation intelligence alongside other systems.",
+    "Internal teams can ask the agent to generate concise recaps, action-item lists, and escalation briefs based on Wingman records for cross-functional collaboration."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that pulls Wingman conversation summaries before answering complex customer questions.",
+    "An internal assistant that prepares account briefs from recent Wingman calls and follow-up notes.",
+    "A handoff workflow that converts Wingman call insights into structured escalation summaries.",
+    "A team assistant that extracts commitments, objections, and next steps from Wingman records.",
+    "A private agent that helps managers review coaching themes and conversation patterns.",
+    "A success operations workflow that generates renewal or onboarding prep briefs from Wingman data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Wingman-powered agent to do, such as summarize recent conversations, prepare handoffs, or retrieve account call context, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then keeps secrets protected through secure runtime handling so credentials stay out of chats and Skill instructions."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum permissions, allowed actions, record access, and approval boundaries needed for the workflow so the agent can act within the limits you approve."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those results into improvements."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once refined, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can perform safe Wingman lookups, summaries, and approved actions in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Wingman conversation data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as retrieving call summaries or preparing account briefs, and Skill Builder creates a secure Skill that lets your agent use approved Wingman data and actions."
+    },
+    {
+      "question": "Can an AI support agent use Wingman to answer customer questions more accurately?",
+      "answer": "Yes, a DocsBot support agent can use Wingman conversation context to pull prior call summaries, commitments, and follow-up details so responses are more informed and escalations are better prepared."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Wingman?",
+      "answer": "You can build workflows for conversation lookups, escalation prep, handoff summaries, prior-call context retrieval, and structured notes that help support or success teams continue the conversation faster."
+    },
+    {
+      "question": "Can an internal AI assistant search Wingman call notes for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve Wingman summaries, meeting insights, objections, and action items through chat, Slack, or Microsoft Teams without manual digging."
+    },
+    {
+      "question": "Can DocsBot safely limit what an AI agent can do in Wingman?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum records and actions required, protect secrets through secure runtime configuration, and add approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Do I need to configure the Wingman integration manually to build an AI workflow?",
+      "answer": "No, you describe the business outcome you want, and Skill Builder handles the Skill design, secure connection planning, configuration requirements, testing, improvement, and deployment guidance for you."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "chorus",
+    "salesloft",
+    "hubspot",
+    "slack",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wingman",
+    "domain": "wingman.com",
+    "description": "LinkedIn is a global professional networking platform that helps individuals build and showcase their professional identity, connect with colleagues, mentors, and industry leaders, and discover job opportunities. It offers tools for recruiters to find talent, businesses to promote their brand, and members to access curated content, courses, and industry insights, fostering career growth and networking across a wide range of fields.",
+    "slogan": "Explore jobs, learn skills, and grow your professional network",
+    "logoUrl": "https://media.brand.dev/29c3ef72-7341-4ef4-bcc0-6a7fb1eab250.png",
+    "iconUrl": "https://media.brand.dev/29c3ef72-7341-4ef4-bcc0-6a7fb1eab250.png",
+    "primaryColor": "#107bb8",
+    "accentColor": "#7cbcdc",
+    "colors": [
+      {
+        "hex": "#107bb8",
+        "name": "Tall Ships"
+      },
+      {
+        "hex": "#7cbcdc",
+        "name": "Coastal Waters"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/29c3ef72-7341-4ef4-bcc0-6a7fb1eab250.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/29c3ef72-7341-4ef4-bcc0-6a7fb1eab250.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/29c3ef72-7341-4ef4-bcc0-6a7fb1eab250.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

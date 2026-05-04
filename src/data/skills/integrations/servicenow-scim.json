@@ -1,0 +1,168 @@
+{
+  "slug": "servicenow-scim",
+  "name": "ServiceNow SCIM",
+  "domain": "servicenow.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely With ServiceNow SCIM",
+  "metaTitle": "Build ServiceNow SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ServiceNow SCIM for safe identity lookups, user provisioning workflows, access updates, and internal support automation.",
+  "intro": "ServiceNow SCIM helps teams manage identity data and user lifecycle workflows inside ServiceNow environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up users, prepare updates, trigger approved actions, and summarize results. This helps customer support and internal teams move faster while keeping access changes, provisioning steps, and sensitive operations inside defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check ServiceNow SCIM user status or provisioning state while answering account setup or access-related questions.",
+    "Use the agent to gather missing identity details from a customer, then create an approved handoff summary for your support or IT team to review in ServiceNow workflows.",
+    "Enable a helpdesk-connected DocsBot agent to summarize recent SCIM-related account changes so support can explain the current state of a user's access request.",
+    "Have the agent confirm whether a user record exists, identify likely provisioning mismatches, and prepare an escalation note for identity or operations teams.",
+    "Allow the agent to trigger bounded follow-up workflows for access issues, such as requesting review or routing a case to the correct internal queue with full conversation context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up ServiceNow SCIM user records, group details, or provisioning status without switching tools.",
+    "IT and operations teams can ask the agent to summarize onboarding or offboarding state across ServiceNow SCIM workflows and prepare the next approved action.",
+    "Help internal support staff use the agent to collect missing identity information, generate standardized handoff notes, and follow SOPs for access-related requests.",
+    "Managers and service desk employees can chat with the agent to research whether a user account has been provisioned correctly and receive a concise action summary.",
+    "Teams can use a private AI assistant to trigger approved identity workflow steps, request reviews, and document outcomes while staying inside scoped permissions and approval rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks user provisioning status before answering access questions.",
+    "A private IT assistant that looks up SCIM user records and summarizes onboarding progress.",
+    "A helpdesk agent that prepares escalation notes for identity mismatches and failed provisioning events.",
+    "An internal assistant that gathers missing user details and starts approved access review workflows.",
+    "An AI agent that summarizes account lifecycle changes for support, operations, and service desk teams.",
+    "A workflow assistant that routes access issues to the correct team with structured context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the ServiceNow SCIM agent to do, and Skill Builder turns that goal into a practical workflow design for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, keeps authentication and secrets protected through secure runtime handling, and scopes the Skill to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive identity updates, provisioning changes, or workflow triggers so the agent only acts within rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using it in chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ServiceNow SCIM without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs the Skill for you. It handles secure configuration, authentication protection, testing, improvements, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use ServiceNow SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a ServiceNow SCIM Skill to perform approved lookups, summarize provisioning status, and prepare handoffs or escalations while replying to customers. Sensitive actions can be limited behind approvals and scoped permissions."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with ServiceNow SCIM?",
+      "answer": "A DocsBot agent can help with identity-related lookups, account status checks, escalation preparation, workflow routing, and summaries of provisioning issues. It can also collect missing details from the customer before passing the case to the right team."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with ServiceNow SCIM tasks?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to look up user records, review provisioning progress, follow access request SOPs, and trigger approved internal workflows. This reduces tool switching and keeps repetitive service desk work consistent."
+    },
+    {
+      "question": "How does DocsBot keep ServiceNow SCIM credentials and actions secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps secrets out of chats and Skill source, and proxies authentication through protected runtime configuration. It also scopes access to approved users, records, and actions, with approval boundaries for sensitive changes."
+    },
+    {
+      "question": "Can DocsBot trigger updates or workflow actions in ServiceNow SCIM?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved workflow triggers, handoff creation, or controlled record updates when your process allows it. Skill Builder helps define those limits so the agent takes only the actions you want."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "okta",
+    "azure-active-directory",
+    "onelogin",
+    "jumpcloud",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ServiceNow",
+    "domain": "servicenow.com",
+    "description": "ServiceNow is a cloud-based platform that helps organizations digitize and unify their operations, enabling them to work more efficiently and effectively. With a focus on innovation and agility, ServiceNow's solutions streamline enterprise workflows and empower customers and employees alike. As a leader in the industry, ServiceNow aims to make the world work better for everyone.",
+    "slogan": "The world works with ServiceNow",
+    "logoUrl": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+    "iconUrl": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+    "primaryColor": "#62ca5b",
+    "accentColor": "#0d3c51",
+    "colors": [
+      {
+        "hex": "#62ca5b",
+        "name": "Drop Green"
+      },
+      {
+        "hex": "#0d3c51",
+        "name": "Duskwood"
+      },
+      {
+        "hex": "#d3dde0",
+        "name": "Blue Nuance"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/009e788a-3668-480c-97fb-e5188cf6f8e7.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.servicenow.com/careers",
+      "terms": "https://servicenow.com/terms-of-use.html",
+      "contact": "https://servicenow.com/contact-us.html",
+      "privacy": "https://servicenow.com/products/privacy-management.html",
+      "blog": "https://servicenow.com/blogs/category/company-news",
+      "pricing": "https://servicenow.com/impact.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b0a0a5d5-2f7c-4f02-b4ec-45c151601893.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed3bea8f-41a6-4a46-8be2-a4a55b7328bf.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/40d892f2-bef8-44a0-aed6-98295bae7bf0.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

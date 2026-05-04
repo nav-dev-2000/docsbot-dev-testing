@@ -1,0 +1,151 @@
+{
+  "slug": "zoho-subscriptions",
+  "name": "Zoho Subscriptions",
+  "domain": "zoho-subscriptions.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Subscriptions",
+  "metaTitle": "Zoho Subscriptions AI Agents for Support and Operations",
+  "metaDescription": "Build DocsBot AI agents that use Zoho Subscriptions for subscriber lookups, billing updates, workflow triggers, and internal subscription operations.",
+  "intro": "Zoho Subscriptions helps businesses manage recurring billing, plans, customers, and subscription lifecycles. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up subscription details, prepare approved updates, trigger workflows, and summarize billing context. This helps customer support teams resolve subscription questions faster and gives internal teams a private AI assistant for recurring revenue operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a subscriber’s plan, renewal date, status, and billing history in Zoho Subscriptions while answering account questions.",
+    "Use the agent to summarize active subscriptions, pending renewals, failed payments, or recent invoice activity so customers get a clear explanation without waiting for a human handoff.",
+    "Allow the agent to create a billing-support handoff with the relevant Zoho Subscriptions account context, notes, and customer conversation summary already attached.",
+    "Enable the agent to collect missing information from the customer, validate it against subscription records, and prepare an approved workflow for plan-change or renewal assistance.",
+    "Let the agent check cancellation or pause status and explain next steps using live subscription data from Zoho Subscriptions within the chat or ticket reply workflow."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve subscriber details, renewal schedules, account status, and billing summaries from Zoho Subscriptions without opening multiple tools.",
+    "Let customer success or finance teams ask the agent to research churn risk signals, failed payment patterns, or upcoming renewals and receive a concise operational summary.",
+    "Enable operations teams to use the agent in Slack or Microsoft Teams to prepare plan-change workflows, escalation notes, and subscriber handoff summaries based on Zoho Subscriptions data.",
+    "Help support managers chat with the agent to review subscription cases, confirm account state, and follow internal SOPs for billing exceptions or retention workflows.",
+    "Allow internal teams to ask the agent for account context across recurring billing records so they can complete approved workflows faster and with fewer manual lookups."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks subscription status and renewal details before replying to customers.",
+    "A billing assistant that summarizes failed payments and prepares escalation handoffs for human review.",
+    "An internal operations agent that surfaces upcoming renewals and subscriber account health on demand.",
+    "A customer success assistant that prepares retention context from plan history and billing activity.",
+    "A support workflow that gathers missing account details and routes approved subscription cases correctly.",
+    "An AI agent that creates clean case summaries from Zoho Subscriptions records and customer conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Zoho Subscriptions in plain language, such as checking subscriber status, preparing billing handoffs, or summarizing renewals for support and operations teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, defines safe connection and authentication handling, and keeps secrets protected and proxied through secure runtime settings instead of exposing them in chats or Skill source."
+    },
+    {
+      "title": "Safety is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits wherever a lookup, update, or workflow trigger should be reviewed before execution."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI assistant so teams can use Zoho Subscriptions safely in daily work."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Subscriptions?",
+      "answer": "With DocsBot Skill Builder, you describe the subscription task you want in plain language, and Skill Builder designs the workflow, secures the connection, tests the scenarios, and prepares the Skill for deployment. The resulting agent can perform bounded lookups, summaries, handoffs, and approved actions inside your Zoho Subscriptions workflows."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Subscriptions data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Subscriptions to look up plan details, renewal dates, subscription status, and related billing context while replying in chat or helpdesk tickets. You control what data the agent can access and which actions stay lookup-only versus requiring approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Subscriptions?",
+      "answer": "Teams can build workflows for live subscription lookups, renewal explanations, failed payment context, cancellation-status checks, case summaries, and billing handoff preparation. This helps support agents resolve common recurring billing questions faster with current account context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Zoho Subscriptions?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve subscriber records, summarize renewal pipelines, prepare escalation notes, and follow recurring billing SOPs from chat, Slack, or Microsoft Teams. This reduces manual searching and keeps internal workflows consistent."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Subscriptions actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies credentials, scopes access to the minimum needed permissions, and adds approval boundaries for sensitive updates or workflow triggers. That lets your AI agent take useful action without giving it open-ended access."
+    },
+    {
+      "question": "Can DocsBot create handoffs and summaries from Zoho Subscriptions activity?",
+      "answer": "Yes, a Skill can gather subscription details, combine them with the customer conversation, and generate a clean handoff or internal summary for billing, support, or customer success teams. This is useful when a case needs escalation or a human decision."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe-billing",
+    "chargebee",
+    "recurly",
+    "zuora",
+    "paddle"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "subscriptions.zoho.com",
+    "description": "Zoho is a global software company that delivers a comprehensive suite of cloud‑based business applications. Through its Zoho One platform, the company offers tools for accounting, field service, payroll, procurement, e‑commerce, helpdesk, CRM, marketing, HR, legal, security, analytics, project management, developer platforms, and more. Zoho’s products are designed to help organizations of all sizes streamline operations, automate workflows, and improve customer experiences—all from a single, integrated ecosystem. With a focus on scalability, security, and ease of use, Zoho enables businesses to manage finance, sales, marketing, support, and IT functions without the need for multiple disparate systems.",
+    "slogan": "Powerful, end-to-end business management with Zoho",
+    "logoUrl": "https://media.brand.dev/c55b952d-2a66-4ff1-99b6-5b8f6a0d4fff.png",
+    "iconUrl": "https://media.brand.dev/c55b952d-2a66-4ff1-99b6-5b8f6a0d4fff.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "https://subscriptions.zoho.com/blog/billing/introducing-endtoend-billing-solution-zoho-billing.html",
+      "careers": null,
+      "privacy": "https://subscriptions.zoho.com/privacy.html",
+      "terms": "https://subscriptions.zoho.com/terms.html",
+      "contact": "https://subscriptions.zoho.com/us/billing/contact-us/",
+      "pricing": "https://subscriptions.zoho.com/us/billing/features/pricing-models/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c55b952d-2a66-4ff1-99b6-5b8f6a0d4fff.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c55b952d-2a66-4ff1-99b6-5b8f6a0d4fff.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c55b952d-2a66-4ff1-99b6-5b8f6a0d4fff.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

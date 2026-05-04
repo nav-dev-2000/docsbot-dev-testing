@@ -1,0 +1,176 @@
+{
+  "slug": "iru-formerly-kandji",
+  "name": "Iru (formerly Kandji)",
+  "domain": "iru-formerly-kandji.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Iru (formerly Kandji)",
+  "metaTitle": "Build AI Agents for Iru (formerly Kandji) with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up device, access, and compliance data in Iru and trigger approved workflows.",
+  "intro": "Iru is an AI-powered security and IT platform for identity, access, endpoint management, and compliance automation. With DocsBot Skill Builder, you can describe the Iru workflow you want in plain language and have DocsBot create a reusable Skill for your support agent or internal AI assistant. That lets your agent answer questions, retrieve live IT and security context, prepare handoffs, and take approved actions inside clear boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved device or access status details in Iru so it can explain next steps during account access or managed device support conversations.",
+    "Use an Iru Skill in helpdesk replies to summarize endpoint, identity, or compliance context before escalating a sensitive issue to IT or security staff.",
+    "Allow the agent to collect missing details from a customer, then create a structured handoff that includes relevant Iru findings for faster human follow-up.",
+    "Have the agent trigger approved workflows such as notifying IT, starting a review process, or preparing remediation steps when a support conversation matches a defined security or device management scenario.",
+    "Enable the agent to summarize known device posture or access-related state from Iru in plain language so customers get a clearer explanation without exposing sensitive internal details."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up device status, identity context, or compliance posture from Iru without switching tools.",
+    "IT and security teams can ask the agent to gather facts across common troubleshooting steps, summarize findings from Iru, and prepare escalation notes or remediation checklists.",
+    "Operations staff can use the agent to follow internal SOPs for onboarding, offboarding, access reviews, or device investigations with Iru data and approved workflow triggers.",
+    "Managers and team leads can ask the agent for high-level summaries of endpoint or compliance state so they can understand issues faster without digging through multiple dashboards.",
+    "Employees can request approved updates or workflow actions through the agent, while DocsBot enforces scoped permissions and approval boundaries for sensitive IT and security tasks."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks approved device or access context in Iru during troubleshooting conversations.",
+    "A private IT assistant that summarizes endpoint posture and recommended next steps for employees.",
+    "An internal security workflow agent that prepares escalation handoffs using Iru findings and ticket context.",
+    "An onboarding and offboarding assistant that follows SOPs and triggers approved Iru-related tasks.",
+    "A compliance support agent that gathers evidence context and drafts clear summaries for internal teams.",
+    "A helpdesk assistant that collects missing details, looks up Iru records, and prepares human escalation notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Iru in plain language, and it turns that goal into a reusable Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, secure connection method, and authentication handling, while keeping credentials out of chats and protecting secrets through secure runtime configuration."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum permissions, record access, action limits, and approval boundaries needed so the agent can safely look up information or take only the approved actions you want."
+    },
+    {
+      "title": "The workflow is drafted",
+      "description": "Skill Builder creates the instructions, runtime behavior, data handling, and any needed action logic so the agent can answer questions, gather context, summarize findings, and trigger bounded workflows in Iru."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or missing checks, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Iru for IT and security workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the Iru workflow you want in plain language, such as device lookups, access checks, compliance summaries, or escalation prep. Skill Builder then designs the Skill, secures the connection, scopes permissions, tests scenarios, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Iru data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Iru data to look up device, access, or compliance context while replying in a website chat widget or helpdesk workflow. You control what information the agent can retrieve, how it summarizes it, and which actions require approval or human handoff."
+    },
+    {
+      "question": "What internal employee workflows can a DocsBot AI assistant automate with Iru?",
+      "answer": "Internal agents can help employees and IT teams retrieve endpoint or identity details, follow onboarding or offboarding SOPs, prepare escalation notes, summarize compliance context, and trigger approved next steps. This helps teams move faster while keeping sensitive actions inside defined boundaries."
+    },
+    {
+      "question": "Can DocsBot trigger safe actions in Iru instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record updates, handoff creation, or remediation prep. Skill Builder adds guardrails, scoped access, and approval boundaries so the agent acts only within the rules you define."
+    },
+    {
+      "question": "How does DocsBot keep an Iru integration secure for AI agents?",
+      "answer": "Skill Builder identifies the needed configuration values, handles authentication securely, keeps secrets out of transcripts and generated content, and proxies credentials through protected runtime settings. It also scopes permissions to the minimum required users, records, and actions for the workflow."
+    },
+    {
+      "question": "Can DocsBot help with IT escalations and security handoffs using Iru?",
+      "answer": "Yes, the agent can gather missing context, summarize relevant Iru findings, and create structured handoff notes for IT or security teams. That can reduce back-and-forth and help specialists start with clearer information."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "jumpcloud",
+    "jamf",
+    "microsoft-intune",
+    "crowdstrike",
+    "cloudflare-zero-trust"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Iru",
+    "domain": "iru.com",
+    "description": "Iru is an AI-powered security and IT platform that unifies identity and access, endpoint security and management, and compliance automation to simplify the IT stack. Used by the world's fastest-growing companies, Iru secures users, apps, and devices, giving IT and security teams more time and control.",
+    "slogan": "Unify Security and Compliance with AI-Powered Platform. Collapse the Stack.",
+    "logoUrl": "https://media.brand.dev/d82cb5e7-c754-4efa-92e6-3d50eeb2a776.svg",
+    "iconUrl": "https://media.brand.dev/1c59df68-c8bd-4a13-8484-2b89f0577721.svg",
+    "primaryColor": "#6695bc",
+    "accentColor": "#111232",
+    "colors": [
+      {
+        "hex": "#6695bc",
+        "name": "Blue Marble"
+      },
+      {
+        "hex": "#111232",
+        "name": "Spanish Roast"
+      },
+      {
+        "hex": "#aabed3",
+        "name": "Rendezvous"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/49724e24-1ed9-4d33-ae54-6fe2f2413afe.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.iru.com/company/careers",
+      "terms": null,
+      "contact": "https://www.iru.com/contact",
+      "privacy": "https://www.iru.com/legal/privacy",
+      "blog": null,
+      "pricing": "https://www.iru.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a65458b8-aa2c-4868-a674-1db1297a4882.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1c59df68-c8bd-4a13-8484-2b89f0577721.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6cc754b5-f20b-4861-9f02-499cd7927880.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 240,
+        "height": 240,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d82cb5e7-c754-4efa-92e6-3d50eeb2a776.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 151,
+        "height": 102,
+        "aspectRatio": 1.48
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d82cb5e7-c754-4efa-92e6-3d50eeb2a776.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 151,
+      "height": 102,
+      "aspectRatio": 1.48
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a65458b8-aa2c-4868-a674-1db1297a4882.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

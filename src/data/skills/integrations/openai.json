@@ -1,0 +1,160 @@
+{
+  "slug": "openai",
+  "name": "OpenAI",
+  "domain": "openai.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with OpenAI",
+  "metaTitle": "Build AI Agents for OpenAI with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely use OpenAI for generation, summarization, routing, and approved actions.",
+  "intro": "OpenAI helps teams generate text, summarize information, classify content, and power intelligent workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent use OpenAI safely. The result is an AI agent that can answer questions, prepare handoffs, generate artifacts, and take bounded actions inside your approved workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to send sanitized ticket or chat context to OpenAI for intent detection, response drafting, and next-step recommendations before replying to the customer.",
+    "Have the agent summarize long customer conversations with OpenAI and create a clean handoff note for a human support rep when escalation is needed.",
+    "Let the agent turn a customer issue into a structured troubleshooting checklist, refund review summary, or bug report draft using OpenAI during live chat or ticket replies.",
+    "Use OpenAI to classify incoming support requests by topic, urgency, sentiment, or product area so the DocsBot agent can route the case correctly.",
+    "Have the agent rewrite answers in a preferred tone, reading level, or language with OpenAI while keeping the final response inside your approved support rules."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure web chat to use OpenAI for research summaries, meeting recaps, and document drafting.",
+    "Enable internal teams to ask the agent to turn rough notes into polished SOPs, customer emails, incident summaries, or onboarding materials using OpenAI.",
+    "Help operations teams use OpenAI through a DocsBot agent to classify internal requests, extract action items, and prepare structured updates for downstream systems.",
+    "Allow customer success or support leaders to chat with an internal agent that compares conversations, summarizes trends, and drafts follow-up plans with OpenAI.",
+    "Give employees a private AI assistant that can combine company knowledge with OpenAI-generated summaries and recommendations while staying inside scoped permissions and approval limits."
+  ],
+  "whatYouCanBuild": [
+    "A support reply drafting Skill that uses OpenAI to prepare answer options from live ticket context.",
+    "An escalation summary Skill that turns a long customer thread into a clean human handoff.",
+    "A multilingual support Skill that rewrites approved answers into the customer's preferred language and tone.",
+    "An internal research assistant that summarizes documents, notes, and linked records for employees.",
+    "A content classification Skill that tags requests by intent, urgency, sentiment, or workflow type.",
+    "A SOP generation Skill that converts team notes into polished internal process documents."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the OpenAI-powered agent to do, such as summarize tickets, draft replies, classify requests, or generate internal documents, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and source, proxies secrets through protected runtime settings, and scopes access to only the actions and data the workflow needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for your use case, including approval boundaries, user limits, record scope, and safe action rules so the agent can help without exceeding your policies."
+    },
+    {
+      "title": "Test real-world scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and sends those findings into an automated improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can use OpenAI in a controlled and reusable way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses OpenAI with DocsBot?",
+      "answer": "You describe the outcome you want in plain language, and DocsBot Skill Builder designs the Skill, handles secure configuration, tests the workflow, improves it, and prepares it for deployment. The finished Skill can let your DocsBot agent use OpenAI for generation, summarization, classification, and other bounded actions you approve."
+    },
+    {
+      "question": "Can a DocsBot support agent use OpenAI to improve customer support replies?",
+      "answer": "Yes, a DocsBot support agent can use OpenAI to draft responses, summarize conversations, classify intent, translate answers, and prepare escalation notes while responding in chat or through helpdesk tickets. Skill Builder can also add approval steps and response boundaries for sensitive cases."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with OpenAI?",
+      "answer": "Teams can automate tasks like ticket summarization, suggested reply drafting, multilingual rewrites, intent tagging, bug report drafting, and escalation preparation. DocsBot can combine those OpenAI-powered steps with your support rules so the agent helps resolve issues instead of only describing next steps."
+    },
+    {
+      "question": "Can an internal AI assistant use OpenAI for employee workflows?",
+      "answer": "Yes, private DocsBot agents can use OpenAI to help employees summarize meetings, draft SOPs, rewrite internal communications, classify requests, and prepare research notes in chat, Slack, or Microsoft Teams. Skill Builder keeps the workflow scoped to the right users, actions, and approval limits."
+    },
+    {
+      "question": "How does DocsBot keep OpenAI connections and credentials secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions and can limit which users, records, and actions the agent is allowed to access."
+    },
+    {
+      "question": "Can I require approval before an OpenAI-powered agent takes certain actions?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries and safe action limits for sensitive workflows. That lets the agent generate drafts, summaries, or recommendations automatically while reserving higher-risk actions for human review."
+    }
+  ],
+  "relatedSlugs": [
+    "anthropic",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "intercom",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OpenAI",
+    "domain": "openai.com",
+    "description": "OpenAI is an AI research and deployment company focused on creating safe, general‑purpose artificial intelligence that benefits all of humanity. It prioritizes alignment of AI with human values over profit, invests in diversity, equity, and inclusion, and develops cutting‑edge models such as GPT‑5.4 and Codex. OpenAI partners with organizations, offers APIs, and provides products like ChatGPT to help solve global challenges, empower businesses, and advance scientific research. Its mission is to build and responsibly deploy artificial general intelligence while ensuring the upside of AI is widely shared.",
+    "slogan": "Ensuring AI benefits all humanity, safely, with human needs first.",
+    "logoUrl": "https://media.brand.dev/9509698f-bc84-4770-ae90-d01b09568c85.svg",
+    "iconUrl": "https://media.brand.dev/b032e4c3-d02f-422b-affc-4fbe01590029.jpg",
+    "primaryColor": "#848484",
+    "accentColor": "#141414",
+    "colors": [
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      },
+      {
+        "hex": "#dddddd",
+        "name": "Steam"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8005c7b9-3d5f-462c-80fe-bb29a064605a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://openai.com/careers/",
+      "terms": "https://openai.com/policies/terms-of-use/",
+      "contact": "https://openai.com/contact-sales/",
+      "privacy": "https://openai.com/policies/privacy-policy/",
+      "blog": "https://openai.com/news/",
+      "pricing": "https://openai.com/api/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b032e4c3-d02f-422b-affc-4fbe01590029.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9509698f-bc84-4770-ae90-d01b09568c85.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 90,
+        "height": 24,
+        "aspectRatio": 3.75
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9509698f-bc84-4770-ae90-d01b09568c85.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 90,
+      "height": 24,
+      "aspectRatio": 3.75
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b032e4c3-d02f-422b-affc-4fbe01590029.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

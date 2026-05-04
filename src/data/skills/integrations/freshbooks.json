@@ -1,0 +1,176 @@
+{
+  "slug": "freshbooks",
+  "name": "FreshBooks",
+  "domain": "freshbooks.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with FreshBooks",
+  "metaTitle": "Build FreshBooks AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use FreshBooks for invoicing, billing lookups, account updates, handoffs, and internal finance workflows with safe controls.",
+  "intro": "FreshBooks helps small businesses manage invoicing, payments, bookkeeping, and reporting, and DocsBot Skill Builder helps you turn those workflows into practical AI agent actions. In plain language, you describe what you want the agent to do with FreshBooks, and Skill Builder designs, secures, tests, and deploys the Skill for customer support or internal team use. The result is an AI agent that can answer questions and take approved action instead of only suggesting the next step.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up invoice status, payment history, or outstanding balances in FreshBooks while replying in chat or over helpdesk tickets.",
+    "Enable the agent to create a draft invoice, resend an invoice, or trigger a payment reminder in FreshBooks after confirming the request fits your approval rules.",
+    "Use the agent to summarize a customer’s billing situation from FreshBooks and prepare a clean handoff for finance or support when escalation is needed.",
+    "Allow the agent to confirm whether a payment was recorded in FreshBooks and explain the next approved step to the customer in the same conversation.",
+    "Have the agent collect missing billing details from the customer, then create or update a FreshBooks client record for follow-up by your team when allowed."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve FreshBooks invoice details, client balances, payment status, or reporting summaries without switching tools.",
+    "Enable finance, operations, or customer success teams to ask the agent to draft invoices, update client billing information, or prepare account notes in FreshBooks within scoped approval boundaries.",
+    "Help employees follow billing and collections SOPs by chatting with an internal AI agent that gathers FreshBooks data, summarizes account status, and recommends or triggers the next approved workflow step.",
+    "Use a private agent to generate concise FreshBooks account summaries for handoffs between support, finance, and account management teams.",
+    "Allow internal teams to research billing questions across conversations and FreshBooks records, then have the agent produce a clean summary or follow-up task for the right owner."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks FreshBooks invoice and payment status during customer conversations.",
+    "A billing assistant that drafts invoices or payment reminders with human approval for sensitive actions.",
+    "An internal finance agent that summarizes client balances, overdue invoices, and recent payment activity.",
+    "A support handoff Skill that packages FreshBooks billing context for escalation to finance teams.",
+    "An employee assistant that updates approved FreshBooks client details from chat-based requests.",
+    "A workflow agent that collects missing billing information and creates a structured follow-up record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with FreshBooks in plain language, such as checking invoice status, updating client billing details, or preparing billing handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and planning how the agent should look up data or take approved actions in FreshBooks."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive FreshBooks tasks so the agent can assist confidently without exceeding the permissions and controls you want."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with FreshBooks?",
+      "answer": "With DocsBot Skill Builder, you describe the FreshBooks workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests the behavior, and prepares it for deployment. That can include billing lookups, approved updates, reminders, handoffs, and other bounded actions."
+    },
+    {
+      "question": "Can an AI support agent use FreshBooks data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use FreshBooks to look up invoice status, payment history, balances, and related account details while responding to customers in chat or through tickets. You control what data the agent can access and what actions it may take."
+    },
+    {
+      "question": "What FreshBooks customer support workflows can DocsBot automate?",
+      "answer": "DocsBot can help automate billing lookups, payment confirmations, invoice resends, reminder workflows, escalation summaries, and structured handoffs to finance or support teams. Sensitive steps can be placed behind approval boundaries before the agent makes changes."
+    },
+    {
+      "question": "Can an internal AI assistant help employees complete FreshBooks tasks?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve FreshBooks information, summarize billing records, prepare invoices, update approved client details, or follow finance SOPs. This helps teams work faster without giving the agent unrestricted access."
+    },
+    {
+      "question": "How does DocsBot keep FreshBooks actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies authentication through runtime settings, keeps credentials out of conversations, and scopes permissions to the smallest practical set of actions and records. It can also require approval before sensitive updates or workflow triggers happen."
+    },
+    {
+      "question": "Can DocsBot create FreshBooks handoffs and summaries for finance teams?",
+      "answer": "Yes, a Skill can gather FreshBooks billing context, summarize the current account situation, and prepare a clean handoff for finance, support, or customer success. This is useful when the AI agent should collect context and package the next step instead of resolving the issue alone."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "stripe",
+    "chargebee",
+    "netsuite",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FreshBooks",
+    "domain": "freshbooks.com",
+    "description": "FreshBooks is a cloud‑based accounting software company that provides small‑business owners, freelancers, and accountants with easy‑to‑use tools for invoicing, payments, bookkeeping, and financial reporting. Serving customers in over 160 countries, FreshBooks streamlines billing, automates time‑tracking, and offers collaborative features that help businesses save time, improve cash flow, and focus on growth. The platform also equips accountants with accurate, efficient solutions to serve their small‑business clients and expand their practices. FreshBooks is a Canada‑based, equal‑opportunity employer that values employee ideas and supports professional development.",
+    "slogan": "Simplify your business with FreshBooks—powerful, easy accounting for small businesses.",
+    "logoUrl": "https://media.brand.dev/3eec48ad-7d3d-4534-ae95-bd32ea6ece61.svg",
+    "iconUrl": "https://media.brand.dev/13902c29-3021-4d44-a03d-1036637ab7f2.jpg",
+    "primaryColor": "#0574db",
+    "accentColor": "#74bcd4",
+    "colors": [
+      {
+        "hex": "#0574db",
+        "name": "Wizard Blue"
+      },
+      {
+        "hex": "#74bcd4",
+        "name": "Cologne"
+      },
+      {
+        "hex": "#254268",
+        "name": "Elmer’s Echo"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/25660c35-633a-4653-ad7d-0d0f7969d154.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.freshbooks.com/careers",
+      "terms": "https://www.freshbooks.com/policies/terms-of-service",
+      "contact": "https://www.freshbooks.com/contact",
+      "privacy": "https://www.freshbooks.com/policies/privacy",
+      "blog": "https://www.freshbooks.com/hub",
+      "pricing": "https://www.freshbooks.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/13902c29-3021-4d44-a03d-1036637ab7f2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/903f3c73-8d5d-4745-abf0-e80672279060.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 360,
+        "height": 360,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7ad05bca-aa20-49f7-acf1-a4119afa7303.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 33,
+        "height": 33,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3eec48ad-7d3d-4534-ae95-bd32ea6ece61.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 188,
+        "height": 262,
+        "aspectRatio": 0.72
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3eec48ad-7d3d-4534-ae95-bd32ea6ece61.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 188,
+      "height": 262,
+      "aspectRatio": 0.72
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/7ad05bca-aa20-49f7-acf1-a4119afa7303.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 33,
+      "height": 33,
+      "aspectRatio": 1
+    }
+  }
+}

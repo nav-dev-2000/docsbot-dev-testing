@@ -1,0 +1,168 @@
+{
+  "slug": "sugarcrm",
+  "name": "SugarCRM",
+  "domain": "sugarcrm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with SugarCRM",
+  "metaTitle": "Build SugarCRM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SugarCRM for customer support lookups, safe record updates, handoffs, and internal team workflows.",
+  "intro": "SugarCRM helps sales, marketing, and service teams manage the full customer journey, which makes it a strong system for AI-powered lookups, updates, and workflow actions. With DocsBot Skill Builder, you can describe the SugarCRM task you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, retrieve live CRM context, prepare handoffs, and take approved actions without exposing sensitive access or requiring manual technical setup.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up accounts, contacts, cases, opportunities, or service history in SugarCRM so it can answer status questions with current CRM context.",
+    "Use the agent to create or update SugarCRM cases from website chat or helpdesk conversations so customer issues are captured without manual re-entry.",
+    "Have the agent summarize a customer's recent SugarCRM activity, open issues, and account notes before preparing a clean handoff to a human support or success rep.",
+    "Allow the agent to log follow-up tasks, notes, or call outcomes in SugarCRM after resolving a support conversation or ticket.",
+    "Use the agent to collect missing details from the customer, then create a structured SugarCRM record or escalation package for the right internal team."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to pull up SugarCRM account details, recent activity, and relationship history without switching systems.",
+    "Enable sales, success, or service teams to ask the agent to create follow-up tasks, add notes, update contact fields, or log meeting outcomes in SugarCRM through guided workflows.",
+    "Give operations teams an AI assistant that summarizes account health, pipeline changes, open service issues, or rep activity across SugarCRM records for faster internal reporting.",
+    "Use an internal agent to walk employees through CRM SOPs, gather the required context, and complete approved SugarCRM updates with clear approval boundaries for sensitive actions.",
+    "Help managers and revenue teams research customer history by chatting with an agent that retrieves and summarizes SugarCRM records alongside internal guidance and playbooks."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks account status and open cases before answering customers.",
+    "An AI assistant that creates SugarCRM cases from chat conversations with structured summaries.",
+    "A handoff workflow that packages CRM history, notes, and next steps for human teams.",
+    "An internal sales assistant that logs follow-ups and updates contact or opportunity records.",
+    "A customer success agent that summarizes account activity before renewal or escalation conversations.",
+    "An operations assistant that gathers missing context and triggers approved CRM workflows safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SugarCRM agent to do in plain language, such as looking up case history, updating a contact, or preparing a support handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, and handles connection and authentication planning so you do not have to map the workflow yourself."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes SugarCRM access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or missing permission checks, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use SugarCRM actions safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SugarCRM without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the SugarCRM workflow you want in plain language and the builder designs the Skill, handles secure configuration, tests it, improves it, and prepares it for deployment. This lets non-technical teams create AI agents that can look up CRM data, update records, and trigger approved workflows safely."
+    },
+    {
+      "question": "Can an AI support agent use SugarCRM data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a SugarCRM Skill to retrieve customer, account, case, or activity data while responding in a website chat widget or helpdesk context. It can also prepare summaries, create records, and hand off the conversation with the right CRM context when allowed."
+    },
+    {
+      "question": "What SugarCRM workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve account history, summarize customer activity, log notes, create follow-up tasks, update approved fields, and guide teams through CRM-related SOPs. The workflows can be limited by role, action type, and approval rules so the assistant stays within your operating policies."
+    },
+    {
+      "question": "Can DocsBot safely update SugarCRM records through AI Actions?",
+      "answer": "Yes, Skill Builder is designed to create bounded actions with scoped permissions, secure authentication handling, and approval boundaries where needed. That means your AI agent can perform allowed SugarCRM updates while keeping credentials protected and limiting access to the right users, records, and workflows."
+    },
+    {
+      "question": "Can a DocsBot agent create SugarCRM cases or escalation handoffs from support conversations?",
+      "answer": "Yes, you can build a Skill that gathers the right details from the customer, creates or updates a SugarCRM case, and generates a structured summary for the next team. This helps reduce manual entry and makes escalations more consistent."
+    },
+    {
+      "question": "How does setup work for a SugarCRM AI assistant if my team is not technical?",
+      "answer": "You do not need to manually design every connection or workflow step. Skill Builder asks for the outcome you want, figures out the safer implementation, manages secure configuration and secret handling, runs automated scenario testing, and improves the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Node",
+    "domain": "sugarcrm.com",
+    "description": "SugarCRM is a leading CRM platform that simplifies processes for marketing, sales, and service teams. By automating tasks and eliminating manual entry, SugarCRM provides a clear picture of each customer's journey without the hassles of traditional CRMs. Their high-definition customer experience approach ensures no blind spots, no busy work, and no roadblocks, making it easier for businesses to create long-lasting customer relationships. SugarCRM's intelligent platform streamlines operations and enhances customer interaction, ultimately helping companies achieve success. Experience the power of SugarCRM by scheduling a demo today.",
+    "slogan": "Let the platform do the work with SugarCRM",
+    "logoUrl": "https://media.brand.dev/59ceaa9d-2991-4f92-8ab9-70abea3f7d75.svg",
+    "iconUrl": "https://media.brand.dev/3709a23c-379d-458f-9561-f56ae024a6d6.jpg",
+    "primaryColor": "#0c141c",
+    "accentColor": "#848c8d",
+    "colors": [
+      {
+        "hex": "#0c141c",
+        "name": "Midnight Edition"
+      },
+      {
+        "hex": "#848c8d",
+        "name": "Necron Compound"
+      },
+      {
+        "hex": "#cdcfd0",
+        "name": "Manhattan Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6cb80528-f15e-4aab-a433-9681c0387f66.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.sugarcrm.com/careers/",
+      "terms": "https://sugarcrm.com/legal/terms-of-use/",
+      "contact": "https://sugarcrm.com/contact/",
+      "privacy": "https://sugarcrm.com/legal/privacy-policy/",
+      "blog": "https://sugarcrm.com/blog/",
+      "pricing": "https://sugarcrm.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3709a23c-379d-458f-9561-f56ae024a6d6.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2ac216a2-0d60-4d82-87db-8f6e9deda4e4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 184,
+        "height": 35,
+        "aspectRatio": 5.26
+      },
+      {
+        "url": "https://media.brand.dev/59ceaa9d-2991-4f92-8ab9-70abea3f7d75.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 195,
+        "height": 40,
+        "aspectRatio": 4.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2ac216a2-0d60-4d82-87db-8f6e9deda4e4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 184,
+      "height": 35,
+      "aspectRatio": 5.26
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3709a23c-379d-458f-9561-f56ae024a6d6.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

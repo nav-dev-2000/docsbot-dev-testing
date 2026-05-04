@@ -1,0 +1,184 @@
+{
+  "slug": "docusign",
+  "name": "DocuSign",
+  "domain": "docusign.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work With DocuSign",
+  "metaTitle": "Build DocuSign AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use DocuSign to check agreement status, trigger workflows, prepare handoffs, and support secure internal operations.",
+  "intro": "DocuSign helps teams send, sign, and manage agreements digitally across customer and internal workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use DocuSign data and actions. The result is a support or internal AI agent that can answer questions, look up agreement details, prepare next steps, and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a document has been sent, viewed, signed, or completed and explain the current agreement status in chat or tickets.",
+    "Enable the agent to resend signature requests or share the next approved signing step after confirming the customer and applying your workflow rules.",
+    "Use the agent to look up envelope details, recipient progress, and outstanding actions so customers get fast updates without waiting for a human reply.",
+    "Have the agent prepare a handoff summary for support or success teams when a signing issue needs manual review, including agreement status and missing steps.",
+    "Allow the agent to trigger approved follow-up workflows when a customer reports a stalled agreement, such as notifying an owner or creating an escalation record."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up envelope status, recipient activity, and agreement progress without opening DocuSign.",
+    "Sales, success, or operations teams can ask the agent to summarize what is blocking signature completion and recommend the next approved follow-up step.",
+    "Teams can use the agent to prepare agreement handoff notes, escalation summaries, or renewal follow-up briefs using DocuSign status and recipient data.",
+    "Internal staff can ask the agent to trigger bounded workflows around completed or stalled agreements, such as notifying account owners or starting downstream SOPs.",
+    "Operations employees can chat with the agent to retrieve agreement activity across systems and complete routine status-check workflows faster and more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks DocuSign envelope status for customers in real time.",
+    "A ticket assistant that summarizes signing delays and prepares a clean escalation handoff.",
+    "An internal sales assistant that reports which agreements still need signatures and follow-up.",
+    "An operations agent that triggers approved notifications when agreements are completed or stalled.",
+    "A customer success assistant that explains signing progress and next steps using DocuSign data.",
+    "A renewal workflow agent that gathers agreement context and drafts follow-up summaries for teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with DocuSign, such as checking agreement status, summarizing delays, or triggering an approved follow-up workflow, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the safest way to connect to DocuSign, defines the required configuration values, handles authentication through secure runtime configuration, keeps credentials out of chats and source, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approve safe actions",
+      "description": "Skill Builder adds the right boundaries for sensitive DocuSign actions, including approvals, user scoping, and action limits, so the agent can help without exceeding the permissions or business rules you choose."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop before deployment."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams and customers can use DocuSign-aware AI Actions in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with DocuSign?",
+      "answer": "With DocsBot Skill Builder, you describe the DocuSign workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your DocsBot agent. That agent can then look up agreement data, summarize status, and take approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use DocuSign data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use DocuSign to check envelope status, recipient progress, and signing steps while replying in a website chat widget or helpdesk workflow. You control what information it can access and which actions it is allowed to take."
+    },
+    {
+      "question": "What DocuSign workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal agents can help employees retrieve agreement status, summarize stalled signatures, prepare handoff notes, and trigger bounded follow-up workflows for sales, customer success, or operations teams. This helps staff complete routine SOPs through chat without jumping between systems."
+    },
+    {
+      "question": "Can DocsBot trigger safe DocuSign actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved follow-ups, notifications, handoff preparation, or other controlled DocuSign-related workflow steps. Skill Builder adds scoped permissions and approval boundaries so the agent acts within the limits you define."
+    },
+    {
+      "question": "How does DocsBot keep DocuSign connections secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of chat and generated content, and scopes access to the minimum users, actions, and records needed. It also helps add approval checks for sensitive actions before the Skill goes live."
+    },
+    {
+      "question": "Can a DocsBot agent summarize signing problems before handing a case to a human?",
+      "answer": "Yes, the agent can gather DocuSign status details, identify missing recipients or incomplete steps, and generate a clean summary for a support, success, or operations handoff. That gives human teams faster context and reduces repetitive investigation."
+    }
+  ],
+  "relatedSlugs": [
+    "adobe-sign",
+    "dropbox-sign",
+    "box",
+    "google-drive",
+    "sharepoint",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "DocuSign",
+    "domain": "docusign.com",
+    "description": "DocuSign is a software company that provides electronic signature and agreement management solutions. It offers a range of products and services that enable businesses to digitally prepare, sign, and manage agreements, including e-signature, contract lifecycle management, and intelligent agreement management. With DocuSign, businesses can automate data workflows, collect information, and sign documents on various devices. The company serves enterprise, commercial, and small businesses across over 180 countries, providing industry-specific cloud offerings and sales channels.",
+    "slogan": "Bringing Agreements to Life",
+    "logoUrl": "https://media.brand.dev/1ee237a5-1e00-48c1-95e1-a219e82db7ea.svg",
+    "iconUrl": "https://media.brand.dev/fca8298d-e8be-43ae-a122-b12775810dea.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#c4c4c4",
+        "name": "Explosive Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c237d203-1c17-4752-bf60-8b453cb58c04.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.docusign.com/company/terms-of-use",
+      "contact": null,
+      "privacy": "https://www.docusign.com/privacy",
+      "blog": "https://www.docusign.com/blog",
+      "pricing": "https://ecom.docusign.com/plans-and-pricing/esignature"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fca8298d-e8be-43ae-a122-b12775810dea.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3323d3dd-4cad-4026-ba64-4c4dfddae0a5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c9548afe-f4b3-4846-852f-5742088801da.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2dce3bd9-bcc0-4f82-a302-069d440a88c4.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1ee237a5-1e00-48c1-95e1-a219e82db7ea.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1200,
+        "height": 241,
+        "aspectRatio": 4.98
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1ee237a5-1e00-48c1-95e1-a219e82db7ea.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1200,
+      "height": 241,
+      "aspectRatio": 4.98
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c9548afe-f4b3-4846-852f-5742088801da.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

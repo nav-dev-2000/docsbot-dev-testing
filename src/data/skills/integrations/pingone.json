@@ -1,0 +1,168 @@
+{
+  "slug": "pingone",
+  "name": "PingOne",
+  "domain": "pingone.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with PingOne",
+  "metaTitle": "Build PingOne AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up identity data, assist support teams, and automate approved PingOne workflows.",
+  "intro": "PingOne helps organizations manage secure digital identity, access, and authentication workflows. With DocsBot Skill Builder, you can describe the PingOne-powered agent behavior you want in plain language and have DocsBot design, secure, test, and publish a reusable Skill. The result is an AI support agent or internal AI assistant that can safely use PingOne data and approved actions to resolve requests faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check identity or access status in PingOne so it can explain next steps during login, MFA, or account access issues.",
+    "Use a support agent to gather missing verification details from the customer, summarize the issue, and prepare a secure handoff for identity or security teams.",
+    "Enable the agent to look up relevant user directory or authentication state in PingOne and respond with guided troubleshooting for passwordless, SSO, or access problems.",
+    "Have the agent trigger approved identity-related workflows, such as initiating a bounded escalation or follow-up process, while keeping sensitive actions behind approval limits.",
+    "Use the agent in helpdesk ticket replies to summarize PingOne-related access findings and attach clear escalation context for faster resolution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up PingOne user status, group context, or access details without switching tools.",
+    "Enable IT, support, or security teams to ask the agent to summarize authentication issues, recent identity context, or likely next steps based on PingOne records.",
+    "Use an internal AI assistant to guide staff through identity and access SOPs, gather required details, and complete approved PingOne-connected workflows safely.",
+    "Allow operations teams to chat with the agent to prepare escalation notes, remediation checklists, or handoff summaries tied to PingOne identity events.",
+    "Help employee-facing service desks use a private agent to research access requests and route them into the right approval or remediation path."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks PingOne access status during login and MFA troubleshooting.",
+    "A helpdesk assistant that summarizes identity issues and prepares secure escalation handoffs.",
+    "An internal IT agent that retrieves PingOne user context for employee support workflows.",
+    "A private security assistant that guides staff through access review and remediation SOPs.",
+    "An AI agent that gathers verification details before routing sensitive identity requests for approval.",
+    "A support workflow that creates structured issue summaries from PingOne-related ticket context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the PingOne-connected agent to do in plain language, such as checking access status, summarizing identity issues, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, choosing the safest workflow, defining the needed configuration values, and shaping how the agent should look up data or take approved actions in PingOne."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure authentication design, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes access to the minimum users, records, and actions required."
+    },
+    {
+      "title": "Approvals are built in",
+      "description": "For sensitive identity operations, Skill Builder adds approval boundaries and action limits so the agent can assist confidently without overstepping the rules you set."
+    },
+    {
+      "title": "Testing improves the Skill",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with PingOne?",
+      "answer": "With DocsBot Skill Builder, you describe the PingOne workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests the behavior, and helps deploy it to the right DocsBot agent. The finished agent can look up identity data, summarize issues, and take bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use PingOne data to help with login and access issues?",
+      "answer": "Yes, a DocsBot support agent can use a PingOne Skill to retrieve relevant identity or access context while replying to website chat conversations or helpdesk tickets. That allows the agent to troubleshoot faster, explain next steps, and prepare clean escalations when human review is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with PingOne?",
+      "answer": "Teams can build workflows for identity lookups, access-status summaries, secure handoff preparation, escalation notes, and approved follow-up triggers tied to authentication or account access issues. The agent responds to the customer first, then uses PingOne in the background within the limits you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with PingOne-related tasks?",
+      "answer": "Yes, private DocsBot agents can help employees and internal teams research user access context, summarize authentication issues, and follow access-management SOPs through chat, Slack, or Microsoft Teams. This reduces tool switching and helps teams complete routine identity workflows more consistently."
+    },
+    {
+      "question": "How does DocsBot keep PingOne actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum required access, and adds approval boundaries for sensitive actions. That means the agent can assist with identity workflows without exposing credentials or taking unrestricted actions."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to PingOne?",
+      "answer": "No, the setup is designed for non-technical users to describe the outcome they want rather than manually build the integration flow. Skill Builder handles the workflow design, secure connection approach, testing, improvements, and deployment guidance for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "auth0",
+    "onelogin",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "duo-security"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Ping Identity",
+    "domain": "pingidentity.com",
+    "description": "Ping Identity is a global enterprise identity security company that provides an identity platform to trust every digital moment. They help businesses secure user identities, prevent fraud, and simplify access, allowing for seamless and frictionless digital experiences across various environments, including cloud, hybrid, and on-prem.",
+    "slogan": "Secure digital identities for seamless, trusted experiences worldwide.",
+    "logoUrl": "https://media.brand.dev/73a40797-1428-4710-ab69-d13b4f345a8c.svg",
+    "iconUrl": "https://media.brand.dev/57b3c185-78f9-4cc5-b83a-8f974af0e26f.jpg",
+    "primaryColor": "#b5282f",
+    "accentColor": "#d48c9c",
+    "colors": [
+      {
+        "hex": "#b5282f",
+        "name": "Madder Red"
+      },
+      {
+        "hex": "#d48c9c",
+        "name": "Can Can"
+      },
+      {
+        "hex": "#eddbdb",
+        "name": "Hyper Light Drifter"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7d30022f-cad1-4e1c-b475-d266c37d37a4.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/57b3c185-78f9-4cc5-b83a-8f974af0e26f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fbe4ef66-db6e-4e3d-bac0-9b17d239486f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/73a40797-1428-4710-ab69-d13b4f345a8c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 126,
+        "height": 22,
+        "aspectRatio": 5.73
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/73a40797-1428-4710-ab69-d13b4f345a8c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 126,
+      "height": 22,
+      "aspectRatio": 5.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/57b3c185-78f9-4cc5-b83a-8f974af0e26f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

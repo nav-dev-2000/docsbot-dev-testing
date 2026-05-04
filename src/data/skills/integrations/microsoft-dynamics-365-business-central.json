@@ -1,0 +1,160 @@
+{
+  "slug": "microsoft-dynamics-365-business-central",
+  "name": "Microsoft Dynamics 365 Business Central",
+  "domain": "microsoft-dynamics-365-business-central.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Microsoft Dynamics 365 Business Central",
+  "metaTitle": "Microsoft Dynamics 365 Business Central AI Agent | DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Microsoft Dynamics 365 Business Central for safe lookups, record updates, workflow triggers, support handoffs, and internal operations.",
+  "intro": "Microsoft Dynamics 365 Business Central helps teams manage finance, orders, inventory, and operations in one business system. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up data, update approved records, trigger workflows, and summarize business state. This helps customer support teams resolve issues faster and gives internal employees a private AI assistant that can take bounded action inside Business Central.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check order, invoice, shipment, or payment status in Microsoft Dynamics 365 Business Central while replying in website chat or helpdesk tickets.",
+    "Enable the agent to retrieve customer account details, product availability, or fulfillment information so it can answer account and order-related questions with current Business Central data.",
+    "Allow the agent to create approved follow-up tasks, case notes, or internal handoff summaries based on Business Central records when a customer issue needs human review.",
+    "Use the agent to summarize account history, outstanding balances, or recent transactions from Business Central so support reps and customers get a clearer picture faster.",
+    "Let the agent collect missing order or billing details from the customer, then prepare a structured escalation or handoff that includes relevant Business Central context for finance or operations teams."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve customer, invoice, vendor, inventory, or order information from Microsoft Dynamics 365 Business Central without manually navigating multiple screens.",
+    "Let finance, operations, and customer success teams ask the agent for summaries of account status, unpaid invoices, shipment progress, or inventory movement across Business Central records.",
+    "Enable employees in Slack, Microsoft Teams, or internal chat to have the agent create approved updates, notes, follow-up tasks, or workflow triggers in Business Central within defined permission boundaries.",
+    "Use the agent to guide staff through repeatable SOPs such as order review, billing follow-up, exception handling, or account research while pulling live Business Central context into each step.",
+    "Allow team members to ask the agent for structured handoff briefs, reconciliation summaries, or status reports generated from Microsoft Dynamics 365 Business Central data."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks order, invoice, and shipment status before answering customers.",
+    "A billing assistant that summarizes outstanding balances and prepares finance team handoffs.",
+    "An internal operations agent that retrieves inventory availability and fulfillment details on demand.",
+    "A customer success agent that gathers account history and creates structured escalation notes.",
+    "A finance workflow assistant that drafts reconciliation summaries from approved Business Central records.",
+    "An employee chat assistant that triggers bounded follow-up tasks after account or order reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do in Microsoft Dynamics 365 Business Central, such as checking invoice status, summarizing account activity, or creating an approved follow-up workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the records, users, and actions needed."
+    },
+    {
+      "title": "Actions get safe boundaries",
+      "description": "Skill Builder adds the right instructions, data lookups, update rules, and approval boundaries so the agent can answer questions and take bounded action in Business Central without exceeding the permissions you define."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent in chat, Slack, or Microsoft Teams with logging and controls in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Microsoft Dynamics 365 Business Central?",
+      "answer": "With DocsBot Skill Builder, you describe the Business Central task you want in plain language, and Skill Builder creates a secure Skill that can look up data, summarize records, update approved fields, or trigger workflows. It also handles connection design, secret protection, permission scoping, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Microsoft Dynamics 365 Business Central data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Business Central data to check order status, invoice details, shipment progress, account history, or other approved records while responding in chat or helpdesk tickets. The actions and data access can be limited to the exact support workflows you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Microsoft Dynamics 365 Business Central?",
+      "answer": "DocsBot can help automate live record lookups, account summaries, structured handoff notes, escalation prep, follow-up task creation, and approved workflow triggers based on Business Central data. This helps support teams respond faster while keeping sensitive actions inside defined boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Microsoft Dynamics 365 Business Central?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Business Central information, research account or order history, and complete approved operational workflows. This is useful for finance, operations, support, and customer success teams that need fast answers and safe actions."
+    },
+    {
+      "question": "Can DocsBot update records in Microsoft Dynamics 365 Business Central safely?",
+      "answer": "DocsBot Skill Builder can create Skills that perform approved Business Central updates with scoped permissions, action limits, and approval boundaries where needed. That means your agent can take useful action while staying inside the rules your team defines."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft Dynamics 365 Business Central connections secure?",
+      "answer": "Skill Builder identifies the configuration values needed, keeps credentials out of chats and generated content, and protects secrets through secure runtime handling and proxying. It also scopes access to the minimum records, actions, and users required for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks-online",
+    "xero",
+    "sage-intacct",
+    "microsoft-dynamics-365",
+    "stripe"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

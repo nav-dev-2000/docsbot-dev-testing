@@ -1,0 +1,152 @@
+{
+  "slug": "execvision",
+  "name": "ExecVision",
+  "domain": "execvision.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ExecVision",
+  "metaTitle": "Build ExecVision AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ExecVision data for support lookups, coaching summaries, escalations, and internal workflows with secure actions and approvals.",
+  "intro": "ExecVision is used to capture conversation intelligence, call insights, and coaching context that can help teams answer questions and improve follow-up. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up call details, summarize findings, prepare handoffs, and trigger approved workflows. This helps customer-facing support agents and private internal AI assistants turn conversation data into faster answers and better next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull relevant call or conversation notes from ExecVision to clarify what was promised, discussed, or escalated during prior interactions.",
+    "Use ExecVision conversation summaries to help a support agent respond to billing, onboarding, or account questions with better context from past customer calls.",
+    "Have the agent prepare a clean escalation handoff by summarizing key call moments, objections, and unresolved issues stored in ExecVision.",
+    "Enable the agent to surface coaching or quality insights from prior conversations so support leaders can understand recurring customer friction behind incoming tickets.",
+    "Let the agent gather conversation evidence from ExecVision and summarize it for helpdesk replies when a customer disputes what happened on a call."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve ExecVision call insights, summaries, and coaching notes without digging through recordings manually.",
+    "Customer success or support managers can ask the agent to summarize recent ExecVision conversations by account, rep, topic, or risk signal so they can prepare renewals, escalations, or coaching sessions.",
+    "Revenue, operations, or enablement teams can use the agent to research trends across ExecVision conversations and produce concise summaries for training, QA reviews, or leadership updates.",
+    "Team members can ask the agent to follow internal SOPs by combining ExecVision conversation findings with handoff steps, next-action checklists, and approved workflow triggers in other systems.",
+    "Employees can use the agent to prepare account briefs from ExecVision call context before meetings, renewals, support interventions, or executive reviews."
+  ],
+  "whatYouCanBuild": [
+    "An AI support assistant that summarizes prior customer calls before replying to a ticket.",
+    "A private coaching agent that retrieves ExecVision insights for managers and team leads.",
+    "An escalation workflow that packages call context into a clean internal handoff summary.",
+    "A QA research assistant that finds recurring objections, risks, and customer pain points.",
+    "An internal account briefing agent that pulls conversation context before renewals or reviews.",
+    "A support copilot that checks past calls for promises, commitments, or unresolved concerns."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ExecVision-powered agent to do, such as summarize past calls for support replies or prepare escalation handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the required connection details, defines secure configuration values, keeps credentials out of chats and Skill source, proxies secrets through protected runtime settings, and scopes ExecVision access to the minimum actions and data needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder sets approval boundaries, user access limits, and safe action rules so the agent can retrieve or prepare information confidently while reserving sensitive updates or downstream actions for the right people when needed."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can start getting answers and bounded actions from ExecVision context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ExecVision conversation data?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, such as retrieving call summaries or preparing handoffs, and Skill Builder creates a secure Skill that lets your AI agent use ExecVision data within defined rules."
+    },
+    {
+      "question": "Can an AI support agent use ExecVision to answer customer questions more accurately?",
+      "answer": "Yes, a DocsBot support agent can use ExecVision call context to retrieve relevant summaries, clarify past conversations, and prepare better ticket replies or escalations while staying within approved access limits."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with ExecVision?",
+      "answer": "Teams can automate conversation lookups, issue summaries, escalation prep, dispute context gathering, and handoff notes that help support agents respond faster with better historical context."
+    },
+    {
+      "question": "Can an internal AI assistant use ExecVision for coaching and QA research?",
+      "answer": "Yes, private DocsBot agents can help managers and operations teams retrieve conversation insights, summarize patterns, and support coaching or QA workflows across Slack, Microsoft Teams, or internal chat."
+    },
+    {
+      "question": "How does DocsBot keep ExecVision access secure for AI actions?",
+      "answer": "Skill Builder defines the needed configuration, handles authentication through secure runtime settings, keeps secrets out of prompts and generated content, scopes permissions, and adds approval boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot summarize ExecVision calls before an escalation or account review?",
+      "answer": "Yes, you can build a Skill that gathers relevant conversation context from ExecVision and turns it into concise summaries, briefs, or handoff artifacts for support, success, or leadership teams."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "chorus",
+    "salesloft",
+    "hubspot",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Execvision",
+    "domain": "execvision.com",
+    "description": "DomainMarket.com is a trusted online marketplace that specializes in the sale of premium .com domain names. The platform offers a streamlined, secure purchasing process that includes immediate ownership transfer, multiple payment options, and dedicated customer support. Buyers benefit from instant credibility, improved search rankings, and long‑term investment value when acquiring keyword‑rich, high‑authority domains. DomainMarket.com handles all verification, transfer logistics, and provides clear instructions for moving domains to any registrar, ensuring a hassle‑free experience. With a reputation built on reliability and satisfaction, the service caters to serious entrepreneurs, businesses, and investors seeking high‑quality digital assets.",
+    "slogan": "Premium domains, flawless process—100% yours, no ongoing commitments.",
+    "logoUrl": "https://media.brand.dev/75515115-8696-452d-bc46-8b61c6160f0b.svg",
+    "iconUrl": "https://media.brand.dev/75515115-8696-452d-bc46-8b61c6160f0b.svg",
+    "primaryColor": "#47ad4f",
+    "accentColor": "#9cd4a4",
+    "colors": [
+      {
+        "hex": "#47ad4f",
+        "name": "Leapfrog"
+      },
+      {
+        "hex": "#9cd4a4",
+        "name": "Chinook"
+      },
+      {
+        "hex": "#daefdc",
+        "name": "Dewmist Delight"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1f17c23f-d38f-4506-b8e3-062e6f252bcb.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/75515115-8696-452d-bc46-8b61c6160f0b.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/75515115-8696-452d-bc46-8b61c6160f0b.svg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/75515115-8696-452d-bc46-8b61c6160f0b.svg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

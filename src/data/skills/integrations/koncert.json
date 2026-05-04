@@ -1,0 +1,176 @@
+{
+  "slug": "koncert",
+  "name": "Koncert",
+  "domain": "koncert.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Koncert",
+  "metaTitle": "Build AI Agents for Koncert with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Koncert for safe lookups, call workflow actions, summaries, and internal sales support with secure Skill Builder guidance.",
+  "intro": "Koncert helps sales teams connect with prospects through AI-powered dialing, call analysis, and sales engagement workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Koncert, and DocsBot will design, secure, test, improve, and deploy that reusable Skill for support or internal team use. The result is an AI agent that can answer questions, gather context, trigger approved actions, and summarize outcomes instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up scheduled outreach or call status tied to an account and give customers a clear update without exposing internal sales tooling.",
+    "Let a support agent summarize recent Koncert engagement activity for a customer record so ticket replies include relevant outreach context and a faster handoff to the right team.",
+    "Have the agent prepare escalation notes that combine the customer issue with recent call activity, contact attempts, and account context from Koncert.",
+    "Allow the agent to trigger an approved follow-up workflow in Koncert when a customer asks to be contacted by sales or success after a support conversation.",
+    "Use the agent to collect missing contact details in chat and create a clean handoff for outbound follow-up in Koncert under your approval rules."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Koncert call activity, outreach status, and account engagement summaries without opening multiple tools.",
+    "Sales, support, and customer success teams can ask the agent to prepare handoff notes from Koncert activity so internal follow-ups are faster and more consistent.",
+    "Managers can use an internal AI agent to summarize calling performance, recent connect activity, and outreach patterns from Koncert for coaching or pipeline reviews.",
+    "Teams can chat with the agent to trigger approved Koncert workflows, such as assigning a follow-up task or routing a prospect to the right rep based on internal rules.",
+    "Operations employees can use the agent to follow SOPs that gather Koncert engagement data, combine it with ticket or CRM context, and generate a clean next-step summary."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes recent Koncert outreach before replying to a customer ticket.",
+    "A private sales assistant that fetches call activity and drafts internal follow-up notes.",
+    "A handoff Skill that sends qualified contact requests from support chat into Koncert workflows.",
+    "An internal agent that explains recent engagement history for an account or prospect.",
+    "A workflow Skill that gathers missing contact details and prepares approved outbound follow-up actions.",
+    "A manager assistant that summarizes dialing activity and recent call outcomes for team reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Koncert agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the required Koncert connection details, defines secure authentication and configuration values, keeps secrets out of chats and source, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Actions get clear boundaries",
+      "description": "Skill Builder adds the right runtime instructions, approval steps, and safe action limits so the agent can look up data, prepare updates, or trigger workflows only within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using Koncert through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Koncert?",
+      "answer": "With DocsBot Skill Builder, you describe the Koncert workflow you want in plain language, such as looking up engagement activity, creating handoffs, or triggering approved follow-up actions. Skill Builder then designs the Skill, secures the connection, tests scenarios, improves the workflow, and helps publish it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Koncert data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Koncert data to retrieve outreach context, summarize recent activity, and prepare handoffs while responding in a website chat or helpdesk ticket flow. You control what information and actions are allowed so the agent stays within safe support boundaries."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot agent automate with Koncert?",
+      "answer": "Internal agents can help employees retrieve call activity, summarize prospect engagement, prepare rep handoffs, and trigger approved follow-up workflows inside Koncert. This is useful for sales, support, customer success, and operations teams that need faster context and cleaner next steps."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Koncert instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be built for bounded AI Actions such as creating handoff records, routing follow-up requests, or starting approved outreach workflows in Koncert. Skill Builder adds permission scope and approval boundaries so sensitive actions remain controlled."
+    },
+    {
+      "question": "Is it safe to connect Koncert to an AI agent?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets through secure runtime settings, and keeping credentials out of chats and generated content. It also scopes permissions and can add approval checks for higher-impact actions."
+    },
+    {
+      "question": "Can an internal AI assistant summarize Koncert activity for reps and managers?",
+      "answer": "Yes, a private DocsBot agent can summarize recent calls, connect patterns, and engagement history from Koncert so reps and managers get fast answers in chat, Slack, or Microsoft Teams. This helps teams review account status and decide next steps without manually pulling data from multiple systems."
+    }
+  ],
+  "relatedSlugs": [
+    "salesloft",
+    "outreach",
+    "gong",
+    "aircall",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Koncert",
+    "domain": "koncert.com",
+    "description": "Koncert is a leading AI-powered B2B Sales Engagement Platform that helps modern sales teams connect with live prospects, accelerate their pipeline, and drive revenue growth. With advanced AI dialers and integrations with leading CRMs, Koncert boosts conversations, skyrockets connect rates, and maximizes productivity. The platform also delivers next-gen AI capabilities, including real-time call analysis and data enrichment, to make sales smarter and transform outbound engagement into a high-performing engine.",
+    "slogan": "Connect smarter, sell faster, grow revenue with AI-powered sales engagement.",
+    "logoUrl": "https://media.brand.dev/e7aa0b1c-7a5a-4db4-9eef-d6951508484c.svg",
+    "iconUrl": "https://media.brand.dev/f35edb5f-b39f-4d33-a77c-d7dc37017298.jpg",
+    "primaryColor": "#0c2c54",
+    "accentColor": "#e9ccbb",
+    "colors": [
+      {
+        "hex": "#0c2c54",
+        "name": "Dark Tyrian Blue"
+      },
+      {
+        "hex": "#e9ccbb",
+        "name": "Scotchtone"
+      },
+      {
+        "hex": "#7c8c9f",
+        "name": "Lucid Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1a8eff5e-a125-4b09-ae00-29d73133ef54.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.koncert.com/table/company/careers/",
+      "terms": "https://www.koncert.com/terms-of-use",
+      "contact": "https://www.koncert.com/contact-koncert",
+      "privacy": "https://www.koncert.com/privacy-policy",
+      "blog": "https://www.koncert.com/blog",
+      "pricing": "https://www.koncert.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f35edb5f-b39f-4d33-a77c-d7dc37017298.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e7aa0b1c-7a5a-4db4-9eef-d6951508484c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 801,
+        "height": 180,
+        "aspectRatio": 4.45
+      },
+      {
+        "url": "https://media.brand.dev/70ea7afe-f6ea-436e-82c7-c8c7395e927f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 315,
+        "height": 252,
+        "aspectRatio": 1.25
+      },
+      {
+        "url": "https://media.brand.dev/674b50a2-430b-4ff2-b5ca-30eff773c5cb.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 96,
+        "height": 96,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e7aa0b1c-7a5a-4db4-9eef-d6951508484c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 801,
+      "height": 180,
+      "aspectRatio": 4.45
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f35edb5f-b39f-4d33-a77c-d7dc37017298.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

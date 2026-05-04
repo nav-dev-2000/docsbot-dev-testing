@@ -1,0 +1,176 @@
+{
+  "slug": "lano",
+  "name": "Lano",
+  "domain": "lano.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI agents that work with Lano using DocsBot Skills",
+  "metaTitle": "Build Lano AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Lano for support and internal HR workflows, with secure actions, approvals, testing, and guided Skill Builder setup.",
+  "intro": "Lano helps companies manage global hiring, payroll, and workforce operations across countries. With DocsBot Skill Builder, you can describe the Lano workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal team assistant. That lets your AI agent not only answer questions, but also look up workforce information, prepare handoffs, update approved records, and trigger bounded actions inside Lano.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of contractor onboarding or payroll-related requests in Lano and respond with a clear summary.",
+    "Let a support agent gather missing information from a customer or worker, then create or update an approved Lano record for follow-up.",
+    "Have the agent summarize worker setup progress in Lano and prepare a clean handoff for human payroll or HR specialists.",
+    "Enable the agent to confirm whether submitted onboarding documents, profile details, or payment setup steps are still pending in Lano.",
+    "Use the agent in helpdesk ticket replies to pull Lano context, reduce back-and-forth, and route sensitive issues to the right team with a structured summary."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Lano information such as onboarding status, worker records, and payroll process details.",
+    "Give HR and operations teams an internal AI assistant that can summarize Lano data, surface missing steps, and guide staff through standard workforce workflows.",
+    "Enable finance, people operations, or support employees to ask the agent to prepare compliant handoffs, escalation notes, or task summaries based on Lano records.",
+    "Help internal teams complete SOPs faster by having the agent collect required context, update approved fields in Lano, and trigger the next allowed step.",
+    "Allow managers or operations staff to chat with the agent to research worker-related questions across Lano and get concise answers with recommended next actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks global onboarding status and explains outstanding steps to workers or customers.",
+    "A support workflow that summarizes Lano records and drafts payroll or HR escalation handoffs.",
+    "An internal assistant that guides employees through contractor setup and compliance-related SOPs.",
+    "A DocsBot Skill that collects missing worker details and updates approved Lano fields safely.",
+    "An AI agent that reviews payment or onboarding progress and triggers the next approved workflow.",
+    "A private team assistant that answers Lano process questions with live record lookups and summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Lano agent to do, such as checking onboarding status, updating approved records, or preparing HR handoffs, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides how the Skill should connect to Lano, defines the required configuration values, handles authentication safely, protects and proxies secrets through secure runtime settings, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible approval boundaries and action limits so the agent can answer questions and take bounded action in Lano without exceeding the permissions or workflows you allow."
+    },
+    {
+      "title": "The Skill is tested automatically",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the new Lano Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or internal team assistant so employees or customers can start using it in natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Lano?",
+      "answer": "With DocsBot Skill Builder, you describe the Lano workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up information, update approved records, trigger next steps, and summarize outcomes. It also handles secure configuration, scoped permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Lano data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Lano Skill to retrieve relevant onboarding, payroll, or worker-status information while responding to customers or workers. You can limit what the agent can see and define when it should summarize, hand off, or request approval before taking action."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Lano?",
+      "answer": "A DocsBot agent can check status, collect missing details, summarize worker or payroll progress, prepare escalations, and update approved records in Lano as part of a support conversation. This helps reduce manual back-and-forth and gives customers clearer answers faster."
+    },
+    {
+      "question": "Can an internal AI assistant help HR or operations teams use Lano more efficiently?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Lano information, follow workforce SOPs, prepare handoffs, and complete approved actions through chat, Slack, or Microsoft Teams. This makes routine HR and operations tasks faster without requiring staff to navigate every step manually."
+    },
+    {
+      "question": "How does DocsBot keep Lano actions secure?",
+      "answer": "Skill Builder is designed to define secure connection settings, keep credentials out of chats and generated content, proxy secrets through approved runtime configuration, and limit access to the minimum users, records, and actions required. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update records in Lano or only answer questions?",
+      "answer": "DocsBot Skills can be designed for both retrieval and bounded action, so your agent can answer questions and also update approved fields, create handoff records, or trigger allowed workflows in Lano. You decide the action limits, and Skill Builder builds the safeguards around them."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "deel",
+    "remote",
+    "gusto",
+    "rippling",
+    "workday"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lano Carpets Solutions",
+    "domain": "lano.com",
+    "description": "Lano Carpets Solutions is a leading manufacturer and distributor of carpets, runners, artificial grass, and rugs for residential and hospitality use. Established in the 1920s as a Belgian family business, Lano Carpets has evolved into a global industry player known for innovation, quality, and exceptional service. Their product range includes woven Axminster and tufted carpets, as well as artificial grass, catering to both residential and hospitality markets. With a focus on precise quality control at every stage of production and delivery, Lano Carpets has earned a strong reputation for top designs and unique quality. Their premium collection offers a blend of classic and contemporary styles for luxurious interiors in residential, hospitality, landscaping, and SmartStrand applications.",
+    "slogan": "Luxury carpets, Belgian quality. Elevate your space with Lano Carpets.",
+    "logoUrl": "https://media.brand.dev/909c7fb9-c707-4ae4-bdaf-a944ec8f6e98.jpg",
+    "iconUrl": "https://media.brand.dev/2b073cd3-828c-4cb4-88d3-d5f666e86991.png",
+    "primaryColor": "#e45361",
+    "accentColor": "#1b4738",
+    "colors": [
+      {
+        "hex": "#e45361",
+        "name": "Aphrodisiac"
+      },
+      {
+        "hex": "#1b4738",
+        "name": "Sherwood Green"
+      },
+      {
+        "hex": "#e3e9e8",
+        "name": "Evening Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/525bd53b-bff0-4f97-a170-e2e7227d69a2.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.lano.com/en/jobs",
+      "terms": null,
+      "contact": "https://www.lano.com/en/contact",
+      "privacy": "https://www.lano.com/en/privacy-policy",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2b073cd3-828c-4cb4-88d3-d5f666e86991.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b7129caa-1229-4cbe-911a-91782d8af47e.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/909c7fb9-c707-4ae4-bdaf-a944ec8f6e98.jpg",
+        "type": "logo",
+        "mode": "light",
+        "width": 175,
+        "height": 77,
+        "aspectRatio": 2.27
+      },
+      {
+        "url": "https://media.brand.dev/804c7bfc-f8dd-483a-8dba-524cbcbe4775.jpg",
+        "type": "logo",
+        "mode": "light",
+        "width": 175,
+        "height": 77,
+        "aspectRatio": 2.27
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/909c7fb9-c707-4ae4-bdaf-a944ec8f6e98.jpg",
+      "type": "logo",
+      "mode": "light",
+      "width": 175,
+      "height": 77,
+      "aspectRatio": 2.27
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2b073cd3-828c-4cb4-88d3-d5f666e86991.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

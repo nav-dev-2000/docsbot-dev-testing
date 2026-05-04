@@ -1,0 +1,178 @@
+{
+  "slug": "temenos",
+  "name": "Temenos",
+  "domain": "temenos.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build DocsBot AI agents that work with Temenos",
+  "metaTitle": "Build AI agents for Temenos with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that connect with Temenos for secure banking support workflows, internal lookups, handoffs, summaries, and approved actions.",
+  "intro": "Temenos powers core banking, digital banking, payments, and related financial workflows, making it a strong system for high-value support and operations use cases. With DocsBot Skill Builder, you can describe the banking or service outcome you want in plain language and have DocsBot design a reusable Skill that connects to Temenos safely. The result is an AI agent that can answer questions, retrieve the right account or case context, prepare handoffs, and take bounded actions for customers or internal teams.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up application, onboarding, service request, or payment status in Temenos and explain the latest approved status in clear language.",
+    "Use the agent to collect missing customer details in chat, validate the request against Temenos records, and prepare a support handoff with a structured summary for a human specialist.",
+    "Enable the agent to create or update approved service records in Temenos, such as contact detail corrections or follow-up requests, when your workflow allows those changes.",
+    "Have the agent summarize account servicing history, open cases, or recent banking interactions from Temenos so customers get faster, more informed responses.",
+    "Trigger approved Temenos workflows from a helpdesk conversation, such as escalating a dispute, routing a banking service issue, or starting a review process with human approval where needed."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve customer, account, payment, onboarding, or case context from Temenos without manually searching across screens.",
+    "Operations teams can ask the agent to summarize servicing history, open workflow items, and next steps from Temenos before contacting a customer or handling an escalation.",
+    "Customer success, branch, or service teams can use the agent in Slack or Microsoft Teams to prepare structured handoff notes, follow-up tasks, and case summaries based on Temenos data.",
+    "Internal teams can chat with the agent to complete repeatable SOPs, such as gathering required context, checking record status, and triggering approved Temenos workflows with bounded permissions.",
+    "Managers and specialists can use the agent to research issue patterns, compare related records, and generate concise operational summaries from Temenos for faster decision-making."
+  ],
+  "whatYouCanBuild": [
+    "A banking support agent that checks service request or application status in Temenos.",
+    "An internal operations assistant that summarizes customer records and open workflow items.",
+    "A helpdesk agent that prepares compliant handoff notes from Temenos case context.",
+    "A private employee agent that gathers onboarding details and next required actions.",
+    "An AI assistant that triggers approved escalation or review workflows in Temenos.",
+    "A support bot that collects missing context and updates allowed service records safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the Temenos workflow you want in plain language, and Skill Builder turns that goal into a practical AI agent ability for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the right connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound the allowed actions",
+      "description": "Skill Builder adds safe operating rules, approval boundaries, and clear limits so the Temenos Skill can handle lookups, updates, handoffs, and workflow triggers only within your approved policies."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill automatically, Skill Builder helps publish it to the right DocsBot agent so it can assist customers in chat or help employees in private channels with logged, controlled actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Temenos?",
+      "answer": "With DocsBot Skill Builder, you describe the Temenos workflow you want in plain language, such as checking status, summarizing records, or triggering an approved process. Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Temenos data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve approved Temenos data during a customer chat or helpdesk conversation so it can answer status questions, summarize context, or prepare a handoff. Access can be scoped to the minimum records and actions your team allows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Temenos?",
+      "answer": "Teams can build workflows for status lookups, service request summaries, intake of missing details, approved record updates, escalation prep, and workflow triggers tied to banking support processes. Sensitive actions can be placed behind approval boundaries before anything is changed."
+    },
+    {
+      "question": "Can DocsBot create safe handoffs from Temenos for banking support teams?",
+      "answer": "Yes, DocsBot can use Temenos context to generate structured handoff notes, case summaries, and next-step recommendations for human agents. This helps support teams respond faster while keeping the final workflow within your rules and review points."
+    },
+    {
+      "question": "What can an internal AI assistant do with Temenos for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve account or case context, summarize servicing history, research open workflow items, and complete repeatable SOPs across Temenos-driven processes. It can also trigger approved actions when your permissions and review rules allow it."
+    },
+    {
+      "question": "How does DocsBot keep Temenos integrations secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill content, proxies secrets through protected runtime settings, and scopes permissions to the smallest practical access level. It can also add approval steps and action limits for higher-risk Temenos workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "zendesk",
+    "servicenow",
+    "hubspot",
+    "freshdesk",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Temenos",
+    "domain": "temenos.com",
+    "description": "Temenos AG is a leading provider of integrated banking software systems to financial institutions worldwide. The company develops and markets a range of solutions, including core banking, digital banking, payments, wealth management, and financial crime mitigation, designed to help banks deliver next-generation services and AI-enhanced customer experiences. With a presence in the cloud, on-premises, and as SaaS, Temenos supports banks of all sizes in their digital transformation journey, providing adaptable technology and innovative solutions to drive their success.",
+    "slogan": "Leading Banking Forward",
+    "logoUrl": "https://media.brand.dev/4499388d-56f8-41b2-87ba-ae2b8f528d6c.svg",
+    "iconUrl": "https://media.brand.dev/bd32cf62-0e00-45c5-92ce-1fa2733e33ec.png",
+    "primaryColor": "#2c3474",
+    "accentColor": "#949cb0",
+    "colors": [
+      {
+        "hex": "#2c3474",
+        "name": "Blue Rose"
+      },
+      {
+        "hex": "#949cb0",
+        "name": "Aleutian"
+      },
+      {
+        "hex": "#c7c9d7",
+        "name": "Violet Powder"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/09da8a0e-d00c-429d-a55d-0a91b05cd170.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.temenos.com/about-us/careers/",
+      "terms": "https://www.temenos.com/legal-information/website-terms-and-conditions/",
+      "privacy": "https://www.temenos.com/legal-information/privacy-policy/",
+      "blog": "https://www.temenos.com/newsletter/",
+      "pricing": null,
+      "contact": "https://www.temenos.com/contact-us",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bd32cf62-0e00-45c5-92ce-1fa2733e33ec.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3a9702e2-bb51-4b16-a63c-f9aa4a1f3f54.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4499388d-56f8-41b2-87ba-ae2b8f528d6c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 195,
+        "height": 32,
+        "aspectRatio": 6.09
+      },
+      {
+        "url": "https://media.brand.dev/1c024a6a-931f-4977-9938-25a84ec77bbe.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4499388d-56f8-41b2-87ba-ae2b8f528d6c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 195,
+      "height": 32,
+      "aspectRatio": 6.09
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1c024a6a-931f-4977-9938-25a84ec77bbe.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "intercom",
+  "name": "Intercom",
+  "domain": "intercom.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Intercom",
+  "metaTitle": "Build Intercom AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Intercom for support lookups, ticket updates, handoffs, and internal workflows with secure actions and testing built in.",
+  "intro": "Intercom helps teams manage customer conversations, support workflows, and service operations at scale. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Intercom, and Skill Builder designs, secures, tests, and deploys that ability for customer support or internal team use. The result is an AI agent that can answer questions and take approved actions in Intercom instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Use a DocsBot website chat agent to look up a customer’s Intercom conversation history and summarize open issues before replying.",
+    "Let a DocsBot support agent create or update Intercom conversations, notes, or handoff details while helping customers in chat or over helpdesk tickets.",
+    "Have the agent check Intercom ticket status, priority, assignee, or last response time so customers get accurate updates instantly.",
+    "Enable the agent to prepare escalation summaries in Intercom with the customer’s issue, troubleshooting steps, and relevant context for human follow-up.",
+    "Use the agent to tag Intercom conversations, route cases to the right queue, or trigger approved support workflows based on customer intent."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Intercom conversation details, account context, and support history without opening multiple tools.",
+    "Enable support managers to ask an internal AI agent for summaries of unresolved Intercom issues, common escalation themes, or queue health for faster triage.",
+    "Help customer success or operations teams use a private agent to create internal notes, assign follow-ups, and standardize Intercom handoff workflows through conversational requests.",
+    "Allow team members to chat with the agent to research past Intercom cases, find similar resolutions, and follow SOPs for escalations or customer outreach."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that reads Intercom conversation status and replies with accurate case updates.",
+    "An AI workflow that creates Intercom handoff notes and escalation summaries from customer chats.",
+    "An internal assistant that finds related Intercom cases and suggests the next approved support step.",
+    "A routing skill that tags and assigns Intercom conversations based on customer issue type.",
+    "A queue summary agent that reports Intercom backlog, priorities, and unresolved trends for managers.",
+    "A follow-up workflow that updates Intercom records after a DocsBot support conversation is completed."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do in Intercom, and Skill Builder turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the safest workflow, identifies the needed Intercom configuration values, and sets up secure authentication and secret handling through protected runtime configuration so credentials stay out of chats and source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Intercom actions, records, users, and systems needed, and it adds approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or missing checks, and feeds improvements back into the build."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After self-improvement, Skill Builder helps publish the Skill to the right DocsBot agent so it can safely answer questions and take approved actions in your support or internal workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Intercom for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking conversation status, creating handoff notes, or routing escalations, and Skill Builder creates and secures the Intercom workflow for you. It can then test realistic support scenarios and improve the Skill before deployment."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Intercom data during live customer conversations?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved Intercom data such as conversation details, statuses, assignees, notes, or support history while responding to customers. Access is scoped to the records and actions you allow."
+    },
+    {
+      "question": "What Intercom workflows can an AI agent automate besides answering questions?",
+      "answer": "A DocsBot Skill can automate bounded actions like tagging conversations, preparing escalation summaries, updating records, assigning cases, and triggering approved support workflows. This helps the agent move work forward instead of only explaining what a human should do next."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Intercom?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Intercom information, summarize open issues, research prior cases, and complete repeatable workflows through chat, Slack, or Microsoft Teams. This is useful for support leaders, operations teams, and customer success staff."
+    },
+    {
+      "question": "How does DocsBot handle Intercom authentication and security for AI actions?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of conversations and generated content, and proxies authentication through secure runtime configuration. It also scopes permissions and can require approval boundaries for sensitive Intercom actions."
+    },
+    {
+      "question": "Can I control what the AI agent is allowed to update in Intercom?",
+      "answer": "Yes, the Skill is designed around customer-defined limits so the agent can be restricted to specific actions, records, queues, or workflows. Approval steps can also be added for changes that should not happen automatically."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "hubspot",
+    "salesforce",
+    "jira-service-management",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Intercom",
+    "domain": "intercom.com",
+    "description": "Intercom is an AI‑powered customer service company that enables businesses to deliver exceptional, scalable customer experiences. Their platform merges Fin, the leading AI Agent for support, with a next‑generation Helpdesk—a modern workspace that equips support teams with speed, intelligence, and automation. Intercom provides step‑by‑step tutorials, feature walkthroughs, and real‑world case studies to help teams confidently use Fin and the Helpdesk, turning everyday service interactions into growth engines.",
+    "slogan": "Seamless AI and human support for exceptional customer experiences.",
+    "logoUrl": "https://media.brand.dev/2703be58-0ee4-4ce7-8b34-16c40e2f7f28.jpg",
+    "iconUrl": "https://media.brand.dev/2703be58-0ee4-4ce7-8b34-16c40e2f7f28.jpg",
+    "primaryColor": "#848484",
+    "accentColor": "#121212",
+    "colors": [
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#121212",
+        "name": "Dark Tone Ink"
+      },
+      {
+        "hex": "#cecece",
+        "name": "American Silver"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b742364e-b354-4ab8-8019-8c95854b78c0.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://www.intercom.com/legal/terms-and-policies",
+      "contact": "https://www.intercom.com/contact-sales",
+      "privacy": "https://www.intercom.com/legal/privacy",
+      "careers": "https://www.intercom.com/careers",
+      "blog": "https://www.intercom.com/blog/",
+      "pricing": "https://www.intercom.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2703be58-0ee4-4ce7-8b34-16c40e2f7f28.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fabb31c2-6b79-4e93-a147-f8cc7bcf851c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c07f339e-301b-4232-ba49-a116897c9441.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 36,
+        "height": 37,
+        "aspectRatio": 0.97
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fabb31c2-6b79-4e93-a147-f8cc7bcf851c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fabb31c2-6b79-4e93-a147-f8cc7bcf851c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

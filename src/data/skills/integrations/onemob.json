@@ -1,0 +1,168 @@
+{
+  "slug": "onemob",
+  "name": "OneMob",
+  "domain": "onemob.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with OneMob Microsites and Video Data",
+  "metaTitle": "OneMob AI Agent Integration for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use OneMob data for support answers, campaign lookups, handoffs, summaries, and internal workflows.",
+  "intro": "OneMob helps teams create personalized microsites, videos, campaigns, and engagement experiences that connect with prospects and customers. With DocsBot Skill Builder, you can describe the OneMob-powered workflow you want in plain language and have DocsBot create a secure reusable Skill for your support bot or internal AI agent. That lets your AI agent answer questions, check campaign or content status, prepare handoffs, and trigger approved follow-up actions without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer's shared OneMob content or engagement status and answer questions about what was sent, viewed, or completed.",
+    "Let the support agent summarize a customer's recent OneMob microsite or video interactions and add that context to a helpdesk handoff for sales or customer success.",
+    "Have the agent verify whether a personalized video or microsite campaign was created for a customer and explain the next approved step when follow-up is needed.",
+    "Enable the agent to create or trigger a bounded follow-up workflow when a customer asks for a new personalized content experience or requests that outreach be resent.",
+    "Use the agent to collect missing details from the customer, then prepare a clean escalation summary that includes relevant OneMob campaign and engagement context for a human teammate."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up OneMob microsites, videos, campaigns, and engagement history without digging through multiple systems.",
+    "Sales, customer success, or operations teams can ask the agent to summarize OneMob engagement for an account and prepare a next-step brief for outreach or renewal planning.",
+    "Marketing and revenue teams can chat with the agent to identify which personalized experiences performed best and generate concise internal summaries for campaign reviews.",
+    "Employees can use the agent to trigger approved OneMob follow-up workflows, such as reshare requests or internal notifications, while staying inside a guided conversational workflow.",
+    "Teams can ask the agent to combine OneMob context with internal SOPs so it can research account activity, gather missing information, and complete repeatable handoff or escalation workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks OneMob engagement activity before answering customer questions.",
+    "A helpdesk Skill that prepares escalations with OneMob microsite and video interaction summaries.",
+    "An internal sales assistant that retrieves OneMob campaign performance for specific accounts.",
+    "A customer success agent that guides approved resend or follow-up workflow requests.",
+    "A private team assistant that turns OneMob activity into account briefs and action summaries.",
+    "An AI workflow that gathers customer context and drafts handoff notes using OneMob data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with OneMob in plain language, such as checking engagement, preparing handoffs, or triggering a follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, and handles connection details so you do not have to map the workflow yourself."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically protects and proxies secrets, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the OneMob workflow, finds bugs or weak spots, and feeds improvements back into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing support bot or private team agent so it can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses OneMob data?",
+      "answer": "With DocsBot Skill Builder, you describe the OneMob workflow you want in plain language, and DocsBot creates a Skill that can look up data, summarize activity, and trigger approved actions. The setup is designed securely with scoped access, protected secrets, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use OneMob engagement data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a OneMob Skill to retrieve relevant microsite, video, or campaign context while replying in a website chat or helpdesk workflow. That helps the agent give better answers, prepare handoffs, and trigger approved follow-up steps when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with OneMob?",
+      "answer": "Teams can build workflows for engagement lookups, resend requests, escalation prep, handoff summaries, and approved follow-up actions tied to OneMob content or campaign activity. The agent can gather missing context from the customer and keep the workflow within the rules you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with OneMob?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve OneMob campaign details, summarize engagement, research account activity, and complete guided workflows across sales, marketing, and customer success processes. This is useful in chat, Slack, or Microsoft Teams when teams need fast answers or repeatable action paths."
+    },
+    {
+      "question": "How does DocsBot keep OneMob actions safe?",
+      "answer": "Skill Builder defines secure connection handling, protects and proxies secrets, limits permissions to the smallest necessary scope, and adds approval boundaries for sensitive actions. It also tests the workflow against realistic scenarios to catch permission gaps or logic issues before launch."
+    },
+    {
+      "question": "Can DocsBot create handoff notes and summaries from OneMob activity?",
+      "answer": "Yes, a OneMob Skill can help the agent turn engagement data into concise summaries, escalation notes, and account briefs for support, sales, or customer success teams. This makes it easier for human teammates to continue the conversation with the right context already prepared."
+    }
+  ],
+  "relatedSlugs": [
+    "vidyard",
+    "loom",
+    "wistia",
+    "bombbomb",
+    "vimeo",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OneMob",
+    "domain": "onemob.com",
+    "description": "OneMob is a platform that enables users to create and track personalized experiences for their audience through microsites. It allows users to build microsites, create videos, run campaigns, and track engagement, all without requiring coding knowledge. The platform provides tools to help businesses stand out, connect with their audience, and convert leads, while also allowing them to sync data back to their CRM.",
+    "slogan": "Create engaging personalized experiences quickly with OneMob's microsites and videos.",
+    "logoUrl": "https://media.brand.dev/265a753a-2eeb-4e04-95be-383d0edd1891.png",
+    "iconUrl": "https://media.brand.dev/54b08ed7-9fe9-445d-854d-fb6438003e10.jpg",
+    "primaryColor": "#0b6d98",
+    "accentColor": "#50c6e6",
+    "colors": [
+      {
+        "hex": "#0b6d98",
+        "name": "Cairns"
+      },
+      {
+        "hex": "#50c6e6",
+        "name": "Clean Pool"
+      },
+      {
+        "hex": "#d5e3e9",
+        "name": "Pale Grey Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/433076e8-1676-46f7-8924-ccdb561a0972.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://onemob.com/terms-of-use/",
+      "contact": "https://onemob.com/contact-us/",
+      "privacy": "https://onemob.com/privacy-policy/",
+      "blog": "https://onemob.com/blog/",
+      "pricing": "https://onemob.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/54b08ed7-9fe9-445d-854d-fb6438003e10.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/265a753a-2eeb-4e04-95be-383d0edd1891.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 63,
+        "aspectRatio": 4.76
+      },
+      {
+        "url": "https://media.brand.dev/1291c1cd-2cc3-46d6-b5f0-ed28d83f660e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/265a753a-2eeb-4e04-95be-383d0edd1891.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 63,
+      "aspectRatio": 4.76
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1291c1cd-2cc3-46d6-b5f0-ed28d83f660e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

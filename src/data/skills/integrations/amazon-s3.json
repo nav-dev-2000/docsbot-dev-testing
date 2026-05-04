@@ -1,0 +1,162 @@
+{
+  "slug": "amazon-s3",
+  "name": "Amazon S3",
+  "domain": "amazon-s3.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Amazon S3 With DocsBot Skills",
+  "metaTitle": "Build Amazon S3 AI Agents With DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Amazon S3 for file lookups, document retrieval, upload workflows, summaries, and internal operations automation.",
+  "intro": "Amazon S3 stores documents, media, exports, logs, and other business files that AI agents often need to reference or manage. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent safely search S3 objects, retrieve file details, generate summaries, and trigger approved file workflows. This helps customer-facing and employee-facing agents move from answering questions to taking bounded action with the right controls.",
+  "supportUseCases": [
+    "Let a customer support agent find a customer’s invoice PDF, warranty document, onboarding file, or exported report stored in Amazon S3 and summarize it while replying in chat or a helpdesk ticket.",
+    "Enable the agent to check whether a requested file, backup, export, or generated asset exists in Amazon S3 before giving the customer next steps.",
+    "Use the agent to retrieve metadata such as file name, upload time, object path, or version details from Amazon S3 so support replies are faster and more accurate.",
+    "Allow the agent to trigger approved workflows that upload a generated document, transcript, or case artifact to Amazon S3 and then confirm the result to the customer.",
+    "Have the agent prepare a human handoff by collecting the relevant Amazon S3 file links, object details, and case summary for the support team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find documents, media assets, exports, or archived files in Amazon S3 without manually searching buckets and folders.",
+    "Operations teams can ask the agent to verify whether scheduled exports, backups, or generated reports were written to Amazon S3 and receive a concise status summary.",
+    "Customer success or finance teams can chat with the agent to locate customer-specific files in Amazon S3, summarize their contents, and follow internal SOPs for sharing or escalation.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to upload approved artifacts to Amazon S3, label the outcome, and document the action for downstream workflows.",
+    "Employees can ask the agent to gather files from Amazon S3, summarize what was found, and prepare a handoff package for engineering, compliance, or account management."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and summarizes invoices or reports stored in Amazon S3.",
+    "A private team assistant that checks whether backups or scheduled exports landed in Amazon S3.",
+    "A DocsBot workflow that uploads approved chat transcripts or case artifacts into Amazon S3.",
+    "An internal agent that locates customer-specific files and prepares escalation summaries for employees.",
+    "A support agent that confirms file availability before sending next-step guidance to customers.",
+    "A team assistant that retrieves Amazon S3 object metadata for audits, operations checks, or reporting workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Amazon S3 in plain language, such as finding files, summarizing documents, uploading approved artifacts, or preparing support handoffs."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder translates that goal into a secure Skill design, identifies the required configuration values, defines connection and authentication handling, protects and proxies secrets through secure runtime settings, and scopes access to the minimum buckets, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so the agent can retrieve information or take approved file actions without exceeding the workflow you intended."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so it can start handling live file-related workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Amazon S3 files in customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as finding invoices, checking exports, or summarizing stored files, and Skill Builder creates a secure Skill for your support agent. The agent can then use Amazon S3 for bounded lookups, summaries, uploads, and handoff preparation while replying to customers."
+    },
+    {
+      "question": "Can an AI support agent use Amazon S3 data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can be configured to look up approved Amazon S3 objects, retrieve metadata, and summarize file contents when that fits your support workflow. Skill Builder scopes access and adds approval boundaries so the agent only uses the buckets, objects, and actions you allow."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Amazon S3?",
+      "answer": "Internal DocsBot agents can help employees locate files, verify exports or backups, summarize stored documents, upload approved artifacts, and prepare cross-team handoffs. This is useful for operations, finance, customer success, compliance, and other teams that rely on files stored in Amazon S3."
+    },
+    {
+      "question": "Can DocsBot safely upload files or generated artifacts to Amazon S3?",
+      "answer": "Yes, Skill Builder can create workflows where the agent uploads approved outputs such as reports, transcripts, or case artifacts to Amazon S3. It defines secure authentication handling, keeps credentials out of chats and Skill source, and can require approvals for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep Amazon S3 access secure for AI agents?",
+      "answer": "Skill Builder designs the Skill with secure runtime configuration, secret protection and proxying, scoped permissions, and action boundaries by default. It aims to limit access to the specific buckets, file paths, and operations required for the workflow instead of granting broad access."
+    },
+    {
+      "question": "Can an AI agent check whether a file or export exists in Amazon S3 before escalating a case?",
+      "answer": "Yes, a DocsBot agent can verify whether a target file, report, backup, or generated asset exists in Amazon S3 and summarize the result before deciding the next step. That makes support replies and internal escalations faster and better informed."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "dropbox",
+    "box",
+    "sharepoint",
+    "onedrive",
+    "amazon-cloudwatch"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Amazon Web Services",
+    "domain": "aws.amazon.com",
+    "description": "Amazon Web Services (AWS) is Amazon’s cloud computing division that provides a comprehensive suite of on‑demand IT resources—including compute power, storage, databases, networking, analytics, machine learning, and AI services—to individuals, startups, enterprises, and government agencies. By offering over 240 fully managed services, AWS enables customers to build, deploy, and scale applications quickly and securely without maintaining physical infrastructure. Its global network of data centers delivers high availability, performance, and compliance, while tools for security, monitoring, and cost optimization help organizations modernize workloads, innovate faster, and reduce operational overhead.",
+    "slogan": "Get the greatest choice of cloud and AI capabilities.",
+    "logoUrl": "https://media.brand.dev/614cad1e-14e1-44f8-af74-8e002c3b360c.png",
+    "iconUrl": "https://media.brand.dev/614cad1e-14e1-44f8-af74-8e002c3b360c.png",
+    "primaryColor": "#32a2de",
+    "accentColor": "#fc655a",
+    "colors": [
+      {
+        "hex": "#32a2de",
+        "name": "Blue Damselfly"
+      },
+      {
+        "hex": "#fc655a",
+        "name": "Jinzamomi Pink"
+      },
+      {
+        "hex": "#8c949c",
+        "name": "Blue Dusk"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": "https://aws.amazon.com/contact-us/",
+      "privacy": "https://aws.amazon.com/privacy/",
+      "blog": "https://aws.amazon.com/blogs/",
+      "login": null,
+      "signup": null,
+      "terms": "https://aws.amazon.com/events/terms/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/614cad1e-14e1-44f8-af74-8e002c3b360c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/492c0872-9524-4930-b30d-158c29a90780.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/492c0872-9524-4930-b30d-158c29a90780.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/492c0872-9524-4930-b30d-158c29a90780.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

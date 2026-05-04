@@ -1,0 +1,176 @@
+{
+  "slug": "lusha",
+  "name": "Lusha",
+  "domain": "lusha.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Lusha Data and Workflows",
+  "metaTitle": "Build AI Agents for Lusha with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Lusha to look up prospect data, support sales workflows, prepare handoffs, and automate safe internal actions.",
+  "intro": "Lusha helps teams find compliant B2B contact and company data, while DocsBot Skill Builder helps you turn that data into practical AI agent actions. In plain language, you can describe the outcome you want and Skill Builder creates a reusable Skill your support or internal agent can use. The result is an AI agent that not only answers questions, but can also perform safe lookups, prepare handoffs, trigger workflows, and summarize findings with Lusha-informed context.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether an inbound lead or company already exists in your prospecting workflow before routing the conversation to sales.",
+    "Let a support or contact-us chat agent gather company details from Lusha and prepare a qualified handoff summary for the right sales or success team.",
+    "Have a helpdesk-connected DocsBot agent enrich ticket context with company and contact insights from Lusha so human teams get a faster, more informed escalation.",
+    "Use the agent to identify likely account ownership or territory clues from Lusha-linked company data before creating an internal follow-up task.",
+    "Let the agent summarize available firmographic or contact context from Lusha when a customer requests a sales conversation or partnership follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal workspace to look up company and contact details from Lusha before outreach or account review.",
+    "Sales and operations teams can ask the agent to research a target account, summarize key prospect data, and prepare a clean handoff note for the next workflow step.",
+    "Revenue teams can use the agent to enrich lead review workflows by combining Lusha data lookups with internal qualification rules and SOP guidance.",
+    "Customer success or partnership teams can chat with the agent to verify company context, retrieve contact information, and generate outreach preparation summaries.",
+    "Operations employees can use the agent to complete repeatable prospect research workflows without manually switching between Lusha and other internal systems."
+  ],
+  "whatYouCanBuild": [
+    "A lead enrichment Skill that retrieves company and contact context from Lusha during sales intake.",
+    "A handoff preparation Skill that summarizes prospect details for account executives or success managers.",
+    "A private research assistant that answers employee questions using approved Lusha lookups and internal rules.",
+    "A routing Skill that checks territory or ownership clues before creating an escalation or follow-up task.",
+    "An outreach prep Skill that generates concise prospect briefs for SDRs before first contact.",
+    "A qualification workflow that combines Lusha data with your internal lead scoring or approval logic."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Lusha, such as enrich a lead, prepare a sales handoff, or answer employee prospecting questions, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder secures it",
+      "description": "Skill Builder figures out the required connection details, defines secure runtime configuration, protects and proxies secrets and authentication, and keeps credentials out of chats, prompts, and Skill source by default."
+    },
+    {
+      "title": "Actions are safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, users, actions, and systems needed, and adds approval boundaries or other safe-action controls for sensitive lookups, updates, or workflow triggers."
+    },
+    {
+      "title": "It drafts and improves",
+      "description": "Skill Builder creates the Skill instructions, runtime behavior, and any needed action logic, then reviews the workflow for gaps, unclear steps, or safer ways to complete the job."
+    },
+    {
+      "title": "Automated testing runs scenarios",
+      "description": "DocsBot’s testing agent simulates customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow issues, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Lusha data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as lead enrichment, account research, or handoff preparation, and it creates a Skill that lets your AI agent use approved Lusha lookups and actions safely. Skill Builder also handles secure connection design, scoped permissions, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Lusha during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Lusha-informed lookups to enrich lead or company context, prepare sales handoffs, and summarize prospect details while responding in a website chat or helpdesk flow. Sensitive actions can be limited with approval boundaries and permission controls."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Lusha?",
+      "answer": "Internal agents can help employees research accounts, retrieve contact and company details, prepare outreach briefs, support lead qualification, and generate handoff summaries across revenue workflows. The Skill can also follow your SOPs so teams get consistent outputs instead of ad hoc research."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent does inside Lusha-related workflows?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum actions, records, and users needed for the workflow, while protecting secrets through secure runtime configuration. It can also add approval steps for more sensitive updates or downstream workflow triggers."
+    },
+    {
+      "question": "Can a DocsBot agent summarize prospect research from Lusha for sales teams?",
+      "answer": "Yes, a private DocsBot agent can turn Lusha lookups into concise account summaries, outreach preparation notes, and qualification briefs for employees in chat, Slack, or Microsoft Teams. This helps teams move faster without manually compiling the same research every time."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Lusha?",
+      "answer": "You explain the business outcome you want, and Skill Builder handles the Skill design, secure authentication approach, action boundaries, testing scenarios, and improvement cycle for you. The process is meant to feel like describing a workflow, not building an integration from scratch."
+    }
+  ],
+  "relatedSlugs": [
+    "apollo",
+    "zoominfo",
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "clearbit"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lusha",
+    "domain": "lusha.com",
+    "description": "Lusha is a B2B sales and marketing platform that connects professionals with accurate, compliant global data and AI-driven insights. Its Sales Streaming platform uses AI to uncover high-quality leads and automate outreach, allowing salespeople to focus on closing deals. Trusted by over 1.5 million users, Lusha drives business growth with its innovative 'Spotify for sales' approach, making it a leader in the sales industry.",
+    "slogan": "B2B data that opens doors and closes deals",
+    "logoUrl": "https://media.brand.dev/3a94478c-5247-4c39-8fea-1a9ffeb11283.svg",
+    "iconUrl": "https://media.brand.dev/c4927b18-985e-4810-b209-7b0be61db702.png",
+    "primaryColor": "#6010e7",
+    "accentColor": "#e0aa95",
+    "colors": [
+      {
+        "hex": "#6010e7",
+        "name": "Gonzo Violet"
+      },
+      {
+        "hex": "#e0aa95",
+        "name": "California Coral"
+      },
+      {
+        "hex": "#843dfb",
+        "name": "Sweet Escape"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/507ecb57-0aa0-4925-a453-b2242b7d3070.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.lusha.com/careers/",
+      "terms": "https://www.lusha.com/terms_and_conditions",
+      "contact": "https://dashboard.lusha.com/prospecting/contacts",
+      "privacy": "https://www.lusha.com/legal/privacy_policy/",
+      "blog": "https://www.lusha.com/blog/",
+      "pricing": "https://www.lusha.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c4927b18-985e-4810-b209-7b0be61db702.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6b430a07-3d59-4f17-9c35-8f1cf9842811.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/984a5590-8a92-4ea2-8f26-a042c8602460.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3a94478c-5247-4c39-8fea-1a9ffeb11283.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 92,
+        "height": 32,
+        "aspectRatio": 2.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3a94478c-5247-4c39-8fea-1a9ffeb11283.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 92,
+      "height": 32,
+      "aspectRatio": 2.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/984a5590-8a92-4ea2-8f26-a042c8602460.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

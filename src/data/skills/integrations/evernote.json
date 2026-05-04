@@ -1,0 +1,168 @@
+{
+  "slug": "evernote",
+  "name": "Evernote",
+  "domain": "evernote.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Evernote with DocsBot Skills",
+  "metaTitle": "Build Evernote AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Evernote for note lookups, summaries, updates, handoffs, and internal workflow support.",
+  "intro": "Evernote helps teams capture, organize, and retrieve notes, project details, and working knowledge in one place. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Evernote, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can answer questions, find the right notes, summarize context, and take approved actions without exposing sensitive setup details.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Evernote notes and notebooks to answer product, onboarding, policy, or account questions using your approved knowledge sources.",
+    "Use Evernote-backed note lookups during helpdesk replies so the agent can summarize internal runbooks, troubleshooting steps, or service policies for faster customer responses.",
+    "Have the agent gather relevant Evernote notes and prepare a clean escalation summary for a human teammate when a support issue needs handoff.",
+    "Allow the agent to create a structured Evernote note from a customer conversation so follow-up tasks, case details, and promised next steps are captured consistently.",
+    "Enable the agent to update approved Evernote records such as support logs or implementation notes after confirming the right customer, issue, and action boundaries."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right Evernote note, summarize a notebook, or surface the latest process guidance.",
+    "Customer success or operations teams can ask the agent to assemble Evernote notes into a handoff brief, meeting summary, or action checklist for ongoing accounts and projects.",
+    "New team members can use an internal AI agent to retrieve onboarding notes, SOPs, training material, and historical project context stored in Evernote.",
+    "Teams can ask the agent to create or update approved Evernote notes as part of recurring workflows such as incident reviews, account reviews, or weekly status reporting.",
+    "Employees can use the agent to research across Evernote knowledge, summarize findings, and generate a first draft of documentation or follow-up actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that searches Evernote and answers customers with approved troubleshooting guidance.",
+    "A helpdesk assistant that turns ticket context into Evernote-based escalation summaries and handoff notes.",
+    "An internal knowledge agent that finds the right notebook page and summarizes it for employees.",
+    "A workflow assistant that creates Evernote notes from chats, tickets, or project updates.",
+    "An AI agent that updates shared Evernote support logs within defined approval boundaries.",
+    "A team assistant that compiles Evernote research into concise briefs, checklists, or meeting notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Evernote-powered agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should look up notes, summarize content, create updates, or trigger bounded actions while defining the required configuration values for a safe Evernote connection."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, scopes access to the minimum needed data and actions, and adds approval boundaries where actions should be reviewed."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, missing guardrails, weak instructions, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once refined, Skill Builder helps deploy the Skill to your customer-facing DocsBot widget, helpdesk agent, or internal team assistant so it can answer questions and take approved Evernote actions reliably."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Evernote for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as searching notes, summarizing troubleshooting steps, or preparing escalations, and Skill Builder creates a secure Skill the support agent can use during chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Evernote notes to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can be designed to search approved Evernote content, summarize relevant notes, and respond with grounded answers while staying within the access and action limits you define."
+    },
+    {
+      "question": "What Evernote workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can retrieve notes, summarize notebooks, draft handoff documents, create structured meeting notes, and update approved Evernote records as part of recurring team workflows or SOPs."
+    },
+    {
+      "question": "Can DocsBot safely create or update Evernote notes with AI Actions?",
+      "answer": "Yes, Skill Builder can design bounded actions for creating or updating Evernote content with secure authentication handling, scoped permissions, and approval steps for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Evernote credentials and access secure?",
+      "answer": "Skill Builder identifies the connection details the Skill needs, stores and proxies secrets through secure runtime configuration, keeps credentials out of chats and generated copy, and limits access to the records and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Evernote content for escalations and handoffs?",
+      "answer": "Yes, the agent can gather relevant notes, summarize the current state, and generate a clean handoff or escalation brief so human teams have the context they need."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "dropbox",
+    "box",
+    "onedrive",
+    "notion",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Evernote",
+    "domain": "evernote.com",
+    "description": "Evernote is a productivity app that helps users capture, organize, and prioritize ideas, projects, and tasks. As an extension of the brain, it collects and manages information, enabling users to focus on what matters most. With over 250 million users worldwide, Evernote is a global company headquartered in Redwood City, California, offering a note-taking app in over 25 languages.",
+    "slogan": "Remember everything. Accomplish anything.",
+    "logoUrl": "https://media.brand.dev/77313477-2616-4fe4-9688-07cfa32306d2.svg",
+    "iconUrl": "https://media.brand.dev/59eb1948-bc5e-40e5-8df1-bfb5f124793f.png",
+    "primaryColor": "#04ac2c",
+    "accentColor": "#141414",
+    "colors": [
+      {
+        "hex": "#04ac2c",
+        "name": "Kelley Green"
+      },
+      {
+        "hex": "#141414",
+        "name": "Sooty"
+      },
+      {
+        "hex": "#7cd48c",
+        "name": "Jube Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7bdc7e7d-34b0-4aa9-8875-376653cc227b.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://evernote.com/contact",
+      "privacy": "https://evernote.com/privacy/policy",
+      "blog": "https://evernote.com/blog",
+      "pricing": "https://evernote.com/compare-plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/886af5cb-a273-4bae-b00f-50e0c9555764.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 80,
+        "height": 80,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/77313477-2616-4fe4-9688-07cfa32306d2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 180,
+        "height": 40,
+        "aspectRatio": 4.5
+      },
+      {
+        "url": "https://media.brand.dev/59eb1948-bc5e-40e5-8df1-bfb5f124793f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/77313477-2616-4fe4-9688-07cfa32306d2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 180,
+      "height": 40,
+      "aspectRatio": 4.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/886af5cb-a273-4bae-b00f-50e0c9555764.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 80,
+      "height": 80,
+      "aspectRatio": 1
+    }
+  }
+}

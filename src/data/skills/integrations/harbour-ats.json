@@ -1,0 +1,152 @@
+{
+  "slug": "harbour-ats",
+  "name": "Harbour ATS",
+  "domain": "harbour-ats.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Harbour ATS",
+  "metaTitle": "Harbour ATS AI Agents for Hiring Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up candidate data, trigger hiring workflows, and support recruiting teams with Harbour ATS.",
+  "intro": "Harbour ATS helps social care and healthcare organizations manage safer, faster, and more compliant hiring. With DocsBot Skill Builder, you can describe the Harbour ATS workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve recruiting information, trigger approved actions, and help teams complete hiring workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an application in Harbour ATS and give candidates a clear progress update in chat or over helpdesk tickets.",
+    "Use a support agent to collect missing candidate details, create a structured handoff, and route the next recruiting step to the right team inside Harbour ATS.",
+    "Allow the agent to summarize upcoming interview steps, required checks, or onboarding milestones using approved Harbour ATS data while responding to applicant questions.",
+    "Have the agent prepare escalation notes for recruiting staff when a candidate asks about delays, document requests, or compliance-related hiring questions.",
+    "Enable a helpdesk-connected DocsBot agent to log follow-up tasks or trigger approved Harbour ATS workflows after resolving an applicant support conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up candidate stages, interview status, required documents, or onboarding progress from Harbour ATS without searching manually.",
+    "Recruiting and operations teams can ask the agent to summarize open requisitions, pending checks, and bottlenecks so they can prioritize next actions faster.",
+    "Staff can use the agent in Slack or Microsoft Teams to prepare candidate handoffs, generate structured status updates, and follow hiring SOPs connected to Harbour ATS.",
+    "Internal teams can chat with the agent to trigger approved reminders, task creation, or workflow follow-ups in Harbour ATS while keeping actions within defined permissions.",
+    "Managers can ask the agent for recruiting summaries and audit-ready notes based on Harbour ATS records to support compliance-focused hiring processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and explains next steps to applicants.",
+    "A recruiting assistant that summarizes missing documents and prepares compliant handoff notes.",
+    "An internal hiring bot that surfaces interview schedules, checks, and onboarding milestones.",
+    "A workflow agent that triggers approved follow-up tasks after candidate or recruiter conversations.",
+    "A private team assistant that summarizes recruiting pipeline bottlenecks from Harbour ATS data.",
+    "An AI agent that gathers applicant questions and routes complex cases to recruiters with context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Harbour ATS agent to do, such as checking application status, preparing recruiter handoffs, or triggering a follow-up workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, plans how Harbour ATS should be used, and sets the right runtime behavior for your DocsBot agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder automatically handles secure authentication planning, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes Harbour ATS access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible boundaries for sensitive updates, routes higher-risk actions through approval steps when needed, and ensures the agent only acts within the users, permissions, and workflow limits you define."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs or weak spots, checks permission logic, and feeds improvements back into the Skill before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Harbour ATS?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or recruiting workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. The finished agent can look up records, summarize status, create handoffs, and trigger approved actions in Harbour ATS."
+    },
+    {
+      "question": "Can an AI support agent use Harbour ATS data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Harbour ATS as an approved system of record to retrieve application status, interview progress, or next-step information while responding in chat or through helpdesk tickets. You control what the agent is allowed to read, summarize, and escalate."
+    },
+    {
+      "question": "What Harbour ATS workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help teams retrieve candidate information, summarize pipeline activity, prepare recruiter handoffs, generate status updates, and trigger approved follow-up workflows. This is useful for recruiting, operations, and compliance-oriented hiring teams that need faster access to the right information."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in Harbour ATS?",
+      "answer": "DocsBot Skill Builder is designed to create bounded actions with scoped permissions, protected authentication handling, and approval boundaries for sensitive steps. That lets your agent perform safe updates or workflow triggers without giving it broad uncontrolled access."
+    },
+    {
+      "question": "Can a Harbour ATS AI agent escalate complex hiring issues to a human team member?",
+      "answer": "Yes, the agent can collect context from the conversation, summarize the issue, and create a structured handoff for a recruiter or operations team member. This helps reduce back-and-forth while making escalations faster and more complete."
+    },
+    {
+      "question": "How does setup work for non-technical teams using DocsBot with Harbour ATS?",
+      "answer": "Non-technical teams simply describe the result they want, and Skill Builder handles the design, secure configuration, testing, and improvement process. It also identifies the needed connection details and keeps credentials protected through secure runtime configuration."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "personio",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Harbour ATS",
+    "domain": "harbour-ats.com",
+    "description": "Harbour is a technology company specializing in recruitment solutions for the social care and healthcare sectors. Through its Safer Recruitment Solution (SRS), Harbour offers an AI‑driven applicant tracking system that cuts hiring time by up to 50%, reduces costs, and ensures full compliance with CQC, Ofsted, HMRC and GDPR regulations. The platform automates candidate communication, interview scheduling, background checks and audit reporting, allowing organisations to onboard staff in days rather than weeks. Built on 17 years of sector experience, Harbour’s solution is trusted by major care providers and is now available to SMEs, delivering faster, cheaper, and safer hiring while eliminating administrative overload and regulatory risk.",
+    "slogan": "Faster, Cheaper, Better Hiring for safer recruitment in social care",
+    "logoUrl": "https://media.brand.dev/f034bffe-f14e-4db0-8eba-e3d5f1b1bf4a.svg",
+    "iconUrl": "https://media.brand.dev/5fb40af2-0f94-432b-80d9-c92dc50dead0.svg",
+    "primaryColor": "#442c74",
+    "accentColor": "#442c74",
+    "colors": [
+      {
+        "hex": "#442c74",
+        "name": "Windsor"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9a9a68ab-44d4-4f35-abbc-c672a9c43dca.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://harbour-ats.com/privacy-policy",
+      "terms": "https://harbour-ats.com/terms-and-conditions",
+      "contact": "https://harbour-ats.com/Contact",
+      "pricing": "https://harbour-ats.com/pricing-and-packages"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f034bffe-f14e-4db0-8eba-e3d5f1b1bf4a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 561,
+        "height": 146,
+        "aspectRatio": 3.84
+      },
+      {
+        "url": "https://media.brand.dev/5fb40af2-0f94-432b-80d9-c92dc50dead0.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 3927,
+        "height": 3941,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f034bffe-f14e-4db0-8eba-e3d5f1b1bf4a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 561,
+      "height": 146,
+      "aspectRatio": 3.84
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5fb40af2-0f94-432b-80d9-c92dc50dead0.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 3927,
+      "height": 3941,
+      "aspectRatio": 1
+    }
+  }
+}

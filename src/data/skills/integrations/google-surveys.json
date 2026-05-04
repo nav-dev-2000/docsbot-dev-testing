@@ -1,0 +1,152 @@
+{
+  "slug": "google-surveys",
+  "name": "Google Surveys",
+  "domain": "google-surveys.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Google Surveys",
+  "metaTitle": "Google Surveys AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Google Surveys data for support insights, survey summaries, handoffs, and internal research workflows with secure controls.",
+  "intro": "Google Surveys helps teams collect feedback and measure customer sentiment at scale. With DocsBot Skill Builder, you can describe the survey workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely read survey data, summarize results, and trigger approved follow-up actions. This helps customer support teams and internal stakeholders turn survey responses into faster answers, better handoffs, and more informed decisions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent Google Surveys feedback trends and explain common issues customers are reporting in real time.",
+    "Let the agent summarize survey sentiment for a product area when a helpdesk ticket suggests a broader service problem or emerging complaint.",
+    "Have the agent prepare escalation notes that combine a customer conversation with relevant Google Surveys findings for support or success teams.",
+    "Enable the agent to identify whether a question is part of a wider feedback pattern and route the case to the right team with a survey-backed summary.",
+    "Use survey insights during support chats to provide more accurate status context, such as whether other customers are reporting the same experience."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve Google Surveys results, compare response patterns, and summarize customer feedback by topic or timeframe.",
+    "Help customer success or operations teams ask the agent for survey-based insights before planning outreach, training updates, or process improvements.",
+    "Enable product, support, and research teams to use an internal AI assistant in Slack or Microsoft Teams to turn raw survey responses into concise decision-ready summaries.",
+    "Let team members ask the agent to prepare feedback digests, identify recurring themes, and generate internal handoff notes based on Google Surveys data.",
+    "Support internal SOPs by having employees chat with the agent to gather survey findings, combine them with other context, and recommend the next approved workflow step."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes survey sentiment related to active customer issues.",
+    "An internal assistant that turns Google Surveys responses into weekly insight briefs.",
+    "A helpdesk workflow that adds survey-backed escalation context to customer tickets.",
+    "A private team agent that compares feedback themes across time periods or segments.",
+    "An AI assistant that identifies recurring complaints and prepares follow-up action summaries.",
+    "A survey insights agent that routes emerging issues to the right internal owners."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Google Surveys, such as summarizing feedback, spotting trends, or preparing support handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and runtime configuration, protects and proxies secrets automatically, and scopes access to only the survey actions and data needed for the workflow."
+    },
+    {
+      "title": "Add safe action boundaries",
+      "description": "Skill Builder sets approval boundaries and usage limits for sensitive actions so the agent can look up data, create summaries, and trigger only the approved follow-up steps you allow."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can use it in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google Surveys data?",
+      "answer": "With DocsBot Skill Builder, you describe the survey-related outcome you want in plain language, and Skill Builder creates a reusable Skill that can retrieve survey insights, summarize results, and support approved actions. It also handles secure connection design, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Google Surveys to improve customer support?",
+      "answer": "Yes, a DocsBot support agent can use Google Surveys data to identify common issues, summarize sentiment, and add broader feedback context while replying to customers or preparing escalations. This helps support teams respond with more context instead of treating every case in isolation."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Google Surveys?",
+      "answer": "An internal DocsBot agent can help employees retrieve survey findings, compare trends, generate feedback summaries, prepare internal briefs, and support SOP-driven follow-up work across support, success, operations, and product teams. The exact actions can be bounded to your approved workflows and permissions."
+    },
+    {
+      "question": "Can DocsBot summarize Google Surveys responses for teams automatically?",
+      "answer": "Yes, you can build a Skill that lets the agent turn survey responses into concise summaries, recurring theme reports, or escalation-ready notes for internal teams. This is useful for routine reporting, decision support, and cross-functional handoffs."
+    },
+    {
+      "question": "How does DocsBot keep Google Surveys access secure?",
+      "answer": "Skill Builder defines the needed configuration values, keeps credentials out of chat and generated source, proxies secrets through secure runtime settings, and scopes access to the minimum data and actions required. It can also add approval boundaries for any sensitive workflow steps."
+    },
+    {
+      "question": "Can a DocsBot agent combine customer conversations with Google Surveys insights?",
+      "answer": "Yes, a support or internal agent can use survey findings alongside the current conversation to create better summaries, detect larger patterns, and prepare smarter handoffs. This helps teams connect individual cases with broader customer feedback trends."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "surveymonkey",
+    "qualtrics",
+    "google-forms",
+    "delighted",
+    "medallia"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "surveys.google.com",
+    "description": "Google is a multinational technology company that provides a wide range of Internet‑related services and products. It operates the world’s leading search engine, online advertising platforms, cloud computing services, productivity suites, and media offerings such as YouTube. Google also develops operating systems (Android, Chrome OS), hardware (Pixel phones, Nest devices, Fitbit), and AI tools (Gemini). For businesses, it delivers solutions like Google Ads, Google Cloud, Google Workspace, and analytics platforms. Developers access APIs, app‑store tools, and security services through Google’s developer ecosystem. The company’s mission is to organize the world’s information and make it universally accessible and useful.",
+    "slogan": "Google Help: How can we help you?",
+    "logoUrl": "https://media.brand.dev/2bf39b01-1d71-4c6e-82a6-7e4b52bd1649.png",
+    "iconUrl": "https://media.brand.dev/2bf39b01-1d71-4c6e-82a6-7e4b52bd1649.png",
+    "primaryColor": "#f06925",
+    "accentColor": "#34ab54",
+    "colors": [
+      {
+        "hex": "#f06925",
+        "name": "Fuego Nuevo"
+      },
+      {
+        "hex": "#34ab54",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#4485f4",
+        "name": "Seljuk Blue"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2bf39b01-1d71-4c6e-82a6-7e4b52bd1649.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2bf39b01-1d71-4c6e-82a6-7e4b52bd1649.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2bf39b01-1d71-4c6e-82a6-7e4b52bd1649.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "slug": "new-relic",
+  "name": "New Relic",
+  "domain": "new-relic.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with New Relic",
+  "metaTitle": "Build AI Support and Internal Agents for New Relic",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that use New Relic data for support, incident visibility, summaries, escalations, and internal operations workflows.",
+  "intro": "New Relic helps teams monitor applications, infrastructure, and digital experiences in real time. With DocsBot Skill Builder, you can describe the New Relic workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, pull observability context, summarize incidents, and take bounded follow-up actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check New Relic incident or service health status when a user reports slowness, errors, or outages.",
+    "Use the agent to summarize recent New Relic alerts, impacted services, and likely customer-facing symptoms before replying to a support ticket.",
+    "Have the agent gather telemetry context from New Relic and prepare a clean escalation handoff for engineering or incident response teams.",
+    "Enable the agent to confirm whether a reported problem appears isolated or part of a broader incident visible in New Relic.",
+    "Use the agent to trigger approved internal workflows when New Relic data suggests a customer issue should be escalated or monitored more closely."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up New Relic incidents, alert history, and service health summaries.",
+    "Enable operations or support teams to ask the agent for plain-language explanations of New Relic signals across applications, infrastructure, and customer experience metrics.",
+    "Give on-call teams an AI assistant that gathers New Relic context, summarizes likely impact, and prepares incident updates or status notes.",
+    "Help customer success and support employees research whether a reported account issue lines up with known performance degradation in New Relic.",
+    "Allow teams to chat with the agent to follow incident SOPs, collect observability evidence, and trigger approved escalation or follow-up workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks live service health before replying to outage-related customer questions.",
+    "A helpdesk assistant that summarizes New Relic alerts and prepares engineering escalation notes automatically.",
+    "An internal incident assistant that turns telemetry into plain-language updates for support and operations teams.",
+    "A private team agent that looks up affected services, recent errors, and likely customer impact.",
+    "An AI workflow that gathers observability context and triggers approved handoff or escalation steps.",
+    "A support copilot that distinguishes isolated customer issues from broader platform incidents using New Relic data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the New Relic-enabled agent to do, such as check service health, summarize incidents, or prepare escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the right workflow, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the actions and data the agent needs."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for anything sensitive, such as workflow triggers or record updates, so the agent stays within the rules you define."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back into improvements."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or internal assistant can use New Relic confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses New Relic data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking incident status or summarizing alerts, and Skill Builder creates a secure Skill that lets your agent use New Relic data within defined limits."
+    },
+    {
+      "question": "Can an AI support agent use New Relic to answer customer outage or performance questions?",
+      "answer": "Yes. A DocsBot support agent can use New Relic to look up service health, recent alerts, and likely impact so it can respond with better context, prepare a handoff, or escalate when needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with New Relic?",
+      "answer": "An agent can check current incident status, summarize affected services, distinguish broader outages from isolated issues, prepare escalation notes, and trigger approved follow-up workflows for support teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees investigate incidents in New Relic?",
+      "answer": "Yes. Employees can chat with a private DocsBot agent to retrieve New Relic context, get plain-language summaries of alerts and service health, and follow incident workflows without digging through dashboards manually."
+    },
+    {
+      "question": "Can DocsBot take actions based on New Relic findings, not just answer questions?",
+      "answer": "Yes. Depending on the workflow you define, the agent can trigger bounded actions such as creating handoff summaries, notifying teams, or starting approved escalation steps with approval controls where appropriate."
+    },
+    {
+      "question": "How does DocsBot keep New Relic access secure?",
+      "answer": "Skill Builder designs the integration with secure configuration, protected secret handling, scoped permissions, and approval boundaries so credentials stay out of chats and the agent only gets the access required for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "pagerduty",
+    "opsgenie",
+    "servicenow",
+    "zendesk",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "New Relic",
+    "domain": "newrelic.com",
+    "description": "New Relic is an AI‑enhanced observability platform that unifies telemetry across an organization’s entire digital estate. By pairing and processing data in real time, it provides clear insight into applications, infrastructure, and customer experiences, enabling businesses to move from proactive to predictive problem solving. The platform helps eliminate digital interruptions, maximize value, and control costs while delivering a seamless, reliable user experience.",
+    "slogan": "Intelligent Observability that resolves issues at scale—before they impact your bottom line.",
+    "logoUrl": "https://media.brand.dev/dc71f5c3-a131-47de-8cc8-b00d4efab91c.svg",
+    "iconUrl": "https://media.brand.dev/04396b58-b62c-448c-8010-bbc7ad7167f2.png",
+    "primaryColor": "#e4e4dc",
+    "accentColor": "#22e580",
+    "colors": [
+      {
+        "hex": "#e4e4dc",
+        "name": "Spare White"
+      },
+      {
+        "hex": "#22e580",
+        "name": "Shivering Green"
+      },
+      {
+        "hex": "#091410",
+        "name": "Ruined Smores"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9d09d626-24a1-45d0-82ab-ce52c039587a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://newrelic.com/about/culture",
+      "terms": "https://newrelic.com/termsandconditions/terms",
+      "contact": "https://newrelic.com/about/contact-us",
+      "privacy": "https://newrelic.com/termsandconditions/privacy",
+      "login": null,
+      "signup": null,
+      "pricing": "https://newrelic.com/pricing",
+      "blog": "https://newrelic.com/blog"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/62d4cfe2-fbcb-49c5-a4d3-3131cacf4076.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/04396b58-b62c-448c-8010-bbc7ad7167f2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dc71f5c3-a131-47de-8cc8-b00d4efab91c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 246,
+        "height": 48,
+        "aspectRatio": 5.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dc71f5c3-a131-47de-8cc8-b00d4efab91c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 246,
+      "height": 48,
+      "aspectRatio": 5.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/62d4cfe2-fbcb-49c5-a4d3-3131cacf4076.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

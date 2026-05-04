@@ -1,0 +1,170 @@
+{
+  "slug": "supabase",
+  "name": "Supabase",
+  "domain": "supabase.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Supabase",
+  "metaTitle": "Build AI Support and Internal Agents for Supabase",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query, update, and trigger workflows in Supabase for customer support and internal teams.",
+  "intro": "Supabase gives teams a flexible backend with Postgres, authentication, storage, real-time data, and edge functions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Supabase during support conversations or internal team workflows. The result is an AI agent that can answer questions, look up live data, take approved actions, and prepare clean handoffs instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a customer's account, subscription status, usage record, or order data stored in Supabase while replying in chat or over helpdesk tickets.",
+    "Enable the agent to create support case records, issue logs, feedback entries, or product access requests in Supabase as part of a customer conversation.",
+    "Allow the agent to update approved fields in Supabase, such as contact details, onboarding status, feature flags, or support follow-up notes after verifying the customer context.",
+    "Use the agent to summarize a customer's recent activity, account history, or open issues from Supabase so support replies are faster and more accurate.",
+    "Have the agent trigger approved Supabase-backed workflows, such as escalation prep, callback requests, refund review queues, or onboarding handoffs, while keeping humans in control of sensitive steps."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up live customer, product, or operational data stored in Supabase.",
+    "Support, success, and operations teams can ask the agent to summarize records across Supabase tables, explain account state, and prepare next-step recommendations for internal follow-up.",
+    "Internal teams can use the agent to create or update approved Supabase records for SOPs such as onboarding checklists, incident notes, account reviews, or renewal tracking.",
+    "Operations staff can ask the agent to gather context from Supabase and prepare handoffs, escalation packets, or status summaries before a human approves the final action.",
+    "Employees can use the agent to trigger bounded workflows connected to Supabase data, helping teams complete repetitive internal processes with clearer audit trails and fewer manual steps."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks customer account status from Supabase before answering billing or access questions.",
+    "An AI assistant that creates onboarding or issue records in Supabase during customer conversations.",
+    "A private team agent that summarizes account history and open tasks from Supabase tables.",
+    "An internal operations agent that updates approved workflow fields after a human review step.",
+    "A helpdesk agent that prepares escalation notes using live Supabase customer and product data.",
+    "A support assistant that verifies user context and triggers a Supabase-backed follow-up workflow safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Supabase in plain language, such as looking up account records, updating approved fields, or creating a handoff during a support conversation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the configuration values it needs, and plans how the agent should use Supabase data and actions without exposing implementation details to you."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder adds permission limits, approval boundaries, and action guardrails so sensitive updates, workflow triggers, or record changes only happen within the rules you approve."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, missing checks, or weak instructions, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Supabase data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking account status or creating a follow-up record, and Skill Builder designs a secure Skill that lets the agent query or update approved Supabase data during chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent look up customer information from Supabase while responding to users?",
+      "answer": "Yes, a DocsBot agent can use a Skill to retrieve approved Supabase records in real time so it can answer with current account, usage, or workflow information instead of relying only on static documentation."
+    },
+    {
+      "question": "What kinds of Supabase actions can a DocsBot AI agent safely perform?",
+      "answer": "Depending on your rules, the agent can perform bounded lookups, create records, update approved fields, trigger workflows, prepare summaries, and assemble handoff details while respecting scoped permissions and approval limits."
+    },
+    {
+      "question": "Can I use DocsBot with Supabase for internal team workflows?",
+      "answer": "Yes, private DocsBot agents can help employees query Supabase data, summarize account or operational records, and complete approved SOP steps through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Supabase credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of conversations and generated content, and scopes the Skill to the smallest practical set of actions and records."
+    },
+    {
+      "question": "Can an AI agent update Supabase records, or is it limited to answering questions?",
+      "answer": "It can do both when you allow it. DocsBot Skills can enable safe updates and workflow actions in Supabase, with approval boundaries for sensitive changes and clear limits on what the agent is allowed to modify."
+    }
+  ],
+  "relatedSlugs": [
+    "postgresql",
+    "firebase",
+    "mongodb",
+    "airtable",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Supabase",
+    "domain": "supabase.com",
+    "description": "Supabase is an open-source backend-as-a-service platform that lets developers create, deploy, and scale full‑stack applications quickly. It provides a Postgres database, real‑time APIs, authentication, storage, and edge functions, all accessible via simple client libraries. Designed for rapid prototyping—developers can build a functional app in a weekend—and engineered to handle production workloads for millions of users. Supabase aims to simplify the developer experience by offering a Firebase‑like experience with the power and flexibility of open‑source tools.",
+    "slogan": "Start building in a weekend. Scale from Postgres to millions.",
+    "logoUrl": "https://media.brand.dev/c81ed42c-74ae-48fb-bcd4-feb3d74c2789.svg",
+    "iconUrl": "https://media.brand.dev/0f65020b-1cc5-43d9-9165-eb1ddc0d45ae.jpg",
+    "primaryColor": "#3abd82",
+    "accentColor": "#346e54",
+    "colors": [
+      {
+        "hex": "#3abd82",
+        "name": "Greenish Teal"
+      },
+      {
+        "hex": "#346e54",
+        "name": "Jungle Book Green"
+      },
+      {
+        "hex": "#1b1c1c",
+        "name": "Eerie Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2975fb7b-a302-4434-b953-e000e1dad515.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://supabase.com/careers",
+      "terms": "https://supabase.com/terms",
+      "privacy": "https://supabase.com/privacy",
+      "blog": "https://supabase.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://supabase.com/pricing",
+      "contact": "https://supabase.com/contact-us"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0f65020b-1cc5-43d9-9165-eb1ddc0d45ae.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fa8181d6-22c4-4940-93d5-f99ead7b50f6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c81ed42c-74ae-48fb-bcd4-feb3d74c2789.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 124,
+        "height": 24,
+        "aspectRatio": 5.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c81ed42c-74ae-48fb-bcd4-feb3d74c2789.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 124,
+      "height": 24,
+      "aspectRatio": 5.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fa8181d6-22c4-4940-93d5-f99ead7b50f6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    }
+  }
+}

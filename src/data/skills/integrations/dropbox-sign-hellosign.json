@@ -1,0 +1,160 @@
+{
+  "slug": "dropbox-sign-hellosign",
+  "name": "Dropbox Sign (HelloSign)",
+  "domain": "dropbox-sign-hellosign.com",
+  "category": "Legal & Compliance",
+  "trutoCategory": "E-Signature",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dropbox Sign",
+  "metaTitle": "Build Dropbox Sign AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Dropbox Sign to check signature status, send documents, prepare handoffs, and automate secure approval workflows.",
+  "intro": "Dropbox Sign helps teams send, receive, and manage legally binding electronic signatures. With DocsBot Skill Builder, you can describe the signing or document workflow you want in plain language and turn it into a reusable AI Skill. The result is an AI support agent or internal assistant that can look up signature status, trigger approved document workflows, summarize progress, and help teams move agreements forward safely.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a Dropbox Sign signature request was sent, viewed, signed, declined, or still pending while answering a support chat or helpdesk ticket.",
+    "Use the agent to guide customers through document signing issues by looking up request details and summarizing the next approved step without exposing internal systems.",
+    "Have the agent create a new signature request for approved self-service workflows, such as sending an updated agreement or consent form after collecting the required context.",
+    "Allow the agent to prepare a support handoff by summarizing the Dropbox Sign request history, signer status, reminders sent, and outstanding actions for a human teammate.",
+    "Use the agent to trigger reminder workflows for unsigned documents when that action fits your support policy and approval boundaries."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Dropbox Sign request status, signer activity, and document progress without leaving the conversation.",
+    "Sales, success, and operations teams can ask the agent to send approved agreements, NDAs, or onboarding documents through Dropbox Sign using guided workflows.",
+    "Legal or compliance staff can chat with the agent to summarize outstanding signature requests, identify stalled agreements, and prepare follow-up task lists.",
+    "Employees can use the agent to complete SOPs that involve generating a document packet, sending it for signature, and posting a status summary back to the requesting team.",
+    "Internal teams can ask the agent to gather signing context across systems and prepare escalation notes before a human reviews or approves the next action."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks live Dropbox Sign signature request status for customers.",
+    "An internal assistant that sends approved NDAs, order forms, or consent documents.",
+    "A workflow agent that reminds signers and summarizes unsigned document bottlenecks.",
+    "A handoff Skill that packages signer history and document status for support teams.",
+    "An operations assistant that tracks document completion and triggers next-step workflows.",
+    "A compliance helper that surfaces pending signatures and prepares audit-friendly summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Dropbox Sign, such as checking signature status, sending a document, or preparing a handoff, and it translates that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the records and actions the agent truly needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps such as sending signature requests or triggering reminders so the agent acts only within your defined rules."
+    },
+    {
+      "title": "The Skill is tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into an automated improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so people can start using Dropbox Sign actions in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Dropbox Sign workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the signing workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up document status, send approved signature requests, summarize progress, and trigger bounded next steps."
+    },
+    {
+      "question": "Can an AI support agent use Dropbox Sign data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Dropbox Sign to check signature status, review signer progress, and prepare support handoffs while responding to customer conversations or tickets. You control which actions are allowed and where approval is required for sensitive steps."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Dropbox Sign?",
+      "answer": "Teams can automate status lookups, signer progress summaries, reminder workflows, issue triage, and escalation prep for unsigned or failed signing processes. This helps customers get faster answers while keeping document actions inside approved limits."
+    },
+    {
+      "question": "Can an internal AI assistant send documents for signature through Dropbox Sign?",
+      "answer": "Yes, an internal DocsBot agent can help employees send approved documents for signature, follow SOPs, and report back on completion status. Skill Builder can add permission scoping and approval boundaries so only the right users and workflows can trigger sending actions."
+    },
+    {
+      "question": "How does DocsBot handle Dropbox Sign authentication and secrets safely?",
+      "answer": "Skill Builder defines the connection requirements, keeps credentials out of chats and generated content, and proxies secrets through secure runtime configuration. It also scopes permissions to the minimum needed so the agent can perform its job without broad access."
+    },
+    {
+      "question": "Can DocsBot require approval before an AI agent sends or updates Dropbox Sign requests?",
+      "answer": "Yes, approval boundaries can be built into the Skill for actions that should not run automatically. That lets the agent gather information, prepare the request, and wait for a human approval step before completing the action."
+    }
+  ],
+  "relatedSlugs": [
+    "docusign",
+    "panda-doc",
+    "adobe-acrobat-sign",
+    "dropbox",
+    "google-drive",
+    "box"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dropbox Sign",
+    "domain": "sign.dropbox.com",
+    "description": "Dropbox Sign is an electronic signature platform that enables users to send, receive, and manage legally binding signatures. It provides a simple and efficient way to handle document signing, making it a convenient solution for individuals and businesses alike.",
+    "slogan": "The easiest way to send, receive, and manage electronic signatures.",
+    "logoUrl": "https://media.brand.dev/05cf5f08-27fb-4334-9bae-6111a81c82c4.svg",
+    "iconUrl": "https://media.brand.dev/14c49710-e5f9-45b7-b0c4-1d7d9c199d9c.png",
+    "primaryColor": "#1c1c1c",
+    "accentColor": "#0463fb",
+    "colors": [
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#0463fb",
+        "name": "Bright Blue"
+      },
+      {
+        "hex": "#0f3c8b",
+        "name": "Dark Seashore Night"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b37a77ea-1f9b-4f49-96b6-c35aeef3b044.png",
+    "industries": [],
+    "links": {
+      "careers": "https://sign.dropbox.com/careers",
+      "terms": "https://sign.dropbox.com/about/terms",
+      "contact": "https://sign.dropbox.com/form/contact-us-general",
+      "privacy": "https://sign.dropbox.com/about/privacy",
+      "blog": "https://sign.dropbox.com/blog",
+      "pricing": "https://sign.dropbox.com/products/dropbox-sign/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/05cf5f08-27fb-4334-9bae-6111a81c82c4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 638,
+        "height": 128,
+        "aspectRatio": 4.98
+      },
+      {
+        "url": "https://media.brand.dev/14c49710-e5f9-45b7-b0c4-1d7d9c199d9c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05cf5f08-27fb-4334-9bae-6111a81c82c4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 638,
+      "height": 128,
+      "aspectRatio": 4.98
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/14c49710-e5f9-45b7-b0c4-1d7d9c199d9c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

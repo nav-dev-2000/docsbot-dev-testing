@@ -1,0 +1,113 @@
+{
+  "slug": "gerrit",
+  "name": "Gerrit",
+  "domain": "gerrit.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Gerrit code review workflows",
+  "metaTitle": "Build AI agents for Gerrit with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Gerrit to look up change status, summarize reviews, prepare escalations, and trigger approved development workflows safely.",
+  "intro": "Gerrit helps development teams review, approve, and merge code changes with clear policy controls and audit trails. With DocsBot Skill Builder, you can describe the Gerrit workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. That lets your agent answer questions, gather review status, prepare handoffs, and take bounded actions in Gerrit while keeping permissions and approvals under control.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a reported fix in Gerrit and summarize whether a change is under review, approved, merged, or still blocked.",
+    "Use a support agent to collect a bug report from chat or a helpdesk ticket and create a structured handoff that links the customer issue to the relevant Gerrit change or review thread.",
+    "Enable the agent to summarize reviewer comments, testing signals, and patch history from Gerrit so customers get a clearer update without exposing sensitive internal discussion.",
+    "Have the agent prepare escalation notes for engineering by pulling the latest Gerrit activity, open blockers, and ownership details into a support-ready summary.",
+    "Allow the agent to trigger an approved internal workflow, such as notifying the right team or creating a follow-up task when a customer asks about a delayed fix tied to a Gerrit review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to look up Gerrit changes, review status, patch sets, and approval history without leaving the conversation.",
+    "Engineering, support, and success teams can ask the agent to summarize a code review, explain the latest reviewer feedback, and prepare a clean handoff for the next team in the workflow.",
+    "Release or operations teams can use the agent to identify changes waiting on approval, collect blockers across repositories, and generate status summaries for standups or incident follow-up.",
+    "Team members can ask the agent to follow SOPs around escalations by gathering Gerrit context, linking related systems, and drafting internal updates before a human approves the next step.",
+    "Managers and technical leads can use the agent to retrieve audit-friendly summaries of review activity, merge timing, and policy checkpoints across active development work."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks Gerrit change status for customer-reported fixes.",
+    "An internal assistant that summarizes reviewer feedback and patch history on demand.",
+    "A workflow Skill that drafts engineering handoff notes from Gerrit review activity.",
+    "A release assistant that finds blocked changes and prepares escalation summaries.",
+    "A private agent that collects approval history for audits and status reviews.",
+    "A cross-team Skill that links customer issue context to relevant Gerrit changes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You describe the Gerrit task you want in plain language, such as checking review status, summarizing blockers, or preparing an escalation, and Skill Builder turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides how the Skill should connect to Gerrit, defines the required configuration values, handles authentication securely, protects and proxies secrets through approved runtime settings, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Actions get safe limits",
+      "description": "Skill Builder adds the right guardrails for lookups, updates, workflow triggers, and sensitive steps so the agent can act inside clear approval boundaries and only for the appropriate users and permissions."
+    },
+    {
+      "title": "Testing improves the Skill",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI agent so teams can use Gerrit actions safely in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Gerrit code review workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the Gerrit workflow you want in plain language and DocsBot designs, secures, tests, and packages the Skill for your support or internal agent. The finished agent can look up review data, summarize change activity, prepare handoffs, and take approved actions within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Gerrit data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use Gerrit to retrieve safe status information such as change progress, review state, or blocker summaries while replying in chat or helpdesk tickets. You can keep sensitive details restricted and allow only the customer-safe context your team wants exposed."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Gerrit?",
+      "answer": "An internal DocsBot agent can help employees retrieve change details, summarize reviewer comments, collect approval history, prepare escalation notes, and generate release or audit summaries. It can also follow SOPs across connected systems while keeping actions bounded by scoped permissions and approval rules."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Gerrit instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating structured handoffs, updating workflow state, triggering approved follow-up steps, or gathering context for a human review. Skill Builder sets the action limits, required approvals, and safe access boundaries during setup."
+    },
+    {
+      "question": "How does DocsBot keep Gerrit access secure for AI agents?",
+      "answer": "Skill Builder defines the needed connection settings, stores and proxies secrets securely, keeps credentials out of chats and generated content, and scopes the Skill to the minimum actions and records required. It also supports approval boundaries for sensitive workflows so the agent does not overreach."
+    },
+    {
+      "question": "Do I need a developer to set up a Gerrit AI assistant in DocsBot?",
+      "answer": "Usually, no heavy technical setup is needed from the user because you describe the business outcome and Skill Builder handles the design, secure configuration, testing, and deployment path. If your workflow has special rules, Skill Builder can still guide the process without making setup feel like a manual integration project."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "bitbucket",
+    "jenkins",
+    "circleci",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gerrit",
+    "domain": "gerrit.com",
+    "description": "Gerrit is a web‑based code review platform that integrates tightly with Git repositories, enabling development teams to collaborate on code changes efficiently. It provides a lightweight, customizable interface for reviewing, approving, and merging patches, supporting fine‑grained access control, automated testing hooks, and seamless integration with continuous integration pipelines. By streamlining the review workflow, Gerrit helps organizations maintain high code quality, enforce project policies, and accelerate software delivery while preserving a clear audit trail of all changes.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://gerrit.com/",
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

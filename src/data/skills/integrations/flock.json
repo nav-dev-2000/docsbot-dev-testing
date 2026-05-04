@@ -1,0 +1,168 @@
+{
+  "slug": "flock",
+  "name": "Flock",
+  "domain": "flock.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Flock",
+  "metaTitle": "Build AI Agents for Flock with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Flock to post updates, route handoffs, summarize conversations, and support team workflows with secure approvals and testing.",
+  "intro": "Flock helps teams communicate, coordinate work, and move projects forward in one place. With DocsBot Skill Builder, you can describe the Flock-powered agent behavior you want in plain language, and DocsBot designs, secures, tests, and packages that ability as a reusable Skill. The result is an AI support agent or internal AI assistant that can look up context, send updates, prepare handoffs, and trigger approved collaboration workflows inside Flock.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to post urgent support handoff summaries into the right Flock channel while continuing the customer conversation.",
+    "Let the agent create a structured Flock message for billing, product, or technical escalation teams when a helpdesk ticket needs internal review.",
+    "Have the agent summarize a customer issue, steps already tried, account context, and priority level into Flock for faster internal coordination.",
+    "Allow the agent to notify a Flock team when a customer reports an outage, incident pattern, or high-value account risk that needs immediate attention.",
+    "Use the agent to gather missing details from the customer, then send a clean Flock update to the responsible team with the completed case context attached."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to send standardized updates, alerts, or follow-up messages into the correct Flock channels without switching tools.",
+    "Internal teams can ask the agent to summarize long Flock conversations, extract decisions, and turn them into next-step briefs for operations or customer success.",
+    "Managers can use the agent in chat, Slack, or Microsoft Teams to prepare Flock handoff posts for incidents, onboarding tasks, or cross-functional approvals.",
+    "Operations staff can ask the agent to follow SOPs that collect context from multiple systems and publish a final coordination update in Flock.",
+    "Teams can chat with the agent to research discussion history, identify open questions, and generate concise Flock-ready summaries for faster execution."
+  ],
+  "whatYouCanBuild": [
+    "An AI support Skill that posts escalation summaries to the correct Flock channel.",
+    "An internal assistant that turns multi-system research into a Flock action update.",
+    "A workflow Skill that alerts Flock teams when customer risk signals reach defined thresholds.",
+    "An AI agent that drafts incident coordination messages in a consistent internal format.",
+    "A handoff Skill that collects case details and shares them with Flock stakeholders.",
+    "An internal SOP assistant that prepares Flock updates after completing checklist-based workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Flock in plain language, such as posting escalation updates, summarizing conversations, or routing internal handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and planning how the agent should behave in support and internal scenarios."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection design by defining authentication needs, protecting and proxying secrets through runtime configuration, and keeping credentials out of chats and Skill instructions."
+    },
+    {
+      "title": "Access is tightly scoped",
+      "description": "Skill Builder limits the Skill to the minimum channels, actions, users, and records required, and adds approval boundaries for sensitive messages or workflow triggers before anything is sent."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and employee workflows, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that sends updates to Flock?",
+      "answer": "With DocsBot Skill Builder, you describe the update workflow you want in plain language, and it creates a Skill that can draft, route, and send approved Flock messages safely. Skill Builder also defines secure connection settings, scoped permissions, and any approval checks needed before posting."
+    },
+    {
+      "question": "Can an AI support agent use Flock for customer escalations?",
+      "answer": "Yes, a DocsBot support agent can use Flock to prepare internal escalation summaries, notify the right team, and keep customer issues moving without making the customer repeat details. The agent can gather context from the conversation or ticket, then send a structured handoff based on your rules."
+    },
+    {
+      "question": "What Flock workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can summarize conversations, publish project updates, prepare incident coordination posts, route requests to the right channels, and support repeatable SOPs. These actions can be bounded by channel access, approval steps, and other controls you define."
+    },
+    {
+      "question": "Can DocsBot summarize Flock conversations for employees?",
+      "answer": "Yes, an internal agent can help employees review Flock discussions, extract decisions, identify open items, and generate concise summaries for leadership, operations, or support teams. This is useful when teams need quick context without reading every message thread."
+    },
+    {
+      "question": "How do approvals and safety controls work for Flock actions?",
+      "answer": "Skill Builder designs the Skill with scoped access and approval boundaries so the agent only performs the specific Flock actions you allow. It can require review before sensitive posts, limit which channels are used, and keep credentials protected through secure runtime configuration."
+    },
+    {
+      "question": "Is setup technical if I want DocsBot to work with Flock?",
+      "answer": "No, the setup is centered on describing the business outcome you want, not manually building the integration. Skill Builder handles the workflow design, secure authentication approach, testing, improvements, and deployment steps for the finished Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "microsoft-teams",
+    "discord",
+    "intercom",
+    "zendesk",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Flock",
+    "domain": "flock.com",
+    "description": "Flock is a team communication and online collaboration platform that offers team messaging, project management, and other features to improve productivity and boost execution speed. Originally, Flock was a web browser designed to simplify managing multiple social networks, email, media, and news feeds, but it has evolved to focus on team collaboration, providing a range of tools to enhance user experience.",
+    "slogan": "Enhancing online social experience through seamless, social, and collaborative browsing.",
+    "logoUrl": "https://media.brand.dev/c201a9d8-ce42-4ec9-bc78-17be0fe34153.svg",
+    "iconUrl": "https://media.brand.dev/eced882b-ca38-4cf3-a231-d6144e84a1b1.svg",
+    "primaryColor": "#0cbc54",
+    "accentColor": "#4a6883",
+    "colors": [
+      {
+        "hex": "#0cbc54",
+        "name": "Intoxicate"
+      },
+      {
+        "hex": "#4a6883",
+        "name": "Eames for Blue"
+      },
+      {
+        "hex": "#e8edf0",
+        "name": "Walls of Santorini"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "http://careers.flock.com/",
+      "terms": "https://support.flock.com/hc/en-us/articles/115004287093-Flock-Terms-Of-Use",
+      "contact": null,
+      "privacy": "https://support.flock.com/hc/en-us/articles/115004312874-Flock-Privacy-Policy",
+      "blog": "https://blog.flock.com/",
+      "pricing": "https://www.flock.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a8487e5f-b7c8-4487-b435-54ccd1aa2b2f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c201a9d8-ce42-4ec9-bc78-17be0fe34153.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 896,
+        "height": 305,
+        "aspectRatio": 2.94
+      },
+      {
+        "url": "https://media.brand.dev/eced882b-ca38-4cf3-a231-d6144e84a1b1.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 315,
+        "height": 305,
+        "aspectRatio": 1.03
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c201a9d8-ce42-4ec9-bc78-17be0fe34153.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 896,
+      "height": 305,
+      "aspectRatio": 2.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a8487e5f-b7c8-4487-b435-54ccd1aa2b2f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

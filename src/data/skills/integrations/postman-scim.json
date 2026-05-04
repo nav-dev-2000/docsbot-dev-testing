@@ -1,0 +1,176 @@
+{
+  "slug": "postman-scim",
+  "name": "Postman SCIM",
+  "domain": "postman.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Postman SCIM",
+  "metaTitle": "Build AI Agents for Postman SCIM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Postman SCIM for secure lookups, user lifecycle actions, support handoffs, and internal identity workflows.",
+  "intro": "Postman SCIM helps teams manage identity and user provisioning around their Postman environment. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets an AI agent look up SCIM data, prepare updates, trigger approved actions, and summarize results. This helps customer support teams and internal operations teams move faster while keeping access controlled and auditable.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether an account or workspace user exists in Postman SCIM and summarize status while answering access-related support questions.",
+    "Use a DocsBot helpdesk agent to gather missing identity details from a ticket, look up matching SCIM records in Postman, and prepare a clean handoff for identity or admin teams.",
+    "Allow the agent to verify whether a user provisioning or deprovisioning change appears in Postman SCIM before updating the customer on next steps.",
+    "Have the agent summarize relevant SCIM user attributes and account state so support can explain why an access request may still be pending or require escalation.",
+    "Enable the agent to trigger an approved internal workflow after a support conversation, such as creating an escalation summary for provisioning, access restoration, or account cleanup review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Postman SCIM user records, group details, and provisioning status without leaving the conversation.",
+    "Help IT, security, or operations teams use an internal AI agent to collect identity details, check Postman SCIM account state, and follow user onboarding or offboarding SOPs more consistently.",
+    "Allow team members to ask the agent for a summary of recent access issues or provisioning gaps so they can investigate identity workflows faster.",
+    "Use an internal DocsBot agent to prepare approval-ready handoffs for sensitive user lifecycle changes while keeping actions within defined permissions and boundaries.",
+    "Enable operations teams to chat with the agent to research a user access problem across Postman SCIM and generate a structured incident or admin follow-up summary."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Postman SCIM user status before answering access questions.",
+    "A helpdesk Skill that gathers ticket details and prepares identity escalation summaries automatically.",
+    "An internal assistant that looks up provisioning records and explains likely access issues.",
+    "A private ops agent that supports onboarding and offboarding workflows with approval gates.",
+    "A DocsBot Skill that summarizes SCIM user attributes for support or admin review.",
+    "An AI agent that drafts handoff notes for identity, security, or workspace administrators."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Postman SCIM, and Skill Builder turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder decides the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Safety boundaries are added",
+      "description": "Skill Builder adds approval steps and action limits for sensitive updates so the agent can take bounded action without exceeding the rules you define."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, and approved actions the DocsBot agent needs to work with Postman SCIM."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Postman SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the Postman SCIM workflow you want in plain language, and DocsBot designs, secures, tests, and packages the Skill for your support or internal AI agent. The finished agent can perform lookups, prepare updates, trigger approved workflows, and summarize outcomes within your rules."
+    },
+    {
+      "question": "Can an AI support agent use Postman SCIM data to answer access-related customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Postman SCIM Skill to check user or provisioning status, gather missing context, and summarize what support should tell the customer or where the issue should be escalated. Sensitive actions can be limited behind approval boundaries."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Postman SCIM?",
+      "answer": "An internal DocsBot agent can help employees research user lifecycle issues, check provisioning state, follow onboarding or offboarding SOPs, and prepare admin handoffs or summaries. This is useful for IT, security, platform, and operations teams that need quick identity context in chat."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Postman SCIM?",
+      "answer": "Yes, Skill Builder is designed to create bounded workflows with secure authentication handling, scoped permissions, and approval steps for sensitive changes. That lets the agent take approved actions while keeping credentials out of chats and limiting what the Skill can do."
+    },
+    {
+      "question": "Do I need to configure the Postman SCIM integration manually to get started?",
+      "answer": "No, the setup is framed around the outcome you want rather than a technical checklist. Skill Builder figures out the connection requirements, defines secure configuration values, handles secret protection, and prepares the Skill for testing and deployment."
+    },
+    {
+      "question": "How does DocsBot test a Postman SCIM Skill before deployment?",
+      "answer": "DocsBot includes an automated testing agent that runs realistic support and internal team scenarios against the Skill design. It looks for bugs, missing instructions, weak permission checks, and workflow gaps, then uses those findings to improve the Skill before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "active-directory",
+    "postman",
+    "azure-active-directory"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Postman",
+    "domain": "postman.com",
+    "description": "Postman is the world's leading API platform that simplifies each step of building an API and streamlines collaboration to help create better APIs faster. It provides a robust platform for collaborative API development, allowing teams to manage API changes quickly without sacrificing code quality in a scalable and secure environment.",
+    "slogan": "Simplify API development and collaboration for faster, better APIs.",
+    "logoUrl": "https://media.brand.dev/d753de1b-624c-4711-98de-e925a90c0104.svg",
+    "iconUrl": "https://media.brand.dev/d753de1b-624c-4711-98de-e925a90c0104.svg",
+    "primaryColor": "#fc6c35",
+    "accentColor": "#fcb494",
+    "colors": [
+      {
+        "hex": "#fc6c35",
+        "name": "Bright Orange"
+      },
+      {
+        "hex": "#fcb494",
+        "name": "Carotene"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1fcf1795-adf4-4573-8c50-5ed00d27e68e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.postman.com/company/careers/",
+      "terms": "https://www.postman.com/legal/terms/",
+      "contact": "https://www.postman.com/company/contact-sales/",
+      "privacy": "https://www.postman.com/licenses/privacy",
+      "blog": "https://blog.postman.com/",
+      "pricing": "https://www.postman.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3786f606-d62f-4fe8-94e3-dd17fceec4b2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d753de1b-624c-4711-98de-e925a90c0104.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2289be0-4c55-4bbd-bab5-7cdfd2e3ef53.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/03d2ed47-6a65-4566-aec0-09129533f9cb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a2289be0-4c55-4bbd-bab5-7cdfd2e3ef53.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2289be0-4c55-4bbd-bab5-7cdfd2e3ef53.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

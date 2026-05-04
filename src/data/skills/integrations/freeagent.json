@@ -1,0 +1,160 @@
+{
+  "slug": "freeagent",
+  "name": "FreeAgent",
+  "domain": "freeagent.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with FreeAgent",
+  "metaTitle": "Build AI Agents for FreeAgent with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use FreeAgent for accounting lookups, safe updates, support workflows, and internal finance operations with secure controls.",
+  "intro": "FreeAgent helps small businesses and finance teams manage accounting, cash flow, invoices, expenses, and tax tasks. With DocsBot Skill Builder, you can describe the FreeAgent workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded actions in FreeAgent while staying within your rules, approvals, and security controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice status, payment history, or billing records in FreeAgent while replying in your website chat or helpdesk.",
+    "Use an AI support agent to confirm whether a payment has been recorded in FreeAgent and summarize the account state for the customer in clear language.",
+    "Enable the agent to collect missing billing details from a customer, prepare a finance handoff, and create or update approved records tied to the case.",
+    "Have the agent summarize outstanding invoices, overdue balances, or recent transactions from FreeAgent to speed up billing-related support responses.",
+    "Allow the agent to trigger an approved follow-up workflow, such as notifying the finance team or creating an internal escalation when a billing issue needs review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up FreeAgent invoices, expenses, contacts, and account details.",
+    "Help finance or operations teams ask the agent for cash flow snapshots, unpaid invoice summaries, or customer account histories pulled from FreeAgent.",
+    "Enable team members to use the agent to create draft handoffs, collect missing payment context, and follow billing or reconciliation SOPs across finance tools.",
+    "Allow an internal AI assistant to update approved FreeAgent records, add notes, or trigger downstream workflows when employees confirm the action.",
+    "Support accountants, bookkeepers, and customer success teams with an agent that summarizes FreeAgent activity before renewals, escalations, or collections outreach."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing assistant that checks invoice status and explains payment history to customers.",
+    "A support Skill that gathers missing billing details and prepares finance escalation handoffs.",
+    "An internal finance agent that summarizes overdue invoices by customer or account owner.",
+    "A workflow assistant that confirms recorded payments and updates approved account notes.",
+    "A cash flow lookup agent for operations teams using Slack or Microsoft Teams.",
+    "A reconciliation helper that retrieves transactions and guides employees through review steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with FreeAgent, such as checking invoice status, summarizing balances, or preparing finance handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required FreeAgent connection details, defines secure authentication and configuration values, protects and proxies secrets outside of chat and Skill source, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets safe action boundaries for sensitive steps like record updates or workflow triggers, including approval checks, allowed users, and clear rules for when the agent should hand work to a person instead of acting automatically."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the FreeAgent Skill to your customer-facing support bot or private employee agent so it can answer questions, perform approved actions, and log outcomes within your configured controls."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for FreeAgent without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the FreeAgent workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for you. It handles connection requirements, secret protection, scoped permissions, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use FreeAgent data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved FreeAgent data such as invoice status, payment history, or outstanding balances while responding to customers in chat or tickets. You control what information it can access and what actions it can take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with FreeAgent?",
+      "answer": "A DocsBot agent can summarize account billing state, confirm whether payments were recorded, collect missing billing details, prepare finance handoffs, and trigger approved escalation workflows. The exact workflow is shaped around your support process and approval rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in FreeAgent?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve FreeAgent information, summarize finance records, follow billing SOPs, and complete approved updates or workflow steps from chat, Slack, or Microsoft Teams. This can reduce manual lookups and speed up finance and operations work."
+    },
+    {
+      "question": "How does DocsBot keep FreeAgent actions secure?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, keeps credentials out of chats and generated content, proxies secrets through runtime configuration, and limits access to the users, records, and actions you approve. It can also add approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "question": "Can a DocsBot agent update FreeAgent records or trigger workflows?",
+      "answer": "Yes, if you want the agent to take bounded actions, Skill Builder can create workflows for approved updates, notes, handoffs, or downstream triggers connected to FreeAgent. Those actions can be restricted by role, scope, and approval requirements."
+    }
+  ],
+  "relatedSlugs": [
+    "xero",
+    "quickbooks",
+    "freshbooks",
+    "sage",
+    "stripe",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FreeAgent",
+    "domain": "freeagent.com",
+    "description": "FreeAgent is an award-winning company providing online accounting and money management software tailored for small businesses, freelancers, accountants, and bookkeepers. With a user-friendly approach and dedicated support, FreeAgent aims to empower users, offering solutions to streamline financial tasks, from daily administration to tax filing directly to HMRC. Since its launch in 2007, FreeAgent has grown to serve over 150,000 users, standing out with a strong team of 250+ employees committed to customer success and satisfaction. Acquired by the NatWest Group in 2018, FreeAgent continues to operate independently, maintaining its mission to offer innovative tools for effortless financial control and planning.",
+    "slogan": "Get admin done, see cashflow, file tax. FreeAgent makes it easier!",
+    "logoUrl": "https://media.brand.dev/f2893db1-e18f-46f6-ac53-970ca41220e3.png",
+    "iconUrl": "https://media.brand.dev/f2893db1-e18f-46f6-ac53-970ca41220e3.png",
+    "primaryColor": "#cc5f76",
+    "accentColor": "#ceddab",
+    "colors": [
+      {
+        "hex": "#cc5f76",
+        "name": "Cherry Fruit"
+      },
+      {
+        "hex": "#ceddab",
+        "name": "Chameleon"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/51e47c61-dc54-497d-8360-5ec0c51b1347.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.freeagent.com/",
+      "terms": "https://freeagent.com/company/terms/",
+      "contact": "https://freeagent.com/company/contact-us/",
+      "privacy": "https://freeagent.com/privacy/",
+      "blog": "https://freeagent.com/blog/",
+      "pricing": "https://freeagent.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f2893db1-e18f-46f6-ac53-970ca41220e3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9f5359a9-a4c8-495e-aee1-b3870a5b3dd0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1000,
+        "height": 960,
+        "aspectRatio": 1.04
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f2893db1-e18f-46f6-ac53-970ca41220e3.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f2893db1-e18f-46f6-ac53-970ca41220e3.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

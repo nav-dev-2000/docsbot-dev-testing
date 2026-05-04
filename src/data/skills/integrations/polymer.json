@@ -1,0 +1,151 @@
+{
+  "slug": "polymer",
+  "name": "Polymer",
+  "domain": "polymer.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Polymer",
+  "metaTitle": "Build AI Agents and HR Workflows with Polymer | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal HR agents that look up candidate data, update records, trigger workflows, and prepare handoffs in Polymer.",
+  "intro": "Polymer can hold important recruiting and applicant workflow data, and DocsBot Skill Builder helps you turn that data into safe AI Actions for support and internal teams. In plain language, you describe the outcome you want, and Skill Builder designs, secures, tests, improves, and deploys a reusable Skill for your DocsBot agent. The result is an AI agent that can answer questions, retrieve approved information, update records, prepare handoffs, and trigger bounded workflows inside Polymer.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check application status in Polymer and give applicants a clear, policy-aligned update in chat or by helpdesk reply.",
+    "Let the agent capture missing application details from a candidate conversation and create or update the appropriate Polymer record for recruiter follow-up.",
+    "Have the agent summarize a candidate’s current stage, open tasks, and next steps from Polymer before preparing a handoff to admissions, recruiting, or support staff.",
+    "Enable the agent to log applicant questions, tag urgency, and route the case into the right Polymer workflow when a conversation needs human review.",
+    "Use the agent to confirm whether required documents or steps have been completed in Polymer and explain what the applicant should do next."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up candidate records in Polymer, summarize pipeline status, and get the next recommended action without leaving chat.",
+    "Recruiting or admissions teams can ask the agent to update stages, add notes, assign owners, or trigger approved follow-up workflows in Polymer through controlled actions.",
+    "Operations staff can use the agent in Slack or Microsoft Teams to prepare interview or application handoff summaries based on Polymer data before escalating to another team.",
+    "Managers can ask the agent for quick pipeline snapshots, incomplete application lists, or stage-based summaries pulled from Polymer for daily decision-making.",
+    "Team members can follow guided SOPs in chat while the agent uses Polymer to collect missing context, complete repeatable workflow steps, and document outcomes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks applicant status and explains next steps using Polymer data.",
+    "A support Skill that captures missing candidate information and updates Polymer records safely.",
+    "An internal recruiting assistant that summarizes pipeline stages and pending tasks on demand.",
+    "A handoff workflow that packages applicant context from Polymer for human review.",
+    "A stage update assistant with approval gates for sensitive recruiting record changes.",
+    "A Slack or Teams agent that answers employee questions about candidate progress in Polymer."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Polymer in plain language, such as checking application status, updating stages, or preparing recruiter handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Polymer configuration values, and chooses the safest workflow, instructions, and action boundaries for the job."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication and secret management through secure runtime configuration, keeps credentials out of chats and Skill content, and proxies sensitive connection details by design."
+    },
+    {
+      "title": "Permissions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum Polymer records, actions, users, and approval steps needed so the agent can help without getting broad or unnecessary access."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Polymer?",
+      "answer": "With DocsBot Skill Builder, you describe the Polymer workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Polymer to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Polymer data to check status, confirm completed steps, summarize next actions, and prepare a human handoff when the issue needs escalation."
+    },
+    {
+      "question": "What Polymer workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve candidate information, summarize recruiting pipelines, update records, assign follow-ups, and trigger bounded workflow steps based on your rules."
+    },
+    {
+      "question": "Can DocsBot safely update Polymer records through AI Actions?",
+      "answer": "Yes, Skill Builder can create bounded update actions with scoped permissions and approval boundaries so the agent only performs the Polymer changes you allow."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiting handoffs from Polymer data?",
+      "answer": "Yes, the agent can gather relevant candidate context from Polymer, summarize current status and open items, and format a clean handoff for recruiters, admissions, or operations teams."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Polymer with DocsBot?",
+      "answer": "Your team describes the desired outcome, and Skill Builder handles the workflow design, secure configuration values, authentication handling, automated testing, improvements, and deployment steps for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Materials Science and Engineering",
+    "domain": "mse.umd.edu",
+    "description": "University of Maryland Department of Materials Science and Engineering (MSE) is the academic and research hub within the A. James Clark School of Engineering. It offers undergraduate, master’s, and Ph.D. programs focused on the science, design, and application of materials ranging from metals and polymers to nanomaterials and quantum materials. The department conducts cutting‑edge research in areas such as energy, biotechnology, metamaterials, and semiconductor technology, supported by institutes like the Maryland Energy Innovation Institute and the Maryland Quantum Materials Center. MSE partners with industry, government agencies, and NASA, providing students with hands‑on experience, scholarships, and pathways to careers in academia, research labs, and high‑tech sectors. Through seminars, outreach, and a vibrant student community, the department advances materials innovation and prepares the next generation of engineers and scientists.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/cde037d8-78e4-447f-b47e-01d09d61164b.png",
+    "iconUrl": "https://media.brand.dev/cde037d8-78e4-447f-b47e-01d09d61164b.png",
+    "primaryColor": "#ca6648",
+    "accentColor": "#edd586",
+    "colors": [
+      {
+        "hex": "#ca6648",
+        "name": "Enshūcha Red"
+      },
+      {
+        "hex": "#edd586",
+        "name": "Passementerie"
+      },
+      {
+        "hex": "#332b25",
+        "name": "Industrial Black"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "https://mse.umd.edu/news/home",
+      "careers": "https://mse.umd.edu/careers",
+      "privacy": null,
+      "terms": null,
+      "contact": "https://mse.umd.edu/contact-information",
+      "pricing": "https://mse.umd.edu/undergraduate/fouryearplan"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cde037d8-78e4-447f-b47e-01d09d61164b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cde037d8-78e4-447f-b47e-01d09d61164b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cde037d8-78e4-447f-b47e-01d09d61164b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

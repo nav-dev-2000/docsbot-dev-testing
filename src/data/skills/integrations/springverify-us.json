@@ -1,0 +1,148 @@
+{
+  "slug": "springverify-us",
+  "name": "SpringVerify US",
+  "domain": "springverify-us.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Background Verification",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SpringVerify US",
+  "metaTitle": "SpringVerify US AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use SpringVerify US for secure verification lookups, status updates, workflow triggers, and internal hiring support actions.",
+  "intro": "SpringVerify US helps teams manage background verification and screening workflows with faster, more reliable checks. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up verification status, summarize cases, trigger approved steps, and support customer or internal team workflows. This helps support teams, recruiting operations, and compliance teams move faster with bounded AI Actions instead of manual back-and-forth.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a consent, screening, or verification request and explain the current stage without exposing sensitive records.",
+    "Use the agent in helpdesk replies to summarize a SpringVerify US case timeline so support teams can answer candidate or client questions faster.",
+    "Allow the agent to collect missing non-sensitive details from a customer conversation and prepare a verification follow-up or handoff for a human team to review.",
+    "Have the agent confirm whether a verification workflow has been initiated, identify pending steps, and guide the customer on what happens next.",
+    "Enable the agent to create an internal escalation summary when a customer asks about delays, missing documents, or verification exceptions tied to a SpringVerify US process."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up SpringVerify US screening status, turnaround summaries, or pending verification tasks.",
+    "Recruiting or operations teams can ask the agent to gather candidate verification context, summarize blockers, and prepare next-step handoffs for human review.",
+    "Compliance or HR teams can use the agent to retrieve verification case details across approved records and generate concise audit-ready summaries.",
+    "Team members can chat with the agent to trigger approved follow-up workflows, such as requesting missing information or notifying the right internal owner.",
+    "Internal hiring teams can use the agent to answer process questions, follow SOPs, and coordinate screening workflows across SpringVerify US and adjacent HR systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks background verification case status and explains next steps clearly.",
+    "A support Skill that summarizes screening delays and prepares escalation notes for human teams.",
+    "An internal recruiting assistant that finds pending verifications and highlights missing candidate information.",
+    "A compliance agent that generates concise case summaries for approved audit and review workflows.",
+    "A hiring operations Skill that triggers approved follow-up tasks when verification steps are blocked.",
+    "A DocsBot agent that collects clarification details and creates structured handoff notes for recruiters."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the SpringVerify US agent to do, and Skill Builder turns that into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Safe actions are defined",
+      "description": "Skill Builder adds the right guardrails for lookups, summaries, updates, workflow triggers, and approval boundaries so the agent stays within your business rules."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, and any approved actions the DocsBot agent needs to work with SpringVerify US."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or missing permission checks, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SpringVerify US?",
+      "answer": "With DocsBot Skill Builder, you describe the verification workflow you want in plain language and DocsBot designs, secures, tests, and prepares a reusable Skill for your agent. The finished agent can perform approved lookups, summaries, handoffs, and workflow actions inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use SpringVerify US data to answer status questions?",
+      "answer": "Yes, a DocsBot support agent can use approved SpringVerify US access to check verification progress, summarize case state, and explain next steps in a customer chat or helpdesk reply. Skill Builder helps scope what the agent can see and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SpringVerify US?",
+      "answer": "Teams can automate verification status lookups, pending-step summaries, escalation preparation, follow-up collection, and structured handoffs to recruiting or compliance teams. This helps support agents respond faster while keeping sensitive workflows controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help recruiting or HR teams with SpringVerify US?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve verification updates, summarize blockers, prepare case notes, and follow hiring or compliance SOPs through chat, Slack, or Microsoft Teams. The Skill can also support approved workflow triggers so teams spend less time on repetitive coordination."
+    },
+    {
+      "question": "How does DocsBot keep SpringVerify US integrations secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes permissions to the minimum needed. It can also add approval checks and action limits for higher-risk workflows."
+    },
+    {
+      "question": "Can DocsBot trigger actions in SpringVerify US instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as initiating approved follow-ups, updating workflow state, preparing handoff artifacts, or notifying the right team. Skill Builder helps define which actions are allowed and where human approval is required."
+    }
+  ],
+  "relatedSlugs": [
+    "checkr",
+    "goodhire",
+    "veremark",
+    "sterling",
+    "onfido",
+    "persona"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Springverify",
+    "domain": "in.springverify.com",
+    "description": "SpringVerify is an AI‑driven background verification platform based in India that delivers instant, reliable, and comprehensive checks for hiring teams. Their solution automates the entire screening workflow—from digital consent collection and candidate data capture to verification of identity, address, employment, education, court records, credit, social media, drug tests, and more—through a single integrated interface. SpringVerify seamlessly connects with over 100 HRIS, ATS, and HRMS systems via API, enabling HR, talent acquisition, and compliance teams to hire with confidence while reducing manual effort and turnaround time. The service is trusted by enterprises across fintech, e‑commerce, staffing, IT, healthcare, and other sectors seeking fast, accurate background checks to ensure a safe workplace.",
+    "slogan": "Instant, reliable and accurate background checks for a safe, secure workplace.",
+    "logoUrl": "https://media.brand.dev/76b1bb8c-ddf7-4255-b120-eebf995e0d32.png",
+    "iconUrl": "https://media.brand.dev/76b1bb8c-ddf7-4255-b120-eebf995e0d32.png",
+    "primaryColor": "#0d2ccc",
+    "accentColor": "#64cc8c",
+    "colors": [
+      {
+        "hex": "#0d2ccc",
+        "name": "Sapphire Glitter"
+      },
+      {
+        "hex": "#64cc8c",
+        "name": "Van Gogh Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8611892e-b0ff-484b-b45d-ce66f252b5b5.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://in.springverify.com/terms-of-service",
+      "contact": "https://in.springverify.com/contact-us/",
+      "privacy": "https://in.springverify.com/privacy-policy/",
+      "blog": "https://in.springverify.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/76b1bb8c-ddf7-4255-b120-eebf995e0d32.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/76b1bb8c-ddf7-4255-b120-eebf995e0d32.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/76b1bb8c-ddf7-4255-b120-eebf995e0d32.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

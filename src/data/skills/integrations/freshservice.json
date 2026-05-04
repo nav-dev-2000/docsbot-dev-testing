@@ -1,0 +1,168 @@
+{
+  "slug": "freshservice",
+  "name": "Freshservice",
+  "domain": "freshservice.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Freshservice",
+  "metaTitle": "Build Freshservice AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshservice for ticket lookups, updates, handoffs, workflow triggers, and internal IT service workflows with safe controls.",
+  "intro": "Freshservice helps teams manage service requests, incidents, and IT service operations in one place. With DocsBot Skill Builder, you can describe the Freshservice workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. The result is an AI agent that can answer questions and take bounded action in Freshservice with secure access, testing, and approval controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Freshservice ticket status, priority, assignee, or recent updates while replying in a website chat or helpdesk conversation.",
+    "Use the agent to create Freshservice tickets from customer conversations, capturing issue details, contact information, and suggested categorization automatically.",
+    "Allow the agent to add notes, update fields, or attach conversation summaries in Freshservice so human agents receive a cleaner handoff.",
+    "Have the agent gather missing troubleshooting details from the customer, then create or enrich a Freshservice incident with a structured problem summary.",
+    "Enable the agent to identify when an issue meets escalation rules and trigger an approved Freshservice workflow for urgent routing or service desk follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Freshservice incidents, service requests, assets, or approval status without opening the full service desk.",
+    "Help IT and operations teams use the agent to create Freshservice tickets, update request details, and follow standard intake workflows from a simple chat conversation.",
+    "Allow employees to ask the agent for summarized Freshservice activity, such as open high-priority incidents, overdue tasks, or recent assignment changes across teams.",
+    "Support internal SOPs by having team members chat with the agent to collect required context, prepare escalation notes, and trigger approved Freshservice actions.",
+    "Give managers and service desk leads an internal AI assistant that researches Freshservice records and returns concise summaries for standups, audits, and handoff reviews."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates Freshservice incidents from customer chat conversations.",
+    "A helpdesk assistant that checks Freshservice ticket status and summarizes the latest updates.",
+    "An internal IT assistant that opens service requests from Slack or Microsoft Teams.",
+    "A triage agent that enriches Freshservice tickets with structured issue details and urgency signals.",
+    "An escalation workflow that adds handoff notes and routes urgent Freshservice incidents safely.",
+    "A reporting assistant that summarizes open incidents, aging requests, and team workload trends."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Freshservice agent to do, such as check ticket status, create incidents, update records, or prepare escalations, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the Freshservice connection details it needs, defines runtime configuration values, and handles authentication and secret protection through approved secure configuration."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, keeps credentials out of chats and source content, and adds approval boundaries for sensitive Freshservice updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Freshservice workflow, finds bugs, weak instructions, or permission gaps, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Review and deploy",
+      "description": "After improving the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chatbot, helpdesk bot, or internal team assistant can use Freshservice safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Freshservice?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshservice workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The agent can then look up records, summarize ticket state, update approved fields, or trigger defined workflows inside Freshservice."
+    },
+    {
+      "question": "Can an AI support agent use Freshservice data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Freshservice Skill to retrieve ticket details, create incidents, add notes, prepare handoffs, and summarize current status while replying to customers. Access can be scoped so the agent only uses the records and actions you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Freshservice?",
+      "answer": "Teams can build workflows for ticket creation, status lookups, incident enrichment, escalation prep, structured handoffs, and approved updates to Freshservice records. This helps the AI agent move from answering questions to taking bounded action during support conversations."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Freshservice from Slack or Microsoft Teams?",
+      "answer": "Yes, a private DocsBot agent can let employees chat from Slack, Microsoft Teams, or an internal interface to create requests, check incident status, summarize queues, and complete service desk SOPs through Freshservice. This makes routine IT and operations workflows faster without requiring employees to navigate every system directly."
+    },
+    {
+      "question": "How does DocsBot keep Freshservice actions safe?",
+      "answer": "Skill Builder defines secure configuration, protects and proxies secrets, scopes permissions to the minimum required access, and can add approval steps for sensitive updates or escalations. Automated testing also checks for workflow gaps, weak instructions, and missing permission boundaries before deployment."
+    },
+    {
+      "question": "Can DocsBot summarize Freshservice tickets and incidents for handoffs or escalations?",
+      "answer": "Yes, a Freshservice Skill can generate structured summaries of incidents, ticket history, customer-reported symptoms, and next steps for human agents or service desk teams. That helps create cleaner escalations and faster transitions between support tiers."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "jira-service-management",
+    "zendesk",
+    "freshdesk",
+    "pagerduty",
+    "opsgenie"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshservice",
+    "domain": "freshservice.com",
+    "description": "Freshservice is a cloud-based IT service management solution that helps organizations deliver exceptional service and customer satisfaction. It is designed using ITIL best practices and offers an intuitive UI, easy configuration, and seamless integration with other business systems. As part of the Freshworks product family, Freshservice serves over 10,000 customers worldwide, providing a powerful yet easy-to-use solution for IT teams to manage their service desk and ITSM needs.",
+    "slogan": "Empowering IT and customer support with simple, efficient, and innovative solutions.",
+    "logoUrl": "https://media.brand.dev/cd47c7de-6f12-46ae-859f-887f4e78cd60.png",
+    "iconUrl": "https://media.brand.dev/cd47c7de-6f12-46ae-859f-887f4e78cd60.png",
+    "primaryColor": "#d59b30",
+    "accentColor": "#25aebe",
+    "colors": [
+      {
+        "hex": "#d59b30",
+        "name": "Roman Gold"
+      },
+      {
+        "hex": "#25aebe",
+        "name": "Kentucky Bluegrass"
+      },
+      {
+        "hex": "#aecfe9",
+        "name": "Utah Sky"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c1c5a558-5161-4961-aa90-9dce589081ee.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6a68d8a0-7534-460a-bdbc-6b5d7f761388.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cd47c7de-6f12-46ae-859f-887f4e78cd60.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ba1ed585-84c5-47f3-80d3-f23733a2c476.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6a68d8a0-7534-460a-bdbc-6b5d7f761388.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a68d8a0-7534-460a-bdbc-6b5d7f761388.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

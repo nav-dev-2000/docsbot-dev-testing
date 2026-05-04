@@ -1,0 +1,151 @@
+{
+  "slug": "justcall",
+  "name": "JustCall",
+  "domain": "justcall.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with JustCall",
+  "metaTitle": "Build JustCall AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use JustCall for call and SMS lookups, ticket handoffs, workflow triggers, and safe team actions in support and operations.",
+  "intro": "JustCall helps teams manage calls, texts, routing, recordings, and customer communication from one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use JustCall data and actions. The result is a support or internal AI agent that can answer questions, gather context, trigger approved workflows, and help teams move faster without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent calls, SMS conversations, or interaction history in JustCall so it can answer support questions with better context.",
+    "Use a DocsBot helpdesk agent to summarize a customer's recent JustCall activity and prepare a clean handoff for a human agent when a phone follow-up is needed.",
+    "Enable the agent to create approved callback requests or outbound follow-up tasks in JustCall when a customer asks to continue the conversation by phone.",
+    "Allow the agent to check call status, routing outcomes, or missed-call details in JustCall and explain the next step to the customer inside chat or ticket replies.",
+    "Have the agent collect missing contact details during a support conversation and update the right JustCall record within defined action limits."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve JustCall call logs, SMS history, recordings metadata, or routing details without opening multiple tools.",
+    "Enable support and operations teams to ask the internal agent for summaries of recent customer communication in JustCall before handling escalations or renewals.",
+    "Help managers use an internal AI agent to research missed calls, callback gaps, or team response patterns by combining JustCall data with internal SOP guidance.",
+    "Allow employees to trigger approved workflows such as creating callback tasks, updating contact details, or preparing escalation notes in JustCall through a guided chat experience.",
+    "Give customer success or sales teams a private agent that walks them through communication workflows and completes bounded JustCall actions while following team rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks recent calls and texts before answering customer questions.",
+    "A helpdesk assistant that drafts callback handoffs using JustCall interaction history and ticket context.",
+    "An internal operations agent that summarizes missed calls and recommends the next approved action.",
+    "A team assistant that creates follow-up tasks or callback requests inside JustCall with approval limits.",
+    "A QA workflow that surfaces call metadata and prepares review summaries for supervisors.",
+    "An employee chat agent that retrieves customer communication history from JustCall during escalations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with JustCall in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure setup, defines the needed configuration values, handles authentication and secret storage through protected runtime configuration, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and it adds approval boundaries for sensitive steps such as record updates, callbacks, or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios against the JustCall workflow, finds bugs or weak spots, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once reviewed and improved, Skill Builder helps publish the Skill to your customer-facing DocsBot widget, helpdesk agent, or private team agent so it can take bounded action during real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses JustCall data during customer support conversations?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking recent calls or creating callback handoffs, and Skill Builder creates a secure Skill the agent can use during chat or ticket replies. It can be designed for read-only lookups, summaries, or approved actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use JustCall call and SMS history to answer customers more accurately?",
+      "answer": "Yes, a DocsBot agent can be configured to look up relevant JustCall interaction history so it responds with better context and prepares cleaner escalations. Skill Builder scopes what the agent can access and can require approvals for any sensitive updates or follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with JustCall?",
+      "answer": "Common workflows include checking recent communications, summarizing call activity, creating callback requests, updating limited contact details, and preparing handoff notes for human agents. The exact workflow is shaped around the support process you describe to Skill Builder."
+    },
+    {
+      "question": "Can I create an internal AI assistant for my team that works with JustCall?",
+      "answer": "Yes, you can build a private DocsBot agent for employees that retrieves JustCall communication history, summarizes customer interactions, and helps complete follow-up workflows in chat, Slack, or Microsoft Teams. Skill Builder designs the access model so employees only get the actions and records they should use."
+    },
+    {
+      "question": "How does DocsBot keep JustCall access secure in an AI agent?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of transcripts and generated instructions. It also scopes permissions and adds approval boundaries so the agent stays within safe action limits."
+    },
+    {
+      "question": "Can a DocsBot agent trigger phone follow-up or callback workflows in JustCall?",
+      "answer": "Yes, the Skill can be designed to trigger approved callback or follow-up workflows when a customer asks for phone support or when an employee needs to continue outreach. Skill Builder can add checks and approval steps before those actions are allowed."
+    }
+  ],
+  "relatedSlugs": [
+    "aircall",
+    "dialpad",
+    "ringcentral",
+    "twilio",
+    "zoom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Just Call",
+    "domain": "justcall.com",
+    "description": "JustCall is a cloud‑based phone system that helps sales, support and marketing teams manage calls, texts and customer interactions from a single platform. It offers features such as virtual phone numbers, call routing, click‑to‑call, SMS messaging, call recording, analytics and integrations with popular CRMs and help‑desk tools. By providing a flexible, web‑based solution, JustCall enables businesses to streamline communication, improve customer experience and boost team productivity without the need for traditional phone hardware.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/88c8df3d-eda8-49b8-b645-60991c56a464.png",
+    "iconUrl": "https://media.brand.dev/88c8df3d-eda8-49b8-b645-60991c56a464.png",
+    "primaryColor": "#dd2627",
+    "accentColor": "#161892",
+    "colors": [
+      {
+        "hex": "#dd2627",
+        "name": "Whero Red"
+      },
+      {
+        "hex": "#161892",
+        "name": "Royal"
+      },
+      {
+        "hex": "#c7edf0",
+        "name": "Icy Breeze"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7d6e1531-09d6-4b21-b88c-f3bf9cf23adc.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/88c8df3d-eda8-49b8-b645-60991c56a464.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 463,
+        "height": 455,
+        "aspectRatio": 1.02
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/88c8df3d-eda8-49b8-b645-60991c56a464.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 463,
+      "height": 455,
+      "aspectRatio": 1.02
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/88c8df3d-eda8-49b8-b645-60991c56a464.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 463,
+      "height": 455,
+      "aspectRatio": 1.02
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "slug": "sap-successfactors",
+  "name": "SAP SuccessFactors",
+  "domain": "sap-successfactors.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with SAP SuccessFactors",
+  "metaTitle": "SAP SuccessFactors AI Agents for Support and HR Workflows",
+  "metaDescription": "Build DocsBot AI agents that use SAP SuccessFactors for safe HR lookups, updates, workflow triggers, and internal team assistance.",
+  "intro": "SAP SuccessFactors helps teams manage core HR, talent, learning, performance, and workforce processes. With DocsBot Skill Builder, you can describe the HR or support workflow you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to SAP SuccessFactors safely. This lets customer-facing and internal AI agents answer questions, retrieve approved HR information, trigger workflows, prepare handoffs, and complete bounded actions without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a recruiting or onboarding request in SAP SuccessFactors and give the customer a clear progress update.",
+    "Use a helpdesk-connected DocsBot agent to collect missing employee or candidate details from a ticket, look up the related record in SAP SuccessFactors, and prepare an accurate handoff for HR.",
+    "Enable an AI support agent to summarize leave, benefits, learning, or performance process status from SAP SuccessFactors when a customer or employee asks for an update.",
+    "Allow the agent to create or route approved HR service requests based on customer chat context, then confirm the next steps back to the requester.",
+    "Have the agent gather issue details during a support conversation and trigger an approved workflow in SAP SuccessFactors for follow-up by the right HR or people operations team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up approved SAP SuccessFactors information such as policy-linked HR process status, learning assignments, or onboarding progress.",
+    "HR and people operations teams can ask the agent to summarize employee lifecycle records, open tasks, or workflow bottlenecks across SAP SuccessFactors before taking action.",
+    "Managers can use an internal AI agent to prepare performance review checklists, promotion workflow summaries, or training follow-up steps using approved SAP SuccessFactors data.",
+    "Recruiting and talent teams can chat with the agent to retrieve candidate or requisition context, draft handoff notes, and complete repeatable SOPs tied to SAP SuccessFactors workflows.",
+    "Operations teams can use the agent to collect missing context from employees, trigger approved HR processes, and produce clean summaries for escalations or audit-ready follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding workflow progress and explains next steps to employees.",
+    "A support agent that summarizes leave or benefits request status from SAP SuccessFactors.",
+    "An internal HR assistant that retrieves learning assignments and sends workflow-ready summaries.",
+    "A manager assistant that prepares performance review status updates and follow-up task lists.",
+    "A recruiting workflow agent that gathers missing candidate details and routes handoffs safely.",
+    "An employee help agent that triggers approved HR service requests with approval boundaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with SAP SuccessFactors in plain language, and it turns that goal into a practical workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets, and scopes SAP SuccessFactors access to the minimum records and actions needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries, user access limits, and safe action rules so sensitive HR updates or workflow triggers stay under your control."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing support bot or your private internal AI agent for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SAP SuccessFactors?",
+      "answer": "With DocsBot Skill Builder, you describe the SAP SuccessFactors workflow you want in plain language, such as checking onboarding status or triggering an HR request. Skill Builder then designs the Skill, secures the connection, tests scenarios, improves the workflow, and helps deploy it to the right AI agent."
+    },
+    {
+      "question": "Can an AI support agent use SAP SuccessFactors data during customer or employee conversations?",
+      "answer": "Yes, a DocsBot agent can use approved SAP SuccessFactors data to look up status, summarize workflows, collect missing context, and prepare handoffs while responding in chat or through helpdesk tickets. Access can be scoped to only the records, actions, and users you allow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent handle with SAP SuccessFactors?",
+      "answer": "A DocsBot agent can answer process-status questions, gather missing HR case details, create or route approved service requests, summarize current workflow state, and prepare escalations for human follow-up. This helps resolve routine questions faster while keeping sensitive actions bounded."
+    },
+    {
+      "question": "What can an internal AI assistant automate with SAP SuccessFactors?",
+      "answer": "An internal DocsBot agent can help employees and HR teams retrieve approved information, summarize employee lifecycle tasks, track onboarding or learning progress, and complete repeatable SOPs across HR workflows. It can also trigger approved actions and generate summaries for managers or operations teams."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in SAP SuccessFactors?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved record updates, request creation, or workflow triggers when that fits your process. Skill Builder adds scoped permissions, secure secret handling, and approval boundaries so the agent only performs the actions you authorize."
+    },
+    {
+      "question": "How does setup work for a non-technical team using SAP SuccessFactors with DocsBot?",
+      "answer": "You do not need to map every technical step yourself. Skill Builder asks for the outcome you want, figures out the secure design and required configuration, keeps credentials out of chats and Skill source, tests the workflow automatically, and helps publish the finished Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "ukg",
+    "greenhouse",
+    "lever",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SAP SuccessFactors",
+    "domain": "sap-successfactors.com",
+    "description": "SAP SuccessFactors is a SAP Gold Partner specializing in the implementation, integration, and consulting of SAP SuccessFactors cloud HCM solutions. The company helps organizations streamline talent acquisition, performance management, learning, and payroll processes by delivering end‑to‑end deployment, system integration, and ongoing support services. With a focus on delivering tailored HR technology transformations, SAP SuccessFactors enables businesses to enhance workforce efficiency and drive strategic HR outcomes.",
+    "slogan": "Stay tuned for our new offer!",
+    "logoUrl": "https://media.brand.dev/05bd1e45-8fb0-4e53-9ee8-671a457da21f.png",
+    "iconUrl": "https://media.brand.dev/05bd1e45-8fb0-4e53-9ee8-671a457da21f.png",
+    "primaryColor": "#fcab04",
+    "accentColor": "#fcab04",
+    "colors": [
+      {
+        "hex": "#fcab04",
+        "name": "Clementine Jelly"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/05bd1e45-8fb0-4e53-9ee8-671a457da21f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05bd1e45-8fb0-4e53-9ee8-671a457da21f.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/05bd1e45-8fb0-4e53-9ee8-671a457da21f.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

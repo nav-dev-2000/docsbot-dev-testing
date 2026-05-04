@@ -1,0 +1,113 @@
+{
+  "slug": "harness",
+  "name": "Harness",
+  "domain": "harness.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Harness",
+  "metaTitle": "Build Harness AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Harness for deployment lookups, pipeline summaries, approvals, and internal workflow automation with secure controls.",
+  "intro": "Harness helps teams manage software delivery, deployment, and pipeline workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Harness data and actions. This helps customer support teams share accurate release context and helps internal teams automate delivery-related lookups, approvals, summaries, and handoffs.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Harness deployment status when customers ask whether an incident fix or product update has been released.",
+    "Enable the agent to summarize recent pipeline runs and explain whether a customer-reported issue may be related to a failed build or delayed deployment.",
+    "Use Harness data to prepare a clean support handoff that includes deployment history, environment status, and relevant release notes for escalation teams.",
+    "Allow the agent to confirm whether a feature flag, service rollout, or environment promotion has reached the customer’s region or account context when that workflow is approved.",
+    "Trigger an approved internal follow-up workflow from a support conversation when a failed deployment or rollback needs engineering review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Harness pipeline status, deployment history, and environment summaries without switching tools.",
+    "Release managers can ask the agent to compile delivery status updates across projects, summarize failed stages, and prepare stakeholder-ready rollout reports.",
+    "Operations and engineering teams can use the agent to follow deployment SOPs, gather missing release context, and trigger approved workflows for reviews, escalations, or handoffs.",
+    "Customer success and support leaders can ask the agent whether a known issue is tied to a recent release and get a concise summary backed by Harness activity.",
+    "Internal teams can use the agent to research incident timelines by combining Harness deployment events with other business systems and then generate a clear next-step summary."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks deployment progress before answering release-related customer questions.",
+    "A private release assistant that summarizes failed pipelines and recommends the next approved workflow.",
+    "An escalation Skill that gathers deployment evidence and prepares engineering handoff notes automatically.",
+    "A rollout status agent that reports environment promotion progress across services and teams.",
+    "An approval-aware workflow that triggers release follow-up tasks after defined support conditions are met.",
+    "A reporting assistant that generates stakeholder summaries from Harness pipeline and deployment activity."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Harness, such as checking deployment status, summarizing pipelines, or preparing release handoffs, and Skill Builder translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required Harness connection details, defines secure authentication and configuration values, protects and proxies secrets through approved runtime settings, and scopes access to the minimum actions, records, environments, and users needed."
+    },
+    {
+      "title": "Boundaries are added automatically",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive steps such as triggering workflows, updating records, or sharing rollout details so the agent stays within your rules."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so employees and customers get reliable Harness-powered help."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Harness?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and Skill Builder creates a reusable Skill that lets your agent look up Harness data, summarize delivery state, and take approved actions with secure controls."
+    },
+    {
+      "question": "Can an AI support agent use Harness data to answer customer questions about releases or outages?",
+      "answer": "Yes, a DocsBot support agent can use Harness to check deployment status, review recent pipeline activity, summarize release context, and prepare escalation notes so customer replies are more accurate and actionable."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Harness?",
+      "answer": "A private DocsBot agent can help employees retrieve pipeline status, summarize failed deployments, prepare rollout updates, support release SOPs, and trigger approved follow-up workflows across engineering and operations processes."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Harness?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect authentication details, and add approval boundaries so the agent only accesses the records, actions, and environments you authorize."
+    },
+    {
+      "question": "Can a DocsBot agent trigger workflows in Harness instead of only reporting status?",
+      "answer": "Yes, when you want bounded AI Actions, Skill Builder can create workflows that let the agent trigger approved follow-ups, handoffs, or operational steps while keeping sensitive actions behind defined controls."
+    },
+    {
+      "question": "How does setup work for a non-technical team using DocsBot with Harness?",
+      "answer": "You do not need to map every technical step yourself. You explain the desired business outcome, and Skill Builder handles the secure design, connection requirements, testing, improvements, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "bitbucket",
+    "jenkins",
+    "circleci",
+    "azure-devops"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Harness",
+    "domain": "harness.com",
+    "description": "Harness.com is a premium, memorable domain name currently available for purchase. It offers businesses a concise, brand‑friendly web address ideal for companies in technology, engineering, fitness, or any sector focused on control, optimization, or performance. The domain is listed for sale with price upon request, and interested parties can contact the seller via the provided form. Harness.com provides a strong online identity that can help organizations stand out, improve SEO, and convey professionalism. Perfect for startups, SaaS platforms, or established firms looking to strengthen their digital presence.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

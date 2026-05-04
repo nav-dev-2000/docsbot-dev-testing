@@ -1,0 +1,176 @@
+{
+  "slug": "helpshift",
+  "name": "Helpshift",
+  "domain": "helpshift.com",
+  "category": "Customer Support",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Helpshift",
+  "metaTitle": "Build AI Agents for Helpshift with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Helpshift for support lookups, ticket updates, handoffs, summaries, and safe internal workflows.",
+  "intro": "Helpshift helps teams deliver modern digital customer support across conversational channels, automation, and personalized service journeys. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely work with Helpshift. That gives you a support or internal AI agent that can answer questions, look up case details, prepare escalations, update records, and trigger approved workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer’s Helpshift issue status, conversation history, or assigned queue and reply with a current, personalized update.",
+    "Let the agent create a new Helpshift support issue from a website chat when a customer reports a problem that needs formal tracking.",
+    "Allow the agent to add internal notes or structured summaries in Helpshift so human agents receive a clean handoff with customer context already prepared.",
+    "Enable the agent to update approved Helpshift fields such as priority, category, or language routing when the customer provides new information.",
+    "Have the agent summarize a long Helpshift conversation thread into a concise escalation brief for faster transfer to a specialist or manager team slotting process as defined by your workflow."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Helpshift case details, customer history, and resolution status without switching tools.",
+    "Enable support operations teams to ask the agent for summaries of open Helpshift queues, unresolved issue themes, or handoff bottlenecks across support workflows.",
+    "Allow managers to chat with the agent to prepare escalation notes, quality review summaries, or follow-up task lists based on Helpshift conversations.",
+    "Help customer success or product teams research recurring customer pain points by asking the agent to summarize tagged Helpshift issues and surface trends for review.",
+    "Give internal teams an AI assistant that follows support SOPs by gathering missing case context, drafting next-step recommendations, and triggering approved Helpshift updates when allowed."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that retrieves Helpshift ticket status and conversation summaries during live customer chats.",
+    "A Skill that creates new Helpshift issues from DocsBot conversations with structured intake fields.",
+    "A Skill that drafts escalation handoff notes and saves them as internal Helpshift comments.",
+    "A Skill that updates approved Helpshift metadata when customers confirm product, device, or severity details.",
+    "A Skill that summarizes unresolved Helpshift conversations for supervisors at shift handoff time.",
+    "A Skill that routes support requests based on issue type, language, or customer segment rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Helpshift, such as checking issue status, creating cases, updating fields, or preparing escalations, using plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the required configuration values, and plans how the agent should interact with Helpshift within your approved workflow boundaries."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill instructions, proxies secrets through protected runtime configuration, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines safe action limits, user scope, and approval boundaries for sensitive Helpshift updates so the agent can help confidently without overreaching."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Helpshift?",
+      "answer": "With DocsBot Skill Builder, you describe the Helpshift workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your AI agent. The finished agent can look up support data, create or update approved records, summarize conversations, and trigger handoffs inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Helpshift data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Helpshift Skill to retrieve allowed case details, issue status, conversation context, or routing information while responding in a website chat or helpdesk workflow. You control which fields, records, and actions the agent can access."
+    },
+    {
+      "question": "Can DocsBot create or update Helpshift tickets during customer support conversations?",
+      "answer": "DocsBot Skill Builder can create workflows where the agent opens new Helpshift issues, updates approved fields, adds handoff notes, or prepares escalation summaries when those actions fit your process. Sensitive changes can be placed behind approval boundaries or limited to specific users and scenarios."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Helpshift?",
+      "answer": "Common workflows include checking ticket status, collecting missing intake details, creating support issues, updating categorization fields, drafting escalation notes, and summarizing long conversations for human agents. This helps the agent do useful work during the interaction instead of only explaining next steps."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Helpshift?",
+      "answer": "Yes, private DocsBot agents for support, operations, and customer success teams can retrieve Helpshift case history, summarize open issues, prepare shift handoff notes, and guide employees through support SOPs. That reduces tool switching and helps teams complete repetitive support workflows from chat."
+    },
+    {
+      "question": "How does DocsBot keep Helpshift integrations secure?",
+      "answer": "Skill Builder is designed to define secure connection settings, protect and proxy secrets, keep credentials out of chats and generated copy, and scope permissions to the minimum required access. It also adds approval boundaries and testing steps so actions stay controlled and reviewable."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "jira-service-management",
+    "salesforce-service-cloud",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Helpshift",
+    "domain": "helpshift.com",
+    "description": "Helpshift is a consumer-first digital support platform that provides an efficient, personalized, modern support journey. It leverages conversational AI, machine language translation, automation, and segmentation to resolve consumer problems across various channels, enabling businesses to scale fast and save money through easy-to-implement digital customer service solutions.",
+    "slogan": "Modern, personalized support with AI, automation, and seamless customer engagement.",
+    "logoUrl": "https://media.brand.dev/4a529d16-c389-4ad6-91e4-8000e641c0d6.svg",
+    "iconUrl": "https://media.brand.dev/edc30c22-10f3-4573-ba27-b8cba42daa53.jpg",
+    "primaryColor": "#0d7454",
+    "accentColor": "#84b6ac",
+    "colors": [
+      {
+        "hex": "#0d7454",
+        "name": "Greasy Greens"
+      },
+      {
+        "hex": "#84b6ac",
+        "name": "Winter Surf"
+      },
+      {
+        "hex": "#d3e6e1",
+        "name": "Aqua Glass"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/76fa8ca9-29c9-4a83-a9cb-f2f8ebd7117c.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.helpshift.com/contact-us/",
+      "privacy": "https://www.helpshift.com/legal/privacy/",
+      "blog": "https://www.helpshift.com/blog/",
+      "pricing": "https://www.helpshift.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/edc30c22-10f3-4573-ba27-b8cba42daa53.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/868ac052-fe23-4729-aad1-580733687dfa.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 142,
+        "height": 67,
+        "aspectRatio": 2.12
+      },
+      {
+        "url": "https://media.brand.dev/4a529d16-c389-4ad6-91e4-8000e641c0d6.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 296,
+        "height": 79,
+        "aspectRatio": 3.75
+      },
+      {
+        "url": "https://media.brand.dev/d490ed3e-3c24-4cbc-abcf-e270ee194b89.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/868ac052-fe23-4729-aad1-580733687dfa.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 142,
+      "height": 67,
+      "aspectRatio": 2.12
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d490ed3e-3c24-4cbc-abcf-e270ee194b89.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 150,
+      "height": 150,
+      "aspectRatio": 1
+    }
+  }
+}

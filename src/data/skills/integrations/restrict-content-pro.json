@@ -1,0 +1,160 @@
+{
+  "slug": "restrict-content-pro",
+  "name": "Restrict Content Pro",
+  "domain": "restrictcontentpro.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work With Restrict Content Pro",
+  "metaTitle": "Restrict Content Pro AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Restrict Content Pro to answer membership questions, check subscription status, trigger safe workflows, and support internal teams.",
+  "intro": "Restrict Content Pro helps businesses run WordPress membership sites, manage subscription levels, and control access to premium content. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up member details, summarize subscription status, and trigger approved actions. This gives support teams and internal operators an AI agent that can do more than answer questions by taking bounded action inside your membership workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a member's subscription status, renewal state, or access level in Restrict Content Pro while answering billing or access questions in chat or tickets.",
+    "Enable the agent to confirm whether a user should have access to specific premium content and explain the next approved step when a membership or restriction issue appears.",
+    "Use the agent to gather missing account details from the customer, prepare a clean support handoff, and summarize the member's current plan, payment history context, and content access state for a human agent.",
+    "Allow the agent to apply approved membership support workflows such as flagging an account for review, triggering follow-up tasks, or drafting a resolution summary after a cancellation or failed renewal issue.",
+    "Have the agent explain trial, free, and premium membership differences by combining your policy documentation with live member lookup results from Restrict Content Pro."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up member records, subscription tiers, coupon usage context, or content access status in Restrict Content Pro without manually searching the WordPress admin area.",
+    "Customer success and operations teams can ask the agent to summarize why a member lost access, what plan they are on, and what approved next steps fit the company's membership policies.",
+    "Support managers can use the agent in Slack or Microsoft Teams to prepare escalations, generate internal case summaries, and coordinate follow-up workflows tied to membership changes or billing exceptions.",
+    "Content and membership teams can chat with the agent to research which subscriber segments should receive timed content, promotion follow-up, or retention outreach based on approved Restrict Content Pro data.",
+    "Internal teams can use the agent to follow SOPs for membership troubleshooting, renewal review, and access recovery while the agent retrieves the right records and guides the workflow safely."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks membership status before answering account access questions.",
+    "A customer service workflow that summarizes subscription and content restriction issues for handoff.",
+    "An internal assistant that researches member access problems and recommends approved next steps.",
+    "A retention support agent that explains cancellation, renewal, and trial policies with live context.",
+    "A private operations assistant that prepares membership case notes from Restrict Content Pro data.",
+    "An AI agent that verifies premium content eligibility before suggesting troubleshooting actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Restrict Content Pro in plain language, such as checking member access, summarizing subscription issues, or triggering an approved support workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that request into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, needed configuration values, and secure connection approach."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After self-improving the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can safely use Restrict Content Pro in live workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Restrict Content Pro?",
+      "answer": "With DocsBot Skill Builder, you describe the membership or support outcome you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The result is an AI agent that can answer questions and take bounded actions using Restrict Content Pro data and workflows."
+    },
+    {
+      "question": "Can an AI support agent use Restrict Content Pro data to answer membership questions?",
+      "answer": "Yes, a DocsBot support agent can use Restrict Content Pro to look up subscription status, access eligibility, and related membership context while responding in a website chat widget or helpdesk flow. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Restrict Content Pro?",
+      "answer": "DocsBot can help automate membership lookups, access troubleshooting, renewal and cancellation context gathering, escalation summaries, and approved follow-up workflows. It can also collect missing information from the customer before preparing a clean handoff to a human agent."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Restrict Content Pro?",
+      "answer": "Yes, teams can use a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve member information, summarize subscription issues, and follow internal SOPs for troubleshooting or escalation. This helps employees move faster without searching through multiple systems manually."
+    },
+    {
+      "question": "How does DocsBot keep Restrict Content Pro actions secure?",
+      "answer": "Skill Builder defines the required configuration, secures authentication handling, proxies secrets through protected runtime settings, and keeps credentials out of chats and generated content. It also scopes permissions and can add approval steps or safe action limits for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs and escalation summaries for membership issues?",
+      "answer": "Yes, a DocsBot agent can gather the relevant member context from Restrict Content Pro, summarize the problem, and create a structured handoff for support or operations teams. This reduces repeated questions and gives human agents better context before they step in."
+    }
+  ],
+  "relatedSlugs": [
+    "memberful",
+    "recharge",
+    "chargebee",
+    "stripe-billing",
+    "memberstack",
+    "woocommerce-subscriptions"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Restrict Content Pro",
+    "domain": "restrictcontentpro.com",
+    "description": "Restrict Content Pro is a WordPress plugin that lets site owners create and manage membership sites with powerful content restriction tools. It offers unlimited subscription levels—including free, trial, and premium—easy paywall setup, discount codes, and timed premium content delivery. The plugin integrates with major payment gateways (Stripe, PayPal, Braintree, 2Checkout) and popular email services (MailChimp, ActiveCampaign, ConvertKit). Built for developers, it provides extensive action hooks, filters, and customizable template files, making it simple to extend or integrate with other plugins. With lightweight design, theme‑friendly display options, and dedicated support, Restrict Content Pro enables businesses to lock away exclusive content, grow recurring revenue, and scale their membership offerings without needing separate e‑commerce solutions.",
+    "slogan": "The easy membership plugin for WordPress",
+    "logoUrl": "https://media.brand.dev/14541c9d-77b7-4d75-8b78-5c1f10dd750f.svg",
+    "iconUrl": "https://media.brand.dev/6a82c622-d839-4ba5-ac3a-f117123b3213.png",
+    "primaryColor": "#242424",
+    "accentColor": "#7c7c7c",
+    "colors": [
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c4073a92-1ba2-4adb-8964-7bbedd5ff916.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://restrictcontentpro.com/blog/",
+      "careers": null,
+      "privacy": "https://restrictcontentpro.com/privacy-policy/",
+      "terms": "https://restrictcontentpro.com/terms-of-service/",
+      "contact": "https://restrictcontentpro.com/contact/",
+      "pricing": "https://restrictcontentpro.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/14541c9d-77b7-4d75-8b78-5c1f10dd750f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 320,
+        "height": 56,
+        "aspectRatio": 5.71
+      },
+      {
+        "url": "https://media.brand.dev/6a82c622-d839-4ba5-ac3a-f117123b3213.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/14541c9d-77b7-4d75-8b78-5c1f10dd750f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 320,
+      "height": 56,
+      "aspectRatio": 5.71
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a82c622-d839-4ba5-ac3a-f117123b3213.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

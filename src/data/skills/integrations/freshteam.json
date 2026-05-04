@@ -1,0 +1,160 @@
+{
+  "slug": "freshteam",
+  "name": "FreshTeam",
+  "domain": "freshteam.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Freshteam",
+  "metaTitle": "Build Freshteam AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshteam for hiring, HR lookups, onboarding tasks, approvals, and safe employee support workflows.",
+  "intro": "Freshteam helps teams manage recruiting, employee records, onboarding, time off, and HR workflows in one place. With DocsBot Skill Builder, you can describe the Freshteam-powered agent you want in plain language and have DocsBot design, secure, test, and package it as a reusable Skill. The result is an AI support agent or internal HR assistant that can answer questions and take approved action inside Freshteam.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check application status updates in Freshteam and respond with a clear summary when candidates ask where they are in the hiring process.",
+    "Use a DocsBot helpdesk agent to collect missing hiring details from a candidate, create or update the relevant Freshteam record, and prepare an HR handoff when human review is needed.",
+    "Allow a support agent to look up interview scheduling or onboarding progress stored in Freshteam and summarize the latest status for approved candidate or employee inquiries.",
+    "Enable the agent to create structured escalation notes from a customer or candidate conversation so HR or recruiting teams receive a clean Freshteam-ready handoff.",
+    "Use the agent to trigger approved follow-up workflows, such as routing a recruiting or onboarding request to the right team based on the conversation context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Freshteam policies, candidate stages, onboarding checklists, and time-off workflow guidance.",
+    "Enable recruiters and HR staff to ask the agent for summaries of candidate pipelines, open requisitions, interview progress, or onboarding status pulled from Freshteam.",
+    "Allow managers to chat with an internal agent that gathers the right context, drafts handoff notes, and updates approved Freshteam fields as part of HR SOPs.",
+    "Help HR teams use an internal AI assistant to answer repetitive employee questions, prepare documents or response drafts, and trigger bounded Freshteam workflows with approval controls.",
+    "Give operations or people teams an agent that combines Freshteam data with internal instructions to guide consistent recruiting, onboarding, and employee support processes."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup agent for website chat or recruiting helpdesk replies.",
+    "An internal HR assistant that summarizes onboarding progress and next required steps.",
+    "A recruiter copilot that updates candidate notes after an approved conversation review.",
+    "An employee support agent that answers time-off and HR process questions using Freshteam context.",
+    "A hiring workflow agent that gathers missing details and routes requests to the right owner.",
+    "An escalation assistant that prepares structured handoff summaries for HR or recruiting teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the Freshteam agent to do, and it turns that plain-language goal into a practical Skill design for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Freshteam connection details, defines secure authentication and configuration values, protects and proxies secrets, and scopes access to only the actions, records, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe runtime rules so the agent can perform lookups, updates, handoffs, and workflow triggers within clear limits, with approval boundaries for sensitive HR actions when appropriate."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined candidate, employee, recruiter, and HR conversations to find bugs, weak instructions, missing checks, or workflow gaps before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds testing results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for website chat, helpdesk use, or private team access."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Freshteam?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshteam workflow you want in plain language, such as candidate lookups, onboarding updates, or HR request routing. Skill Builder then designs the Skill, secures the connection, tests it, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Freshteam data during candidate or employee conversations?",
+      "answer": "Yes, a DocsBot agent can use a Freshteam Skill to retrieve approved status information, summarize records, collect missing details, and prepare handoffs while responding in chat or through helpdesk tickets. Access can be scoped so the agent only sees and uses the data needed for the workflow."
+    },
+    {
+      "question": "What Freshteam workflows can an internal AI assistant help automate?",
+      "answer": "Internal agents can help with recruiting questions, onboarding progress checks, employee support guidance, handoff preparation, and approved record updates or workflow triggers inside Freshteam. This is especially useful for HR, recruiting, and operations teams handling repeat requests."
+    },
+    {
+      "question": "Can DocsBot update Freshteam records safely?",
+      "answer": "Yes, Skills can be designed for bounded actions such as updating approved fields, creating notes, or triggering workflow steps with clear rules. Skill Builder adds scoped permissions and approval boundaries so sensitive HR actions stay controlled."
+    },
+    {
+      "question": "Can a DocsBot agent escalate HR or recruiting issues from chat into Freshteam workflows?",
+      "answer": "Yes, the agent can gather context from the conversation, create a structured summary, and route the issue into an approved HR or recruiting process. This helps teams receive cleaner handoffs and reduces manual follow-up work."
+    },
+    {
+      "question": "How does setup work for a non-technical team using DocsBot with Freshteam?",
+      "answer": "You explain the result you want, and Skill Builder handles the design details behind the scenes. It identifies the required configuration, secures authentication, keeps secrets out of chats and source, tests scenarios automatically, and improves the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "greenhouse",
+    "lever",
+    "workday",
+    "personio",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshteam",
+    "domain": "support.freshteam.com",
+    "description": "Freshteam, a product of Freshworks Inc., is an all‑in‑one HR platform that streamlines recruitment, employee management, and internal communications. It offers applicant tracking, a full HRIS, time‑off management, onboarding and off‑boarding tools, an inbox for HR queries, and integrations with other business apps. Designed for admins, recruiters, and employees, Freshteam provides role‑specific guides, cheat sheets, video tutorials, and a knowledge base to help users get up to speed quickly. The service is supported through a dedicated help center, community forums, and direct email support, enabling organizations to manage hiring, employee data, leave requests, and HR workflows efficiently.",
+    "slogan": "We are here to help",
+    "logoUrl": "https://media.brand.dev/a18a4405-65dd-4002-8d7e-97d7ade55e9e.png",
+    "iconUrl": "https://media.brand.dev/d1cef858-4cc2-4172-88f7-6f55bb45d25a.png",
+    "primaryColor": "#7455cc",
+    "accentColor": "#b4a2e4",
+    "colors": [
+      {
+        "hex": "#7455cc",
+        "name": "Astro Purple"
+      },
+      {
+        "hex": "#b4a2e4",
+        "name": "Violet Velvet"
+      },
+      {
+        "hex": "#111827",
+        "name": "Sambucus"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a18a4405-65dd-4002-8d7e-97d7ade55e9e.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 2419,
+        "height": 512,
+        "aspectRatio": 4.72
+      },
+      {
+        "url": "https://media.brand.dev/d1cef858-4cc2-4172-88f7-6f55bb45d25a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a18a4405-65dd-4002-8d7e-97d7ade55e9e.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 2419,
+      "height": 512,
+      "aspectRatio": 4.72
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d1cef858-4cc2-4172-88f7-6f55bb45d25a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "thoughtspot",
+  "name": "ThoughtSpot",
+  "domain": "thoughtspot.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use ThoughtSpot for Analytics and Support",
+  "metaTitle": "Build AI Agents for ThoughtSpot with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ThoughtSpot for analytics lookups, customer support context, internal research, summaries, and safe workflow actions.",
+  "intro": "ThoughtSpot helps teams explore data, answer questions, and uncover actionable insights through analytics and natural language search. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use ThoughtSpot during customer support or internal team workflows. The result is an AI agent that can answer questions, retrieve analytics context, summarize findings, and take bounded follow-up actions inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent query ThoughtSpot dashboards or analytics results to answer product usage, account activity, or performance questions during a website chat or support ticket reply.",
+    "Use ThoughtSpot data to help the agent summarize trends, anomalies, or recent changes before responding to customers about adoption, outcomes, or service performance.",
+    "Have the agent pull approved analytics context from ThoughtSpot and prepare a clean handoff summary for support, success, or technical teams when a case needs escalation.",
+    "Enable the agent to compare current and historical metrics from ThoughtSpot so it can explain likely causes of customer-reported issues with clearer data-backed responses.",
+    "Let the agent gather ThoughtSpot insights and attach a concise account health or usage summary to a helpdesk ticket for faster follow-up by human teams."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with in Slack, Microsoft Teams, or an internal chat to retrieve ThoughtSpot insights, dashboard summaries, and trend explanations without manually searching every report.",
+    "Let operations, customer success, or product teams ask the agent to research a business question across ThoughtSpot data and return a concise decision-ready summary with the most relevant metrics.",
+    "Enable team members to chat with the agent to prepare executive updates, weekly KPI summaries, and analytics briefings based on approved ThoughtSpot content.",
+    "Help internal teams follow SOPs by having the agent gather ThoughtSpot findings, identify missing context, and assemble a structured handoff for the next team or workflow.",
+    "Allow employees to ask natural language questions about performance, adoption, or revenue signals and have the agent use ThoughtSpot to retrieve evidence before recommending next steps."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that answers customer usage questions using approved ThoughtSpot analytics context.",
+    "An internal analytics assistant that summarizes dashboards for sales, success, and operations teams.",
+    "A ticket triage Skill that adds ThoughtSpot account health insights to escalations.",
+    "A customer success agent that prepares renewal or adoption summaries from ThoughtSpot metrics.",
+    "An executive briefing assistant that turns ThoughtSpot trends into concise weekly updates.",
+    "A product operations agent that investigates anomalies and summarizes likely drivers from analytics data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with ThoughtSpot, such as answering usage questions, summarizing trends, or preparing escalations, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime settings by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum ThoughtSpot data, actions, users, and workflows needed, and adds approval boundaries or safe action limits anywhere a response should stay read-only or require confirmation."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the right instructions, runtime behavior, reference material, and any approved actions the DocsBot agent needs to retrieve analytics, summarize findings, or trigger follow-up steps."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or missing permission checks, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ThoughtSpot data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and DocsBot designs a Skill that lets your AI agent safely query ThoughtSpot, summarize insights, and return answers in chat or ticket workflows. Skill Builder also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use ThoughtSpot to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved ThoughtSpot analytics context to answer customer questions about usage, performance, trends, or account activity. It can also prepare escalations and handoff summaries when a human team needs to step in."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with ThoughtSpot?",
+      "answer": "Internal agents can help employees retrieve KPI summaries, research business questions, compare trends, prepare executive updates, and assemble structured analytics briefings from ThoughtSpot. This is useful for operations, customer success, product, and leadership teams."
+    },
+    {
+      "question": "Can DocsBot summarize ThoughtSpot dashboards for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, a private DocsBot agent can be deployed for employees and used in chat, Slack, or Microsoft Teams to turn ThoughtSpot results into concise summaries, explanations, and next-step recommendations. Access can be limited to the right teams and approved data sources."
+    },
+    {
+      "question": "How does DocsBot keep ThoughtSpot access secure in an AI workflow?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated content. It also scopes permissions to the minimum needed and can add approval checkpoints for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent use ThoughtSpot insights during ticket triage and escalation?",
+      "answer": "Yes, the agent can gather relevant ThoughtSpot metrics, summarize the current state, and attach a useful data-backed handoff to a support or success ticket. That helps teams respond faster with better context and less manual research."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "power-bi",
+    "looker",
+    "snowflake",
+    "bigquery",
+    "google-analytics"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ThoughtSpot",
+    "domain": "thoughtspot.com",
+    "description": "ThoughtSpot is the Agentic Analytics Platform that empowers enterprises to make data-driven decisions. It provides an intuitive natural language search, unified capabilities, and AI-powered analytics to generate actionable insights. The platform enables users to explore data, ask questions, and uncover insights, and offers a low-code solution for developers to integrate analytics into products and services, driving data monetization and user engagement.",
+    "slogan": "Empowering Everyone to Explore Data and Uncover Actionable Insights Faster.",
+    "logoUrl": "https://media.brand.dev/557a7f7f-eb95-42d1-bcc7-619cef3445fd.svg",
+    "iconUrl": "https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg",
+    "primaryColor": "#1c194d",
+    "accentColor": "#8c8ca4",
+    "colors": [
+      {
+        "hex": "#1c194d",
+        "name": "Fly by Night"
+      },
+      {
+        "hex": "#8c8ca4",
+        "name": "Lavender Blossom Grey"
+      },
+      {
+        "hex": "#cdccd8",
+        "name": "Magic Scent"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/13c7fa7a-d934-47bb-89e9-0413e7e91fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.thoughtspot.com/careers",
+      "terms": "https://www.thoughtspot.com/terms-of-use",
+      "contact": "https://www.thoughtspot.com/contact-us",
+      "privacy": "https://www.thoughtspot.com/privacy",
+      "blog": "https://www.thoughtspot.com/blog",
+      "pricing": "https://www.thoughtspot.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/557a7f7f-eb95-42d1-bcc7-619cef3445fd.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 221,
+        "height": 35,
+        "aspectRatio": 6.31
+      },
+      {
+        "url": "https://media.brand.dev/0ff4655e-d1f5-4ca1-b660-1ce381651b7c.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/13eb4091-a113-4f46-872d-1647e038dcdf.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/557a7f7f-eb95-42d1-bcc7-619cef3445fd.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 221,
+      "height": 35,
+      "aspectRatio": 6.31
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0ff4655e-d1f5-4ca1-b660-1ce381651b7c.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

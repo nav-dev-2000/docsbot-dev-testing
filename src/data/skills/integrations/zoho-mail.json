@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-mail",
+  "name": "Zoho Mail",
+  "domain": "zoho-mail.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Mail",
+  "metaTitle": "Build Zoho Mail AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Mail for safe email lookups, message summaries, workflow triggers, and internal team actions in support and operations.",
+  "intro": "Zoho Mail helps teams manage business email, shared inbox activity, and communication workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Mail, and DocsBot helps design, secure, test, improve, and publish that ability. The result is a support or internal AI agent that can read approved email context, summarize conversations, prepare handoffs, and trigger bounded follow-up actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved Zoho Mail threads tied to an order, account, or case and summarize the latest reply for the customer.",
+    "Let a support agent draft a handoff summary from relevant Zoho Mail conversations so human teams can continue complex cases with full context.",
+    "Enable the agent to create a follow-up email task or trigger a response workflow in Zoho Mail after confirming the customer’s request.",
+    "Have the agent review mailbox activity related to a support issue and explain whether a confirmation, escalation, or next-step message has already been sent.",
+    "Use the agent in helpdesk ticket replies to pull approved Zoho Mail conversation history and prepare a concise status update for the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the latest Zoho Mail conversation about a customer, vendor, renewal, or internal project without searching manually.",
+    "Support and success teams can ask the agent to summarize long Zoho Mail threads, identify pending replies, and prepare handoff notes for the next owner.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to trigger approved email-based follow-up workflows and record the outcome for internal coordination.",
+    "Managers can ask the agent to review Zoho Mail activity for a shared inbox and surface unanswered messages, recurring issues, or escalation patterns.",
+    "Employees can follow guided SOPs in chat where the agent checks Zoho Mail context, gathers missing details, and completes bounded next steps across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes account-related Zoho Mail threads before replying to customers.",
+    "A private assistant that finds unanswered Zoho Mail messages in shared inbox workflows.",
+    "An internal agent that prepares escalation notes from recent Zoho Mail conversations.",
+    "A workflow assistant that triggers approved Zoho Mail follow-ups after support case reviews.",
+    "A team agent that checks whether confirmation emails were sent for customer requests.",
+    "An operations assistant that summarizes vendor or partner email threads for employees in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Mail agent to do in plain language, and it turns that goal into a reusable Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets outside chats and source, and scopes Zoho Mail access to the minimum actions, mailboxes, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds runtime instructions, safe action limits, and approval boundaries so sensitive email actions, escalations, or workflow triggers only happen within the rules you choose."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak prompts, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho Mail?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Mail workflow you want in plain language, such as summarizing email threads or triggering a follow-up, and Skill Builder designs, secures, tests, and packages that ability as a reusable Skill."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Mail data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Zoho Mail context to look up conversation history, summarize recent messages, prepare handoffs, and help produce better customer replies within the access rules you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Mail?",
+      "answer": "Common workflows include checking whether an email was sent, summarizing related message threads, preparing escalation context, triggering approved follow-ups, and giving agents or customers a clearer status update."
+    },
+    {
+      "question": "Can an internal AI assistant help employees search and summarize Zoho Mail conversations?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve relevant Zoho Mail threads, get concise summaries, identify pending actions, and complete SOP-driven workflows without manually digging through inboxes."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Mail actions secure?",
+      "answer": "Skill Builder defines secure connection requirements, keeps secrets out of chats and generated content, proxies credentials through protected runtime configuration, scopes permissions carefully, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Zoho Mail instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can support bounded AI Actions such as approved lookups, workflow triggers, handoff preparation, summaries, and other controlled steps that your team allows the agent to perform."
+    }
+  ],
+  "relatedSlugs": [
+    "gmail",
+    "outlook",
+    "front",
+    "zendesk",
+    "freshdesk",
+    "zoho-desk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

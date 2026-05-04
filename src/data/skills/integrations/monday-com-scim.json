@@ -1,0 +1,184 @@
+{
+  "slug": "monday-com-scim",
+  "name": "Monday.com SCIM",
+  "domain": "monday.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With Monday.com SCIM",
+  "metaTitle": "Build Monday.com SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Monday.com SCIM for secure user lookups, access workflows, updates, handoffs, and internal support automation.",
+  "intro": "Monday.com SCIM helps organizations manage user identity and access data across their monday.com environment. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets a support or internal AI agent look up users, prepare access workflows, summarize status, and trigger approved actions. This gives teams an AI agent that can answer questions and take bounded action instead of only explaining the next step.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a customer account or user provisioning record exists in Monday.com SCIM before guiding the customer to the right next step.",
+    "Let the support agent summarize a user's access or provisioning status from Monday.com SCIM and explain what is pending in plain language inside a chat or helpdesk reply.",
+    "Have the agent collect missing identity details from the customer, then create a structured handoff for the support or IT team to review an access-related issue.",
+    "Enable the agent to prepare approved escalation notes with relevant Monday.com SCIM user details so human teams can resolve login or account setup problems faster.",
+    "Allow the agent to trigger a bounded workflow that flags an account provisioning or deprovisioning issue for manual review when a customer reports an access problem."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to look up monday.com user identity records and provisioning status without digging through admin tools.",
+    "IT and operations teams can ask the agent to summarize onboarding or offboarding state across Monday.com SCIM records and prepare the next approved workflow step.",
+    "Managers or support leads can use the agent to gather identity context, generate an internal handoff, and route access issues to the right team based on documented SOPs.",
+    "Internal teams can chat with the agent to verify whether a user should have access, compare directory details with process rules, and surface exceptions that need human approval.",
+    "Employees can use the agent to follow access-management SOPs faster because the agent can retrieve the right records, summarize findings, and guide the next action inside approved boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks monday.com user provisioning status during account access conversations.",
+    "An internal assistant that summarizes onboarding and offboarding progress from Monday.com SCIM records.",
+    "A helpdesk agent that gathers missing identity details and prepares access escalation handoffs.",
+    "An employee AI assistant that verifies user existence before routing account setup requests.",
+    "A workflow agent that flags provisioning exceptions for human approval and follow-up.",
+    "A private operations bot that explains SCIM-related user status in plain language."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Monday.com SCIM in plain language, and it turns that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, what configuration values are required, how Monday.com SCIM authentication should be handled securely, and how to keep credentials protected and out of chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder defines the minimum permissions, record access, action limits, and approval boundaries needed so the agent can retrieve data or take approved actions without overreaching."
+    },
+    {
+      "title": "The workflow is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings back into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal AI assistant with secure runtime settings and logging in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Monday.com SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up records, summarize status, route issues, and trigger approved next steps. It also handles secure configuration, secret protection, and safe permission scoping for the workflow."
+    },
+    {
+      "question": "Can an AI support agent use Monday.com SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Monday.com SCIM data to check user records, summarize provisioning status, collect missing details, and prepare handoffs while replying to customers. Sensitive actions can be limited to approved workflows or held behind human review boundaries."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Monday.com SCIM?",
+      "answer": "An internal DocsBot agent can help employees and IT teams with onboarding checks, offboarding summaries, access verification, exception routing, and SOP-driven identity workflows. The agent can retrieve the right context quickly and help teams complete tasks without manually searching admin systems."
+    },
+    {
+      "question": "Can DocsBot safely trigger updates or workflow actions related to Monday.com SCIM?",
+      "answer": "DocsBot can be configured for bounded actions such as creating review tasks, routing exceptions, or preparing structured handoffs based on your rules. Skill Builder designs the Skill with scoped permissions, protected authentication, and approval boundaries for any sensitive step."
+    },
+    {
+      "question": "How does DocsBot keep Monday.com SCIM credentials secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs and stores authentication through secure runtime configuration rather than exposing credentials in chat transcripts or Skill instructions. It also proxies secrets safely and limits access to the users, records, and actions required."
+    },
+    {
+      "question": "Can I use Monday.com SCIM with a private AI assistant for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent that employees use in chat, Slack, or Microsoft Teams for identity lookups, status summaries, and access-management workflows. This helps teams complete internal requests faster while keeping actions within controlled limits."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "azure-active-directory",
+    "google-workspace",
+    "onelogin",
+    "jumpcloud",
+    "monday-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Monday",
+    "domain": "monday.com",
+    "description": "The company specializes in providing customizable solutions designed to enhance workflow efficiency and improve visibility across various sectors. They offer tailored tools for project management, customer relationship management (CRM), information technology (IT), and software development. By focusing on streamlining processes, the company helps organizations achieve better productivity and collaboration, ensuring that teams can efficiently manage their tasks and projects. With an emphasis on adaptability, their solutions cater to the unique needs of each client, making it easier for businesses to optimize operations and drive success in a fast-paced environment.",
+    "slogan": "Customizable solutions to streamline workflows and enhance project visibility.",
+    "logoUrl": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+    "iconUrl": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+    "primaryColor": "#fccc04",
+    "accentColor": "#04d545",
+    "colors": [
+      {
+        "hex": "#fccc04",
+        "name": "Tangerine Yellow"
+      },
+      {
+        "hex": "#04d545",
+        "name": "Dasyphyllous Green"
+      },
+      {
+        "hex": "#fc3c54",
+        "name": "Sizzling Red"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://monday.com/careers",
+      "terms": "https://monday.com/terms/gdpr",
+      "contact": "https://monday.com/sales/contact-us",
+      "privacy": "https://monday.com/l/privacy/privacy-policy/",
+      "blog": "https://monday.com/blog",
+      "pricing": "https://monday.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5fbb7740-8e7b-4f8e-966e-74badf9bab12.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 337,
+        "height": 84,
+        "aspectRatio": 4.01
+      },
+      {
+        "url": "https://media.brand.dev/5aa290fd-62cf-48e3-b236-a0c927da1607.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed72c65f-ae02-4e4c-8291-b23fba90a378.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/db26a665-50c8-410b-9df0-e9648fd9c622.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 337,
+      "height": 84,
+      "aspectRatio": 4.01
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a0459d8-189a-4b17-8e36-61eda16846a4.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

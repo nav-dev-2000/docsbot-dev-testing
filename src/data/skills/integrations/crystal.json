@@ -1,0 +1,168 @@
+{
+  "slug": "crystal",
+  "name": "Crystal",
+  "domain": "crystal.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Crystal for Support and Sales Work",
+  "metaTitle": "Build AI Agents for Crystal with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that pull Crystal insights for support, sales, and internal team workflows with safe, approval-based actions.",
+  "intro": "Crystal helps teams understand communication styles and personality insights that can improve customer conversations, sales outreach, and internal collaboration. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Crystal data inside support and internal workflows. The result is an AI agent that can answer questions, personalize responses, prepare handoffs, and take bounded actions without exposing sensitive access details.",
+  "supportUseCases": [
+    "Use Crystal insights during a customer chat or helpdesk reply to tailor tone, phrasing, and communication style for a more effective response.",
+    "Look up available Crystal profile details for a known contact and summarize the best communication approach before the agent drafts a reply.",
+    "Prepare a support handoff that includes Crystal-based communication guidance so a human teammate can continue the conversation with better context.",
+    "Help customer success teams respond to sensitive account issues by summarizing communication preferences and suggested engagement style from Crystal data.",
+    "Trigger an approved workflow that adds Crystal-based communication notes to a support case or customer record for future follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Crystal insights before writing outreach, renewal messages, or sensitive customer communications.",
+    "Sales, success, and support teams can ask the agent to summarize how to approach a contact or account based on Crystal profile guidance and related internal notes.",
+    "Managers can use an internal AI assistant in Slack or Microsoft Teams to prepare handoff briefs with communication recommendations for escalations or executive outreach.",
+    "Revenue operations teams can chat with the agent to support SOPs that enrich records, validate profile coverage, and prepare next-step recommendations using Crystal data.",
+    "Internal teams can ask the agent to generate first-draft emails, call prep notes, or meeting summaries shaped by Crystal-informed communication guidance."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that personalizes customer replies using Crystal communication insights.",
+    "An internal sales assistant that prepares outreach briefs from Crystal profile data.",
+    "A success team agent that creates handoff notes with recommended communication style.",
+    "A private AI assistant that drafts emails matched to Crystal personality guidance.",
+    "A workflow Skill that enriches CRM or ticket records with Crystal-based notes.",
+    "An escalation prep agent that summarizes contact style before human follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Crystal in plain language, such as tailoring replies, preparing outreach guidance, or creating handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed Crystal connection and configuration values, and handles authentication and secret protection through approved runtime settings instead of exposing credentials in chat or source."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum data, users, records, and actions required, and it adds approval boundaries or safe action limits wherever updates, enrichment, or downstream workflow triggers should be controlled."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to the right DocsBot agent so your website chat widget, helpdesk agent, or private team assistant can use Crystal safely in live conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Crystal insights during customer support conversations?",
+      "answer": "With DocsBot Skill Builder, you can describe a support workflow in plain language and have it create a Skill that looks up Crystal insights, summarizes recommended communication style, and helps the agent draft more effective replies. Skill Builder also sets secure access rules, protects credentials, and can add approval limits for any record updates or follow-up actions."
+    },
+    {
+      "question": "Can an AI support agent use Crystal data to personalize helpdesk replies?",
+      "answer": "Yes, a DocsBot agent can use Crystal data to inform tone, phrasing, and handoff context while responding to customer chats or tickets. This helps support teams deliver more tailored communication without giving the agent unrestricted access or exposing sensitive connection details."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Crystal?",
+      "answer": "Internal agents can help employees prepare outreach, summarize communication preferences, create meeting or handoff briefs, enrich records, and generate first drafts for sales, success, and support teams. The workflow can be scoped so the agent only retrieves the specific Crystal insights and approved actions your team wants available."
+    },
+    {
+      "question": "Can DocsBot create Crystal-based handoff notes for escalations or account transitions?",
+      "answer": "Yes, you can build a Skill that pulls Crystal insights and packages them into concise handoff notes for support escalations, customer success follow-up, or sales transitions. This gives human teammates a fast summary of how to communicate effectively with the contact."
+    },
+    {
+      "question": "How does DocsBot keep Crystal integrations secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime controls, keeps credentials out of chats and generated content, and limits access to the minimum records and actions needed. It can also add approval boundaries for sensitive updates or downstream workflow triggers before the Skill is deployed."
+    },
+    {
+      "question": "Do I need to write code to connect Crystal to a DocsBot AI assistant?",
+      "answer": "No, the setup is framed around the outcome you want rather than manual implementation steps. Skill Builder handles the design, secure connection approach, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "zendesk",
+    "intercom",
+    "gong",
+    "apollo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "The Crystal Council",
+    "domain": "thecrystalcouncil.com",
+    "description": "The Crystal Council is an online retailer specializing in authentic and ethically sourced crystals. They offer customized subscription boxes and provide free shipping on all orders, ensuring a convenient shopping experience for customers. With a wide range of crystals in stock, they are ready to ship products on the same day, catering to the needs of crystal enthusiasts and those looking for unique gifts or personal items.",
+    "slogan": "Authentic, ethically sourced crystals delivered to your door with free shipping.",
+    "logoUrl": "https://media.brand.dev/ef84804a-4454-462e-bba4-5d8b2ee483bf.png",
+    "iconUrl": "https://media.brand.dev/a2d6208d-c0c9-43dd-b358-6f198cdf31ad.png",
+    "primaryColor": "#040404",
+    "accentColor": "#6ae0e3",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#6ae0e3",
+        "name": "Turquoise Sea"
+      },
+      {
+        "hex": "#314142",
+        "name": "Big Stone"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a74cc5a7-4de3-4ef9-922b-7e0e352fd90d.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://thecrystalcouncil.com/contact",
+      "privacy": null,
+      "blog": "https://thecrystalcouncil.com/blog",
+      "pricing": "https://thecrystalcouncil.com/tags/planets"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ef84804a-4454-462e-bba4-5d8b2ee483bf.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 500,
+        "height": 170,
+        "aspectRatio": 2.94
+      },
+      {
+        "url": "https://media.brand.dev/a2d6208d-c0c9-43dd-b358-6f198cdf31ad.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2a64b568-4347-4b4e-95f0-5abda0a55dd5.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 700,
+        "height": 700,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ef84804a-4454-462e-bba4-5d8b2ee483bf.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 500,
+      "height": 170,
+      "aspectRatio": 2.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2a64b568-4347-4b4e-95f0-5abda0a55dd5.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 700,
+      "height": 700,
+      "aspectRatio": 1
+    }
+  }
+}

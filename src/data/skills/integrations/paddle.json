@@ -1,0 +1,176 @@
+{
+  "slug": "paddle",
+  "name": "Paddle",
+  "domain": "paddle.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Paddle",
+  "metaTitle": "Build AI Support and Internal Agents for Paddle",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Paddle for billing lookups, subscription actions, support workflows, and internal team automation.",
+  "intro": "Paddle manages payments, subscriptions, billing support, and global revenue operations for SaaS and digital product companies. With DocsBot Skill Builder, you can describe the billing or subscription workflow you want in plain language and have DocsBot create a secure reusable Skill for your support agent or internal AI assistant. The result is an AI agent that can answer questions, look up Paddle data, prepare handoffs, and take approved actions without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up subscription status, payment history, invoices, or renewal details in Paddle while replying in chat or over helpdesk tickets.",
+    "Use an AI support agent to confirm whether a charge succeeded, failed, refunded, or is still pending before giving a customer the next best billing answer.",
+    "Have the agent summarize a customer’s billing timeline from Paddle and prepare a clean handoff for human support when a case needs review.",
+    "Allow the agent to trigger approved refund, subscription change, or billing follow-up workflows with human approval boundaries for sensitive actions.",
+    "Enable the agent to collect missing order or account details from the customer, then use Paddle records to verify the issue and suggest the right resolution path."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant that can answer billing and subscription questions by retrieving Paddle account, customer, transaction, and revenue details in chat, Slack, or Microsoft Teams.",
+    "Let finance, support, and customer success teams chat with an internal DocsBot agent to summarize failed payments, churn signals, refunds, and renewal activity from Paddle.",
+    "Help operations teams complete SOPs faster by having the agent gather Paddle data, draft escalation notes, and trigger approved follow-up workflows across internal systems.",
+    "Enable team members to ask the agent for merchant of record context, tax or billing status summaries, and account history before responding to customers or leadership requests.",
+    "Use a private AI assistant to research a billing issue across Paddle and related systems, then return a concise action plan with the next approved steps."
+  ],
+  "whatYouCanBuild": [
+    "A billing support agent that checks subscription, invoice, and payment status in Paddle.",
+    "An AI refund triage workflow that gathers context and routes sensitive actions for approval.",
+    "A churn prevention assistant that flags failed payments and drafts customer outreach summaries.",
+    "An internal finance copilot that answers revenue and transaction questions from Paddle data.",
+    "A support handoff Skill that summarizes billing history before human escalation.",
+    "A renewal assistant that explains plan status, billing dates, and recent payment outcomes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Paddle in plain language, such as checking subscription status, summarizing billing issues, or preparing refund workflows for approval."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Paddle connection details, defines configuration values, and sets up safe authentication and secret handling without exposing credentials in chat or Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Paddle records, actions, users, and workflow paths needed, and it adds approval boundaries wherever billing changes, refunds, or other sensitive actions should stay controlled."
+    },
+    {
+      "title": "Tests and improvements run",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into a self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so it can answer questions and take bounded action through Paddle."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Paddle for billing support?",
+      "answer": "With DocsBot Skill Builder, you describe the billing tasks you want in plain language, and it creates a secure Skill that lets your AI agent look up Paddle data, summarize account state, prepare handoffs, and take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Paddle data to answer subscription and payment questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use Paddle data for live billing lookups such as subscription status, payment outcomes, invoices, and renewal details while responding to customers in chat or tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Paddle?",
+      "answer": "A DocsBot Skill can help automate billing lookups, failed payment triage, refund request intake, escalation summaries, renewal guidance, and approved workflow triggers that keep sensitive actions within your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Paddle?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a chat interface, Slack, or Microsoft Teams to retrieve Paddle information, investigate billing issues, summarize transaction history, and complete internal SOPs."
+    },
+    {
+      "question": "How does DocsBot keep Paddle actions safe for refunds or subscription changes?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure authentication handling, and approval boundaries so sensitive billing actions can be limited to the right users and reviewed before execution."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Paddle workflows?",
+      "answer": "No, the setup is centered on describing the outcome you want, and Skill Builder handles the Skill design, secure configuration, testing, and deployment steps for you."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "recurly",
+    "zuora",
+    "fastspring",
+    "profitwell"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Paddle",
+    "domain": "paddle.com",
+    "description": "Paddle is a Merchant of Record that manages global payments complexity for SaaS and digital product companies. They handle payments, currencies, fraud, billing support, and local sales tax compliance, while providing insights into revenue metrics and expert advice to accelerate growth. Serving over 6,000 businesses, Paddle enables companies to get paid from anywhere and scale globally.",
+    "slogan": "Get paid from anywhere, grow everywhere",
+    "logoUrl": "https://media.brand.dev/f11677c0-b035-4286-a35d-6bf81516c839.svg",
+    "iconUrl": "https://media.brand.dev/93fd895e-2dce-4bab-b1e7-78d8b1f3afb6.png",
+    "primaryColor": "#2cbc94",
+    "accentColor": "#fbdb33",
+    "colors": [
+      {
+        "hex": "#2cbc94",
+        "name": "Mountain Meadow"
+      },
+      {
+        "hex": "#fbdb33",
+        "name": "Yellow Bell Pepper"
+      },
+      {
+        "hex": "#7c6c24",
+        "name": "Tarnished Brass"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f6da1a56-9938-4b9c-83b8-cee66a673238.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.paddle.com/careers",
+      "terms": "https://www.paddle.com/legal/terms",
+      "contact": null,
+      "privacy": "https://www.paddle.com/legal/privacy",
+      "blog": "https://www.paddle.com/blog",
+      "pricing": "https://www.paddle.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b7865fce-363d-4be2-84d0-775925117753.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f11677c0-b035-4286-a35d-6bf81516c839.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 105,
+        "height": 32,
+        "aspectRatio": 3.28
+      },
+      {
+        "url": "https://media.brand.dev/93fd895e-2dce-4bab-b1e7-78d8b1f3afb6.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 130,
+        "height": 128,
+        "aspectRatio": 1.02
+      },
+      {
+        "url": "https://media.brand.dev/b2fa6bbe-7815-4c8c-b75e-064a27a8487d.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f11677c0-b035-4286-a35d-6bf81516c839.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 105,
+      "height": 32,
+      "aspectRatio": 3.28
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b7865fce-363d-4be2-84d0-775925117753.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

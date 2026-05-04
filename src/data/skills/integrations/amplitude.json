@@ -1,0 +1,168 @@
+{
+  "slug": "amplitude",
+  "name": "Amplitude",
+  "domain": "amplitude.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Amplitude for Support and Team Workflows",
+  "metaTitle": "Build Amplitude AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Amplitude for analytics lookups, customer support context, internal research, summaries, and safe workflow actions.",
+  "intro": "Amplitude helps teams understand product behavior, journeys, and digital experience trends. With DocsBot Skill Builder, you can describe the Amplitude-powered agent you want in plain language and have DocsBot design, secure, test, and package that ability as a reusable Skill. The result is an AI support agent or internal AI assistant that can pull analytics context, summarize user behavior, and take bounded follow-up actions inside your approved workflows.",
+  "supportUseCases": [
+    "When a customer asks why a feature is not working as expected, the DocsBot agent can use Amplitude to look up recent product usage patterns and summarize likely friction points before replying.",
+    "The agent can review Amplitude event activity for an account or segment and provide a customer-friendly explanation of whether a user reached a key onboarding step or dropped off earlier.",
+    "When a support ticket mentions low engagement or missing conversions, the agent can pull relevant funnel or journey context from Amplitude and prepare a concise escalation handoff for product or success teams.",
+    "The agent can compare current customer behavior against known usage trends in Amplitude to help explain adoption issues, feature confusion, or sudden changes in product activity.",
+    "For high-value support conversations, the agent can gather Amplitude insights, summarize relevant behavioral context, and attach that summary to a helpdesk handoff for a human teammate to review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Amplitude insights about feature adoption, onboarding completion, retention trends, or behavioral drop-off without manually digging through dashboards.",
+    "Product, support, and customer success teams can ask the agent to summarize how a customer segment behaves in Amplitude and turn that research into an action-ready brief.",
+    "Team members can use the agent in Slack or Microsoft Teams to compare user journeys, investigate reported friction points, and collect the analytics context needed for an internal SOP or escalation.",
+    "Operations and success teams can chat with the agent to generate Amplitude-based summaries for renewals, risk reviews, incident follow-up, or executive updates.",
+    "Employees can ask the agent to combine Amplitude findings with internal guidance so it can recommend the next approved step, create a handoff note, or trigger a bounded follow-up workflow."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Amplitude usage signals before answering feature adoption questions.",
+    "An internal assistant that summarizes funnel drop-off trends for product and customer success teams.",
+    "A helpdesk Skill that prepares escalation notes using Amplitude behavioral context and journey summaries.",
+    "A private team agent that explains onboarding completion patterns for specific accounts or segments.",
+    "An AI assistant that compares current customer activity against normal product engagement benchmarks.",
+    "A support workflow that attaches Amplitude insight summaries to tickets before human review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want in plain language, such as checking Amplitude behavior during support conversations or summarizing product usage for internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what Amplitude data and actions are needed, and defines the required configuration values without making you map the technical details yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill instructions, proxies secrets through approved runtime configuration, and scopes access to only the users, records, and actions your workflow needs."
+    },
+    {
+      "title": "Safety limits are added",
+      "description": "DocsBot adds approval boundaries and action limits for any sensitive updates, handoffs, or workflow triggers so the agent can help without exceeding the rules you define."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Amplitude data with DocsBot?",
+      "answer": "You describe the outcome you want, such as looking up product usage during support chats or summarizing adoption trends for employees, and DocsBot Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can define the needed configuration, protect authentication, and keep the agent inside the actions and data access you approve."
+    },
+    {
+      "question": "Can an AI support agent use Amplitude to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Amplitude as a source of behavioral context to help explain onboarding progress, feature adoption, drop-off points, or engagement changes while responding to customers. The agent can also prepare a handoff summary for human review when the situation needs escalation."
+    },
+    {
+      "question": "What Amplitude workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can retrieve analytics context, summarize user behavior, compare segment trends, prepare research briefs, and trigger approved follow-up workflows based on your rules. This helps teams get answers and complete routine analytics-driven SOPs from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely control what an Amplitude-connected AI agent is allowed to do?",
+      "answer": "Yes, Skill Builder is designed to define secure connection handling, proxy secrets through protected runtime settings, and scope the Skill to the minimum data and actions required. It can also add approval checkpoints and bounded action rules for more sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Amplitude insights for support escalations or customer success reviews?",
+      "answer": "Yes, the agent can gather relevant Amplitude context and turn it into a concise summary for tickets, account reviews, risk assessments, or internal handoffs. That gives human teams faster context without requiring them to manually assemble the analytics story first."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot with Amplitude?",
+      "answer": "No, the setup is framed around the outcome you want, not around writing integration code yourself. DocsBot Skill Builder handles the design, secure configuration, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "mixpanel",
+    "segment",
+    "google-analytics",
+    "heap",
+    "hotjar",
+    "tableau"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Amplitude",
+    "domain": "amplitude.com",
+    "description": "Amplitude is a leading AI analytics platform that helps companies build better products and digital experiences. They provide a suite of tools that enable teams to analyze, test, and optimize user experiences, turning user data into meaningful insights. With a strong presence in the industry, serving over 4,500 customers, Amplitude is a go-to solution for product, data, and marketing teams looking to unlock the power of their products.",
+    "slogan": "Unlock the power of your products with Amplitude's analytics platform.",
+    "logoUrl": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+    "iconUrl": "https://media.brand.dev/daf67d14-2538-4fd0-b892-6bfb8b632d5c.jpg",
+    "primaryColor": "#1d64f3",
+    "accentColor": "#8cb4f4",
+    "colors": [
+      {
+        "hex": "#1d64f3",
+        "name": "Azul"
+      },
+      {
+        "hex": "#8cb4f4",
+        "name": "Fly Away"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4b9a7b32-495e-48b3-8f34-3fc2c0f00853.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.amplitude.com/careers",
+      "terms": "https://amplitude.com/glossary/terms",
+      "contact": "https://www.amplitude.com/contact",
+      "privacy": "https://www.amplitude.com/privacy/archive/2025-12",
+      "blog": "https://www.amplitude.com/blog",
+      "pricing": "https://www.amplitude.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/daf67d14-2538-4fd0-b892-6bfb8b632d5c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e284bd55-a8f6-4ce5-b700-4dff34d4c3b0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 154,
+        "height": 32,
+        "aspectRatio": 4.81
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1f882772-dd9d-4b3d-a79e-f50d414aba2c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 154,
+      "height": 32,
+      "aspectRatio": 4.81
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e284bd55-a8f6-4ce5-b700-4dff34d4c3b0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-bugtracker",
+  "name": "Zoho BugTracker",
+  "domain": "zoho-bugtracker.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho BugTracker",
+  "metaTitle": "Build AI Agents for Zoho BugTracker with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Zoho BugTracker for issue lookups, status updates, handoffs, summaries, and safe workflow automation.",
+  "intro": "Zoho BugTracker helps teams manage bugs, issues, and release work across products and support operations. With DocsBot Skill Builder, you can describe the Zoho BugTracker workflow you want in plain language, and DocsBot helps create a reusable Skill your support or internal AI agent can use safely. That means your AI agent can answer questions, check live issue status, prepare escalations, and take approved actions instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a bug by ID or customer-reported details in Zoho BugTracker and reply with the current status, severity, owner, or expected next step.",
+    "Allow the agent to create a new bug report in Zoho BugTracker from a support chat or ticket after gathering the needed reproduction steps, attachments, and impact details.",
+    "Enable the agent to append customer context, logs, or troubleshooting notes to an existing Zoho BugTracker issue while keeping the customer informed in the same conversation.",
+    "Use the agent to summarize related Zoho BugTracker issues so customers get a clear explanation of known problems, workarounds, and whether engineering is already investigating.",
+    "Have the agent prepare a clean escalation handoff by creating or updating a Zoho BugTracker record and attaching the conversation summary, product area, priority, and reproduction details for the support team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to find Zoho BugTracker issues by project, status, assignee, release, or keyword without opening multiple dashboards.",
+    "Support, QA, and engineering teams can ask the agent to create bug records, update issue fields, add internal notes, or trigger a standard triage workflow in Zoho BugTracker.",
+    "Team members can use the agent to generate daily summaries of open bugs, blocked issues, release risks, and owner follow-ups pulled from Zoho BugTracker.",
+    "Operations or support leaders can chat with the agent to review escalation patterns, identify repeat customer issues, and prepare handoff summaries based on Zoho BugTracker activity.",
+    "Employees can ask the agent to follow internal SOPs for incident review, bug triage, or release-readiness checks using Zoho BugTracker data and approved actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks bug status and explains next steps to customers.",
+    "A triage assistant that creates Zoho BugTracker issues from support conversations with structured reproduction details.",
+    "An escalation workflow that updates issue records and prepares engineering handoff summaries automatically.",
+    "An internal release-risk assistant that summarizes open bugs by severity, owner, or milestone.",
+    "A QA helper that finds duplicate issues and suggests related bug records during investigation.",
+    "A support operations agent that adds customer impact notes to approved Zoho BugTracker issues."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Zoho BugTracker, such as checking issue status, creating bugs, updating records, or preparing escalations, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, handles connection and authentication securely, protects and proxies secrets through runtime configuration, and scopes access to only the projects, actions, records, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets clear approval boundaries and safe action limits so sensitive updates, record changes, or escalation steps happen only within the permissions and guardrails you define."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take approved Zoho BugTracker actions in real workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho BugTracker?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho BugTracker workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up issues, update records, create handoffs, and trigger approved actions. It also designs secure configuration, authentication handling, and testing for you before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zoho BugTracker data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho BugTracker to check bug status, summarize known issues, confirm whether engineering is investigating, and prepare escalation details while replying to customers. The actions and data access can be limited to the projects, fields, and workflows you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho BugTracker?",
+      "answer": "DocsBot can help automate bug lookups, issue creation from support conversations, escalation preparation, status summaries, note updates, and handoff workflows tied to Zoho BugTracker. This helps support teams resolve more requests without manually copying information between systems."
+    },
+    {
+      "question": "Can an internal AI assistant update Zoho BugTracker issues for employees?",
+      "answer": "Yes, a private DocsBot agent can help employees create issues, add notes, update selected fields, summarize bug queues, or follow triage SOPs inside Zoho BugTracker. Skill Builder can add approval steps and scoped permissions so internal actions stay controlled."
+    },
+    {
+      "question": "Is it possible to add approval controls to AI actions in Zoho BugTracker?",
+      "answer": "Yes, DocsBot Skill Builder can design the Skill with approval boundaries for sensitive actions such as changing priority, reassigning issues, or updating important workflow fields. That lets the agent assist with work while keeping final control where your team wants it."
+    },
+    {
+      "question": "How does DocsBot connect to Zoho BugTracker securely?",
+      "answer": "Skill Builder identifies the needed connection settings, keeps credentials out of chats and generated content, proxies secrets through secure runtime configuration, and limits access to the minimum records and actions required. The result is a safer Zoho BugTracker workflow for both support and internal agents."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "trello",
+    "clickup",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -16,6 +16,8 @@
     "sitemap": "node scripts/generate-sitemap.js",
     "news": "node scripts/latest-news.js",
     "feature-updates": "node scripts/generate-feature-updates.js",
+    "skills:integrations": "node scripts/skills/generate-skills-integrations.js",
+    "skills:backfill-brand-logos": "node scripts/skills/backfill-brand-logos.js",
     "truto-sync": "node scripts/truto-sync.js",
     "validate-translations": "node scripts/validate-translations.js",
     "merge-widget-locales": "node .agents/skills/widget-locale-merge/scripts/merge-widget-locales.mjs"

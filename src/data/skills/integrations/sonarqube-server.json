@@ -1,0 +1,170 @@
+{
+  "slug": "sonarqube-server",
+  "name": "SonarQube Server",
+  "domain": "sonarqube-server.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with SonarQube Server",
+  "metaTitle": "Build AI Agents for SonarQube Server with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read SonarQube Server findings, summarize code quality issues, route escalations, and trigger safe follow-up workflows.",
+  "intro": "SonarQube Server helps teams monitor code quality, security findings, and maintainability across software projects. With DocsBot Skill Builder, you can describe the SonarQube workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or an internal team assistant. The result is an AI agent that can look up analysis results, summarize issues, prepare handoffs, and trigger approved follow-up actions while staying inside your security rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved SonarQube Server project status and summarize known code quality or security issue states during technical support conversations.",
+    "Use a helpdesk-connected DocsBot agent to gather SonarQube Server findings related to a reported bug and prepare a clean escalation summary for engineering.",
+    "Enable the agent to look up whether a release or fix has unresolved quality gate failures before promising next steps to a customer.",
+    "Have the agent summarize recent SonarQube Server analysis results for a specific product area and include that context in a support ticket handoff.",
+    "Allow the agent to trigger an approved internal follow-up workflow when SonarQube Server findings suggest a customer-reported issue needs engineering review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve SonarQube Server project health, recent analysis outcomes, and open issue summaries without leaving Slack, Microsoft Teams, or an internal chat portal.",
+    "Engineering, support, and success teams can ask the agent to compare SonarQube Server quality signals across projects and generate a concise risk summary for release readiness discussions.",
+    "Team members can use the agent to collect SonarQube Server findings, combine them with internal context, and follow a standard escalation or incident review workflow.",
+    "Developers and engineering managers can chat with the agent to identify recurring rule violations, summarize technical debt trends, and prepare action lists for sprint planning.",
+    "Operations or support leads can use the agent to create structured handoff notes that include SonarQube Server evidence, affected components, and recommended next steps for internal teams."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that summarizes SonarQube Server quality gate status for customer-facing support responses.",
+    "A Skill that gathers project issue counts and creates engineering escalation notes from ticket context.",
+    "A Skill that checks recent analysis results before an agent confirms release or fix readiness.",
+    "A Skill that generates internal risk summaries for support, success, and engineering handoffs.",
+    "A Skill that routes high-severity code quality findings into an approved follow-up workflow.",
+    "A Skill that answers employee questions about project health inside Slack or Microsoft Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SonarQube Server agent to do, such as summarize project health, collect issue details, or prepare escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect SonarQube Server, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum projects, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries so the agent can perform allowed lookups, summaries, handoffs, and workflow triggers without exceeding the permissions you want it to have."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill based on test results and helps publish it to the right DocsBot agent, whether that is a website chat widget, a helpdesk workflow, or a private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SonarQube Server?",
+      "answer": "With DocsBot Skill Builder, you describe the SonarQube Server workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your DocsBot agent. The agent can then perform approved lookups, summaries, handoffs, and workflow actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use SonarQube Server data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved SonarQube Server findings, quality gate status, or project summaries while responding in a chat widget or helpdesk flow. This helps the agent give better technical context, prepare escalations, and avoid manual switching between tools."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SonarQube Server?",
+      "answer": "DocsBot can help automate issue lookups, analysis summaries, engineering handoff preparation, and approved follow-up workflow triggers tied to SonarQube Server project data. It is especially useful when support teams need fast technical context for reported bugs, release questions, or product reliability concerns."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with SonarQube Server?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve project health, summarize open issues, compare analysis results, and complete escalation or release-readiness workflows using SonarQube Server data. Teams can access that assistant in private chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep SonarQube Server actions safe?",
+      "answer": "Skill Builder defines secure configuration, keeps credentials out of chats and Skill source, proxies secrets through approved runtime settings, and scopes access to the minimum records and actions required. It can also add approval boundaries for sensitive actions so the agent only acts within the limits you set."
+    },
+    {
+      "question": "Can DocsBot summarize SonarQube Server findings for engineering handoffs?",
+      "answer": "Yes, a Skill can gather relevant SonarQube Server project details and generate a structured summary for engineering, support, or success teams. That summary can include issue severity, affected components, recent analysis context, and recommended next steps."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jira",
+    "linear",
+    "sentry",
+    "pagerduty"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SonarSource",
+    "domain": "sonarsource.com",
+    "description": "Sonar, the flagship platform of SonarSource, is the industry‑standard trust and verification layer for AI‑generated code. For over 17 years it has provided deterministic, repeatable, and actionable automated code reviews, unifying code quality and security into a single solution. Analyzing more than 750 billion lines of code daily, Sonar ensures software is secure, reliable, and maintainable at scale. Rooted in the open‑source community, it powers the workflows of 7 million developers worldwide, including teams at Snowflake, Booking.com, Deutsche Bank, AstraZeneca, and Ford Motor Company.",
+    "slogan": "Build trust into every line of code",
+    "logoUrl": "https://media.brand.dev/d4954abb-5244-4f01-9f14-a671b9f3edda.svg",
+    "iconUrl": "https://media.brand.dev/f00ccc92-4a46-42bc-96e7-9b1acd281d23.jpg",
+    "primaryColor": "#ed3758",
+    "accentColor": "#2a0641",
+    "colors": [
+      {
+        "hex": "#ed3758",
+        "name": "Radish Lips"
+      },
+      {
+        "hex": "#2a0641",
+        "name": "Your Darkness"
+      },
+      {
+        "hex": "#e9cfd8",
+        "name": "Petit Pink"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f7f2226a-62ff-4eab-8f79-711eb0930d3d.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.sonarsource.com/company/careers/",
+      "terms": "https://www.sonarsource.com/legal/website-terms-of-use/",
+      "contact": "https://www.sonarsource.com/company/contact/",
+      "privacy": "https://www.sonarsource.com/company/privacy/",
+      "blog": "https://www.sonarsource.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.sonarsource.com/plans-and-pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f00ccc92-4a46-42bc-96e7-9b1acd281d23.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d4954abb-5244-4f01-9f14-a671b9f3edda.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 101,
+        "height": 32,
+        "aspectRatio": 3.16
+      },
+      {
+        "url": "https://media.brand.dev/e332d81b-1716-4ed4-936e-75429916cdc8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 361,
+        "height": 360,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d4954abb-5244-4f01-9f14-a671b9f3edda.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 101,
+      "height": 32,
+      "aspectRatio": 3.16
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f00ccc92-4a46-42bc-96e7-9b1acd281d23.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

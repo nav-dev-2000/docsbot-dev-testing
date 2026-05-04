@@ -1,0 +1,162 @@
+{
+  "slug": "gorgias",
+  "name": "Gorgias",
+  "domain": "gorgias.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Gorgias",
+  "metaTitle": "Build Gorgias AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Gorgias to look up tickets, update support details, trigger handoffs, and assist customers or internal teams safely.",
+  "intro": "Gorgias helps ecommerce brands manage customer conversations, support workflows, and sales-driven service interactions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Gorgias during support chats, ticket handling, or internal operations. The result is an AI agent that can answer questions and take bounded action, not just explain the next step.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a shopper’s Gorgias ticket status and summarize the latest updates during a website chat conversation.",
+    "Let the agent create or update Gorgias tickets from customer chat messages so support issues are captured with the right context automatically.",
+    "Have the agent add internal notes in Gorgias that summarize the customer’s issue, attempted troubleshooting, and requested resolution before handing off to a human.",
+    "Enable the agent to tag conversations in Gorgias based on order problems, product questions, refund requests, or VIP escalation rules.",
+    "Use the agent to prepare escalation handoffs by collecting missing details from the customer and creating a clean summary inside Gorgias for the next support rep."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Gorgias ticket details, conversation history, and status updates without opening the helpdesk manually.",
+    "Enable customer success or operations teams to ask the agent for summaries of open Gorgias issues by topic, priority, brand segment, or escalation risk.",
+    "Use an internal AI agent to draft consistent handoff notes, triage recommendations, and follow-up checklists based on Gorgias ticket activity and company SOPs.",
+    "Help support managers research recurring issues by asking the agent to review Gorgias records, summarize trends, and surface cases that need human attention.",
+    "Allow team members to trigger approved Gorgias workflow steps through chat, such as assigning tickets, applying tags, or preparing escalation records within defined permissions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves Gorgias ticket status and explains the next approved step to customers.",
+    "An AI workflow that creates Gorgias tickets from website chat conversations with structured issue summaries.",
+    "A handoff Skill that writes internal Gorgias notes before escalation to a human support team.",
+    "A triage assistant that tags Gorgias conversations based on issue type, urgency, or order context.",
+    "An internal operations agent that summarizes open Gorgias queues for support managers and team leads.",
+    "A private team assistant that researches customer history in Gorgias and drafts response recommendations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Gorgias agent to do in plain language, such as checking ticket status, creating handoffs, or updating support records during customer or team conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, defines the needed configuration values, and plans the safest way for the agent to interact with Gorgias without making you handle technical implementation details."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to the minimum actions, users, and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive updates, escalations, or record changes in Gorgias stay within the rules you define."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs or weak spots, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gorgias for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that lets your AI agent safely look up Gorgias data, update records, prepare handoffs, or trigger approved support workflows. The agent can then use that Skill during website chats or helpdesk-driven conversations."
+    },
+    {
+      "question": "Can an AI support agent use Gorgias data to answer customers more accurately?",
+      "answer": "Yes, a DocsBot agent can be designed to retrieve relevant Gorgias ticket details, conversation history, tags, and status information so responses are grounded in current support context. Access can be scoped so the agent only sees the records and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Gorgias?",
+      "answer": "You can build workflows for ticket lookups, issue summaries, internal note creation, tagging, queue routing, escalation preparation, and other bounded support actions. Skill Builder helps design those actions with approval steps and safe operating limits where appropriate."
+    },
+    {
+      "question": "Can I create an internal AI assistant for employees that uses Gorgias?",
+      "answer": "Yes, teams can use a private DocsBot agent in chat, Slack, or Microsoft Teams to research Gorgias tickets, summarize support activity, and complete approved workflows faster. This is useful for support leaders, operations teams, and customer success staff who need quick answers or guided actions."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Gorgias?",
+      "answer": "Skill Builder defines the required connection settings, secures and proxies secrets through protected runtime configuration, and keeps credentials out of chats and generated content. It also scopes permissions and can add approval boundaries so the agent only performs the Gorgias actions you authorize."
+    },
+    {
+      "question": "Do I need to write code to create a Gorgias Skill for DocsBot?",
+      "answer": "No, the setup is framed around describing the workflow you want, not writing code or manually wiring every step. Skill Builder handles the design, secure configuration, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "shopify",
+    "bigcommerce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gorgias",
+    "domain": "gorgias.com",
+    "description": "Gorgias is the Conversational AI platform for ecommerce that drives sales and resolves support inquiries. It supports over 15,000 ecommerce brands by understanding their brand, tools, policies, and customers to drive personalized conversations, automating support and driving sales through AI Agent, Helpdesk, Chat, FAQ and more.",
+    "slogan": "Turn support into sales with personalized, AI-driven ecommerce conversations.",
+    "logoUrl": "https://media.brand.dev/70e59a1b-5c98-494b-bcd6-16524f693fed.svg",
+    "iconUrl": "https://media.brand.dev/e513e4b4-3e5d-4f0e-b130-cdc80b01f090.png",
+    "primaryColor": "#df8a76",
+    "accentColor": "#7c4c42",
+    "colors": [
+      {
+        "hex": "#df8a76",
+        "name": "Love Scepter"
+      },
+      {
+        "hex": "#7c4c42",
+        "name": "Royal Liqueur"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/93e118c8-8441-4c50-81a5-205e029b9e6b.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "pricing": null,
+      "blog": "https://www.gorgias.com/blog",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e513e4b4-3e5d-4f0e-b130-cdc80b01f090.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/70e59a1b-5c98-494b-bcd6-16524f693fed.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 139,
+        "height": 37,
+        "aspectRatio": 3.76
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/70e59a1b-5c98-494b-bcd6-16524f693fed.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 139,
+      "height": 37,
+      "aspectRatio": 3.76
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e513e4b4-3e5d-4f0e-b130-cdc80b01f090.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

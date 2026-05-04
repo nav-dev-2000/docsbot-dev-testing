@@ -1,0 +1,160 @@
+{
+  "slug": "lucid",
+  "name": "Lucid",
+  "domain": "lucid.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Lucid",
+  "metaTitle": "Build Lucid AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Lucid to find boards, summarize diagrams, support handoffs, and assist teams with secure, approved actions.",
+  "intro": "Lucid helps teams collaborate visually across diagrams, boards, and shared planning work. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Lucid, and DocsBot helps design, secure, test, and deploy that Skill. The result is a support or internal AI agent that can look up visual context, summarize work, prepare handoffs, and trigger approved follow-up actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull the latest Lucid board or diagram linked to an account and summarize its status while answering support questions.",
+    "Use Lucid context in helpdesk replies so the agent can explain implementation plans, onboarding flows, or documented process maps referenced during a customer conversation.",
+    "Have the agent create a support handoff summary that references the relevant Lucid workspace, board, or diagram for your success or technical team.",
+    "Enable the agent to identify the right Lucid document for a reported issue and prepare an escalation note with key findings and linked visual documentation.",
+    "Let the agent summarize diagram changes or collaboration notes in Lucid so customers receive a clearer progress update without waiting for a manual review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find the right Lucid board, diagram, or visual planning asset for a project, account, or internal process.",
+    "Help customer success, support, and operations teams ask the agent for a summary of a Lucid document before a handoff, meeting, or escalation.",
+    "Enable team members in Slack or Microsoft Teams to retrieve visual SOPs, workflow maps, and project diagrams from Lucid without manually searching across workspaces.",
+    "Use an internal AI agent to assemble Lucid references, summarize collaboration context, and draft next-step notes for cross-functional workflows.",
+    "Allow employees to ask the agent which Lucid assets document a process change, product rollout, or customer implementation path and receive a concise, action-ready answer."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that finds Lucid diagrams related to a customer account and summarizes the current plan.",
+    "A Skill that retrieves visual SOPs from Lucid for employees handling onboarding, escalation, or renewal workflows.",
+    "A Skill that creates structured handoff notes with links to the most relevant Lucid boards.",
+    "A Skill that summarizes recent Lucid collaboration context for support agents responding to complex tickets.",
+    "A Skill that helps internal teams locate process maps and workflow diagrams by project, team, or topic.",
+    "A Skill that gathers Lucid documentation and drafts implementation or escalation summaries for review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Lucid-enabled agent to do in plain language, such as finding diagrams, summarizing boards, or preparing support handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Lucid connection details, and defines the safest workflow, instructions, and allowed actions for the agent."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure configuration by defining environment values, protecting and proxying secrets and authentication outside chats and source, and scoping Lucid access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets approval boundaries and action limits for sensitive lookups, updates, or workflow steps so the agent stays within the rules you choose."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds improvements into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Lucid for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as finding a customer’s implementation diagram or summarizing a board for a ticket reply, and Skill Builder creates the secure workflow for that agent. It can help the agent retrieve Lucid context, prepare handoffs, and support bounded actions under your approval rules."
+    },
+    {
+      "question": "Can an AI support agent use Lucid diagrams and boards to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up relevant Lucid content and summarize it for website chat or helpdesk responses. This is useful when customers ask about implementation plans, documented workflows, or shared visual references tied to their account."
+    },
+    {
+      "question": "What can an internal AI assistant do with Lucid for employees?",
+      "answer": "A private DocsBot agent can help employees find Lucid diagrams, summarize visual SOPs, and gather planning context for projects, escalations, or cross-functional work. Teams can use it in chat, Slack, or Microsoft Teams to retrieve information faster and complete workflow steps more consistently."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent is allowed to do in Lucid?",
+      "answer": "Yes, Skill Builder is designed to define secure connection handling, keep secrets out of chats, scope permissions to the minimum needed, and add approval boundaries for sensitive actions. That lets you support useful lookups and workflow steps without giving the agent unlimited access."
+    },
+    {
+      "question": "Can I use Lucid with DocsBot to improve support handoffs and escalations?",
+      "answer": "Yes, you can build a Skill that pulls the right Lucid artifacts, summarizes the current state, and drafts a structured handoff for support, success, or technical teams. This helps preserve visual context and speeds up escalations without forcing staff to manually gather links and notes."
+    },
+    {
+      "question": "Does building a Lucid Skill require coding or manual API setup?",
+      "answer": "No, the experience is centered on describing the desired outcome in plain language. Skill Builder handles the design, secure configuration, testing, improvement, and deployment details needed to turn that goal into a reusable DocsBot Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "miro",
+    "figma",
+    "notion",
+    "confluence",
+    "google-drive",
+    "sharepoint"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lucid",
+    "domain": "lucid.com",
+    "description": "Dynamo LLC (operating at Dynamo.com) is a branding and naming consultancy that creates distinctive brand names for large corporations. Leveraging creative research and market insight, Dynamo develops trademark‑ready names for clients such as Intel, Procter & Gamble, Samsung, Hearst, Time Warner, Reed Elsevier, EBSCO and others. The firm’s services include name generation, linguistic screening, trademark availability checks, and strategic positioning to ensure each name aligns with the client’s market goals and brand identity. Dynamo’s portfolio showcases a range of successful brand launches across technology, consumer goods, media, and publishing sectors.",
+    "slogan": "Lucid: collaboration visuelle pour équipes hybrides, de l’idée à l’action",
+    "logoUrl": "https://media.brand.dev/9ef65560-8ab7-49a5-bdaa-0f95e925f2d2.jpg",
+    "iconUrl": "https://media.brand.dev/9ef65560-8ab7-49a5-bdaa-0f95e925f2d2.jpg",
+    "primaryColor": "#919494",
+    "accentColor": "#2b2c34",
+    "colors": [
+      {
+        "hex": "#919494",
+        "name": "Kiwikiwi Grey"
+      },
+      {
+        "hex": "#2b2c34",
+        "name": "Bastille"
+      },
+      {
+        "hex": "#edeeee",
+        "name": "Super Silver"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/906c722b-4649-4475-b213-21e95bd9ec2f.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9ef65560-8ab7-49a5-bdaa-0f95e925f2d2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5ddf934a-f66f-4a34-98e2-90a4b23c5fc5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9ef65560-8ab7-49a5-bdaa-0f95e925f2d2.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9ef65560-8ab7-49a5-bdaa-0f95e925f2d2.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

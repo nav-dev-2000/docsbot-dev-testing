@@ -1,0 +1,175 @@
+{
+  "slug": "jobvite",
+  "name": "Jobvite",
+  "domain": "jobvite.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Jobvite",
+  "metaTitle": "Build Jobvite AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Jobvite for candidate lookups, recruiter workflows, handoffs, summaries, and approved hiring actions in support and internal chat.",
+  "intro": "Jobvite helps teams manage talent acquisition, recruiting workflows, and hiring operations. With DocsBot Skill Builder, you can describe the Jobvite-powered agent you want in plain language, and DocsBot helps design, secure, test, and publish the Skill. The result is an AI support or internal operations agent that can answer questions, retrieve recruiting data, prepare handoffs, and take approved actions inside your hiring workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant questions by looking up application status, interview stage, or next-step details from Jobvite.",
+    "Let a support agent create recruiting support handoffs by summarizing a candidate issue and attaching the relevant Jobvite record context for a human recruiter.",
+    "Enable a helpdesk-connected DocsBot agent to collect missing applicant details in chat and prepare an approved follow-up workflow tied to the right Jobvite profile.",
+    "Use the agent to summarize candidate journey history from Jobvite so applicants receive a clearer update without exposing internal-only notes.",
+    "Let the agent route application-related questions to the correct recruiting team based on Jobvite job, requisition, or workflow data."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up candidate, job, requisition, and hiring workflow details from Jobvite.",
+    "Recruiters can ask the agent to summarize pipelines, interview progress, and candidate status changes across Jobvite records before meetings or handoffs.",
+    "Hiring teams can use the agent to prepare recruiting handoff notes, interview summaries, and next-step checklists based on Jobvite data and internal SOPs.",
+    "Operations teams can chat with the agent to trigger approved follow-up workflows, assign the right owner, or prepare escalation context around stalled hiring processes.",
+    "Internal recruiting staff can use the agent to answer process questions by combining Jobvite records with company hiring policies, playbooks, and training materials."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that looks up candidate and requisition details from Jobvite.",
+    "A support agent that shares application status updates using approved Jobvite fields.",
+    "An internal recruiter copilot that summarizes interview progress and pending actions.",
+    "A hiring operations agent that prepares handoff notes for recruiter escalations.",
+    "An AI workflow assistant that routes recruiting questions to the right team.",
+    "A private employee agent that answers Jobvite process questions using internal SOPs and live records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Jobvite agent to do, such as check candidate status, prepare recruiter handoffs, or trigger a safe follow-up workflow, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder asks for any missing business context, decides the safest workflow structure, defines the required configuration values, and plans how the agent should use Jobvite data and actions without making you map every technical step."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing and self-improvement, Skill Builder helps publish the Jobvite Skill to the right DocsBot agent so your website chatbot, helpdesk bot, or internal team assistant can use it in production with logging and controlled permissions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Jobvite?",
+      "answer": "With DocsBot Skill Builder, you describe the Jobvite workflow you want in plain language, and DocsBot helps design, secure, test, and publish a Skill that lets your agent look up records, summarize recruiting context, and take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Jobvite data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Jobvite as a system of record for approved applicant-facing workflows such as checking status, summarizing next steps, and preparing recruiter handoffs while respecting your access rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Jobvite?",
+      "answer": "Internal DocsBot agents can help recruiters and hiring teams retrieve candidate and requisition details, summarize interviews, prepare handoffs, answer process questions, and trigger approved recruiting workflows across your operating procedures."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Jobvite?",
+      "answer": "DocsBot Skill Builder is designed to create bounded actions with scoped permissions, secure authentication handling, and approval steps where needed so agents only perform the Jobvite updates and workflow triggers you allow."
+    },
+    {
+      "question": "How does DocsBot keep Jobvite credentials and secrets secure?",
+      "answer": "Skill Builder defines the needed connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content by design."
+    },
+    {
+      "question": "Can a DocsBot agent prepare recruiting escalations and handoffs from Jobvite data?",
+      "answer": "Yes, the agent can gather the relevant Jobvite context, summarize the current status, identify missing information, and create a cleaner handoff for a recruiter, hiring manager, or operations team."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jobvite",
+    "domain": "jobvite.com",
+    "description": "Jobvite is a leading talent acquisition software provider offering end-to-end solutions to enhance recruitment quality, efficiency, and cost-effectiveness. Their innovative technology and services streamline the hiring process by automating repetitive tasks, enabling recruiters to find and hire top talent twice as fast. Jobvite empowers enterprises to elevate their recruitment strategies through enhanced candidate experiences, increased capacity, and operational efficiency. With Jobvite, companies can identify and onboard the best talent quickly and effectively, transforming their talent acquisition processes.",
+    "slogan": "Find and hire top talent today, faster.",
+    "logoUrl": "https://media.brand.dev/ab50e9b2-9c98-4562-be00-af11671bab1e.svg",
+    "iconUrl": "https://media.brand.dev/2fe72976-7994-4fd1-b745-3140e5158a16.jpg",
+    "primaryColor": "#65abda",
+    "accentColor": "#090d11",
+    "colors": [
+      {
+        "hex": "#65abda",
+        "name": "Acapulco Dive"
+      },
+      {
+        "hex": "#090d11",
+        "name": "Dark Side of the Moon"
+      },
+      {
+        "hex": "#b62b25",
+        "name": "Aura Orange"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/858ca5e9-0033-411b-a257-77284114f619.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.jobvite.com/terms-of-use/",
+      "contact": "https://jobvite.com/contact-us/",
+      "privacy": null,
+      "blog": "https://www.jobvite.com/blog/",
+      "pricing": "https://www.jobvite.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2fe72976-7994-4fd1-b745-3140e5158a16.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1e867032-97ed-4c10-95df-dfdc5688c717.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0a15d3f3-9244-4ad5-918b-8dd3699e1cc8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ab50e9b2-9c98-4562-be00-af11671bab1e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 540,
+        "height": 115,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ab50e9b2-9c98-4562-be00-af11671bab1e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 540,
+      "height": 115,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2fe72976-7994-4fd1-b745-3140e5158a16.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "engageats",
+  "name": "EngageATS",
+  "domain": "engageats.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with EngageATS",
+  "metaTitle": "Build EngageATS AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use EngageATS for hiring support, candidate lookups, workflow updates, handoffs, and safe internal recruiting actions.",
+  "intro": "EngageATS helps teams manage recruiting workflows, candidate records, and hiring communications in one platform. With DocsBot Skill Builder, you can describe the hiring or support outcome you want in plain language and have DocsBot create a reusable Skill for a customer-facing or internal AI agent. The result is an AI agent that can answer questions, look up recruiting information, prepare handoffs, and take bounded actions in EngageATS under your rules.",
+  "supportUseCases": [
+    "Use a DocsBot website chat widget to answer applicant questions by looking up application status, interview stage, or next-step guidance from EngageATS.",
+    "Let a DocsBot helpdesk agent summarize a candidate’s recruiting history from EngageATS before replying to an email or ticket.",
+    "Allow the agent to collect missing applicant details in chat and create or update approved records in EngageATS for recruiter follow-up.",
+    "Use the agent to trigger approved handoff workflows when a candidate needs human assistance, special accommodation support, or recruiter escalation.",
+    "Have the agent generate clear status summaries and next-action notes from EngageATS to keep applicant communications consistent and fast."
+  ],
+  "internalUseCases": [
+    "Let recruiters and hiring teams chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve candidate records, job pipeline details, and recruiting activity from EngageATS.",
+    "Enable employees to ask the agent to summarize open roles, application volume, interview progress, or candidate movement across stages for faster hiring reviews.",
+    "Use an internal AI agent to prepare recruiter handoff notes, interview briefing summaries, and follow-up task lists based on EngageATS data.",
+    "Allow recruiting operations teams to chat with the agent to complete approved workflow steps in EngageATS, such as updating stages, logging notes, or routing cases for review.",
+    "Help HR and talent teams follow SOPs by having the agent gather the right context from EngageATS, explain the next approved action, and complete bounded updates when allowed."
+  ],
+  "whatYouCanBuild": [
+    "An applicant support agent that checks application progress and explains next steps.",
+    "A recruiting assistant that summarizes candidate histories before recruiters respond.",
+    "An internal hiring bot that updates approved candidate stages with guardrails.",
+    "A handoff workflow that routes complex applicant cases to the right recruiter.",
+    "A reporting assistant that summarizes pipeline activity and hiring bottlenecks from EngageATS.",
+    "An interview support agent that prepares candidate briefing notes for hiring teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the EngageATS agent to do, such as check applicant status, prepare recruiter handoffs, or update approved hiring records, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure workflow, identifies the required configuration values, handles authentication through protected runtime setup, keeps secrets out of chats and Skill source, and scopes EngageATS access to the minimum actions and records needed."
+    },
+    {
+      "title": "Add guardrails and approvals",
+      "description": "Skill Builder adds role limits, safe action boundaries, and approval steps for sensitive hiring updates so the agent can help without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined applicant support and internal recruiting scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private employee assistant can use EngageATS safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for EngageATS?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or recruiting workflow you want in plain language, and Skill Builder creates a reusable Skill that lets your AI agent look up data, summarize records, and take approved actions in EngageATS. It also defines secure configuration, protects credentials, scopes permissions, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use EngageATS data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use EngageATS data to check application status, summarize progress, explain next steps, and prepare recruiter handoffs when a case needs human review. You control which records and actions are allowed so applicant support stays accurate and bounded."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with EngageATS?",
+      "answer": "An internal DocsBot agent can help recruiters and hiring teams retrieve candidate information, summarize pipelines, prepare interview notes, update approved stages, and route follow-up tasks. This makes common recruiting workflows faster while keeping actions within the limits you define."
+    },
+    {
+      "question": "Can DocsBot trigger safe updates in EngageATS instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can support bounded AI Actions such as record updates, note creation, workflow triggers, and escalation handoffs when those actions are approved in your setup. Skill Builder adds guardrails and approval boundaries for sensitive operations."
+    },
+    {
+      "question": "How does DocsBot keep EngageATS credentials and permissions secure?",
+      "answer": "Skill Builder identifies the connection details required for the workflow, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the smallest set of users, actions, and records needed."
+    },
+    {
+      "question": "Can a DocsBot agent help recruiters in Slack or Microsoft Teams using EngageATS?",
+      "answer": "Yes, private DocsBot agents can be deployed for employees in chat, Slack, or Microsoft Teams so recruiters can ask for candidate summaries, pipeline updates, or approved workflow help without leaving their conversation. This is useful for fast internal research and operational follow-through."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "smartrecruiters",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "EngageATS",
+    "domain": "engageats.com",
+    "description": "Engage, the talent‑technology suite from Havas People, delivers a unified platform that combines recruitment marketing (PXP), applicant tracking (ATS) and learning experience (LXP) tools. Built on 80 years of HR insight, the cloud‑based solution offers flexible, contract‑free modules that scale with a company’s needs. PXP creates branded, talent‑focused career sites; ATS streamlines candidate workflows with automation, analytics and customizable communication; LXP provides role‑specific learning, seamless integration and robust reporting to develop employee potential. Trusted by leading global brands, Engage helps organizations attract top talent, simplify hiring, and foster continuous development, all within a single, user‑friendly system.",
+    "slogan": "One system, everyone loves to hire with.",
+    "logoUrl": "https://media.brand.dev/8ab19baf-e2d3-4fd4-aeef-50081232afb4.svg",
+    "iconUrl": "https://media.brand.dev/56d5b435-5508-47b5-9785-8c68cc24af59.png",
+    "primaryColor": "#040404",
+    "accentColor": "#082037",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#082037",
+        "name": "Naval Night"
+      },
+      {
+        "hex": "#7c8c94",
+        "name": "Denim Drift"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c2a6cc6e-0195-4fbf-8085-d6d74eb2d6f0.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8ab19baf-e2d3-4fd4-aeef-50081232afb4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 449,
+        "height": 133,
+        "aspectRatio": 3.38
+      },
+      {
+        "url": "https://media.brand.dev/56d5b435-5508-47b5-9785-8c68cc24af59.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8ab19baf-e2d3-4fd4-aeef-50081232afb4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 449,
+      "height": 133,
+      "aspectRatio": 3.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/56d5b435-5508-47b5-9785-8c68cc24af59.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

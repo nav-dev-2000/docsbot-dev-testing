@@ -1,0 +1,160 @@
+{
+  "slug": "onelogin",
+  "name": "OneLogin",
+  "domain": "onelogin.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with OneLogin",
+  "metaTitle": "Build OneLogin AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use OneLogin for secure identity lookups, access workflows, approvals, and internal support automation.",
+  "intro": "OneLogin helps organizations manage identities, single sign-on, and access across cloud and on-premises applications. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up identity data, support access workflows, and trigger approved actions. This helps customer-facing support bots and private internal AI assistants move from answering questions to completing bounded identity and access tasks.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user's account exists in OneLogin, summarize identity status, and guide the user through the correct next step without exposing sensitive admin details.",
+    "Use a DocsBot support agent connected to your helpdesk to verify SSO-related account attributes in OneLogin and prepare a clean escalation summary for identity or IT teams.",
+    "Enable the agent to confirm whether a password reset, MFA enrollment, or login-related identity workflow should be routed to a human team with the right context already collected.",
+    "Have the agent gather missing details from the customer, look up the related OneLogin user record, and create a structured handoff for account access issues or sign-in failures.",
+    "Allow the support agent to trigger approved downstream workflows based on OneLogin identity state, such as notifying the access team or opening an internal review request."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up OneLogin user status, app access assignments, or identity details needed for support and operations work.",
+    "Enable IT or operations teams to ask the agent to summarize login and access context from OneLogin before following internal SOPs for account troubleshooting.",
+    "Give helpdesk employees an internal AI assistant that gathers the right identity information from OneLogin, drafts escalation notes, and routes issues to the correct team.",
+    "Allow managers or approved team leads to use the agent to start access review or account support workflows with built-in approval boundaries for sensitive actions.",
+    "Help security and IT teams chat with the agent to research identity-related questions across OneLogin and produce consistent summaries for audits, tickets, and handoffs."
+  ],
+  "whatYouCanBuild": [
+    "An AI support Skill that checks OneLogin user status during sign-in troubleshooting.",
+    "An internal assistant that summarizes SSO and access context before escalation.",
+    "A workflow Skill that gathers identity issue details and creates structured handoff notes.",
+    "An employee agent that looks up app assignment information for approved support teams.",
+    "A secure assistant that helps triage MFA enrollment and login access problems.",
+    "A OneLogin research Skill that prepares audit-friendly summaries for IT operations workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with OneLogin, such as checking user status, summarizing access context, or preparing an escalation, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits where needed so the agent can look up information, prepare updates, or trigger workflows inside customer-defined rules without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, permission gaps, and workflow issues, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing the results, Skill Builder refines the Skill and helps publish it to the right DocsBot agent for your website chat, helpdesk workflow, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with OneLogin?",
+      "answer": "With DocsBot Skill Builder, you describe the OneLogin task you want in plain language, and Skill Builder designs the workflow, secures the connection, tests the behavior, and prepares it for deployment. The finished Skill can let a DocsBot agent retrieve identity information, summarize access context, and take bounded actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use OneLogin data during customer login or SSO troubleshooting?",
+      "answer": "Yes, a DocsBot support agent can be designed to use approved OneLogin data to verify user status, gather context for login issues, and prepare clean handoffs to IT or identity teams. Sensitive actions can be limited with scoped permissions and approval boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with OneLogin?",
+      "answer": "A DocsBot agent can help with identity-related triage, sign-in issue lookups, MFA support context, escalation preparation, and workflow triggering based on OneLogin account state. This helps support teams respond faster while keeping actions inside defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with OneLogin access questions?",
+      "answer": "Yes, private DocsBot agents can help employees or helpdesk teams look up OneLogin identity details, summarize app access context, and follow internal troubleshooting or routing procedures. The experience can be delivered through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep a OneLogin integration secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, keeps credentials out of chats and generated copy, and scopes the Skill to the minimum permissions required. It can also add approval steps for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot trigger workflows related to account access or escalation using OneLogin context?",
+      "answer": "Yes, a Skill can be designed to use OneLogin context to start approved workflows such as escalation prep, internal review requests, or downstream notifications. The exact actions are bounded by the permissions and approval rules you choose."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "ping-identity",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "auth0",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OneLogin",
+    "domain": "onelogin.com",
+    "description": "OneLogin by One Identity is a leading Identity and Access Management provider that secures workforces, customers, and partners through its modern IAM platform. It offers real-time identity management and single sign-on solutions, providing secure one-click access to cloud and on-premises applications across various devices, supporting over 5,000 customers worldwide.",
+    "slogan": "Secure, Simplify, and Manage Identities with OneLogin's Modern IAM Platform",
+    "logoUrl": "https://media.brand.dev/cfd7b709-cf26-4cbe-a732-45879fd55a50.svg",
+    "iconUrl": "https://media.brand.dev/cef7a1c4-2e58-4c4f-95db-7330ffccd049.jpg",
+    "primaryColor": "#1c1c2c",
+    "accentColor": "#57585b",
+    "colors": [
+      {
+        "hex": "#1c1c2c",
+        "name": "Sambucus"
+      },
+      {
+        "hex": "#57585b",
+        "name": "Summer Concrete"
+      },
+      {
+        "hex": "#c8cecf",
+        "name": "Where There Is Smoke"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0fb3c284-95ee-458e-a15b-697067baaf65.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "contact": "https://www.onelogin.com/company/contact",
+      "blog": "https://www.onelogin.com/blog",
+      "pricing": "https://www.onelogin.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cef7a1c4-2e58-4c4f-95db-7330ffccd049.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cfd7b709-cf26-4cbe-a732-45879fd55a50.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 325,
+        "height": 81,
+        "aspectRatio": 4.01
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cfd7b709-cf26-4cbe-a732-45879fd55a50.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 325,
+      "height": 81,
+      "aspectRatio": 4.01
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cef7a1c4-2e58-4c4f-95db-7330ffccd049.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

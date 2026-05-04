@@ -1,0 +1,191 @@
+{
+  "slug": "dropbox-business",
+  "name": "Dropbox - Business",
+  "domain": "dropbox.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dropbox Business",
+  "metaTitle": "Dropbox Business AI Agent Skills for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that securely use Dropbox Business for file lookups, summaries, handoffs, and approved team workflows in support and internal operations.",
+  "intro": "Dropbox Business helps teams store, organize, and share important files and content securely. With DocsBot Skill Builder, you can describe the Dropbox-based workflow you want in plain language and have DocsBot create a reusable Skill for your support bot or internal AI agent. That means your agent can do more than answer questions by also finding files, summarizing content, preparing handoffs, and triggering approved actions inside Dropbox Business.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent find the right help file, policy PDF, onboarding guide, or troubleshooting document in Dropbox Business while replying in chat or over helpdesk tickets.",
+    "Use the agent to summarize the contents of a Dropbox Business file or folder so customers get a fast answer without waiting for a human to open and review documents manually.",
+    "Have the agent gather the latest version of customer-facing documentation stored in Dropbox Business and include a clean summary or link in a support response.",
+    "Enable the agent to check whether a requested file, template, or shared resource exists in Dropbox Business before promising follow-up to the customer.",
+    "Use Dropbox Business content to help the agent prepare escalation notes and handoff summaries for human support teams when a case needs deeper review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the correct Dropbox Business file, folder, or shared document without searching manually.",
+    "Enable team members to ask the agent for summaries of policies, contracts, playbooks, sales collateral, or SOP documents stored in Dropbox Business.",
+    "Help operations teams use the agent to assemble handoff notes, file references, and next steps from Dropbox Business content during internal workflows.",
+    "Allow employees to ask the agent which version of a document is most relevant for a task, customer situation, or internal process based on Dropbox Business metadata and folder structure.",
+    "Support internal research workflows where employees chat with the agent to retrieve Dropbox Business content, compare related documents, and prepare concise decision-ready summaries."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that finds and summarizes customer-facing guides stored in Dropbox Business.",
+    "An internal assistant that retrieves SOPs and policy documents from Dropbox Business on demand.",
+    "A handoff Skill that collects relevant Dropbox file links for escalations and case transfers.",
+    "A document summary Skill that reads approved Dropbox Business files and returns concise answers.",
+    "A workflow Skill that checks for required templates in Dropbox Business before the agent proceeds.",
+    "An employee assistant that compares related Dropbox documents and prepares a quick recommendation summary."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Dropbox Business, such as finding files, summarizing documents, or preparing escalation handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the configuration values the Skill needs, sets up secure authentication handling, keeps credentials out of chats and source, proxies secrets through protected runtime settings, and scopes Dropbox Business access to the minimum files, folders, users, and actions required."
+    },
+    {
+      "title": "Safe actions are defined",
+      "description": "Skill Builder adds the right guardrails for your workflow, including approval boundaries and action limits for sensitive lookups, sharing steps, or document-related actions so the agent stays within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the new Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk bot, or private team assistant so employees and customers can use the Dropbox Business workflow through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Dropbox Business files to answer support questions?",
+      "answer": "With DocsBot Skill Builder, you can describe the support outcome you want, such as finding a help document or summarizing a troubleshooting guide in Dropbox Business, and Skill Builder creates a secure Skill for your support agent. The agent can then use approved Dropbox content during customer chats or ticket replies while staying within your access rules."
+    },
+    {
+      "question": "Can a DocsBot support agent look up documents in Dropbox Business during live customer chats?",
+      "answer": "Yes, a Skill can be designed so the DocsBot agent retrieves approved files, folder details, or document summaries from Dropbox Business while responding to customers. You control what content is available and where the agent is allowed to look."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Dropbox Business?",
+      "answer": "A DocsBot agent can search for support documents, summarize file contents, attach relevant links, prepare escalation notes, and gather reference material from Dropbox Business for human handoffs. This helps support teams answer faster without forcing agents or customers to search shared folders manually."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find SOPs and policy documents in Dropbox Business?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve files, summarize documents, compare related content, and surface the right Dropbox Business materials inside chat, Slack, or Microsoft Teams. This is useful for operations, customer success, onboarding, and compliance workflows."
+    },
+    {
+      "question": "How does DocsBot keep Dropbox Business access secure when building an AI Skill?",
+      "answer": "Skill Builder defines the needed connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and action limits so the agent only accesses the folders, records, and workflows you approve."
+    },
+    {
+      "question": "Can I require approval before an AI agent takes sensitive actions involving Dropbox Business content?",
+      "answer": "Yes, Skill Builder can include approval boundaries and safe action limits for sensitive steps, especially where document access, sharing, or downstream workflow actions need more control. That lets the agent help with research and preparation while escalating certain actions for review."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "box",
+    "onedrive",
+    "sharepoint",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dropbox",
+    "domain": "dropbox.com",
+    "description": "Dropbox is a content collaboration platform that provides secure file sharing, storage, and collaboration solutions to individuals, teams, and organizations worldwide, serving various industries with over 700 million registered users across 180 countries.",
+    "slogan": "Simplify the way you work together",
+    "logoUrl": "https://media.brand.dev/2b34a33f-6928-47b3-911f-042e621d2d07.svg",
+    "iconUrl": "https://media.brand.dev/c89f753b-7550-48fb-812b-c489ec9b060a.png",
+    "primaryColor": "#0765fb",
+    "accentColor": "#7aacfa",
+    "colors": [
+      {
+        "hex": "#0765fb",
+        "name": "Bright Blue"
+      },
+      {
+        "hex": "#7aacfa",
+        "name": "Fennel Flower"
+      },
+      {
+        "hex": "#fcf7f4",
+        "name": "Unbleached"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/76838ba4-96ed-4828-8352-e61620260b07.png",
+    "industries": [],
+    "links": {
+      "careers": "https://jobs.dropbox.com/",
+      "terms": "https://dropbox.com/terms",
+      "contact": "https://dropbox.com/contact-sales",
+      "privacy": "https://dropbox.com/terms",
+      "blog": "https://blog.dropbox.com/",
+      "pricing": "https://dropbox.com/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c89f753b-7550-48fb-812b-c489ec9b060a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/752be932-2a48-4094-99dc-d9cd85c1420e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e6b20a83-f030-44e1-b6fc-cd66c9dd3be2.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 1200,
+        "height": 628,
+        "aspectRatio": 1.91
+      },
+      {
+        "url": "https://media.brand.dev/6ff70a65-0572-4a47-aa9d-80358acbcf67.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 34,
+        "height": 34,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aabdc7b7-ebaa-4346-87b1-498eafa196aa.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2b34a33f-6928-47b3-911f-042e621d2d07.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 30,
+        "height": 25,
+        "aspectRatio": 1.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e6b20a83-f030-44e1-b6fc-cd66c9dd3be2.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 1200,
+      "height": 628,
+      "aspectRatio": 1.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/752be932-2a48-4094-99dc-d9cd85c1420e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

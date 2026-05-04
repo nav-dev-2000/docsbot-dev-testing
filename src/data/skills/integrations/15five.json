@@ -1,0 +1,178 @@
+{
+  "slug": "15five",
+  "name": "15Five",
+  "domain": "15five.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with 15Five",
+  "metaTitle": "Build AI Agents for 15Five with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use 15Five data and workflows for employee support, manager assistance, summaries, handoffs, and approved HR actions.",
+  "intro": "15Five helps organizations manage performance, engagement, feedback, goals, and manager effectiveness. With DocsBot Skill Builder, you can describe the 15Five workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up approved 15Five information, prepare summaries, trigger bounded workflows, and help teams move faster without exposing sensitive HR processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee questions about performance review timelines, feedback cycles, or goal processes by looking up approved 15Five records and policies during the conversation.",
+    "Let a helpdesk-connected DocsBot agent summarize an employee's recent check-in status or review progress from 15Five so HR support can respond faster and with better context.",
+    "Have the agent collect missing details from an employee, create a structured HR handoff, and attach a 15Five-based summary for manager follow-up or People Ops review.",
+    "Enable the agent to confirm whether a guided 1-on-1, review task, or engagement workflow has been completed and explain the next approved step to the employee.",
+    "Use the agent to surface relevant 15Five goal or OKR information when an employee asks about progress expectations, ownership, or review preparation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve their approved 15Five review dates, goal status, or feedback process information without searching across HR systems.",
+    "Managers can ask the agent to summarize team check-in trends, open action items, or upcoming review milestones from 15Five before 1-on-1s or performance conversations.",
+    "People Ops teams can use the agent to prepare handoffs, research employee workflow status, and complete SOPs that combine 15Five information with internal HR policies.",
+    "HR leaders can chat with the agent to generate concise summaries of engagement or performance signals from approved 15Five data for planning and escalation workflows.",
+    "Internal teams can use the agent to trigger bounded follow-up tasks, route requests for approval, or draft manager-ready summaries based on 15Five activity and process state."
+  ],
+  "whatYouCanBuild": [
+    "An employee support agent that answers review cycle and feedback process questions using 15Five context.",
+    "A manager assistant that summarizes check-ins, goals, and upcoming review milestones before meetings.",
+    "A People Ops agent that prepares HR handoffs with structured 15Five workflow summaries.",
+    "An internal AI assistant that looks up goal progress and explains approved next steps.",
+    "A private chat agent that routes sensitive performance requests into review and approval workflows.",
+    "An HR operations assistant that generates summaries from engagement and performance signals for follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the 15Five agent to do, such as answer employee questions, summarize review status, or trigger a bounded HR workflow, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the best workflow, identifies the required 15Five configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive HR tasks so the agent can help with lookups, summaries, handoffs, and approved updates without overreaching."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined employee support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent for your website chat, helpdesk, or private employee assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for 15Five without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the 15Five workflow you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for deployment. It handles connection details, secret protection, scoped permissions, and safe workflow boundaries for you."
+    },
+    {
+      "question": "Can an AI support agent use 15Five data to answer employee questions?",
+      "answer": "Yes, a DocsBot agent can use approved 15Five data to look up review timing, goal progress, feedback status, or workflow state while responding in a chat widget or helpdesk context. You control what the agent is allowed to read, summarize, or escalate."
+    },
+    {
+      "question": "What 15Five workflows can an internal AI assistant automate for HR and managers?",
+      "answer": "An internal DocsBot agent can retrieve approved 15Five information, summarize check-ins and reviews, prepare handoffs, route requests, and trigger bounded follow-up workflows for HR, managers, and employees. It can also support SOPs by gathering context and guiding the next approved action."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger actions in 15Five?",
+      "answer": "DocsBot Skills can be designed for approved actions such as record updates, workflow triggers, handoff creation, or status changes when those actions fit your rules. Skill Builder defines secure authentication, scopes access, and adds approval checkpoints for more sensitive steps."
+    },
+    {
+      "question": "How does DocsBot keep 15Five credentials and HR data secure?",
+      "answer": "Skill Builder defines the needed configuration, keeps credentials out of chats and Skill source, and proxies secrets through secure runtime settings. It also scopes access to the minimum users, records, and actions required and can add approval boundaries for sensitive HR workflows."
+    },
+    {
+      "question": "Can a manager use a DocsBot AI assistant to prepare for 1-on-1s and reviews with 15Five data?",
+      "answer": "Yes, managers can chat with a private DocsBot agent to get concise summaries of check-ins, open goals, feedback activity, and upcoming review milestones from approved 15Five records. This helps them prepare faster while staying within the access limits you define."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "lattice",
+    "culture-amp",
+    "greenhouse",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "15Five",
+    "domain": "15five.com",
+    "description": "15Five is a strategic performance management platform that helps businesses and their people thrive. It equips HR leaders with analytics and insights to diagnose and address strategic issues related to employee performance, engagement, and retention. The platform transforms people managers into changemakers by providing dynamic action plans, manager enablement tools, and coaching that integrate into daily workflows. Leveraging predictive and generative AI, 15Five offers 360° performance reviews, actionable engagement surveys, goal and OKR tracking, customizable training, and continuous feedback mechanisms such as guided 1‑on‑1s. By combining data‑driven insights with AI‑powered recommendations, 15Five enables organizations to drive measurable impact, improve retention, and foster a culture of continuous improvement.",
+    "slogan": "The AI-powered performance management platform built for business impact",
+    "logoUrl": "https://media.brand.dev/e46daedb-92a3-4c28-9c5a-7228fbfe1a21.png",
+    "iconUrl": "https://media.brand.dev/0e25d09e-0743-4d7f-8d36-bcad2ca938fc.jpg",
+    "primaryColor": "#1c0c3c",
+    "accentColor": "#fb5019",
+    "colors": [
+      {
+        "hex": "#1c0c3c",
+        "name": "Middle Red Purple"
+      },
+      {
+        "hex": "#fb5019",
+        "name": "Exotic Orange"
+      },
+      {
+        "hex": "#f99474",
+        "name": "Indian Dance"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2c3e4dcd-e1f1-485f-8e00-0c40175e3898.jpg",
+    "industries": [],
+    "links": {
+      "login": null,
+      "signup": null,
+      "careers": "https://www.15five.com/about/careers",
+      "terms": "https://www.15five.com/terms",
+      "contact": null,
+      "privacy": "https://www.15five.com/privacy",
+      "blog": "https://www.15five.com/blog",
+      "pricing": "https://www.15five.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0e25d09e-0743-4d7f-8d36-bcad2ca938fc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e46daedb-92a3-4c28-9c5a-7228fbfe1a21.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 890,
+        "height": 238,
+        "aspectRatio": 3.74
+      },
+      {
+        "url": "https://media.brand.dev/096440db-06fc-4d53-8f63-5c0398d1bab3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 270,
+        "height": 270,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/550cfcaf-98f0-455d-8a1a-be11cfd296af.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e46daedb-92a3-4c28-9c5a-7228fbfe1a21.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 890,
+      "height": 238,
+      "aspectRatio": 3.74
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/096440db-06fc-4d53-8f63-5c0398d1bab3.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 270,
+      "height": 270,
+      "aspectRatio": 1
+    }
+  }
+}

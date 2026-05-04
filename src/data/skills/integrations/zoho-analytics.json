@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-analytics",
+  "name": "Zoho Analytics",
+  "domain": "zoho-analytics.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Analytics",
+  "metaTitle": "Build AI Agents for Zoho Analytics with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Analytics for live data lookups, summaries, alerts, handoffs, and safe workflow actions in support and internal teams.",
+  "intro": "Zoho Analytics helps teams turn business data into reports, dashboards, and operational insight. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Analytics, and DocsBot will help design, secure, test, improve, and deploy that Skill. The result is a support or internal AI agent that can answer questions with live reporting context, summarize trends, and trigger approved follow-up actions instead of only giving static replies.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull order, subscription, usage, or account trend data from Zoho Analytics to explain billing or product activity questions with current reporting context.",
+    "Use the agent to summarize customer health, recent usage changes, or support volume trends from Zoho Analytics before drafting a personalized response or escalation handoff.",
+    "Have the agent check dashboard metrics or report thresholds in Zoho Analytics and reassure customers when an issue appears isolated versus part of a broader incident pattern.",
+    "Enable the agent to prepare escalation notes that include relevant Zoho Analytics findings, such as recent drops in activity, error spikes, or account-level trends for the support team.",
+    "Let a helpdesk-connected DocsBot agent use Zoho Analytics data to prioritize tickets based on customer tier, product adoption, or risk indicators before routing the case onward."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Zoho Analytics report results, dashboard summaries, and trend explanations without opening multiple tools.",
+    "Customer success and operations teams can ask the agent to summarize churn risk, adoption patterns, or support load trends from Zoho Analytics and turn those findings into next-step recommendations.",
+    "Team members can use the agent to compare performance across regions, products, or time periods in Zoho Analytics and receive a concise explanation tailored to the business question they asked.",
+    "Managers can chat with the agent to prepare weekly business reviews, incident summaries, or executive briefing notes based on approved Zoho Analytics datasets and metrics.",
+    "Internal teams can use the agent to follow SOPs that start with Zoho Analytics lookups, then create handoffs, trigger follow-up workflows, or document findings in other business systems."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that explains account activity using live Zoho Analytics reporting data.",
+    "An internal assistant that summarizes dashboard changes and highlights unusual business trends.",
+    "A ticket triage workflow that uses analytics signals to suggest routing priority.",
+    "An escalation prep Skill that adds trend summaries to support handoff notes.",
+    "A customer success assistant that checks adoption metrics before renewal conversations.",
+    "An operations agent that monitors report thresholds and triggers approved follow-up workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Analytics in plain language, such as answering customer questions with live metrics or summarizing trends for internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asking for any missing business context and automatically deciding the safest workflow design, required configuration values, and how the agent should use Zoho Analytics data."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes access to the minimum reports, actions, users, and systems needed."
+    },
+    {
+      "title": "Safe actions are bounded",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so the agent can perform lookups, summaries, handoffs, and approved workflow steps without exceeding the permissions or business rules you want enforced."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for weak instructions, bugs, missing safeguards, or workflow gaps, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zoho Analytics data?",
+      "answer": "With DocsBot Skill Builder, you describe the reporting or workflow outcome you want in plain language, and it creates a Skill that lets your AI agent securely query Zoho Analytics, summarize findings, and take approved next steps. Skill Builder also handles connection design, permissions, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can a customer support AI agent use Zoho Analytics during live support conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Analytics to look up current business metrics, account trends, or usage patterns while replying in a website chat widget or helpdesk workflow. That helps the agent give more context-aware answers and prepare stronger handoffs when a human needs to step in."
+    },
+    {
+      "question": "What Zoho Analytics workflows can an internal AI assistant automate?",
+      "answer": "Internal agents can retrieve report results, summarize dashboards, compare trends, prepare business review notes, and start follow-up workflows based on approved analytics conditions. Teams can use the agent in chat, Slack, or Microsoft Teams to complete reporting-related SOPs faster."
+    },
+    {
+      "question": "Can DocsBot safely limit what an AI agent can do in Zoho Analytics?",
+      "answer": "Yes, Skill Builder is designed to define scoped access, protect authentication details, and add approval boundaries or action limits for sensitive workflows. That lets you control which datasets, reports, users, and downstream actions the agent can use."
+    },
+    {
+      "question": "Can an AI agent summarize Zoho Analytics dashboards for executives or operations teams?",
+      "answer": "Yes, a DocsBot agent can turn approved Zoho Analytics dashboards and report outputs into concise summaries, trend explanations, briefing notes, or handoff-ready updates. This is useful for weekly reviews, incident analysis, and customer health discussions."
+    },
+    {
+      "question": "Does setting up a Zoho Analytics AI agent require coding?",
+      "answer": "No, the setup is framed around describing the business outcome you want, and Skill Builder handles the design, secure configuration, testing, and improvement process. It can also identify missing details and suggest a safer or more effective workflow before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "power-bi",
+    "tableau",
+    "looker",
+    "google-analytics",
+    "mixpanel",
+    "metabase"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

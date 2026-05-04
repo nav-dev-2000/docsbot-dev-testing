@@ -1,0 +1,160 @@
+{
+  "slug": "alyce",
+  "name": "Alyce",
+  "domain": "alyce.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Alyce",
+  "metaTitle": "Build AI Agents for Alyce with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Alyce to look up gifting activity, summarize engagement, trigger approved workflows, and support internal teams safely.",
+  "intro": "Alyce helps teams run hyper-personalized B2B gifting and direct mail programs that build stronger buyer relationships. With DocsBot Skill Builder, you can describe the Alyce-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve gifting context, prepare handoffs, and take approved actions inside Alyce while staying within secure boundaries you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a gift, swag item, or direct mail send has been initiated and summarize the current status for the customer.",
+    "Let the support agent gather campaign or recipient details from the conversation and create an internal follow-up workflow in Alyce for a sales or customer success team to review.",
+    "Have the agent summarize gifting history tied to an account or contact so support teams can respond with better context during renewal, escalation, or relationship-management conversations.",
+    "Enable the agent to prepare a clean handoff that includes recipient details, requested changes, shipping concerns, and relevant Alyce activity for a human team member.",
+    "Use the agent in helpdesk replies to identify whether an issue relates to a pending gift experience and route the case to the right internal owner with an Alyce-based summary."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Alyce gifting activity for an account, contact, or campaign before outreach.",
+    "Give sales, customer success, or operations teams an AI assistant that summarizes gifting engagement, recipient status, and next-step recommendations across Alyce workflows.",
+    "Allow team members to ask the agent to prepare gifting follow-ups, create internal handoff notes, or trigger approved Alyce-related workflows without leaving chat.",
+    "Help marketing and sales teams use an internal AI agent to research account engagement and combine Alyce gifting context with SOP-driven follow-up guidance.",
+    "Enable employees to ask the agent for campaign summaries, exception reviews, or missing-detail checks so they can complete gifting operations faster and more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Alyce gifting status and explains the latest activity to support teams.",
+    "A private assistant that summarizes account gifting history before a sales or customer success conversation.",
+    "A workflow Skill that gathers recipient details and prepares an Alyce follow-up request for internal review.",
+    "An AI handoff helper that packages shipping issues, campaign context, and recipient information for operations teams.",
+    "A Slack or Teams assistant that answers employee questions about gifting engagement and campaign progress.",
+    "An approval-based Skill that triggers limited Alyce workflows only after the right human confirmation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Alyce agent to do in plain language, such as checking gifting status, summarizing engagement, or preparing an internal handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, chooses how Alyce should be connected, and keeps authentication and secrets protected through secure runtime handling instead of exposing them in chats or Skill content."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive Alyce updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the Alyce Skill, finds bugs, weak spots, or missing permission checks, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Alyce Skill to your customer-facing support bot or your private employee AI agent so it can answer questions and take bounded action where your team needs it."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Alyce?",
+      "answer": "With DocsBot Skill Builder, you describe the Alyce workflow you want in plain language and DocsBot designs the Skill, secures the connection, tests it, and prepares it for deployment to a support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Alyce data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Alyce Skill to look up gifting status, summarize relevant activity, prepare handoffs, and support approved follow-up workflows while replying to customers or helpdesk tickets."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Alyce?",
+      "answer": "An internal DocsBot agent can help employees retrieve gifting context, summarize engagement, prepare follow-up notes, trigger bounded workflows, and guide teams through repeatable outreach or operations steps tied to Alyce activity."
+    },
+    {
+      "question": "Can DocsBot limit what an Alyce AI agent is allowed to do?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect secrets, limit access to the right users and records, and add approval boundaries for sensitive actions so the agent only performs allowed Alyce workflows."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation notes using Alyce information?",
+      "answer": "Yes, the agent can gather relevant gifting details from Alyce, combine them with the conversation context, and generate a structured handoff or escalation summary for sales, support, or operations teams."
+    },
+    {
+      "question": "Does building an Alyce Skill require coding or manual API setup?",
+      "answer": "No, the goal is to let non-technical teams describe the outcome they want while Skill Builder handles the secure design, connection planning, testing, and deployment path behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "apollo",
+    "marketo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Alyce",
+    "domain": "alyce.com",
+    "description": "Alyce is an AI-powered B2B gifting platform that redefines direct mail, swag, and gifts with a scalable, sustainable, and hyper-personalized approach to account-based marketing. It builds real, personal relationships that drive significant results, making B2B gift-giving simple, effective, and measurable.",
+    "slogan": "Hyper-personalized B2B gifting that builds relationships and drives results.",
+    "logoUrl": "https://media.brand.dev/d82196b1-2859-44c4-b466-3787380603c0.jpg",
+    "iconUrl": "https://media.brand.dev/d82196b1-2859-44c4-b466-3787380603c0.jpg",
+    "primaryColor": "#49baa1",
+    "accentColor": "#34477f",
+    "colors": [
+      {
+        "hex": "#49baa1",
+        "name": "Jolt of Jade"
+      },
+      {
+        "hex": "#34477f",
+        "name": "Indigo Night"
+      },
+      {
+        "hex": "#e0dda7",
+        "name": "Tonic"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ab10494b-de86-4d35-9a37-9c93509b767c.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "pricing": null,
+      "careers": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d82196b1-2859-44c4-b466-3787380603c0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9ff9f363-884e-4042-aade-b4109ea00cf1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d82196b1-2859-44c4-b466-3787380603c0.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d82196b1-2859-44c4-b466-3787380603c0.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

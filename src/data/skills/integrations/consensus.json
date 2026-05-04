@@ -1,0 +1,176 @@
+{
+  "slug": "consensus",
+  "name": "Consensus",
+  "domain": "consensus.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Consensus",
+  "metaTitle": "Consensus AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Consensus to retrieve information, trigger workflows, prepare handoffs, and support secure customer and internal operations.",
+  "intro": "Consensus helps organizations manage secure digital information exchange and workflow automation, especially in regulated environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Consensus data and actions. The result is a support or internal AI agent that can answer questions, complete approved tasks, and move work forward instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a Consensus-related document or workflow and explain the current state in a clear response.",
+    "Use a DocsBot helpdesk agent to gather missing customer details, look up the relevant Consensus record, and prepare an accurate escalation handoff for human teams.",
+    "Enable the support agent to summarize secure document exchange activity from Consensus so customers receive progress updates without waiting for manual review.",
+    "Allow the agent to trigger an approved Consensus workflow after a customer request, such as starting a document delivery or follow-up process within defined limits.",
+    "Use DocsBot to create consistent support notes that summarize customer requests, Consensus activity, and next steps for ticket resolution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Consensus workflow status, document activity, or account context without switching tools.",
+    "Enable operations or customer success teams to ask the agent to summarize open Consensus processes, identify blockers, and suggest the next approved step.",
+    "Give internal teams an AI assistant that can collect required inputs from employees, trigger bounded Consensus workflows, and return a clear confirmation summary.",
+    "Help compliance, support, or account teams use a private agent to prepare standardized handoff notes, internal case summaries, or follow-up artifacts based on Consensus records.",
+    "Allow employees to chat with the agent to follow SOPs that involve Consensus lookups, approvals, and escalations across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that checks Consensus workflow or document status during customer conversations.",
+    "An internal assistant that summarizes Consensus activity and highlights blocked or pending items.",
+    "A handoff Skill that gathers customer context and prepares escalation notes using Consensus data.",
+    "A workflow Skill that triggers approved Consensus actions after collecting the required information.",
+    "A reporting Skill that turns Consensus record activity into clean summaries for support teams.",
+    "An operations assistant that guides employees through Consensus-related SOPs in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Consensus, such as checking workflow status, preparing handoffs, or triggering approved actions, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the right workflow, defines the configuration values the Skill needs, handles secure authentication and secret proxying, and keeps credentials out of chats, prompts, and Skill source by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Consensus actions, records, users, and systems required, and adds approval boundaries or safe action limits for sensitive updates or triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, weak guardrails, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill before deployment and helps publish it to the right DocsBot agent, whether that is a customer-facing support bot or a private internal assistant for employees."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Consensus?",
+      "answer": "With DocsBot Skill Builder, you describe the Consensus workflow or lookup you want in plain language, and Skill Builder designs, secures, tests, and packages that ability as a reusable Skill for your AI agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Consensus data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot agent can use a Consensus Skill to retrieve approved information, summarize workflow state, prepare handoffs, and trigger bounded actions while responding to customers in chat widgets or ticket workflows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Consensus?",
+      "answer": "A DocsBot agent can check status, gather missing details, summarize activity, create escalation notes, and trigger approved follow-up workflows so support teams can resolve requests faster and more consistently."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Consensus from Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Consensus context, follow SOPs, summarize cases, and complete approved workflow steps from chat interfaces your teams already use."
+    },
+    {
+      "question": "How does DocsBot keep Consensus actions secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, scopes access to the minimum required permissions, and adds approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot create summaries or handoff notes from Consensus activity?",
+      "answer": "Yes, a Skill can turn Consensus records and workflow activity into support summaries, escalation notes, or internal follow-up artifacts that keep teams aligned and reduce manual copy work."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zendesk",
+    "intercom",
+    "gong",
+    "outreach"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Consensus Cloud Solutions",
+    "domain": "consensus.com",
+    "description": "Consensus Cloud Solutions, Inc. (NASDAQ: CCSI) is a leading provider of digital cloud fax technology and interoperability solutions, with over 25 years of expertise centered around its flagship product, eFaxⓇ. The company specializes in enhancing the secure exchange and transformation of digital information through innovative applications of artificial intelligence. Consensus Cloud Solutions is dedicated to automating critical workflows and improving operational efficiency for clients in heavily regulated sectors, including healthcare, financial services, insurance, and more. Recognized for its adherence to industry-leading compliance standards, Consensus serves as a trusted partner in the pursuit of seamless data interoperability. By delivering comprehensive cloud-based platforms, the company is committed to empowering the future of sustainable care through streamlined health data workflows.",
+    "slogan": "Transforming digital information for secure and efficient workflows.",
+    "logoUrl": "https://media.brand.dev/ac34340c-8e12-4ece-a496-356508a44d2d.png",
+    "iconUrl": "https://media.brand.dev/3b9fcd6a-44c5-4aec-9b02-0bc53a574f83.png",
+    "primaryColor": "#979797",
+    "accentColor": "#2d2e2e",
+    "colors": [
+      {
+        "hex": "#979797",
+        "name": "Spanish Grey"
+      },
+      {
+        "hex": "#2d2e2e",
+        "name": "Carbon Fiber"
+      },
+      {
+        "hex": "#e5dbdb",
+        "name": "Minified Maroon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e30e996f-114c-4ba6-9422-ae3979a5e24e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.consensus.com/careers/",
+      "terms": "https://www.consensus.com/terms-of-service/",
+      "contact": "https://consensus.com/contact-us/",
+      "privacy": "https://consensus.com/privacy-policy/",
+      "blog": "https://www.consensus.com/news/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3b9fcd6a-44c5-4aec-9b02-0bc53a574f83.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f30138f4-80c5-4ee2-972f-5086dc24306b.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ac34340c-8e12-4ece-a496-356508a44d2d.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 171,
+        "height": 37,
+        "aspectRatio": 4.62
+      },
+      {
+        "url": "https://media.brand.dev/b57c2878-459a-40ec-b84d-7a626f1c574b.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ac34340c-8e12-4ece-a496-356508a44d2d.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 171,
+      "height": 37,
+      "aspectRatio": 4.62
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f30138f4-80c5-4ee2-972f-5086dc24306b.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

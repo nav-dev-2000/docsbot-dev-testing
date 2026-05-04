@@ -1,0 +1,113 @@
+{
+  "slug": "slack-enterprise",
+  "name": "Slack Enterprise",
+  "domain": "slack-enterprise.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Slack Enterprise",
+  "metaTitle": "Build AI Agents for Slack Enterprise with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that safely read, summarize, route, and act inside Slack Enterprise.",
+  "intro": "Slack Enterprise helps large organizations communicate, collaborate, and coordinate work across channels, files, and teams. With DocsBot Skill Builder, you can describe the Slack-based workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. That lets your AI agent answer questions, gather context, trigger bounded actions, and keep people aligned without exposing sensitive access or requiring manual handoffs for every step.",
+  "supportUseCases": [
+    "When a customer asks for an update, the DocsBot agent can search approved Slack Enterprise channels for incident notes, status discussions, or internal announcements and return a clean customer-safe summary.",
+    "A support agent can post a formatted handoff message into a Slack Enterprise support or engineering channel when a customer issue needs escalation, including the ticket summary, urgency, and missing context.",
+    "When a customer reports a bug, the agent can create a Slack Enterprise message thread for the internal team, attach the relevant support details, and keep the response focused while the investigation continues.",
+    "A DocsBot agent connected to your helpdesk can look up prior Slack Enterprise discussions about a known issue and summarize the latest internal resolution steps before replying to the customer.",
+    "The agent can notify the right Slack Enterprise team when a VIP customer ticket arrives, using approved channels and message templates to speed up response coordination."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack or another internal chat surface to find the right Slack Enterprise channel, recent discussion, decision summary, or shared file for a project or incident.",
+    "Support and operations teams can ask the agent to prepare escalation summaries from Slack Enterprise threads so employees do not have to manually read long channel histories.",
+    "New team members can ask an internal AI agent to explain channel purpose, summarize recent activity, and surface pinned guidance or SOP-related conversations from approved Slack Enterprise workspaces.",
+    "Managers and cross-functional teams can chat with the agent to collect updates from multiple Slack Enterprise channels and turn them into a concise status brief for leadership.",
+    "Employees can use a private AI assistant to post approved reminders, route questions to the right Slack Enterprise channel, or generate structured follow-up messages as part of internal workflows."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that summarizes incident channels into customer-safe status updates.",
+    "A Skill that posts helpdesk escalations into the correct Slack Enterprise team channel.",
+    "A Skill that turns long Slack threads into concise internal handoff notes.",
+    "A Skill that finds the right workspace channel for a topic or request.",
+    "A Skill that creates structured Slack alerts for VIP tickets or urgent cases.",
+    "A Skill that gathers internal discussion context before drafting a support reply."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Slack Enterprise, such as summarize channel activity, post escalations, or gather context for support replies, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should behave, what Slack Enterprise configuration values are needed, how authentication should be handled safely, and how to keep credentials protected and out of chats and generated content."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum channels, users, actions, and workflows required, adds approval boundaries for sensitive posting or update actions, and defines secure runtime handling for secrets by default."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, checks for bugs, weak instructions, missing guardrails, or workflow gaps, and feeds improvements back into the build."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Slack Enterprise?",
+      "answer": "With DocsBot Skill Builder, you describe the Slack Enterprise workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Slack Enterprise data to answer customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Slack Enterprise conversations, channel activity, and internal updates to gather context, summarize status, and prepare safer customer responses within the limits you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Slack Enterprise?",
+      "answer": "You can build workflows that look up internal discussions, post escalations to the right channel, notify teams about urgent tickets, summarize issue threads, and prepare handoff notes while the agent responds to customers."
+    },
+    {
+      "question": "Can an internal AI assistant search and summarize Slack Enterprise conversations for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve recent decisions, summarize channel discussions, find the right team conversation, or generate internal briefs from approved Slack Enterprise content."
+    },
+    {
+      "question": "How does DocsBot keep Slack Enterprise access secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime settings, keeps credentials out of transcripts and Skill source, and scopes permissions to the smallest set of actions and data needed."
+    },
+    {
+      "question": "Can I require approvals before an AI agent posts messages or triggers Slack workflows?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries and action limits so sensitive Slack Enterprise actions only happen when your rules allow them."
+    }
+  ],
+  "relatedSlugs": [
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "intercom",
+    "jira",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Odysseus",
+    "domain": "slack-enterprise.com",
+    "description": "Slack Enterprise is a secure, scalable communication and collaboration platform for large organizations, providing real‑time messaging, channels, file sharing, advanced admin controls, integrations with thousands of apps, and compliance features to keep teams connected and productive across the enterprise.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

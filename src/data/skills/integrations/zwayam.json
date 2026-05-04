@@ -1,0 +1,159 @@
+{
+  "slug": "zwayam",
+  "name": "Zwayam",
+  "domain": "zwayam.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for Zwayam with DocsBot Skill Builder",
+  "metaTitle": "Build Zwayam AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zwayam to answer hiring questions, look up candidate and requisition details, trigger workflows, and support recruiting teams safely.",
+  "intro": "Zwayam is an AI-powered hiring automation platform for managing recruiting workflows from requisition to offer. With DocsBot Skill Builder, you can describe the hiring or support outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent work with Zwayam safely. That means customer-facing or internal agents can look up recruiting information, summarize status, prepare handoffs, and take approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a DocsBot website chat widget or helpdesk agent to check the status of a candidate application in Zwayam and provide a clear next-step update to the candidate.",
+    "Let the agent look up requisition details in Zwayam so it can answer candidate questions about role status, interview stages, or whether hiring is still active.",
+    "Have the agent create or update approved follow-up tasks in Zwayam when a candidate requests scheduling help, document submission help, or recruiter contact.",
+    "Use the agent to summarize a candidate's progress across hiring stages in Zwayam and prepare a clean handoff for a recruiter or support specialist.",
+    "Let the agent collect missing information from a candidate in chat, then trigger an approved workflow in Zwayam for recruiter review or next-step processing."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve requisition, application, and candidate pipeline details from Zwayam without logging into multiple systems.",
+    "Recruiting teams can ask the agent to summarize open roles, stalled applications, interview bottlenecks, or recruiter workloads using data pulled from Zwayam.",
+    "Hiring coordinators can use the agent to prepare recruiter handoffs, candidate status summaries, and follow-up notes based on Zwayam records and internal SOPs.",
+    "Operations and talent teams can chat with the agent to trigger approved workflow steps in Zwayam, such as moving a process forward after required checks or notifying the right team for review.",
+    "Employees can use the agent as a guided assistant for recruiting SOPs, with DocsBot retrieving Zwayam context, asking for missing details, and helping complete repeatable hiring workflows safely."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks candidate application status and explains the next recruiting step.",
+    "A recruiting assistant that summarizes requisition progress and highlights delayed hiring stages.",
+    "An internal AI agent that prepares recruiter handoff notes from Zwayam candidate records.",
+    "A hiring operations assistant that collects missing details and triggers approved workflow updates.",
+    "A candidate support bot that answers role status questions using live Zwayam data.",
+    "An employee-facing recruiting agent that follows internal SOPs for escalations and follow-ups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zwayam in plain language, such as answering candidate status questions, summarizing requisitions, or triggering approved hiring workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what Zwayam information and actions are needed, and defines the right runtime behavior, reference guidance, and configuration values for the workflow."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure connection planning by defining authentication needs, protecting and proxying secrets through runtime configuration, and keeping credentials out of chats, prompts, and Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, users, actions, and systems required, and it adds approval boundaries or action limits where sensitive recruiting updates should be reviewed before execution."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal recruiting scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds improvements back into the Skill automatically."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zwayam?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or support workflow you want in plain language, and Skill Builder designs the Zwayam-connected Skill for you. It handles secure configuration, scoped access, testing, and deployment so the agent can safely look up data or take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Zwayam data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Zwayam to retrieve application status, requisition details, hiring stage updates, and other approved information while replying in chat or through helpdesk tickets. You control what the agent is allowed to read, summarize, or update."
+    },
+    {
+      "question": "What recruiting workflows can an internal AI assistant automate with Zwayam?",
+      "answer": "An internal DocsBot agent can summarize candidate pipelines, retrieve requisition details, prepare recruiter handoffs, collect missing workflow inputs, and trigger approved recruiting steps in Zwayam. It can also guide employees through SOPs while using live Zwayam context to keep answers accurate."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in Zwayam safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as updating approved fields, creating follow-up tasks, preparing escalation records, or triggering workflow steps in Zwayam. Skill Builder adds scoped permissions and approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Zwayam access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated instructions. It also scopes access to the minimum actions and records needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help recruiters and hiring teams without replacing their process?",
+      "answer": "Yes, the agent can act as a front line for lookups, summaries, and repetitive workflow steps while routing exceptions and sensitive decisions to the right people. That helps teams move faster in Zwayam without losing human review where it matters."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "smartrecruiters",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zwayam",
+    "domain": "zwayam.com",
+    "description": "Zwayam is an AI-powered hiring automation platform that streamlines the hiring process from requisition to offer in a unified workflow. It combines domain expertise with access to Naukri's talent ecosystem to deliver consistent hiring outcomes for large-scale organizations, providing efficient and seamless hiring experiences for enterprises, hiring teams, and candidates alike.",
+    "slogan": "Simplifying hiring with AI-powered automation and seamless candidate connections.",
+    "logoUrl": "https://media.brand.dev/fca6ab21-f994-46a0-bff6-102284dc4ff5.jpg",
+    "iconUrl": "https://media.brand.dev/fca6ab21-f994-46a0-bff6-102284dc4ff5.jpg",
+    "primaryColor": "#2c9bce",
+    "accentColor": "#233a7b",
+    "colors": [
+      {
+        "hex": "#2c9bce",
+        "name": "Astrolabe Reef"
+      },
+      {
+        "hex": "#233a7b",
+        "name": "Surf the Web"
+      },
+      {
+        "hex": "#4465a2",
+        "name": "Starstruck"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3f6adce4-88ea-4b84-9ee5-7fddb8b8b7e8.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "pricing": null,
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fca6ab21-f994-46a0-bff6-102284dc4ff5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5d2bc314-70ff-4202-8b29-10411db91105.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5d2bc314-70ff-4202-8b29-10411db91105.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5d2bc314-70ff-4202-8b29-10411db91105.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

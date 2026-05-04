@@ -1,0 +1,176 @@
+{
+  "slug": "personio",
+  "name": "Personio",
+  "domain": "personio.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Personio",
+  "metaTitle": "Build AI Support and HR Agents with Personio | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely read, update, and summarize Personio data for support teams, HR operations, and internal employee workflows.",
+  "intro": "Personio helps businesses manage core HR processes, employee records, and people operations in one place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely work with Personio. The result is a support or internal AI agent that can answer questions, look up HR information, trigger approved workflows, and prepare clean handoffs without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to confirm the status of a candidate application or interview stage in Personio and reply with an approved update.",
+    "Let a support agent create or enrich a hiring or HR follow-up task in Personio when a website visitor asks for recruiting assistance.",
+    "Have the agent summarize an employee-related case from Personio and prepare a clean handoff for HR or recruiting staff inside a helpdesk ticket.",
+    "Enable the agent to collect missing details from a candidate or employee, then add those notes to the correct Personio record within approved limits.",
+    "Use the agent to check onboarding progress in Personio and share next-step guidance with a new hire through a support chat or ticket response."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up approved Personio information such as onboarding status, time-off policies, or recruiting process details.",
+    "HR and people operations teams can ask the agent to summarize employee, candidate, or onboarding records from Personio and prepare updates, follow-up tasks, or handoff notes.",
+    "Recruiters can chat with the agent to retrieve candidate pipeline context from Personio, compare open roles, and draft consistent next-step communications.",
+    "Managers can use an internal agent to gather the right HR workflow steps, check status across Personio records, and complete routine SOPs with approval boundaries in place.",
+    "Operations teams can use the agent to collect missing context from employees, route requests to the right HR process, and update approved Personio fields without leaving chat."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate or onboarding status in Personio and replies with approved updates.",
+    "A private HR assistant that summarizes employee records and drafts internal handoff notes.",
+    "A recruiting workflow agent that creates follow-up tasks after candidate or hiring manager conversations.",
+    "An employee help agent that answers policy questions using docs and verified Personio data.",
+    "A manager assistant that gathers onboarding progress and prepares next-step checklists for HR teams.",
+    "A helpdesk agent that routes HR questions and attaches Personio context for faster escalation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Personio in plain language, and it turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best setup, defines the required configuration values, handles secure connection and authentication design, protects and proxies secrets, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "For updates, workflow triggers, or other higher-impact steps, Skill Builder adds approval boundaries and safe action limits so the agent only takes the actions you intend it to take."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing and refinement, Skill Builder helps publish the Skill to the right DocsBot agent so it can support website visitors, helpdesk workflows, or private employee chats with Personio-aware actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Personio?",
+      "answer": "With DocsBot Skill Builder, you describe the Personio workflow you want in plain language, such as checking onboarding status, summarizing candidate records, or updating approved fields. Skill Builder then designs the Skill, secures the connection, tests scenarios, and helps deploy it to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Personio data during customer or employee conversations?",
+      "answer": "Yes, a DocsBot agent can use a Skill to look up approved Personio information, summarize status, gather missing details, and prepare handoffs while responding in chat or through a helpdesk. Access can be limited to the specific records and actions your team approves."
+    },
+    {
+      "question": "What internal employee workflows can an AI assistant automate with Personio?",
+      "answer": "An internal DocsBot agent can help employees and managers retrieve onboarding progress, recruiting updates, policy context, and HR workflow steps from Personio. It can also prepare summaries, collect missing information, and trigger approved follow-up tasks inside defined boundaries."
+    },
+    {
+      "question": "Can DocsBot update Personio records or trigger workflows safely?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills for bounded actions such as adding notes, updating approved fields, or creating follow-up tasks in Personio. It defines secure authentication handling, keeps secrets out of chats, scopes permissions, and adds approval controls where needed."
+    },
+    {
+      "question": "How does DocsBot keep Personio integrations secure?",
+      "answer": "Skill Builder is designed to handle secure configuration by default, including required environment values, secret protection, proxied authentication, scoped permissions, and approval boundaries for sensitive actions. That helps teams connect Personio without exposing credentials in prompts, transcripts, or Skill source."
+    },
+    {
+      "question": "Can I use DocsBot with Personio for HR helpdesk or onboarding support?",
+      "answer": "Yes, DocsBot can support HR helpdesk and onboarding workflows by answering common questions, checking approved Personio status details, collecting missing context, and preparing escalations for HR staff. This helps teams resolve routine requests faster while keeping higher-risk actions controlled."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "greenhouse",
+    "lever",
+    "hibob",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Personio",
+    "domain": "personio.com",
+    "description": "Personio is an HR technology company that provides an all-in-one HR software solution for small and medium-sized organizations. Their Intelligent HR Platform simplifies complicated tasks, empowering HR teams to help their people do their best work. Serving over 14,000 businesses and 1 million people worldwide, Personio's platform is designed for companies with 10-5,000 employees, streamlining HR processes and unlocking the power of people.",
+    "slogan": "No hoops, no hype, just great HR",
+    "logoUrl": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+    "iconUrl": "https://media.brand.dev/8670c512-eb94-419a-bb67-d75f6a7cd9f6.png",
+    "primaryColor": "#040404",
+    "accentColor": "#545454",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#545454",
+        "name": "Brilliant Liquorice"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6208a83a-fe65-4b4c-9a5e-a5d32caa235a.png",
+    "industries": [],
+    "links": {
+      "careers": "https://personio.com/about-personio/careers/",
+      "terms": "https://personio.com/terms/",
+      "contact": "https://personio.com/contact/",
+      "privacy": "https://personio.com/privacy-policy/",
+      "blog": "https://personio.com/blog/",
+      "pricing": "https://personio.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8c009aa1-c9f5-4c6e-8507-42ee568916ad.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 405,
+        "height": 54,
+        "aspectRatio": 7.5
+      },
+      {
+        "url": "https://media.brand.dev/8670c512-eb94-419a-bb67-d75f6a7cd9f6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9d542e13-67b7-4b3e-bba6-dddfc5cf995c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 122,
+        "height": 24,
+        "aspectRatio": 5.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 405,
+      "height": 54,
+      "aspectRatio": 7.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8c009aa1-c9f5-4c6e-8507-42ee568916ad.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

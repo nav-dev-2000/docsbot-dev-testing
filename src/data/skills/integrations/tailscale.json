@@ -1,0 +1,194 @@
+{
+  "slug": "tailscale",
+  "name": "Tailscale",
+  "domain": "tailscale.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Tailscale",
+  "metaTitle": "Build AI Agents for Tailscale with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Tailscale for secure lookups, network access workflows, approvals, and internal operations with safe, scoped actions.",
+  "intro": "Tailscale helps teams manage secure, identity-based access across private networks, devices, and services. With DocsBot Skill Builder, you can describe the Tailscale workflow you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. That lets your agent answer questions, check network or device state, prepare handoffs, and trigger approved actions inside clear security boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Tailscale device or connection details to help explain account access issues and summarize the next support step.",
+    "Use a support agent to collect missing troubleshooting context, look up relevant Tailscale network information, and prepare a clean escalation handoff for technical teams.",
+    "Enable a helpdesk-connected DocsBot agent to summarize Tailscale-related access status from approved records so support reps can respond faster to tickets.",
+    "Let the agent trigger bounded follow-up workflows, such as creating an internal review request when a customer reports private network connectivity problems.",
+    "Use the agent to turn a customer conversation into a structured incident summary that includes Tailscale context for engineering or IT follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up approved Tailscale device, user, or network information without digging through admin screens.",
+    "Enable IT or operations teams to ask the agent for a plain-language summary of connectivity state, access posture, or recent network-related records drawn from Tailscale.",
+    "Help internal teams follow access or troubleshooting SOPs by having the agent gather Tailscale details, ask for missing context, and prepare the right next action or escalation.",
+    "Allow employees to request approved Tailscale workflows through chat, with the agent collecting intent, checking rules, and routing sensitive actions behind approval boundaries.",
+    "Support security and operations research by letting team members ask the agent to summarize Tailscale-related findings across cases, devices, or access requests."
+  ],
+  "whatYouCanBuild": [
+    "An AI support assistant that summarizes Tailscale connectivity context for customer access issues.",
+    "An internal IT agent that looks up approved device and user network details.",
+    "A workflow assistant that gathers troubleshooting inputs and prepares Tailscale escalation handoffs.",
+    "A secure chat agent that routes sensitive network actions through human approval steps.",
+    "An operations assistant that summarizes access posture and open follow-up items from Tailscale data.",
+    "An employee help agent that answers common private network access questions using live lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Tailscale agent to do in plain language, and it turns that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should behave, what Tailscale information or actions are needed, and which configuration values are required to connect the workflow safely."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through protected runtime configuration, and scopes access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive Tailscale changes so the agent can assist confidently without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, missing checks, or weak instructions, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Tailscale?",
+      "answer": "With DocsBot Skill Builder, you describe the Tailscale workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Tailscale data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Tailscale lookups to gather context, summarize access or connectivity information, and prepare escalations while staying within the permissions and action limits you define."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Tailscale?",
+      "answer": "Internal agents can help employees look up network or device information, follow troubleshooting SOPs, summarize access-related records, and route sensitive requests into approval-based workflows."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Tailscale?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect credentials through secure runtime configuration, and add approval boundaries so the agent only performs the bounded actions you approve."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs or escalation summaries using Tailscale context?",
+      "answer": "Yes, the agent can gather relevant Tailscale details, summarize the issue, and create a structured handoff for IT, security, or engineering teams so follow-up starts with better context."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Tailscale with DocsBot?",
+      "answer": "You describe the outcome you want, and Skill Builder handles the workflow design, required configuration values, authentication approach, testing, self-improvement, and deployment steps for you."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "cloudflare",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "azure-devops",
+    "github"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Tailscale",
+    "domain": "tailscale.com",
+    "description": "Tailscale is a networking company that enables teams to create secure, private networks instantly without lengthy setup. Their software builds a mesh VPN using existing infrastructure, offering zero upfront cost, low latency, and seamless integration with current services, making corporate‑grade connectivity simple and scalable.",
+    "slogan": "Easy, secure, identity-based access to anything",
+    "logoUrl": "https://media.brand.dev/7e75f0bd-eba5-4d47-a852-589f419efecb.svg",
+    "iconUrl": "https://media.brand.dev/aa6cd4a6-1ae1-448d-8089-cd2bb6c136fe.jpg",
+    "primaryColor": "#848484",
+    "accentColor": "#222222",
+    "colors": [
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#222222",
+        "name": "Black Out"
+      },
+      {
+        "hex": "#d5d5d5",
+        "name": "Disco Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/92f7889e-1242-4613-a0f2-e34852d9c6f3.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://tailscale.com/careers",
+      "terms": "https://tailscale.com/terms",
+      "contact": "https://tailscale.com/contact/sales",
+      "blog": "https://tailscale.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://tailscale.com/pricing",
+      "privacy": "https://tailscale.com/privacy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aa6cd4a6-1ae1-448d-8089-cd2bb6c136fe.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d488fb2c-3673-4d6b-be90-0036dfd4f3fd.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/efec8e9d-43e1-40c9-9353-4378bc1e71c8.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7e75f0bd-eba5-4d47-a852-589f419efecb.svg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 266,
+        "height": 342,
+        "aspectRatio": 0.78
+      },
+      {
+        "url": "https://media.brand.dev/3fb6f981-179d-4f00-a0ac-0fc751a00913.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 145,
+        "height": 28,
+        "aspectRatio": 5.18
+      },
+      {
+        "url": "https://media.brand.dev/d91d94e2-e738-45bd-ab8a-e26115a7d6a0.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3fb6f981-179d-4f00-a0ac-0fc751a00913.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 145,
+      "height": 28,
+      "aspectRatio": 5.18
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d488fb2c-3673-4d6b-be90-0036dfd4f3fd.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

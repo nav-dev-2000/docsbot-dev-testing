@@ -1,0 +1,192 @@
+{
+  "slug": "rithum",
+  "name": "Rithum",
+  "domain": "rithum.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Rithum",
+  "metaTitle": "Build AI Support and Internal Agents for Rithum",
+  "metaDescription": "Create DocsBot AI agents that use Rithum to look up orders, summarize channel activity, update approved records, and trigger commerce workflows safely.",
+  "intro": "Rithum helps brands and retailers manage product listings, fulfillment, and channel operations across connected commerce workflows. With DocsBot Skill Builder, you can describe the Rithum-powered agent you want in plain language and have DocsBot design, secure, test, and package the Skill for you. The result is an AI support agent or internal team assistant that can answer questions and take bounded action inside your commerce operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Rithum order or fulfillment status and explain the latest shipment or channel update in a clear support reply.",
+    "Use a support agent connected to your helpdesk to summarize Rithum order, inventory, or marketplace activity before handing a case to a human specialist.",
+    "Allow the agent to collect missing order details from the customer, look up the matching record in Rithum, and prepare an accurate escalation note for operations.",
+    "Enable the agent to confirm whether a product is active on a sales channel in Rithum and give the customer a status update without making them wait for manual research.",
+    "Let the agent trigger an approved follow-up workflow in Rithum-related operations, such as creating a task or flagging a fulfillment issue for review, while replying to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up Rithum order, listing, fulfillment, or channel status without switching between commerce systems.",
+    "Operations teams can ask the agent to summarize exceptions, channel issues, or product availability findings from Rithum and turn them into handoff notes or daily recaps.",
+    "Customer success or support managers can use the agent in Slack or Microsoft Teams to gather Rithum context for escalations and follow the right SOP faster.",
+    "Merchandising and marketplace teams can chat with the agent to research listing status across channels and prepare the next approved workflow step.",
+    "Internal teams can use the agent to generate structured summaries from Rithum data for tickets, account reviews, and cross-functional coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks order and fulfillment status in Rithum during customer support conversations.",
+    "A private operations assistant that summarizes channel exceptions and recommended next steps from Rithum activity.",
+    "A support workflow that gathers missing order details and prepares an escalation handoff using Rithum records.",
+    "An internal assistant that checks whether products are listed and active across connected sales channels.",
+    "A commerce agent that creates structured case notes from Rithum order, listing, and fulfillment context.",
+    "A team assistant that triggers approved follow-up workflows after identifying fulfillment or channel issues in Rithum."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Rithum-powered agent to do, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should retrieve Rithum data or take approved actions, asks for any missing business context, and defines the safest workflow structure for the job."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, handles secure authentication and secret proxying through runtime settings, keeps credentials out of chats and Skill source, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals are built in",
+      "description": "Skill Builder adds sensible permission limits and approval boundaries for sensitive updates, escalations, or workflow triggers so the agent acts only within your defined rules."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Rithum?",
+      "answer": "With DocsBot Skill Builder, you describe the Rithum workflow you want in plain language, such as checking order status or summarizing channel issues, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The finished agent can then use approved Rithum data and actions inside customer support or internal team conversations."
+    },
+    {
+      "question": "Can an AI support agent use Rithum data to answer customer order or fulfillment questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved Rithum order, fulfillment, or channel information and turn it into a clear customer response. It can also gather missing details, summarize findings, and prepare a handoff when a human team needs to step in."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Rithum?",
+      "answer": "An internal DocsBot agent can help teams research listing status, fulfillment issues, channel exceptions, and other commerce context stored in Rithum. It can also generate summaries, support SOP-driven decisions, and trigger bounded follow-up actions where you allow them."
+    },
+    {
+      "question": "Can DocsBot safely update records or trigger workflows in Rithum?",
+      "answer": "DocsBot Skill Builder can create Skills for approved updates or workflow triggers with scoped permissions and approval boundaries. Skill Builder also handles secure connection design, protects secrets through runtime configuration, and limits the agent to the actions and records you authorize."
+    },
+    {
+      "question": "Can a Rithum AI agent help with support escalations and handoffs?",
+      "answer": "Yes, the agent can collect the right customer details, retrieve relevant Rithum context, and generate structured escalation notes for support or operations teams. This helps human teammates start with the key facts instead of repeating research."
+    },
+    {
+      "question": "How much technical setup is needed to connect DocsBot to Rithum workflows?",
+      "answer": "You do not need to map every implementation detail yourself. You describe the business outcome you want, and Skill Builder guides the setup, defines secure configuration needs, tests the workflow, improves it, and helps deploy it to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "netsuite",
+    "amazon-seller-central",
+    "mirakl",
+    "shipstation"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rithum",
+    "domain": "rithum.com",
+    "description": "Rithum is a commerce solutions provider that empowers brands and retailers to list, fulfill, and optimize products across multiple channels. With 28 years of innovation, Rithum's platform drives scalable, sustainable growth and aims to build the world's most connected commerce ecosystem.",
+    "slogan": "Empowering seamless, connected commerce for limitless growth worldwide.",
+    "logoUrl": "https://media.brand.dev/ca23f92b-a0ce-4902-b100-d900558682d2.svg",
+    "iconUrl": "https://media.brand.dev/4423e1d0-d56c-42e8-a534-2f1f869d54a2.jpg",
+    "primaryColor": "#b44f72",
+    "accentColor": "#fad4ce",
+    "colors": [
+      {
+        "hex": "#b44f72",
+        "name": "Royal Heath"
+      },
+      {
+        "hex": "#fad4ce",
+        "name": "Rose Sorbet"
+      },
+      {
+        "hex": "#bda2cc",
+        "name": "Lavendula"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/528bf030-2ec6-4602-93ff-ea4d2659d2b1.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.rithum.com/company/careers/",
+      "terms": "https://www.rithum.com/terms-of-use/",
+      "contact": "https://www.rithum.com/company/contact/",
+      "privacy": "https://www.rithum.com/privacy-policy/",
+      "blog": "https://www.rithum.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4423e1d0-d56c-42e8-a534-2f1f869d54a2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/87ab5dec-1f82-48c7-88d1-30f77132e83e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ca23f92b-a0ce-4902-b100-d900558682d2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 36,
+        "aspectRatio": 5.56
+      },
+      {
+        "url": "https://media.brand.dev/eb842634-48bc-4e86-8212-dd629033c4fd.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 73,
+        "height": 73,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/47028360-0f61-4df0-b3bb-72916a536afc.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3aae7db1-e7d5-43ad-95b4-9a0d5fe5ce63.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ca23f92b-a0ce-4902-b100-d900558682d2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 36,
+      "aspectRatio": 5.56
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/eb842634-48bc-4e86-8212-dd629033c4fd.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 73,
+      "height": 73,
+      "aspectRatio": 1
+    }
+  }
+}

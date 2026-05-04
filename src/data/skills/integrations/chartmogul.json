@@ -1,0 +1,152 @@
+{
+  "slug": "chartmogul",
+  "name": "ChartMogul",
+  "domain": "chartmogul.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ChartMogul",
+  "metaTitle": "Build ChartMogul AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ChartMogul for subscription metric lookups, summaries, handoffs, and safe internal workflow automation.",
+  "intro": "ChartMogul helps subscription businesses understand MRR, churn, LTV, and other key growth metrics in one place. With DocsBot Skill Builder, you can describe in plain language how an AI agent should use ChartMogul, and Skill Builder designs, secures, tests, and deploys that ability for you. The result is a customer support or internal AI agent that can answer questions, summarize subscription performance, prepare handoffs, and take bounded actions using approved ChartMogul data.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up high-level subscription metrics in ChartMogul to answer plan, revenue trend, or account health questions with approved summaries.",
+    "Use a support agent connected to your helpdesk to summarize ChartMogul subscription history and recent metric changes before handing a ticket to billing or customer success.",
+    "Have the agent use ChartMogul data to identify churn risk signals or expansion context so it can prepare a smarter escalation for a human teammate.",
+    "Enable the agent to gather customer context from the conversation, combine it with ChartMogul reporting data, and create a concise account health summary inside a support reply or handoff note.",
+    "Let the agent answer customer questions about billing performance trends by translating ChartMogul metrics into plain-language explanations that are easier to understand."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that answers questions about MRR, ARPU, churn, LTV, and subscription trends by retrieving approved ChartMogul data in chat, Slack, or Microsoft Teams.",
+    "Let customer success and finance teams chat with the agent to generate account summaries, segment performance snapshots, and executive-ready metric explanations without opening multiple dashboards.",
+    "Help revenue and operations teams research subscription changes by asking the agent to summarize ChartMogul activity and prepare a handoff for follow-up workflows in other systems.",
+    "Enable leaders to ask the agent for recurring performance summaries, trend comparisons, and concise board-meeting notes generated from ChartMogul data.",
+    "Support internal SOPs where employees ask the agent to gather subscription analytics context from ChartMogul before escalating renewals, churn reviews, or expansion opportunities."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains subscription health using approved ChartMogul metrics.",
+    "A billing triage assistant that prepares revenue and churn summaries for ticket escalations.",
+    "An internal finance agent that answers natural-language questions about MRR and LTV.",
+    "A customer success assistant that flags churn signals and drafts renewal handoff notes.",
+    "An executive reporting agent that turns ChartMogul data into concise weekly summaries.",
+    "A Slack assistant that compares segments, plans, or cohorts using approved analytics lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with ChartMogul in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best way to connect to ChartMogul, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the data, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For any sensitive lookups, updates, or cross-system steps, Skill Builder adds approval boundaries and safe action limits so the agent stays within the rules you define."
+    },
+    {
+      "title": "An automated test agent reviews it",
+      "description": "DocsBot runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so people can start using it confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ChartMogul data?",
+      "answer": "With DocsBot Skill Builder, you describe the ChartMogul workflow you want in plain language, such as metric lookups, summaries, or handoff preparation. Skill Builder then designs the Skill, secures the connection, tests scenarios, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use ChartMogul to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved ChartMogul data to explain subscription trends, summarize account health, or prepare escalations for billing and customer success teams. You control what information the agent can access and when a human review or approval is required."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with ChartMogul?",
+      "answer": "An internal DocsBot agent can help employees retrieve subscription metrics, compare trends, create executive summaries, prepare churn reviews, and support renewal or expansion workflows. It can also gather ChartMogul context before passing work into other approved business systems."
+    },
+    {
+      "question": "Can DocsBot safely connect ChartMogul to AI actions and workflows?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration values, keep credentials out of chats and Skill source, proxy secrets through protected runtime settings, and scope permissions to the minimum workflow needs. It can also add approval boundaries for sensitive actions or broader data access."
+    },
+    {
+      "question": "Can a DocsBot agent summarize ChartMogul metrics for executives or customer success teams?",
+      "answer": "Yes, you can build a Skill that turns ChartMogul analytics into plain-language summaries for leaders, finance, support, or customer success teams. This is useful for weekly reporting, account reviews, escalations, and fast decision support in chat."
+    },
+    {
+      "question": "How does testing work for a ChartMogul AI Skill?",
+      "answer": "DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill before deployment. It identifies bugs, missing guardrails, and instruction improvements, then uses those findings to improve the Skill before it goes live."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe-billing",
+    "recurly",
+    "chargebee",
+    "profitwell",
+    "zuora",
+    "maxio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ChartMogul",
+    "domain": "chartmogul.com",
+    "description": "ChartMogul is an analytics platform that simplifies subscription businesses by providing a comprehensive overview of key metrics such as MRR, ARPU, ASP, churn, and LTV through an intuitive dashboard. Their SaaS metrics and growth platform enables businesses to understand their performance and drive future growth.",
+    "slogan": "Simplify subscription analytics and drive growth with ease and clarity.",
+    "logoUrl": "https://media.brand.dev/acf89e4b-752f-4f20-868e-5e419d1e1ae9.jpg",
+    "iconUrl": "https://media.brand.dev/acf89e4b-752f-4f20-868e-5e419d1e1ae9.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#1b427a",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#1b427a",
+        "name": "Assault"
+      },
+      {
+        "hex": "#84a4bc",
+        "name": "Hawaiian Sky"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d9ffacb3-10db-4e35-9cab-21b334db95d6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://chartmogul.com/contact/",
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/acf89e4b-752f-4f20-868e-5e419d1e1ae9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/acf89e4b-752f-4f20-868e-5e419d1e1ae9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/acf89e4b-752f-4f20-868e-5e419d1e1ae9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

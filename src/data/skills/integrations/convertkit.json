@@ -1,0 +1,160 @@
+{
+  "slug": "convertkit",
+  "name": "ConvertKit",
+  "domain": "convertkit.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ConvertKit",
+  "metaTitle": "Build ConvertKit AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ConvertKit to look up subscribers, update tags, trigger workflows, prepare handoffs, and support internal marketing operations safely.",
+  "intro": "ConvertKit is an email-first marketing platform used to manage subscribers, forms, automations, and creator communications. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use ConvertKit data and actions. That means a support bot or internal team assistant can answer questions, check subscriber status, trigger approved workflows, and summarize activity without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a subscriber is on a list, has a tag, or completed a form before answering account or email preference questions.",
+    "Enable the agent to help customers update marketing preferences by applying approved tag changes or triggering the right follow-up workflow in ConvertKit.",
+    "Use the agent to summarize a subscriber's recent email or form activity for a support handoff when a conversation needs a human teammate.",
+    "Allow the agent to create structured escalation notes that include ConvertKit subscriber context, tags, segments, and recent automation status for faster ticket resolution.",
+    "Help the agent answer why a customer may or may not be receiving a campaign by checking known subscription state, form submissions, or automation enrollment details in ConvertKit within approved limits."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up subscriber status, tags, forms, and automation context in ConvertKit without opening multiple tools.",
+    "Enable marketing and customer success teams to ask the agent to prepare campaign follow-up lists, summarize subscriber segments, or research audience activity across ConvertKit records.",
+    "Allow team members in Slack or Microsoft Teams to have the agent apply approved tags, enroll contacts into bounded workflows, or prepare handoffs for manual review.",
+    "Support internal SOPs where employees ask the agent to verify lead capture status, investigate missing nurture enrollment, and summarize the next recommended step.",
+    "Give operations or support managers an internal assistant that can collect ConvertKit context, generate a concise case summary, and route the issue to the right team."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks subscriber tags before answering email access questions.",
+    "An internal assistant that summarizes ConvertKit subscriber history for sales or success teams.",
+    "A workflow Skill that applies approved tags based on verified customer requests.",
+    "An escalation helper that packages subscriber context for human support handoffs.",
+    "A private team agent that investigates missing form submissions or automation enrollment.",
+    "A marketing operations assistant that prepares audience segment summaries on demand."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ConvertKit agent to do in plain language, such as checking subscriber status, updating tags, or preparing a support handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a safe Skill design, asks for any missing business context, and defines the right runtime behavior, reference material, and approved ConvertKit actions for the agent."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill logic, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum ConvertKit records, actions, users, and workflows needed, and adds approval boundaries for sensitive updates or higher-risk operations."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ConvertKit?",
+      "answer": "With DocsBot Skill Builder, you describe the ConvertKit workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your support bot or internal AI assistant. The finished agent can perform approved lookups, updates, summaries, and workflow triggers inside the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use ConvertKit subscriber data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a ConvertKit Skill to look up subscriber context such as tags, forms, or automation status while replying to customers. Skill Builder scopes access carefully and can add approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with ConvertKit?",
+      "answer": "Teams can build workflows for subscriber lookups, email preference verification, tag updates, campaign troubleshooting summaries, and escalation prep with ConvertKit context attached. This helps the agent move from answering questions to taking bounded action safely."
+    },
+    {
+      "question": "Can an internal AI assistant update ConvertKit records for employees?",
+      "answer": "Yes, internal DocsBot agents can be designed to apply approved tags, trigger bounded automations, or prepare review-ready updates for employees in chat, Slack, or Microsoft Teams. Skill Builder sets the action limits, secure connection handling, and approval steps around those workflows."
+    },
+    {
+      "question": "Is it possible to use DocsBot and ConvertKit for marketing operations research and summaries?",
+      "answer": "Yes, teams can build private AI assistants that summarize subscriber segments, investigate automation enrollment issues, or collect campaign context from ConvertKit records. This is useful for marketing, customer success, and operations teams that need quick answers without manual tool switching."
+    },
+    {
+      "question": "How does DocsBot keep ConvertKit actions secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated content. It also scopes permissions to the smallest practical access level and can require approvals for sensitive actions."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "activecampaign",
+    "customer-io",
+    "klaviyo",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ConvertKit",
+    "domain": "convertkit.com",
+    "description": "Kit is a creator marketing platform that provides an email-first operating system for creators. They offer a suite of tools to help creators manage their marketing efforts and grow their business. With a focus on email, Kit enables creators to take control of their marketing and build a successful business.",
+    "slogan": "Empowering creators to build and grow with email first and foremost.",
+    "logoUrl": "https://media.brand.dev/a187a639-729a-46ea-8db5-310adaf952ca.jpg",
+    "iconUrl": "https://media.brand.dev/a187a639-729a-46ea-8db5-310adaf952ca.jpg",
+    "primaryColor": "#43aff6",
+    "accentColor": "#2f5c84",
+    "colors": [
+      {
+        "hex": "#43aff6",
+        "name": "Adamantine Blue"
+      },
+      {
+        "hex": "#2f5c84",
+        "name": "Dead Lake"
+      },
+      {
+        "hex": "#1d2123",
+        "name": "Noble Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b6bd9553-9a21-4e7f-a205-bac20d7efaa7.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a187a639-729a-46ea-8db5-310adaf952ca.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b7476d07-2561-434f-b039-66b3d81bf0b6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b7476d07-2561-434f-b039-66b3d81bf0b6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b7476d07-2561-434f-b039-66b3d81bf0b6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "connectwise-psa",
+  "name": "ConnectWise PSA",
+  "domain": "connectwise-psa.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for ConnectWise PSA with DocsBot Skills",
+  "metaTitle": "Build ConnectWise PSA AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ConnectWise PSA for support lookups, ticket updates, handoffs, workflow triggers, and internal team assistance.",
+  "intro": "ConnectWise PSA helps service teams manage tickets, service delivery, and operational workflows across IT and managed services. With DocsBot Skill Builder, you can describe the ConnectWise PSA action you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That lets your agent answer questions, look up live PSA data, update approved records, prepare handoffs, and trigger bounded workflows without exposing technical setup to end users.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up ticket status, priority, assigned resource, and recent updates in ConnectWise PSA while replying in chat or over helpdesk tickets.",
+    "Use the agent to create a new service ticket in ConnectWise PSA from a customer conversation, including the issue summary, contact details, and relevant context gathered during the chat.",
+    "Allow the agent to add internal notes or customer-visible updates to an existing ConnectWise PSA ticket after confirming the right record and applying your approval rules.",
+    "Have the agent summarize an open incident or service request from ConnectWise PSA so customers receive a clear status update without waiting for a manual response.",
+    "Use the agent to prepare escalation handoffs by collecting troubleshooting details from the customer and packaging them into the ConnectWise PSA ticket for the service team."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web interface to find ticket details, account history, service board status, and recent ConnectWise PSA activity.",
+    "Let service desk teams ask the agent to create tickets, update statuses, assign work, or append structured notes in ConnectWise PSA within scoped permissions and approval boundaries.",
+    "Help customer success, operations, or dispatch teams use the agent to summarize aging tickets, identify blocked work, and prepare follow-up workflows based on ConnectWise PSA records.",
+    "Support internal SOPs by letting employees ask the agent for the next step in a service workflow, while the agent retrieves relevant ConnectWise PSA information and completes approved actions.",
+    "Allow managers to chat with the agent for queue summaries, escalation research, and generated handoff notes built from live ConnectWise PSA data."
+  ],
+  "whatYouCanBuild": [
+    "A support bot that checks ConnectWise PSA ticket status and explains the latest update to customers.",
+    "An AI agent that creates new ConnectWise PSA service tickets from website chat conversations.",
+    "A private assistant that summarizes service board queues and highlights overdue or unassigned work.",
+    "An internal agent that updates ticket notes after collecting troubleshooting details from employees.",
+    "A handoff workflow that packages customer context into ConnectWise PSA before escalation.",
+    "An approval-based agent that changes ticket status only when your rules allow it."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ConnectWise PSA agent to do, such as checking ticket status, creating service tickets, updating notes, or preparing escalations, and it translates that goal into a complete Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill logic, proxies secrets through protected runtime configuration, and scopes ConnectWise PSA access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so the agent can look up data, create or update records, and trigger workflows only within the rules you define for customers or employees."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private internal assistant for Slack, Microsoft Teams, or chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ConnectWise PSA without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the ConnectWise PSA workflow you want in plain language and Skill Builder creates, secures, tests, and prepares the Skill for deployment. It handles the connection design, secret management, scoped permissions, and action boundaries behind the scenes."
+    },
+    {
+      "question": "Can a DocsBot support agent use ConnectWise PSA data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a ConnectWise PSA Skill to look up ticket details, summarize service status, create records, or prepare escalations while responding to customers in chat or through helpdesk tickets. You control which lookups and actions are allowed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with ConnectWise PSA?",
+      "answer": "A DocsBot agent can gather issue details, create service tickets, check ticket status, add approved updates, summarize open work, and prepare structured handoffs for human teams. This helps customers get faster answers while keeping sensitive actions within your rules."
+    },
+    {
+      "question": "Can an internal AI assistant update ConnectWise PSA records for employees?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve ticket information, add notes, update statuses, assign work, or trigger follow-up workflows in ConnectWise PSA when those actions are permitted. Skill Builder can also add approvals for higher-risk changes."
+    },
+    {
+      "question": "How does DocsBot keep ConnectWise PSA credentials and API access secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can I require approvals before an AI agent changes ConnectWise PSA tickets?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries for sensitive actions such as status changes, assignments, or record updates. That lets the agent handle safe automation while routing higher-impact actions through the controls you choose."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "jira-service-management",
+    "autotask",
+    "servicenow",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ConnectWise",
+    "domain": "connectwise.com",
+    "description": "ConnectWise is the world’s leading software company for technology solutions providers, offering an integrated platform that lets managed service providers run their entire as‑a‑service business. Their suite includes business management, remote monitoring and management, remote control, quote and proposal automation, and cybersecurity risk assessments, plus hundreds of vendor integrations and a vibrant community called IT Nation. By combining powerful tools with services and a collaborative ecosystem, ConnectWise helps IT partners streamline operations, improve service delivery, and grow revenue. The company emphasizes an inclusive culture that values diverse perspectives and empowers employees to make a difference.",
+    "slogan": "Service delivery reimagined with autonomous, AI-native IT management.",
+    "logoUrl": "https://media.brand.dev/ab308ac1-8d7c-47cd-89b9-72a45db63e0d.jpg",
+    "iconUrl": "https://media.brand.dev/ab308ac1-8d7c-47cd-89b9-72a45db63e0d.jpg",
+    "primaryColor": "#303c6a",
+    "accentColor": "#a3aabb",
+    "colors": [
+      {
+        "hex": "#303c6a",
+        "name": "Newport Indigo"
+      },
+      {
+        "hex": "#a3aabb",
+        "name": "Ridge View"
+      },
+      {
+        "hex": "#f3f5f6",
+        "name": "Chef’s Hat"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/aa418d8c-5aa1-4dab-bb2c-353eb38b25f7.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.connectwise.com/company/careers",
+      "terms": "https://www.connectwise.com/company/terms",
+      "contact": "https://www.connectwise.com/contact-us",
+      "privacy": "https://www.connectwise.com/company/privacy-policy",
+      "blog": "https://www.connectwise.com/blog",
+      "pricing": "https://www.connectwise.com/request-pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ab308ac1-8d7c-47cd-89b9-72a45db63e0d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e00dbb50-b8c7-416e-8969-2395e60aedfb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ab308ac1-8d7c-47cd-89b9-72a45db63e0d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ab308ac1-8d7c-47cd-89b9-72a45db63e0d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

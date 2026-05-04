@@ -1,0 +1,168 @@
+{
+  "slug": "buddy",
+  "name": "Buddy",
+  "domain": "buddy.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Buddy CI/CD Workflows",
+  "metaTitle": "Build Buddy AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read Buddy pipeline data, summarize build status, trigger safe workflows, and support teams with approved actions.",
+  "intro": "Buddy helps teams manage CI/CD pipelines and deployment workflows. With DocsBot Skill Builder, you can describe the Buddy-powered agent behavior you want in plain language, and DocsBot can design, secure, test, and publish a reusable Skill for support or internal operations. The result is an AI agent that can answer questions, check pipeline status, prepare handoffs, and take bounded actions in Buddy under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Buddy pipeline or deployment status when customers ask whether a fix, feature, or release has been deployed.",
+    "Use Buddy data in helpdesk replies so the agent can summarize recent build outcomes, release progress, and known deployment blockers for customer-facing updates.",
+    "Have the agent prepare an escalation handoff by collecting the affected environment, recent deployment history, and relevant Buddy job results before sending the case to engineering.",
+    "Allow the agent to trigger an approved Buddy workflow for safe recovery, diagnostics, or post-release verification when a support case matches defined rules.",
+    "Let the agent summarize failed or successful deployment runs in plain language so customers receive clear status updates without engineering jargon."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Buddy pipeline runs, deployment status, and recent build results without opening multiple tools.",
+    "Engineering, support, and operations teams can ask the agent to summarize release health across projects and highlight failed steps, retries, or blocked deployments for faster triage.",
+    "Team members can use the agent to follow release or incident SOPs that gather Buddy job details, create a concise status summary, and prepare the next escalation step.",
+    "Internal teams can ask the agent to trigger approved Buddy workflows, such as validation runs or deployment checks, with permissions and approval boundaries defined by DocsBot Skill Builder.",
+    "Employees can use the agent to generate incident notes, release summaries, and stakeholder-ready updates based on Buddy execution data and workflow outcomes."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Buddy deployment status before replying to customer release questions.",
+    "An internal assistant that summarizes failed Buddy pipelines and suggests the next approved workflow step.",
+    "A helpdesk-connected agent that prepares engineering handoffs with Buddy run history and environment details.",
+    "A release assistant that triggers safe Buddy validation workflows after collecting the right context.",
+    "An operations agent that generates plain-language deployment summaries from Buddy job and pipeline results.",
+    "A team assistant that follows incident SOPs using Buddy build data and release workflow checks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Buddy-powered agent to do in plain language, such as checking pipeline status, summarizing deployments, or triggering an approved workflow during support or internal chats."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and plans how the agent should look up Buddy data, take bounded actions, and respond clearly in each scenario."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines safe authentication handling, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes Buddy access to the minimum projects, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive Buddy steps so the agent can inform, summarize, and automate only within the rules you approve."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Buddy CI/CD pipelines?",
+      "answer": "With DocsBot Skill Builder, you describe the Buddy workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to a support or internal agent. The finished agent can look up pipeline data, summarize run status, and trigger approved Buddy actions within your rules."
+    },
+    {
+      "question": "Can an AI support agent use Buddy data to answer customer release questions?",
+      "answer": "Yes, a DocsBot support agent can use Buddy pipeline and deployment data to check release status, summarize recent build outcomes, and prepare clearer customer updates. You can also limit which environments, projects, and actions the agent is allowed to access."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Buddy?",
+      "answer": "An internal DocsBot agent can help teams check deployment health, summarize failed jobs, prepare release notes, gather incident context, and trigger approved validation or recovery workflows. This is useful in chat, Slack, or Microsoft Teams when employees need fast answers or guided SOP execution."
+    },
+    {
+      "question": "Can DocsBot trigger Buddy workflows safely?",
+      "answer": "Yes, Skill Builder can design bounded Buddy actions with scoped permissions, secure authentication, and approval steps for sensitive workflows. That lets the agent take useful action without giving it open-ended control."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs or escalation summaries using Buddy run history?",
+      "answer": "Yes, the agent can collect Buddy execution details, environment context, and recent deployment outcomes to create a concise handoff for engineering or operations. This helps support teams move issues forward with better context and less manual work."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Buddy with DocsBot?",
+      "answer": "You describe the outcome you want, and Skill Builder handles the design, secure configuration, testing, and deployment path for the Skill. It also identifies required settings, protects secrets, and improves the Skill through automated scenario testing before rollout."
+    }
+  ],
+  "relatedSlugs": [
+    "github-actions",
+    "gitlab",
+    "github",
+    "jenkins",
+    "circleci",
+    "bitbucket"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Buddy Technologies",
+    "domain": "buddy.com",
+    "description": "Buddy Technologies Limited (ASX:BUD) is a company that helps customers make every space smarter through its subsidiaries Buddy Platform and LIFX. Buddy Platform offers solutions such as Buddy Cloud, Buddy Ohm, and Parse on Buddy to empower customers to leverage digital technologies, while LIFX is a leading provider of smart lighting solutions with products sold in over 100 countries worldwide.",
+    "slogan": "Making spaces smarter through innovative IoT solutions and smart lighting.",
+    "logoUrl": "https://media.brand.dev/d591af5d-8be7-4719-bc2f-06a8dbdf9804.png",
+    "iconUrl": "https://media.brand.dev/883da1d8-df1e-48eb-82a0-3fddac38333c.png",
+    "primaryColor": "#bd1c2c",
+    "accentColor": "#cccdcd",
+    "colors": [
+      {
+        "hex": "#bd1c2c",
+        "name": "Ruby Shard"
+      },
+      {
+        "hex": "#cccdcd",
+        "name": "Compact Disc Grey"
+      },
+      {
+        "hex": "#2db1c0",
+        "name": "Explore Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4829b72d-222a-406c-b26f-28fa7a247eda.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/883da1d8-df1e-48eb-82a0-3fddac38333c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d591af5d-8be7-4719-bc2f-06a8dbdf9804.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 210,
+        "height": 85,
+        "aspectRatio": 2.47
+      },
+      {
+        "url": "https://media.brand.dev/a42eb118-2b65-4130-b6df-1a8e63c47bd0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d591af5d-8be7-4719-bc2f-06a8dbdf9804.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 210,
+      "height": 85,
+      "aspectRatio": 2.47
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/883da1d8-df1e-48eb-82a0-3fddac38333c.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

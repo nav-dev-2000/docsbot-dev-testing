@@ -1,0 +1,183 @@
+{
+  "slug": "chargify",
+  "name": "Chargify",
+  "domain": "chargify.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Chargify",
+  "metaTitle": "Build Chargify AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Chargify to answer billing questions, check subscription status, update records, trigger workflows, and support internal teams safely.",
+  "intro": "Chargify helps B2B SaaS teams manage recurring billing, subscriptions, and flexible pricing. With DocsBot Skill Builder, you can describe the billing or subscription workflow you want in plain language and have DocsBot create a reusable Skill for your AI agent. That lets customer support bots and internal team assistants safely look up Chargify data, prepare handoffs, update approved records, and trigger bounded billing workflows.",
+  "supportUseCases": [
+    "Use Chargify data during website chat or helpdesk replies to check a customer's subscription status, plan details, renewal date, and billing history.",
+    "Let the AI agent explain invoice, payment, and subscription changes by summarizing the relevant Chargify account activity for the customer.",
+    "Create approved support workflows that update billing contact details, apply allowed account changes, or start a handoff when a request needs human review.",
+    "Have the agent gather missing billing context from the customer, then prepare a complete escalation summary for finance or customer success teams.",
+    "Use Chargify lookups to confirm whether a subscription is active, canceled, paused, or pending before the agent gives next-step guidance to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Chargify subscription details without logging into multiple systems.",
+    "Customer success and finance teams can ask the agent to summarize account billing state, renewal risk, product usage context, and recent subscription changes before an outreach.",
+    "Operations teams can use the agent to follow billing SOPs, trigger approved account workflows, and create handoff notes when exceptions need a specialist.",
+    "Sales, support, and revenue teams can chat with the agent to research subscription history, contract-related billing context, and account changes across customer records.",
+    "Internal teams can use the agent to answer recurring process questions about subscription operations while completing bounded Chargify actions under defined approval rules."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks subscription status and explains recent billing events in plain language.",
+    "An AI billing assistant that gathers account details and prepares clean escalation summaries for finance teams.",
+    "A customer success agent that reviews renewals, plan changes, and account history before outreach.",
+    "An internal revenue operations assistant that follows subscription management SOPs through chat.",
+    "A helpdesk agent that verifies account state before approving next-step billing guidance.",
+    "A private team agent that triggers approved subscription workflows with human approval boundaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Chargify agent to do, such as checking subscription status, summarizing billing issues, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Chargify access to the minimum records and actions needed."
+    },
+    {
+      "title": "Safe actions are defined",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and action limits so the agent can look up data, update approved records, trigger workflows, or create handoff summaries within your rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps deploy it to your customer-facing support bot or your internal team assistant so people can use Chargify actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Chargify?",
+      "answer": "With DocsBot Skill Builder, you describe the Chargify workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your support or internal AI agent. The finished agent can perform approved lookups, summaries, updates, and workflow triggers based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Chargify data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can use Chargify to look up subscription status, renewal timing, billing history, and related account details while replying in chat or through a helpdesk. You control which data and actions are allowed, and sensitive changes can require approval boundaries."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Chargify?",
+      "answer": "A Chargify-connected agent can verify account status, summarize billing activity, collect missing context from the customer, prepare escalations, and complete approved record updates or workflow triggers. This helps support teams resolve subscription questions faster without giving the agent unlimited billing access."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Chargify?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve subscription details, review account history, follow billing SOPs, and trigger approved workflows across teams. This is useful for finance, support, customer success, and operations teams that need fast access to billing context."
+    },
+    {
+      "question": "How does DocsBot keep Chargify actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through runtime settings, keeps credentials out of chat transcripts, and scopes permissions to the minimum actions and records needed. It can also add approval steps and limits for sensitive billing changes."
+    },
+    {
+      "question": "Can DocsBot test a Chargify Skill before deployment?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs realistic support and internal scenarios against the proposed workflow. It identifies bugs, missing instructions, or unsafe permission gaps and uses those findings to improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "recurly",
+    "stripe-billing",
+    "chargebee",
+    "zuora",
+    "paddle"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Chargify",
+    "domain": "chargify.com",
+    "description": "Chargify is a subscription billing software service that provides a recurring billing and subscription management platform for B2B SaaS companies. It offers Elastic Billing, allowing businesses to maximize revenue, launch, experiment, and personalize offers without custom code or professional services, helping them unlock their next stage of growth.",
+    "slogan": "Maximize revenue with flexible, scalable subscription billing for SaaS growth.",
+    "logoUrl": "https://media.brand.dev/7b808645-bafb-4cec-9209-4d113027c8b2.svg",
+    "iconUrl": "https://media.brand.dev/2a879a94-1a6a-4680-a5cf-633eb8ac83f6.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#060606",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#060606",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#e2e2e2",
+        "name": "Jupiter"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4957274c-766f-4137-96f7-264ec50e3e11.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2a879a94-1a6a-4680-a5cf-633eb8ac83f6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/850667ad-f420-4086-b68a-9a2d7842183c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e6183d82-879e-4ed8-9b1c-674cdf4ba302.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/785c204f-5b10-4d63-9a01-2c4d3c0b7944.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7b808645-bafb-4cec-9209-4d113027c8b2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 212,
+        "height": 44,
+        "aspectRatio": 4.82
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7b808645-bafb-4cec-9209-4d113027c8b2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 212,
+      "height": 44,
+      "aspectRatio": 4.82
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e6183d82-879e-4ed8-9b1c-674cdf4ba302.svg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

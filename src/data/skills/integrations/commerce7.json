@@ -1,0 +1,176 @@
+{
+  "slug": "commerce7",
+  "name": "Commerce7",
+  "domain": "commerce7.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for Commerce7 with DocsBot Skill Builder",
+  "metaTitle": "Build Commerce7 AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Commerce7 to answer customers, update records, trigger winery workflows, and support internal teams with safe actions.",
+  "intro": "Commerce7 helps wineries manage ecommerce, CRM, reservations, clubs, POS, and customer experiences in one platform. With DocsBot Skill Builder, you can describe the Commerce7 workflow you want in plain language and have DocsBot create a reusable AI Skill for support or internal operations. The result is an AI agent that can answer questions, look up live Commerce7 data, take approved actions, and hand off complex cases with better context.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order status, club membership details, reservation information, or customer profile data in Commerce7 while replying in chat or over helpdesk tickets.",
+    "Allow the agent to update approved customer records such as contact details, tasting reservation notes, or communication preferences after confirming the customer request.",
+    "Use the agent to create support handoffs that summarize Commerce7 order history, club status, recent reservations, and the customer’s issue for a human team member.",
+    "Enable the agent to answer common winery support questions by combining your policy content with live Commerce7 details such as shipment state, membership benefits, or reservation availability.",
+    "Let the agent trigger approved follow-up workflows such as notifying staff about a reservation issue, flagging a club account for review, or preparing a refund or cancellation request for human approval."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Commerce7 customer, order, club, reservation, or account details without manually searching across screens.",
+    "Customer success, tasting room, and wine club teams can ask the agent to summarize a guest or member relationship in Commerce7 before outreach or service recovery.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to prepare handoff notes, account summaries, or follow-up task lists based on Commerce7 activity.",
+    "Staff can chat with the agent to complete winery SOPs such as checking recent purchase history, confirming club status, and drafting the next best action for a guest.",
+    "Managers can use an internal AI assistant to research Commerce7 trends, assemble customer context for escalations, and trigger approved workflows with clear approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Commerce7 order, club, and reservation details during customer conversations.",
+    "A winery concierge bot that answers membership and reservation questions using live Commerce7 data.",
+    "An internal assistant that summarizes customer history before tasting room visits or club outreach.",
+    "A support workflow that drafts escalation notes from Commerce7 records for human review.",
+    "An AI agent that updates approved contact or reservation fields after customer confirmation.",
+    "A private operations bot that triggers follow-up workflows for refunds, cancellations, or account reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Commerce7 agent to do, such as answer club questions, check reservations, or prepare support handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Commerce7 connection, defines the right configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets safe action boundaries for sensitive updates, adds approval steps where needed, and makes sure the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can start answering and acting inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Commerce7 without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Commerce7 workflow you want in plain language and the builder designs the Skill, secure connection approach, action limits, testing plan, and deployment for you. It is built for non-technical teams that want an AI agent to look up information or take approved actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Commerce7 data to answer winery customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Commerce7 data to help answer questions about orders, club memberships, reservations, and customer account details while chatting on your site or replying to support tickets. You control what data the agent can access and which actions it may take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Commerce7?",
+      "answer": "A Commerce7 Skill can support live lookups, record summaries, approved customer updates, escalation prep, handoff creation, and workflow triggers such as review requests or follow-up tasks. This helps the agent do more than answer questions by also moving the case forward."
+    },
+    {
+      "question": "Can an internal AI assistant help winery staff work faster in Commerce7?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Commerce7 records, summarize customer history, research account context, and complete repeatable support or hospitality workflows from chat, Slack, or Microsoft Teams. This reduces manual searching and speeds up team responses."
+    },
+    {
+      "question": "How does DocsBot keep Commerce7 actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill content, proxies secrets through protected runtime settings, and scopes permissions to the minimum needed access. It can also add approval boundaries for sensitive actions like account changes, refunds, or cancellations."
+    },
+    {
+      "question": "Can DocsBot update Commerce7 records or trigger workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as updating approved fields, creating internal handoffs, generating summaries, or triggering workflows that your team allows. The exact actions and approval steps are defined during Skill creation so the agent stays within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "woocommerce",
+    "stripe",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Commerce7",
+    "domain": "commerce7.com",
+    "description": "Commerce7 is a modern DTC platform designed for wineries, providing an all-in-one solution to grow direct-to-consumer sales and create exceptional customer experiences. They offer a suite of tools including Ecommerce, CRM, Reservations, POS, Clubs & Analytics, empowering wineries to deliver customer-centric experiences that drive loyalty, happiness, and sales.",
+    "slogan": "Empowering wineries with customer-centric commerce for growth and loyalty.",
+    "logoUrl": "https://media.brand.dev/9095e3f3-0691-48fb-83c8-9ebb0b3d430a.svg",
+    "iconUrl": "https://media.brand.dev/d28f4371-d8b0-45df-bb97-43107a086c49.png",
+    "primaryColor": "#041424",
+    "accentColor": "#39a6ec",
+    "colors": [
+      {
+        "hex": "#041424",
+        "name": "Kuretake Black Manga"
+      },
+      {
+        "hex": "#39a6ec",
+        "name": "Rockman Blue"
+      },
+      {
+        "hex": "#7fc6f2",
+        "name": "Nevermind Nirvana"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1652e4fc-8e45-4cdc-a332-711c03b8ab57.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.commerce7.com/terms-of-service",
+      "contact": "https://www.commerce7.com/contact-us",
+      "privacy": "https://www.commerce7.com/privacy-policy",
+      "blog": "https://www.commerce7.com/resources",
+      "pricing": "https://www.commerce7.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/20f0eeef-28b1-4f05-88c3-900d5f754018.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9095e3f3-0691-48fb-83c8-9ebb0b3d430a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 104,
+        "height": 20,
+        "aspectRatio": 5.2
+      },
+      {
+        "url": "https://media.brand.dev/d28f4371-d8b0-45df-bb97-43107a086c49.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/74e23d02-f601-4df1-8215-066c4eca4942.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9095e3f3-0691-48fb-83c8-9ebb0b3d430a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 104,
+      "height": 20,
+      "aspectRatio": 5.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/20f0eeef-28b1-4f05-88c3-900d5f754018.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

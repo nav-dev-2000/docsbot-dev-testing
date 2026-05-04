@@ -1,0 +1,175 @@
+{
+  "slug": "salesflare",
+  "name": "Salesflare",
+  "domain": "salesflare.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Salesflare",
+  "metaTitle": "Build AI Agents for Salesflare with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Salesflare to look up CRM data, update records, prepare handoffs, and automate safe support or internal sales workflows.",
+  "intro": "Salesflare is an intelligent sales CRM built to help teams manage relationships, track opportunities, and keep customer data current. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely work with Salesflare. The result is a support or internal AI agent that can answer questions, retrieve CRM context, prepare handoffs, and take approved actions instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Use Salesflare data during a customer chat or support ticket to look up account ownership, deal status, recent activity, or contact details before responding.",
+    "Create or update Salesflare contacts, accounts, notes, or follow-up tasks when a customer shares new information in a chat or helpdesk conversation.",
+    "Summarize the customer relationship in Salesflare and prepare a clean handoff for sales, account management, or customer success teams.",
+    "Log support outcomes or important customer signals in Salesflare so revenue and success teams can see the latest context without switching tools.",
+    "Trigger approved follow-up workflows based on customer intent, such as requesting a sales callback, flagging expansion interest, or escalating an at-risk account."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Salesflare account history, open opportunities, and recent relationship activity.",
+    "Sales, success, and operations teams can ask the agent to create contacts, update CRM notes, assign follow-up tasks, or summarize pipeline context using approved Salesflare actions.",
+    "Revenue teams can use the agent to research account status across conversations and CRM data, then generate handoff summaries, meeting briefs, or renewal prep notes.",
+    "Managers can ask the agent to support repeatable workflows and SOPs, such as checking stale opportunities, identifying missing CRM fields, or preparing follow-up queues for reps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Salesflare account and contact history before replying to customers.",
+    "A private sales assistant that creates follow-up tasks and notes from employee chat requests.",
+    "A customer success agent that logs expansion interest and prepares account handoffs for sales.",
+    "An internal CRM research assistant that summarizes deal stage, owner, and recent activity.",
+    "An AI workflow that creates new Salesflare contacts from qualified support or website conversations.",
+    "A handoff generator that turns customer chats into structured CRM notes and action items."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Salesflare in plain language, such as looking up account context, updating notes, or creating follow-up tasks."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, asks for any missing business context, and defines the configuration values, authentication approach, and runtime behavior needed to connect Salesflare safely."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal agent so teams can use Salesflare actions within approved limits."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Salesflare?",
+      "answer": "With DocsBot Skill Builder, you describe the Salesflare workflow you want in plain language and Skill Builder creates a reusable Skill for lookups, updates, summaries, handoffs, and other approved actions. It also handles secure connection design, scoped permissions, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Salesflare data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Salesflare Skill to retrieve CRM context such as contacts, account ownership, recent activity, or deal status while responding to customers. It can also prepare handoffs, log important relationship notes, and trigger approved follow-up workflows."
+    },
+    {
+      "question": "What Salesflare workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve CRM details, create contacts, update notes, assign tasks, summarize opportunity history, and support repeatable sales or customer success workflows. This is useful in private chat, Slack, or Microsoft Teams where teams want fast answers and bounded action."
+    },
+    {
+      "question": "Can DocsBot safely update Salesflare records with AI actions?",
+      "answer": "Yes, Skill Builder is designed to define safe action boundaries around Salesflare updates, including scoped access, secure authentication handling, and approval steps where needed. That helps teams allow useful AI actions without giving the agent open-ended CRM control."
+    },
+    {
+      "question": "Can I use Salesflare with an AI agent for sales handoffs and escalation prep?",
+      "answer": "Yes, DocsBot can use Salesflare data to build structured handoff summaries, capture customer intent, and route the next step to the right sales, success, or account owner. This helps customer-facing and internal teams move from conversation to action faster."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Salesflare with DocsBot?",
+      "answer": "You do not need to manually wire the workflow step by step. Skill Builder guides the process, determines the secure configuration needed, protects secrets, tests the Skill against realistic scenarios, improves it, and helps deploy it to your chosen AI agent."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "close"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Salesflare",
+    "domain": "salesflare.com",
+    "description": "Salesflare is a user-friendly sales CRM designed to streamline sales processes, generate leads, and drive business growth. As the #1 user-rated CRM, it's built with ease of use in mind, making it a tool that sales teams love to use.",
+    "slogan": "Intelligent sales CRM your team loves to use",
+    "logoUrl": "https://media.brand.dev/a95d5d74-30ab-4582-949b-2035fee5e3a4.svg",
+    "iconUrl": "https://media.brand.dev/89745002-c871-49df-b38c-ab36b6d5120f.jpg",
+    "primaryColor": "#0655fb",
+    "accentColor": "#7aa4ee",
+    "colors": [
+      {
+        "hex": "#0655fb",
+        "name": "Blue et une Nuit"
+      },
+      {
+        "hex": "#7aa4ee",
+        "name": "Jordy Blue"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cb2fad32-0bde-43f8-bd12-36383b9250e0.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://salesflare.com/terms",
+      "contact": null,
+      "privacy": "https://salesflare.com/privacy",
+      "blog": "https://blog.salesflare.com/",
+      "pricing": "https://salesflare.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/89745002-c871-49df-b38c-ab36b6d5120f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/14bd713a-2dd3-4fe9-9ae4-eff079f0cc9d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a95d5d74-30ab-4582-949b-2035fee5e3a4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 218,
+        "height": 38,
+        "aspectRatio": 5.74
+      },
+      {
+        "url": "https://media.brand.dev/05a6c665-e074-4f1a-b675-15e505f73b47.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 218,
+        "height": 38,
+        "aspectRatio": 5.74
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05a6c665-e074-4f1a-b675-15e505f73b47.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 218,
+      "height": 38,
+      "aspectRatio": 5.74
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/14bd713a-2dd3-4fe9-9ae4-eff079f0cc9d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

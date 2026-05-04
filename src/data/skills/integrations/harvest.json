@@ -1,0 +1,160 @@
+{
+  "slug": "harvest",
+  "name": "Harvest",
+  "domain": "harvest.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Harvest IoT Monitoring Data",
+  "metaTitle": "Harvest AI Agent Integration for Support and Operations | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely read Harvest monitoring data, summarize conditions, trigger workflows, and support teams or customers.",
+  "intro": "Harvest helps organizations monitor farms, vineyards, orchards, and industrial environments with connected sensors, weather data, telemetry, and alerts. With DocsBot Skill Builder, you can describe the Harvest-powered workflow you want in plain language and have DocsBot build a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, pull live monitoring context, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Harvest device status, recent sensor readings, or alert history when a customer asks why a monitored site is behaving unexpectedly.",
+    "Use the agent to summarize weather station, irrigation, or telemetry conditions from Harvest and explain the current state in plain language inside a support chat or ticket reply.",
+    "Have the agent create a structured handoff for human support by collecting the affected site, device, sensor type, timing, and recent Harvest readings before escalation.",
+    "Enable the agent to identify whether a reported issue appears tied to connectivity, sensor data gaps, threshold alerts, or environmental conditions based on Harvest data.",
+    "Let the agent trigger an approved follow-up workflow, such as notifying an operations queue or creating an internal escalation when Harvest readings indicate urgent conditions."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal workspace to retrieve Harvest sensor readings, site conditions, and recent alerts without opening multiple dashboards.",
+    "Operations teams can ask the agent to summarize overnight weather, frost risk, irrigation activity, or unusual telemetry patterns across monitored locations for morning reviews.",
+    "Customer success or field teams can use the agent to prepare account updates, incident summaries, and site-by-site status reports using live Harvest data.",
+    "Teams can chat with the agent to follow monitoring SOPs, gather missing context, and trigger approved internal workflows when Harvest shows threshold breaches or device anomalies.",
+    "Managers can use the agent to compare conditions across regions, summarize device health trends, and generate concise operational briefings from Harvest records."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that explains recent Harvest alerts and sensor conditions to customers in plain language.",
+    "An internal assistant that summarizes frost, wind, soil moisture, or irrigation conditions across monitored sites.",
+    "A triage workflow that collects issue details and attaches relevant Harvest readings before escalation.",
+    "An operations bot that flags abnormal telemetry patterns and triggers approved internal follow-up steps.",
+    "A reporting assistant that turns Harvest monitoring data into shift summaries or customer-ready updates.",
+    "A field support agent that checks device connectivity status and recent data gaps for a location."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Harvest-powered agent to do, such as explain alerts, summarize site conditions, or trigger an approved escalation, and it turns that goal into a complete Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the required Harvest connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes access to only the sites, records, users, and actions needed."
+    },
+    {
+      "title": "Guardrails are added automatically",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive updates or workflow triggers so the agent can help confidently without exceeding the permissions you want it to have."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing instructions, or weak permission checks, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can start using Harvest-aware AI Actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Harvest data?",
+      "answer": "With DocsBot Skill Builder, you describe the Harvest workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can retrieve monitoring data, summarize conditions, and take approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Harvest sensor and alert data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Harvest data to check recent readings, review alerts, summarize device or site status, and prepare better handoffs while replying in chat or through a helpdesk. You can also limit which records it can access and require approvals for sensitive actions."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Harvest?",
+      "answer": "An internal DocsBot agent can help teams review site conditions, summarize telemetry trends, follow escalation SOPs, generate reports, and trigger approved follow-up workflows based on Harvest readings or alert states. This is useful for operations, customer success, and field support teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to Harvest workflows?",
+      "answer": "Yes, Skill Builder is designed to create bounded AI Actions with scoped permissions, protected credentials, and approval steps where needed. That means your agent can do more than answer questions while still staying inside the operational limits you define."
+    },
+    {
+      "question": "How does DocsBot keep Harvest credentials and access secure?",
+      "answer": "Skill Builder defines the needed configuration, keeps secrets out of chat transcripts and generated content, and proxies authentication through secure runtime settings. It also scopes access to the minimum systems, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can I require human approval before a Harvest-related action is taken?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries for actions such as escalations, workflow triggers, or record changes. This lets the agent gather context and recommend the next step while a person approves sensitive operations."
+    }
+  ],
+  "relatedSlugs": [
+    "iot",
+    "weather",
+    "sensors",
+    "zendesk",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Harvest",
+    "domain": "harvest.com",
+    "description": "Harvest is an Internet of Things (IoT) solutions provider specializing in remote monitoring and control for agriculture, vineyards, orchards, and industrial environments. The company designs and manufactures solar‑powered automated weather stations, frost alarm systems, water‑meter telemetry, irrigation grids, and a wide range of wireless sensors (temperature, humidity, soil moisture, wind, rain, air quality, etc.). Harvest’s cloud platform aggregates data from thousands of devices, delivering real‑time dashboards, localized weather forecasts (in partnership with IBM Weather Company), and automated alerts to help growers and operators measure, manage, and optimize their resources. Their product line also includes custom industrial solutions, data loggers, remote control radios, and a web app for easy data visualization and decision‑making.",
+    "slogan": "Measure it. Manage it. Solar-powered IoT farm monitoring by Harvest.",
+    "logoUrl": "https://media.brand.dev/93dd1f5f-847d-4643-9ec3-85b3c6f5ce97.png",
+    "iconUrl": "https://media.brand.dev/93dd1f5f-847d-4643-9ec3-85b3c6f5ce97.png",
+    "primaryColor": "#4f4f4f",
+    "accentColor": "#0e0e0e",
+    "colors": [
+      {
+        "hex": "#4f4f4f",
+        "name": "Black Oak"
+      },
+      {
+        "hex": "#0e0e0e",
+        "name": "Black Sheep"
+      },
+      {
+        "hex": "#b5b5b5",
+        "name": "Brainstem Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5ca7ad93-18dd-4612-9c65-ccb71c66eeae.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://harvest.com/about/contact/",
+      "privacy": null,
+      "blog": "https://harvest.com/about/newsletters/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/93dd1f5f-847d-4643-9ec3-85b3c6f5ce97.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6fbb1227-72b3-48fe-94f8-99cc550c1939.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/93dd1f5f-847d-4643-9ec3-85b3c6f5ce97.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/93dd1f5f-847d-4643-9ec3-85b3c6f5ce97.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

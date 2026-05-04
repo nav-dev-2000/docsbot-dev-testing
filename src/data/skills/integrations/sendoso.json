@@ -1,0 +1,156 @@
+{
+  "slug": "sendoso",
+  "name": "Sendoso",
+  "domain": "sendoso.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that work with Sendoso",
+  "metaTitle": "Sendoso AI Agents for Support and Internal Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Sendoso to check gifting status, trigger approved sends, prepare handoffs, and automate internal team workflows safely.",
+  "intro": "Sendoso helps teams automate personalized gifting and direct mail across sales, customer success, and revenue workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure Skill that lets your AI agent use Sendoso for lookups, approved actions, summaries, and handoffs. The result is a support or internal AI agent that does more than answer questions because it can take bounded action inside your workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a gift, eGift, or direct mail send in Sendoso and explain the latest delivery or fulfillment update to the customer.",
+    "Use a support agent to confirm whether a customer reward, apology gift, or onboarding package was already sent and summarize the record before responding in chat or by ticket.",
+    "Allow the agent to create an approved handoff for a human team member when a customer requests a replacement, resend, or special gifting exception that needs review.",
+    "Have the agent gather missing delivery details from the customer, format the information, and prepare a Sendoso-ready handoff for customer success or operations.",
+    "Enable the agent to summarize recent Sendoso activity connected to an account so support teams can respond with full context during escalation or follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Sendoso send history, delivery status, and gifting activity for an account before outreach.",
+    "Help customer success or sales teams ask the agent to prepare an approved gifting workflow in Sendoso based on campaign rules, account tier, or renewal stage.",
+    "Enable revenue operations teams to use the agent to research gifting outcomes, summarize engagement trends, and support follow-up workflows across Sendoso and connected systems.",
+    "Allow employees to ask the agent for step-by-step help with gifting SOPs, including what information is missing, what approval is needed, and what should happen next.",
+    "Use an internal agent to draft handoff notes, account summaries, or campaign follow-up instructions based on Sendoso activity and related customer context."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Sendoso send status and explains fulfillment updates to customers.",
+    "An internal agent that prepares approved gifting requests for customer success and sales teams.",
+    "A workflow assistant that gathers mailing details and routes exceptions for human review.",
+    "An AI agent that summarizes Sendoso gifting activity before renewals, escalations, or executive outreach.",
+    "A private team assistant that answers SOP questions about gifting approvals and next steps.",
+    "An agent that creates account-based gifting handoff notes using Sendoso activity and customer context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Sendoso, and it translates that goal into a reusable Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication handling, then protects and proxies secrets through secure runtime setup so credentials stay out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries for sensitive steps like creating sends, changing delivery details, or routing exceptions."
+    },
+    {
+      "title": "Tests and improvements run",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so the agent can answer questions and take bounded action with Sendoso."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Sendoso?",
+      "answer": "With DocsBot Skill Builder, you describe the Sendoso workflow you want in plain language, such as checking gift status or preparing a gifting request, and Skill Builder creates, secures, tests, and helps deploy the Skill for your agent."
+    },
+    {
+      "question": "Can an AI support agent use Sendoso data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Sendoso Skill to look up approved gifting or delivery information, summarize account activity, and prepare handoffs while responding in chat or through helpdesk tickets."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Sendoso?",
+      "answer": "An internal DocsBot agent can help employees research send history, prepare gifting workflows, summarize account activity, and guide teams through approval-based SOPs tied to Sendoso actions."
+    },
+    {
+      "question": "Can DocsBot trigger Sendoso actions safely instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating requests, updating workflow state, or routing handoffs, with scoped permissions and approval controls applied where needed."
+    },
+    {
+      "question": "How does DocsBot keep Sendoso credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of conversations and generated content, and scopes access to only the actions and records the workflow requires."
+    },
+    {
+      "question": "Can a DocsBot agent help with gifting escalations or exception handling in Sendoso?",
+      "answer": "Yes, the agent can collect missing details, summarize the current Sendoso state, and prepare a clean escalation or handoff for a human reviewer when a replacement, resend, or exception needs approval."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "marketo",
+    "outreach",
+    "gong",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sendoso",
+    "domain": "sendoso.com",
+    "description": "Sendoso is a gifting and direct mail platform that enables revenue teams to boost second‑call rates, double win rates, and close deals up to 29% faster. Powered by an AI‑enhanced automation engine and backed by data from hundreds of thousands of users and tens of millions of gifts, Sendoso streamlines the creation, personalization, and delivery of physical and digital gifts. The platform integrates with CRM and sales tools to automate gifting workflows, track engagement, and turn thoughtful parcels into measurable revenue outcomes.",
+    "slogan": "Personalized gifting and direct mail that close more deals.",
+    "logoUrl": "https://media.brand.dev/e1c659ea-4e8c-41db-98c0-9aa3af1875d6.svg",
+    "iconUrl": "https://media.brand.dev/b4b2f957-58a6-4c26-9cac-69464d5742de.jpg",
+    "primaryColor": "#f47424",
+    "accentColor": "#ecbc8c",
+    "colors": [
+      {
+        "hex": "#f47424",
+        "name": "Persimmon Orange"
+      },
+      {
+        "hex": "#ecbc8c",
+        "name": "Gold Vessel"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ad7ea464-e0fd-4de7-99bd-8ffb3ef102b9.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.sendoso.com/sendoso-careers",
+      "terms": "https://www.sendoso.com/terms",
+      "contact": "https://www.sendoso.com/contact",
+      "privacy": "https://www.sendoso.com/privacy",
+      "blog": null,
+      "pricing": "https://www.sendoso.com/compare-plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b4b2f957-58a6-4c26-9cac-69464d5742de.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e1c659ea-4e8c-41db-98c0-9aa3af1875d6.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 403,
+        "height": 90,
+        "aspectRatio": 4.48
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e1c659ea-4e8c-41db-98c0-9aa3af1875d6.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 403,
+      "height": 90,
+      "aspectRatio": 4.48
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b4b2f957-58a6-4c26-9cac-69464d5742de.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "slug": "greenhouse",
+  "name": "Greenhouse",
+  "domain": "greenhouse.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Greenhouse",
+  "metaTitle": "Build Greenhouse AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Greenhouse for hiring lookups, candidate updates, interview coordination, handoffs, and internal recruiting workflows.",
+  "intro": "Greenhouse is a hiring operating system teams use to manage candidates, interviews, and hiring workflows. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language and have DocsBot create a reusable Skill that works safely with Greenhouse. The result is an AI agent that can answer questions, retrieve hiring information, prepare handoffs, and take approved actions for candidates, recruiters, and internal teams.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant questions by checking Greenhouse job, application, or interview status and summarizing the next step in clear language.",
+    "Let a support agent create or update candidate-related notes in Greenhouse after collecting missing details from an applicant in chat or over a helpdesk ticket.",
+    "Have the agent confirm whether an application was received, summarize the current stage, and prepare an escalation handoff for recruiting staff when a candidate needs manual follow-up.",
+    "Enable the agent to trigger approved recruiting workflows, such as routing an applicant inquiry to the correct recruiter or talent operations queue based on the role or office.",
+    "Use the agent to gather applicant questions about scheduling, interviews, or hiring timelines, then log a structured summary in Greenhouse for the internal team."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up candidate stages, open roles, interview plans, or hiring ownership in Greenhouse.",
+    "Enable recruiting coordinators and hiring managers to ask the agent for structured summaries of a candidate, interview feedback status, or pipeline progress without manually searching across records.",
+    "Help recruiting teams complete SOPs by having employees chat with the agent to create notes, route follow-ups, prepare interviewer briefs, or generate handoff summaries tied to Greenhouse records.",
+    "Allow internal teams to use the agent to research hiring activity, identify missing interview feedback, and prepare next-step recommendations based on approved Greenhouse data.",
+    "Support talent operations workflows by letting employees ask the agent to collect required context, then update selected Greenhouse fields or trigger bounded follow-up actions with approval controls when needed."
+  ],
+  "whatYouCanBuild": [
+    "An applicant status assistant that checks Greenhouse and explains the current hiring stage.",
+    "A recruiter copilot that summarizes candidate records and missing interview feedback before handoffs.",
+    "An internal hiring assistant that finds open roles, owners, and interview plans across teams.",
+    "A talent operations workflow agent that logs notes and routes candidate issues safely.",
+    "A scheduling support agent that collects missing details and prepares recruiting escalations.",
+    "A hiring manager assistant that generates candidate briefings from approved Greenhouse information."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Greenhouse agent to do in plain language, such as checking candidate status, preparing recruiter handoffs, or updating approved hiring records."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a secure Skill design, identifies the Greenhouse configuration values it needs, and plans the safest workflow without making you map APIs or implementation details yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes Greenhouse access to the minimum records and actions required."
+    },
+    {
+      "title": "Safe actions are bounded",
+      "description": "Skill Builder adds the right guardrails for your use case, including user scoping, approval boundaries for sensitive updates, and clear limits on what the AI agent can read, change, or trigger in Greenhouse."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot’s automated testing agent runs imagined applicant, recruiter, and internal team scenarios, finds bugs or weak instructions, and feeds those improvements back into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Greenhouse?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring workflow you want in plain language and Skill Builder creates a Greenhouse-connected Skill for lookups, summaries, handoffs, and approved actions. It also handles secure configuration, permission scoping, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Greenhouse data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Greenhouse data to check application status, interview stage, role details, or routing information while responding in chat or through helpdesk tickets. You control which records and actions are allowed, and sensitive changes can require approval boundaries."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Greenhouse?",
+      "answer": "Internal teams can use a private DocsBot agent to retrieve candidate and job information, summarize interview progress, create recruiter handoffs, log notes, and support recruiting SOPs. The agent can also gather missing context and trigger bounded follow-up actions inside your defined rules."
+    },
+    {
+      "question": "Can DocsBot safely update Greenhouse records from an AI agent?",
+      "answer": "Yes, when you allow it, DocsBot can help an agent create notes, update selected fields, or trigger approved workflows in Greenhouse. Skill Builder designs the workflow with secure authentication, scoped permissions, and approval checkpoints for higher-risk actions."
+    },
+    {
+      "question": "Can a Greenhouse AI assistant prepare escalations or recruiter handoffs?",
+      "answer": "Yes, the agent can collect applicant or recruiter context, summarize the current hiring state, and generate structured handoff notes for human follow-up. This helps teams respond faster without giving the AI unlimited control over recruiting records."
+    },
+    {
+      "question": "Does setting up a Greenhouse Skill require coding?",
+      "answer": "No, the setup is designed for non-technical teams. You explain the outcome you want, and DocsBot Skill Builder handles the connection design, secure secret handling, testing, improvements, and publishing process."
+    }
+  ],
+  "relatedSlugs": [
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "personio",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Greenhouse",
+    "domain": "greenhouse.com",
+    "description": "Greenhouse is a hiring operating system that enables companies to adopt fair and equitable hiring practices. Their all-in-one hiring platform provides comprehensive solutions from sourcing to onboarding, supporting collaborative decision-making and business growth. With a suite of software and services, Greenhouse helps companies of all sizes hire better, leveraging AI recruiting tools to streamline talent management.",
+    "slogan": "Hire Better. Hire What's Next.",
+    "logoUrl": "https://media.brand.dev/3472b138-f7ac-4350-9cfe-fa6fc5e5e943.jpg",
+    "iconUrl": "https://media.brand.dev/3472b138-f7ac-4350-9cfe-fa6fc5e5e943.jpg",
+    "primaryColor": "#24a47c",
+    "accentColor": "#8ccfbc",
+    "colors": [
+      {
+        "hex": "#24a47c",
+        "name": "Cǎo Lǜ Grass"
+      },
+      {
+        "hex": "#8ccfbc",
+        "name": "Deco-Rate"
+      },
+      {
+        "hex": "#ceeae2",
+        "name": "Ice Water Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f0f5e212-6e6a-47e8-8db8-a4899c64d970.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.greenhouse.com/careers",
+      "terms": "https://www.greenhouse.com/legal",
+      "contact": "https://www.greenhouse.com/contact",
+      "privacy": "https://www.greenhouse.com/privacy-policy",
+      "blog": "https://www.greenhouse.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.greenhouse.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3472b138-f7ac-4350-9cfe-fa6fc5e5e943.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/470a5966-334f-45bc-a9bc-d476e611b2bf.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3472b138-f7ac-4350-9cfe-fa6fc5e5e943.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3472b138-f7ac-4350-9cfe-fa6fc5e5e943.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "sugarsync",
+  "name": "SugarSync",
+  "domain": "sugarsync.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with SugarSync",
+  "metaTitle": "Build AI Agents for SugarSync with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use SugarSync for file lookups, sharing workflows, support handoffs, and internal team automation.",
+  "intro": "SugarSync helps teams store, sync, share, and back up files across devices. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use SugarSync, and Skill Builder designs, secures, tests, and deploys that ability for customer support or internal team workflows. The result is an AI agent that can do more than answer questions by taking approved actions around files, folders, and sharing processes.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up product guides, onboarding files, or warranty documents stored in SugarSync and send the right file or summary during a chat or ticket reply.",
+    "Use SugarSync as a source for the agent to retrieve the latest policy, pricing sheet, or troubleshooting PDF and answer customers with current information.",
+    "Have the agent summarize the contents or purpose of a SugarSync folder so customers can be guided to the right document set without a manual handoff.",
+    "Enable the agent to prepare a support handoff by collecting the right files from SugarSync and attaching or referencing them for a human support rep.",
+    "Allow the agent to create approved shared-file workflows, such as generating a secure handoff request for customer documents that need review by support or success teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find the right SugarSync file, folder, or backup resource without searching manually across shared storage.",
+    "Customer success or operations teams can ask the agent to gather onboarding materials from SugarSync, summarize what is included, and prepare a consistent package for follow-up.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to retrieve policy documents, training files, or shared templates stored in SugarSync during daily work.",
+    "Employees can ask the agent to support file-based SOPs by locating the correct folder, checking what materials are present, and guiding the next approved workflow step.",
+    "Operations teams can chat with the agent to compile SugarSync file references for escalations, audits, or account reviews and produce a clean summary for handoff."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds and shares the right SugarSync document during customer conversations.",
+    "A private team assistant that searches SugarSync folders and summarizes file contents for employees.",
+    "A handoff Skill that gathers SugarSync files needed for escalations, reviews, or onboarding follow-up.",
+    "An AI workflow that checks approved SugarSync locations before generating a customer reply or internal summary.",
+    "A DocsBot agent that prepares secure document request workflows tied to SugarSync file-sharing processes.",
+    "An internal assistant that retrieves backup, policy, or training files from SugarSync inside Slack or Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with SugarSync in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest way to connect SugarSync, defines the configuration values it needs, protects and proxies secrets through secure runtime handling, and keeps credentials out of chats and Skill content."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder limits the Skill to the minimum folders, files, actions, users, and systems required, and it adds approval boundaries for sensitive sharing, updates, or workflow steps."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, missing checks, or weak instructions, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the finished Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take approved SugarSync actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses SugarSync files to answer customer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as finding guides, policies, or onboarding files in SugarSync, and Skill Builder creates a secure Skill for those lookups and responses. It can also add bounded actions like preparing file-based handoffs or approved sharing workflows."
+    },
+    {
+      "question": "Can an AI support agent use SugarSync as a source of truth for documents and attachments?",
+      "answer": "Yes, a DocsBot agent can be designed to retrieve and summarize approved SugarSync files or folders while replying to chats or tickets. Skill Builder scopes access carefully so the agent only uses the locations and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SugarSync?",
+      "answer": "Common workflows include document lookup, file-based troubleshooting guidance, onboarding material retrieval, escalation prep, and handoff summaries that reference the right SugarSync resources. The agent can answer the customer and complete the approved next step instead of only suggesting what a person should do."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find files in SugarSync from Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot can power a private employee assistant that searches approved SugarSync content, summarizes file sets, and helps teams complete file-based SOPs from chat. This is useful for operations, customer success, support, and training teams."
+    },
+    {
+      "question": "How does DocsBot keep SugarSync access secure when building an AI Skill?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions to the minimum required files, folders, users, and actions."
+    },
+    {
+      "question": "Can I require approvals before an AI agent shares or updates anything related to SugarSync?",
+      "answer": "Yes, Skill Builder can add approval boundaries for sensitive actions so the agent can gather context, prepare the work, and wait for human approval before completing higher-risk sharing or workflow steps. This helps teams use AI Actions without giving the agent unlimited access."
+    }
+  ],
+  "relatedSlugs": [
+    "box",
+    "dropbox",
+    "google-drive",
+    "onedrive",
+    "sharepoint",
+    "egnyte"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SugarSync",
+    "domain": "sugarsync.com",
+    "description": "SugarSync is a cloud-based file sharing, syncing, and backup service that allows users to access, share, and backup files across multiple devices. Launched in 2008 and based in San Mateo, CA, it has millions of users worldwide and partners with major brands to provide cloud storage solutions.",
+    "slogan": "Stay synced anywhere, on any device",
+    "logoUrl": "https://media.brand.dev/cd51ed28-95fb-486c-8626-102e88123ad3.svg",
+    "iconUrl": "https://media.brand.dev/61d0355b-be9e-4db6-81a5-c80b3e9c0f9d.png",
+    "primaryColor": "#7ac29c",
+    "accentColor": "#425a4e",
+    "colors": [
+      {
+        "hex": "#7ac29c",
+        "name": "Neptune Green"
+      },
+      {
+        "hex": "#425a4e",
+        "name": "Woodlawn Green"
+      },
+      {
+        "hex": "#e8ebea",
+        "name": "Superwhite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b6683f44-37be-4600-981e-08a93f459a71.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://sugarsync.com/terms/",
+      "contact": "https://support.sugarsync.com/hc/en-us/requests/new",
+      "privacy": "https://sugarsync.com/privacy/",
+      "blog": "https://blog.sugarsync.com/",
+      "pricing": "https://sugarsync.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/61d0355b-be9e-4db6-81a5-c80b3e9c0f9d.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cd51ed28-95fb-486c-8626-102e88123ad3.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 316,
+        "height": 95,
+        "aspectRatio": 3.33
+      },
+      {
+        "url": "https://media.brand.dev/a3a05298-81a5-4e43-951b-a0ca255a96dc.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a5a56f36-e510-49a2-8043-364a7129f827.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cd51ed28-95fb-486c-8626-102e88123ad3.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 316,
+      "height": 95,
+      "aspectRatio": 3.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a3a05298-81a5-4e43-951b-a0ca255a96dc.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

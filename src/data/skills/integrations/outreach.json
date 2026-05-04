@@ -1,0 +1,176 @@
+{
+  "slug": "outreach",
+  "name": "Outreach",
+  "domain": "outreach.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Outreach",
+  "metaTitle": "Build Outreach AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Outreach for safe lookups, record updates, workflow triggers, handoffs, and internal team assistance.",
+  "intro": "Outreach helps teams manage sales engagement workflows, account activity, and rep execution, and DocsBot Skill Builder helps you turn that data and those actions into a practical AI agent ability. In plain language, you describe what the agent should do with Outreach, and Skill Builder designs, secures, tests, improves, and deploys the Skill for customer support or internal team use. The result is an AI agent that can answer questions and take bounded action inside Outreach instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Outreach account, prospect, or activity details to answer status questions during a website chat or support ticket conversation.",
+    "Use the agent to summarize recent Outreach communication history so support teams can respond with better context when a customer asks about outreach progress or prior contact.",
+    "Create approved handoff records or follow-up tasks in Outreach when a customer requests sales assistance, a callback, or account follow-up from chat or email support.",
+    "Update selected Outreach fields after a support conversation, such as contact preferences, routing notes, or handoff summaries, within the limits you approve.",
+    "Trigger a bounded Outreach workflow when a customer qualifies for sales follow-up, and have the agent explain what was submitted and what happens next."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal workspace to retrieve Outreach prospect, sequence, account, or activity information without searching manually.",
+    "Help sales, support, and customer success teams ask the agent for a summary of recent Outreach engagement before a call, renewal discussion, or escalation review.",
+    "Enable employees to have the agent create follow-up tasks, prepare handoff notes, or update approved Outreach records as part of internal SOPs.",
+    "Use a private AI assistant to research Outreach activity across accounts and generate concise next-step recommendations for managers or revenue operations teams.",
+    "Support internal workflow completion by letting team members chat with the agent to gather Outreach context, confirm required fields, and trigger approved downstream actions."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Outreach activity before answering customer sales follow-up questions.",
+    "An AI handoff assistant that creates Outreach follow-up tasks from website chat conversations.",
+    "A private employee agent that summarizes recent Outreach engagement for account reviews.",
+    "An internal sales assistant that retrieves prospect context and recommends next actions.",
+    "A workflow agent that updates approved Outreach fields after support or success interactions.",
+    "A triage assistant that prepares Outreach-ready notes before routing conversations to sales."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the DocsBot agent to do with Outreach, such as looking up engagement history, creating a handoff, or updating approved fields during a support or internal conversation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns your goal into a reusable Skill, asks for any missing business context, and decides the safest workflow design, required configuration values, and connection approach without making you manually map every technical step."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through protected runtime configuration, scopes Outreach access to the minimum records and actions required, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks lookups, updates, permissions, and edge cases, then identifies bugs, missing safeguards, or weak instructions before release."
+    },
+    {
+      "title": "It improves and deploys",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and controls, and help publish it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Outreach?",
+      "answer": "With DocsBot Skill Builder, you describe the Outreach workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The agent can then perform approved lookups, summaries, updates, and workflow triggers inside the rules you define."
+    },
+    {
+      "question": "Can an AI support agent use Outreach data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Outreach as a connected system for approved account, prospect, or activity lookups while responding to customers in chat or through a helpdesk. It can also prepare handoffs, summarize engagement context, and trigger bounded follow-up workflows when appropriate."
+    },
+    {
+      "question": "What Outreach workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve Outreach context, summarize communication history, create tasks, prepare handoff notes, and update approved records as part of internal workflows. This is useful for sales, support, customer success, and operations teams that need fast answers and consistent execution."
+    },
+    {
+      "question": "Can DocsBot safely update Outreach records or trigger actions?",
+      "answer": "Yes, Skill Builder is designed to create Skills with scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. That means your agent can take bounded action in Outreach without exposing credentials or giving the assistant broader access than it needs."
+    },
+    {
+      "question": "Can an AI agent summarize Outreach activity before a sales or support handoff?",
+      "answer": "Yes, DocsBot can compile Outreach engagement details into a concise summary for reps, support agents, or success managers before a handoff. This helps teams respond faster and with better context while keeping the workflow inside one conversation."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Outreach with DocsBot?",
+      "answer": "You do not need to write code or manually design every integration detail. You describe the outcome you want, and Skill Builder handles the secure configuration, connection design, testing, improvement loop, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "apollo",
+    "pipedrive",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Outreach",
+    "domain": "outreach.com",
+    "description": "Outreach Inc. is a leading marketing and advertising company specializing in providing outreach products and design services for Christian churches. Founded in 1996, Outreach Inc. has become the largest provider of church outreach products in the world. Their print marketing division offers a wide range of resources including books, online media, postcards, banners, bulletin covers, and church campaign materials. With a strong focus on empowering churches to reach their communities for Jesus Christ, Outreach Inc. also oversees OutreachMediaGroup.com, which provides resources and media to church leaders worldwide. From customizable church banners and flags to direct mail postcards and sermon series, Outreach Inc. is dedicated to equipping churches and church planters with the tools they need to spread their message effectively.",
+    "slogan": "Empower churches to reach communities for Christ",
+    "logoUrl": "https://media.brand.dev/2831c69d-aeb1-49ec-9d5b-a42397bb8654.png",
+    "iconUrl": "https://media.brand.dev/2dbe8cf0-bf93-44ae-bfd6-214e2c18b3e8.png",
+    "primaryColor": "#e92828",
+    "accentColor": "#f6cecd",
+    "colors": [
+      {
+        "hex": "#e92828",
+        "name": "Naga Viper Pepper"
+      },
+      {
+        "hex": "#f6cecd",
+        "name": "Strawberry Ripple"
+      },
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b66b62b4-236d-473c-8c8d-c054124a47a1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://outreach.com/careers",
+      "terms": "https://outreach.com/privacy-legal-terms/",
+      "contact": "https://outreach.com/contact-us/",
+      "privacy": "https://outreach.com/privacy-legal-terms/",
+      "blog": "https://blog.outreach.com/",
+      "pricing": "https://outreach.com/Church-Plants"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2dbe8cf0-bf93-44ae-bfd6-214e2c18b3e8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b91b84f3-4453-401f-8fdc-5a9e8207f7e3.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 177,
+        "height": 53,
+        "aspectRatio": 3.34
+      },
+      {
+        "url": "https://media.brand.dev/2831c69d-aeb1-49ec-9d5b-a42397bb8654.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 726,
+        "height": 238,
+        "aspectRatio": 3.05
+      },
+      {
+        "url": "https://media.brand.dev/3115f498-e223-410e-ac6f-4666ff36f42e.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 726,
+        "height": 238,
+        "aspectRatio": 3.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b91b84f3-4453-401f-8fdc-5a9e8207f7e3.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 177,
+      "height": 53,
+      "aspectRatio": 3.34
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2dbe8cf0-bf93-44ae-bfd6-214e2c18b3e8.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

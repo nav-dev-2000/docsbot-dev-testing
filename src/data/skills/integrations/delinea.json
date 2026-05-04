@@ -1,0 +1,176 @@
+{
+  "slug": "delinea",
+  "name": "Delinea",
+  "domain": "delinea.com",
+  "category": "Identity & Access",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Delinea",
+  "metaTitle": "Build DocsBot AI Agents for Delinea Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up Delinea data, trigger approved access workflows, and summarize security context.",
+  "intro": "Delinea helps organizations manage privileged access, identity security, and centralized authorization across modern systems. With DocsBot Skill Builder, you can describe the Delinea workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve security context, prepare handoffs, and take bounded actions inside Delinea under customer-defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Delinea-related access status or request state and explain next steps without exposing sensitive privileged details.",
+    "Use a support agent connected to your helpdesk to gather account or authorization context from Delinea and prepare a complete escalation summary for your identity or security team.",
+    "Allow the agent to create or trigger approved access request workflows in Delinea when a customer needs guided help with onboarding, account recovery, or permission-related issues.",
+    "Have the agent summarize recent access events, policy outcomes, or request history from Delinea so support teams can respond with accurate context.",
+    "Enable the agent to collect missing information from the customer, validate the request against allowed rules, and hand off a Delinea-backed case to the right internal queue."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Delinea access requests, approval status, and identity security context without switching tools.",
+    "Security and IT teams can ask the agent to summarize privileged access changes, request histories, or policy-related details from Delinea for faster investigation and triage.",
+    "Internal teams can use the agent to guide standard operating procedures for access reviews, approval preparation, and escalation workflows that involve Delinea data.",
+    "Managers or approvers can chat with the agent to review pending Delinea-related requests, gather the needed context, and trigger approved next steps within defined boundaries.",
+    "Operations teams can use the agent to generate concise handoff notes, audit-ready summaries, or follow-up tasks based on Delinea events and records."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Delinea access request status and explains approved next steps.",
+    "A support workflow that gathers user details and creates a bounded Delinea access request.",
+    "An internal assistant that summarizes privileged access history for security investigations and reviews.",
+    "A team agent that prepares Delinea escalation notes for IT and identity operations.",
+    "An approval assistant that surfaces pending requests and routes sensitive actions for human review.",
+    "A helpdesk agent that enriches tickets with Delinea identity and authorization context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Delinea agent to do, such as look up access status, summarize request history, or trigger an approved workflow, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Delinea access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "For sensitive Delinea tasks, Skill Builder adds approval boundaries, safe action limits, and clear routing rules so the agent can assist confidently without overstepping your policies."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or missing permission checks, and feeds those findings into improvements."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing, Skill Builder refines the Skill, helps validate the workflow, and deploys it to the right DocsBot agent for your website chat, helpdesk, Slack, Microsoft Teams, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Delinea?",
+      "answer": "With DocsBot Skill Builder, you describe the Delinea workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize context, and trigger approved actions. It also handles secure configuration, secret protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Delinea data during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use Delinea to retrieve allowed identity or access context, summarize request state, and prepare escalations while replying to customers in chat or through helpdesk tickets. Sensitive operations can be limited to approved actions and routed through human review when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Delinea?",
+      "answer": "Teams can build workflows for access-status lookups, request intake, ticket enrichment, escalation preparation, and policy-related summaries. The agent can collect missing details from the customer, check Delinea for allowed context, and trigger the next approved step."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Delinea workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to check request status, review privileged access context, prepare approvals, and follow access-management SOPs that involve Delinea. This helps teams move faster without giving the agent unlimited authority."
+    },
+    {
+      "question": "How does DocsBot keep Delinea actions secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also scopes permissions to the minimum necessary access and can add approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot trigger Delinea workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating requests, updating approved records, preparing handoffs, or triggering defined workflow steps in Delinea. You control which actions are allowed and where human approval is required."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "ping-identity",
+    "duo-security"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Delinea",
+    "domain": "delinea.com",
+    "description": "Delinea is a leading provider of privileged access management (PAM) solutions, offering centralized authorization and identity security to modern enterprises. Their platform enables organizations to manage and secure interactions across cloud, traditional infrastructure, and SaaS applications, eliminating identity-related threats. With intelligent authorization and AI-enhanced features, Delinea's solutions provide real-time security and compliance, accelerating adoption and productivity while reducing management resources.",
+    "slogan": "Securing Identities through Centralized Authorization",
+    "logoUrl": "https://media.brand.dev/2c25584e-fbcb-4394-bec5-49e9ee68e07d.svg",
+    "iconUrl": "https://media.brand.dev/0954dcbc-72cc-4258-b0ff-41eaa1c108a5.png",
+    "primaryColor": "#04fc5c",
+    "accentColor": "#146e54",
+    "colors": [
+      {
+        "hex": "#04fc5c",
+        "name": "Cathode Green"
+      },
+      {
+        "hex": "#146e54",
+        "name": "Martian Green"
+      },
+      {
+        "hex": "#231352",
+        "name": "Praise of Shadow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/145d384b-4f29-4eaf-bee2-1aa9d214dec4.png",
+    "industries": [],
+    "links": {
+      "careers": "https://delinea.com/careers",
+      "terms": "https://delinea.com/terms-of-use",
+      "contact": "https://delinea.com/contact-us",
+      "privacy": "https://delinea.com/privacy-policy",
+      "blog": "https://delinea.com/blog",
+      "pricing": "https://delinea.com/request-a-quote"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a626c757-2b4e-45a0-8de0-cb98a32df591.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 1500,
+        "height": 1500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2c25584e-fbcb-4394-bec5-49e9ee68e07d.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1179,
+        "height": 268,
+        "aspectRatio": 4.4
+      },
+      {
+        "url": "https://media.brand.dev/85e285ba-3a1e-4fbc-9787-eff9be28868d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0954dcbc-72cc-4258-b0ff-41eaa1c108a5.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2c25584e-fbcb-4394-bec5-49e9ee68e07d.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1179,
+      "height": 268,
+      "aspectRatio": 4.4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a626c757-2b4e-45a0-8de0-cb98a32df591.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 1500,
+      "height": 1500,
+      "aspectRatio": 1
+    }
+  }
+}

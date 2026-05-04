@@ -1,0 +1,159 @@
+{
+  "slug": "onedrive",
+  "name": "OneDrive",
+  "domain": "onedrive.live.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with OneDrive",
+  "metaTitle": "Build OneDrive AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use OneDrive for file lookups, summaries, handoffs, and approved document workflows in support and internal operations.",
+  "intro": "OneDrive stores the files, documents, and shared content your teams and customers rely on every day. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use OneDrive, and Skill Builder can design, secure, test, and deploy that ability for customer support or internal team workflows. The result is an AI agent that can answer questions, find the right files, summarize document contents, prepare handoffs, and take approved actions inside the boundaries you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search OneDrive for product guides, policy documents, or onboarding files and return the most relevant answer in chat or a helpdesk reply.",
+    "Use OneDrive files as a live knowledge source so the agent can summarize the latest documentation, release notes, or process guides while responding to customer questions.",
+    "Have the agent gather the right OneDrive documents for a support case, summarize what they contain, and prepare a clean handoff for a human teammate.",
+    "Enable the agent to create or organize approved support artifacts in OneDrive, such as follow-up folders, exported case summaries, or customer-ready reference documents.",
+    "Let the agent check whether a requested file, form, or shared document exists in OneDrive and guide the customer to the next step when content is missing or outdated."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right OneDrive files, summarize documents, and answer internal process questions faster.",
+    "Customer success or operations teams can ask the agent to collect files from OneDrive, create concise status summaries, and assemble handoff notes for renewals, escalations, or onboarding workflows.",
+    "Teams can use an internal AI agent to follow SOPs that depend on OneDrive content, such as locating the latest template, checking shared folders, and preparing approved documents for review.",
+    "Managers and enablement teams can ask the agent to search OneDrive for training materials, compare versions of documentation, and surface the most relevant internal resources for employees."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the right help documents in OneDrive during customer chats.",
+    "A private employee assistant that summarizes shared folders, files, and document collections from OneDrive.",
+    "A handoff workflow that saves support summaries and case artifacts into approved OneDrive locations.",
+    "An onboarding assistant that retrieves the latest forms, guides, and checklists stored in OneDrive.",
+    "A knowledge assistant that searches OneDrive content and answers questions using current internal documentation.",
+    "A workflow agent that checks for missing files and prompts the next approved support or operations step."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the OneDrive-powered agent to do in plain language, and it turns that goal into a practical support or internal workflow."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to only the files, actions, users, and systems needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, safe action limits, and approval boundaries so the agent can look up, summarize, create, or update content in OneDrive only within your defined rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and improving the Skill, Skill Builder helps publish it to the right DocsBot agent so it can work in your customer chat widget, helpdesk flows, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses OneDrive files to answer questions?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as finding files, summarizing documents, or answering from shared content, and Skill Builder designs the secure workflow for your agent. It can define the connection details, scope access, test scenarios, and prepare the Skill for deployment without making setup feel like a developer project."
+    },
+    {
+      "question": "Can an AI support agent use OneDrive data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a OneDrive Skill to look up documents, summarize file contents, and pull relevant support materials while responding to customers in chat or through a connected helpdesk. You control which folders, actions, and approval limits the agent is allowed to use."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with OneDrive?",
+      "answer": "A DocsBot agent can search for product documentation, retrieve policies, summarize release notes, prepare support handoff documents, and save approved case artifacts to OneDrive. This helps support teams answer faster while keeping actions bounded by your rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find and summarize OneDrive documents?",
+      "answer": "Yes, private DocsBot agents can help employees search shared files, summarize long documents, locate the latest templates, and gather materials for SOP-driven work. This is useful in internal chat, Slack, or Microsoft Teams when teams need quick access to trusted file-based knowledge."
+    },
+    {
+      "question": "How does DocsBot keep OneDrive connections and credentials secure?",
+      "answer": "Skill Builder is designed to define secure configuration values, handle authentication safely, and keep secrets out of chat transcripts and Skill source. It proxies credentials through approved runtime configuration, scopes permissions carefully, and can add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can a DocsBot agent create files or save summaries into OneDrive?",
+      "answer": "It can be designed to create approved artifacts such as summaries, handoff documents, or organized case files in OneDrive when that fits your workflow. Skill Builder helps set the action limits, target locations, and review boundaries so those actions stay controlled."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "sharepoint",
+    "box",
+    "dropbox",
+    "microsoft-teams",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OneDrive",
+    "domain": "onedrive.live.com",
+    "description": "OneDrive is a cloud storage service that allows users to store and access their files from anywhere. Based in Redmond, OneDrive provides a secure and reliable platform for individuals and businesses to manage their digital content, share files, and collaborate with others.",
+    "slogan": "Your files, anywhere, anytime with OneDrive's seamless cloud storage.",
+    "logoUrl": "https://media.brand.dev/b6cc3c4a-09b2-460d-9f45-2c2330170628.png",
+    "iconUrl": "https://media.brand.dev/8f9ec618-811e-4fe9-9211-be11d7507ae2.png",
+    "primaryColor": "#646464",
+    "accentColor": "#04a4ec",
+    "colors": [
+      {
+        "hex": "#646464",
+        "name": "Hard Coal"
+      },
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#bcbc04",
+        "name": "Olive Yellow"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b6cc3c4a-09b2-460d-9f45-2c2330170628.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      },
+      {
+        "url": "https://media.brand.dev/8f9ec618-811e-4fe9-9211-be11d7507ae2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b6cc3c4a-09b2-460d-9f45-2c2330170628.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8f9ec618-811e-4fe9-9211-be11d7507ae2.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

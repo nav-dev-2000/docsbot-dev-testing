@@ -1,0 +1,160 @@
+{
+  "slug": "azure-active-directory",
+  "name": "Azure Active Directory",
+  "domain": "azure-active-directory.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI Agents for Azure Active Directory Workflows",
+  "metaTitle": "DocsBot AI Agents for Azure Active Directory Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Azure Active Directory for identity lookups, access workflows, approvals, and secure internal support automation.",
+  "intro": "Azure Active Directory helps organizations manage identities, groups, access, and sign-in activity across Microsoft environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up directory data, support access workflows, and trigger approved actions. This helps customer support teams, IT operations, and internal employees get faster answers and complete identity-related tasks without exposing sensitive credentials or overbroad permissions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to verify whether a user's account exists, check basic directory status, and explain the next approved sign-in or access recovery step.",
+    "Let a support agent summarize relevant Azure Active Directory user, group, or sign-in information from helpdesk ticket context before preparing a handoff to IT.",
+    "Have the agent collect missing identity details from the customer, then create a structured escalation summary for account access or login issues.",
+    "Enable the agent to check whether a user is assigned to the correct group or application access policy and respond with approved troubleshooting guidance.",
+    "Allow the agent to trigger a bounded internal workflow for password reset review, account unlock review, or access request escalation when human approval is required."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or web chat to look up users, groups, roles, and sign-in details without manually searching admin tools.",
+    "Enable IT and operations teams to ask the agent for onboarding or offboarding status, required access steps, and directory-based workflow summaries across standard SOPs.",
+    "Allow managers or helpdesk staff to use the agent to prepare access review requests, group membership checks, and approval-ready identity summaries.",
+    "Help security and support teams research suspicious sign-in patterns or account state questions by having employees chat with the agent for fast, scoped lookups.",
+    "Let internal teams use the agent to trigger approved identity workflows, generate handoff notes, and document actions taken for audit-friendly follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks user directory status and explains approved login recovery steps.",
+    "A support workflow that gathers account details and prepares identity escalation handoffs.",
+    "An internal assistant that looks up users, groups, app assignments, and sign-in summaries.",
+    "A helpdesk agent that verifies group membership before recommending access troubleshooting steps.",
+    "An employee AI assistant that supports onboarding and offboarding identity checklists.",
+    "A workflow agent that drafts approval-ready access request summaries for managers or IT teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Azure Active Directory agent to do, such as checking account status, summarizing sign-in issues, or preparing access request handoffs, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive identity tasks so the agent can assist with lookups, summaries, and approved workflows without exceeding your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or risky behavior, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private employee assistant so teams can use it in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Azure Active Directory without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the identity workflow you want in plain language, and Skill Builder creates the Skill, defines secure configuration, handles authentication safely, tests the workflow, and prepares it for deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use Azure Active Directory data during customer login or access issues?",
+      "answer": "Yes, a DocsBot agent can use approved Azure Active Directory lookups to check user status, group context, or sign-in-related information and then respond with troubleshooting guidance, escalation context, or next-step instructions within your rules."
+    },
+    {
+      "question": "What internal employee workflows can an AI assistant automate with Azure Active Directory?",
+      "answer": "A private DocsBot agent can help employees and IT teams look up users, groups, assignments, and sign-in context, prepare onboarding or offboarding summaries, and trigger bounded access workflows with approvals where needed."
+    },
+    {
+      "question": "Can an AI agent safely trigger Azure Active Directory access workflows or identity requests?",
+      "answer": "Yes, DocsBot Skills can be designed with scoped permissions and approval boundaries so the agent only performs the allowed actions, such as preparing requests, initiating workflows, or routing approvals for human review."
+    },
+    {
+      "question": "How does DocsBot keep Azure Active Directory credentials and secrets secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, keeps credentials out of chat transcripts and generated Skill content, proxies secrets through secure runtime configuration, and limits access to the minimum scope required."
+    },
+    {
+      "question": "Can DocsBot help my helpdesk team escalate identity issues faster with Azure Active Directory?",
+      "answer": "Yes, the agent can gather missing details from the ticket or chat, look up relevant directory context, summarize the issue, and create a cleaner handoff for IT or security teams to review and complete."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "google-workspace",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "auth0"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "slug": "fullstory",
+  "name": "FullStory",
+  "domain": "fullstory.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use FullStory for Support and Team Workflows",
+  "metaTitle": "Build AI Agents for FullStory with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use FullStory data for customer support, internal research, workflow handoffs, and safe operational actions.",
+  "intro": "FullStory helps teams understand digital behavior, session activity, conversion issues, and customer experience patterns at scale. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent use FullStory safely. The result is a support or internal AI agent that can look up behavioral context, summarize findings, prepare escalations, and trigger approved follow-up workflows without exposing technical setup details to your team.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s recent FullStory session activity to help explain reported product issues during chat or ticket replies.",
+    "Use FullStory data to help the support agent summarize what a customer appeared to do before an error, drop-off, or confusing experience.",
+    "Have the agent gather behavior evidence from FullStory and prepare a clean escalation handoff for product, engineering, or customer success teams.",
+    "Enable the support agent to identify likely friction points in a customer journey and respond with more relevant troubleshooting steps.",
+    "Let the agent summarize repeated visit patterns, failed actions, or abandonment signals from FullStory when handling account or experience complaints."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve FullStory behavioral insights for account reviews, incident research, or product feedback analysis.",
+    "Enable support and success teams to ask an internal AI agent for session-based context before joining customer calls or handling escalations.",
+    "Help product, operations, and CX teams use a private agent in Slack or Microsoft Teams to summarize funnel friction and user experience issues from FullStory.",
+    "Allow employees to chat with the agent to generate investigation summaries that combine FullStory findings with internal SOPs for triage and follow-up.",
+    "Use an internal AI assistant to guide teams through repeatable workflows for reviewing customer struggle signals, documenting findings, and routing next steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes recent FullStory session behavior before replying to a customer ticket.",
+    "A private team assistant that turns FullStory activity into concise escalation notes for engineering review.",
+    "An internal research agent that helps employees investigate user friction patterns across key digital journeys.",
+    "A support workflow Skill that gathers behavioral evidence and prepares a structured handoff artifact.",
+    "An AI assistant that flags likely journey breakdowns and recommends the next approved support step.",
+    "A customer success agent that uses FullStory context to prepare renewal risk or adoption summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with FullStory in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest way to connect FullStory, defines the required configuration values, handles authentication through secure runtime setup, protects and proxies secrets, and scopes access to only the records, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear instructions, safe action limits, and approval boundaries so the agent can look up data, summarize findings, and trigger only the follow-up steps you allow."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and records what should improve."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder feeds those test results into an automated self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team workspace."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses FullStory data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as investigating customer friction or preparing escalation summaries, and Skill Builder creates a secure reusable Skill for that workflow. It handles connection design, authentication, scoped permissions, testing, and deployment for the DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use FullStory during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a FullStory Skill to retrieve behavioral context, summarize what happened before an issue, and prepare better troubleshooting or escalation responses. You control what data the agent can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with FullStory?",
+      "answer": "Teams can build workflows that look up recent session behavior, summarize signs of friction, prepare escalation notes, and trigger approved follow-up processes for product or support teams. This helps support agents respond with more context and less manual investigation."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research user behavior in FullStory?",
+      "answer": "Yes, private DocsBot agents can help employees query FullStory context, summarize customer journeys, and follow internal SOPs for triage, analysis, and handoffs. This is useful in chat, Slack, or Microsoft Teams for support, CX, product, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep FullStory access secure in an AI workflow?",
+      "answer": "Skill Builder defines secure configuration values, keeps credentials out of chats and Skill content, proxies secrets through approved runtime settings, and scopes access to the minimum permissions needed. It can also add approval boundaries for sensitive workflows before any action is taken."
+    },
+    {
+      "question": "Can DocsBot create escalation summaries from FullStory findings?",
+      "answer": "Yes, a Skill can turn FullStory signals into structured summaries for engineering, product, or customer success handoffs. That can include behavioral context, likely friction points, and the next approved step for the receiving team."
+    }
+  ],
+  "relatedSlugs": [
+    "google-analytics",
+    "mixpanel",
+    "amplitude",
+    "heap",
+    "hotjar",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fullstory",
+    "domain": "fullstory.com",
+    "description": "Fullstory is a behavioral data platform that enables technology leaders to make better, data‑driven decisions. By injecting digital behavioral data into an organization’s analytics stack, its patented technology transforms every digital visit into actionable insights at scale. The platform helps enterprise businesses understand customers more deeply, allowing them to create world‑class experiences that boost funnel conversion, detect malicious behavior and fraud, and effortlessly identify high‑value customers.",
+    "slogan": "Better data. Better digital experiences.",
+    "logoUrl": "https://media.brand.dev/935b9ca7-6b19-4e7c-845d-e1f31a1ddd95.svg",
+    "iconUrl": "https://media.brand.dev/f213b541-4efe-40f4-9933-be17b82e3084.jpg",
+    "primaryColor": "#155453",
+    "accentColor": "#84b4ac",
+    "colors": [
+      {
+        "hex": "#155453",
+        "name": "Ramsons"
+      },
+      {
+        "hex": "#84b4ac",
+        "name": "Silicate Green"
+      },
+      {
+        "hex": "#e3eded",
+        "name": "Bashful"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/64d1130e-864e-45f3-9208-303ef9c5bcef.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.fullstory.com/careers/",
+      "terms": "https://www.fullstory.com/legal/terms-and-conditions-2023/",
+      "contact": "https://www.fullstory.com/contact/",
+      "privacy": "https://www.fullstory.com/privacy-resources/",
+      "blog": "https://www.fullstory.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.fullstory.com/plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f213b541-4efe-40f4-9933-be17b82e3084.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/935b9ca7-6b19-4e7c-845d-e1f31a1ddd95.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 175,
+        "height": 64,
+        "aspectRatio": 2.73
+      },
+      {
+        "url": "https://media.brand.dev/51629b46-ce6e-49dc-9b59-7e7fa4f83df0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 130,
+        "height": 25,
+        "aspectRatio": 5.2
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/51629b46-ce6e-49dc-9b59-7e7fa4f83df0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 130,
+      "height": 25,
+      "aspectRatio": 5.2
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f213b541-4efe-40f4-9933-be17b82e3084.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

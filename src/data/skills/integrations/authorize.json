@@ -1,0 +1,160 @@
+{
+  "slug": "authorize",
+  "name": "Authorize",
+  "domain": "authorize.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Authorize",
+  "metaTitle": "Build AI Agents for Authorize with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Authorize for secure lookups, payment-related workflows, customer support actions, and internal team automation.",
+  "intro": "Authorize is often part of payment and billing workflows where teams need fast answers, safe record checks, and tightly controlled actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent work with Authorize securely. The result is an AI agent that can answer questions, gather context, trigger approved actions, and prepare clean handoffs instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check payment or transaction status in Authorize and explain the current state to a customer in plain language.",
+    "Use an AI support agent to verify whether an authorization, capture, refund, or decline-related event appears in Authorize before replying to a ticket.",
+    "Have the agent collect missing details from the customer, look up the relevant Authorize record, and prepare a faster escalation for billing or support specialists.",
+    "Enable the agent to summarize Authorize activity for a specific order or customer so support teams can respond consistently across chat and helpdesk tickets.",
+    "Let the agent trigger approved follow-up workflows after an Authorize lookup, such as creating a handoff note or routing a case for manual review."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Authorize transaction details, settlement status, or payment history without switching between tools.",
+    "Let finance, support, or operations teams ask the agent to summarize payment exceptions in Authorize and prepare next-step recommendations for review.",
+    "Enable team members in Slack or Microsoft Teams to use a DocsBot agent for Authorize lookups, dispute research, and SOP-driven escalation workflows.",
+    "Help internal teams chat with the agent to gather Authorize context, generate case notes, and complete repeatable billing or reconciliation workflows more consistently.",
+    "Allow employees to use a private AI assistant to research payment-related questions across Authorize and connected systems while keeping actions inside defined approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support Skill that checks transaction status before answering billing questions.",
+    "A refund research assistant that summarizes authorization, capture, and settlement history.",
+    "An internal finance agent that prepares reconciliation notes from Authorize activity.",
+    "A support handoff Skill that gathers payment context and drafts escalation summaries.",
+    "A case-routing workflow that flags transactions needing manual fraud or billing review.",
+    "A private operations assistant that answers payment questions inside Slack or Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Authorize, such as checking transaction status, summarizing payment activity, or preparing a billing handoff, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Safer actions are defined",
+      "description": "Skill Builder adds the right guardrails for Authorize workflows, including approval boundaries, user and action limits, and clear rules for when the agent should only look up information versus when it may take an approved action."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so the agent can answer questions and take bounded action with Authorize."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Authorize?",
+      "answer": "With DocsBot Skill Builder, you describe the Authorize workflow you want in plain language, and Skill Builder creates a reusable Skill for lookups, summaries, handoffs, and approved actions. It also handles secure configuration, scoped permissions, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Authorize data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve relevant Authorize information such as payment or transaction status and use that context to answer customers more accurately. You can also set limits so the agent only performs approved lookups or routes sensitive cases for human review."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Authorize?",
+      "answer": "Teams can build workflows for transaction checks, billing-status summaries, decline research, escalation prep, refund-related review, and case routing based on Authorize data. The agent can gather missing context from the customer and prepare a cleaner handoff when a specialist is needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research payment issues in Authorize?",
+      "answer": "Yes, internal DocsBot agents can help support, finance, and operations teams retrieve Authorize details, summarize activity, and follow SOP-driven workflows from chat, Slack, or Microsoft Teams. This reduces tool switching and makes repeatable payment research tasks faster and more consistent."
+    },
+    {
+      "question": "How does DocsBot keep Authorize access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions, limits actions to approved workflows, and can add approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Authorize instead of only answering questions?",
+      "answer": "DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record-related updates, summaries, and handoff preparation when your process allows it. Skill Builder helps define where the agent can act directly and where it should stop for review or approval."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "braintree",
+    "square",
+    "adyen",
+    "paypal",
+    "quickbooks"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "X",
+    "domain": "authorize.com",
+    "description": "Authorize.com is a secure authentication platform operated by X Corp. that powers the sign‑up and login experience for X’s social media services. It lets users create accounts or access X using Google, Apple, or email credentials, while handling consent to the Terms of Service, Privacy Policy, and cookie usage. The service also integrates with X’s app ecosystem, providing seamless entry to news, entertainment, sports, and other content across the X network.",
+    "slogan": "Get the full story with live commentary",
+    "logoUrl": "https://media.brand.dev/d1368420-0af9-449f-bff6-0a0a2db00f8e.png",
+    "iconUrl": "https://media.brand.dev/d1368420-0af9-449f-bff6-0a0a2db00f8e.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#0a0a0a",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#0a0a0a",
+        "name": "Existential Angst"
+      },
+      {
+        "hex": "#c7c7c7",
+        "name": "Paternoster"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d1368420-0af9-449f-bff6-0a0a2db00f8e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8f0f28a7-70b1-4547-8f3c-37f6dc7daa51.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d1368420-0af9-449f-bff6-0a0a2db00f8e.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d1368420-0af9-449f-bff6-0a0a2db00f8e.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

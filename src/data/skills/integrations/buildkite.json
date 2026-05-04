@@ -1,0 +1,160 @@
+{
+  "slug": "buildkite",
+  "name": "Buildkite",
+  "domain": "buildkite.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Buildkite",
+  "metaTitle": "Buildkite AI Agent Integration for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up Buildkite pipeline status, summarize failures, trigger approved workflows, and assist support or engineering teams safely.",
+  "intro": "Buildkite helps software teams run reliable CI workflows, and DocsBot Skill Builder helps you turn that data and control into practical AI Actions. In plain language, you can describe the outcome you want, and Skill Builder creates a reusable Skill your DocsBot agent can use in customer support or internal team workflows. The result is an AI agent that can answer questions, check pipeline state, prepare handoffs, trigger approved actions, and summarize outcomes inside the boundaries you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check Buildkite pipeline or build status when a customer reports a failed deployment, delayed release, or unavailable feature.",
+    "Let the support agent summarize recent Buildkite job failures and turn technical pipeline signals into a clear customer-safe update for a helpdesk ticket or chat reply.",
+    "Have the agent gather Buildkite run details, artifact links, and failure context so it can prepare an accurate escalation for engineering without making the customer repeat information.",
+    "Allow the agent to confirm whether a fix has passed CI in Buildkite before sending a status update to a customer waiting on a bug resolution.",
+    "Use the agent to trigger an approved Buildkite workflow, such as a diagnostic pipeline or controlled rebuild, when support needs a bounded follow-up action during an incident response."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Buildkite pipeline health, recent failures, and deployment readiness without opening multiple tools.",
+    "Engineering, support, and operations teams can ask the agent to summarize failing jobs, compare recent runs, and prepare incident or handoff notes based on Buildkite activity.",
+    "Release managers can use the agent to check whether required builds passed, identify blockers, and follow internal SOPs before approving a rollout.",
+    "Platform teams can chat with the agent to trigger approved Buildkite pipelines, rerun specific jobs within policy, and record the outcome for team visibility.",
+    "Customer success or support leadership can ask the agent for high-level summaries of CI disruptions that may affect customers so teams can coordinate proactive communication."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Buildkite pipeline status before updating a customer on a release issue.",
+    "A private engineering assistant that summarizes failed Buildkite jobs and suggests the next internal escalation step.",
+    "An incident helper that gathers Buildkite build logs, artifacts, and run history into a concise handoff summary.",
+    "A release-readiness agent that verifies required Buildkite checks and reports blockers to internal teams.",
+    "A workflow assistant that triggers approved Buildkite diagnostics or rebuilds with human approval for sensitive actions.",
+    "A cross-team agent that translates Buildkite CI results into customer-safe language for support replies."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want in plain language, such as checking Buildkite status, summarizing failures, or triggering an approved pipeline action from an AI agent."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and runtime behavior."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection design, protects and proxies secrets through approved runtime configuration, keeps credentials out of chats and Skill content, and scopes Buildkite access to the minimum actions and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, user scope, and approval steps for sensitive Buildkite actions so the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Buildkite?",
+      "answer": "With DocsBot Skill Builder, you describe the Buildkite workflow you want in plain language, and it creates a Skill that can look up pipeline data, summarize build results, or trigger approved actions. Skill Builder also handles secure configuration, scoped permissions, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Buildkite data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Buildkite Skill to check pipeline status, confirm whether a fix passed CI, summarize failures, and prepare escalations while replying to customers. You control what data the agent can access and which actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Buildkite?",
+      "answer": "Teams can automate status checks for release-related tickets, summarize failed builds for support-friendly updates, collect technical context for engineering handoffs, and trigger approved diagnostic workflows. This helps support respond faster without giving the agent unrestricted CI access."
+    },
+    {
+      "question": "Can an internal AI assistant help engineers and operations teams with Buildkite?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to review pipeline health, summarize recent failures, confirm release readiness, and trigger approved Buildkite workflows. This is useful in internal chat, Slack, or Microsoft Teams for faster coordination across teams."
+    },
+    {
+      "question": "How does DocsBot keep Buildkite actions safe?",
+      "answer": "Skill Builder designs the Skill with secure connection handling, protected secrets, scoped permissions, and approval boundaries for sensitive steps such as reruns or workflow triggers. That lets the agent take practical action while staying inside customer-defined rules."
+    },
+    {
+      "question": "Can DocsBot summarize Buildkite failures for non-technical teams?",
+      "answer": "Yes, the agent can translate technical CI details into clearer summaries for support, customer success, or operations teams. It can also generate handoff notes that preserve the important Buildkite context for engineering follow-up."
+    }
+  ],
+  "relatedSlugs": [
+    "github",
+    "gitlab",
+    "jenkins",
+    "circleci",
+    "pagerduty",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Buildkite",
+    "domain": "buildkite.com",
+    "description": "Buildkite is a CI platform that gives software teams fast, reliable, and configurable continuous integration at any scale. Based in San Francisco and Sydney, Buildkite powers leading organizations such as OpenAI, Uber, Slack, Canva, and Reddit. The service offers pipelines-as-code, flexible primitives, and guardrails that let platform teams build composable workflows while maintaining speed and security. It supports diverse workloads including AI, MLOps, large monorepos, and mobile development. By providing clear, dependable signals and full control over orchestration, Buildkite eliminates hidden automation and trade-offs between convenience and reliability. Teams choose Buildkite when they need a trustworthy CI engine that scales with growing code complexity and delivers software quickly and safely.",
+    "slogan": "Your tools should earn your trust, not ask for it.",
+    "logoUrl": "https://media.brand.dev/2f13659c-632a-4547-baaa-ce4630671042.svg",
+    "iconUrl": "https://media.brand.dev/34c548f4-73b6-4561-8f80-58daf0e2b3c8.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#23d88f",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#23d88f",
+        "name": "Reptile Green"
+      },
+      {
+        "hex": "#347070",
+        "name": "Jungle Noises"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bf51558a-0109-465e-8638-0959780ae228.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/34c548f4-73b6-4561-8f80-58daf0e2b3c8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2f13659c-632a-4547-baaa-ce4630671042.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 619,
+        "height": 109,
+        "aspectRatio": 5.68
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2f13659c-632a-4547-baaa-ce4630671042.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 619,
+      "height": 109,
+      "aspectRatio": 5.68
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/34c548f4-73b6-4561-8f80-58daf0e2b3c8.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

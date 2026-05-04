@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-landingpage",
+  "name": "Zoho LandingPage",
+  "domain": "zoho-landingpage.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho LandingPage",
+  "metaTitle": "Zoho LandingPage AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read, summarize, update, and trigger Zoho LandingPage workflows for support and internal teams.",
+  "intro": "Zoho LandingPage helps teams publish and manage marketing landing pages that capture leads and support campaigns. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets an AI agent work with Zoho LandingPage data and actions. That means your support bot or internal AI assistant can answer questions, prepare handoffs, update approved details, and trigger bounded marketing workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check landing page status, campaign availability, or published offer details while answering visitor questions in chat or tickets.",
+    "Use the agent to look up form-related context from Zoho LandingPage and prepare a clean handoff for marketing or support when a customer reports a broken signup or submission issue.",
+    "Allow the agent to summarize landing page configuration details or recent approved changes so support can explain what a visitor should expect on a page.",
+    "Enable the agent to capture missing context from a customer conversation and create an approved internal follow-up workflow tied to a landing page issue or conversion concern.",
+    "Have the agent generate escalation notes that combine the customer problem, affected landing page, and relevant page metadata for a faster human review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Zoho LandingPage details, compare page setups, and summarize campaign information without hunting through multiple tools.",
+    "Marketing and operations teams can ask the agent to document landing page issues, collect missing context, and trigger approved follow-up workflows based on internal SOPs.",
+    "Customer success or demand generation teams can use the agent to research which landing page is connected to a campaign, summarize page purpose, and prepare handoff notes for teammates.",
+    "Internal teams can ask the agent to generate status summaries for active landing pages, draft update requests, and route sensitive changes through approval boundaries before anything is modified.",
+    "Employees can use the agent as a guided workflow assistant for recurring landing page review, launch readiness, and escalation preparation processes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that explains landing page availability and current offer details to visitors.",
+    "A workflow assistant that logs landing page issues and prepares escalation summaries for marketing teams.",
+    "An internal AI assistant that retrieves page metadata and summarizes campaign context for employees.",
+    "A change request agent that gathers missing details and routes edits for approval.",
+    "A launch readiness assistant that checks page information and creates follow-up tasks.",
+    "A handoff generator that turns chat conversations into clear landing page incident notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Zoho LandingPage in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required configuration values, defines secure authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Actions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries for sensitive updates or workflow triggers before the agent can take action."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill based on test results and then helps publish it to the right DocsBot agent so your website bot, helpdesk agent, or private team assistant can use it safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho LandingPage without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and the builder creates the workflow logic, secure connection approach, testing plan, and deployment path for you. It is designed for non-technical teams that want an AI agent to take bounded action instead of only giving instructions."
+    },
+    {
+      "question": "Can an AI support agent use Zoho LandingPage data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved Zoho LandingPage information, summarize page status or offer details, and prepare support handoffs while responding to customers. The customer conversation triggers the DocsBot agent, and the Skill lets that agent safely work with Zoho LandingPage behind the scenes."
+    },
+    {
+      "question": "What customer support workflows can connect to Zoho LandingPage?",
+      "answer": "Teams can build workflows for page issue triage, offer verification, campaign page summaries, form problem escalation, and internal follow-up creation. The agent can gather missing context from the customer, package the issue clearly, and trigger approved next steps."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Zoho LandingPage?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve landing page details, summarize campaign context, document issues, and follow internal SOPs through chat, Slack, or Microsoft Teams. This is useful for marketing, operations, customer success, and demand generation teams that need faster answers and cleaner handoffs."
+    },
+    {
+      "question": "How does DocsBot keep Zoho LandingPage actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes access to the minimum required permissions, and can add approval boundaries for sensitive actions. That helps the agent stay within the business rules you define for lookups, updates, and workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in Zoho LandingPage?",
+      "answer": "DocsBot Skills can be designed to perform approved updates, create follow-up records, or trigger bounded workflows when that fits your process. Skill Builder helps shape those actions around safe limits, user roles, and approval requirements before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "zoho-campaigns",
+    "zoho-crm",
+    "zoho-desk",
+    "zoho-forms",
+    "zoho-marketing-automation",
+    "unbounce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-forms",
+  "name": "Zoho Forms",
+  "domain": "zoho-forms.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Forms",
+  "metaTitle": "Build AI Agents for Zoho Forms with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Forms to capture submissions, check responses, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Zoho Forms helps teams collect submissions, requests, and feedback through online forms and workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Forms, and Skill Builder designs, secures, tests, and deploys that ability for you. The result is a support or internal AI agent that can answer questions, look up form activity, create submissions, summarize responses, and trigger approved follow-up actions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a form submission was received and summarize the current status while replying in chat or over a helpdesk ticket.",
+    "Allow the agent to guide customers through the right Zoho Forms intake flow and create a new submission from details collected during the conversation.",
+    "Use the agent to look up recent form responses tied to a customer email so it can confirm requests, registrations, or support intake details.",
+    "Have the agent prepare a clean handoff by summarizing the customer conversation and submitting the relevant details into a Zoho Forms workflow for the human team.",
+    "Enable the agent to update approved fields or add follow-up information to a form-driven intake process when a customer provides missing details."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find recent Zoho Forms submissions and get a quick summary of what was submitted.",
+    "Give operations or support teams an internal agent that can create standardized Zoho Forms entries from chat so staff can complete intake workflows without switching tools.",
+    "Help teams research trends by asking the agent to summarize common response themes, missing fields, or submission volumes from Zoho Forms data.",
+    "Use an internal AI assistant to collect required information from employees and then submit it into the correct Zoho Forms process for requests, approvals, or incident intake.",
+    "Allow team members to chat with the agent to follow SOPs that depend on Zoho Forms, including gathering context, generating a handoff summary, and routing the next step."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks whether a customer form submission was received and explains next steps.",
+    "A website chat agent that collects customer details and submits them into the correct Zoho Form.",
+    "An internal assistant that summarizes recent form responses for operations, support, or customer success teams.",
+    "A helpdesk agent that creates intake submissions from ticket conversations and prepares human handoffs automatically.",
+    "An employee AI assistant that guides staff through SOP questions and files the final request in Zoho Forms.",
+    "A workflow agent that validates missing details, requests approval, and then updates approved form records safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Zoho Forms in plain language, such as checking submissions, creating intake records, or routing follow-up workflows."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chat or Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes the Skill to the minimum data and actions needed, and adds approval boundaries or action limits for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Testing agent improves it",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Forms?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Forms workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up submissions, create records, summarize responses, and trigger approved follow-up steps."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Forms data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Forms as a system of record for intake, feedback, registrations, or request tracking while responding to customers. It can safely check submission status, capture missing details, create new submissions, and prepare handoffs within the limits you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho Forms?",
+      "answer": "Teams can automate intake confirmation, request capture, follow-up collection, escalation handoffs, and submission summaries using Zoho Forms. This helps the AI agent move from answering questions to taking approved actions that keep support work moving."
+    },
+    {
+      "question": "Can an internal AI assistant create Zoho Forms submissions for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to provide the needed information, and the agent can submit it into Zoho Forms on their behalf. This is useful for internal requests, operational intake, approvals, and standardized SOP-driven workflows."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Forms actions secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and generated content, proxies credentials through secure runtime configuration, and scopes access to the minimum actions and records required. It can also add approval checkpoints before sensitive updates or workflow triggers are allowed."
+    },
+    {
+      "question": "Can DocsBot summarize Zoho Forms responses for teams?",
+      "answer": "Yes, DocsBot can summarize individual submissions or groups of responses to help teams understand trends, missing information, or workflow status faster. That makes Zoho Forms more useful for both support operations and internal reporting conversations."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "jotform",
+    "google-forms",
+    "survey-monkey",
+    "zoho-desk",
+    "zoho-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

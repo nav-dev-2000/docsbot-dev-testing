@@ -1,0 +1,168 @@
+{
+  "slug": "teamleader",
+  "name": "Teamleader",
+  "domain": "teamleader.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Teamleader",
+  "metaTitle": "Build Teamleader AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Teamleader for customer support and internal workflows with secure lookups, updates, handoffs, and approved actions.",
+  "intro": "Teamleader helps businesses manage customer relationships, deals, projects, and related operational workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Teamleader, and DocsBot will design, secure, test, and package that ability as a reusable Skill. The result is a support or internal AI agent that can answer questions, look up live records, prepare handoffs, update approved fields, and trigger bounded actions inside Teamleader.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact, company, deal, project, or invoice status in Teamleader and answer account-specific questions in chat or helpdesk replies.",
+    "Use the agent to create a structured sales or support follow-up task in Teamleader when a customer asks for a callback, quote update, or account review.",
+    "Allow the agent to summarize open opportunities, project progress, or recent customer activity from Teamleader before replying to a customer ticket.",
+    "Have the agent collect missing details from the customer and create or update a Teamleader contact or company record for approved onboarding or support workflows.",
+    "Use the agent to prepare a clean handoff by attaching a Teamleader record summary, recent interactions, and next recommended steps for a human teammate."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Teamleader contact, deal, company, project, or invoice information without switching tools.",
+    "Sales and customer success teams can ask the agent to summarize account history, recent activity, open tasks, and pipeline status from Teamleader before a call or renewal meeting.",
+    "Operations teams can use the agent to create follow-up tasks, update approved CRM fields, or route handoffs in Teamleader by describing the outcome in natural language.",
+    "Managers can ask the agent to research Teamleader records and generate concise account briefs, pipeline summaries, or project status updates for internal review.",
+    "Employees can use the agent to follow SOP-driven workflows that combine Teamleader lookups, note capture, escalation prep, and approved next-step actions across teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Teamleader account and project status before answering customers.",
+    "A private sales assistant that summarizes deals, contacts, and next steps from Teamleader.",
+    "A customer success agent that creates follow-up tasks after chat or ticket conversations.",
+    "An internal agent that updates approved Teamleader fields after manager review or confirmation.",
+    "A handoff workflow that turns customer conversations into structured Teamleader notes and tasks.",
+    "An AI agent that gathers missing lead details and creates clean CRM records in Teamleader."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Teamleader, such as looking up account details, creating follow-up tasks, or preparing handoffs, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Teamleader connection details, defines safe runtime behavior, and decides which lookups, updates, or workflow actions the agent should be allowed to perform."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure configuration by defining the needed settings, protecting and proxying secrets and authentication outside chats and Skill source, and scoping access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive Teamleader changes so the agent can help autonomously where appropriate and pause for review when a workflow needs tighter control."
+    },
+    {
+      "title": "An automated agent tests it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Teamleader?",
+      "answer": "With DocsBot Skill Builder, you describe the Teamleader workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Teamleader data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Teamleader Skill to look up live customer, company, deal, project, or invoice information and use that context to answer questions, prepare handoffs, or trigger approved follow-up actions."
+    },
+    {
+      "question": "What Teamleader workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve CRM and project information, summarize account history, create tasks, update approved fields, and guide SOP-based workflows that depend on Teamleader records."
+    },
+    {
+      "question": "Can DocsBot safely update Teamleader records through AI Actions?",
+      "answer": "Yes, Skill Builder can design bounded actions such as creating tasks, adding notes, or updating approved fields while applying scoped permissions, secure authentication handling, and approval steps for more sensitive changes."
+    },
+    {
+      "question": "Can a DocsBot agent create Teamleader handoffs after a support conversation?",
+      "answer": "Yes, the agent can turn a customer conversation into a structured Teamleader note, task, or escalation summary so human teammates receive the right context and next steps."
+    },
+    {
+      "question": "How does setup work if I am not technical?",
+      "answer": "You do not need to manually wire the integration yourself. You describe the outcome you want, and Skill Builder handles the secure design, required configuration values, secret handling, testing, improvements, and deployment path."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "zoho-crm",
+    "freshsales",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TeamLeader",
+    "domain": "teamleader.com",
+    "description": "TeamLeader Inc. designs, manufactures, and sells custom cheerleading and dance uniforms and accessories in the United States. With over 25 years in the industry, they offer a wide range of ready‑to‑wear and fully‑customizable uniform packages—including shells, skirts, pom‑pom kits, and complete team outfits—at competitive prices. Their products are made in the USA with a focus on fit, function, and durability, and they provide online catalog browsing, sizing kits, fast shipping, and a dedicated support team for orders and inquiries.",
+    "slogan": "Made in USA. Excellent customer service, fast delivery.",
+    "logoUrl": "https://media.brand.dev/21e6c12d-b213-467a-8a8a-d1bce0976bdd.jpg",
+    "iconUrl": "https://media.brand.dev/21e6c12d-b213-467a-8a8a-d1bce0976bdd.jpg",
+    "primaryColor": "#6f6f6f",
+    "accentColor": "#b4b4b4",
+    "colors": [
+      {
+        "hex": "#6f6f6f",
+        "name": "Smoked Pearl"
+      },
+      {
+        "hex": "#b4b4b4",
+        "name": "Brainstem Grey"
+      },
+      {
+        "hex": "#915c54",
+        "name": "Copper Mining"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/822b08ce-2654-464c-a060-9246847cd3d1.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://www.teamleader.com/privacy",
+      "terms": null,
+      "contact": "https://www.teamleader.com/contact",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/21e6c12d-b213-467a-8a8a-d1bce0976bdd.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/25c7b645-0c87-4bfd-94e2-db79f59fbc0c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48d4d263-ff5e-487a-8363-d5ff5d0b5e11.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/21e6c12d-b213-467a-8a8a-d1bce0976bdd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/21e6c12d-b213-467a-8a8a-d1bce0976bdd.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

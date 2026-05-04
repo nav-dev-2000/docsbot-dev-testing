@@ -1,0 +1,160 @@
+{
+  "slug": "postmark",
+  "name": "Postmark",
+  "domain": "postmark.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Postmark",
+  "metaTitle": "Build AI Support and Internal Agents for Postmark",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Postmark for email lookups, workflow triggers, support handoffs, and internal operations.",
+  "intro": "Postmark is built for fast, reliable transactional email, which makes it a strong system for AI agents that need to check delivery status, review message activity, and trigger approved email workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that connects your agent to Postmark safely. The result is a support or internal AI agent that can answer questions, take bounded action, and keep teams moving without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a password reset, receipt, or account notification was sent through Postmark and summarize the delivery status during the conversation.",
+    "Use the agent to look up message events such as delivered, opened, bounced, or deferred so support can explain what happened without leaving the chat or ticket.",
+    "Have the agent prepare an escalation handoff by pulling relevant Postmark message history and summarizing email delivery issues for a human support teammate.",
+    "Allow the agent to trigger an approved resend or follow-up transactional email workflow in Postmark when support rules say it is safe to do so.",
+    "Use the agent to confirm whether a customer email reached the intended recipient before suggesting next steps such as checking spam folders or verifying the address on file."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up Postmark delivery activity, template usage, or recent transactional email events without signing into multiple tools.",
+    "Customer success or operations teams can ask the agent to summarize delivery trends for important account emails and prepare internal follow-up notes.",
+    "Support managers can use the agent in Slack or Microsoft Teams to gather message history for escalations and standardize troubleshooting steps across the team.",
+    "Internal teams can ask the agent to trigger approved email workflows, generate case summaries, and complete SOP-driven communication tasks with clear approval boundaries.",
+    "Operations employees can use the agent to research bounced or failed transactional emails and assemble the details needed for a manual review or customer outreach."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Postmark delivery status for receipts, reset links, and account alerts.",
+    "An internal assistant that summarizes bounced, deferred, and delivered email activity for operations teams.",
+    "A helpdesk agent that prepares escalation notes using Postmark message events and customer conversation context.",
+    "A private team agent that triggers approved transactional email workflows after collecting missing details.",
+    "An AI assistant that verifies whether critical customer notifications were sent before recommending next steps.",
+    "A support workflow that drafts human handoff summaries when email delivery problems need deeper investigation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Postmark in plain language, such as checking delivery status, summarizing message events, or triggering an approved email workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides which Postmark actions and data are needed, and defines the required configuration values without making you map every technical detail yourself."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up safe authentication handling, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps such as resends, workflow triggers, or account-specific lookups so the agent stays within your rules."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, instruction gaps, or permission issues, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Postmark data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as checking delivery status or summarizing bounced emails, and Skill Builder creates a secure Skill your support agent can use in chat or helpdesk replies. It can be configured to perform lookups, prepare handoffs, and trigger only the approved email actions you allow."
+    },
+    {
+      "question": "Can an AI support agent check whether a transactional email was delivered in Postmark?",
+      "answer": "Yes, a DocsBot agent can be designed to look up Postmark message activity and return a customer-friendly summary of delivery events such as delivered, opened, bounced, or deferred. You can also limit the agent to read-only lookups or require approval for any follow-up action."
+    },
+    {
+      "question": "What Postmark workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees research delivery issues, summarize message history, prepare escalation notes, and trigger approved transactional email workflows as part of team SOPs. This is useful in internal chat, Slack, or Microsoft Teams when teams need fast answers and bounded actions across support and operations workflows."
+    },
+    {
+      "question": "Can DocsBot safely trigger Postmark email actions without exposing credentials?",
+      "answer": "Yes, Skill Builder is designed to define secure connection settings, protect and proxy secrets through runtime configuration, and keep credentials out of chat transcripts and generated Skill content. It also scopes permissions and can add approval steps for sensitive actions."
+    },
+    {
+      "question": "Can I use DocsBot with Postmark to improve helpdesk escalations?",
+      "answer": "Yes, a DocsBot agent can gather relevant Postmark message events, summarize the delivery timeline, and create a cleaner handoff for a human support teammate. That helps escalations move faster with less manual copying between systems."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Postmark?",
+      "answer": "You describe what you want the agent to accomplish, and Skill Builder handles the workflow design, secure configuration, testing, and deployment process for you. It also reviews the Skill with automated scenario testing and improves weak spots before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "mailgun",
+    "gmail",
+    "outlook",
+    "intercom",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Postmark",
+    "domain": "postmark.com",
+    "description": "Postmark is an email delivery platform that specializes in fast, reliable transactional email for developers, agencies, and businesses. It provides a robust Email API and SMTP service, supporting message streams, templates, inbound processing, bulk sending, and detailed analytics. Designed for high deliverability and low latency, Postmark integrates with popular tools and offers dedicated support, making it easy to send notifications, receipts, password resets, and other critical communications with confidence.",
+    "slogan": "Email received in seconds—Postmark just works",
+    "logoUrl": "https://media.brand.dev/2a4bf7f6-54dd-4a7b-a0bd-a46e2fc2ebbe.svg",
+    "iconUrl": "https://media.brand.dev/2a4bf7f6-54dd-4a7b-a0bd-a46e2fc2ebbe.svg",
+    "primaryColor": "#fada04",
+    "accentColor": "#7c6c04",
+    "colors": [
+      {
+        "hex": "#fada04",
+        "name": "Evil-Lyn"
+      },
+      {
+        "hex": "#7c6c04",
+        "name": "Sunlit Kelp Green"
+      },
+      {
+        "hex": "#090804",
+        "name": "Accursed Black"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2a4bf7f6-54dd-4a7b-a0bd-a46e2fc2ebbe.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 30,
+        "height": 30,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1d981947-2ed9-48dc-855f-6df575de429c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2a4bf7f6-54dd-4a7b-a0bd-a46e2fc2ebbe.svg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 30,
+      "height": 30,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2a4bf7f6-54dd-4a7b-a0bd-a46e2fc2ebbe.svg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 30,
+      "height": 30,
+      "aspectRatio": 1
+    }
+  }
+}

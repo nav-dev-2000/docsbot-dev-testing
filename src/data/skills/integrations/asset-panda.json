@@ -1,0 +1,176 @@
+{
+  "slug": "asset-panda",
+  "name": "Asset Panda",
+  "domain": "asset-panda.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Asset Panda",
+  "metaTitle": "Build Asset Panda AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Asset Panda to look up assets, update records, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Asset Panda helps organizations track devices, equipment, inventory, maintenance, and compliance in one customizable asset management platform. With DocsBot Skill Builder, you can describe the Asset Panda workflow you want in plain language and have DocsBot create a reusable Skill for your AI agent. That lets a support bot or internal AI assistant answer questions, retrieve asset data, prepare handoffs, and take approved actions inside Asset Panda with secure controls.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Asset Panda for product, device, or equipment status and respond with the latest tracked details during a chat or ticket conversation.",
+    "Use an AI support agent to look up warranty, maintenance, or service history in Asset Panda and summarize it for customers before escalating to a human team.",
+    "Allow the agent to create or update an Asset Panda record for a reported issue, damaged item, or missing equipment request while keeping the customer informed.",
+    "Have the agent collect missing information from the customer, prepare an asset-related support handoff, and attach a clean summary for the operations or service team.",
+    "Enable a helpdesk-connected DocsBot agent to use Asset Panda data to confirm assigned assets, shipment history, or return status when responding to customer tickets."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find asset ownership, location, status, or maintenance records from Asset Panda.",
+    "Give IT, operations, or facilities teams an AI assistant that can create update requests, log asset issues, and guide staff through equipment tracking workflows without leaving chat.",
+    "Help internal teams research inventory gaps, summarize asset history, and prepare replacement or repair handoffs by combining Asset Panda data with your internal procedures.",
+    "Allow employees to ask the agent for step-by-step SOP help for check-in, check-out, audits, maintenance follow-up, or compliance workflows tied to Asset Panda records.",
+    "Use a private AI agent to answer questions about available devices, assigned equipment, and asset lifecycle details while keeping actions scoped to approved teams and records."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks asset status and summarizes maintenance history for customers.",
+    "A private IT assistant that finds assigned devices and starts approved replacement workflows.",
+    "An operations bot that logs damaged equipment reports and updates Asset Panda records safely.",
+    "A helpdesk agent that prepares asset-related escalations with customer context and record summaries.",
+    "An employee assistant that walks staff through check-in and check-out asset procedures.",
+    "A compliance assistant that surfaces asset audit details and prepares follow-up task summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Asset Panda agent to do, such as look up asset records, update statuses, prepare handoffs, or guide employees through a workflow, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder decides the safest way to connect Asset Panda, identifies the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for sensitive Asset Panda actions, including approval boundaries, action limits, and clear instructions for when the agent should ask for confirmation or hand work to a person."
+    },
+    {
+      "title": "Test real scenarios automatically",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill through its self-improvement loop, Skill Builder helps publish it to the right DocsBot agent so your website bot, helpdesk agent, or private team assistant can use Asset Panda safely in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Asset Panda?",
+      "answer": "With DocsBot Skill Builder, you describe the Asset Panda workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, update records, summarize status, and trigger approved actions. It also handles secure configuration, authentication, permission scoping, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Asset Panda data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Asset Panda as a source of live asset, inventory, maintenance, or assignment information while responding to customers. The agent can summarize what it finds, collect missing details, and take approved follow-up actions within the limits you set."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Asset Panda?",
+      "answer": "A DocsBot agent can help verify asset status, review maintenance history, log reported issues, update approved records, and prepare clean handoffs for human teams. This helps support teams resolve asset-related questions faster without exposing broad system access."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with asset management in Asset Panda?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find assigned equipment, check inventory details, review maintenance records, and follow asset management SOPs. The agent can also help start approved workflows like issue logging, replacement requests, or audit follow-up."
+    },
+    {
+      "question": "How does DocsBot keep Asset Panda actions safe?",
+      "answer": "Skill Builder is designed to define secure connection settings, keep secrets out of chats and generated content, proxy credentials through protected runtime configuration, and limit access to the right records and actions. It can also add approval steps and confirmation boundaries for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot update Asset Panda records instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating records, updating statuses, preparing handoff notes, or triggering follow-up workflows in Asset Panda. You control which actions are allowed and when the agent should request approval."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "freshservice",
+    "zendesk",
+    "jira-service-management",
+    "snipe-it",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Asset Panda",
+    "domain": "assetpanda.com",
+    "description": "Asset Panda is a cloud-based asset management solution that helps organizations track and manage their assets efficiently. It provides a customizable platform for tracking devices, inventory, equipment, and compliance, with features such as real-time tracking, barcode labeling, and custom reporting. Asset Panda serves organizations across various industries and countries, offering end-to-end asset management, including IT asset tracking, inventory management, and maintenance management, to help businesses work smarter.",
+    "slogan": "Work smarter with Asset Panda’s powerful, customizable asset management platform.",
+    "logoUrl": "https://media.brand.dev/5b57b68c-38e0-4b99-99cf-4064ca7f2eb3.svg",
+    "iconUrl": "https://media.brand.dev/a45706ef-387e-44e1-a8cd-06bce9d319eb.svg",
+    "primaryColor": "#949494",
+    "accentColor": "#2f2b2e",
+    "colors": [
+      {
+        "hex": "#949494",
+        "name": "Grey Shingle"
+      },
+      {
+        "hex": "#2f2b2e",
+        "name": "Dark Onyx"
+      },
+      {
+        "hex": "#dededf",
+        "name": "Kingly Cloud"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/59186968-7f3f-427b-ae2d-325308935f4d.png",
+    "industries": [],
+    "links": {
+      "terms": "https://www.assetpanda.com/terms-of-use/",
+      "contact": "https://www.assetpanda.com/contact/",
+      "privacy": "https://www.assetpanda.com/privacy-policy/",
+      "blog": "https://www.assetpanda.com/resource-center/blog/",
+      "pricing": "https://www.assetpanda.com/pricing/",
+      "careers": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0a53a4ce-6da7-4486-87db-379e51bc8106.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5b57b68c-38e0-4b99-99cf-4064ca7f2eb3.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 102,
+        "height": 40,
+        "aspectRatio": 2.55
+      },
+      {
+        "url": "https://media.brand.dev/a45706ef-387e-44e1-a8cd-06bce9d319eb.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 76,
+        "height": 76,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/306201a7-7be2-445d-ae1a-f6d9c14b84ae.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5b57b68c-38e0-4b99-99cf-4064ca7f2eb3.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 102,
+      "height": 40,
+      "aspectRatio": 2.55
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0a53a4ce-6da7-4486-87db-379e51bc8106.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

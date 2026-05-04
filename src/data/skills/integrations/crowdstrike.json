@@ -1,0 +1,168 @@
+{
+  "slug": "crowdstrike",
+  "name": "CrowdStrike",
+  "domain": "crowdstrike.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with CrowdStrike",
+  "metaTitle": "Build AI agents for CrowdStrike with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use CrowdStrike for safe security lookups, incident summaries, workflow triggers, and internal team assistance.",
+  "intro": "CrowdStrike helps teams monitor and respond to security activity across endpoints, identity, cloud workloads, and data. With DocsBot Skill Builder, you can describe the security task you want in plain language and have DocsBot create a reusable Skill that lets a support or internal AI agent safely use CrowdStrike data and approved actions. The result is an AI agent that can answer questions, summarize security state, prepare escalations, and trigger bounded workflows without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a reported login or device issue matches an active CrowdStrike detection and respond with a safe status summary.",
+    "Use a helpdesk-connected DocsBot agent to gather customer-reported symptoms, look up related CrowdStrike alert context, and prepare a faster escalation for security or technical support teams.",
+    "Enable the agent to summarize endpoint or identity risk signals from CrowdStrike so support teams can give customers a clearer next-step explanation without exposing sensitive internal details.",
+    "Have the agent create a structured handoff that includes CrowdStrike detection summaries, affected assets, timestamps, and recommended escalation notes for human review.",
+    "Allow the agent to trigger an approved internal security workflow when a customer reports suspicious activity, compromised access, or malware-related behavior."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up CrowdStrike detections, host details, or incident context without switching tools.",
+    "Security, IT, and operations teams can ask the agent to summarize recent CrowdStrike activity for a user, device, or workload and receive a concise briefing for triage.",
+    "Teams can use the agent to follow internal SOPs by gathering CrowdStrike context, preparing incident notes, and routing the case to the right responder group.",
+    "Helpdesk staff can chat with the agent to research whether a device issue may be tied to malware, identity misuse, or policy activity seen in CrowdStrike before escalating.",
+    "Managers and responders can use the agent to generate clean incident summaries, shift handoff notes, and investigation updates based on approved CrowdStrike data."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks CrowdStrike detection context during security-related customer conversations.",
+    "A private IT assistant that summarizes endpoint risk and recent alert activity for employees.",
+    "An incident triage Skill that prepares CrowdStrike-based escalation notes for security analysts.",
+    "A workflow Skill that triggers approved investigation or containment follow-up steps after review.",
+    "A security summary Skill that turns raw CrowdStrike activity into readable case updates.",
+    "A handoff Skill that gathers host, user, and alert context for internal responders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the CrowdStrike task you want in plain language, and Skill Builder turns that goal into a practical agent workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum CrowdStrike data and actions required."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds approval boundaries, user limits, and safe action rules so sensitive security updates, workflow triggers, or escalations only happen within the controls you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into self-improvement before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use CrowdStrike through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses CrowdStrike data?",
+      "answer": "With DocsBot Skill Builder, you describe the security lookup or workflow you want, and DocsBot designs a Skill that can safely retrieve CrowdStrike context, summarize findings, and take approved next steps. Skill Builder also handles secure connection design, scoped permissions, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use CrowdStrike during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use CrowdStrike to check relevant alert context, summarize security state, and prepare a structured escalation while replying to customers in chat or tickets. The actions can be limited to safe lookups, summaries, and approved workflow triggers."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with CrowdStrike?",
+      "answer": "Internal teams can use a private DocsBot agent to research detections, summarize host or identity activity, prepare incident handoff notes, and guide responders through SOPs. The agent can also trigger bounded follow-up workflows where approval controls are needed."
+    },
+    {
+      "question": "Can DocsBot summarize CrowdStrike alerts for analysts or helpdesk teams?",
+      "answer": "Yes, a Skill can turn CrowdStrike detections and related context into concise summaries for analysts, IT staff, or support teams. This helps teams triage faster and share consistent updates without manually gathering details from multiple screens."
+    },
+    {
+      "question": "How does DocsBot keep CrowdStrike access secure in an AI workflow?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and generated content, proxies authentication through secure runtime configuration, and limits access to the minimum records and actions needed. It can also add approval boundaries for sensitive actions and escalation steps."
+    },
+    {
+      "question": "Can a DocsBot agent create security handoffs using CrowdStrike context?",
+      "answer": "Yes, the agent can gather approved CrowdStrike details, organize them into a structured incident summary, and prepare a handoff for human responders. This is useful for moving from support intake to security investigation with clearer context and less manual work."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "sentinelone",
+    "datadog",
+    "servicenow",
+    "jira",
+    "pagerduty"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "CrowdStrike",
+    "domain": "crowdstrike.com",
+    "description": "CrowdStrike is a global cybersecurity leader that provides cloud-delivered protection for endpoints, cloud workloads, identity, and data through its advanced Falcon platform. Powered by the CrowdStrike Security Cloud and AI, the platform offers hyper-accurate detections, automated protection, and threat hunting. Founded in 2011 and based in Austin, Texas, CrowdStrike serves customers worldwide, redefining modern security with its cloud-native platform.",
+    "slogan": "We Stop Breaches",
+    "logoUrl": "https://media.brand.dev/86a5c0e1-fc16-4647-866c-0c1c73f893db.png",
+    "iconUrl": "https://media.brand.dev/86a5c0e1-fc16-4647-866c-0c1c73f893db.png",
+    "primaryColor": "#fc0404",
+    "accentColor": "#eb442b",
+    "colors": [
+      {
+        "hex": "#fc0404",
+        "name": "Encarnado"
+      },
+      {
+        "hex": "#eb442b",
+        "name": "Heavy Orange"
+      },
+      {
+        "hex": "#f47c84",
+        "name": "Momo Peach"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e16d8ad1-461a-427a-98a1-1b16367c5d5a.png",
+    "industries": [],
+    "links": {
+      "careers": "https://crowdstrike.com/en-us/careers/",
+      "terms": "https://crowdstrike.com/en-us/legal/website-terms-of-use/",
+      "contact": "https://crowdstrike.com/en-us/contact-us/",
+      "privacy": "https://crowdstrike.com/en-us/legal/privacy-notice/",
+      "blog": "https://crowdstrike.com/en-us/blog/",
+      "pricing": "https://crowdstrike.com/en-us/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/44545476-3ccb-41e1-9bb0-f49cc1f1cc67.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8425877b-338a-4cfe-be77-0575eea4a6a0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 117,
+        "height": 121,
+        "aspectRatio": 0.97
+      },
+      {
+        "url": "https://media.brand.dev/86a5c0e1-fc16-4647-866c-0c1c73f893db.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/44545476-3ccb-41e1-9bb0-f49cc1f1cc67.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/44545476-3ccb-41e1-9bb0-f49cc1f1cc67.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

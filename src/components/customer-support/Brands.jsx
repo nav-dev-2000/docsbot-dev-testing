@@ -16,14 +16,14 @@ const Title = ({ text }) => {
     );
 }
 
-export const Brands = ({ title = "Trusted by global brands" }) => {
+export const Brands = ({ title = "Trusted by global brands", transparent = false }) => {
     const cssLogo = {
         size: 'w-[6rem] lg:w-[8rem] h-auto flex-none',
         position: 'object-contain',
     }
 
     return (
-        <div className="bg-gray-900 py-8 sm:py-12 border-none">
+        <div className={clsx('py-8 sm:py-12 border-none', transparent ? 'bg-transparent' : 'bg-gray-900')}>
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
                 <Title text={title} />
 

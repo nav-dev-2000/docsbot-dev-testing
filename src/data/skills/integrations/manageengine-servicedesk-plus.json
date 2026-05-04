@@ -1,0 +1,159 @@
+{
+  "slug": "manageengine-servicedesk-plus",
+  "name": "ManageEngine ServiceDesk Plus",
+  "domain": "manageengine-servicedesk-plus.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for ManageEngine ServiceDesk Plus",
+  "metaTitle": "Build AI Agents for ManageEngine ServiceDesk Plus with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use ManageEngine ServiceDesk Plus for support lookups, ticket updates, handoffs, workflow triggers, and internal service desk automation.",
+  "intro": "ManageEngine ServiceDesk Plus helps teams manage service requests, incidents, assets, and IT workflows. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up records, update tickets, trigger actions, and summarize outcomes. The result is an AI support agent or internal assistant that can answer questions and take bounded action inside your service desk process.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up the status, assignee, priority, or recent updates of a ServiceDesk Plus ticket while replying to a customer in chat or through a helpdesk response.",
+    "Let the agent create a new ServiceDesk Plus request from a customer conversation, capture the problem summary, attach key details, and confirm the handoff without making the customer repeat themselves.",
+    "Allow the agent to add notes, update request fields, or route a ticket to the right team in ServiceDesk Plus based on the issue described in the chat or email thread.",
+    "Have the agent summarize open incidents, pending approvals, or request history from ServiceDesk Plus so customers get a clear status update in plain language.",
+    "Use the agent to prepare escalation handoffs by gathering troubleshooting steps already completed, customer impact, urgency, and related ticket context before sending the case to a human team member."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find ServiceDesk Plus request status, ownership, SLAs, and recent activity without opening the service desk directly.",
+    "Let IT and operations teams ask the agent to create internal service requests, enrich them with structured details, and route them through the correct ServiceDesk Plus workflow.",
+    "Help support managers chat with the agent to summarize backlog health, identify aging tickets, and surface incidents that need escalation or approval.",
+    "Allow employees to use the agent to follow internal SOPs for onboarding, access requests, device issues, or facilities requests while the agent updates ServiceDesk Plus records behind the scenes.",
+    "Give service desk teams an AI assistant that gathers context across conversations, drafts internal notes, and prepares clean handoffs for technicians or specialist teams."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that creates ServiceDesk Plus requests from customer chat conversations with structured issue summaries.",
+    "A Skill that checks ticket status, priority, assignee, and latest updates before responding to customers.",
+    "A Skill that adds work notes or customer-visible updates to existing ServiceDesk Plus requests safely.",
+    "A Skill that routes incidents to the right queue based on issue type, urgency, or product area.",
+    "A Skill that prepares escalation summaries with troubleshooting history, impact details, and next recommended actions.",
+    "A Skill that helps employees submit internal IT requests through chat without learning service desk forms."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with ManageEngine ServiceDesk Plus, such as checking request status, creating tickets, updating records, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime configuration, and scopes access to only the actions and records the workflow needs."
+    },
+    {
+      "title": "Boundaries are added automatically",
+      "description": "Skill Builder defines safe action limits, approval steps for sensitive updates, and the right user and permission boundaries so the agent can help without overreaching."
+    },
+    {
+      "title": "DocsBot tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk-connected support agent, or private employee agent for Slack, Microsoft Teams, or internal chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ManageEngine ServiceDesk Plus?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking request status or creating a service ticket, and Skill Builder creates, secures, tests, and prepares the Skill for deployment. It also defines the needed connection settings, protects authentication details, and adds safe permission boundaries before the agent goes live."
+    },
+    {
+      "question": "Can an AI support agent use ManageEngine ServiceDesk Plus data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can be configured to look up approved ServiceDesk Plus data such as ticket status, ownership, priority, or recent updates while responding to customers in chat or through helpdesk tickets. It can also summarize that information in clear language and prepare handoffs when a human needs to step in."
+    },
+    {
+      "question": "Can DocsBot create or update ServiceDesk Plus tickets automatically?",
+      "answer": "DocsBot Skill Builder can create Skills that let an AI agent open requests, add notes, update selected fields, route tickets, or trigger approved workflows in ServiceDesk Plus. Sensitive actions can be limited by scoped permissions and approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with ManageEngine ServiceDesk Plus?",
+      "answer": "Common workflows include checking request status, creating tickets from chat, enriching requests with structured details, updating notes, preparing escalations, and summarizing incident history for customers or agents. This helps reduce manual triage work while keeping the service desk as the system of record."
+    },
+    {
+      "question": "What can an internal AI assistant do with ManageEngine ServiceDesk Plus for employees?",
+      "answer": "An internal DocsBot agent can help employees submit IT or service requests, check progress, retrieve SLA or ownership details, and follow internal support SOPs through chat, Slack, or Microsoft Teams. It can also help teams summarize backlog activity and route work to the correct queue."
+    },
+    {
+      "question": "How does DocsBot keep ManageEngine ServiceDesk Plus actions secure?",
+      "answer": "Skill Builder is designed to handle secure connection setup, protect and proxy secrets through runtime configuration, and keep credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum actions, users, and records needed and can add approvals for higher-risk updates."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshservice",
+    "jira-service-management",
+    "servicenow",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ManageEngine",
+    "domain": "manageengine.com",
+    "description": "ManageEngine crafts the industry’s broadest suite of IT management software, offering over 60 enterprise products and 60 free tools to manage every aspect of IT operations—including networks, servers, applications, service desks, Active Directory, security, desktops, and mobile devices. Founded in 2002 and now a division of Zoho Corporation, ManageEngine provides both on‑premises and cloud solutions used by more than 280,000 organizations worldwide, including nine of ten Fortune 100 companies. The company focuses on affordable, feature‑rich, easy‑to‑use tools and continuously introduces new solutions and contextual integrations to meet evolving IT challenges. With global offices across the US, India, Singapore, Japan, China, the Netherlands, Australia, Mexico, UAE, Saudi Arabia, and South Africa, ManageEngine is dedicated to tight business‑IT alignment and customer success.",
+    "slogan": "Take control of your IT with ManageEngine's comprehensive solutions.",
+    "logoUrl": "https://media.brand.dev/5772f300-a94e-4999-9fe5-3a92434136e3.svg",
+    "iconUrl": "https://media.brand.dev/ea1ff657-ffbf-445d-9394-1ac95486d336.jpg",
+    "primaryColor": "#545152",
+    "accentColor": "#202726",
+    "colors": [
+      {
+        "hex": "#545152",
+        "name": "Greyish Black"
+      },
+      {
+        "hex": "#202726",
+        "name": "Washed Black"
+      },
+      {
+        "hex": "#c5c4c0",
+        "name": "Granitine"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cb51e7b6-351d-4524-befb-15039534a2e5.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": "https://blogs.manageengine.com/",
+      "pricing": "https://manageengine.com/it-analytics.html",
+      "terms": "https://ondemand.manageengine.com/terms.html",
+      "contact": "https://www.manageengine.com/contact.html",
+      "privacy": "https://www.manageengine.com/privacy.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ea1ff657-ffbf-445d-9394-1ac95486d336.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5772f300-a94e-4999-9fe5-3a92434136e3.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 787,
+        "height": 138,
+        "aspectRatio": 5.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5772f300-a94e-4999-9fe5-3a92434136e3.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 787,
+      "height": 138,
+      "aspectRatio": 5.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ea1ff657-ffbf-445d-9394-1ac95486d336.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

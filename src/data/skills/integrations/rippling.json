@@ -1,0 +1,184 @@
+{
+  "slug": "rippling",
+  "name": "Rippling",
+  "domain": "rippling.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Rippling",
+  "metaTitle": "Build Rippling AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Rippling for safe HR, payroll, onboarding, and employee workflow automation in support and internal team chat.",
+  "intro": "Rippling brings HR, IT, and finance operations into one workforce platform, making it a strong system of record for employee and operational workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent look up data, summarize status, prepare handoffs, and take approved actions in Rippling. That means faster customer support responses where appropriate and more capable internal AI assistants for HR, people operations, IT, finance, and managers.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to confirm onboarding status, payroll document progress, or employment verification workflow state when a customer asks for an update and your rules allow that lookup.",
+    "Let a support agent gather missing details from a customer conversation and create or update a Rippling workflow request before handing the case to HR or operations for approval.",
+    "Have the agent summarize an employee lifecycle issue from a helpdesk ticket, attach the relevant Rippling record context, and prepare a clean escalation for the right internal team.",
+    "Enable the agent to check approved policy-linked information in Rippling and answer common questions about onboarding steps, benefits enrollment timing, or payroll process milestones without exposing sensitive data.",
+    "Use the agent to trigger a bounded follow-up workflow in Rippling, such as requesting a document resubmission or reopening an onboarding task, when a customer support conversation meets your approval rules."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up onboarding progress, policy acknowledgments, payroll dates, or assigned tasks from Rippling.",
+    "Help HR and people operations teams use a private AI agent to summarize employee status, identify missing onboarding steps, and prepare next-action checklists based on Rippling data.",
+    "Enable managers to ask an internal agent for team changes, open approvals, or lifecycle workflow summaries so they can complete SOPs faster without hunting through multiple systems.",
+    "Allow IT and operations employees to use a private agent to review provisioning-related workflow status tied to Rippling events and coordinate the next approved step across teams.",
+    "Give finance or operations staff an AI assistant that gathers Rippling context, drafts handoff notes, and triggers approved internal workflows while keeping actions within scoped permissions and approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks onboarding progress and summarizes missing employee setup steps.",
+    "A support assistant that prepares HR handoffs using Rippling workflow context from customer tickets.",
+    "An internal HR agent that answers payroll schedule and policy-related employee questions safely.",
+    "A manager assistant that summarizes team lifecycle changes and pending approvals from Rippling.",
+    "An operations agent that triggers approved onboarding follow-ups after collecting missing details in chat.",
+    "An employee help agent that finds assigned tasks, forms, and status updates in Rippling."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Rippling agent to do, such as checking onboarding status, preparing HR handoffs, or triggering an approved workflow, and it turns that request into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime settings, and scopes access to only the users, records, and actions the workflow truly needs."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for Rippling actions by defining safe lookup limits, approval boundaries for sensitive updates, and clear instructions for when the agent should answer, ask for more context, escalate, or stop."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak prompts, permission gaps, or workflow issues, and feeds those results into a self-improvement loop before the Skill is deployed."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Rippling Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so your team can use AI Actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Rippling without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Rippling workflow you want in plain language and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. It can create agents that perform lookups, summaries, handoffs, and approved actions while keeping configuration and authentication controlled behind the scenes."
+    },
+    {
+      "question": "Can a DocsBot support agent use Rippling data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Rippling Skill to retrieve approved workflow or status information during a website chat or helpdesk conversation. You control which data the agent can access and which responses or actions require escalation or approval."
+    },
+    {
+      "question": "What employee workflows can an internal AI assistant automate with Rippling?",
+      "answer": "An internal DocsBot agent can help employees and teams check onboarding progress, review payroll timing, surface assigned tasks, summarize lifecycle records, and prepare handoffs or follow-up workflows. This is useful for HR, operations, managers, IT, and finance teams that need quick answers and consistent SOP execution."
+    },
+    {
+      "question": "Can an AI agent update Rippling records or trigger workflows safely?",
+      "answer": "DocsBot Skill Builder can create bounded actions for updates or workflow triggers when your process allows them. It defines scoped permissions, secures secrets, and adds approval boundaries so sensitive changes are reviewed or limited to the right situations."
+    },
+    {
+      "question": "How does DocsBot keep Rippling credentials and HR data secure?",
+      "answer": "Skill Builder is designed to define secure configuration values, protect and proxy secrets through runtime settings, and keep credentials out of chat transcripts and generated Skill content. It also limits access to the minimum records, users, and actions needed for the workflow and can require approvals for higher-risk operations."
+    },
+    {
+      "question": "Can a Rippling AI assistant help with HR ticket triage and escalations?",
+      "answer": "Yes, a DocsBot agent can gather the relevant context from a support conversation, look up approved Rippling information, summarize the issue, and prepare a structured handoff for HR or operations. That helps teams reduce manual triage time and keeps escalations more consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "gusto",
+    "okta",
+    "google-workspace",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rippling",
+    "domain": "rippling.com",
+    "description": "Rippling is a San Francisco‑based workforce management platform that unifies HR, IT, and finance operations into a single system. It lets companies handle the entire employee lifecycle—from recruiting and onboarding to payroll, benefits, expense management, device provisioning, and third‑party app access—through one integrated application. By centralizing data across people, processes, and systems, Rippling creates a shared source of truth, automates workflows, and provides real‑time insights, helping businesses execute faster and more efficiently. The platform supports global hiring, rapid setup of payroll, corporate cards, computers, and software tools in seconds, eliminating the need for disparate tools. Backed by top investors, Rippling aims to remove friction from running a business.",
+    "slogan": "Unified Workforce Management for Smarter, Faster Business Operations",
+    "logoUrl": "https://media.brand.dev/cb9b1f0b-6191-4119-bd91-f4d68c743e7a.svg",
+    "iconUrl": "https://media.brand.dev/d77e8d86-e38b-4336-a347-a26ac1a7a3d5.jpg",
+    "primaryColor": "#c474b4",
+    "accentColor": "#7b055c",
+    "colors": [
+      {
+        "hex": "#c474b4",
+        "name": "Daphne Rose"
+      },
+      {
+        "hex": "#7b055c",
+        "name": "Xereus Purple"
+      },
+      {
+        "hex": "#efe3ed",
+        "name": "Faded Fuchsia"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a3db5bde-f372-4aa3-b37f-f461d7059a37.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://app.rippling.com/legal/user",
+      "privacy": "https://app.rippling.com/legal/privacy",
+      "careers": "https://www.rippling.com/careers",
+      "contact": "https://www.rippling.com/contact",
+      "blog": "https://www.rippling.com/blog",
+      "pricing": "https://www.rippling.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d77e8d86-e38b-4336-a347-a26ac1a7a3d5.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/47c587b3-7fd8-4a1d-9602-0ff9f8442bdb.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9fd36bee-7f81-484c-b6cc-50f6c74387e0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/83e57c64-e400-4c0a-8432-2001df5592e1.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 40,
+        "height": 40,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cb9b1f0b-6191-4119-bd91-f4d68c743e7a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 127,
+        "height": 18,
+        "aspectRatio": 7.06
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cb9b1f0b-6191-4119-bd91-f4d68c743e7a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 127,
+      "height": 18,
+      "aspectRatio": 7.06
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/83e57c64-e400-4c0a-8432-2001df5592e1.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 40,
+      "height": 40,
+      "aspectRatio": 1
+    }
+  }
+}

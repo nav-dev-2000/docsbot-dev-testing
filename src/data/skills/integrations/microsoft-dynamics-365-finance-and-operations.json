@@ -1,0 +1,160 @@
+{
+  "slug": "microsoft-dynamics-365-finance-and-operations",
+  "name": "Microsoft Dynamics 365 Finance and Operations",
+  "domain": "microsoft-dynamics-365-finance-and-operations.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents for Microsoft Dynamics 365 Finance and Operations",
+  "metaTitle": "DocsBot AI for Microsoft Dynamics 365 Finance and Operations",
+  "metaDescription": "Build DocsBot AI agents that use Microsoft Dynamics 365 Finance and Operations for secure lookups, approved updates, workflow triggers, and internal finance support.",
+  "intro": "Microsoft Dynamics 365 Finance and Operations helps teams manage financial, operational, and business process data across the enterprise. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use that data or trigger approved actions, and DocsBot helps design, secure, test, and publish the Skill. The result is a support or internal AI agent that can answer questions, retrieve live records, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check order, invoice, payment, or account status in Microsoft Dynamics 365 Finance and Operations while responding in a website chat or helpdesk ticket.",
+    "Use the agent to summarize a customer account's finance and operations history so support teams can give faster, more accurate answers without switching systems.",
+    "Allow the agent to create approved follow-up tasks or escalation notes tied to finance or operations records when a customer needs billing or fulfillment help.",
+    "Have the agent collect missing details from the customer, then prepare a structured handoff for finance or operations specialists with the relevant Dynamics context attached.",
+    "Enable the agent to confirm whether a refund, credit, invoice correction, or fulfillment-related workflow is already in progress before promising next steps to the customer."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to look up invoices, purchase orders, vendor details, or account balances from Microsoft Dynamics 365 Finance and Operations.",
+    "Help finance and operations teams ask the agent for summarized record history, exception status, or open workflow items so they can research issues faster.",
+    "Use an internal agent to guide employees through SOPs such as invoice review, order exception handling, or account reconciliation while pulling live context from Dynamics.",
+    "Allow approved team members to ask the agent to create notes, update selected fields, or trigger downstream workflows with clear permission and approval boundaries.",
+    "Support cross-functional teams by having the agent gather Dynamics data, summarize it, and prepare handoff artifacts for accounting, customer success, or operations managers."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks invoice and payment status before answering billing questions.",
+    "A support assistant that summarizes account, order, and fulfillment context for faster escalations.",
+    "An internal finance bot that retrieves purchase order and vendor record details on request.",
+    "A private AI assistant that guides employees through invoice exception handling workflows.",
+    "An agent that prepares structured case handoffs with Dynamics record summaries and next steps.",
+    "A workflow assistant that triggers approved follow-up tasks after finance-related customer conversations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Microsoft Dynamics 365 Finance and Operations in plain language, such as checking invoice status, summarizing account activity, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and connection approach for the job."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes access to only the users, actions, records, and systems the workflow needs."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder sets approval boundaries and action limits for sensitive updates so the agent can retrieve information freely where appropriate while pausing or escalating higher-risk steps under your rules."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Microsoft Dynamics 365 Finance and Operations?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up invoice status or preparing a finance handoff, and Skill Builder designs, secures, tests, and packages the workflow for your agent. It can include live lookups, approved updates, summaries, and workflow triggers based on your rules."
+    },
+    {
+      "question": "Can a DocsBot support agent use Microsoft Dynamics 365 Finance and Operations data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve approved finance or operations data while responding in a chat widget or helpdesk flow. That helps the agent answer with current status, gather missing context, and prepare cleaner escalations without exposing unnecessary system access."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Microsoft Dynamics 365 Finance and Operations?",
+      "answer": "Teams can build workflows for invoice and payment status checks, order and fulfillment lookups, account-history summaries, escalation preparation, and approved follow-up task creation. The agent can also collect customer details first and then use Dynamics context to produce a more accurate response or handoff."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Microsoft Dynamics 365 Finance and Operations?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve records, summarize transaction history, research exceptions, and complete finance or operations SOPs through chat, Slack, or Microsoft Teams. This reduces system switching while keeping actions inside defined permissions and approval limits."
+    },
+    {
+      "question": "How does DocsBot keep Microsoft Dynamics 365 Finance and Operations actions secure?",
+      "answer": "Skill Builder defines secure connection handling, protects and proxies secrets through runtime configuration, and keeps credentials out of conversations and generated content. It also scopes permissions to the minimum required access and can add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can I control which records and actions the AI agent can access in Microsoft Dynamics 365 Finance and Operations?",
+      "answer": "Yes, DocsBot Skills are designed with scoped access so the agent only uses the records, actions, and systems required for the workflow you approve. Skill Builder helps define those limits during setup so the agent stays within your operating rules."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "xero",
+    "quickbooks-online",
+    "sage-intacct",
+    "microsoft-dynamics-365-business-central",
+    "stripe"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft",
+    "domain": "microsoft.com",
+    "description": "Microsoft is a leading software corporation known for its comprehensive suite of software products and services. The company specializes in developing, manufacturing, licensing, supporting, and selling innovative technological solutions that cater to both individual users and businesses. Renowned for its Windows operating system and Office productivity suite, Microsoft continually expands its offerings to include cloud services, enterprise solutions, and artificial intelligence applications. By leveraging cutting-edge technology and a commitment to customer support, Microsoft empowers consumers and organizations worldwide to maximize their productivity and enhance their digital experiences.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+    "iconUrl": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+    "primaryColor": "#04a4ec",
+    "accentColor": "#d1960e",
+    "colors": [
+      {
+        "hex": "#04a4ec",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#d1960e",
+        "name": "Australien"
+      },
+      {
+        "hex": "#fc5c2c",
+        "name": "Nasturtium"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce3bb6b7-b423-4b9f-99d1-d1d61fe6cf34.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.microsoft.com/",
+      "terms": "https://go.microsoft.com/fwlink/",
+      "contact": "https://support.microsoft.com/contactus",
+      "privacy": "https://privacy.microsoft.com/en-za",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e5fdbe22-0d01-4bbe-9ae8-fdab8d614301.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1fb99688-e4b6-4602-bf1c-26d8b89d526d.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

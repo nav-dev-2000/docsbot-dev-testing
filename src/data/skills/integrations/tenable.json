@@ -1,0 +1,184 @@
+{
+  "slug": "tenable",
+  "name": "Tenable",
+  "domain": "tenable.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Tenable",
+  "metaTitle": "Build Tenable AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Tenable for secure lookups, risk summaries, workflow handoffs, and approved security operations actions.",
+  "intro": "Tenable helps organizations understand vulnerabilities, exposure, and cybersecurity risk across modern environments. With DocsBot Skill Builder, you can describe the Tenable workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve approved security context, prepare escalations, and trigger bounded actions without exposing sensitive access details.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved Tenable exposure or asset status details for a known account or environment while answering a support question.",
+    "Use a DocsBot helpdesk agent to summarize relevant vulnerability findings from Tenable and add a clear handoff note for a security or support escalation.",
+    "Enable the agent to confirm whether a reported issue is associated with known exposure findings in Tenable and explain the next approved remediation path.",
+    "Have the agent gather incident context from the customer conversation, look up matching assets or findings in Tenable, and prepare an escalation summary for human review.",
+    "Allow the agent to trigger approved internal workflows based on Tenable risk thresholds, such as notifying the right team or creating a follow-up task after customer consent or policy checks."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Tenable exposure summaries, vulnerability context, and asset status without switching tools.",
+    "Security, IT, and operations teams can ask the agent to research a host, asset group, or finding in Tenable and return a concise risk summary with recommended next steps.",
+    "Teams can use the agent to follow internal SOPs by gathering Tenable data, preparing escalation notes, and routing the case to the right owner based on severity or environment.",
+    "Analysts can ask the agent to compare current Tenable findings against internal policies or recent tickets and produce a summarized briefing for review.",
+    "Employees can use the agent to trigger bounded workflows tied to Tenable events, approvals, notifications, or follow-up tasks while keeping sensitive actions within defined limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Tenable findings related to a customer-reported security concern.",
+    "An internal security assistant that looks up asset exposure and explains approved next steps.",
+    "A helpdesk agent that prepares Tenable-based escalation notes for security and engineering teams.",
+    "A private AI agent that retrieves vulnerability context for hosts, assets, or environments.",
+    "An AI workflow that routes high-risk Tenable findings to the correct internal owner.",
+    "A DocsBot agent that generates security status summaries for tickets, incidents, or leadership updates."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Tenable, such as look up exposure details, summarize findings, or prepare escalations, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder identifies the Tenable connection details and required configuration values, defines secure authentication handling, keeps secrets out of chats and Skill source, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and action limits so the agent can retrieve information or take approved steps in Tenable without exceeding your policies."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill, improves reliability and clarity, and helps publish it to your customer-facing DocsBot agent or your private employee assistant for chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Tenable?",
+      "answer": "With DocsBot Skill Builder, you describe the Tenable workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your AI agent. It can support safe lookups, summaries, handoffs, and bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Tenable data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Tenable data to look up asset or exposure context, summarize findings, and prepare escalation details while responding in chat or through helpdesk tickets. Access can be limited to the specific records, actions, and workflows you allow."
+    },
+    {
+      "question": "What can an internal AI assistant do with Tenable for employees?",
+      "answer": "A private DocsBot agent can help employees research vulnerabilities, retrieve asset exposure details, summarize risk, follow SOPs, and prepare internal handoffs using Tenable data. It can also trigger approved follow-up workflows when your policies allow it."
+    },
+    {
+      "question": "Can DocsBot safely perform actions related to Tenable findings?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect and proxy secrets, scope permissions, and add approval boundaries for sensitive actions. This lets the AI agent take bounded steps without exposing credentials or operating outside approved limits."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Tenable vulnerabilities for tickets or escalations?",
+      "answer": "Yes, the agent can gather relevant Tenable context and turn it into a concise summary for a support reply, escalation note, or internal handoff. This helps teams move faster while keeping the final workflow within your approval and visibility rules."
+    },
+    {
+      "question": "How does testing work for a Tenable Skill in DocsBot?",
+      "answer": "After Skill Builder creates the Skill, DocsBot’s automated testing agent can run realistic support and internal scenarios to find bugs, missing instructions, or weak permission checks. Those results feed an automated improvement loop before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "crowdstrike",
+    "okta",
+    "servicenow",
+    "jira",
+    "pagerduty",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Tenable",
+    "domain": "tenable.com",
+    "description": "Tenable is a leading exposure management company dedicated to helping organizations understand and mitigate their cybersecurity risks across a wide array of modern computing assets. Their innovative, AI-powered platform provides comprehensive security visibility and actionable insights, enabling businesses to protect against various threats, from IT infrastructure and cloud environments to critical infrastructure. With a commitment to reducing security exposure, Tenable serves over 44,000 customers globally, offering robust tools for security, vulnerability management, and compliance. By closing the cybersecurity gaps that can endanger business value, reputation, and trust, Tenable empowers organizations to enhance their defenses and manage risks effectively.",
+    "slogan": "Your exposure ends here with AI-powered security management.",
+    "logoUrl": "https://media.brand.dev/9cc2d232-1f66-4cf0-b202-184631d03d6c.png",
+    "iconUrl": "https://media.brand.dev/5b894361-ae5f-4f00-b3ee-d5feaad579f1.png",
+    "primaryColor": "#060643",
+    "accentColor": "#7a7c96",
+    "colors": [
+      {
+        "hex": "#060643",
+        "name": "Night Blue"
+      },
+      {
+        "hex": "#7a7c96",
+        "name": "Waterloo"
+      },
+      {
+        "hex": "#c4c4d0",
+        "name": "Lavender Dust"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/49c5be7c-a5cb-4dbb-8fc0-9b48f91e437f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://tenable.com/careers",
+      "terms": null,
+      "contact": "https://tenable.com/about-tenable/contact-tenable",
+      "privacy": "https://tenable.com/privacy-policy",
+      "blog": "https://tenable.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5b894361-ae5f-4f00-b3ee-d5feaad579f1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0469e627-64af-4725-aaf0-662f9dff4f2a.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9cc2d232-1f66-4cf0-b202-184631d03d6c.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 326,
+        "height": 73,
+        "aspectRatio": 4.47
+      },
+      {
+        "url": "https://media.brand.dev/a6ed5a07-4f55-46b6-ba82-1a10bffb1e01.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/345f2405-a437-4ea4-be04-b378f5355221.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1062,
+        "height": 299,
+        "aspectRatio": 3.55
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/345f2405-a437-4ea4-be04-b378f5355221.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1062,
+      "height": 299,
+      "aspectRatio": 3.55
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0469e627-64af-4725-aaf0-662f9dff4f2a.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

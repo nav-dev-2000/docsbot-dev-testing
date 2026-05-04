@@ -1,0 +1,178 @@
+{
+  "slug": "charlie",
+  "name": "Charlie",
+  "domain": "charlie.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work With Charlie",
+  "metaTitle": "Build Charlie AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Charlie for support lookups, internal operations, approvals, and workflow automation.",
+  "intro": "Charlie supports important account and financial service workflows, and DocsBot Skill Builder helps you turn those workflows into secure AI agent actions. In plain language, you describe what the agent should do, and Skill Builder designs, tests, and deploys a reusable Skill for customer support or internal team use. The result is an AI agent that can answer questions, gather context, trigger approved workflows, and prepare clean handoffs while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up approved Charlie account or case details and explain status updates during a website chat or support ticket reply.",
+    "Use the agent to collect missing customer information, summarize the issue, and prepare a handoff for a financial support or operations team working in Charlie-related workflows.",
+    "Allow the agent to trigger approved follow-up workflows, such as review requests or internal escalations, when a customer needs account help that requires human attention.",
+    "Have the agent summarize recent Charlie-related activity or support history so customers receive a faster and more consistent response.",
+    "Enable the agent to create structured internal notes or case summaries from customer conversations before passing the issue to a specialist team."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Charlie-related account, customer, or workflow information without searching multiple systems manually.",
+    "Let operations or customer success teams ask the agent to summarize a customer situation, gather required context, and prepare the next steps for a Charlie-related support process.",
+    "Help internal teams complete SOPs by having the agent check status, collect fields, generate follow-up notes, and route work to the right reviewer or team.",
+    "Allow employees in Slack, Microsoft Teams, or a private chat to trigger approved Charlie-related workflows while the agent enforces action limits and approval boundaries.",
+    "Support research and case review by letting team members ask the agent for concise summaries of Charlie records, related conversations, and pending actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that retrieves approved Charlie account or case information during customer conversations.",
+    "A private operations assistant that summarizes Charlie activity and prepares escalation handoff notes.",
+    "An employee-facing agent that gathers required details before triggering a Charlie-related review workflow.",
+    "A customer support Skill that creates structured case summaries from chat or ticket conversations.",
+    "An internal AI assistant that answers policy-based questions using Charlie data and connected SOP content.",
+    "A workflow agent that routes Charlie-related requests to the correct team with approval controls in place."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Charlie-powered agent to do in plain language, and it turns that goal into a safe support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the configuration values it needs, and sets up secure connection and authentication handling without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Charlie actions and records required, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Charlie?",
+      "answer": "With DocsBot Skill Builder, you describe the Charlie workflow you want in plain language, and the builder designs a reusable Skill that can look up information, prepare summaries, trigger approved actions, and route work safely. It also handles secure configuration, permission scoping, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Charlie data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Charlie Skill to retrieve approved information, summarize status, gather missing context, and prepare handoffs while replying to customers. You control what data and actions are allowed, and Skill Builder adds safe boundaries around those workflows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Charlie?",
+      "answer": "A Charlie-connected agent can help with live lookups, issue summaries, escalation prep, follow-up workflow triggers, and structured handoff notes for human teams. This helps support teams respond faster while keeping sensitive actions inside your approval rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees complete Charlie-related workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Charlie-related information, summarize cases, and complete guided SOP steps. The Skill can also trigger bounded actions or route work to the right team when needed."
+    },
+    {
+      "question": "How does DocsBot keep Charlie integrations secure?",
+      "answer": "Skill Builder defines the required configuration, keeps secrets out of conversations and generated content, proxies authentication through secure runtime settings, and scopes access to the minimum actions and records needed. It can also add approval checkpoints for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can a Charlie AI agent prepare escalations and handoffs for human teams?",
+      "answer": "Yes, the agent can collect the right context from a customer or employee conversation, generate a clean summary, and create a structured handoff for operations, support, or specialist review. This reduces back-and-forth and helps teams start with complete information."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "gusto",
+    "hibob",
+    "personio",
+    "workday",
+    "rippling"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Charlie Financial",
+    "domain": "charlie.com",
+    "description": "Charlie is a financial technology company designed for individuals aged 62 and above, offering banking services through Sutton Bank, Member FDIC. They provide access to Social Security benefits 3-5 days early and 3% earnings on deposits, aiming to deliver tailored financial solutions for seniors.",
+    "slogan": "Banking built for you",
+    "logoUrl": "https://media.brand.dev/e93b26ce-a30a-40be-aa8f-0fc8a5e1284a.svg",
+    "iconUrl": "https://media.brand.dev/87cd5881-e589-422b-b913-b7b97d8631f4.png",
+    "primaryColor": "#f6e691",
+    "accentColor": "#948c6c",
+    "colors": [
+      {
+        "hex": "#f6e691",
+        "name": "Beekeeper"
+      },
+      {
+        "hex": "#948c6c",
+        "name": "Knapsack"
+      },
+      {
+        "hex": "#342444",
+        "name": "Power Outage"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/05b26bd7-becf-4686-b5d1-1a5f16d74e6e.png",
+    "industries": [],
+    "links": {
+      "terms": "https://app.charlie.com/terms/CARDHOLDER_AGREEMENT",
+      "contact": null,
+      "pricing": null,
+      "careers": "https://www.charlie.com/careers",
+      "privacy": "https://www.charlie.com/legal",
+      "blog": "https://www.charlie.com/news",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/87cd5881-e589-422b-b913-b7b97d8631f4.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/56f7f9cf-c10c-44b1-9c69-3ea3de7fa21e.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e93b26ce-a30a-40be-aa8f-0fc8a5e1284a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 68,
+        "height": 22,
+        "aspectRatio": 3.09
+      },
+      {
+        "url": "https://media.brand.dev/8f14ab11-d87c-4215-9bfd-67a04a883f69.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 597,
+        "height": 150,
+        "aspectRatio": 3.98
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e93b26ce-a30a-40be-aa8f-0fc8a5e1284a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 68,
+      "height": 22,
+      "aspectRatio": 3.09
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/87cd5881-e589-422b-b913-b7b97d8631f4.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

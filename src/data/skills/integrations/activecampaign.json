@@ -1,0 +1,160 @@
+{
+  "slug": "activecampaign",
+  "name": "ActiveCampaign",
+  "domain": "activecampaign.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ActiveCampaign",
+  "metaTitle": "ActiveCampaign AI Agent Skills for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely read and act in ActiveCampaign for customer support, team workflows, handoffs, and approved automation.",
+  "intro": "ActiveCampaign helps teams automate marketing, messaging, and customer journeys across channels. With DocsBot Skill Builder, you can describe the ActiveCampaign-powered agent behavior you want in plain language, and DocsBot builds a reusable Skill that lets your support or internal AI agent safely look up contacts, update records, trigger automations, and summarize activity. This helps customer-facing and employee-facing agents move from answering questions to taking approved action.",
+  "supportUseCases": [
+    "Let a customer support agent check an ActiveCampaign contact record, subscription status, tags, and recent campaign activity while replying in a website chat or helpdesk ticket.",
+    "Enable the agent to add or remove approved tags in ActiveCampaign based on a verified support outcome such as trial extension eligibility or onboarding completion.",
+    "Use the agent to create a structured handoff summary that includes the customer’s ActiveCampaign history, recent engagement, and relevant notes for a human success manager.",
+    "Allow the agent to trigger approved ActiveCampaign automations after a support conversation, such as follow-up onboarding sequences or re-engagement workflows.",
+    "Have the agent confirm whether a customer is already enrolled in a messaging sequence and explain the next expected communication without exposing internal campaign details."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to look up ActiveCampaign contacts, account engagement, tags, and automation status without opening multiple tools.",
+    "Enable sales, success, or marketing teams to ask the agent to prepare outreach summaries from ActiveCampaign activity before a customer call or renewal review.",
+    "Allow team members to use chat, Slack, or Microsoft Teams to trigger approved ActiveCampaign automations for onboarding, nurture, or follow-up workflows.",
+    "Help operations teams use an internal AI agent to standardize SOPs for list cleanup, tagging checks, and contact audit research across ActiveCampaign data.",
+    "Give managers an internal assistant that summarizes campaign engagement or contact journey history so teams can make faster decisions and coordinate next steps."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks contact tags, list membership, and recent engagement before answering.",
+    "An AI assistant that adds approved tags after support resolution or onboarding milestones.",
+    "A private team agent that summarizes ActiveCampaign contact history for sales or success handoffs.",
+    "A workflow Skill that triggers a follow-up automation when a qualified support event occurs.",
+    "An internal assistant that audits contact records and flags missing fields or inconsistent tagging.",
+    "A handoff builder that compiles customer conversation context with ActiveCampaign activity into a reusable summary."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ActiveCampaign agent to do, such as look up contact status, update tags, trigger an automation, or prepare a handoff summary, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the safest way to connect ActiveCampaign, defines the needed configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and action limits for higher-impact steps such as record changes or automation triggers so the agent only takes the kinds of actions you allow."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use ActiveCampaign in a controlled and logged way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ActiveCampaign data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, and it creates a Skill that lets your agent safely look up ActiveCampaign contacts, tags, automation status, and engagement history during chats or ticket replies. You can also define bounded actions such as updating tags, preparing handoffs, or triggering approved follow-up workflows."
+    },
+    {
+      "question": "Can an AI support agent update ActiveCampaign records during a customer conversation?",
+      "answer": "Yes, DocsBot can be configured to let an agent make approved changes such as adding tags, updating fields, or triggering automations when your rules allow it. Skill Builder designs those actions with scoped permissions, protected authentication, and approval boundaries for sensitive updates."
+    },
+    {
+      "question": "What customer support workflows can an ActiveCampaign AI agent automate?",
+      "answer": "A DocsBot agent can verify contact status, summarize campaign or onboarding activity, trigger follow-up automations, create escalation summaries, and hand off the right context to human teams. This helps support teams resolve issues faster without switching between tools."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside ActiveCampaign from Slack or Microsoft Teams?",
+      "answer": "Yes, a private DocsBot agent can let employees ask for contact research, journey summaries, tagging checks, or approved automation triggers from chat, Slack, or Microsoft Teams. This is useful for sales, customer success, marketing, and operations teams that need faster answers and repeatable workflows."
+    },
+    {
+      "question": "How does DocsBot keep ActiveCampaign access secure when building an AI Skill?",
+      "answer": "Skill Builder handles secure connection design by defining required configuration values, keeping secrets out of chats and Skill source, and proxying authentication through secure runtime configuration. It also scopes access to the minimum actions and records needed and can add approval steps for higher-risk changes."
+    },
+    {
+      "question": "Can DocsBot test an ActiveCampaign AI workflow before it goes live?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that can run realistic support and internal scenarios against the proposed workflow. It identifies bugs, missing safeguards, and improvement opportunities, then uses those findings to improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "intercom",
+    "zendesk",
+    "mailchimp",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ActiveCampaign",
+    "domain": "activecampaign.com",
+    "description": "ActiveCampaign is an AI-first autonomous marketing platform that helps marketers, agencies, and entrepreneurs automate personalized cross-channel campaigns across email, SMS, and WhatsApp. Leveraging Active Intelligence, it creates goal-aware automations, orchestrates AI agents for deep performance insights, and integrates with over 1,000 apps to streamline workflows. The platform enables users to deliver tailored experiences, optimize performance, and scale marketing efforts without heavy manual work, serving more than 180,000 customers worldwide.",
+    "slogan": "Automate strategy, not just tasks—become unstoppable.",
+    "logoUrl": "https://media.brand.dev/a2a91518-2c71-4fab-9829-0b492b191bb7.svg",
+    "iconUrl": "https://media.brand.dev/5db347cc-5932-4518-90f5-4cd47a203509.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#054cfa",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#054cfa",
+        "name": "Magic Ink"
+      },
+      {
+        "hex": "#7cace4",
+        "name": "Pool Floor"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/300d6c92-e8de-4320-bc4f-5542f04081e4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.activecampaign.com/careers",
+      "terms": null,
+      "contact": "https://www.activecampaign.com/contact",
+      "privacy": "https://www.activecampaign.com/legal/privacy-policy",
+      "blog": "https://www.activecampaign.com/blog",
+      "pricing": "https://www.activecampaign.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5db347cc-5932-4518-90f5-4cd47a203509.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2a91518-2c71-4fab-9829-0b492b191bb7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 516,
+        "height": 53,
+        "aspectRatio": 9.74
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a2a91518-2c71-4fab-9829-0b492b191bb7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 516,
+      "height": 53,
+      "aspectRatio": 9.74
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5db347cc-5932-4518-90f5-4cd47a203509.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

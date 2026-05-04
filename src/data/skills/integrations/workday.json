@@ -1,0 +1,176 @@
+{
+  "slug": "workday",
+  "name": "Workday",
+  "domain": "workday.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Workday",
+  "metaTitle": "Build AI Support and Internal Agents for Workday",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Workday data, summarize records, trigger workflows, and support employees or customers.",
+  "intro": "Workday helps teams manage HR and finance operations, which makes it a strong system for AI agents that need trusted workforce or business context. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot design a reusable Skill that connects your agent to Workday safely. The result is an AI support or internal assistant that can answer questions, retrieve approved data, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved employee-facing HR information in Workday, such as payroll timing, benefits status guidance, or time-off policy context, before answering a support question.",
+    "Use a DocsBot agent connected to your helpdesk to gather identity details from a ticket, look up the relevant worker record in Workday, and prepare a clean escalation summary for HR or payroll teams.",
+    "Enable the agent to summarize case-relevant Workday fields for support staff so responses are faster and handoffs include the right employee context.",
+    "Allow the agent to trigger approved follow-up workflows in Workday, such as routing a request for manual review, when a customer issue needs an HR or finance team decision.",
+    "Have the agent collect missing details from the customer conversation and create a structured handoff note that references the correct Workday record for internal follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure portal to retrieve approved Workday information such as time-off balances, job details, reporting lines, or payroll schedule guidance.",
+    "Enable managers to ask the agent for workforce summaries pulled from Workday, including team structures, open approval items, or employee status context, within the permissions you allow.",
+    "Give HR operations teams an AI assistant that can look up worker records, summarize changes, and guide staff through internal SOPs tied to Workday workflows.",
+    "Allow finance or people teams to use a private agent to prepare handoff notes, compile record summaries, and trigger approved next steps across Workday-driven processes.",
+    "Support employee service desks with an internal AI agent that gathers request details, checks Workday context, and drafts a compliant escalation package for human review."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that retrieves approved employee profile and job information from Workday.",
+    "A support assistant that summarizes payroll or benefits context before escalating to HR.",
+    "An internal HR bot that guides employees through leave, payroll, and profile update workflows.",
+    "A manager assistant that provides approved team structure and worker status summaries.",
+    "An employee help agent that checks time-off balances and explains next steps.",
+    "A workflow assistant that creates structured handoff notes tied to Workday records for review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Workday-enabled agent to do, such as answer employee questions, look up approved records, prepare handoffs, or trigger a limited workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what configuration values are needed, and defines how the agent should use Workday safely without exposing credentials or asking you to map every technical step."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds clear boundaries for sensitive Workday actions, including approval steps, restricted operations, and safe instructions so the agent only performs the actions you allow."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs or weak spots, checks permission handling, and feeds improvements back into the Skill before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Workday?",
+      "answer": "With DocsBot Skill Builder, you describe the Workday task you want in plain language, and Skill Builder designs the Skill, secures the connection, defines the right action boundaries, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Workday data when responding to employee questions?",
+      "answer": "Yes, a DocsBot agent can use approved Workday data to look up context, summarize relevant records, and prepare handoffs or next steps while replying in a website chat widget or helpdesk workflow."
+    },
+    {
+      "question": "What kinds of Workday workflows can an internal AI assistant automate?",
+      "answer": "Internal agents can help with approved record lookups, employee and manager self-service guidance, structured summaries, escalation prep, and bounded workflow triggers that support HR or finance operations."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent can do inside Workday?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, restrict which records and actions are allowed, and add approval boundaries for sensitive updates or workflow triggers before the Skill is deployed."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Workday records for HR or support teams?",
+      "answer": "Yes, the agent can gather approved Workday details and turn them into clean summaries, case notes, or escalation packages so teams can act faster with better context."
+    },
+    {
+      "question": "Is it possible to use Workday with a private AI assistant for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot Skills can power private employee-facing agents that answer questions, retrieve approved Workday information, and help teams complete internal workflows through chat."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "adp-workforce-now",
+    "namely",
+    "sap-successfactors",
+    "oracle-hcm-cloud",
+    "greenhouse"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Workday",
+    "domain": "workday.com",
+    "description": "Workday is a premier provider of SaaS-based enterprise solutions tailored for human resources and financial management. Leveraging the power of artificial intelligence and machine learning, Workday offers an innovative cloud platform that seamlessly integrates finance and HR functionalities. With a customer base exceeding 10,000 organizations worldwide, including more than half of the Fortune 500, Workday empowers businesses of all sizes to adapt and thrive in a dynamic world. Their suite of applications encompasses financial management, human resources, planning, spend management, and analytics, all designed to facilitate fast decision-making and flawless operations. By uniting these vital functions on a single AI-driven platform, Workday not only drives a streamlined workflow but also ensures continuous innovation, enabling organizations to embrace the future of work confidently and effectively.",
+    "slogan": "Empowering finance and HR with AI for a changing world.",
+    "logoUrl": "https://media.brand.dev/cac68b2e-2e1f-44cc-a787-3897e0d24e6f.svg",
+    "iconUrl": "https://media.brand.dev/83cb4df0-83b3-47a0-b07b-583ac4dda9cb.png",
+    "primaryColor": "#e87a41",
+    "accentColor": "#0d2c64",
+    "colors": [
+      {
+        "hex": "#e87a41",
+        "name": "Solar Flare"
+      },
+      {
+        "hex": "#0d2c64",
+        "name": "Funnel Cloud"
+      },
+      {
+        "hex": "#8392ac",
+        "name": "Lilac Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bfda9692-214a-451a-83c5-602c1d727f16.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.workday.com/en-us/company/careers/overview.html",
+      "terms": null,
+      "contact": "https://www.workday.com/en-us/company/about-workday/contact-us.html",
+      "privacy": "https://workday.com/en-us/privacy.html",
+      "blog": "https://blog.workday.com/en-us/homepage.html",
+      "pricing": "https://www.workday.com/en-us/products/adaptive-planning/workforce-planning/overview.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/83cb4df0-83b3-47a0-b07b-583ac4dda9cb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cc9b234a-3728-48ba-b527-cdd1b696bbfb.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cac68b2e-2e1f-44cc-a787-3897e0d24e6f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 64,
+        "height": 105,
+        "aspectRatio": 0.61
+      },
+      {
+        "url": "https://media.brand.dev/f69771cc-0f7f-49a9-8e40-d42b8a9d7bba.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 226,
+        "height": 143,
+        "aspectRatio": 1.58
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f69771cc-0f7f-49a9-8e40-d42b8a9d7bba.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 226,
+      "height": 143,
+      "aspectRatio": 1.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cc9b234a-3728-48ba-b527-cdd1b696bbfb.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

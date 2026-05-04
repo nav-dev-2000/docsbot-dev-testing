@@ -1,0 +1,167 @@
+{
+  "slug": "teamtailor",
+  "name": "Teamtailor",
+  "domain": "teamtailor.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Teamtailor",
+  "metaTitle": "Build Teamtailor AI Agents for Recruiting and Support | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up candidates, update recruiting records, trigger workflows, and assist support or hiring teams in Teamtailor.",
+  "intro": "Teamtailor helps companies manage recruiting, candidate pipelines, and hiring workflows in one place. With DocsBot Skill Builder, you can describe the Teamtailor workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, look up recruiting data, prepare handoffs, and take approved actions inside Teamtailor instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of a candidate application in Teamtailor and give the applicant a current, policy-aligned update.",
+    "Let a support agent collect missing application details in chat and create or update the appropriate candidate record in Teamtailor after approval.",
+    "Have the agent summarize a candidate's current stage, recent recruiter activity, and next expected step when responding to inbound helpdesk tickets.",
+    "Use the agent to trigger approved recruiting workflows in Teamtailor, such as sending a handoff to the hiring team or flagging an application for follow-up.",
+    "Let the agent prepare escalation notes for recruiting support staff by pulling the relevant Teamtailor record history into a clean summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure internal chat to look up candidate status, job openings, and recruiting pipeline details from Teamtailor.",
+    "Recruiters can ask the agent to summarize recent applicant activity, identify stalled candidates, and prepare next-step recommendations using Teamtailor data.",
+    "Hiring teams can use the agent to create structured handoff notes, interview prep briefs, or recruiting updates based on Teamtailor records.",
+    "Operations and talent teams can chat with the agent to complete SOP-driven tasks such as updating candidate fields, assigning follow-ups, or triggering approved workflow steps in Teamtailor.",
+    "Internal teams can use the agent to research hiring activity across roles and generate summaries that combine Teamtailor recruiting context with company guidance."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and drafts consistent applicant replies.",
+    "A recruiting assistant that updates approved candidate fields in Teamtailor from chat requests.",
+    "An internal hiring agent that summarizes open roles, applicants, and stalled pipeline stages.",
+    "A support workflow that creates recruiting handoff notes from customer or candidate conversations.",
+    "An AI assistant that triggers follow-up tasks after recruiter or hiring manager approval.",
+    "A private talent operations bot that answers Teamtailor questions in Slack or Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Teamtailor agent to do in plain language, such as checking candidate status, updating a record, or preparing a recruiter handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the Teamtailor configuration it needs, and defines how the agent should retrieve information or take approved actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Safe limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive Teamtailor updates so the agent can help confidently without exceeding the permissions or workflow rules you define."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds those results into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Teamtailor?",
+      "answer": "With DocsBot Skill Builder, you describe the Teamtailor workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests the behavior, and prepares it for deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Teamtailor data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Teamtailor to look up application status, summarize recruiting progress, gather missing details, and prepare handoffs or escalations within the action limits you approve."
+    },
+    {
+      "question": "What Teamtailor workflows can an internal AI assistant automate?",
+      "answer": "Internal agents can help recruiters and hiring teams retrieve candidate information, summarize pipelines, update approved fields, trigger workflow steps, and generate recruiting notes or follow-up artifacts from chat."
+    },
+    {
+      "question": "Can DocsBot safely update Teamtailor records through an AI agent?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect authentication details, scope permissions, and add approval boundaries so Teamtailor updates happen only within the workflow rules you choose."
+    },
+    {
+      "question": "Can I use a DocsBot agent with Teamtailor in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees so recruiters, operations staff, and hiring managers can chat in Slack, Microsoft Teams, or a secure internal interface to work with Teamtailor data and tasks."
+    },
+    {
+      "question": "How does DocsBot keep Teamtailor credentials and access secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of conversations and generated content, and limits access to the minimum records and actions needed."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Teamtailor",
+    "domain": "teamtailor.com",
+    "description": "Teamtailor is an all-in-one recruitment software that provides companies with the tools they need to recruit top talent. Their candidate-focused software includes features such as automated triggers, analytics, and customizable recruitment workflows, making it a comprehensive solution for hiring needs. Loved by over 10,000 companies worldwide, Teamtailor aims to simplify the recruitment process and help businesses grow by focusing on their candidates.",
+    "slogan": "The all-in-one recruitment software that attracts, nurtures, and hires top talent.",
+    "logoUrl": "https://media.brand.dev/6f8e2450-db51-4d3e-89f3-40dd0d3673e1.svg",
+    "iconUrl": "https://media.brand.dev/2e36c9a1-b194-4bf0-a967-31260a7d7231.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#f33d84",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#f33d84",
+        "name": "Cerise Pink"
+      },
+      {
+        "hex": "#f09ac4",
+        "name": "Pastel Magenta"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b3c8d83d-9fa8-4a14-8294-2e8db2188134.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://career.teamtailor.com/",
+      "terms": null,
+      "blog": null,
+      "contact": "https://www.teamtailor.com/en-us/contact/",
+      "privacy": "https://www.teamtailor.com/en-us/privacy-policy/",
+      "pricing": "https://www.teamtailor.com/en-us/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2e36c9a1-b194-4bf0-a967-31260a7d7231.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b3522f67-813c-4e6c-bffb-941bf108c22d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6f8e2450-db51-4d3e-89f3-40dd0d3673e1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 131,
+        "height": 30,
+        "aspectRatio": 4.37
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6f8e2450-db51-4d3e-89f3-40dd0d3673e1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 131,
+      "height": 30,
+      "aspectRatio": 4.37
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2e36c9a1-b194-4bf0-a967-31260a7d7231.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

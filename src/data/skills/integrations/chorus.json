@@ -1,0 +1,160 @@
+{
+  "slug": "chorus",
+  "name": "Chorus",
+  "domain": "chorus.com",
+  "category": "Communications",
+  "trutoCategory": "Conversational Intelligence",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Chorus",
+  "metaTitle": "Build Chorus AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Chorus to look up conversations, summarize call insights, prepare handoffs, and support safe internal workflows.",
+  "intro": "Chorus helps teams capture and analyze customer and sales conversations, and DocsBot Skill Builder helps you turn that data into practical AI agent actions. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets a support or internal AI agent safely look up call context, summarize insights, and trigger approved follow-up workflows. This helps customer-facing and employee-facing agents move beyond answers alone and take bounded action with Chorus data.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up relevant Chorus call summaries and surface conversation context when a customer asks about prior discussions or promised follow-up.",
+    "Let a support agent summarize recent Chorus calls tied to an account and include the key decisions, risks, and next steps in a helpdesk reply.",
+    "Have the agent prepare a clean handoff for customer success or account management by pulling Chorus conversation highlights into an escalation summary.",
+    "Enable the agent to gather missing context from Chorus before responding to a ticket about onboarding status, renewal questions, or previously discussed product issues.",
+    "Use the agent to trigger approved internal follow-up workflows after a customer chat or ticket reveals a conversation that needs human review or cross-functional attention."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find Chorus call summaries, action items, objections, and follow-up commitments without manually digging through recordings.",
+    "Sales, success, and support teams can ask the agent to compare recent Chorus conversations across accounts and summarize recurring issues, risks, or feature requests.",
+    "Managers can use an internal AI assistant in Slack or Microsoft Teams to pull Chorus insights and prepare coaching notes, account reviews, or renewal risk briefings.",
+    "RevOps or enablement teams can chat with the agent to turn Chorus conversation data into standardized handoff notes, CRM-ready summaries, or internal briefing documents.",
+    "Employees can use the agent to complete SOP-style workflows that start with Chorus research and end with approved updates, notifications, or escalation prep in connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes recent Chorus conversations for helpdesk replies.",
+    "A private assistant that finds call highlights, objections, and action items across accounts.",
+    "A handoff Skill that turns Chorus insights into escalation-ready account summaries.",
+    "An internal coaching assistant that prepares manager notes from Chorus call data.",
+    "A workflow Skill that flags renewal risk based on recent conversation summaries.",
+    "A research assistant that compares customer themes across multiple Chorus calls."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Chorus in plain language, such as finding call summaries, preparing handoffs, or generating follow-up notes."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns your goal into a secure Skill design, chooses the needed configuration values, and defines how the agent should retrieve information or take approved actions inside Chorus."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps credentials out of chats and Skill instructions, proxies secrets through protected runtime configuration, and scopes access to the minimum records and actions required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder adds approval boundaries, user limits, and action guardrails so sensitive lookups, updates, or workflow triggers only happen within the permissions and policies you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Chorus conversation data?",
+      "answer": "With DocsBot Skill Builder, you describe the Chorus workflow you want in plain language, and it designs a reusable Skill that can look up call insights, summarize conversations, and trigger approved follow-up actions. Skill Builder also handles secure connection design, scoped permissions, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Chorus to answer customer questions more accurately?",
+      "answer": "Yes, a DocsBot support agent can use Chorus data to pull prior conversation context, summarize call outcomes, and prepare better ticket replies or handoffs. You control what information it can access and whether any sensitive actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Chorus?",
+      "answer": "A DocsBot agent can retrieve conversation summaries, gather account context before replying, prepare escalation notes, and trigger internal follow-up workflows based on what happened in previous calls. This helps support teams respond with more context and less manual research."
+    },
+    {
+      "question": "Can an internal AI assistant search Chorus calls for employees?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to find Chorus summaries, objections, action items, and account themes. The Skill can be scoped so teams only see the conversation data they are allowed to access."
+    },
+    {
+      "question": "How does DocsBot keep Chorus access secure when building AI actions?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of conversations and generated Skill content. It also scopes access, limits actions, and adds approval boundaries for higher-risk workflows."
+    },
+    {
+      "question": "Can DocsBot create handoffs and summaries from Chorus for sales or success teams?",
+      "answer": "Yes, a Skill can turn Chorus insights into clean internal summaries, handoff notes, coaching briefs, or renewal-risk overviews. This helps teams reuse conversation intelligence without manually reviewing every call."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "hubspot",
+    "salesforce",
+    "zendesk",
+    "intercom",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Venture",
+    "domain": "chorus.com",
+    "description": "Venture is a domain leasing company that provides premium domains at affordable prices, catering to startups and businesses looking for the perfect online identity.",
+    "slogan": "Get the best domain name for your startup now",
+    "logoUrl": "https://media.brand.dev/aaadb95f-cec4-48d8-a39d-b5ce1e1cc51e.png",
+    "iconUrl": "https://media.brand.dev/aaadb95f-cec4-48d8-a39d-b5ce1e1cc51e.png",
+    "primaryColor": "#d6af64",
+    "accentColor": "#e7d1a7",
+    "colors": [
+      {
+        "hex": "#d6af64",
+        "name": "Butterscotch Bliss"
+      },
+      {
+        "hex": "#e7d1a7",
+        "name": "Morning Wheat"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/16a4351e-7199-4169-ab70-b11ef48ba670.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ca6a541e-f0eb-4b33-a072-c785673d884c.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1621,
+        "height": 1621,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aaadb95f-cec4-48d8-a39d-b5ce1e1cc51e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ca6a541e-f0eb-4b33-a072-c785673d884c.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1621,
+      "height": 1621,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ca6a541e-f0eb-4b33-a072-c785673d884c.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1621,
+      "height": 1621,
+      "aspectRatio": 1
+    }
+  }
+}

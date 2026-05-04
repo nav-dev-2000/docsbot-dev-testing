@@ -1,0 +1,176 @@
+{
+  "slug": "unberry",
+  "name": "Unberry",
+  "domain": "unberry.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Unberry",
+  "metaTitle": "Build Unberry AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Unberry to look up hiring data, summarize assessments, trigger workflows, and support HR teams with safe actions.",
+  "intro": "Unberry helps teams manage hiring, assessments, interview workflows, and talent intelligence data. With DocsBot Skill Builder, you can describe the Unberry workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve hiring context, prepare handoffs, and take approved actions inside Unberry while staying within controlled rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an application or interview process in Unberry and provide a clear progress update to the candidate.",
+    "Use a support agent to summarize candidate assessment results stored in Unberry and explain the next step in the hiring workflow without exposing restricted internal notes.",
+    "Have the agent create a follow-up request in Unberry when a candidate reports a scheduling issue through your website chat or helpdesk ticket.",
+    "Enable the agent to capture missing applicant details from a conversation and update the related Unberry record for recruiter review.",
+    "Let the agent prepare a clean handoff summary from a candidate support conversation and attach the context to the appropriate hiring workflow in Unberry."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve candidate status, interview timelines, and assessment summaries from Unberry.",
+    "Let recruiting teams ask the agent to compile hiring pipeline summaries from Unberry so they can review bottlenecks, pending interviews, and follow-up tasks faster.",
+    "Give HR staff an AI assistant that can create candidate follow-up tasks, route escalation notes, and prepare recruiter handoff summaries inside Unberry.",
+    "Help hiring managers chat with the agent to review role-specific applicant insights, compare structured assessment signals, and prepare interview decisions using Unberry data.",
+    "Support internal SOPs by letting employees ask the agent how to handle hiring exceptions, while the agent retrieves the relevant Unberry context and completes approved workflow steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application or interview status from Unberry during support chats.",
+    "A recruiting assistant that summarizes assessment signals and prepares recruiter-ready handoff notes.",
+    "An internal HR bot that creates follow-up tasks when hiring conversations reveal missing information.",
+    "A candidate support agent that logs scheduling issues and routes them into Unberry workflows.",
+    "A hiring operations assistant that generates pipeline summaries for recruiters and hiring managers.",
+    "An AI agent that collects applicant updates in chat and writes approved changes back to Unberry."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Unberry agent to do, such as checking application status, summarizing assessments, or creating a recruiter handoff, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure workflow, identifies the required configuration values, defines connection and authentication handling, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right action limits and approval boundaries so sensitive updates, escalations, or record changes in Unberry happen only within the rules you choose."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings back into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After testing, Skill Builder refines the Skill, prepares it for the right DocsBot agent, and helps publish it to your customer-facing support bot or private employee assistant without requiring you to write the implementation yourself."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Unberry?",
+      "answer": "With DocsBot Skill Builder, you describe the Unberry workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up hiring data, summarize records, trigger workflows, and take approved actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Unberry data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Unberry as a source of hiring and assessment context so it can provide status updates, summarize next steps, and prepare recruiter handoffs within the permissions you allow."
+    },
+    {
+      "question": "What internal HR workflows can a DocsBot AI assistant automate with Unberry?",
+      "answer": "An internal AI assistant can retrieve candidate timelines, summarize assessment results, create follow-up tasks, prepare interview handoffs, and support recruiting SOPs across chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update records or trigger actions in Unberry safely?",
+      "answer": "Yes, Skill Builder can design bounded Unberry actions such as approved record updates, task creation, or workflow triggers with scoped permissions, protected credentials, and approval steps for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Unberry credentials and access secure?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chats and Skill content, proxies authentication through secure runtime configuration, and limits access to the minimum records and actions required."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Unberry assessments for recruiters or hiring managers?",
+      "answer": "Yes, the agent can turn Unberry assessment data and hiring context into concise summaries, decision prep notes, or handoff briefs so teams can move faster without manually gathering details."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "personio"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Unberry",
+    "domain": "unberry.com",
+    "description": "Unberry is an AI‑first talent intelligence platform that transforms hiring, assessment, and team development. Leveraging real‑time data and generative AI, Unberry automates sourcing, screening, scheduling, and interview logistics while providing AI‑driven job descriptions, resume scoring, and smart interview copilots. Its science‑backed assessments decode candidates’ skills, cognition, communication, and cultural fit, delivering instant, data‑rich signals for each hire or promotion. The platform also offers immersive simulations and continuous engagement tools to keep applicants informed. By offloading busywork to AI, Unberry enables HR teams to focus on strategic decisions, reduce screening time, improve hire quality, and build high‑performing, future‑proof teams.",
+    "slogan": "Make talent your strategic edge with real-time AI intelligence",
+    "logoUrl": "https://media.brand.dev/4a1ccf47-d694-42e4-ba61-19fcf95a575d.svg",
+    "iconUrl": "https://media.brand.dev/3d462ce4-1d4d-446d-bb3c-fa9995f67e93.svg",
+    "primaryColor": "#040404",
+    "accentColor": "#7c7c7c",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#cacaca",
+        "name": "Leadbelcher"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/815b7b13-9ca6-4560-969e-c8f43d617455.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.unberry.com/blogs/the-unexpected-truths-shattering-talent-myths-for-tomorrows-workforce",
+      "careers": null,
+      "privacy": "https://www.unberry.com/privacy-policy",
+      "terms": null,
+      "contact": "https://www.unberry.com/book-demo",
+      "pricing": "https://www.unberry.com/blogs/ai-talent-acquisition-future-of-hiring"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d4f422d8-eb87-449b-bb15-a675f009c290.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4a1ccf47-d694-42e4-ba61-19fcf95a575d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 121,
+        "height": 32,
+        "aspectRatio": 3.78
+      },
+      {
+        "url": "https://media.brand.dev/3d462ce4-1d4d-446d-bb3c-fa9995f67e93.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dd4ff8a3-a1b7-432f-a013-f82df5d635b9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4a1ccf47-d694-42e4-ba61-19fcf95a575d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 121,
+      "height": 32,
+      "aspectRatio": 3.78
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d4f422d8-eb87-449b-bb15-a675f009c290.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

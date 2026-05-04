@@ -1,0 +1,160 @@
+{
+  "slug": "paralus",
+  "name": "Paralus",
+  "domain": "paralus.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Paralus",
+  "metaTitle": "Build AI Agents and Support Workflows for Paralus",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Paralus for support lookups, internal workflows, safe updates, and guided actions.",
+  "intro": "Paralus supports digital solutions, software projects, cloud platform work, and consulting workflows that often require quick lookups, status checks, summaries, and coordinated follow-up. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill your AI agent can use safely. That lets a customer-facing support bot or a private internal AI assistant retrieve Paralus-related information, trigger approved workflows, and prepare handoffs without turning every request into manual work.",
+  "supportUseCases": [
+    "Let a DocsBot support agent check Paralus project, service, or client status details and answer customer questions with current information in chat or helpdesk replies.",
+    "Use the agent to collect missing information from a customer, create a structured handoff for a Paralus team, and summarize the issue for faster follow-up.",
+    "Allow the support bot to trigger approved Paralus workflows such as service review requests, onboarding follow-ups, or escalation preparation while responding to customers.",
+    "Have the agent summarize recent Paralus activity, open work, or account context so customers receive a clearer status update without waiting for a human to assemble it.",
+    "Enable the agent to update approved support-related fields in connected Paralus records after customer confirmation, such as contact details, request notes, or routing tags."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Paralus project information, service history, client notes, or operational summaries without searching across systems manually.",
+    "Customer success, operations, or delivery teams can ask the agent to prepare handoff summaries, next-step checklists, and escalation briefs based on Paralus data and related conversations.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to trigger approved Paralus workflows, assign follow-up work, and document outcomes within defined permission limits.",
+    "Employees can ask the agent to research account context across Paralus-connected records and generate concise updates for meetings, renewals, or support reviews.",
+    "Operations teams can use the agent to guide SOPs step by step, gather required information, and complete repeatable Paralus-related workflows more consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Paralus service or project status before replying to customers.",
+    "A private assistant that gathers Paralus account context and drafts internal handoff summaries.",
+    "A DocsBot workflow that collects customer details and creates structured Paralus follow-up tasks.",
+    "An internal agent that triggers approved Paralus onboarding or escalation workflows with guardrails.",
+    "A support bot that summarizes Paralus-related activity and prepares clear next-step updates.",
+    "An employee assistant that follows Paralus SOPs and completes repeatable operational actions safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Paralus agent to do in plain language, such as checking status, creating handoffs, or triggering an approved workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the needed configuration values, and defines how the agent should use Paralus data and actions safely."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles authentication design, keeps credentials out of chats and Skill instructions, proxies secrets through secure runtime configuration, and limits access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds scoped permissions, user boundaries, and approval steps for sensitive Paralus actions so the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, missing checks, or weak instructions, and feeds those findings into an automated self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Paralus without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Paralus workflow you want in plain language and the builder designs, secures, tests, and prepares the Skill for deployment. It also defines connection settings, protects secrets, and sets safe action boundaries for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Paralus data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Paralus Skill to look up relevant status, service context, notes, or workflow state while responding in a chat widget or helpdesk flow. The same Skill can also prepare summaries, collect missing details, and create handoffs for human follow-up."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Paralus?",
+      "answer": "You can build workflows for live lookups, issue summarization, escalation preparation, follow-up task creation, approved field updates, and status-based replies. DocsBot can also gather the right context from the customer before taking an allowed next step."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Paralus?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Paralus information, research account context, generate summaries, and complete repeatable SOP-driven workflows from chat, Slack, or Microsoft Teams. This is useful for operations, customer success, and delivery teams that need fast, consistent access to approved actions."
+    },
+    {
+      "question": "How does DocsBot keep Paralus actions safe?",
+      "answer": "Skill Builder designs the Skill with scoped permissions, secure authentication handling, protected runtime secrets, and approval boundaries for sensitive actions. That lets the agent perform bounded lookups or updates while staying within the rules you define."
+    },
+    {
+      "question": "Can DocsBot trigger workflows or update records in Paralus?",
+      "answer": "DocsBot Skills can be designed to trigger approved workflows, create records, or modify allowed fields when your process supports those actions. Skill Builder helps define which actions are allowed, who can use them, and when approvals should be required."
+    }
+  ],
+  "relatedSlugs": [
+    "cloudinary",
+    "dropbox",
+    "box",
+    "google-drive",
+    "sharepoint",
+    "onedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Paralus",
+    "domain": "paralus.com",
+    "description": "Paralus Corp is a technology‑focused company that specializes in delivering innovative digital solutions and media services. While the paralus.com domain is currently listed for sale, the organization’s core expertise includes software development, video production, and consulting for businesses seeking to modernize their operations. Paralus Corp leverages cutting‑edge tools to create custom applications, integrate cloud platforms, and produce high‑quality multimedia content. The company’s team of engineers and creatives collaborates with clients to design scalable systems, improve user experiences, and accelerate digital transformation. For inquiries, partnerships, or to discuss acquisition of the paralus.com domain, contact paralus.com@gmail.com.",
+    "slogan": "PARALUS.COM IS FOR SALE! Contact: paralus.com@gmail.com",
+    "logoUrl": "https://media.brand.dev/de47bc08-3c26-49a4-8983-e2dd45e37e2a.png",
+    "iconUrl": "https://media.brand.dev/1c2e9ff9-5e0d-4e88-8772-19b18d18572f.png",
+    "primaryColor": "#2222d3",
+    "accentColor": "#746ce2",
+    "colors": [
+      {
+        "hex": "#2222d3",
+        "name": "Lapis on Neptune"
+      },
+      {
+        "hex": "#746ce2",
+        "name": "If I Could Fly"
+      },
+      {
+        "hex": "#e4e4e7",
+        "name": "Lilac Mist"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/de47bc08-3c26-49a4-8983-e2dd45e37e2a.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 264,
+        "height": 197,
+        "aspectRatio": 1.34
+      },
+      {
+        "url": "https://media.brand.dev/1c2e9ff9-5e0d-4e88-8772-19b18d18572f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/de47bc08-3c26-49a4-8983-e2dd45e37e2a.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 264,
+      "height": 197,
+      "aspectRatio": 1.34
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1c2e9ff9-5e0d-4e88-8772-19b18d18572f.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

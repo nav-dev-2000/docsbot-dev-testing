@@ -1,0 +1,168 @@
+{
+  "slug": "wiza",
+  "name": "Wiza",
+  "domain": "wiza.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Wiza for Prospecting and Contact Lookups",
+  "metaTitle": "Build AI Agents for Wiza with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Wiza for contact lookups, enrichment, handoffs, and internal prospecting workflows with secure, tested Skills.",
+  "intro": "Wiza helps teams find verified contact details and enriched prospect data faster. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Wiza during support conversations or internal team workflows. That means your agent can do more than answer questions. It can look up contact data, summarize findings, prepare handoffs, and trigger approved prospecting actions inside clear boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to identify an existing customer or lead in Wiza, pull enriched contact details, and confirm the best follow-up path during a chat or ticket response.",
+    "Let the support agent gather a visitor's company and role, search Wiza for matching business contacts, and prepare a qualified sales handoff for the right team.",
+    "Have the agent summarize verified email, mobile, company, and enrichment data from Wiza so support or success teams can personalize outreach after a customer conversation.",
+    "Use Wiza lookups during helpdesk replies to enrich inbound lead or partnership inquiries and create a cleaner handoff note for sales or recruiting teams.",
+    "Allow the agent to check whether a prospect record appears enriched or incomplete in Wiza and ask the customer for any missing context before routing the conversation onward."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web workspace to look up verified prospect contacts in Wiza and get concise summaries for outreach.",
+    "Let sales, marketing, or recruiting teams ask the agent to research a company, find likely contacts in Wiza, and return a structured handoff brief for the next workflow step.",
+    "Give operations teams an internal agent that uses Wiza data to enrich inbound lead lists, flag missing fields, and prepare records for CRM updates or review.",
+    "Help customer success or partnership teams chat with the agent to identify the right stakeholder contacts at an account before renewals, escalations, or expansion outreach.",
+    "Support internal SOPs by letting employees ask the agent to gather Wiza contact data, summarize findings, and route the result into approved downstream workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up verified prospect emails and phone numbers from Wiza during internal research.",
+    "A support agent that enriches inbound business inquiries and prepares qualified sales handoff notes.",
+    "An internal recruiting assistant that finds likely candidate contact data and summarizes outreach-ready profiles.",
+    "A lead qualification agent that gathers company details and checks Wiza for matching decision-maker contacts.",
+    "A revenue operations assistant that enriches records, flags gaps, and prepares CRM update recommendations.",
+    "A partnership intake agent that summarizes contact options for new partner or reseller inquiries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Wiza in plain language, such as enriching inbound leads, finding verified contacts, or preparing handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a reusable DocsBot Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chats or source."
+    },
+    {
+      "title": "Secure boundaries are added",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries wherever lookups, updates, or downstream triggers should be limited."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Wiza safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Wiza for prospecting and contact enrichment?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as finding verified contacts or enriching an inbound lead, and Skill Builder creates a secure Skill that lets your agent use Wiza inside approved workflows. It also handles connection setup, testing, and deployment in a non-technical way."
+    },
+    {
+      "question": "Can a DocsBot support agent use Wiza data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot agent can use Wiza during a customer conversation to look up business contact details, summarize enrichment data, and prepare a handoff for sales, recruiting, or partnerships. The agent responds to the customer while the Skill handles the approved Wiza lookup behind the scenes."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Wiza?",
+      "answer": "An internal DocsBot agent can help employees research companies, find likely stakeholders, enrich lead lists, summarize contact data, and prepare handoff notes for CRM, recruiting, or outreach workflows. This is useful in chat, Slack, or Microsoft Teams when teams want quick answers and bounded actions in one place."
+    },
+    {
+      "question": "Can an AI agent safely look up verified emails and phone numbers from Wiza?",
+      "answer": "Yes, Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets, and limiting the agent to the minimum allowed lookups and actions. You can also set approval boundaries for more sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot use Wiza to help qualify inbound leads before handing them to sales?",
+      "answer": "Yes, the agent can gather context from a chat or ticket, use Wiza to enrich the company or contact, and produce a structured lead qualification summary for the sales team. This helps reduce manual research before a human follow-up begins."
+    },
+    {
+      "question": "How does setup work for a non-technical team that wants a Wiza AI assistant?",
+      "answer": "You explain the workflow you want in plain language, and Skill Builder handles the design, secure configuration, testing, and deployment details for you. It can also improve the Skill after running scenario-based tests before you publish it."
+    }
+  ],
+  "relatedSlugs": [
+    "apollo",
+    "clearbit",
+    "zoominfo",
+    "linkedin-sales-navigator",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wiza",
+    "domain": "wiza.com",
+    "description": "Wiza is a prospecting platform that provides access to over 850 million contacts with verified emails, mobile numbers, and enriched data. Trusted by over 55,000 sales, marketing, and recruiting professionals, it helps users connect with the right people faster, whether building pipeline, refreshing CRM data, or sourcing top talent.",
+    "slogan": "Connect with the right people, faster",
+    "logoUrl": "https://media.brand.dev/0f38f89c-4a56-48c2-86a7-b55ed6febf2a.svg",
+    "iconUrl": "https://media.brand.dev/31377eb5-da63-493f-9edc-f265c72628e8.jpg",
+    "primaryColor": "#421197",
+    "accentColor": "#dfb8f3",
+    "colors": [
+      {
+        "hex": "#421197",
+        "name": "Pitch Violet"
+      },
+      {
+        "hex": "#dfb8f3",
+        "name": "Pink Illusion"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6b64f661-5c20-40f7-a1be-4ab972c18595.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/31377eb5-da63-493f-9edc-f265c72628e8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/176a5abb-566e-4263-83b5-c2980dc8f135.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0f38f89c-4a56-48c2-86a7-b55ed6febf2a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 45,
+        "height": 16,
+        "aspectRatio": 2.81
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0f38f89c-4a56-48c2-86a7-b55ed6febf2a.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 45,
+      "height": 16,
+      "aspectRatio": 2.81
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/176a5abb-566e-4263-83b5-c2980dc8f135.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

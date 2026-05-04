@@ -1,0 +1,168 @@
+{
+  "slug": "splunk",
+  "name": "Splunk",
+  "domain": "splunk.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Splunk",
+  "metaTitle": "Build Splunk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Splunk for security and observability lookups, incident context, alerts, summaries, and controlled workflow actions.",
+  "intro": "Splunk helps teams monitor security and observability data, investigate incidents, and understand system health across complex environments. With DocsBot Skill Builder, you can describe the Splunk-powered agent you want in plain language, and DocsBot helps design, secure, test, and deploy that Skill for customer support or internal teams. The result is an AI agent that can answer questions and take bounded action using approved Splunk data and workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Splunk alerts or service health signals to explain whether a reported outage or slowdown matches known incidents.",
+    "Use Splunk event and observability data to summarize likely impact, affected services, and current status before the agent replies to a customer ticket.",
+    "Have the agent gather a customer’s product, region, or timestamp details from chat and use Splunk to look up relevant logs or alerts for faster troubleshooting.",
+    "Enable the agent to prepare a clean escalation handoff with Splunk findings, recent alerts, and investigation context for human support or incident teams.",
+    "Allow the agent to trigger approved notification or investigation workflows when customer reports match a monitored Splunk condition."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Splunk incident context, alert status, and service health summaries.",
+    "Help support, operations, and security teams ask the agent to investigate patterns in Splunk data and return a concise explanation of likely causes and affected systems.",
+    "Enable team members to use a private AI assistant to follow incident response SOPs, gather Splunk evidence, and prepare escalation notes without switching tools.",
+    "Allow internal teams to ask the agent for daily summaries of important Splunk alerts, unresolved issues, or changes in system behavior across monitored environments.",
+    "Support bounded internal workflows where employees ask the agent to trigger approved follow-up actions after Splunk conditions are confirmed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Splunk for active incidents before answering customer outage questions.",
+    "A helpdesk assistant that summarizes relevant Splunk alerts and logs for faster ticket triage.",
+    "An internal incident assistant that gathers Splunk evidence and drafts escalation handoff notes.",
+    "A security operations agent that explains alert context and next approved response steps.",
+    "A service health bot that turns Splunk signals into customer-friendly status explanations.",
+    "An operations assistant that prepares daily summaries of critical Splunk events and trends."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Splunk agent to do in plain language, such as checking incident signals, summarizing alerts, or preparing escalations for support and operations teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, defines the needed configuration values, and chooses a safer workflow design for Splunk lookups, updates, triggers, and summaries."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection planning, keeps authentication and secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes access to the minimum actions, users, records, and systems required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries and approval steps for sensitive Splunk actions so the agent can take useful bounded action without exceeding the rules you set."
+    },
+    {
+      "title": "It tests and improves itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing safeguards, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Splunk data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it helps create a Skill that can query Splunk, summarize findings, and take approved follow-up actions. It also plans secure configuration, scoped access, and testing before the Skill is deployed."
+    },
+    {
+      "question": "Can an AI support agent use Splunk to help answer customer incident questions?",
+      "answer": "Yes, a DocsBot support agent can use Splunk to look up relevant alerts, logs, or observability context and turn that information into a customer-friendly explanation. It can also prepare escalation notes or trigger approved workflows when a case needs human follow-up."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Splunk?",
+      "answer": "A Splunk-connected DocsBot agent can check for known incidents, summarize affected services, gather troubleshooting context, draft handoffs, and trigger bounded escalation or notification workflows. This helps support teams respond faster with more complete operational context."
+    },
+    {
+      "question": "Can an internal AI assistant use Splunk for security and observability research?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Splunk alert details, summarize system health, investigate patterns, and follow internal incident workflows. The Skill can be designed to keep actions within approved permissions and escalation rules."
+    },
+    {
+      "question": "How does DocsBot keep Splunk access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access and adds approval boundaries so the agent only performs allowed actions."
+    },
+    {
+      "question": "Can DocsBot trigger actions in response to Splunk findings?",
+      "answer": "Yes, a Skill can be designed so the agent takes bounded action after checking Splunk, such as creating a handoff, sending a notification, or starting an approved workflow. Sensitive steps can require approvals or be limited to specific users and scenarios."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "sumo-logic",
+    "servicenow",
+    "pagerduty",
+    "jira"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Splunk",
+    "domain": "splunk.com",
+    "description": "Splunk is a company that builds a safer and more resilient digital world by providing a unified security and observability platform. They help organizations stay securely up and running despite digital disruptions, enabling them to prevent major issues, absorb shocks, and accelerate digital transformation.",
+    "slogan": "Building a safer, resilient digital world with unified security and observability.",
+    "logoUrl": "https://media.brand.dev/927c2c5e-2a2f-48c5-9b97-f63bbab48b50.png",
+    "iconUrl": "https://media.brand.dev/cddcffd7-dcaf-4422-95ea-15a2f2d48e9a.png",
+    "primaryColor": "#f15e3d",
+    "accentColor": "#f4a1a1",
+    "colors": [
+      {
+        "hex": "#f15e3d",
+        "name": "Firecracker"
+      },
+      {
+        "hex": "#f4a1a1",
+        "name": "Candy Heart Pink"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ec06a0cf-cb02-4ad6-8a6a-b8f8153e2b3a.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.splunk.com/en_us/blog",
+      "careers": null,
+      "terms": "https://www.splunk.com/en_us/legal/terms/terms-of-use.html",
+      "contact": "https://www.splunk.com/en_us/about-splunk/contact-us.html",
+      "privacy": "https://www.splunk.com/en_us/legal/privacy-policy.html",
+      "pricing": "https://www.splunk.com/en_us/products/pricing.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2293ee97-da67-4f07-b6f0-60b8fbc328f7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 568,
+        "height": 568,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/927c2c5e-2a2f-48c5-9b97-f63bbab48b50.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 211,
+        "height": 80,
+        "aspectRatio": 2.64
+      },
+      {
+        "url": "https://media.brand.dev/cddcffd7-dcaf-4422-95ea-15a2f2d48e9a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/927c2c5e-2a2f-48c5-9b97-f63bbab48b50.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 211,
+      "height": 80,
+      "aspectRatio": 2.64
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2293ee97-da67-4f07-b6f0-60b8fbc328f7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 568,
+      "height": 568,
+      "aspectRatio": 1
+    }
+  }
+}

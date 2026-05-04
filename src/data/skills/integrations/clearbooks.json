@@ -1,0 +1,156 @@
+{
+  "slug": "clearbooks",
+  "name": "ClearBooks",
+  "domain": "clearbooks.co.uk",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ClearBooks",
+  "metaTitle": "Build AI Agents for ClearBooks with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ClearBooks for accounting lookups, safe updates, workflow handoffs, and internal finance support automation.",
+  "intro": "ClearBooks helps UK businesses, bookkeepers, and accountants manage invoicing, expenses, and cloud accounting in one place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use ClearBooks data and actions. The result is a support or internal AI agent that can answer questions, complete bounded finance workflows, and prepare clean handoffs without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up invoice status, payment history, or account details in ClearBooks while replying in website chat or helpdesk tickets.",
+    "Enable the agent to confirm whether an invoice has been sent, paid, or is overdue and summarize the result for the customer in plain language.",
+    "Have the agent collect missing billing details from the customer, create a draft follow-up task or handoff, and pass the case to finance when human review is needed.",
+    "Allow the agent to retrieve approved account records from ClearBooks and prepare a concise billing summary for support teams handling subscription or payment questions.",
+    "Use the agent to trigger bounded workflows such as notifying finance, flagging a billing issue, or creating an internal escalation note based on the ClearBooks record state."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve invoice, expense, and customer account information from ClearBooks.",
+    "Enable finance or operations teams to ask the agent for summaries of overdue invoices, recent billing activity, or account balances without manually searching across records.",
+    "Help customer success or support employees chat with the agent to prepare billing handoffs, collect account context, and follow internal SOPs tied to ClearBooks data.",
+    "Allow internal teams to use the agent to generate status summaries, draft follow-up messages, and trigger approved finance workflows while staying within scoped permissions.",
+    "Support accounting and operations staff with an AI assistant that researches ClearBooks records, explains current status, and completes safe next-step actions under company rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing assistant that checks invoice status and explains next steps to customers.",
+    "A support Skill that summarizes ClearBooks account history before a human handoff.",
+    "An internal finance agent that finds overdue invoices and drafts follow-up tasks.",
+    "A customer support workflow that flags billing issues and prepares escalation notes automatically.",
+    "An employee assistant that retrieves expense and invoice details during chat conversations.",
+    "A private operations agent that follows SOPs for billing investigations using ClearBooks data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ClearBooks agent to do, such as checking invoice status, summarizing billing activity, or preparing a finance handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure setup for the ClearBooks workflow, defines the needed configuration values, handles authentication and secret protection through secure runtime configuration, and keeps credentials out of chats and generated Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and it adds approval boundaries or safe action limits for sensitive updates or finance-related workflows."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee agent so teams can start using ClearBooks actions in a controlled way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for ClearBooks without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the ClearBooks workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for you. It handles connection details, secret protection, permission scoping, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use ClearBooks data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved ClearBooks records such as invoice status, payment history, or account details while responding in chat or helpdesk tickets. You control what data it can access and what actions it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with ClearBooks?",
+      "answer": "A DocsBot agent can summarize invoice status, gather missing billing context, prepare escalation notes, create handoff details for finance, and trigger approved internal workflows based on ClearBooks information. This helps support teams resolve billing conversations faster without giving the agent unlimited access."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside ClearBooks?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve accounting context, summarize account activity, research overdue invoices, and follow finance or operations SOPs using ClearBooks data. The Skill can also support safe updates or workflow triggers when your rules allow them."
+    },
+    {
+      "question": "How does DocsBot keep ClearBooks actions secure?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets through approved runtime settings, and keeps credentials out of chat transcripts and Skill source. It also scopes access to the minimum data and actions needed and can require approvals for sensitive steps."
+    },
+    {
+      "question": "Can a DocsBot agent update records or trigger workflows in ClearBooks?",
+      "answer": "It can be designed to perform bounded actions such as approved record updates, workflow triggers, or internal handoff steps when those actions fit your process. Skill Builder adds guardrails, scoped permissions, and approval boundaries so the agent acts within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "xero",
+    "quickbooks",
+    "freshbooks",
+    "sage",
+    "stripe",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Clear Books",
+    "domain": "clearbooks.co.uk",
+    "description": "Clear Books is a London‑based company that provides easy‑to‑use, award‑winning online accounting software designed for UK accountants, bookkeepers, and small businesses. Trusted by over 15,000 UK firms, its cloud platform lets users manage accounts anywhere, automate invoicing, track expenses, and share documents securely. The solution streamlines client collaboration and compliance for accounting practices, helping them deliver better service while saving time. Clear Books also offers friendly, fast‑response support via email and phone. By simplifying bookkeeping and financial management, Clear Books enables businesses and accountants to focus on growth rather than paperwork.",
+    "slogan": "Reclaim your evenings with AI-streamlined accounting software",
+    "logoUrl": "https://media.brand.dev/1ee369d3-3e63-414a-afe2-f72acd73f8bc.jpg",
+    "iconUrl": "https://media.brand.dev/1ee369d3-3e63-414a-afe2-f72acd73f8bc.jpg",
+    "primaryColor": "#de6e2e",
+    "accentColor": "#efece2",
+    "colors": [
+      {
+        "hex": "#de6e2e",
+        "name": "Harvest Haze"
+      },
+      {
+        "hex": "#efece2",
+        "name": "Acoustic White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/314a7c2d-42bd-4e67-b522-98ef463a5e7c.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.clearbooks.co.uk/terms/",
+      "contact": "https://www.clearbooks.co.uk/contact/",
+      "privacy": "https://www.clearbooks.co.uk/terms/",
+      "blog": null,
+      "pricing": "https://www.clearbooks.co.uk/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1ee369d3-3e63-414a-afe2-f72acd73f8bc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/117fae70-c600-436b-ade7-08a4d8a92961.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/117fae70-c600-436b-ade7-08a4d8a92961.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/117fae70-c600-436b-ade7-08a4d8a92961.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

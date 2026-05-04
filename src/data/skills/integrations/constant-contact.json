@@ -1,0 +1,183 @@
+{
+  "slug": "constant-contact",
+  "name": "Constant Contact",
+  "domain": "constant-contact.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Constant Contact",
+  "metaTitle": "Build AI Agents for Constant Contact with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Constant Contact for campaign lookups, contact updates, handoffs, and safe workflow automation in support and internal teams.",
+  "intro": "Constant Contact helps teams manage email marketing, audience engagement, and campaign activity from one platform. With DocsBot Skill Builder, you can describe the Constant Contact workflow you want in plain language and have DocsBot create a reusable Skill for your support agent or internal AI assistant. That lets your AI agent answer questions, look up marketing data, update approved records, trigger follow-up work, and summarize outcomes without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a subscriber or contact record in Constant Contact and confirm mailing list status while responding in chat or over a helpdesk ticket.",
+    "Use the agent to check whether a customer has received a campaign, event invitation, or follow-up email and explain the current status without requiring a manual handoff.",
+    "Allow the agent to add or update approved contact details in Constant Contact after collecting corrected information from the customer.",
+    "Have the agent create a marketing follow-up request, such as adding a contact to a permitted list or automation path, when a customer asks for newsletters, announcements, or event updates.",
+    "Enable the agent to summarize recent Constant Contact engagement activity so a support rep can quickly understand outreach history before taking over a conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Constant Contact contact details, list membership, campaign history, or engagement summaries without logging into multiple tools.",
+    "Marketing and customer success teams can ask the agent to prepare audience summaries, campaign performance snapshots, or follow-up recommendations based on approved Constant Contact data.",
+    "Team members can use the agent to add contacts to permitted segments, update subscriber information, or trigger bounded marketing workflows that follow internal approval rules.",
+    "Operations or support employees can chat with the agent to complete SOPs such as checking whether a customer was included in a specific campaign and preparing a clean handoff summary for another team.",
+    "Internal teams can use the agent to research communication history across accounts and generate concise notes for renewals, outreach planning, or customer health reviews."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks subscriber status and mailing list membership during live customer conversations.",
+    "A private team assistant that summarizes recent Constant Contact campaign activity for sales, support, or marketing staff.",
+    "A workflow Skill that updates approved contact fields after the agent confirms corrected customer information.",
+    "An internal agent that prepares outreach history summaries before escalation, renewal, or account review meetings.",
+    "A support workflow that adds contacts to approved newsletters or event lists with clear action limits.",
+    "A team assistant that generates handoff notes combining customer requests and Constant Contact engagement context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Constant Contact agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, then protects and proxies secrets through secure runtime settings so credentials stay out of chats and Skill content."
+    },
+    {
+      "title": "Access stays scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and it adds approval boundaries or safe action limits for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill gets tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and records what should improve."
+    },
+    {
+      "title": "DocsBot improves and deploys",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and then helps publish it to the right DocsBot agent for website chat, helpdesk use, or private team access."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Constant Contact?",
+      "answer": "With DocsBot Skill Builder, you describe the Constant Contact task you want in plain language, such as looking up subscribers, updating approved contact fields, or triggering follow-up actions. Skill Builder then designs the workflow, secures the connection, tests the behavior, and helps deploy it to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Constant Contact data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Constant Contact Skill to retrieve approved contact, list, or campaign details while replying in a chat widget or helpdesk ticket. It can also summarize that information for the customer or for a human teammate taking over the case."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Constant Contact?",
+      "answer": "A DocsBot agent can check subscription status, confirm campaign or event email activity, update allowed contact details, add contacts to approved lists, and prepare escalation summaries. The exact actions are bounded by the rules, permissions, and approval steps you define in the Skill."
+    },
+    {
+      "question": "What can an internal AI assistant do with Constant Contact for employees?",
+      "answer": "An internal DocsBot agent can help employees research communication history, list membership, campaign engagement, and contact records through a simple chat interface. It can also complete approved workflows, generate summaries, and support SOPs for marketing, customer success, and operations teams."
+    },
+    {
+      "question": "Can DocsBot safely update Constant Contact records?",
+      "answer": "Yes, Skill Builder is designed to create Skills with scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. That means your AI agent can make bounded updates only where you allow them and only within the workflow limits you approve."
+    },
+    {
+      "question": "Do I need to configure the Constant Contact integration manually to use DocsBot?",
+      "answer": "No, the goal is to describe the result you want rather than map every technical step yourself. Skill Builder figures out the required configuration, secures credentials, proposes safe workflow limits, and tests the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "hubspot",
+    "activecampaign",
+    "klaviyo",
+    "marketo"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Constant Contact",
+    "domain": "constantcontact.com",
+    "description": "Constant Contact is a digital marketing platform that helps small businesses, nonprofits, and organizations simplify day‑to‑day work, drive sales, and connect with their community. Through its suite of tools—including email marketing, social media, website building, and automation—users can create and launch targeted campaigns, personalize interactions, and track results. The platform offers training videos, tutorials, and expert insights, and is recognized for strong customer service and results. Constant Contact also integrates with solutions like SharpSpring to provide full‑funnel marketing and sales automation, enabling businesses to manage leads, automate buyer journeys, and align marketing and sales efforts—all at an affordable price.",
+    "slogan": "Power your business from one platform.",
+    "logoUrl": "https://media.brand.dev/ee652d66-730c-4e71-a9b3-f5baa9190560.svg",
+    "iconUrl": "https://media.brand.dev/6527e63d-e800-47e4-943f-95bc62e64b34.jpg",
+    "primaryColor": "#1c54ec",
+    "accentColor": "#85c247",
+    "colors": [
+      {
+        "hex": "#1c54ec",
+        "name": "Azul"
+      },
+      {
+        "hex": "#85c247",
+        "name": "Citrus Surge"
+      },
+      {
+        "hex": "#368b51",
+        "name": "Shamrock Field"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/80b767cf-a987-4f66-b417-125ffc8c294d.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.constantcontact.com/blog/",
+      "careers": "http://www.constantcontact.com/careers",
+      "terms": "http://www.constantcontact.com/legal/terms",
+      "contact": "http://www.constantcontact.com/about/contact-us",
+      "privacy": "http://www.constantcontact.com/legal/privacy-center",
+      "pricing": "http://www.constantcontact.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6527e63d-e800-47e4-943f-95bc62e64b34.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ee652d66-730c-4e71-a9b3-f5baa9190560.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 570,
+        "height": 163,
+        "aspectRatio": 3.5
+      },
+      {
+        "url": "https://media.brand.dev/9a76cc06-64e2-4451-889f-d8c0b89dd9b8.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 100,
+        "height": 100,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4cbf70e3-8460-466c-ace4-a88271ae6ff6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/afdf470c-9607-45ee-ac91-fa40c5fd9780.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ee652d66-730c-4e71-a9b3-f5baa9190560.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 570,
+      "height": 163,
+      "aspectRatio": 3.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9a76cc06-64e2-4451-889f-d8c0b89dd9b8.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 100,
+      "height": 100,
+      "aspectRatio": 1
+    }
+  }
+}

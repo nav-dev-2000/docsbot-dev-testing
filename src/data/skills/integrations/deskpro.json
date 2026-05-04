@@ -1,0 +1,168 @@
+{
+  "slug": "deskpro",
+  "name": "Deskpro",
+  "domain": "deskpro.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Deskpro",
+  "metaTitle": "Build Deskpro AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Deskpro to look up tickets, update cases, prepare handoffs, and automate safe support and internal workflows.",
+  "intro": "Deskpro helps teams manage omnichannel support, ticket workflows, and customer conversations in one help desk platform. With DocsBot Skill Builder, you can describe the Deskpro workflow you want in plain language and have DocsBot build a reusable Skill for your support bot or internal AI agent. The result is an AI agent that can answer questions and take bounded action in Deskpro, including lookups, updates, summaries, escalations, and workflow triggers.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s Deskpro ticket status and summarize the latest updates during a website chat or helpdesk conversation.",
+    "Allow the agent to create new Deskpro tickets from chat conversations when an issue needs formal tracking or follow-up.",
+    "Enable the agent to add notes, tags, categories, or priority updates in Deskpro based on approved support rules.",
+    "Use the agent to gather missing troubleshooting details from the customer and prepare a complete Deskpro handoff for a human support rep.",
+    "Let the agent summarize long Deskpro ticket histories so customers receive faster, clearer updates without waiting for a manual review of the case record."
+  ],
+  "internalUseCases": [
+    "Give support employees a private AI agent they can chat with to find Deskpro ticket details, summarize account history, and review past case activity without searching manually.",
+    "Let team members use a DocsBot agent in Slack or Microsoft Teams to create Deskpro tickets, assign queues, and prepare escalation notes through guided workflows.",
+    "Help customer success and operations teams chat with the agent to identify open Deskpro issues for an account and assemble internal follow-up summaries.",
+    "Enable employees to ask the agent for SOP-based guidance that combines Deskpro context with internal documentation before they respond to sensitive or complex cases.",
+    "Allow managers to use an internal AI assistant to summarize ticket trends, handoff quality, and unresolved escalations from Deskpro records."
+  ],
+  "whatYouCanBuild": [
+    "A support bot that checks Deskpro ticket status and explains the next step to customers.",
+    "An AI agent that creates Deskpro tickets from website chats with structured issue summaries.",
+    "A handoff Skill that collects troubleshooting details and writes clean Deskpro escalation notes.",
+    "An internal assistant that summarizes Deskpro ticket history for support and success teams.",
+    "A workflow Skill that updates Deskpro ticket fields after customer confirmation or agent approval.",
+    "A triage assistant that tags, categorizes, and prioritizes Deskpro cases within approved limits."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do in Deskpro, such as checking ticket status, creating cases, updating fields, or preparing escalations, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and secure connection approach for Deskpro."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes Deskpro access to the minimum actions and records needed, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Deskpro workflow, finds bugs, weak instructions, permission gaps, or missing edge cases, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk-connected support agent, or private team assistant so people can safely use Deskpro through chat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Deskpro?",
+      "answer": "With DocsBot Skill Builder, you describe the Deskpro workflow you want in plain language, and DocsBot designs, secures, tests, and packages the Skill for your AI agent. The finished agent can look up ticket data, create or update records, prepare handoffs, and trigger approved support workflows."
+    },
+    {
+      "question": "Can an AI support agent use Deskpro ticket data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Deskpro Skill to retrieve ticket status, summarize case history, gather missing details, and help customers understand what is happening next. You control which records, actions, and updates the agent is allowed to access or perform."
+    },
+    {
+      "question": "What Deskpro support workflows can DocsBot automate safely?",
+      "answer": "DocsBot can help automate bounded workflows such as ticket lookups, ticket creation, field updates, notes, categorization, escalation prep, and status summaries. Skill Builder defines scoped permissions and approval boundaries so higher-risk actions stay controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Deskpro from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Deskpro information, summarize account issues, create tickets, and follow SOP-based support workflows from their team chat tools. This helps teams move faster without jumping between systems for every step."
+    },
+    {
+      "question": "How does DocsBot keep Deskpro connections and credentials secure?",
+      "answer": "Skill Builder defines the needed configuration and handles secure authentication patterns by design, keeping secrets out of chat transcripts and generated content. It proxies credentials through approved runtime configuration, scopes access carefully, and supports approval checks for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot prepare Deskpro handoffs and escalations automatically?",
+      "answer": "Yes, a Deskpro Skill can collect troubleshooting details, summarize the customer issue, and create a cleaner handoff record for human agents. This reduces repetitive triage work and helps escalations start with better context."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "helpscout",
+    "intercom",
+    "jira-service-management",
+    "servicenow"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Deskpro",
+    "domain": "deskpro.com",
+    "description": "Deskpro is a comprehensive help desk platform that provides omnichannel support, enabling businesses to manage customer inquiries across multiple channels. Powered by AI, the platform offers efficient ticket management and collaboration tools, ensuring seamless support experiences. With a focus on security and compliance, Deskpro can be deployed in any cloud or self-hosted environment, providing flexibility and reliability for businesses of all sizes.",
+    "slogan": "The only omnichannel help desk with AI, security, and compliance.",
+    "logoUrl": "https://media.brand.dev/320e3ed7-efd1-42c5-b397-da6e65b0bec5.svg",
+    "iconUrl": "https://media.brand.dev/b14f30b1-c3aa-4972-b0fb-c2a90681b560.jpg",
+    "primaryColor": "#0d0d2d",
+    "accentColor": "#848c94",
+    "colors": [
+      {
+        "hex": "#0d0d2d",
+        "name": "Spanish Roast"
+      },
+      {
+        "hex": "#848c94",
+        "name": "Common Feldspar"
+      },
+      {
+        "hex": "#dddddf",
+        "name": "Kingly Cloud"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ffe9b977-2ca3-4660-b51c-9cb55203fcad.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.deskpro.com/careers",
+      "terms": null,
+      "contact": "https://www.deskpro.com/demo",
+      "privacy": "https://www.deskpro.com/legal/privacy",
+      "blog": "https://support.deskpro.com/news",
+      "pricing": "https://www.deskpro.com/pricing/cloud"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b14f30b1-c3aa-4972-b0fb-c2a90681b560.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/320e3ed7-efd1-42c5-b397-da6e65b0bec5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 460,
+        "height": 108,
+        "aspectRatio": 4.26
+      },
+      {
+        "url": "https://media.brand.dev/03c0b7a4-9a37-4166-876b-691b153af682.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 96,
+        "height": 96,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/320e3ed7-efd1-42c5-b397-da6e65b0bec5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 460,
+      "height": 108,
+      "aspectRatio": 4.26
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/03c0b7a4-9a37-4166-876b-691b153af682.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 96,
+      "height": 96,
+      "aspectRatio": 1
+    }
+  }
+}

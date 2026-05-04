@@ -1,0 +1,113 @@
+{
+  "slug": "drive-wealth",
+  "name": "Drive Wealth",
+  "domain": "drive-wealth.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Drive Wealth Services",
+  "metaTitle": "Build Drive Wealth AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that work with Drive Wealth workflows for support teams, operations, and internal employee assistance.",
+  "intro": "Drive Wealth helps organizations plan, modernize, secure, and automate technology operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up information, trigger approved workflows, summarize project status, and prepare handoffs tied to Drive Wealth services. This helps customer support teams and internal staff move from answers alone to bounded AI actions inside real business processes.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved project status details or service engagement milestones from Drive Wealth-related records while answering implementation or delivery questions.",
+    "Use a support agent to collect issue context from customers, summarize the business impact, and create a structured handoff for Drive Wealth consulting, cloud, security, or managed service follow-up.",
+    "Enable a helpdesk-connected DocsBot agent to check onboarding progress, assessment status, or scheduled service next steps and share a concise customer-safe update in a ticket reply.",
+    "Have the agent trigger approved internal workflows for escalation, architecture review, cybersecurity follow-up, or managed services intervention when a customer request meets defined conditions.",
+    "Let the agent generate a clean summary of prior support interactions, project notes, and requested outcomes so human teams can continue a Drive Wealth engagement without repeating discovery work."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Drive Wealth project summaries, engagement notes, architecture recommendations, and next-step guidance across client accounts.",
+    "Operations or customer success teams can ask the agent to prepare delivery handoffs, summarize assessment findings, and organize follow-up tasks based on Drive Wealth service workflows.",
+    "Internal teams can use the agent in Slack or Microsoft Teams to collect discovery inputs, standardize SOP steps, and trigger approved review or escalation workflows tied to consulting and managed services.",
+    "Sales, delivery, and technical teams can chat with the agent to compare active engagements, surface relevant documentation, and generate customer-ready status summaries without manual searching.",
+    "Employees can ask the agent to guide them through repeatable processes such as cloud migration prep, security review intake, or automation opportunity triage using approved Drive Wealth procedures."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Drive Wealth engagement status for customer-facing chat replies.",
+    "A private employee assistant that prepares consulting handoffs and structured project update briefs.",
+    "A DocsBot Skill that gathers intake details and routes requests to the right Drive Wealth workflow.",
+    "An internal AI agent that surfaces architecture, cloud, security, or automation guidance from approved records.",
+    "A support workflow that escalates customers to managed services with a complete issue summary.",
+    "An employee assistant that standardizes discovery notes and generates next-step recommendations for delivery teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Drive Wealth information or workflows, and it turns that plain-language goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for updates, escalations, workflow triggers, or other sensitive steps so the agent only acts within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk agent, or private team assistant can use it in production with logging and control."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Drive Wealth workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the business outcome you want in plain language, such as summarizing project status, collecting intake details, or triggering an approved escalation. Skill Builder then designs, secures, tests, improves, and prepares the Skill for deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Drive Wealth data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up approved Drive Wealth-related information, summarize status, and prepare handoffs while replying in a website chat or helpdesk ticket. The actions and data access are scoped to the records and workflows you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Drive Wealth services?",
+      "answer": "You can automate status lookups, intake collection, escalation prep, follow-up routing, and customer-safe summaries tied to consulting, cloud, cybersecurity, analytics, or managed service engagements. DocsBot can also trigger bounded next steps when your rules say human review or downstream action is appropriate."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Drive Wealth processes?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve engagement information, follow SOPs, generate summaries, and complete repeatable workflows across delivery, operations, and customer success teams. This is especially useful for standardizing discovery, handoffs, and project coordination."
+    },
+    {
+      "question": "How does DocsBot keep Drive Wealth integrations secure?",
+      "answer": "Skill Builder defines the needed configuration, handles authentication safely, keeps credentials out of chat transcripts and generated content, and proxies secrets through secure runtime settings. It also scopes permissions and can add approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "Can DocsBot trigger actions instead of only answering questions about Drive Wealth work?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI actions such as creating handoffs, updating approved records, routing requests, generating summaries, or triggering workflows. Those actions run inside the limits, approvals, and permissions you define with Skill Builder."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "jira-service-management",
+    "zendesk",
+    "microsoft-teams",
+    "slack",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Drive Wealth",
+    "domain": "drive-wealth.com",
+    "description": "Drive Wealth is an IT consulting firm that aligns technology with business objectives to unlock efficiency, growth, and measurable ROI. Leveraging expertise in discovery, architecture, cloud migration, cybersecurity, data analytics, application rationalization, and automation, the company helps organizations translate strategic ambitions into practical technology roadmaps. Their engagement models include fixed‑fee assessments, time‑and‑materials delivery, outcome‑based programs, and managed services, all backed by clear SLAs and success metrics. Drive Wealth emphasizes industry experience, certifications, security posture, and knowledge transfer to ensure sustainable digital transformation. By guiding clients through cloud adoption, AI integration, blockchain solutions, and sustainable tech practices, they enable scalable, secure, and innovative operations across sectors such as healthcare and finance.",
+    "slogan": "Align technology with business goals to unlock measurable ROI and growth",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "http://drive-wealth.com/topics/news.html",
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

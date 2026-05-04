@@ -1,0 +1,168 @@
+{
+  "slug": "discoverorg",
+  "name": "DiscoverOrg",
+  "domain": "discoverorg.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use DiscoverOrg Data and Workflows",
+  "metaTitle": "Build AI Agents for DiscoverOrg with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use DiscoverOrg data for support handoffs, account research, lead qualification, and internal sales workflows with safe controls.",
+  "intro": "DiscoverOrg helps teams find accurate B2B company and contact intelligence, and DocsBot Skill Builder helps you turn that data into practical AI agent actions. Describe the outcome you want in plain language, and Skill Builder can create a reusable Skill that lets your DocsBot agent look up records, summarize account context, prepare handoffs, and trigger approved workflows. The result is a support or internal AI agent that can answer questions and take bounded action with DiscoverOrg data.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up company and contact details in DiscoverOrg so support can identify account ownership and route enterprise questions faster.",
+    "Let a support agent summarize firmographic and org-chart context from DiscoverOrg when a customer asks about sales contacts, account teams, or partnership discussions.",
+    "Have the agent prepare a clean handoff for sales or customer success by pulling DiscoverOrg account intelligence and attaching a summary to the ticket.",
+    "Use DiscoverOrg data during ticket triage to identify strategic accounts, enrich company details, and prioritize escalations under your approval rules.",
+    "Let the agent gather business context from DiscoverOrg before creating an approved follow-up task for a sales or success team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to research target accounts, buying committees, and company details from DiscoverOrg without leaving Slack, Teams, or the internal chat workspace.",
+    "Sales, support, and success teams can ask the agent to summarize account intelligence from DiscoverOrg and turn it into a handoff note, outreach brief, or meeting prep document.",
+    "RevOps or operations teams can use the agent to follow SOPs that enrich records, flag strategic accounts, and trigger downstream workflows based on DiscoverOrg data.",
+    "Employees can ask the agent to compare companies, identify likely stakeholders, and compile research summaries that support account planning and expansion plays.",
+    "Managers can use a private AI assistant to retrieve DiscoverOrg context for escalations, renewals, or cross-functional planning while keeping actions within approved boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support assistant that enriches tickets with DiscoverOrg company and contact intelligence.",
+    "A handoff Skill that prepares sales-ready account summaries from customer conversations and DiscoverOrg data.",
+    "An internal research agent that finds decision-makers and summarizes buying committee context.",
+    "A RevOps assistant that enriches records and flags high-value accounts for review.",
+    "A customer success agent that prepares renewal or expansion briefs using DiscoverOrg insights.",
+    "A workflow Skill that creates approved follow-up tasks after account qualification or escalation review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with DiscoverOrg in plain language, such as enriching tickets, researching accounts, or preparing a handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling for DiscoverOrg."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission limits, or workflow gaps, and sends findings into a self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses DiscoverOrg data?",
+      "answer": "With DocsBot Skill Builder, you describe the business outcome you want, such as account research, lead qualification, or handoff preparation, and Skill Builder creates a secure reusable Skill around that workflow. It can define the needed connection settings, protect authentication details, and prepare the agent to retrieve or act on DiscoverOrg data within your rules."
+    },
+    {
+      "question": "Can an AI support agent use DiscoverOrg during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use DiscoverOrg data to enrich account context, identify likely owners, prioritize strategic accounts, and prepare cleaner escalations or sales handoffs while responding to customer chats or tickets. You control which lookups and actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with DiscoverOrg?",
+      "answer": "Teams can build workflows for account enrichment, escalation prep, strategic account identification, sales or success handoffs, and follow-up task creation based on DiscoverOrg intelligence. The agent can summarize findings for the customer or for internal teams without exposing sensitive configuration details."
+    },
+    {
+      "question": "Can an internal AI assistant help employees research accounts in DiscoverOrg?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve company intelligence, identify stakeholders, compare accounts, and generate account briefs from DiscoverOrg. This helps teams complete research and planning workflows faster without switching between tools."
+    },
+    {
+      "question": "How does DocsBot keep DiscoverOrg access secure in an AI workflow?",
+      "answer": "Skill Builder is designed to define secure connection requirements, store and proxy secrets through protected runtime configuration, keep credentials out of conversations, and scope permissions to the smallest practical set of actions and records. It can also add approval steps for sensitive changes or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows using DiscoverOrg-based insights?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating handoff notes, triggering approved follow-up workflows, or passing enriched context into downstream systems based on DiscoverOrg lookups. The exact actions are controlled by the workflow you define and the approval boundaries Skill Builder sets."
+    }
+  ],
+  "relatedSlugs": [
+    "zoominfo",
+    "apollo",
+    "salesforce",
+    "hubspot",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "DiscoverOrg",
+    "domain": "discoverorg.com",
+    "description": "DiscoverOrg is a B2B data and intelligence company that provides accurate and comprehensive data to help businesses grow. They offer a suite of tools and services that enable companies to accelerate growth, identify new sales opportunities, and connect with decision-makers. With a strong presence in the industry, DiscoverOrg has been recognized for its innovative approach and has received numerous awards for its products and services.",
+    "slogan": "Accelerate growth with the most accurate B2B sales and marketing data.",
+    "logoUrl": "https://media.brand.dev/3e086dd6-3e4d-49f4-a7ce-c942c4407c9a.svg",
+    "iconUrl": "https://media.brand.dev/4bd18ec8-7d2a-494f-831b-408637a3dbf7.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#569287",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#569287",
+        "name": "Thermal Spring"
+      },
+      {
+        "hex": "#e3e5e4",
+        "name": "Titanium White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/13befa14-90f9-4a1f-8363-91ea1022217e.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://discoverorg.com/contact/",
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://discoverorg.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4bd18ec8-7d2a-494f-831b-408637a3dbf7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3e086dd6-3e4d-49f4-a7ce-c942c4407c9a.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 181,
+        "height": 28,
+        "aspectRatio": 6.46
+      },
+      {
+        "url": "https://media.brand.dev/d36c71be-0d65-47b7-8c2d-fb9f4eccd437.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 181,
+        "height": 28,
+        "aspectRatio": 6.46
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d36c71be-0d65-47b7-8c2d-fb9f4eccd437.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 181,
+      "height": 28,
+      "aspectRatio": 6.46
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4bd18ec8-7d2a-494f-831b-408637a3dbf7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

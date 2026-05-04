@@ -1,0 +1,170 @@
+{
+  "slug": "stripe",
+  "name": "Stripe",
+  "domain": "stripe.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for Stripe Support and Revenue Workflows",
+  "metaTitle": "DocsBot for Stripe AI Agents, Support Automation, and Billing Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Stripe for secure payment lookups, billing updates, support handoffs, and internal revenue workflows with safe approvals.",
+  "intro": "Stripe helps businesses accept payments, manage billing, and handle revenue operations across the customer lifecycle. With DocsBot Skill Builder, you can describe the Stripe workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up Stripe data, take approved actions, and prepare clean handoffs without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent verify payment status, invoice details, subscription state, or refund history in Stripe while answering account and billing questions.",
+    "Use a support agent to create or update approved Stripe records such as customer notes, billing metadata, or support-related context before escalating a case.",
+    "Enable the agent to trigger bounded actions in Stripe, such as preparing a refund request, retry workflow, or billing review handoff for human approval.",
+    "Have the agent summarize a customer’s recent Stripe activity for a helpdesk ticket so support teams can respond faster with accurate payment context.",
+    "Let the agent gather missing billing details from the customer in chat and package a structured Stripe-related handoff for finance or customer success teams."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent that can look up Stripe customers, payments, invoices, subscriptions, and account history through chat, Slack, or Microsoft Teams.",
+    "Let finance, support, and customer success teams chat with the agent to investigate failed payments, summarize revenue events, and follow internal billing SOPs faster.",
+    "Enable internal teams to use the agent to prepare refund reviews, subscription change requests, dispute research, or account summaries with approval steps for sensitive actions.",
+    "Help operations teams chat with the agent to generate structured Stripe case notes, escalation summaries, and follow-up tasks across support and finance workflows.",
+    "Allow employees to ask the agent for payment and billing context across accounts while the Skill keeps access scoped to approved records, users, and actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks payment, invoice, and subscription status in Stripe during live customer chats.",
+    "A billing assistant that prepares refund requests and routes them for human approval before action.",
+    "An internal finance agent that summarizes failed payment patterns and recommended next steps.",
+    "A support workflow that collects billing details and creates structured escalation handoffs from Stripe context.",
+    "A customer success assistant that reviews subscription history before renewal or cancellation conversations.",
+    "An operations agent that generates dispute research summaries using Stripe payment and account data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Stripe agent to do in plain language, such as checking payment status, preparing refund reviews, or summarizing subscription activity for support."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, chooses the safest workflow design, identifies the required Stripe configuration values, and plans how the agent should respond and act."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes Stripe access to the minimum approved actions and records."
+    },
+    {
+      "title": "Approvals are added",
+      "description": "For sensitive billing actions, Skill Builder sets approval boundaries and safe action limits so the agent can gather context, prepare requests, and only take action when your rules allow it."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds those findings back into improvements."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Stripe?",
+      "answer": "With DocsBot Skill Builder, you describe the Stripe workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Stripe data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use approved Stripe data such as payment status, invoices, subscriptions, and billing context to answer customers, prepare handoffs, and support bounded follow-up actions."
+    },
+    {
+      "question": "What Stripe customer support workflows can DocsBot automate?",
+      "answer": "DocsBot can help automate payment lookups, billing summaries, refund review preparation, subscription context gathering, escalation packaging, and other approved support workflows connected to Stripe."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Stripe operations?",
+      "answer": "Yes, private DocsBot agents can help finance, support, and operations teams retrieve Stripe records, investigate billing issues, summarize account activity, and complete internal SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Stripe actions safe?",
+      "answer": "Skill Builder defines secure authentication handling, protects secrets through runtime configuration, scopes permissions to approved actions and records, and can add approval boundaries for sensitive billing steps."
+    },
+    {
+      "question": "Can DocsBot trigger Stripe-related actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as preparing updates, routing requests, creating handoffs, or triggering approved workflows while keeping higher-risk actions behind your control rules."
+    }
+  ],
+  "relatedSlugs": [
+    "paypal",
+    "chargebee",
+    "recurly",
+    "quickbooks",
+    "xero",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Stripe",
+    "domain": "stripe.com",
+    "description": "Stripe builds programmable financial services that enable companies of all sizes to accept payments, manage revenue, and create new business opportunities online. Headquartered in San Francisco and Dublin, Stripe provides APIs and tools for payments, billing, invoicing, fraud prevention, and more, helping businesses grow and increase the internet’s GDP.",
+    "slogan": "Financial infrastructure to grow your revenue",
+    "logoUrl": "https://media.brand.dev/fc95d487-3952-4ab6-8230-c5a692384acf.svg",
+    "iconUrl": "https://media.brand.dev/c0364b55-6595-44b8-ad20-11f71b78c7d4.jpg",
+    "primaryColor": "#543cfc",
+    "accentColor": "#a494fc",
+    "colors": [
+      {
+        "hex": "#543cfc",
+        "name": "Meteor Shower"
+      },
+      {
+        "hex": "#a494fc",
+        "name": "Cobalite"
+      },
+      {
+        "hex": "#041424",
+        "name": "Kuretake Black Manga"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f8edf05c-8c88-4262-9052-f7895bd28caf.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://stripe.com/blog",
+      "login": null,
+      "signup": null,
+      "careers": "https://stripe.com/jobs",
+      "terms": "https://stripe.com/privacy",
+      "contact": "https://stripe.com/contact/sales",
+      "privacy": "https://stripe.com/privacy",
+      "pricing": "https://stripe.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c0364b55-6595-44b8-ad20-11f71b78c7d4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/41abb366-be4a-4798-9775-68ac9c522215.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fc95d487-3952-4ab6-8230-c5a692384acf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 60,
+        "height": 25,
+        "aspectRatio": 2.4
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/fc95d487-3952-4ab6-8230-c5a692384acf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 60,
+      "height": 25,
+      "aspectRatio": 2.4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/41abb366-be4a-4798-9775-68ac9c522215.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

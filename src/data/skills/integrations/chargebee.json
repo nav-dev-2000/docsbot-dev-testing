@@ -1,0 +1,161 @@
+{
+  "slug": "chargebee",
+  "name": "Chargebee",
+  "domain": "chargebee.com",
+  "category": "Subscriptions",
+  "trutoCategory": "Subscription Platform",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Chargebee",
+  "metaTitle": "Build AI Agents for Chargebee with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Chargebee for billing lookups, subscription updates, handoffs, and internal workflows with secure, tested Skills.",
+  "intro": "Chargebee helps teams manage recurring billing, subscriptions, pricing, and revenue operations. With DocsBot Skill Builder, you can describe the Chargebee workflow you want in plain language and have DocsBot create a reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions, look up subscription details, prepare handoffs, and take approved billing-related actions inside clear boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a subscriber's plan, renewal date, invoice status, or subscription state in Chargebee while answering billing questions in chat or tickets.",
+    "Allow the agent to create a safe billing support handoff by collecting account context, summarizing Chargebee subscription details, and routing the case to the right team.",
+    "Enable the agent to update approved subscription metadata, add internal notes, or trigger bounded account workflows in Chargebee after confirming the customer's request.",
+    "Have the agent summarize payment history, open invoices, or recent subscription changes from Chargebee so customers get faster and clearer billing support.",
+    "Use the agent to gather missing details during cancellation, downgrade, or plan-change conversations, then prepare the next approved Chargebee action for review or execution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web portal to retrieve Chargebee customer, plan, invoice, and subscription details without switching tools.",
+    "Enable finance, support, and customer success teams to ask the agent for account summaries, renewal context, delinquency status, or recent billing changes pulled from Chargebee.",
+    "Help operations teams complete recurring SOPs by having employees chat with the agent to prepare subscription updates, generate billing case summaries, and trigger approved follow-up workflows.",
+    "Support revenue and customer success research by letting team members ask the agent to compare account state, summarize payment activity, and surface renewal or churn risk signals from Chargebee data.",
+    "Allow internal teams to use the agent to collect required context for sensitive billing actions, route requests for approval, and document the outcome for downstream systems."
+  ],
+  "whatYouCanBuild": [
+    "A billing support agent that checks subscription status and explains next steps to customers.",
+    "An AI assistant that summarizes invoices, payments, renewals, and account history from Chargebee.",
+    "A support workflow that prepares cancellation, downgrade, or upgrade requests for approval.",
+    "An internal revenue operations agent that gathers Chargebee account details for employees on demand.",
+    "A handoff assistant that packages Chargebee context into helpdesk notes for billing specialists.",
+    "A private team agent that answers subscription questions and triggers approved follow-up workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Chargebee agent to do in plain language, and it turns that goal into a reusable Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, then keeps secrets protected and proxied through approved runtime settings instead of exposing them in chats or Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Chargebee records, actions, users, and systems needed for the workflow, and it adds approval boundaries for sensitive billing or account changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and employee scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so it can answer questions and take bounded actions in Chargebee."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Chargebee without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Chargebee task you want in plain language and Skill Builder designs the workflow, secure connection, permissions, testing, and deployment for you. It can create Skills for lookups, summaries, record updates, handoffs, and other approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Chargebee data to answer billing and subscription questions?",
+      "answer": "Yes, a DocsBot support agent can use a Chargebee Skill to look up subscription details, invoice status, renewal dates, payment context, and similar account information while replying to customers in chat or tickets. You can also define which actions are read-only and which require approval before anything is changed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Chargebee?",
+      "answer": "DocsBot can help automate billing lookups, subscription status checks, cancellation or upgrade request intake, escalation summaries, and handoff preparation using Chargebee data. The agent can gather missing context, explain the current account state, and trigger approved next steps inside the boundaries you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Chargebee?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve account details, summarize billing activity, prepare renewal or delinquency reviews, and complete recurring operations workflows that depend on Chargebee. This reduces tool switching while keeping actions controlled and auditable."
+    },
+    {
+      "question": "How does DocsBot keep Chargebee actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration, protects credentials through runtime secret handling, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive workflows. It also tests scenarios before deployment so the Skill is safer and more reliable in production."
+    },
+    {
+      "question": "Can DocsBot update Chargebee records or only read data?",
+      "answer": "DocsBot Skills can be designed for read-only lookups or for bounded updates, depending on what your team approves. For sensitive changes such as subscription updates or workflow triggers, Skill Builder can require confirmations, approvals, or narrower permissions before the agent acts."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe-billing",
+    "recurly",
+    "zuora",
+    "chargeover",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Chargebee",
+    "domain": "chargebee.com",
+    "description": "Chargebee is a billing and monetization platform designed for the AI‑driven economy. Founded by four friends over a decade ago, the company tackles SaaS billing complexities, revenue leakage, and fragmented pricing data. It provides flexible, automated tools that let businesses manage recurring customer relationships, experiment with usage‑based or AI‑powered pricing, and expand globally. From fast‑scaling startups to multinational enterprises, Chargebee enables companies to capture, optimize, and scale revenue across any go‑to‑market strategy or pricing model, delivering confidence and agility as they grow.",
+    "slogan": "The recurring billing & monetization leader—automate growth with Chargebee.",
+    "logoUrl": "https://media.brand.dev/881c9c4f-7105-4097-8126-3bdbb46641c7.svg",
+    "iconUrl": "https://media.brand.dev/d27e8a09-d055-44fa-b674-41bdf7e09fe3.jpg",
+    "primaryColor": "#f6390c",
+    "accentColor": "#e88476",
+    "colors": [
+      {
+        "hex": "#f6390c",
+        "name": "Vermilion"
+      },
+      {
+        "hex": "#e88476",
+        "name": "Thundelarra"
+      },
+      {
+        "hex": "#edebea",
+        "name": "Dazzle Me"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1515f0cf-e1f1-4cc5-83f2-500aa2510bf0.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.chargebee.com/careers/",
+      "terms": "https://www.chargebee.com/company/terms/",
+      "contact": "https://www.chargebee.com/contact/",
+      "privacy": "https://www.chargebee.com/privacy/",
+      "blog": "https://www.chargebee.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.chargebee.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d27e8a09-d055-44fa-b674-41bdf7e09fe3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/881c9c4f-7105-4097-8126-3bdbb46641c7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 239,
+        "height": 33,
+        "aspectRatio": 7.24
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/881c9c4f-7105-4097-8126-3bdbb46641c7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 239,
+      "height": 33,
+      "aspectRatio": 7.24
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d27e8a09-d055-44fa-b674-41bdf7e09fe3.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

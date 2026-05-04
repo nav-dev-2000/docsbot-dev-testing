@@ -1,0 +1,168 @@
+{
+  "slug": "sisense",
+  "name": "Sisense",
+  "domain": "sisense.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Sisense Data and Analytics",
+  "metaTitle": "Build AI Agents for Sisense with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Sisense data for support answers, internal analytics lookups, summaries, handoffs, and approved workflow actions.",
+  "intro": "Sisense helps teams deliver embedded, AI-driven analytics and data-driven decisions across products and operations. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Sisense, and Skill Builder will design, secure, test, improve, and deploy that reusable Skill. The result is a support or internal AI agent that can answer questions, look up analytics, summarize trends, and take bounded actions around your approved workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Sisense dashboard or metric data to answer product usage, performance, or account health questions in chat or support tickets.",
+    "Use Sisense analytics during support conversations to summarize recent trends, anomalies, or adoption changes before preparing a human handoff.",
+    "Have the agent gather customer context, check relevant Sisense KPIs, and draft a more informed escalation note for customer success or technical support teams.",
+    "Enable a helpdesk-connected DocsBot agent to reference Sisense insights when explaining billing, usage, or feature adoption patterns tied to an account.",
+    "Let the agent compare current and prior reporting periods in Sisense so customers receive fast answers about changes in usage, activity, or outcomes."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to retrieve Sisense metrics, dashboard summaries, and trend comparisons without manually searching across reports.",
+    "Let sales, success, or operations teams ask the agent for account health insights from Sisense and receive concise summaries tailored to their workflow.",
+    "Help managers use a private DocsBot agent in Slack or Microsoft Teams to research KPI changes, summarize performance drivers, and prepare follow-up actions.",
+    "Enable internal teams to chat with the agent to combine Sisense lookups with SOPs, handoff notes, and next-step recommendations across business systems.",
+    "Support analysts and operations teams with an AI assistant that retrieves approved Sisense data, explains reporting context, and generates reusable summaries for meetings or reviews."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer questions using approved Sisense metrics and dashboard summaries.",
+    "A customer success assistant that checks account usage trends and drafts escalation-ready health summaries.",
+    "An internal KPI assistant that retrieves Sisense analytics in chat for sales, support, and operations teams.",
+    "A reporting copilot that compares time periods and explains notable changes in business performance.",
+    "A handoff workflow that packages Sisense insights into concise notes for human follow-up.",
+    "A team assistant that pulls embedded analytics context before creating next-step recommendations or summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Sisense in plain language, such as answering usage questions, summarizing dashboards, or preparing escalation notes."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the Sisense configuration values needed, and handles connection and authentication setup through secure runtime configuration."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials securely, scopes access to the minimum data and actions required, and adds approval boundaries for any sensitive lookups or updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can use Sisense insights in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Sisense data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and Skill Builder creates a secure Skill that can retrieve Sisense data, summarize analytics, and support approved actions inside your AI agent workflow."
+    },
+    {
+      "question": "Can an AI support agent use Sisense analytics to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Sisense dashboards, metrics, or reporting context to answer customer questions, explain trends, and prepare better handoffs when a human team member needs to step in."
+    },
+    {
+      "question": "What Sisense workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can retrieve KPIs, compare reporting periods, summarize dashboard findings, support research for account reviews, and generate follow-up notes or workflow-ready summaries for employees."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent can access in Sisense?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, protect and proxy secrets, scope permissions to the right data and users, and add approval boundaries for sensitive actions before deployment."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Sisense dashboards for support or success teams?",
+      "answer": "Yes, the agent can turn approved Sisense dashboard data into concise summaries, trend explanations, and escalation notes that help support, success, or operations teams act faster."
+    },
+    {
+      "question": "Do I need to manually code a Sisense integration for DocsBot?",
+      "answer": "No, the goal is to describe the business outcome you want, while Skill Builder handles the workflow design, secure connection details, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "looker",
+    "power-bi",
+    "metabase",
+    "mode",
+    "thoughtspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sisense",
+    "domain": "sisense.com",
+    "description": "Sisense is an API-first analytics platform that modernizes businesses by embedding in-context analytics within applications, providing action-oriented insights that enhance decision intelligence. With AI-powered embedded analytics, Sisense unlocks insights and converts data into revenue, offering flexibility through pro-code, low-code, and no-code solutions.",
+    "slogan": "Empowering smarter decisions with embedded, AI-driven analytics for every business.",
+    "logoUrl": "https://media.brand.dev/05d17a97-9dad-452c-93d4-9b281b092fd0.svg",
+    "iconUrl": "https://media.brand.dev/70f7e29c-ee9e-4985-b33c-8fd6367cfce4.png",
+    "primaryColor": "#141c2c",
+    "accentColor": "#93f2ea",
+    "colors": [
+      {
+        "hex": "#141c2c",
+        "name": "Sambucus"
+      },
+      {
+        "hex": "#93f2ea",
+        "name": "Freezy Breezy"
+      },
+      {
+        "hex": "#467c74",
+        "name": "Turquoise Tortoise"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4567e29c-d130-43c0-973e-c7466112255d.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.sisense.com/about/careers/",
+      "terms": null,
+      "contact": "https://www.sisense.com/contact/",
+      "privacy": "https://www.sisense.com/about/legal/privacy-policy/",
+      "blog": "https://www.sisense.com/blog/",
+      "pricing": "https://www.sisense.com/ai-analytics-platform-old/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9454255b-b11b-48ed-8bac-7cd899de02a3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/05d17a97-9dad-452c-93d4-9b281b092fd0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1802,
+        "height": 376,
+        "aspectRatio": 4.79
+      },
+      {
+        "url": "https://media.brand.dev/70f7e29c-ee9e-4985-b33c-8fd6367cfce4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05d17a97-9dad-452c-93d4-9b281b092fd0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1802,
+      "height": 376,
+      "aspectRatio": 4.79
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9454255b-b11b-48ed-8bac-7cd899de02a3.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

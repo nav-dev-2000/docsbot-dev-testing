@@ -1,0 +1,168 @@
+{
+  "slug": "twingate",
+  "name": "Twingate",
+  "domain": "twingate.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Twingate",
+  "metaTitle": "Build AI Agents for Twingate with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Twingate to look up access details, summarize secure access status, trigger approved workflows, and support internal teams safely.",
+  "intro": "Twingate helps companies manage secure remote access to private resources, apps, and infrastructure without traditional VPN complexity. With DocsBot Skill Builder, you can describe the Twingate workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve access information, prepare handoffs, and take approved actions inside clear security boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer has the right Twingate access path configured and summarize next steps during a support chat or ticket reply.",
+    "Use a support agent to gather account details, review relevant Twingate connection or access status, and prepare a clean escalation handoff for your technical team.",
+    "Enable the agent to answer common remote-access questions by pulling approved Twingate configuration details and explaining what the customer should verify next.",
+    "Have the agent summarize access-related state from Twingate for a support ticket so human responders can resolve secure connectivity issues faster.",
+    "Trigger an approved internal workflow from a support conversation when a customer needs secure-access troubleshooting, account review, or a follow-up from an IT specialist."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Twingate resource access details and understand who should handle the next step.",
+    "Enable IT or operations teams to ask the agent for summaries of user access posture, connector status, or access-related context before following internal SOPs.",
+    "Use an internal AI assistant to collect the information needed for secure-access troubleshooting, generate a handoff summary, and route the case to the right team.",
+    "Allow employees to ask a private agent how remote access is set up for a specific resource, while the Skill safely limits what records and actions are available.",
+    "Help support, security, and operations teams use a shared AI assistant to research Twingate-related issues, trigger approved workflows, and document outcomes consistently."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Twingate access context and explains secure troubleshooting steps.",
+    "A private IT assistant that summarizes user or resource access details for employees.",
+    "An escalation workflow that gathers Twingate context and creates clean handoff notes automatically.",
+    "A secure troubleshooting agent that routes remote-access issues to the correct internal team.",
+    "An internal operations bot that answers policy questions using approved Twingate access data.",
+    "A helpdesk assistant that summarizes connection status before a human agent takes over."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Twingate-enabled agent to do, such as checking access details, summarizing connection issues, or triggering an approved handoff workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the configuration values it needs, and defines how the agent should use Twingate within clear action limits."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure authentication planning, keeps credentials out of chats and generated content, proxies secrets through protected runtime configuration, and scopes access to the minimum users, actions, and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and other safeguards for sensitive updates or workflow triggers so the agent can act only inside the rules your team approves."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those results into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Twingate without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Twingate workflow you want in plain language, and the builder designs, secures, tests, and prepares the Skill for deployment. It handles connection requirements, secret protection, and safe action boundaries behind the scenes."
+    },
+    {
+      "question": "Can an AI support agent use Twingate data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use approved Twingate lookups to gather access context, summarize secure-access status, and prepare troubleshooting or escalation responses. The customer conversation triggers the agent, and the Skill lets that agent retrieve or act on Twingate data within your defined limits."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Twingate?",
+      "answer": "A private DocsBot agent can help employees look up access details, summarize connector or resource context, route issues, prepare handoffs, and trigger approved remote-access workflows. This is useful for IT, security, operations, and support teams that need faster answers and more consistent SOP execution."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Twingate instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as workflow triggers, record-related updates, approvals, and handoff preparation when those actions fit your rules. Skill Builder defines scoped permissions and approval checks so the agent only performs approved actions."
+    },
+    {
+      "question": "How does DocsBot keep Twingate credentials and access secure?",
+      "answer": "Skill Builder identifies the required authentication and configuration values, keeps secrets out of chat transcripts and Skill source, and proxies them through secure runtime configuration. It also scopes access to the minimum systems, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I use a Twingate AI assistant in Slack or Microsoft Teams for employees?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent that employees use in chat, Slack, or Microsoft Teams. That agent can answer access questions, gather troubleshooting context, and help complete internal workflows without exposing unnecessary controls."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "jumpcloud",
+    "cloudflare-access",
+    "onepassword",
+    "microsoft-entra-id",
+    "jamf"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Twingate",
+    "domain": "twingate.com",
+    "description": "Twingate is a modern security platform that provides businesses with secure remote access to private resources. It replaces traditional VPNs with an identity-based access solution that combines network access, authentication, and device controls into a single, easy-to-use platform, making it simple for companies of all sizes to securely access networks, technical infrastructure, and SaaS apps.",
+    "slogan": "Secure, simple remote access—ditch your VPN with Twingate's modern solution.",
+    "logoUrl": "https://media.brand.dev/eea735a6-ac50-4a5b-9c5a-e845a0015980.svg",
+    "iconUrl": "https://media.brand.dev/9a5b0183-afc4-4b60-b5d7-e066385e9b9a.png",
+    "primaryColor": "#848484",
+    "accentColor": "#161616",
+    "colors": [
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#161616",
+        "name": "Pot Black"
+      },
+      {
+        "hex": "#cbcbcb",
+        "name": "Silverback"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d01333b2-a8bd-4da2-b8fb-be4e71505332.png",
+    "industries": [],
+    "links": {
+      "careers": "https://twingate.com/careers",
+      "terms": "https://twingate.com/terms",
+      "contact": "https://twingate.com/demo",
+      "privacy": "https://twingate.com/privacy",
+      "blog": "https://twingate.com/blog",
+      "pricing": "https://twingate.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9a5b0183-afc4-4b60-b5d7-e066385e9b9a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c2485962-d555-448b-ad42-cfdbb79a3536.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/eea735a6-ac50-4a5b-9c5a-e845a0015980.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 86,
+        "height": 20,
+        "aspectRatio": 4.3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/eea735a6-ac50-4a5b-9c5a-e845a0015980.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 86,
+      "height": 20,
+      "aspectRatio": 4.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c2485962-d555-448b-ad42-cfdbb79a3536.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

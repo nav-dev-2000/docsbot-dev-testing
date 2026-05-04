@@ -1,0 +1,176 @@
+{
+  "slug": "mode",
+  "name": "Mode",
+  "domain": "mode.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that work with Mode Analytics",
+  "metaTitle": "Build AI agents for Mode Analytics with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Mode Analytics for safe data lookups, report summaries, workflow handoffs, and internal analytics assistance.",
+  "intro": "Mode Analytics helps teams explore data, answer business questions, and share insights across the company. With DocsBot Skill Builder, you can describe the analytics workflows you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Mode in customer support or internal team conversations. The result is an AI agent that can answer questions, retrieve approved analytics context, prepare summaries, and support next-step actions without exposing sensitive data or requiring manual technical setup.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up approved Mode dashboard results or saved report insights when customers ask about product usage, billing activity, or account trends.",
+    "Let a support agent summarize relevant Mode analysis in a helpdesk reply so customers get a clear explanation of recent activity, performance changes, or feature adoption.",
+    "Have the agent gather analytics context from Mode before preparing an escalation handoff for customer success, product, or engineering teams.",
+    "Enable the agent to answer common customer questions with the latest approved metrics from Mode instead of relying only on static documentation.",
+    "Use Mode-backed summaries to help a support agent explain service trends, usage patterns, or account health indicators during live chat conversations."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve approved Mode dashboard insights without opening the analytics workspace manually.",
+    "Enable operations, support, and customer success teams to ask the agent for trend summaries, KPI explanations, or report comparisons based on Mode data.",
+    "Help team members research business questions faster by having the agent pull relevant Mode analysis, summarize findings, and point to the right dashboard or report.",
+    "Use an internal AI agent to prepare analytics-based handoff notes, weekly summaries, or investigation briefs by combining employee questions with Mode reporting context.",
+    "Allow employees to follow workflow or SOP guidance in chat while the agent uses Mode insights to support decisions, escalations, and cross-team coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer questions using approved Mode report summaries.",
+    "An internal analytics assistant that retrieves KPI trends and explains dashboard results in plain language.",
+    "A ticket triage Skill that adds Mode-based account context before escalation or handoff.",
+    "A customer success assistant that summarizes product adoption and usage signals from Mode.",
+    "An operations agent that prepares weekly business metric digests from selected Mode reports.",
+    "A support workflow that compares recent customer activity trends using approved analytics views in Mode."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Mode, such as summarize dashboards for support replies or retrieve KPI context for internal teams, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and Skill source, and scopes access to the minimum Mode data and actions needed."
+    },
+    {
+      "title": "Boundaries are added automatically",
+      "description": "Skill Builder sets safe runtime rules, user scope, record limits, and approval boundaries for sensitive steps so the agent can retrieve or prepare analytics context without overreaching."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal employee scenarios against the Mode workflow, finds bugs or weak spots, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can use Mode-powered AI Actions in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Mode Analytics data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as retrieving dashboard insights or summarizing report results, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The finished agent can use approved Mode data for lookups, summaries, handoffs, and other bounded actions inside your defined rules."
+    },
+    {
+      "question": "Can a DocsBot customer support agent use Mode Analytics during live chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to pull approved Mode insights while responding to customer chats or helpdesk tickets. That can help the agent explain usage trends, summarize recent activity, and prepare better escalations without exposing unrestricted analytics access."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Mode Analytics?",
+      "answer": "A private DocsBot agent can help employees retrieve KPI context, summarize report findings, compare trends, prepare briefs, and support SOP-driven decisions using approved Mode analysis. This is useful for support, customer success, operations, and leadership teams that need faster answers from shared analytics."
+    },
+    {
+      "question": "Can an AI agent safely use Mode Analytics without exposing sensitive credentials or data?",
+      "answer": "DocsBot Skill Builder is designed to handle connection details securely by defining required configuration values, protecting and proxying secrets, and keeping credentials out of chats and generated content. It also scopes permissions and adds approval boundaries so the agent only accesses the data and actions you allow."
+    },
+    {
+      "question": "Can DocsBot use Mode Analytics for ticket triage and escalation prep?",
+      "answer": "Yes, you can build a Skill that gathers relevant analytics context from Mode and uses it to enrich triage, summarize account trends, and prepare escalation notes for human teams. This helps support teams move faster with better context at the start of each handoff."
+    },
+    {
+      "question": "Do I need a developer to set up a DocsBot Skill for Mode Analytics?",
+      "answer": "Usually not for planning the workflow, because you can describe the desired result in plain language and Skill Builder handles the design, security approach, testing, and deployment guidance. It is built to help non-technical teams create useful agent abilities without manually wiring every implementation detail."
+    }
+  ],
+  "relatedSlugs": [
+    "looker",
+    "tableau",
+    "power-bi",
+    "thoughtspot",
+    "metabase",
+    "google-bigquery"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mode Analytics",
+    "domain": "mode.com",
+    "description": "Mode is a collaborative analytics platform that enables data-informed decision making. It combines SQL, Python, R, and visual analysis to help teams answer questions faster. Mode is a modern business intelligence solution that allows users to connect, analyze, and share data insights in one place, streamlining the data analysis process.",
+    "slogan": "Empowering Data Teams with Collaborative Modern Business Intelligence",
+    "logoUrl": "https://media.brand.dev/f224c1f4-e9af-4abd-a3d7-65619e9aa030.png",
+    "iconUrl": "https://media.brand.dev/e0167adc-cd25-4c95-a9a4-c540024590fa.jpg",
+    "primaryColor": "#944d69",
+    "accentColor": "#2e4346",
+    "colors": [
+      {
+        "hex": "#944d69",
+        "name": "Befitting"
+      },
+      {
+        "hex": "#2e4346",
+        "name": "Little Mermaid"
+      },
+      {
+        "hex": "#d2cdc3",
+        "name": "Burnished Clay"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2d21743d-bdf1-460f-b35b-f79db3f0545f.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://mode.com/careers/",
+      "terms": "https://mode.com/legal/tos/",
+      "contact": "https://mode.com/contact-us/",
+      "privacy": "https://mode.com/legal/privacy/",
+      "blog": "https://mode.com/blog/",
+      "pricing": "https://mode.com/compare-plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e0167adc-cd25-4c95-a9a4-c540024590fa.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f224c1f4-e9af-4abd-a3d7-65619e9aa030.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 572,
+        "height": 392,
+        "aspectRatio": 1.46
+      },
+      {
+        "url": "https://media.brand.dev/0fff4068-7bd7-4d7b-acb2-0b0dea8273d0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/45f0e553-7c19-44dc-b061-a257a1da8631.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 111,
+        "height": 35,
+        "aspectRatio": 3.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45f0e553-7c19-44dc-b061-a257a1da8631.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 111,
+      "height": 35,
+      "aspectRatio": 3.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e0167adc-cd25-4c95-a9a4-c540024590fa.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

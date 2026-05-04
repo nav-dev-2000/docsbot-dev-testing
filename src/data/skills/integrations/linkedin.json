@@ -1,0 +1,148 @@
+{
+  "slug": "linkedin",
+  "name": "LinkedIn",
+  "domain": "linkedin.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with LinkedIn",
+  "metaTitle": "Build LinkedIn AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LinkedIn for safe lookups, content workflows, lead research, handoffs, and internal team assistance.",
+  "intro": "LinkedIn helps teams manage professional outreach, brand presence, recruiting activity, and audience engagement. With DocsBot Skill Builder, you can describe the LinkedIn workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, gather context, trigger approved actions, and summarize outcomes using LinkedIn data and workflows under controlled rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent LinkedIn company page activity and answer questions about campaign timing, post visibility, or public engagement status.",
+    "Let the agent collect partnership or influencer inquiry details from a website chat, summarize the request, and create an internal handoff tied to LinkedIn outreach workflows.",
+    "Allow a support agent responding to helpdesk tickets to gather missing context about a prospect, company, or campaign contact from LinkedIn before preparing a more informed reply.",
+    "Use the agent to summarize public LinkedIn profile or company information so customers can be routed to the right sales, recruiting, or partnership team.",
+    "Let the agent prepare escalation notes that combine the customer conversation with relevant LinkedIn account, company, or outreach context for a human follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to research companies, public profiles, and account context from LinkedIn before sales outreach, recruiting reviews, or partnership planning.",
+    "Marketing and social teams can ask the agent to summarize LinkedIn page activity, draft follow-up tasks, and prepare campaign performance handoffs for internal review.",
+    "Recruiting teams can use an internal AI assistant in Slack or Microsoft Teams to gather public candidate or company context from LinkedIn and package it into a consistent intake summary.",
+    "Customer success and operations teams can chat with the agent to compile account research across LinkedIn and other systems before renewals, escalations, or executive business reviews.",
+    "Teams can use the agent to follow internal SOPs for lead research, account qualification, outreach preparation, and approval-based workflow triggers connected to LinkedIn data."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that researches target companies on LinkedIn before sales or partnership outreach.",
+    "A support assistant that creates clean escalation summaries with LinkedIn company and contact context.",
+    "An internal recruiting assistant that compiles public profile and company insights into hiring briefs.",
+    "A marketing agent that summarizes LinkedIn page activity and proposes next-step follow-up tasks.",
+    "A lead qualification workflow that enriches inbound inquiries with LinkedIn company research.",
+    "An account planning assistant that prepares renewal or expansion briefs using LinkedIn context and internal notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the LinkedIn task you want in plain language, and Skill Builder turns that goal into a practical AI workflow for your DocsBot agent."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best LinkedIn connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right action limits and approval boundaries so your agent can research, summarize, prepare updates, or trigger approved workflows without exceeding the rules you set."
+    },
+    {
+      "title": "Automatic testing and improvement",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated, DocsBot helps deploy it to your customer-facing chat widget, helpdesk agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LinkedIn?",
+      "answer": "With DocsBot Skill Builder, you describe the LinkedIn workflow you want in plain language, such as researching companies, summarizing profiles, or preparing handoffs. Skill Builder designs the Skill, secures the connection, tests the workflow, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use LinkedIn data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved LinkedIn lookups to gather public company or profile context, summarize findings, and prepare better replies or escalations. You control what the agent is allowed to access and whether any sensitive action requires approval."
+    },
+    {
+      "question": "What internal team workflows can a LinkedIn AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees research accounts, prepare outreach context, summarize company activity, support recruiting research, and follow internal SOPs for qualification or handoff workflows. The agent can also combine LinkedIn context with information from your other business systems."
+    },
+    {
+      "question": "Can DocsBot use LinkedIn for lead research and account qualification?",
+      "answer": "Yes, you can build a Skill that lets your AI agent gather LinkedIn company or profile context, organize findings, and produce a qualification summary for sales, partnerships, or customer success teams. Skill Builder can also add approval steps before any downstream update or workflow trigger happens."
+    },
+    {
+      "question": "How does DocsBot keep LinkedIn integrations secure?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and generated Skill content, proxies secrets through secure runtime settings, and scopes permissions to the minimum workflow access required. It can also enforce approval boundaries for updates, handoffs, or other higher-impact actions."
+    },
+    {
+      "question": "Can a LinkedIn AI agent help with customer support escalations?",
+      "answer": "Yes, the agent can gather relevant LinkedIn company or contact context, combine it with the customer conversation, and generate a structured escalation summary for a human team member. This helps support, success, and sales teams respond with better context and less manual research."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "outreach",
+    "apollo",
+    "greenhouse",
+    "lever"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LinkedIn",
+    "domain": "linkedin.com",
+    "description": "LinkedIn is the world's largest professional networking site, founded in 2003. It enables members to create business connections, search for jobs, and find potential clients, fostering a community of career opportunities, advice, and inspiration. With over 1 billion members globally, including executives from every Fortune 500 company, LinkedIn aims to make professionals more productive and successful. The company generates revenue through its Talent Solutions, Marketing Solutions, Sales Solutions, and Premium Subscriptions offerings. Headquartered in Silicon Valley with offices worldwide, LinkedIn is a premier platform for managing professional identity, building and engaging with professional networks, and accessing valuable knowledge, insights, and opportunities.",
+    "slogan": "Connect to opportunity and achieve your career goals.",
+    "logoUrl": "https://media.brand.dev/d9eec136-1b58-4560-8c2a-e122eba9a857.jpg",
+    "iconUrl": "https://media.brand.dev/d9eec136-1b58-4560-8c2a-e122eba9a857.jpg",
+    "primaryColor": "#0c64c4",
+    "accentColor": "#84b4dc",
+    "colors": [
+      {
+        "hex": "#0c64c4",
+        "name": "Blue Diamond"
+      },
+      {
+        "hex": "#84b4dc",
+        "name": "Dun Morogh Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9487222d-5a3f-41f0-a406-c25416fae544.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.linkedin.com/jobs/search",
+      "terms": "https://linkedin.com/legal/user-agreement",
+      "contact": null,
+      "privacy": "https://linkedin.com/legal/privacy-policy",
+      "blog": "https://blog.linkedin.com/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d9eec136-1b58-4560-8c2a-e122eba9a857.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d9eec136-1b58-4560-8c2a-e122eba9a857.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d9eec136-1b58-4560-8c2a-e122eba9a857.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

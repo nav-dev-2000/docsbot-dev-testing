@@ -1,0 +1,151 @@
+{
+  "slug": "zendesk-help-center",
+  "name": "Zendesk - Help Center",
+  "domain": "zendesk-help-center.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zendesk Help Center",
+  "metaTitle": "Build AI Agents for Zendesk Help Center with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Zendesk Help Center to answer questions, find articles, prepare support handoffs, and support internal teams with safe actions.",
+  "intro": "Zendesk Help Center stores the articles, guidance, and support content your customers and teams rely on every day. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use that Help Center content, and Skill Builder creates a reusable Skill that can safely retrieve information, summarize answers, prepare handoffs, and support approved workflows. This helps you deploy better customer support agents and internal AI assistants that do more than search documentation.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to search Zendesk Help Center articles and answer product, billing, onboarding, or troubleshooting questions with the most relevant guidance.",
+    "Let the agent summarize multiple Help Center articles into a single customer-friendly answer that matches the customer’s issue and reduces repetitive support tickets.",
+    "Have the agent pull related Help Center content while replying to helpdesk tickets so it can draft faster, more consistent responses for support teams.",
+    "Use the agent to recommend next-step articles, setup guides, or policy pages before escalating a conversation to a human agent.",
+    "Let the agent prepare a support handoff that includes the customer’s question, the Help Center content already reviewed, and the remaining unresolved issue."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent that searches Zendesk Help Center content for internal procedures, admin guidance, and product documentation without digging through articles manually.",
+    "Let support and success teams ask the agent to compare multiple Help Center articles, summarize policy differences, and return a clear answer for customer-facing decisions.",
+    "Use an internal agent in Slack or Microsoft Teams to guide employees through support SOPs based on Zendesk Help Center documentation and linked process content.",
+    "Help onboarding and enablement teams use a private AI assistant to turn Zendesk Help Center material into quick summaries, training notes, and reusable answer drafts.",
+    "Allow team members to chat with the agent to find the right documentation, gather context for escalations, and complete repeatable support research workflows faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the best Zendesk Help Center article for each customer question.",
+    "A ticket reply assistant that summarizes Help Center content into clear customer-ready responses.",
+    "An internal documentation agent that answers employee questions using Zendesk Help Center knowledge.",
+    "A handoff preparation Skill that collects relevant articles and summarizes unresolved customer issues.",
+    "A support workflow Skill that recommends troubleshooting guides before escalating to a human agent.",
+    "A training assistant that turns Help Center articles into internal notes and step-by-step guidance."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zendesk Help Center in plain language, such as answering customer questions, finding the right article, or preparing a support handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and defines how the agent should retrieve content, summarize results, and stay within approved workflow boundaries."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles authentication safely, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes access to only the content, actions, and users needed."
+    },
+    {
+      "title": "Safety limits are added",
+      "description": "Skill Builder adds permission controls and approval boundaries for any sensitive actions so the agent can take helpful bounded action without exceeding the rules you define."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zendesk Help Center?",
+      "answer": "You can describe the outcome you want in plain language, and DocsBot Skill Builder can create a Skill that lets your agent search Zendesk Help Center content, summarize answers, prepare handoffs, and follow safe workflow rules. Skill Builder also handles secure connection design, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zendesk Help Center articles to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zendesk Help Center content to find relevant articles, explain steps in a customer-friendly way, and guide customers toward the best next action. It can also prepare cleaner escalations by summarizing what documentation has already been used."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zendesk Help Center?",
+      "answer": "DocsBot can help automate article lookups, answer drafting, troubleshooting guidance, handoff preparation, escalation summaries, and recommended next-step content during chats or ticket responses. The actions stay bounded by the workflow and approval rules you choose."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Zendesk Help Center more effectively?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve documentation, compare articles, summarize procedures, and follow support SOPs faster. This makes internal research and response preparation much more efficient."
+    },
+    {
+      "question": "How does DocsBot keep a Zendesk Help Center AI Skill secure?",
+      "answer": "Skill Builder defines the needed connection settings, stores and proxies secrets through secure runtime configuration, keeps credentials out of conversations, and scopes access to the minimum content and actions required. It can also add approval boundaries for sensitive workflows and test the Skill before deployment."
+    },
+    {
+      "question": "Can DocsBot summarize multiple Zendesk Help Center articles into one answer?",
+      "answer": "Yes, a DocsBot Skill can gather relevant Help Center articles and combine them into a concise answer, troubleshooting summary, or internal briefing. This is useful for customer chat replies, ticket assistance, and employee research workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "help-scout",
+    "intercom",
+    "freshdesk",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zendesk",
+    "domain": "support.zendesk.com",
+    "description": "Zendesk is a customer service platform that helps businesses deliver seamless support experiences across multiple channels. It offers a suite of tools—including ticketing, live chat, knowledge bases, and AI‑powered automation—to streamline issue resolution, improve agent productivity, and provide actionable insights from customer conversations. Zendesk’s resources, such as onboarding guides, product documentation, best‑practice tutorials, and a vibrant community, enable users of all roles—admins, agents, and developers—to set up, customize, and extend the platform. With features like the Action Builder, reporting dashboards, and integrations with popular services, Zendesk empowers organizations to scale support operations, enhance customer satisfaction, and turn support data into strategic value.",
+    "slogan": "Customer service is hard. Zendesk makes it easier.",
+    "logoUrl": "https://media.brand.dev/562a6f85-d2b5-44ef-a8ba-dc5faaf6b7e8.svg",
+    "iconUrl": "https://media.brand.dev/d3262295-b082-493d-bb45-d4c1df509250.png",
+    "primaryColor": "#14140c",
+    "accentColor": "#14140c",
+    "colors": [
+      {
+        "hex": "#14140c",
+        "name": "Darkness"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": "https://support.zendesk.com/company/agreements-and-terms/cookie-notice/",
+      "contact": "https://support.zendesk.com/hc/en-us/articles/4408843597850",
+      "pricing": "https://support.zendesk.com/hc/en-us/articles/5411234991258"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/562a6f85-d2b5-44ef-a8ba-dc5faaf6b7e8.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 202,
+        "height": 153,
+        "aspectRatio": 1.32
+      },
+      {
+        "url": "https://media.brand.dev/d3262295-b082-493d-bb45-d4c1df509250.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/562a6f85-d2b5-44ef-a8ba-dc5faaf6b7e8.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 202,
+      "height": 153,
+      "aspectRatio": 1.32
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d3262295-b082-493d-bb45-d4c1df509250.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 152,
+      "height": 152,
+      "aspectRatio": 1
+    }
+  }
+}

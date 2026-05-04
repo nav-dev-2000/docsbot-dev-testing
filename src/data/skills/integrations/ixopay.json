@@ -1,0 +1,168 @@
+{
+  "slug": "ixopay",
+  "name": "IXOPAY",
+  "domain": "ixopay.com",
+  "category": "Payments & Billing",
+  "trutoCategory": "Payment Gateway",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with IXOPAY",
+  "metaTitle": "Build AI Agents for IXOPAY with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use IXOPAY for payment lookups, issue investigation, workflow triggers, and secure internal operations.",
+  "intro": "IXOPAY helps businesses orchestrate payments, unify payment data, and manage tokenization across providers. With DocsBot Skill Builder, you can describe the payment workflow you want in plain language and have DocsBot create a reusable Skill that lets a support or internal AI agent safely use IXOPAY data and actions. This helps teams resolve payment questions faster, prepare better handoffs, and automate bounded payment operations without exposing sensitive credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up payment status in IXOPAY and explain whether a transaction is pending, authorized, failed, refunded, or needs manual review.",
+    "Use IXOPAY data during a support chat or helpdesk reply to summarize likely payment failure reasons and guide the customer to the next approved step.",
+    "Enable the agent to collect missing order or transaction details from the customer, then prepare a clean escalation summary for billing or risk teams using IXOPAY records.",
+    "Allow the agent to confirm whether a refund, capture, or payment update has already been processed in IXOPAY before responding to the customer.",
+    "Have the agent trigger an approved internal follow-up workflow when IXOPAY activity suggests a payment issue that requires human investigation or back-office review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve IXOPAY transaction details, payment summaries, and workflow status without searching manually.",
+    "Enable finance, support, and operations teams to ask the agent to investigate payment failures, group related IXOPAY activity, and produce a handoff summary for the next team.",
+    "Help internal teams follow payment operations SOPs by having the agent gather the right IXOPAY records, check required conditions, and guide or complete approved next steps.",
+    "Allow employees to ask the agent for refund or payment exception research, with the agent compiling IXOPAY findings and routing sensitive actions through approval boundaries.",
+    "Support cross-functional reporting workflows by letting the agent summarize IXOPAY payment trends, issue patterns, or unresolved cases for internal review."
+  ],
+  "whatYouCanBuild": [
+    "A payment status lookup Skill for customer chat and helpdesk replies.",
+    "A failed transaction investigation Skill that summarizes likely causes and next steps.",
+    "A refund verification Skill that checks IXOPAY records before the agent answers customers.",
+    "A payment escalation Skill that creates structured handoff notes for billing or risk teams.",
+    "An internal operations Skill that guides employees through payment exception SOPs.",
+    "A transaction research Skill that gathers IXOPAY details and produces case summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with IXOPAY, such as checking payment status, researching failed transactions, or preparing escalations, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed IXOPAY configuration values, and sets up safe authentication and secret handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder automatically scopes the Skill to the minimum IXOPAY actions, records, and users required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing permission checks, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps publish the finished IXOPAY Skill to your customer-facing DocsBot agent or your private team assistant so it can answer questions and take bounded action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for IXOPAY without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the payment workflow you want in plain language, and Skill Builder designs the IXOPAY Skill, secures the connection, tests scenarios, and prepares it for deployment. It can create Skills for lookups, summaries, workflow triggers, and approved record actions within your defined boundaries."
+    },
+    {
+      "question": "Can an AI support agent use IXOPAY data to answer customer payment questions?",
+      "answer": "Yes, a DocsBot support agent can use an IXOPAY Skill to look up transaction status, summarize payment issues, gather missing context, and prepare escalations while replying in chat or tickets. The agent acts within the permissions and approval rules you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with IXOPAY?",
+      "answer": "DocsBot can help automate payment status checks, failed payment investigations, refund verification, escalation preparation, and other bounded support workflows that rely on IXOPAY data. It can also summarize findings clearly for customers or hand off complex cases to human teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in IXOPAY?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve transaction details, investigate payment issues, follow SOPs, and generate internal summaries across IXOPAY workflows. This reduces manual searching and helps teams complete routine payment operations more consistently."
+    },
+    {
+      "question": "How does DocsBot keep IXOPAY actions secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets through secure runtime settings, keeps credentials out of chats, and scopes access to the minimum records and actions needed. It can also add approval boundaries for sensitive actions such as payment updates, refund-related workflows, or escalation triggers."
+    },
+    {
+      "question": "Can DocsBot test an IXOPAY Skill before it goes live?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs imagined support and internal scenarios, checks for workflow gaps or permission issues, and improves the Skill before deployment. This helps you launch with more confidence and fewer surprises."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "adyen",
+    "braintree",
+    "recurly",
+    "chargebee",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "IXOPAY",
+    "domain": "ixopay.com",
+    "description": "IXOPAY is a leading payment orchestration platform that provides a flexible and independent payment solution to manage all payment services in one place. They offer payment orchestration and tokenization solutions to boost authorization rates, streamline PCI compliance, and unify payment data, driving accelerated business growth.",
+    "slogan": "Streamline Payments with IXOPAY's Unified, Secure, and Global Payment Solutions.",
+    "logoUrl": "https://media.brand.dev/e1bc747c-4507-4ac0-a00b-db800b3a86c9.jpg",
+    "iconUrl": "https://media.brand.dev/e1bc747c-4507-4ac0-a00b-db800b3a86c9.jpg",
+    "primaryColor": "#9c46a9",
+    "accentColor": "#1e1e1e",
+    "colors": [
+      {
+        "hex": "#9c46a9",
+        "name": "Medium Purple"
+      },
+      {
+        "hex": "#1e1e1e",
+        "name": "Dynamic Black"
+      },
+      {
+        "hex": "#f1e7f2",
+        "name": "Minute Mauve"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e3dac193-1bce-4016-ad51-481e6c5593f4.jpg",
+    "industries": [],
+    "links": {
+      "pricing": null,
+      "careers": "https://www.ixopay.com/company/careers",
+      "terms": "https://www.ixopay.com/legal/terms-of-use",
+      "contact": "https://www.ixopay.com/company/contact",
+      "privacy": "https://www.ixopay.com/legal/privacy-policy",
+      "blog": "https://www.ixopay.com/blog/why-payments-fail-and-how-to-fix-them-practical-strategies-for-subscription-growth"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e1bc747c-4507-4ac0-a00b-db800b3a86c9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d12db3a2-217e-4605-9b30-b118b2950796.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/325aa120-43f6-4320-b580-890d3f14d243.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 120,
+        "height": 120,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/325aa120-43f6-4320-b580-890d3f14d243.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 120,
+      "height": 120,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/325aa120-43f6-4320-b580-890d3f14d243.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 120,
+      "height": 120,
+      "aspectRatio": 1
+    }
+  }
+}

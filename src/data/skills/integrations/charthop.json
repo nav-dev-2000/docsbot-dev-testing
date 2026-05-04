@@ -1,0 +1,170 @@
+{
+  "slug": "charthop",
+  "name": "ChartHop",
+  "domain": "charthop.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with ChartHop",
+  "metaTitle": "Build ChartHop AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ChartHop for secure people data lookups, workflow actions, HR support answers, and internal team assistance.",
+  "intro": "ChartHop helps teams unify people data, planning, performance, compensation, and engagement insights in one HR platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use ChartHop data and approved actions. This helps customer support, people operations, and internal teams answer questions faster, prepare handoffs, and complete bounded HR workflows from chat.",
+  "supportUseCases": [
+    "Use a DocsBot support agent to look up high-level employee policy context or organization information from ChartHop before answering HR-related questions in a helpdesk ticket.",
+    "Let a customer-facing agent gather missing details from a requester, summarize the issue, and prepare a structured handoff for HR or people operations using ChartHop context.",
+    "Enable an agent to check approved workforce data points in ChartHop and provide policy-aware responses about reporting lines, department ownership, or role status.",
+    "Have the agent create a clean escalation summary that combines the customer conversation with relevant ChartHop organization data for a faster human follow-up.",
+    "Use the agent to trigger approved internal workflows after a support conversation, such as notifying the right HR contact or opening a follow-up process based on ChartHop records."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up org chart details, reporting lines, department structures, and approved people data from ChartHop.",
+    "People operations teams can ask the agent to summarize employee, team, or headcount context from ChartHop before completing HR workflows or responding to leadership questions.",
+    "Managers can chat with the agent to retrieve approved planning, compensation, performance, or engagement context from ChartHop without digging through multiple dashboards.",
+    "HR teams can use the agent to gather missing workflow details, prepare handoff notes, and follow standard operating procedures that rely on ChartHop as a source of truth.",
+    "Internal teams can ask the agent to generate summaries for headcount reviews, organizational changes, or people planning discussions using ChartHop data within approved access rules."
+  ],
+  "whatYouCanBuild": [
+    "An HR support agent that answers org structure questions using approved ChartHop lookups.",
+    "A people operations assistant that summarizes employee and team context before escalations.",
+    "A manager assistant that retrieves reporting lines and department ownership from ChartHop.",
+    "An internal agent that prepares headcount planning summaries for leadership reviews.",
+    "A workflow agent that gathers missing HR request details and routes them correctly.",
+    "A compensation review helper that surfaces approved context and creates structured handoff notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ChartHop agent to do, such as answer org questions, prepare HR handoffs, or retrieve planning context, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure workflow, identifies the required configuration values, handles connection and authentication setup, protects and proxies secrets, and scopes ChartHop access to the minimum users, actions, and records needed."
+    },
+    {
+      "title": "Add rules and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries so the agent can look up data, prepare updates, or trigger workflows only within the permissions you want."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission checks, and workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder refines the Skill, validates the final behavior, and helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use ChartHop confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses ChartHop data?",
+      "answer": "With DocsBot Skill Builder, you describe the ChartHop workflow you want in plain language, and Skill Builder creates a reusable Skill for lookups, summaries, handoffs, and approved actions. It also handles secure configuration, authentication protection, scoped permissions, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use ChartHop during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot support agent can use ChartHop as a source for approved people or organization context while responding in a chat widget or helpdesk workflow. That can help the agent answer questions, collect missing details, and prepare accurate handoffs for HR teams."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with ChartHop?",
+      "answer": "Internal agents can retrieve org chart details, summarize team and headcount context, support manager questions, prepare planning notes, and route HR workflows using ChartHop data. The exact actions are bounded by the permissions, approvals, and safe action limits you define with Skill Builder."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in ChartHop safely?",
+      "answer": "DocsBot Skills can be designed for approved updates, workflow triggers, and handoff preparation when those actions fit your rules. Skill Builder defines secure connection handling, scopes access carefully, and can require approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep ChartHop credentials and HR data secure?",
+      "answer": "Skill Builder is designed to keep credentials out of chats and Skill source by using secure runtime configuration and secret proxying. It also limits access to the minimum records, actions, and users needed for the workflow and tests for permission gaps before deployment."
+    },
+    {
+      "question": "Can an AI assistant help managers find reporting structures and team information from ChartHop?",
+      "answer": "Yes, an internal DocsBot agent can help managers retrieve approved reporting lines, department ownership, team structure, and organizational summaries from ChartHop. This makes it easier to answer routine questions quickly without giving broad unrestricted access."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "hibob",
+    "gusto",
+    "namely",
+    "ukg-pro"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ChartHop",
+    "domain": "charthop.com",
+    "description": "ChartHop is the data-first HR platform designed for modern organizations. It unifies people and business data, combining core HR functions with planning tools, performance management, and AI-driven analytics to drive business outcomes through data-informed people decisions. With integrated modules spanning HRIS, Headcount Planning, Compensation, Performance, and Engagement, ChartHop empowers companies to plan strategically and make smarter people decisions.",
+    "slogan": "Empowering Smarter People Decisions with Data-Driven HR Solutions",
+    "logoUrl": "https://media.brand.dev/5d22760f-c379-4003-9f87-5cdfe59b2a18.png",
+    "iconUrl": "https://media.brand.dev/15b88c4e-f6f9-44a2-aa14-b67c765da6b7.jpg",
+    "primaryColor": "#6c35fb",
+    "accentColor": "#b494f1",
+    "colors": [
+      {
+        "hex": "#6c35fb",
+        "name": "Pink OCD"
+      },
+      {
+        "hex": "#b494f1",
+        "name": "Dreamy Candy Forest"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9c3a5c9a-0be2-42bc-a38b-3a2ee861026a.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "careers": "https://www.charthop.com/careers",
+      "contact": "https://www.charthop.com/contact-us",
+      "privacy": "https://www.charthop.com/privacy-policy",
+      "blog": "https://www.charthop.com/modules/compensation-reviews",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.charthop.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15b88c4e-f6f9-44a2-aa14-b67c765da6b7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5d22760f-c379-4003-9f87-5cdfe59b2a18.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1900,
+        "height": 616,
+        "aspectRatio": 3.08
+      },
+      {
+        "url": "https://media.brand.dev/f4813313-0352-49b9-891b-3ec05ecb2eaa.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5d22760f-c379-4003-9f87-5cdfe59b2a18.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1900,
+      "height": 616,
+      "aspectRatio": 3.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f4813313-0352-49b9-891b-3ec05ecb2eaa.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

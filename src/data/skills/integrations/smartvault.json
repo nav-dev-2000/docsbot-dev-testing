@@ -1,0 +1,192 @@
+{
+  "slug": "smartvault",
+  "name": "SmartVault",
+  "domain": "smartvault.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Securely With SmartVault",
+  "metaTitle": "Build SmartVault AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use SmartVault for document lookups, client file workflows, handoffs, and internal operations automation.",
+  "intro": "SmartVault helps firms securely manage documents, client portals, and accounting workflow files. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up files, summarize document status, prepare handoffs, and trigger approved workflow steps in SmartVault. This helps customer-facing support agents and internal team assistants do more than answer questions by taking bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a requested tax organizer, engagement letter, or shared document is already available in SmartVault and respond with a clear status update.",
+    "Use SmartVault file and folder data during support chats or helpdesk replies to confirm whether a client uploaded required documents and explain the next step.",
+    "Have the agent summarize a client document collection state from SmartVault so support teams can quickly answer portal or intake questions without switching systems.",
+    "Allow the agent to create an internal handoff when SmartVault records show missing files, review blockers, or a document delivery issue that needs staff follow-up.",
+    "Enable the agent to trigger an approved workflow step after a customer conversation, such as flagging a document package for review or preparing a case summary for the accounting team."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to find SmartVault folders, retrieve document status, and get a plain-language summary of where a client workflow stands.",
+    "Accounting, tax, or operations teams can ask the agent to identify missing client documents in SmartVault and prepare a follow-up checklist or outreach draft.",
+    "Staff can use the agent in Slack or Microsoft Teams to review SmartVault activity, summarize outstanding intake items, and complete SOP-driven handoff workflows.",
+    "Internal teams can chat with the agent to research document history across SmartVault and related systems before escalating an issue or responding to a client.",
+    "Managers can use a private agent to generate workflow summaries from SmartVault data for daily operations reviews, bottleneck tracking, or exception handling."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks whether client documents have been uploaded to SmartVault.",
+    "An internal assistant that summarizes missing files for tax return preparation workflows.",
+    "A DocsBot Skill that prepares staff handoffs from SmartVault document status and notes.",
+    "An AI agent that drafts client follow-up messages based on missing SmartVault documents.",
+    "A workflow assistant that flags document delivery or review exceptions for human approval.",
+    "A team agent that finds the right SmartVault folder and summarizes its contents."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SmartVault in plain language, such as checking document status, summarizing missing files, or preparing a handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and defines the safest workflow design, required configuration values, and runtime behavior for your DocsBot agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure authentication planning, keeps secrets out of chats and Skill content, proxies credentials through approved runtime configuration, and scopes SmartVault access to only the users, actions, records, and systems needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive updates so the agent can look up information, prepare outputs, and take bounded actions without overreaching."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SmartVault with DocsBot?",
+      "answer": "You describe the SmartVault workflow you want in plain language, and DocsBot Skill Builder designs the Skill, secures the connection, tests the workflow, and helps deploy it to a support or internal agent. The result can include live lookups, summaries, handoffs, and other approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use SmartVault data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a SmartVault Skill to look up document status, confirm whether files were uploaded, summarize portal-related issues, and prepare a clean handoff for staff when human review is needed. You control what the agent is allowed to access and what actions require approval."
+    },
+    {
+      "question": "What SmartVault workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help teams retrieve document status, identify missing files, summarize intake progress, prepare follow-up tasks, and support standard operating procedures across accounting and client service workflows. This makes it easier for staff to get answers and complete routine steps from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot take safe actions in SmartVault instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills are designed around AI Actions, so the agent can do bounded work such as preparing handoffs, generating summaries, triggering approved workflow steps, or updating workflow state when you allow it. Skill Builder adds scoped permissions and approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "How does DocsBot keep SmartVault credentials and document access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum records, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I use a SmartVault AI agent for client document collection and intake support?",
+      "answer": "Yes, that is a strong fit for a DocsBot Skill because the agent can check collection status, identify missing items, explain next steps to clients, and escalate exceptions to staff with a useful summary. This helps reduce repetitive intake questions while keeping humans involved where needed."
+    }
+  ],
+  "relatedSlugs": [
+    "dropbox",
+    "box",
+    "google-drive",
+    "onedrive",
+    "sharepoint",
+    "egnyte"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SmartVault",
+    "domain": "smartvault.com",
+    "description": "SmartVault is a secure, cloud‑based document management and client portal platform built for accounting and tax professionals. It streamlines workflows, automates client intake, document collection, review and delivery, and integrates with major tax software such as Intuit Lacerte, ProSeries, ProConnect Tax, UltraTax CS, Drake and CCH. The SOC 2 Type 2‑compliant service helps firms meet IRS, FTC and GLBA security requirements while storing and sharing over 500 million documents for more than 3 million users in 30 000+ businesses. By automating the full tax‑prep workflow, SmartVault reduces manual effort, boosts productivity, and improves client experience for accountants, bookkeepers and financial firms.",
+    "slogan": "Simplify your workflow. Secure your data. Grow your firm.",
+    "logoUrl": "https://media.brand.dev/d6206a13-3656-46b8-a10f-0c1c0964ba5b.svg",
+    "iconUrl": "https://media.brand.dev/31c2245f-a3a8-40ec-b1d7-77d5e9976b8a.jpg",
+    "primaryColor": "#741c64",
+    "accentColor": "#c478b4",
+    "colors": [
+      {
+        "hex": "#741c64",
+        "name": "Purple Curse"
+      },
+      {
+        "hex": "#c478b4",
+        "name": "Daphne Rose"
+      },
+      {
+        "hex": "#efe2ed",
+        "name": "Faded Fuchsia"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e441f06e-2c80-47d2-b8d0-57c3e23a1362.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.smartvault.com/terms-of-service/",
+      "contact": "https://www.smartvault.com/contact/",
+      "privacy": "https://www.smartvault.com/privacy-policy/",
+      "blog": "https://www.smartvault.com/resources/",
+      "pricing": "https://www.smartvault.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/31c2245f-a3a8-40ec-b1d7-77d5e9976b8a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d6206a13-3656-46b8-a10f-0c1c0964ba5b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 730,
+        "height": 185,
+        "aspectRatio": 3.95
+      },
+      {
+        "url": "https://media.brand.dev/a691a74b-7792-4cff-85f8-3d8a69f12f8f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 437,
+        "height": 511,
+        "aspectRatio": 0.86
+      },
+      {
+        "url": "https://media.brand.dev/76b86c3e-e729-4eff-b736-c2fdc70e7c83.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 365,
+        "height": 93,
+        "aspectRatio": 3.92
+      },
+      {
+        "url": "https://media.brand.dev/63be7574-0d64-4d1e-b4e2-4da96659e14e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/eb4ab846-a379-47ee-9444-33fd82054bc3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d6206a13-3656-46b8-a10f-0c1c0964ba5b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 730,
+      "height": 185,
+      "aspectRatio": 3.95
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/eb4ab846-a379-47ee-9444-33fd82054bc3.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

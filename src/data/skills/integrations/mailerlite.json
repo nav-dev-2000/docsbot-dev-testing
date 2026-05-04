@@ -1,0 +1,192 @@
+{
+  "slug": "mailerlite",
+  "name": "MailerLite",
+  "domain": "mailerlite.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with MailerLite",
+  "metaTitle": "Build MailerLite AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use MailerLite for subscriber lookups, campaign workflows, handoffs, and internal marketing support with secure controls.",
+  "intro": "MailerLite helps teams grow audiences and manage email marketing workflows, but many support and operations questions still require manual lookups and follow-up actions. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use MailerLite data and approved actions. That means customer-facing support bots and internal team agents can answer faster, trigger bounded workflows, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a subscriber in MailerLite and explain their subscription status, signup source, or recent email activity while replying in chat or a helpdesk ticket.",
+    "Use the agent to check whether a customer is already on a specific MailerLite group or segment before guiding them through newsletter signup or preference updates.",
+    "Enable the bot to create or update subscriber records in MailerLite after collecting missing consent or profile details from the customer in a support conversation.",
+    "Have the agent trigger approved email automation workflows in MailerLite after a support interaction, such as sending onboarding follow-ups, product education, or event reminders.",
+    "Let the bot summarize a subscriber's MailerLite history and prepare a clean handoff note for a human teammate when a conversation needs escalation or review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find subscriber, group, campaign, or automation details from MailerLite without opening the platform directly.",
+    "Enable marketing and support teams to ask the agent for quick research on audience segments, subscription trends, or campaign context so they can make faster decisions.",
+    "Help team members complete SOPs through chat, such as adding contacts to the right MailerLite group after a webinar, lead handoff, or customer success milestone.",
+    "Use an internal AI agent to generate campaign summaries, subscriber status reports, or escalation notes based on MailerLite data and connected business context.",
+    "Allow approved employees to trigger bounded MailerLite actions through the agent, with permissions and review steps designed around sensitive marketing operations."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks subscriber status and newsletter preferences during customer chats.",
+    "A helpdesk assistant that updates MailerLite contact records after verified support conversations.",
+    "An internal marketing agent that finds segments, groups, and campaign context on demand.",
+    "A workflow assistant that adds qualified leads to the correct MailerLite audience automatically.",
+    "An AI agent that triggers approved onboarding or nurture automations after key customer events.",
+    "A handoff assistant that summarizes MailerLite subscriber history for human support or success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with MailerLite in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed MailerLite connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right permission boundaries, user scope, and approval steps so sensitive updates or workflow triggers only happen within the rules you choose."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, or missing checks, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private team agent for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with MailerLite?",
+      "answer": "With DocsBot Skill Builder, you describe the MailerLite workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The finished agent can look up data, update records, trigger approved actions, and summarize outcomes inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use MailerLite data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a MailerLite Skill to check subscriber details, confirm list or group membership, review recent activity, and prepare the next best response. You control which data the agent can access and which actions require limits or approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with MailerLite?",
+      "answer": "A DocsBot agent can help with subscriber lookups, preference checks, contact updates, automation triggers, escalation summaries, and post-conversation follow-up workflows tied to MailerLite. This helps support teams resolve common marketing-related questions without switching systems."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in MailerLite?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve subscriber and campaign information, follow marketing SOPs, and complete approved MailerLite tasks from chat, Slack, or Microsoft Teams. This reduces manual searching and makes routine marketing operations easier to complete consistently."
+    },
+    {
+      "question": "How does DocsBot keep MailerLite actions secure?",
+      "answer": "Skill Builder handles secure configuration by defining required settings, keeping secrets out of chats and Skill source, proxying authentication through approved runtime controls, and limiting access to the right actions and records. It can also add approval boundaries for more sensitive updates or automation triggers."
+    },
+    {
+      "question": "Can DocsBot trigger MailerLite automations safely?",
+      "answer": "Yes, DocsBot Skills can be designed to trigger bounded MailerLite workflows such as onboarding emails, nurture sequences, or follow-up actions after specific support or internal events. Skill Builder helps define when those actions are allowed and where approvals are required."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "activecampaign",
+    "convertkit",
+    "hubspot",
+    "brevo",
+    "customer-io"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "MailerLite",
+    "domain": "mailerlite.com",
+    "description": "MailerLite is a digital marketing company that provides email marketing solutions to help businesses grow. Founded in 2010, the company has evolved from a web design agency to a team of over 130 professionals passionate about building a world-class product. With award-winning usability and 24/7 support, MailerLite empowers businesses to grow their audience and drive revenue smarter, serving over 1 million accounts worldwide.",
+    "slogan": "Email marketing made super easy",
+    "logoUrl": "https://media.brand.dev/ee462888-c26c-4466-b982-1943fcd55a49.svg",
+    "iconUrl": "https://media.brand.dev/a8066a34-fdf5-4ea6-b377-35bff423657f.png",
+    "primaryColor": "#25c36d",
+    "accentColor": "#8cdcbc",
+    "colors": [
+      {
+        "hex": "#25c36d",
+        "name": "Algal Fuel"
+      },
+      {
+        "hex": "#8cdcbc",
+        "name": "Āsmānī Sky"
+      },
+      {
+        "hex": "#e6f8f2",
+        "name": "Soft Mint"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3e5a14a5-d809-4648-9bce-363f9a070dfd.png",
+    "industries": [],
+    "links": {
+      "careers": "https://mailerlite.com/jobs",
+      "terms": "https://mailerlite.com/legal",
+      "contact": "https://mailerlite.com/contact-us",
+      "privacy": "https://mailerlite.com/legal/privacy-policy",
+      "blog": "https://mailerlite.com/features/newsletter-editors",
+      "pricing": "https://mailerlite.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9c1fffec-f85f-46b5-8ad0-a15b87f39fae.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/269c307f-25c6-4101-9d99-1fa30e6bfa4c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e274832f-8d8e-4fcc-8903-e74ac8dadb8e.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 520,
+        "height": 520,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a8066a34-fdf5-4ea6-b377-35bff423657f.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5422919f-b8b6-46e0-9a2c-856b4c920589.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ee462888-c26c-4466-b982-1943fcd55a49.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 51,
+        "aspectRatio": 3.92
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ee462888-c26c-4466-b982-1943fcd55a49.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 51,
+      "aspectRatio": 3.92
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e274832f-8d8e-4fcc-8903-e74ac8dadb8e.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 520,
+      "height": 520,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "slug": "pipeliner",
+  "name": "Pipeliner",
+  "domain": "pipeliner.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Pipeliner CRM",
+  "metaTitle": "Build AI Agents for Pipeliner CRM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Pipeliner CRM for support lookups, record updates, handoffs, and internal sales workflows with secure, tested Skills.",
+  "intro": "Pipeliner is a CRM platform teams use to manage leads, accounts, contacts, deals, and sales activity. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Pipeliner, and DocsBot helps design, secure, test, and deploy that ability as a reusable Skill. The result is a support or internal AI agent that can answer questions, retrieve CRM context, prepare handoffs, and take approved actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, contact, or opportunity details in Pipeliner so it can answer status questions with current CRM context.",
+    "Use the agent to create or update lead records in Pipeliner when a customer requests a demo, pricing follow-up, or sales contact from a website chat widget.",
+    "Have the agent summarize recent deal activity, notes, or ownership details from Pipeliner before handing a conversation to a human sales or success teammate.",
+    "Enable a helpdesk-connected agent to attach CRM context from Pipeliner to incoming tickets so support and success teams can respond with better account awareness.",
+    "Let the agent capture qualification details during a customer conversation and write approved fields back to Pipeliner for cleaner lead intake and follow-up workflows."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Pipeliner account, contact, and pipeline information without leaving the conversation.",
+    "Sales, support, and customer success teams can ask the agent to summarize open opportunities, recent activity, stalled deals, or account ownership using live Pipeliner data.",
+    "Employees can use the agent to follow internal SOPs for lead qualification, account handoff, or opportunity updates while the agent completes approved Pipeliner actions safely.",
+    "Revenue operations teams can chat with the agent to research CRM records, prepare follow-up notes, and generate concise pipeline summaries for meetings or escalations.",
+    "Managers can ask the agent to gather Pipeliner context across records and produce structured handoff briefs for sales, onboarding, or renewal workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Pipeliner account ownership before routing a sales-related request.",
+    "A website chat agent that creates qualified lead records in Pipeliner from customer conversations.",
+    "A helpdesk assistant that adds Pipeliner deal and account summaries to escalation tickets.",
+    "An internal sales assistant that answers pipeline questions using live Pipeliner CRM data.",
+    "A customer success agent that prepares renewal or handoff briefs from Pipeliner records.",
+    "An AI workflow that captures meeting interest and updates approved contact fields in Pipeliner."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Pipeliner, and Skill Builder turns that goal into a practical workflow for support or internal teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should retrieve CRM data, update approved records, generate summaries, and ask for missing context while keeping the workflow simple for non-technical users."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and keeps credentials out of chats and Skill source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Pipeliner actions, records, users, and approval boundaries needed so the agent can help without overreaching."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Pipeliner CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as looking up account details, creating leads, or summarizing deals, and Skill Builder designs and deploys the workflow for you. It also handles secure connection setup, scoped permissions, testing, and approval limits before the Skill goes live."
+    },
+    {
+      "question": "Can an AI support agent use Pipeliner data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use approved Pipeliner data to answer questions, add CRM context to conversations, prepare handoffs, or create and update records within the rules you define. This helps customer-facing chat and helpdesk responses stay informed by live account and opportunity information."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Pipeliner?",
+      "answer": "A DocsBot agent can look up account ownership, summarize recent CRM activity, capture lead details, create follow-up records, and prepare escalations or handoffs using Pipeliner data. You decide which actions are allowed and where human approval is required for more sensitive changes."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Pipeliner?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve CRM details, summarize pipeline activity, follow account handoff steps, and complete approved updates without switching between tools. This is useful for sales, customer success, and operations teams that need quick access to trusted CRM context."
+    },
+    {
+      "question": "How does DocsBot keep Pipeliner actions secure?",
+      "answer": "Skill Builder defines the connection requirements, protects and proxies credentials through secure runtime configuration, and keeps secrets out of chats and generated content. It also scopes access to the minimum records and actions needed and can add approval boundaries for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot test a Pipeliner Skill before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run through imagined support and internal team scenarios to catch workflow gaps, weak instructions, or permission issues. Those results can feed an automated self-improvement loop so the Skill is stronger before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zoho-crm",
+    "pipedrive",
+    "freshsales",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "error",
+    "title": "",
+    "domain": "",
+    "description": "",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {}
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "jenkins",
+  "name": "Jenkins",
+  "domain": "jenkins.com",
+  "category": "Application Development",
+  "trutoCategory": "CI/CD",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely With Jenkins",
+  "metaTitle": "Build Jenkins AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Jenkins for build lookups, pipeline status updates, safe workflow triggers, and internal delivery support actions.",
+  "intro": "Jenkins helps teams automate builds, tests, and delivery workflows, and DocsBot Skill Builder can turn that power into a safe AI agent ability. In plain language, you describe what you want the agent to do with Jenkins, and Skill Builder designs, secures, tests, improves, and deploys the Skill for you. The result is a customer support or internal team agent that can answer questions, check pipeline status, prepare handoffs, and trigger approved CI or release actions within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Jenkins job or pipeline status when users ask whether a deployment, build, or fix is still in progress.",
+    "Have the support agent summarize recent Jenkins build results to explain whether an incident appears tied to a failed deployment or test run.",
+    "Enable the agent to create a support handoff with relevant Jenkins job links, build numbers, logs, and deployment context for engineering teams.",
+    "Allow the agent to trigger approved Jenkins workflows, such as rerunning a diagnostic job or starting a non-production validation pipeline, when a customer issue matches defined rules.",
+    "Use Jenkins data during helpdesk replies so the agent can confirm whether a patch has passed CI checks before giving a customer an update."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Jenkins job status, recent failures, and deployment history without leaving the conversation.",
+    "Help engineering, support, and operations teams ask the agent to summarize failed builds, identify likely next steps, and prepare escalation notes from Jenkins pipeline context.",
+    "Enable team members to trigger approved Jenkins jobs through chat for routine workflows such as test reruns, cache clears, environment checks, or release validation steps.",
+    "Support internal SOPs by letting employees ask the agent for the last successful build, recent change windows, and linked pipeline outcomes across delivery workflows.",
+    "Give leaders and coordinators a private AI assistant that turns Jenkins activity into plain-language summaries for standups, incident reviews, and release readiness updates."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Jenkins build and deployment status before replying to customers.",
+    "A private engineering assistant that summarizes failed pipelines and suggests the next approved workflow step.",
+    "A DocsBot Skill that triggers approved Jenkins jobs with human approval for sensitive actions.",
+    "An internal release assistant that reports the last successful build across selected environments.",
+    "A support handoff workflow that attaches Jenkins run details, logs, and deployment summaries.",
+    "A chat-based operations assistant that reruns diagnostic jobs within scoped permissions and audit rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want in plain language, such as checking Jenkins pipeline status, summarizing failed builds, or triggering an approved job from an agent conversation."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, sets up secure connection and authentication handling, and keeps secrets protected and proxied through secure runtime settings instead of exposing them in chats or source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Jenkins actions, jobs, users, records, and environments needed, and adds approval boundaries for sensitive steps like production-related triggers or higher-risk workflow changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "Skill Builder uses its automated testing agent to run imagined customer support and internal team scenarios, uncover bugs, weak instructions, missing checks, or workflow gaps, and feed those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private employee agent so it can answer questions and take bounded action with Jenkins."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Jenkins?",
+      "answer": "With DocsBot Skill Builder, you describe the Jenkins task you want in plain language, and the builder creates a reusable Skill that can look up pipeline data, summarize build outcomes, or trigger approved workflows. It also handles secure configuration, authentication, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Jenkins data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Jenkins to check build status, deployment progress, test results, and recent pipeline outcomes while replying in a website chat or helpdesk ticket. This helps the agent give more accurate updates and prepare cleaner handoffs to engineering when needed."
+    },
+    {
+      "question": "What Jenkins workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve build status, summarize failed jobs, review deployment history, trigger approved Jenkins jobs, and generate release or incident summaries. The workflows stay bounded by the permissions and approval rules you define."
+    },
+    {
+      "question": "Can DocsBot trigger Jenkins jobs safely from chat?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills that trigger Jenkins jobs with scoped permissions, secure secret handling, and approval boundaries for more sensitive actions. That lets teams automate routine CI and operational steps without giving the agent open-ended control."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Jenkins failures for escalations or handoffs?",
+      "answer": "Yes, the agent can turn Jenkins job details, recent run history, and pipeline outcomes into plain-language summaries for support escalations, incident handoffs, or internal troubleshooting. This reduces manual context gathering and helps teams respond faster."
+    },
+    {
+      "question": "How does setup work for a Jenkins AI agent if my team is not technical?",
+      "answer": "You describe the business outcome you want, and Skill Builder handles the design, secure connection details, secret protection, testing, and publishing process for the Skill. You do not need to manually write code or plan every integration step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "github-actions",
+    "gitlab",
+    "circleci",
+    "azure-devops",
+    "github",
+    "bitbucket"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Jenkins Electric",
+    "domain": "jenkins.com",
+    "description": "Jenkins Electric, founded in 1907, is a leading provider of electro-mechanical repair and test services. From motor rewinding to casting parts, Jenkins offers comprehensive solutions for various industries. With a focus on human energy, Jenkins prides itself on its team's expertise in critical asset maintenance, control, and automation. Providing a full spectrum of electromechanical capabilities, Jenkins also offers testing equipment and services for electric motors and monitoring systems. With a legacy spanning over three generations, Jenkins continues to excel in finding solutions and fostering excellence in the field, making them a trusted partner for both large and small-scale projects.",
+    "slogan": "Harnessing human energy for electromechanical excellence since 1907.",
+    "logoUrl": "https://media.brand.dev/0d2e6513-1c1d-486e-bd74-82176931a3dd.png",
+    "iconUrl": "https://media.brand.dev/4dcb9dc8-415f-4495-8c07-b8b81e47c4e0.png",
+    "primaryColor": "#2e7c9b",
+    "accentColor": "#9bcedd",
+    "colors": [
+      {
+        "hex": "#2e7c9b",
+        "name": "Valley of Glaciers"
+      },
+      {
+        "hex": "#9bcedd",
+        "name": "Tenzing"
+      },
+      {
+        "hex": "#24ace4",
+        "name": "Royal Peacock"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d3cd977d-a125-4195-acf3-ecc7ae8a47b1.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4dcb9dc8-415f-4495-8c07-b8b81e47c4e0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0d2e6513-1c1d-486e-bd74-82176931a3dd.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 398,
+        "height": 92,
+        "aspectRatio": 4.33
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0d2e6513-1c1d-486e-bd74-82176931a3dd.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 398,
+      "height": 92,
+      "aspectRatio": 4.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4dcb9dc8-415f-4495-8c07-b8b81e47c4e0.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

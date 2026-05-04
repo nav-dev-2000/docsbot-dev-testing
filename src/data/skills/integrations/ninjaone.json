@@ -1,0 +1,168 @@
+{
+  "slug": "ninjaone",
+  "name": "Ninjaone",
+  "domain": "ninjaone.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with NinjaOne",
+  "metaTitle": "Build AI Support and Internal Agents for NinjaOne",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use NinjaOne for endpoint lookups, status summaries, ticket handoffs, and approved IT workflows.",
+  "intro": "NinjaOne helps teams manage endpoints, patching, visibility, and device operations across distributed environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely use NinjaOne during customer support conversations or internal IT workflows. The result is an AI agent that can answer questions, gather context, trigger bounded actions, and prepare clean handoffs instead of stopping at basic guidance.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check device status, last check-in details, or patch state in NinjaOne when a customer asks about a managed endpoint issue.",
+    "Let the agent summarize endpoint health and recent alerts from NinjaOne so support replies include current device context without manual investigation.",
+    "Have the agent create a structured escalation handoff that includes NinjaOne device details, recent activity, and troubleshooting notes for human technicians.",
+    "Enable the agent to collect identifying details from the customer, match the correct endpoint in NinjaOne, and confirm whether the device is online before proposing next steps.",
+    "Use the agent to trigger approved diagnostic or remediation workflows in NinjaOne after confirming eligibility and any required approvals."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up endpoint status, assigned devices, patch compliance, or recent alerts from NinjaOne.",
+    "Give IT teams an internal AI assistant that summarizes fleet health, highlights devices needing attention, and prepares prioritized follow-up lists using NinjaOne data.",
+    "Enable helpdesk staff to chat with the agent to gather device context from NinjaOne, follow internal troubleshooting SOPs, and generate consistent escalation notes.",
+    "Allow operations or security teams to ask the agent for endpoint visibility across groups, investigate device history, and trigger approved maintenance or remediation workflows.",
+    "Support employee self-service flows where the internal agent checks a device record in NinjaOne and guides the user through the next approved support step before escalating to IT."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up endpoint health and patch status before replying to customers.",
+    "A helpdesk assistant that summarizes NinjaOne device details and prepares technician handoff notes.",
+    "An internal IT copilot that retrieves assigned device records and recent endpoint alerts on demand.",
+    "A workflow agent that triggers approved remediation or maintenance actions with clear approval boundaries.",
+    "A fleet operations assistant that generates endpoint compliance summaries for teams and leadership.",
+    "A troubleshooting assistant that follows internal SOPs using live NinjaOne device context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with NinjaOne in plain language, such as checking device status, summarizing endpoint health, or triggering an approved remediation workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a safe Skill design, identifies the required configuration values, and plans how the agent should look up data, update records, trigger actions, and respond in the right support or internal workflow."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder automatically defines secure authentication handling, keeps credentials out of chats and Skill content, proxies secrets through protected runtime configuration, and scopes NinjaOne access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets appropriate approval boundaries and action limits so sensitive updates or remediation steps only happen within the rules you define for your team."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for NinjaOne without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the NinjaOne workflow you want in plain language and Skill Builder creates the Skill, handles secure connection design, and prepares it for testing and deployment. It is designed for non-technical teams that want useful AI actions without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use NinjaOne data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use NinjaOne to look up endpoint details, summarize device health, confirm status, and prepare escalation context while responding in a chat widget or helpdesk workflow. You define which lookups and actions are allowed so the agent stays within approved support boundaries."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with NinjaOne?",
+      "answer": "An internal DocsBot agent can help employees and IT teams retrieve endpoint records, review patch or alert status, follow troubleshooting SOPs, prepare summaries, and trigger approved maintenance workflows. This is useful in private chat, Slack, or Microsoft Teams for faster operational work."
+    },
+    {
+      "question": "Can DocsBot trigger actions in NinjaOne instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record updates, handoff creation, and status summaries. Skill Builder adds approval boundaries and scoped permissions so actions happen safely and only where you allow them."
+    },
+    {
+      "question": "How does DocsBot keep NinjaOne access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum systems, users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can an AI agent using NinjaOne help with escalations and technician handoffs?",
+      "answer": "Yes, the agent can collect customer context, pull relevant endpoint details from NinjaOne, summarize the current state, and generate a structured handoff for a human technician. This helps support teams reduce repetitive triage work and improve escalation quality."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "freshservice",
+    "jira-service-management",
+    "zendesk",
+    "microsoft-intune",
+    "jamf"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "NinjaOne",
+    "domain": "ninjaone.com",
+    "description": "NinjaOne is an automated endpoint management platform that delivers visibility, security, and control over all endpoints. It simplifies endpoint management, patching, and visibility for environments of any scale, increasing productivity, reducing security risk, and lowering costs for over 30,000 customers in 130+ countries. The cloud-native platform provides free and unlimited onboarding, training, and support, making it an ideal solution for MSPs and IT departments looking to grow their business.",
+    "slogan": "Simplify Endpoint Management with Visibility, Security, and Customer Success",
+    "logoUrl": "https://media.brand.dev/a783b662-9521-45fd-8473-436a76aebeab.svg",
+    "iconUrl": "https://media.brand.dev/c4c06c74-1bfe-4d62-b0ca-39e8fd7f426d.jpg",
+    "primaryColor": "#07f58a",
+    "accentColor": "#043454",
+    "colors": [
+      {
+        "hex": "#07f58a",
+        "name": "Turquoise Green"
+      },
+      {
+        "hex": "#043454",
+        "name": "Night Dive"
+      },
+      {
+        "hex": "#048267",
+        "name": "Bosphorus"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5c1e672f-cab1-4eb6-8ff3-c73b2e03d9a3.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://ninjaone.com/terms-of-use/",
+      "careers": "https://www.ninjaone.com/careers/",
+      "contact": "https://www.ninjaone.com/contactusform/",
+      "privacy": "https://www.ninjaone.com/privacy-policy/",
+      "blog": "https://www.ninjaone.com/blog/",
+      "pricing": "https://www.ninjaone.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c4c06c74-1bfe-4d62-b0ca-39e8fd7f426d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 340,
+        "height": 340,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6c7e9136-e307-492b-b6d0-4741e00cb44d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a783b662-9521-45fd-8473-436a76aebeab.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 140,
+        "height": 29,
+        "aspectRatio": 4.83
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a783b662-9521-45fd-8473-436a76aebeab.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 140,
+      "height": 29,
+      "aspectRatio": 4.83
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6c7e9136-e307-492b-b6d0-4741e00cb44d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

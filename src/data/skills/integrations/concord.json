@@ -1,0 +1,168 @@
+{
+  "slug": "concord",
+  "name": "Concord",
+  "domain": "concord.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Concord",
+  "metaTitle": "Build Concord AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Concord data and workflows for customer support, internal requests, approvals, summaries, and secure actions.",
+  "intro": "Concord helps organizations manage music rights, recordings, publishing, and related operational workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up information, summarize records, prepare handoffs, and trigger approved actions in Concord. This helps teams deliver faster support and gives employees a private AI assistant that can work across rights, catalog, and operations processes.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up contract, catalog, or rights-related status in Concord and answer customer or partner questions with a current summary.",
+    "Let the agent gather missing details from a customer conversation, create a structured handoff for licensing or rights teams, and attach the relevant Concord context.",
+    "Enable the agent to summarize record history from Concord for helpdesk tickets so support teams can reply faster and with better context.",
+    "Allow the agent to trigger approved follow-up workflows in Concord after a customer request, such as escalation, review routing, or internal task creation.",
+    "Use the agent to identify the right internal owner based on Concord data and prepare an escalation summary for complex publishing, licensing, or catalog issues."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a chat portal to retrieve Concord record details, rights summaries, and workflow status without searching manually.",
+    "Enable operations, legal, or catalog teams to ask the agent to compile Concord information into a concise briefing for approvals, reviews, or partner follow-up.",
+    "Give employee-facing agents the ability to create structured handoffs, update approved fields, or trigger bounded workflows in Concord while following internal SOPs.",
+    "Help cross-functional teams research music rights, publishing, and catalog questions by combining Concord lookups with company knowledge inside one private AI assistant.",
+    "Allow team members to ask the agent for step-by-step workflow help, and let the agent complete safe Concord actions only within scoped permissions and approval limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Concord rights or catalog records during customer conversations.",
+    "A private employee assistant that retrieves Concord workflow status and prepares internal handoff notes.",
+    "An agent that gathers request details, matches the right owner, and creates a Concord escalation summary.",
+    "A DocsBot workflow assistant that triggers approved Concord review or routing actions after chat intake.",
+    "An internal SOP assistant that answers process questions and completes safe Concord record updates.",
+    "A ticket support agent that turns Concord activity into concise case summaries for faster responses."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Concord in plain language, such as answering rights questions, preparing handoffs, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, chooses the safest workflow design, identifies the needed Concord configuration values, and defines secure authentication handling without exposing credentials in chat or Skill source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes Concord access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing guardrails, or weak instructions, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee AI assistant for live use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Concord?",
+      "answer": "With DocsBot Skill Builder, you describe the Concord workflow you want in plain language and Skill Builder creates a reusable Skill that can look up information, summarize records, prepare handoffs, and trigger approved actions. It also handles secure connection design, scoped access, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use Concord data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Concord Skill to retrieve relevant record details, summarize status, and prepare escalation context while responding to customers. The actions can be limited to safe lookups or extended to approved workflows with clear boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Concord?",
+      "answer": "Teams can build workflows for live record lookups, status summaries, partner or customer intake, escalation preparation, internal handoffs, and approved follow-up actions in Concord. This helps support teams respond faster while keeping actions controlled and auditable."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Concord?",
+      "answer": "Yes, private DocsBot agents can help employees search Concord data, summarize complex records, answer workflow questions, and complete bounded operational steps from chat, Slack, or Microsoft Teams. This is useful for operations, legal, licensing, and catalog teams that need fast, guided access to information."
+    },
+    {
+      "question": "How does DocsBot keep Concord actions secure?",
+      "answer": "Skill Builder designs the Skill with secure configuration values, protected authentication handling, proxied secrets, scoped permissions, and approval boundaries for sensitive actions. That means the agent only gets the minimum access needed for the workflow you approve."
+    },
+    {
+      "question": "Can DocsBot create handoffs and escalation summaries from Concord information?",
+      "answer": "Yes, a Concord Skill can gather the relevant record context, summarize the issue, and create a structured handoff for the next team. This is especially helpful when requests need review by licensing, legal, catalog, or partner operations teams."
+    }
+  ],
+  "relatedSlugs": [
+    "airtable",
+    "slack",
+    "microsoft-teams",
+    "zendesk",
+    "hubspot",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Concord Music Group",
+    "domain": "concord.com",
+    "description": "Concord is the world's leading independent music company, supporting over 125,000 artists and songwriters globally. With a vast catalog of 1.3 million creative rights, Concord's flagship label, Concord Records, champions diverse and innovative artists. Headquartered in Nashville with offices worldwide, Concord develops, manages, and acquires sound recordings, music publishing, and theatrical performance rights, representing nearly 900,000 songs and compositions.",
+    "slogan": "Leading Independent Music Company, Amplifying Artists and Impacting the World",
+    "logoUrl": "https://media.brand.dev/db6f2875-479c-408d-aa4e-047ca85f8fe4.png",
+    "iconUrl": "https://media.brand.dev/db6f2875-479c-408d-aa4e-047ca85f8fe4.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#090909",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#090909",
+        "name": "Badab Black Wash"
+      },
+      {
+        "hex": "#dfdfdf",
+        "name": "Kingly Cloud"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/778545fc-425a-4d73-86a9-9d0e7b71d4b6.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://concord.com/team/",
+      "terms": "https://concord.com/terms/",
+      "contact": "https://concord.com/contact/",
+      "privacy": "https://concord.com/privacy-policy/",
+      "blog": "https://concord.com/news/",
+      "pricing": "https://concord.com/news/concord-originals-presents-new-documentary-about-the-life-of-billy-preston-white-horse-pictures-and-homegrown-pictures-to-produce-paris-barclay-to-direct/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/636d3621-8ee4-4a65-930b-ad4528d5e176.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db6f2875-479c-408d-aa4e-047ca85f8fe4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 513,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/063758f8-ef30-4d18-b3ec-8435a87816da.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/636d3621-8ee4-4a65-930b-ad4528d5e176.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/636d3621-8ee4-4a65-930b-ad4528d5e176.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

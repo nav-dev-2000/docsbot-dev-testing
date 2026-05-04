@@ -1,0 +1,160 @@
+{
+  "slug": "rootly",
+  "name": "Rootly",
+  "domain": "rootly.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Rootly",
+  "metaTitle": "Build Rootly AI Agents for Support and Incident Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Rootly to look up incidents, summarize status, prepare handoffs, and trigger approved response workflows safely.",
+  "intro": "Rootly helps teams manage incidents, on-call processes, status communication, and retrospectives in a Slack-native workflow. With DocsBot Skill Builder, you can describe the Rootly workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal team assistant. That means your AI agent can answer questions, gather context, summarize incident state, and take approved actions in Rootly without exposing sensitive access or relying on manual handoffs.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether an active Rootly incident or degradation matches a customer report and respond with an approved status summary.",
+    "Let the support agent create a Rootly incident or escalation record when multiple customer conversations point to the same emerging outage or product failure.",
+    "Have the agent collect customer impact details from a chat or ticket and attach a structured incident handoff summary for the response team in Rootly.",
+    "Enable the agent to look up incident severity, current owner, timeline progress, or status page state in Rootly before replying to a customer.",
+    "Use the agent to summarize the latest Rootly incident notes for support teams so customer replies stay aligned with active incident communications."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Rootly incident status, owners, timelines, and next response steps.",
+    "Give engineering, support, or operations teams an internal agent that can create Rootly incidents from employee-reported issues after gathering the required context.",
+    "Enable responders to ask the agent for a concise summary of an incident, current mitigations, affected services, and pending tasks pulled from Rootly.",
+    "Use an internal AI assistant to prepare incident handoff notes, stakeholder updates, or retrospective drafts based on Rootly incident records and timelines.",
+    "Allow team members to chat with the agent to follow incident SOPs, trigger approved Rootly workflows, and keep response steps consistent across teams."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Rootly incident status before answering outage-related customer questions.",
+    "A private incident assistant that summarizes active Rootly incidents for engineers, support, and leadership.",
+    "A Rootly triage Skill that creates incident handoffs from repeated customer complaint patterns.",
+    "An internal workflow agent that gathers missing context and opens a Rootly incident safely.",
+    "A response assistant that drafts stakeholder updates using Rootly timeline events and incident metadata.",
+    "A support escalation Skill that links customer impact details to the right Rootly incident record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Rootly, such as checking incident status, creating escalations, or drafting handoff notes, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Rootly connection details, defines secure authentication and configuration values, keeps secrets out of chats and source files, and scopes access to only the actions, users, records, and systems required."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "Skill Builder adds sensible approval boundaries and safe action limits for sensitive steps such as creating incidents, updating records, or triggering response workflows so the agent operates within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After reviewing the results, Skill Builder refines the Skill and helps publish it to the right DocsBot agent so it can support customer conversations, helpdesk tickets, or private employee chats with Rootly-powered actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Rootly?",
+      "answer": "With DocsBot Skill Builder, you describe the Rootly workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up incident data, summarize status, create handoffs, and trigger approved actions inside your defined boundaries."
+    },
+    {
+      "question": "Can an AI support agent use Rootly during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use Rootly to check active incidents, confirm known outages, gather escalation context, and prepare support handoffs while replying to customers. You control which Rootly actions are allowed and where approvals are required."
+    },
+    {
+      "question": "What Rootly workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve incident details, create structured escalations, summarize timelines, draft updates, and follow incident response SOPs using Rootly data. This is useful in private chat, Slack, or Microsoft Teams for faster and more consistent response work."
+    },
+    {
+      "question": "Can DocsBot safely create or update Rootly records with AI Actions?",
+      "answer": "DocsBot Skill Builder is designed to define secure configuration, protect credentials through runtime handling, and scope permissions to the minimum needed for the workflow. It can also add approval boundaries for sensitive actions like opening incidents or modifying important records."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Rootly incidents for customer-facing teams?",
+      "answer": "Yes, the agent can turn Rootly incident details into concise summaries for support reps so replies stay aligned with the latest response status. It can also prepare clean handoff notes when an issue needs escalation."
+    },
+    {
+      "question": "How does setup work for a Rootly AI agent if my team is not technical?",
+      "answer": "You do not need to map every implementation step yourself. You explain the business outcome you want, and Skill Builder handles the workflow design, secure connection setup, testing, self-improvement, and deployment guidance for the agent."
+    }
+  ],
+  "relatedSlugs": [
+    "pagerduty",
+    "opsgenie",
+    "statuspage",
+    "jira-service-management",
+    "zendesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rootly",
+    "domain": "rootly.com",
+    "description": "Rootly is an AI-powered incident response platform that enables teams to manage incidents directly within Slack. It offers an all-in-one solution for on-call and incident management, including status pages, and is designed for fast-moving engineering teams. Trusted by leading companies like Canva, NVIDIA, and Grammarly, Rootly provides a modern and Slack-native incident management experience from alert to retrospective.",
+    "slogan": "Resolve Incidents Faster with AI-Native Incident Management",
+    "logoUrl": "https://media.brand.dev/54fb9c56-5d37-474e-ae31-9d8521643557.jpg",
+    "iconUrl": "https://media.brand.dev/54fb9c56-5d37-474e-ae31-9d8521643557.jpg",
+    "primaryColor": "#fcb444",
+    "accentColor": "#241d41",
+    "colors": [
+      {
+        "hex": "#fcb444",
+        "name": "Agrellan Badland"
+      },
+      {
+        "hex": "#241d41",
+        "name": "Throat"
+      },
+      {
+        "hex": "#8a643c",
+        "name": "Cambridge Leather"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dda1dd89-c49a-4c6e-8c20-cd8cd027b5dd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://rootly.com/careers",
+      "terms": "https://rootly.com/terms",
+      "contact": null,
+      "privacy": "https://rootly.com/privacy",
+      "blog": "https://rootly.com/blog",
+      "pricing": "https://rootly.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/54fb9c56-5d37-474e-ae31-9d8521643557.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d916283c-287c-4f06-897c-4e50c9b83db0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/54fb9c56-5d37-474e-ae31-9d8521643557.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/54fb9c56-5d37-474e-ae31-9d8521643557.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

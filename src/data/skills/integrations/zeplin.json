@@ -1,0 +1,176 @@
+{
+  "slug": "zeplin",
+  "name": "Zeplin",
+  "domain": "zeplin.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zeplin",
+  "metaTitle": "Build AI Agents for Zeplin with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zeplin to answer design delivery questions, summarize project status, trigger handoffs, and support internal product workflows safely.",
+  "intro": "Zeplin helps product teams organize final designs, specs, notes, and design system information so work moves cleanly from design to development. With DocsBot Skill Builder, you can describe the Zeplin workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That lets your AI agent answer questions, pull the right design context, prepare handoffs, and take approved actions without exposing technical setup complexity to your team.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up the latest approved screens, specs, or user flow notes in Zeplin when customers ask about product behavior or upcoming interface changes.",
+    "Let a support agent summarize Zeplin design details and attached notes so customers receive clearer explanations of what a feature should look like or how a workflow is intended to work.",
+    "Have the agent gather relevant Zeplin links, component details, and screen context to prepare a cleaner escalation handoff for product or engineering teams.",
+    "Enable the agent to create or update internal follow-up records tied to design clarification requests when repeated customer questions reveal confusion about a screen or flow.",
+    "Use helpdesk-triggered DocsBot replies to pull Zeplin project context and draft customer-safe responses about navigation, UI differences, or rollout-related design changes."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to find the latest Zeplin screen, flow, note, or spec without manually searching across projects.",
+    "Give product managers an internal AI assistant that summarizes Zeplin project status, versions, and feedback context before reviews, launches, or cross-functional meetings.",
+    "Help support, success, and QA teams ask the agent for design intent, expected behavior, or component details from Zeplin when investigating customer-reported UI issues.",
+    "Enable design and engineering teams to use an internal agent to collect Zeplin references, generate implementation handoff summaries, and follow standard workflow steps faster.",
+    "Allow operations or team leads to chat with the agent to prepare onboarding guides, release summaries, or internal answers based on approved Zeplin documentation and design notes."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers UI and workflow questions using Zeplin screen and spec context.",
+    "An internal design assistant that finds the latest flows, notes, and component references from Zeplin.",
+    "A helpdesk agent that prepares product and engineering handoffs with linked Zeplin artifacts and summaries.",
+    "A QA assistant that checks expected screen behavior against Zeplin documentation before escalation.",
+    "A release readiness agent that summarizes design updates and outstanding review context from Zeplin projects.",
+    "A cross-functional team assistant that turns Zeplin project context into onboarding or training answers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zeplin-enabled agent to do, such as answering design questions, preparing handoffs, or summarizing project context, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication approach for Zeplin, keeps credentials out of chats and source, proxies secrets through secure runtime settings, and scopes access to the minimum projects, actions, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds sensible action boundaries for sensitive updates or workflow triggers so the agent can retrieve information freely while requiring approval or tighter limits for higher-impact actions."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios against the Skill, finds instruction gaps, bugs, or permission issues, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps deploy the finished Skill to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can start using Zeplin-powered AI actions in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zeplin data?",
+      "answer": "With DocsBot Skill Builder, you describe the Zeplin workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up design context, summarize specs, prepare handoffs, and take approved actions safely. It also handles secure configuration, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Zeplin to answer customer UI questions?",
+      "answer": "Yes, a DocsBot support agent can use Zeplin as a trusted source for approved screens, flows, notes, and specs when responding to customer questions about interface behavior. This is especially useful for explaining expected workflows, clarifying design intent, and preparing accurate escalations."
+    },
+    {
+      "question": "What customer support workflows can Zeplin power inside DocsBot?",
+      "answer": "A Zeplin-enabled DocsBot agent can retrieve screen context, summarize design notes, attach relevant references to a ticket, draft escalation handoffs, and trigger approved follow-up workflows when product clarification is needed. The result is faster, more consistent support responses grounded in current design documentation."
+    },
+    {
+      "question": "Can an internal AI assistant help product and support teams search Zeplin?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find screens, user flows, specs, or notes in Zeplin without digging through projects manually. This helps support, QA, product, and engineering teams get fast answers and complete workflow steps with the right context."
+    },
+    {
+      "question": "How does DocsBot keep Zeplin access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, keeps credentials out of conversations and generated content, and scopes permissions to the minimum records and actions required. It can also add approval boundaries for updates or workflow triggers that should not run automatically."
+    },
+    {
+      "question": "Can DocsBot test a Zeplin workflow before my team uses it?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs imagined support and internal scenarios to uncover bugs, missing instructions, or weak permission checks. Those findings can be used in an automated improvement loop before the Skill is published to your live agent."
+    }
+  ],
+  "relatedSlugs": [
+    "figma",
+    "linear",
+    "jira",
+    "asana",
+    "notion",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zeplin",
+    "domain": "zeplin.com",
+    "description": "Zeplin is a design delivery platform for product teams that bridges the gap between design and development. It lets designers document, version, and organize final designs, map user flows, and attach specifications and notes. Developers receive clear, structured specs and component analytics via Omlet, while product managers can track progress and gather feedback. The platform includes AI‑powered design review, design system analytics, and integrations with major design tools, enabling teams to manage workflows, scale builds, and maintain consistency across complex projects. Zeplin’s enterprise solutions support design operations for large organizations, helping teams deliver with confidence and speed.",
+    "slogan": "Zeplin: clear, structured design delivery for product teams",
+    "logoUrl": "https://media.brand.dev/14205f48-3bf2-4068-9957-658f1faabb5e.svg",
+    "iconUrl": "https://media.brand.dev/fb57eaf6-d6bc-4f6f-9198-a9fa880e2dfc.jpg",
+    "primaryColor": "#f29f38",
+    "accentColor": "#f6d759",
+    "colors": [
+      {
+        "hex": "#f29f38",
+        "name": "Yellow Sea"
+      },
+      {
+        "hex": "#f6d759",
+        "name": "Wake Me Up"
+      },
+      {
+        "hex": "#bdc423",
+        "name": "Key Lime Pie"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/55866ae1-cd37-4f9f-923c-483077cd9368.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fb57eaf6-d6bc-4f6f-9198-a9fa880e2dfc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/249486a3-1d04-4b61-8087-03c869c93e36.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 187,
+        "height": 187,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2013f0bf-ccd3-447a-ac6d-736fc9287fc8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/14205f48-3bf2-4068-9957-658f1faabb5e.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 60,
+        "height": 48,
+        "aspectRatio": 1.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/14205f48-3bf2-4068-9957-658f1faabb5e.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 60,
+      "height": 48,
+      "aspectRatio": 1.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fb57eaf6-d6bc-4f6f-9198-a9fa880e2dfc.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

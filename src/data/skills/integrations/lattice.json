@@ -1,0 +1,162 @@
+{
+  "slug": "lattice",
+  "name": "Lattice",
+  "domain": "lattice.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely with Lattice",
+  "metaTitle": "Build AI Support and HR Agents with Lattice and DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Lattice for safe people data lookups, workflow triggers, summaries, and approved HR support actions.",
+  "intro": "Lattice is a people platform for performance, compensation, development, and HR workflows. With DocsBot Skill Builder, you can describe the Lattice-powered agent behavior you want in plain language, and DocsBot helps design, secure, test, improve, and deploy that Skill. The result is an AI support or internal team agent that can answer questions, retrieve approved Lattice information, prepare handoffs, and take bounded actions inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent verify the status of an employee-facing HR request or people program workflow in Lattice and explain the next approved step.",
+    "Use a helpdesk-connected DocsBot agent to summarize relevant Lattice review, goal, or feedback context for an HR support responder before a handoff.",
+    "Enable the agent to collect missing information from an employee in chat and create or update an approved HR support record or follow-up workflow tied to Lattice processes.",
+    "Have the agent answer policy and process questions by combining your documentation with approved Lattice lookups for review cycles, goals, or development program status.",
+    "Let the agent prepare a clean escalation summary for HR or People Operations that includes the employee’s question, gathered context, and the relevant Lattice state."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant they can chat with to check review cycle timing, goal progress expectations, or performance process guidance using approved Lattice data and company policies.",
+    "Enable managers to chat with an internal DocsBot agent in Slack or Microsoft Teams to retrieve team performance workflow status, summarize pending actions, and prepare follow-up reminders.",
+    "Help People Operations staff use an internal agent to research employee questions, summarize Lattice records, and complete standard HR workflows without switching between systems.",
+    "Let compensation or HR team members ask the agent for guided workflow support, such as preparing review-cycle summaries, identifying missing inputs, or drafting next-step handoffs.",
+    "Support internal SOPs by letting employees chat with the agent to gather required context, trigger approved people-process workflows, and receive a clear summary of what happened next."
+  ],
+  "whatYouCanBuild": [
+    "An HR support agent that checks Lattice workflow status and explains next steps to employees.",
+    "A manager assistant that summarizes pending reviews, goals, and follow-up actions from Lattice.",
+    "A People Operations agent that prepares escalations with Lattice context and collected employee details.",
+    "An internal chat assistant that answers performance cycle questions using docs plus approved Lattice lookups.",
+    "A workflow agent that gathers missing information and triggers approved HR follow-up tasks.",
+    "A private AI assistant that summarizes employee development or review process progress for authorized teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Lattice-connected agent to do, such as answer HR questions, look up workflow status, or trigger an approved follow-up, and it translates that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, keeps authentication and secrets protected through secure runtime handling, and scopes the Skill to the minimum Lattice access, users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries so sensitive updates, people data access, or workflow changes only happen within the rules you approve for your agent."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds those test findings into an automated self-improvement loop, strengthens the Skill, and helps deploy it to the right DocsBot agent for your website chat, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Lattice?",
+      "answer": "You can describe the outcome you want in plain language, such as checking review status, summarizing performance workflows, or preparing HR handoffs, and DocsBot Skill Builder can create a reusable Skill that connects your agent to Lattice safely. It handles the workflow design, secure configuration, testing, and deployment details for you."
+    },
+    {
+      "question": "Can an AI support agent use Lattice data to answer employee HR questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Lattice lookups to help answer employee-facing questions about reviews, goals, feedback cycles, or people processes while staying within your access rules. It can also gather missing context and prepare a clean handoff when a human HR teammate should take over."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Lattice?",
+      "answer": "An internal DocsBot agent can summarize review-cycle status, surface pending manager actions, collect information for HR workflows, trigger approved follow-up tasks, and create handoff summaries for People Operations. The exact actions are defined by your approved Lattice access and process boundaries."
+    },
+    {
+      "question": "Can DocsBot take actions in Lattice or only answer questions?",
+      "answer": "DocsBot Skills can be designed for both answers and bounded actions, including lookups, approved record updates, workflow triggers, summaries, and escalation preparation. Skill Builder adds permission scope and approval controls so the agent only performs the actions you allow."
+    },
+    {
+      "question": "How do you keep Lattice-connected AI agents secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, keeps credentials out of chats and Skill source, and limits access to the right users, records, and actions. It can also add approval boundaries for sensitive workflows before anything is updated or triggered."
+    },
+    {
+      "question": "Can a Lattice AI assistant work inside Slack or Microsoft Teams for employees?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees and managers to use in chat, Slack, or Microsoft Teams. That agent can retrieve approved Lattice information, guide SOPs, summarize workflow status, and help teams complete people-process tasks faster."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "namely",
+    "sap-successfactors",
+    "greenhouse",
+    "lever"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lattice",
+    "domain": "lattice.com",
+    "description": "Lattice is an AI‑powered people platform that helps organizations create meaningful work experiences. By combining HR, compensation, and performance management tools into a single trusted system, Lattice enables managers to become effective leaders, employees to become high‑performers, and companies to become top workplaces. The platform leverages artificial intelligence to streamline people processes, provide actionable insights, and support continuous development. Over 5,000 forward‑thinking teams use Lattice to manage talent, pay, and performance, making it the leading HR solution where people and AI succeed together.",
+    "slogan": "The HR platform that people love",
+    "logoUrl": "https://media.brand.dev/2546a5be-f1d3-49de-b5a5-1a958f538a05.svg",
+    "iconUrl": "https://media.brand.dev/4941a823-8fe3-4ca1-9676-a1f2e78a4f96.jpg",
+    "primaryColor": "#0c0c2c",
+    "accentColor": "#f79139",
+    "colors": [
+      {
+        "hex": "#0c0c2c",
+        "name": "Mysterious Depths"
+      },
+      {
+        "hex": "#f79139",
+        "name": "Fire Flower"
+      },
+      {
+        "hex": "#0db9a0",
+        "name": "Cozumel"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/14ed9c63-2cab-4ba0-b418-330e9d264699.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "contact": "https://help.lattice.com/hc/en-us/requests/new",
+      "careers": "https://lattice.com/careers",
+      "blog": "https://lattice.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://lattice.com/pricing",
+      "privacy": "https://lattice.com/trust/privacy-policy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4941a823-8fe3-4ca1-9676-a1f2e78a4f96.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2546a5be-f1d3-49de-b5a5-1a958f538a05.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 112,
+        "height": 21,
+        "aspectRatio": 5.33
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2546a5be-f1d3-49de-b5a5-1a958f538a05.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 112,
+      "height": 21,
+      "aspectRatio": 5.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4941a823-8fe3-4ca1-9676-a1f2e78a4f96.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

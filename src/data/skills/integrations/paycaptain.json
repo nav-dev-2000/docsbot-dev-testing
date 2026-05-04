@@ -1,0 +1,168 @@
+{
+  "slug": "paycaptain",
+  "name": "PayCaptain",
+  "domain": "paycaptain.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with PayCaptain",
+  "metaTitle": "Build PayCaptain AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use PayCaptain for payroll lookups, employee support, workflow handoffs, and secure internal HR operations.",
+  "intro": "PayCaptain helps businesses manage payroll, compliance, payslips, and employee financial wellbeing in one platform. With DocsBot Skill Builder, you can describe the PayCaptain workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or private internal AI agent. That lets your AI agent answer questions, retrieve approved payroll information, prepare handoffs, and trigger bounded actions without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee payroll questions by checking approved PayCaptain data such as payslip status, payment dates, or payroll processing progress.",
+    "Let a support bot connected to your helpdesk gather payroll issue details from a ticket, look up the relevant employee or pay period in PayCaptain, and prepare a complete HR or payroll handoff.",
+    "Enable a support agent to summarize pay-related account issues, including missing payslip access or payment timing questions, before escalating to payroll operations.",
+    "Have the agent confirm whether a payroll change request has been received and route the case into the correct internal workflow for review and approval.",
+    "Use the agent to provide policy-based answers about payroll schedules, deductions, and employee pay access while grounding responses in PayCaptain records and your internal documentation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve approved PayCaptain information such as payroll calendars, payslip availability, and status updates on payroll questions.",
+    "Enable HR and payroll teams to ask the agent to collect missing details, summarize exceptions, and prepare standardized payroll investigation workflows using PayCaptain data.",
+    "Give operations teams an internal AI assistant that can research payroll issues across PayCaptain and related HR or finance systems, then return a concise case summary with next steps.",
+    "Allow managers or HR staff to use a private agent to guide employee payroll support SOPs, generate escalation notes, and trigger approved follow-up workflows with proper approval boundaries.",
+    "Help finance and people teams use an internal agent to produce reporting summaries, payroll status snapshots, and case handoff notes drawn from PayCaptain and connected business systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI payroll support agent that checks payslip availability and payment status in PayCaptain.",
+    "A helpdesk assistant that summarizes payroll tickets and prepares HR escalation handoffs.",
+    "An employee self-service bot for payroll calendar, deduction, and pay access questions.",
+    "An internal HR agent that gathers missing payroll issue details before a specialist review.",
+    "A private operations assistant that creates payroll case summaries from PayCaptain records.",
+    "A workflow agent that routes approved payroll change requests into the right review process."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the PayCaptain agent to do, such as answer payroll questions, look up approved records, or prepare escalations, and it turns that goal into a usable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, defines secure connection and authentication handling, protects and proxies secrets through secure runtime configuration, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound risky actions",
+      "description": "When the workflow includes sensitive payroll steps, Skill Builder adds approval boundaries, user limits, and clear action rules so the agent only performs the safe updates, lookups, or handoffs you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team scenarios, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds improvements back into the Skill before launch."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After testing, Skill Builder refines the Skill and helps publish it to the right DocsBot agent, whether that is a customer-facing support bot or a private employee assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for PayCaptain payroll support?",
+      "answer": "With DocsBot Skill Builder, you describe the payroll support outcome you want in plain language, and DocsBot designs a Skill that can look up approved PayCaptain information, answer common questions, prepare escalations, and follow your security rules. The workflow can be published to a website chat widget or a helpdesk-connected DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use PayCaptain data to answer employee payroll questions?",
+      "answer": "Yes, a DocsBot agent can be designed to use approved PayCaptain data for lookups such as payslip status, payment timing, or payroll case context. Skill Builder scopes access carefully and can require handoffs or approvals for any sensitive action."
+    },
+    {
+      "question": "What payroll workflows can an internal AI assistant automate with PayCaptain?",
+      "answer": "A private DocsBot agent can help employees and teams retrieve payroll information, collect missing case details, summarize payroll issues, generate handoff notes, and trigger approved HR or payroll workflows. It can also support SOPs across PayCaptain and other connected business tools."
+    },
+    {
+      "question": "Can DocsBot create safe PayCaptain actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can support bounded actions such as creating handoff records, updating approved case fields, triggering workflow steps, or generating summaries and artifacts for review. Skill Builder defines secure authentication, scoped permissions, and approval boundaries before deployment."
+    },
+    {
+      "question": "How does DocsBot keep PayCaptain credentials and payroll access secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and Skill source, and proxies authentication through secure runtime configuration. It also limits the agent to the users, actions, and records required for the workflow you approve."
+    },
+    {
+      "question": "Can a DocsBot agent help with payroll ticket triage and escalation using PayCaptain?",
+      "answer": "Yes, the agent can gather issue details from the conversation or helpdesk ticket, check relevant PayCaptain context, summarize the problem, and prepare a clean escalation for HR or payroll operations. This helps reduce back-and-forth while keeping sensitive steps controlled."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "hibob",
+    "workday",
+    "sage-hr",
+    "deel"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "PayCaptain",
+    "domain": "paycaptain.com",
+    "description": "PayCaptain is a cloud‑based payroll platform that provides fully managed, AI‑powered payroll services for modern businesses. The solution automates payroll processing, HMRC compliance, and reporting while delivering online payslips and a mobile app that puts employees in control of their earnings. PayCaptain also offers financial wellbeing tools such as salary advances, savings pots, flexible payment splitting, and digital payroll giving. Designed for companies of all sizes across industries like hospitality, manufacturing, retail, and logistics, the software reduces administrative time, cuts costs, and boosts employee satisfaction by improving financial resilience and mental health. The platform integrates with HR and finance systems, delivering real‑time insights to support strategic decision‑making.",
+    "slogan": "The most helpful payroll solution on the planet",
+    "logoUrl": "https://media.brand.dev/58beac62-9ef9-43b2-98e3-b799bbc0e1c6.svg",
+    "iconUrl": "https://media.brand.dev/29cf5b82-a2c2-438d-a1ee-236fd04935fe.png",
+    "primaryColor": "#3dc1bd",
+    "accentColor": "#8cd7d3",
+    "colors": [
+      {
+        "hex": "#3dc1bd",
+        "name": "Montego Bay"
+      },
+      {
+        "hex": "#8cd7d3",
+        "name": "Island Breeze"
+      },
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/96cf6c63-20b2-44f3-ab2c-1b4d2f5927d5.png",
+    "industries": [],
+    "links": {
+      "blog": "https://www.paycaptain.com/blogs",
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://www.paycaptain.com/contact",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0b751ea5-a2d4-40a7-ac90-172c338d0354.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/58beac62-9ef9-43b2-98e3-b799bbc0e1c6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 226,
+        "height": 44,
+        "aspectRatio": 5.14
+      },
+      {
+        "url": "https://media.brand.dev/29cf5b82-a2c2-438d-a1ee-236fd04935fe.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/58beac62-9ef9-43b2-98e3-b799bbc0e1c6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 226,
+      "height": 44,
+      "aspectRatio": 5.14
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0b751ea5-a2d4-40a7-ac90-172c338d0354.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

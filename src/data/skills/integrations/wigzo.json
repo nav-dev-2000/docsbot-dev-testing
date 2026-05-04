@@ -1,0 +1,160 @@
+{
+  "slug": "wigzo",
+  "name": "Wigzo",
+  "domain": "wigzo.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Wigzo",
+  "metaTitle": "Build AI Agents and Support Workflows with Wigzo",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Wigzo for support automation, marketing operations, order workflows, and safe internal team actions.",
+  "intro": "Wigzo brings together e-commerce growth workflows like marketing automation, shipping operations, customer engagement, and AI-driven insights in one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Wigzo data and approved actions. That means customer-facing support bots and internal team assistants can answer questions, trigger workflows, prepare handoffs, and keep work moving without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Wigzo order, shipping, return, or campaign-related status details while answering customer questions in chat or helpdesk tickets.",
+    "Use a DocsBot support agent to collect missing order or contact details from a customer, then create or update approved records or workflow steps in Wigzo.",
+    "Enable the agent to summarize a customer's recent engagement, checkout, fulfillment, or notification history from Wigzo before preparing a support handoff.",
+    "Let the agent trigger approved post-purchase workflows in Wigzo, such as sending updates, starting a return-related process, or routing the case for manual review.",
+    "Use Wigzo data to help a support bot explain delivery progress, campaign eligibility, or checkout follow-up status in a more personalized response."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to look up Wigzo campaign performance, customer engagement signals, shipping progress, or operational status without switching tools.",
+    "Let marketing, support, and operations teams ask an internal AI agent to summarize Wigzo activity and prepare next-step recommendations for abandoned checkout, repeat purchase, or retention workflows.",
+    "Enable team members in Slack, Microsoft Teams, or private chat to trigger approved Wigzo workflows, create follow-up tasks, or generate handoff notes that follow internal SOPs.",
+    "Help operations staff chat with the agent to research order and fulfillment issues across Wigzo workflows and produce concise summaries for escalations or leadership updates.",
+    "Allow employees to use an internal AI assistant to retrieve approved Wigzo insights, compare campaign or customer segments, and generate draft outreach or workflow plans."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up shipment and return status from Wigzo during customer conversations.",
+    "A helpdesk assistant that summarizes Wigzo engagement and fulfillment history before escalating complex tickets.",
+    "A customer bot that collects missing details and triggers approved order follow-up workflows in Wigzo.",
+    "An internal marketing assistant that reports on campaign signals and suggests next-best retention actions.",
+    "A private operations agent that researches fulfillment issues and creates structured escalation summaries.",
+    "A team assistant that generates customer communication drafts using approved Wigzo context and workflow rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Wigzo in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Wigzo connection details, defines secure configuration values, protects and proxies secrets through approved runtime settings, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Bound the actions",
+      "description": "Skill Builder adds safe operating rules, approval boundaries, and clear limits so the agent can look up data, update records, trigger workflows, or prepare handoffs only within your approved policies."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website bot, helpdesk agent, or internal team assistant can use Wigzo with logged and controlled actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Wigzo?",
+      "answer": "With DocsBot Skill Builder, you describe the Wigzo workflow you want in plain language, such as checking order status, summarizing engagement history, or triggering an approved follow-up. Skill Builder then designs the Skill, secures the connection, tests scenarios, and helps deploy it to a support bot or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Wigzo data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use approved Wigzo data to look up order, fulfillment, return, campaign, or engagement context while replying to customers in chat or through helpdesk tickets. You control what data it can access and which actions it can take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Wigzo?",
+      "answer": "DocsBot can help automate lookups, status summaries, missing-information collection, ticket handoff preparation, approved record updates, and workflow triggers tied to post-purchase or service processes in Wigzo. This helps support teams resolve common requests faster while keeping sensitive actions bounded."
+    },
+    {
+      "question": "Can an internal AI assistant use Wigzo for marketing and operations workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Wigzo insights, summarize campaign or fulfillment activity, and complete approved workflows across marketing, support, and operations. This is useful for research, SOP execution, and faster cross-team coordination."
+    },
+    {
+      "question": "How does DocsBot keep Wigzo actions secure?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and scopes permissions to the minimum access needed. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Wigzo instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as updating approved records, triggering workflows, creating handoff notes, generating summaries, and routing cases for review. The actions are limited by the rules and approvals you define during setup."
+    }
+  ],
+  "relatedSlugs": [
+    "klaviyo",
+    "omnisend",
+    "braze",
+    "intercom",
+    "shipstation",
+    "shopify"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wigzo",
+    "domain": "wigzo.com",
+    "description": "Wigzo is a comprehensive e‑commerce growth platform that combines shipping logistics, marketing automation, AI‑driven insights, and financial services into a single unified solution. It enables brands to ship domestically across 19,000+ pin codes and internationally to 220+ countries, offering B2B bulk shipping, fulfillment, warehousing, and cross‑border duty calculations. On the marketing side, Wigzo provides single‑click checkout, WhatsApp‑centric campaigns, anonymous user identification, Instagram chatbots, and click‑to‑WhatsApp ads to boost conversions and repeat purchases. Its AI suite turns data into actionable APIs, voice integration, consumer behavior analytics, and trend forecasting. Additional services include credit scoring, capital financing, returns management, and a suite of value‑added tools such as dark stores, delivery boost, and instant COD. By integrating with multiple carriers, store platforms, and OMS systems via robust APIs, Wigzo automates order processing, label printing, and notifications, helping over 3,000 brands accelerate growth with streamlined operations and personalized customer engagement.",
+    "slogan": "Let automation accelerate your eCommerce growth effortlessly.",
+    "logoUrl": "https://media.brand.dev/8f592a52-282d-4f90-8176-2c8bef187c34.svg",
+    "iconUrl": "https://media.brand.dev/c192ce2d-07a5-42b4-ac14-8f16274e9b7a.png",
+    "primaryColor": "#343434",
+    "accentColor": "#072e9d",
+    "colors": [
+      {
+        "hex": "#343434",
+        "name": "Jet"
+      },
+      {
+        "hex": "#072e9d",
+        "name": "Smalt"
+      },
+      {
+        "hex": "#7c94cc",
+        "name": "Pannikin"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/872b7f81-7d7a-4e99-bd85-eda02c4e57e4.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "pricing": null,
+      "contact": "http://wigzo.com/contact/",
+      "blog": "http://wigzo.com/blog/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c192ce2d-07a5-42b4-ac14-8f16274e9b7a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8f592a52-282d-4f90-8176-2c8bef187c34.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 854,
+        "height": 190,
+        "aspectRatio": 4.49
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8f592a52-282d-4f90-8176-2c8bef187c34.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 854,
+      "height": 190,
+      "aspectRatio": 4.49
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c192ce2d-07a5-42b4-ac14-8f16274e9b7a.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "haloitsm",
+  "name": "HaloITSM",
+  "domain": "haloitsm.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with HaloITSM",
+  "metaTitle": "Build HaloITSM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use HaloITSM for support lookups, ticket updates, handoffs, workflow triggers, and internal service operations.",
+  "intro": "HaloITSM helps teams manage service requests, incidents, workflows, and support operations across IT and other departments. With DocsBot Skill Builder, you can describe the HaloITSM workflow you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions and take approved action in HaloITSM instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up HaloITSM ticket status, priority, owner, or recent updates while replying to customers in chat or over helpdesk tickets.",
+    "Let the agent create HaloITSM incidents or service requests from customer conversations after gathering the right details and confirming the request.",
+    "Allow the agent to add notes, append diagnostics, or update approved HaloITSM fields so support teams receive cleaner handoffs.",
+    "Have the agent summarize open HaloITSM issues, related tasks, and previous service activity before escalating a complex case to a human agent.",
+    "Use the agent to trigger approved HaloITSM workflows such as escalation paths, assignment rules, or follow-up processes based on the customer’s issue type."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to check HaloITSM ticket status, assignments, approvals, and recent activity without opening the service desk.",
+    "Internal teams can ask the agent to create incidents, service requests, or task records in HaloITSM while the agent follows the right intake steps and required SOPs.",
+    "Service desk staff can use the agent to summarize queues, identify aging tickets, and prepare escalation notes or shift handoff summaries from HaloITSM data.",
+    "Operations teams can chat with the agent to retrieve HaloITSM knowledge tied to request history, research issue patterns, and complete cross-team workflow steps more quickly.",
+    "Managers can ask the agent for structured summaries of open work, bottlenecks, and service trends drawn from HaloITSM records for internal review and planning."
+  ],
+  "whatYouCanBuild": [
+    "A support bot that checks HaloITSM ticket status and explains the latest update to customers.",
+    "An AI agent that creates HaloITSM incidents from chat conversations with validated intake details.",
+    "A handoff assistant that summarizes issue history and adds escalation notes into HaloITSM.",
+    "An internal service desk agent that retrieves assignments, approvals, and queue summaries on demand.",
+    "A workflow assistant that triggers approved HaloITSM escalation or follow-up processes from agent conversations.",
+    "A shift handoff tool that turns HaloITSM activity into clean summaries for incoming support teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the HaloITSM agent to do in plain language, such as checking ticket status, creating incidents, updating records, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a safe Skill design, identifies the needed HaloITSM configuration values, and plans how the agent should look up data or take approved actions."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, and scopes access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Approval limits are added",
+      "description": "Skill Builder adds sensible approval boundaries and action limits so sensitive updates, escalations, or workflow triggers happen only within the permissions and controls you choose."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for HaloITSM without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the HaloITSM workflow you want in plain language and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It handles connection details, authentication setup, scoped permissions, and safe action boundaries for you."
+    },
+    {
+      "question": "Can a DocsBot support agent use HaloITSM data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a HaloITSM Skill to look up ticket details, summarize service history, check ownership or status, and prepare escalations while responding to customers. You control which records and actions the agent is allowed to access."
+    },
+    {
+      "question": "Can an AI support bot create or update HaloITSM tickets safely?",
+      "answer": "DocsBot Skill Builder can create workflows that let an agent gather the right information, create incidents or service requests, and make approved updates in HaloITSM. Sensitive actions can be limited by scoped permissions and approval checkpoints."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with HaloITSM?",
+      "answer": "Internal agents can help employees check ticket status, create new records, summarize queues, prepare shift handoffs, and follow service desk SOPs through chat, Slack, or Microsoft Teams. This makes HaloITSM easier to use across teams without exposing unrestricted actions."
+    },
+    {
+      "question": "How does DocsBot keep HaloITSM credentials and actions secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum needed records, users, and workflows and can add approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot test a HaloITSM agent before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run support and internal scenarios against the Skill, identify bugs or workflow gaps, and improve the Skill before deployment. That helps teams launch with more confidence and fewer surprises."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshservice",
+    "jira-service-management",
+    "servicenow",
+    "intercom",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Halo",
+    "domain": "haloitsm.com",
+    "description": "Halo Service Solutions is a privately owned software company that provides AI-powered IT service management, professional services automation, and customer relationship management software. Their solutions, including HaloITSM, HaloPSA, and HaloCRM, can be installed on-premise or in the cloud and are designed to streamline workflows across multiple departments. With 20+ years of experience and a presence in over 75 countries, they help organizations scale their IT support with confidence, trusted by multiple FTSE100 companies.",
+    "slogan": "Change the Way the World Works",
+    "logoUrl": "https://media.brand.dev/ab3a18d6-4e8d-4496-8605-abc54f2885b3.svg",
+    "iconUrl": "https://media.brand.dev/12fa6139-63ac-4fd4-b5e4-3cf1f9a4893a.png",
+    "primaryColor": "#04a3e3",
+    "accentColor": "#04d3c4",
+    "colors": [
+      {
+        "hex": "#04a3e3",
+        "name": "Vanadyl Blue"
+      },
+      {
+        "hex": "#04d3c4",
+        "name": "Tilla Kari Mosque"
+      },
+      {
+        "hex": "#5ce0d7",
+        "name": "Hammam Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/124dface-827e-4719-b7d0-5300d11d5e5d.png",
+    "industries": [],
+    "links": {
+      "careers": "https://haloitsm.com/careers",
+      "terms": "https://haloitsm.com/terms-and-conditions",
+      "contact": "https://haloitsm.com/contact-us",
+      "privacy": "https://haloitsm.com/privacy-policy",
+      "blog": "https://haloitsm.com/news/halo-announces-its-not-for-sale-in-10-year-commitment-to-clients/",
+      "pricing": "https://haloitsm.com/haloitsm/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/37b0c003-9db0-40af-873d-4914b5a1d4f6.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ab3a18d6-4e8d-4496-8605-abc54f2885b3.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 273,
+        "height": 76,
+        "aspectRatio": 3.59
+      },
+      {
+        "url": "https://media.brand.dev/12fa6139-63ac-4fd4-b5e4-3cf1f9a4893a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ab3a18d6-4e8d-4496-8605-abc54f2885b3.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 273,
+      "height": 76,
+      "aspectRatio": 3.59
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/37b0c003-9db0-40af-873d-4914b5a1d4f6.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

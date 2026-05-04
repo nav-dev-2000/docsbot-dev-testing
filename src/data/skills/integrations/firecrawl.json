@@ -1,0 +1,168 @@
+{
+  "slug": "firecrawl",
+  "name": "Firecrawl",
+  "domain": "firecrawl.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that use Firecrawl web data",
+  "metaTitle": "DocsBot AI agents for Firecrawl web crawling and search",
+  "metaDescription": "Build DocsBot AI agents that use Firecrawl to gather clean web data, answer questions, trigger research workflows, and support safe internal or support actions.",
+  "intro": "Firecrawl helps AI systems crawl, scrape, and search the web for clean structured data. With DocsBot Skill Builder, you can describe the outcome you want in plain language and create a reusable Skill that lets your AI agent use Firecrawl for research, lookups, summaries, and approved follow-up actions. This gives support teams and internal teams an AI agent that can find current web information, package it clearly, and act within the limits you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent use Firecrawl to search product documentation, status pages, partner sites, or public policy pages and answer customers with fresher web-based context.",
+    "Have a support agent crawl a customer-provided URL, summarize the page, and prepare a cleaner handoff when a customer says an integration, checkout flow, or public page is broken.",
+    "Use Firecrawl to collect public troubleshooting steps from approved domains, compare them with your internal guidance, and return a concise support answer with source-backed context.",
+    "Enable a helpdesk-connected DocsBot agent to review public release notes or changelogs with Firecrawl and explain whether a reported issue may be tied to a recent update.",
+    "Let the agent search public pricing, availability, or compatibility pages across approved sites and summarize the result before escalating a billing or sales-adjacent support question."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent that uses Firecrawl to research competitor sites, market pages, documentation, or public announcements and return structured summaries for quick decision-making.",
+    "Give operations or customer success teams an internal AI assistant that crawls approved websites, extracts key details, and drafts update briefs, comparison notes, or follow-up tasks.",
+    "Enable internal teams to ask the agent to monitor public knowledge sources, summarize changes, and prepare SOP-ready notes for support, product, or enablement teams.",
+    "Allow employees in Slack or Microsoft Teams to use a DocsBot agent to gather web research across multiple approved domains and turn it into a clean report or action checklist.",
+    "Help internal teams complete research-heavy workflows by combining Firecrawl lookups with DocsBot instructions, approvals, and next-step recommendations inside one private chat experience."
+  ],
+  "whatYouCanBuild": [
+    "A support research Skill that searches approved public sources before answering customer questions.",
+    "A website triage Skill that crawls customer-submitted URLs and summarizes likely issue details.",
+    "A release-monitoring Skill that reviews public changelogs and drafts support impact summaries.",
+    "A competitor research Skill that collects structured public data for sales or product teams.",
+    "A policy lookup Skill that scans public terms, shipping, or compliance pages for answers.",
+    "A market intelligence Skill that gathers web findings and generates internal briefing notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Firecrawl-powered agent to do, such as research approved websites, summarize findings, or prepare support handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets, and scopes access to only the sites, actions, users, and data needed."
+    },
+    {
+      "title": "Actions get clear limits",
+      "description": "Skill Builder adds runtime instructions, approval boundaries, and safe action limits so the agent can gather web data, generate summaries, and trigger bounded follow-up steps without overreaching."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "The automated testing agent runs imagined support and internal scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use it in production with logging and control."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Firecrawl for web research?",
+      "answer": "With DocsBot Skill Builder, you describe the research outcome you want in plain language, and it designs a Skill that can use Firecrawl to crawl, search, extract, and summarize approved web sources. Skill Builder also handles secure configuration, scoped access, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Firecrawl data when answering customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Firecrawl to gather current public web information from approved sources and turn it into a clearer customer answer, summary, or escalation handoff. You can define boundaries so the agent only searches trusted domains and only takes approved follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Firecrawl?",
+      "answer": "A DocsBot agent can search public docs, status pages, release notes, policy pages, or customer-submitted URLs, then summarize findings, suggest next steps, and prepare handoff notes for your team. This is useful when support answers depend on current web content rather than only static internal documentation."
+    },
+    {
+      "question": "Can an internal AI assistant use Firecrawl for team research?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to gather web research, compare public sources, and generate briefs or action checklists. This helps teams complete research-heavy workflows faster without leaving their normal workspace."
+    },
+    {
+      "question": "How does DocsBot keep Firecrawl-powered AI actions safe?",
+      "answer": "Skill Builder defines the needed configuration values, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and scopes the agent to the minimum approved sites and actions. It can also add approval boundaries for sensitive steps before anything beyond research or summarization happens."
+    },
+    {
+      "question": "Can a Firecrawl AI agent generate summaries and artifacts for internal teams?",
+      "answer": "Yes, a DocsBot Skill can turn Firecrawl results into structured summaries, comparison tables, briefing notes, triage writeups, or other generated artifacts your teams use in daily work. The workflow can be designed around your preferred format and review controls."
+    }
+  ],
+  "relatedSlugs": [
+    "webflow",
+    "zendesk",
+    "intercom",
+    "slack",
+    "microsoft-teams",
+    "confluence"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Firecrawl",
+    "domain": "firecrawl.com",
+    "description": "Firecrawl is a web crawling, scraping, and search API designed for AI applications. It provides a scalable solution for delivering clean, structured data from the internet to AI agents and builders, making it ready for reasoning and analysis.",
+    "slogan": "Power your AI with clean, scalable web data from anywhere.",
+    "logoUrl": "https://media.brand.dev/e9fe9967-72cb-4730-a7c0-20835dffb122.png",
+    "iconUrl": "https://media.brand.dev/e9fe9967-72cb-4730-a7c0-20835dffb122.png",
+    "primaryColor": "#fc540e",
+    "accentColor": "#fca47a",
+    "colors": [
+      {
+        "hex": "#fc540e",
+        "name": "Orange Clown Fish"
+      },
+      {
+        "hex": "#fca47a",
+        "name": "Apricot Wash"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/50e99901-5cc8-455d-893a-57282f21a981.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e9fe9967-72cb-4730-a7c0-20835dffb122.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7cbc33df-5373-4f42-b041-535dd735b332.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/68996f59-dc8c-48ee-b868-61b96345d9df.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 600,
+        "height": 600,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/68996f59-dc8c-48ee-b868-61b96345d9df.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 600,
+      "height": 600,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/68996f59-dc8c-48ee-b868-61b96345d9df.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 600,
+      "height": 600,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "lever",
+  "name": "Lever",
+  "domain": "lever.co",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Lever Recruiting Workflows",
+  "metaTitle": "Build AI Agents for Lever with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Lever to look up candidates, summarize hiring status, route handoffs, and support safe recruiting workflows.",
+  "intro": "Lever helps recruiting teams track candidates, manage hiring pipelines, and coordinate outreach across the talent lifecycle. With DocsBot Skill Builder, you can describe the recruiting task you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely use Lever data and approved actions. That makes it possible to support applicants, assist recruiting teams, and automate bounded hiring workflows through customer-facing or internal AI agents.",
+  "supportUseCases": [
+    "Use a DocsBot chat widget or helpdesk agent to look up an applicant’s current stage in Lever and explain next steps without exposing internal-only notes.",
+    "Let an AI support agent collect missing application details from a candidate, create a structured handoff, and route the conversation to the right recruiting team.",
+    "Have the agent summarize a candidate’s recent status, interview progress, or application timeline from Lever when responding to inbound support questions.",
+    "Enable the agent to create or update approved candidate-facing records or tags in Lever after a support conversation, with clear limits and review boundaries for sensitive changes.",
+    "Use the agent to trigger follow-up workflows such as recruiter notifications, escalation summaries, or interview coordination handoffs based on candidate requests."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve candidate pipeline status, requisition details, and recruiting summaries from Lever.",
+    "Help recruiting coordinators ask the agent to prepare interview handoffs, summarize candidate history, and assemble the next-step context needed for hiring workflows.",
+    "Enable talent acquisition teams to use a private AI assistant to research open roles, identify stalled candidates, and generate follow-up task lists based on Lever data.",
+    "Allow recruiting operations staff to chat with the agent to complete SOP-driven updates, trigger approved workflows, and document outcomes across hiring processes.",
+    "Support hiring managers with an internal AI assistant that can summarize candidate progression, surface required actions, and prepare escalation notes for recruiters or coordinators."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and drafts a candidate-friendly response.",
+    "A recruiting assistant that summarizes interview progress and prepares recruiter handoff notes.",
+    "An internal hiring ops agent that finds stalled candidates and suggests next actions.",
+    "A private team assistant that retrieves requisition details and pipeline summaries from Lever.",
+    "A candidate support bot that collects missing information and routes approved follow-up workflows.",
+    "An AI workflow that tags records, creates summaries, and prepares escalation artifacts with approval controls."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Lever, such as checking applicant status, preparing handoffs, or updating approved recruiting records, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, defines safe authentication handling, and keeps secrets protected and out of chats and generated source."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Lever actions, records, users, and workflow boundaries needed, and it adds approval steps for sensitive updates or high-impact recruiting actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined candidate support and internal recruiting scenarios, finds bugs, missing guardrails, or weak instructions, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use Lever safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Lever recruiting workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting outcome you want in plain language, and Skill Builder creates a reusable Skill that can look up Lever data, summarize status, trigger approved workflows, and support bounded actions. It also handles secure connection design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Lever data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Lever to retrieve applicant status, summarize next steps, and prepare recruiter handoffs while replying in a website chat widget or helpdesk context. Access and actions can be limited so the agent only uses approved candidate-facing information."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Lever?",
+      "answer": "An internal DocsBot agent can help employees retrieve candidate pipeline details, summarize interview progress, generate handoff notes, identify stalled hiring steps, and complete approved recruiting SOPs. This is useful in private chat, Slack, or Microsoft Teams for recruiters, coordinators, and hiring managers."
+    },
+    {
+      "question": "Can DocsBot update records in Lever safely?",
+      "answer": "DocsBot Skill Builder can design Skills that perform approved updates such as tags, notes, routing steps, or workflow triggers within customer-defined limits. It scopes permissions carefully, protects authentication, and can require approvals for sensitive actions."
+    },
+    {
+      "question": "How does a Lever AI agent handle handoffs and escalations?",
+      "answer": "The agent can gather context from the conversation and Lever, generate a structured summary, and route the issue to the correct recruiter, coordinator, or hiring team. That helps reduce back-and-forth and gives the next human responder the context they need."
+    },
+    {
+      "question": "Is setup technical if I want a DocsBot agent to work with Lever?",
+      "answer": "No, the setup is designed for non-technical users to describe the desired outcome rather than wire everything manually. Skill Builder handles the secure design, required configuration, secret protection, testing, and deployment details for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "smartrecruiters",
+    "jobvite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lever",
+    "domain": "lever.co",
+    "description": "Lever is a leading applicant tracking system and candidate relationship management tool that helps TA teams connect with top talent. It provides a scalable and flexible solution to find, nurture, and engage top candidates, handling the administrative tasks so teams can focus on building meaningful relationships. Lever's powerful recruiting software enables businesses to adapt to their hiring needs and elevate their hiring results.",
+    "slogan": "Build great teams effortlessly with Lever’s modern recruiting software.",
+    "logoUrl": "https://media.brand.dev/97e2240d-097f-432c-bf03-8f545e22dd3f.png",
+    "iconUrl": "https://media.brand.dev/6af8fb4f-1026-413b-9eef-b691ffac0b13.jpg",
+    "primaryColor": "#51a8a5",
+    "accentColor": "#2a544c",
+    "colors": [
+      {
+        "hex": "#51a8a5",
+        "name": "Twilight Meadow"
+      },
+      {
+        "hex": "#2a544c",
+        "name": "Sea Moss"
+      },
+      {
+        "hex": "#c4fbd3",
+        "name": "Smell the Mint"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/70ec6d32-c562-49d1-a68a-142ed24df476.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.lever.co/agreements/tos/",
+      "contact": "https://www.lever.co/contact/",
+      "privacy": "https://www.lever.co/privacy/",
+      "blog": "https://www.lever.co/blog/",
+      "pricing": "https://www.lever.co/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6af8fb4f-1026-413b-9eef-b691ffac0b13.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/97e2240d-097f-432c-bf03-8f545e22dd3f.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1020,
+        "height": 252,
+        "aspectRatio": 4.05
+      },
+      {
+        "url": "https://media.brand.dev/070a5452-a3b1-4dbd-90a0-0f74828b2a10.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/97e2240d-097f-432c-bf03-8f545e22dd3f.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1020,
+      "height": 252,
+      "aspectRatio": 4.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6af8fb4f-1026-413b-9eef-b691ffac0b13.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

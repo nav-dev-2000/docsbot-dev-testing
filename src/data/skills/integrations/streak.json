@@ -1,0 +1,170 @@
+{
+  "slug": "streak",
+  "name": "Streak",
+  "domain": "streak.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Streak in Gmail",
+  "metaTitle": "Build AI Agents for Streak with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Streak to look up pipelines, update records, prepare handoffs, and automate safe support or team workflows from chat.",
+  "intro": "Streak is a CRM and workflow platform built into Gmail, making it useful for managing deals, requests, contacts, and follow-up work without leaving the inbox. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent work with Streak safely. The result is an AI support agent or internal team assistant that can answer questions, retrieve live CRM context, update approved records, and move work forward instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer's Streak box, stage, owner, notes, or recent activity before replying in website chat or a helpdesk ticket.",
+    "Use the agent to create a new Streak record for a sales inquiry, onboarding request, partner lead, or support follow-up gathered during a customer conversation.",
+    "Allow the agent to update approved Streak fields such as status, priority, assignee, next step, or follow-up date based on the customer's latest message.",
+    "Have the agent summarize the current Streak pipeline state and recent Gmail-linked interactions so customers receive faster and more informed responses.",
+    "Enable the agent to prepare a clean handoff by attaching conversation notes, customer details, and requested actions to the right Streak record for human follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to find Streak records, owners, stages, tasks, and recent pipeline activity without searching manually.",
+    "Sales, success, and operations teams can ask the agent to create or update Streak boxes, log follow-up notes, assign work, and move records through approved workflow stages.",
+    "Team members can use the agent to summarize open opportunities, stalled deals, support-related pipelines, or inbox-driven workflows across Streak before meetings or handoffs.",
+    "Employees can ask the agent to follow SOPs such as qualifying inbound requests, preparing account briefs, or creating escalation notes using Streak data and approved workflow actions.",
+    "Managers can chat with the agent to research pipeline health, identify records needing attention, and generate structured summaries for coaching, forecasting, or operational reviews."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that finds the right Streak box and summarizes account context before replying.",
+    "An AI assistant that creates new Streak records from inbound chat or ticket conversations.",
+    "A workflow agent that updates pipeline stage, owner, and follow-up dates after approved interactions.",
+    "An internal assistant that prepares deal briefs and handoff notes from Streak activity.",
+    "A team agent that logs conversation summaries into Streak for consistent recordkeeping.",
+    "An escalation assistant that attaches customer issues and next steps to the correct Streak record."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Streak, such as finding pipeline records, updating approved fields, or creating handoff notes, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, and scopes Streak access to the minimum records and actions required."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and safe action limits so the agent can look up data, create updates, or trigger workflow steps only within the rules you approve."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Streak Skill, finds bugs or workflow gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so teams can use Streak actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Streak?",
+      "answer": "With DocsBot Skill Builder, you describe the Streak workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up records, update approved fields, create notes, and trigger bounded actions. It also handles secure configuration, permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Streak data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Streak Skill to retrieve live CRM context such as box details, owners, stages, notes, and recent activity while responding to customers. This helps the agent give more accurate answers and prepare cleaner handoffs when a human needs to step in."
+    },
+    {
+      "question": "What Streak workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees search Streak, create or update records, log summaries, assign follow-ups, and prepare account or pipeline briefs through chat. The workflow can be limited to the specific actions, records, and teams you approve."
+    },
+    {
+      "question": "Can DocsBot update Streak records safely with approval controls?",
+      "answer": "Yes, Skill Builder can design the Skill with scoped permissions and approval boundaries so the agent only updates allowed Streak fields or runs sensitive actions when the right controls are met. Secrets and authentication are handled through secure runtime configuration rather than exposed in chats or prompts."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation notes in Streak?",
+      "answer": "Yes, you can build a Skill that turns a customer conversation into structured Streak notes, next steps, ownership details, and escalation context for human follow-up. This reduces manual copy-paste and keeps the CRM record aligned with the support conversation."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Streak with DocsBot?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the design, secure connection setup, secret protection, permission scoping, testing, and improvement process. That makes it practical for non-technical teams to launch AI actions around Streak without manually wiring every detail."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "pipedrive",
+    "salesforce",
+    "close",
+    "gmail",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Streak",
+    "domain": "streak.com",
+    "description": "Streak is a CRM and workflow management platform that helps businesses manage their processes and tasks directly within their Gmail inbox. With Streak, users can track emails, contacts, and tasks, and collaborate with team members to get work done efficiently. Streak's integration with Gmail allows users to access all their tools and workflows in one place, making it easier to manage deals, support requests, and other business processes without leaving their inbox.",
+    "slogan": "CRM built into Gmail to help you focus and get things done.",
+    "logoUrl": "https://media.brand.dev/8d2b334b-0a3f-41e5-babd-01469273bbba.svg",
+    "iconUrl": "https://media.brand.dev/41bb2454-daf0-4cbc-b727-1730750aa9e7.png",
+    "primaryColor": "#f98c0e",
+    "accentColor": "#fccc7c",
+    "colors": [
+      {
+        "hex": "#f98c0e",
+        "name": "Jú Huáng Tangerine"
+      },
+      {
+        "hex": "#fccc7c",
+        "name": "Orange Glass"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dce88865-10c1-43ff-a4b0-ae66ceae8d11.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.streak.com/careers",
+      "terms": "https://www.streak.com/terms",
+      "contact": "https://www.streak.com/features",
+      "privacy": "https://www.streak.com/privacy",
+      "blog": "https://www.streak.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.streak.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/990ce548-e35b-4b7e-8cf6-0346aadeabb0.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8d2b334b-0a3f-41e5-babd-01469273bbba.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 101,
+        "height": 24,
+        "aspectRatio": 4.21
+      },
+      {
+        "url": "https://media.brand.dev/41bb2454-daf0-4cbc-b727-1730750aa9e7.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8d2b334b-0a3f-41e5-babd-01469273bbba.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 101,
+      "height": 24,
+      "aspectRatio": 4.21
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/990ce548-e35b-4b7e-8cf6-0346aadeabb0.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

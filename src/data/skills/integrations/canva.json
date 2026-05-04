@@ -1,0 +1,176 @@
+{
+  "slug": "canva",
+  "name": "Canva",
+  "domain": "canva.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Canva",
+  "metaTitle": "Build Canva AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that can safely use Canva for design lookups, workflow handoffs, summaries, and approved team actions.",
+  "intro": "Canva helps teams create visual content quickly, and DocsBot Skill Builder can turn that capability into a reusable AI agent Skill. In plain language, you describe what the agent should do with Canva, and Skill Builder designs, secures, tests, improves, and deploys the workflow. The result is a support or internal AI agent that can answer questions, gather context, create handoffs, and take approved actions around design operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of requested Canva design assets and summarize the latest progress during a support chat or ticket reply.",
+    "Use a support agent to collect branding requirements from a customer and prepare a structured handoff for a Canva design request.",
+    "Enable the agent to look up approved template options in Canva-related workflows and guide customers to the right asset for their use case.",
+    "Have the agent gather missing details for marketing or event collateral requests, then create a clean internal handoff tied to Canva production steps.",
+    "Use the agent to summarize open creative request context from a helpdesk conversation so design or customer success teams can continue the work faster."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find the right Canva templates, brand assets, or design workflow guidance without searching manually.",
+    "Enable marketing, sales, or support teams to ask an internal agent for help preparing design request briefs, campaign asset checklists, or standardized creative handoffs.",
+    "Use an employee-facing agent in Slack or Microsoft Teams to summarize Canva-related project needs and route requests to the correct team or approval path.",
+    "Allow team members to chat with the agent to follow internal SOPs for branded content creation, review steps, and publishing readiness.",
+    "Help operations or customer success teams retrieve reusable visual asset guidance and complete repeatable request workflows that involve Canva."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that turns customer design requests into structured Canva handoff briefs.",
+    "A support assistant that summarizes creative asset status for tickets and chat conversations.",
+    "An internal agent that recommends the correct Canva template based on team goals.",
+    "A workflow assistant that collects brand requirements before routing a design request.",
+    "A private team agent that explains Canva-related SOPs and next approval steps.",
+    "An AI assistant that prepares campaign asset checklists for marketing and sales teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Canva, such as checking asset status, preparing design briefs, or routing requests, and Skill Builder turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the right workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Canva access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps so the agent can gather information, prepare updates, or trigger approved workflows without overreaching."
+    },
+    {
+      "title": "Automated scenarios are tested",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "The Skill improves itself",
+      "description": "Skill Builder uses those test findings to refine the Skill automatically so the final Canva workflow is clearer, safer, and more reliable before anyone uses it."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Canva?",
+      "answer": "With DocsBot Skill Builder, you describe the Canva workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Canva data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a Canva-focused Skill to look up approved design workflow information, summarize asset status, collect missing request details, and prepare internal handoffs while responding to customers."
+    },
+    {
+      "question": "What Canva workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help teams find templates, follow brand or design SOPs, prepare creative briefs, route requests, summarize project context, and trigger approved workflow steps connected to Canva processes."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent is allowed to do with Canva?",
+      "answer": "Yes, Skill Builder defines secure configuration, keeps secrets out of chats and Skill source, scopes permissions to the minimum required access, and adds approval boundaries for sensitive updates or workflow actions."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs for design or marketing teams using Canva workflows?",
+      "answer": "Yes, the agent can collect requirements from customers or employees, organize them into a structured brief, summarize the request history, and pass that handoff to the right team for Canva-based work."
+    },
+    {
+      "question": "Do I need technical skills to set up a Canva AI workflow in DocsBot?",
+      "answer": "No, you describe the result you want, and Skill Builder handles the workflow design, connection details, security decisions, testing, improvements, and deployment steps for you."
+    }
+  ],
+  "relatedSlugs": [
+    "figma",
+    "adobe-express",
+    "google-drive",
+    "dropbox",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Canva",
+    "domain": "canva.com",
+    "description": "Canva is a global online visual communications platform that empowers anyone to design. Through a simple drag‑and‑drop interface and a massive library of templates, fonts, stock photos, illustrations, video and audio, users can create presentations, social media graphics, websites, posters, apparel, videos and more on any device. Founded in 2013, Canva’s mission is to make design accessible to all, democratizing visual communication and fostering creativity without complex software. The company also commits to being a force for good, aiming to build a valuable business while positively impacting the world.",
+    "slogan": "Empowering the world to design simply and beautifully everywhere.",
+    "logoUrl": "https://media.brand.dev/c5dd2277-f638-4e38-a895-2fe37213c086.svg",
+    "iconUrl": "https://media.brand.dev/24d66aaa-b2ba-4a21-80ec-6f476fc7d645.png",
+    "primaryColor": "#3182dc",
+    "accentColor": "#75d0df",
+    "colors": [
+      {
+        "hex": "#3182dc",
+        "name": "Soothing Sapphire"
+      },
+      {
+        "hex": "#75d0df",
+        "name": "Summer of ’82"
+      },
+      {
+        "hex": "#0cc5ce",
+        "name": "Turquoise Surf"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c4f7689c-1602-4f66-bc5d-afdb4d03558c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": "https://www.canva.com/contact-sales/",
+      "blog": "https://www.canva.com/newsroom/news/",
+      "pricing": "https://www.canva.com/pricing/",
+      "terms": "https://www.canva.com/policies/terms-of-use/",
+      "privacy": "https://www.canva.com/policies/privacy-policy/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e3a556df-cf82-4782-85b5-2a875552778a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c5dd2277-f638-4e38-a895-2fe37213c086.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 80,
+        "height": 30,
+        "aspectRatio": 2.67
+      },
+      {
+        "url": "https://media.brand.dev/24d66aaa-b2ba-4a21-80ec-6f476fc7d645.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 193,
+        "height": 192,
+        "aspectRatio": 1.01
+      },
+      {
+        "url": "https://media.brand.dev/895b0b46-9b24-45ac-8508-f2d06291c76e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c5dd2277-f638-4e38-a895-2fe37213c086.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 80,
+      "height": 30,
+      "aspectRatio": 2.67
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e3a556df-cf82-4782-85b5-2a875552778a.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

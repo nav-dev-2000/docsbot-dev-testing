@@ -1,0 +1,160 @@
+{
+  "slug": "opsgenie",
+  "name": "Opsgenie",
+  "domain": "opsgenie.com",
+  "category": "Incident Management",
+  "trutoCategory": "Incident Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Opsgenie",
+  "metaTitle": "Build AI Support and Internal Agents for Opsgenie",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up alerts, summarize incidents, trigger escalations, and support safe Opsgenie workflows.",
+  "intro": "Opsgenie helps teams manage alerts, incidents, escalations, and on-call response. With DocsBot Skill Builder, you can describe the Opsgenie workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve incident context, prepare handoffs, and take approved actions in Opsgenie while staying within secure boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a known incident or active alert is affecting a customer and reply with a clear status summary.",
+    "Use a support agent connected to your helpdesk to create or update an Opsgenie alert when a customer reports a critical outage or repeated service failure.",
+    "Have the agent summarize incident timeline details from Opsgenie and add that context to a support reply or escalation handoff.",
+    "Enable the agent to check escalation state or on-call ownership in Opsgenie so customers receive accurate expectations about response progress.",
+    "Let the agent attach customer-reported impact details to an approved Opsgenie workflow so internal responders get cleaner incident context faster."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up current Opsgenie alerts, incidents, and ownership without opening multiple tools.",
+    "Operations or support teams can ask the agent to summarize active incident state, recent alert activity, and escalation progress for faster internal coordination.",
+    "Team members can use the agent to follow incident SOPs, gather missing details, and trigger approved Opsgenie actions from a guided chat workflow.",
+    "Managers and responders can ask the agent to prepare incident handoff notes, stakeholder updates, or shift summaries based on Opsgenie activity.",
+    "Internal teams can use the agent to research recurring alert patterns alongside connected systems and generate more complete escalation context."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks active Opsgenie incidents before answering outage-related customer questions.",
+    "A helpdesk assistant that creates Opsgenie alerts from high-priority customer tickets with structured impact details.",
+    "An internal incident assistant that summarizes alert status, responders, and escalation progress on demand.",
+    "A shift handoff agent that generates concise incident summaries from recent Opsgenie activity.",
+    "A triage workflow that gathers missing outage details before triggering an approved Opsgenie escalation.",
+    "An employee AI assistant that explains on-call ownership and current incident state in chat."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Opsgenie, such as checking incident status, creating alerts, or preparing escalation handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the secure workflow, identifies the required configuration values, handles connection and authentication setup, protects and proxies secrets through secure runtime configuration, and scopes access to only the records, users, and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow includes important updates or escalations, Skill Builder adds approval boundaries and safe action limits so the agent can help quickly without exceeding the permissions you intend."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Opsgenie actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Opsgenie without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Opsgenie workflow you want in plain language and the builder designs, secures, tests, and prepares the Skill for deployment. It handles connection details, protected secrets, scoped permissions, and approval boundaries behind the scenes."
+    },
+    {
+      "question": "Can an AI support agent use Opsgenie data to answer outage or incident questions?",
+      "answer": "Yes, a DocsBot support agent can use an Opsgenie Skill to look up alert or incident status, summarize what is happening, and use that context in customer chat or ticket replies. You control what data and actions the agent is allowed to access."
+    },
+    {
+      "question": "Can DocsBot create Opsgenie alerts from customer support conversations?",
+      "answer": "Yes, you can build a workflow where the agent gathers the right details from a customer conversation or helpdesk ticket and then creates or updates an Opsgenie alert within approved rules. Skill Builder can also add human approval steps for higher-risk actions."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Opsgenie?",
+      "answer": "Internal agents can summarize active incidents, check on-call ownership, prepare handoff notes, guide responders through SOPs, and trigger approved escalation workflows. This helps employees work from chat while keeping actions bounded and auditable."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in Opsgenie?",
+      "answer": "DocsBot Skill Builder is designed to create Skills with secure configuration, protected authentication handling, secret proxying, scoped permissions, and approval boundaries for sensitive steps. That lets you define exactly which Opsgenie lookups and actions the agent may perform."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Opsgenie incidents for support handoffs and escalations?",
+      "answer": "Yes, a Skill can collect incident details from Opsgenie and generate concise summaries for support teams, responders, or leadership updates. It can also prepare structured handoff notes so the next team has the right context immediately."
+    }
+  ],
+  "relatedSlugs": [
+    "pagerduty",
+    "jira-service-management",
+    "servicenow",
+    "zendesk",
+    "freshservice",
+    "statuspage"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OpsGenie",
+    "domain": "opsgenie.com",
+    "description": "Atlassian is a global software company that builds tools to help teams collaborate, plan, and deliver work efficiently. Through its suite of products—including Jira for flexible project management, Confluence for knowledge sharing, Jira Service Management for high‑velocity service delivery, Bitbucket for source code and CI/CD, and Opsgenie for incident response—Atlassian enables developers, product managers, IT professionals, and business leaders to streamline workflows, improve visibility, and accelerate outcomes. The company also offers AI‑powered extensions like Rovo Dev and strategic solutions such as Focus, Talent, and Align to optimize planning, workforce management, and value delivery across enterprises of all sizes.",
+    "slogan": "Supercharge teamwork seamlessly",
+    "logoUrl": "https://media.brand.dev/864c7365-c704-4d92-9837-4e95e5f97200.svg",
+    "iconUrl": "https://media.brand.dev/ad8450cf-524e-44dc-ae57-94c02c23a311.jpg",
+    "primaryColor": "#207aef",
+    "accentColor": "#8cc4e9",
+    "colors": [
+      {
+        "hex": "#207aef",
+        "name": "Clear Blue"
+      },
+      {
+        "hex": "#8cc4e9",
+        "name": "Astral Spirit"
+      },
+      {
+        "hex": "#f0f7f8",
+        "name": "Distant Horizon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d001044c-f828-4ddb-ac4d-c2b7e041e2ae.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ad8450cf-524e-44dc-ae57-94c02c23a311.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/864c7365-c704-4d92-9837-4e95e5f97200.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 187,
+        "height": 30,
+        "aspectRatio": 6.23
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/864c7365-c704-4d92-9837-4e95e5f97200.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 187,
+      "height": 30,
+      "aspectRatio": 6.23
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ad8450cf-524e-44dc-ae57-94c02c23a311.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

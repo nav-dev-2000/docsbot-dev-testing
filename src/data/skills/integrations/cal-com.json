@@ -1,0 +1,156 @@
+{
+  "slug": "cal-com",
+  "name": "Cal.com",
+  "domain": "cal-com.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Scheduling",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Cal.com Scheduling",
+  "metaTitle": "Build AI Agents for Cal.com Scheduling with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Cal.com to check availability, book meetings, update appointments, route handoffs, and support internal scheduling workflows safely.",
+  "intro": "Cal.com helps teams manage scheduling, availability, and booking workflows across customer and internal meetings. With DocsBot Skill Builder, you can describe the scheduling outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent look up availability, create or update bookings, prepare handoffs, and trigger approved scheduling actions. This helps customer-facing support agents and internal team assistants move from answering questions to safely completing scheduling work.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check appointment availability in Cal.com and suggest open time slots during a website chat or support ticket reply.",
+    "Enable the agent to create a Cal.com booking for a demo, onboarding call, consultation, or support session after collecting the customer’s preferred time and required details.",
+    "Allow the agent to reschedule or cancel an existing Cal.com booking when a customer asks for a change in chat or through a helpdesk conversation.",
+    "Have the agent summarize booking status, host details, meeting type, and next steps from Cal.com so customers get a clear answer without waiting for a human handoff.",
+    "Use the agent to prepare escalation handoffs by creating or updating a scheduling record and passing the meeting context to the right team member for follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find available meeting times in Cal.com without switching tools.",
+    "Teams can ask the agent to create interview loops, customer check-in meetings, implementation calls, or internal reviews based on approved scheduling rules.",
+    "Support, success, and operations employees can use the agent to reschedule appointments, confirm booking details, or summarize upcoming meetings while following internal SOPs.",
+    "Managers and coordinators can chat with the agent to research scheduling conflicts, identify open slots across meeting types, and prepare handoff notes for the right owner.",
+    "Internal teams can use the agent to trigger multi-step workflows that combine Cal.com scheduling updates with follow-up messages, task creation, or escalation preparation in connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that books product demos or onboarding calls from customer chat conversations.",
+    "A scheduling assistant that checks Cal.com availability and offers approved meeting options to customers.",
+    "An internal agent that reschedules meetings and confirms updated appointment details for employees.",
+    "A helpdesk agent that turns support escalations into booked follow-up calls with the right team.",
+    "A team assistant that summarizes upcoming bookings, hosts, invitees, and meeting purposes on demand.",
+    "An AI workflow that collects missing booking details before creating a Cal.com appointment safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Cal.com, such as checking availability, booking meetings, or handling reschedules, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the needed configuration values, connection method, and authentication flow, then securely stores and proxies secrets so credentials stay out of chats, prompts, and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder defines the minimum access the agent needs for the workflow, limits actions to the right records and users, and adds approval boundaries for sensitive scheduling changes or higher-risk actions."
+    },
+    {
+      "title": "The workflow is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal scheduling scenarios, checks for bugs, missing instructions, and weak permission controls, and feeds fixes into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot agent or private employee assistant so it can safely answer questions and take approved scheduling actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Cal.com scheduling?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up availability, create or update bookings, summarize meeting details, and trigger approved follow-up actions."
+    },
+    {
+      "question": "Can an AI support agent use Cal.com to book or reschedule meetings for customers?",
+      "answer": "Yes, a DocsBot support agent can use Cal.com data and actions to offer time slots, create bookings, reschedule appointments, or cancel meetings within the rules and approvals you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Cal.com?",
+      "answer": "A DocsBot agent can handle meeting availability checks, booking requests, appointment changes, escalation call scheduling, and meeting-status summaries while responding in chat widgets or helpdesk tickets."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage scheduling in Cal.com?",
+      "answer": "Yes, private DocsBot agents can help employees check calendars, coordinate meeting times, reschedule appointments, prepare meeting summaries, and complete scheduling SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Cal.com actions secure?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, scopes permissions to the minimum required access, and can require approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "Can DocsBot use Cal.com data to prepare handoffs or escalations?",
+      "answer": "Yes, the agent can pull booking details, summarize the current scheduling state, and create a clearer handoff for sales, support, success, or operations teams before a human takes over."
+    }
+  ],
+  "relatedSlugs": [
+    "acuity-scheduling",
+    "calendly",
+    "google-calendar",
+    "microsoft-outlook-calendar",
+    "zoom",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Calhoun Communications",
+    "domain": "cal-com.com",
+    "description": "Calhoun Communications (Calhoun) is a Midwest‑based provider of custom wireless networking solutions. Leveraging over 35 years of experience, Calhoun designs, deploys, and maintains high‑capacity microwave and RF systems for internet service providers, telcos, public safety agencies, utilities, government entities, and municipalities. Their rapid‑deployment, turnkey approach offers a single source for voice, video, data, and mobility services, reducing project time, cost, and rework. Calhoun’s team of tier‑one network engineers and project managers ensures scalable, reliable connectivity in challenging environments, from point‑to‑point links to large‑scale infrastructure upgrades. They focus on customer‑centric design, ongoing support, and long‑term partnership to keep communities and businesses connected.",
+    "slogan": "Helping Connect The Midwest",
+    "logoUrl": "https://media.brand.dev/18063f6c-7514-4451-aded-d5059386a7f7.svg",
+    "iconUrl": "https://media.brand.dev/1d134e0d-2831-41c4-b8e0-bd1092548aa2.png",
+    "primaryColor": "#bc2331",
+    "accentColor": "#040b0c",
+    "colors": [
+      {
+        "hex": "#bc2331",
+        "name": "Demonic"
+      },
+      {
+        "hex": "#040b0c",
+        "name": "Dark Side of the Moon"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/18063f6c-7514-4451-aded-d5059386a7f7.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 182,
+        "height": 40,
+        "aspectRatio": 4.55
+      },
+      {
+        "url": "https://media.brand.dev/1d134e0d-2831-41c4-b8e0-bd1092548aa2.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/18063f6c-7514-4451-aded-d5059386a7f7.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 182,
+      "height": 40,
+      "aspectRatio": 4.55
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1d134e0d-2831-41c4-b8e0-bd1092548aa2.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 150,
+      "height": 150,
+      "aspectRatio": 1
+    }
+  }
+}

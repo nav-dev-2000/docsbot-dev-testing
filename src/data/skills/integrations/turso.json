@@ -1,0 +1,112 @@
+{
+  "slug": "turso",
+  "name": "Turso",
+  "domain": "turso.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Turso",
+  "metaTitle": "Build AI Agents for Turso with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Turso for safe data lookups, updates, summaries, and workflow actions in customer support and internal team chats.",
+  "intro": "Turso can power fast data lookups and lightweight application workflows, and DocsBot Skill Builder helps you turn that access into a reusable AI agent ability. In plain language, you describe what the agent should do with Turso data, and Skill Builder designs, secures, tests, improves, and deploys the Skill for support or internal use. The result is an AI agent that can answer questions and take bounded action instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent query Turso-backed product, account, or order data to answer customer questions in a website chat widget or helpdesk reply.",
+    "Have the agent summarize records stored in Turso so customers get clear status updates without waiting for a manual lookup from your support team.",
+    "Enable the agent to create approved handoff records or follow-up tasks in Turso when a customer issue needs human review.",
+    "Allow the agent to update safe fields in Turso, such as support notes or case status, while it responds to customers and keeps the conversation moving.",
+    "Use the agent to collect missing details from a customer, write them into a Turso-backed workflow, and prepare an escalation summary for the next team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up Turso data across internal tools and get fast answers with context.",
+    "Operations teams can ask the agent to summarize records, identify missing fields, and prepare next-step recommendations from Turso-backed workflow data.",
+    "Support managers can use the agent to create or update approved records in Turso while following internal SOPs without leaving the chat conversation.",
+    "Customer success and operations employees can chat with the agent to research account history, generate handoff notes, and trigger bounded follow-up workflows backed by Turso data.",
+    "Internal teams can use the agent as a guided workflow assistant that checks Turso records, gathers required information, and completes repeatable process steps safely."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Turso-backed order or account records before replying to customers.",
+    "A private operations assistant that summarizes Turso data and flags missing workflow details.",
+    "A customer service agent that writes approved support notes back to Turso records.",
+    "An internal assistant that creates handoff records from chat conversations and ticket context.",
+    "An AI workflow helper that gathers customer details and updates safe fields in Turso.",
+    "A support escalation assistant that prepares concise case summaries using Turso lookup results."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Turso in plain language, such as looking up records, updating safe fields, or preparing handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, chooses the needed configuration values, and plans how the DocsBot agent should use Turso during support or internal conversations."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines authentication and runtime connection handling, protects and proxies secrets by default, and keeps credentials out of chats, instructions, and generated Skill content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries whenever an update, trigger, or sensitive action should be reviewed first."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "An automated testing agent runs imagined customer support and employee scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Turso data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and Skill Builder creates a reusable Skill that can query, summarize, and update approved Turso data safely. It also handles secure configuration, authentication design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Turso during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Turso Skill to look up customer-facing information, summarize status, collect missing details, and prepare handoffs while responding in a website widget or ticket workflow. Actions can be bounded so the agent only reads data or updates specific approved fields."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Turso?",
+      "answer": "A DocsBot agent can retrieve live record data, add support notes, update limited statuses, prepare escalation summaries, and trigger follow-up workflows based on customer messages. Skill Builder helps define exactly which actions are allowed and where approval is required."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Turso from Slack or Microsoft Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to search Turso-backed records, summarize account or workflow state, and complete approved operational steps without switching tools. This is useful for support, customer success, and operations teams that need quick access to structured data."
+    },
+    {
+      "question": "How does DocsBot keep Turso access secure for AI agents?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also scopes permissions to the smallest practical set of actions, records, and users, with approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can DocsBot update Turso records instead of only reading them?",
+      "answer": "Yes, if you want the agent to take action, Skill Builder can create bounded workflows for approved updates such as notes, status changes, or handoff creation. You control what the agent is allowed to change and when extra approval should be required."
+    }
+  ],
+  "relatedSlugs": [
+    "postgres",
+    "supabase",
+    "airtable",
+    "mongodb",
+    "firebase"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Turso",
+    "domain": "turso.com",
+    "description": "Turso Interactive is a digital media and interactive solutions firm that builds and manages online presences for niche e‑commerce brands. Specializing in the candle market, Turso creates branded websites, e‑storefronts, and marketing campaigns for companies such as TheBestCandles.com, BuyACandle.com, and BayberryCandleFactory.com. The company offers web design, hosting, SEO, and content services that help candle manufacturers reach customers online and grow their sales. By combining creative design with technical expertise, Turso Interactive enables small‑to‑medium retailers to showcase products, drive traffic, and maintain a cohesive brand experience across the web.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

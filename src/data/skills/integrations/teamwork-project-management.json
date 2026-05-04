@@ -1,0 +1,184 @@
+{
+  "slug": "teamwork-project-management",
+  "name": "Teamwork Project Management",
+  "domain": "teamwork-project-management.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Teamwork Project Management",
+  "metaTitle": "Teamwork Project Management AI Agent | DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use Teamwork Project Management for support lookups, project updates, handoffs, workflow triggers, and internal team operations.",
+  "intro": "Teamwork helps companies manage projects, tasks, clients, and delivery work in one place. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Teamwork, and DocsBot can design a reusable Skill for customer support or internal operations. The result is an AI agent that not only answers questions, but can also look up project status, prepare handoffs, update approved records, and trigger bounded actions safely.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Teamwork project progress, milestone status, or task ownership when customers ask for delivery updates.",
+    "Use the agent to create a structured handoff note in Teamwork when a customer issue needs follow-up from an account manager, project manager, or implementation team.",
+    "Allow the agent to summarize recent Teamwork activity on a client project so support replies include the latest approved context without manual research.",
+    "Enable the agent to log a follow-up task in Teamwork after a customer conversation when a promised action, review, or callback is required.",
+    "Have the agent collect missing information from the customer and then create or update a Teamwork item for onboarding, change requests, or post-support work within approved limits."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Teamwork project status, overdue tasks, milestone risks, and client delivery summaries.",
+    "Project managers can ask the agent to prepare standup summaries, weekly status updates, or executive briefings by pulling current information from Teamwork.",
+    "Operations and customer success teams can use the agent to create standardized Teamwork tasks, assign owners, and launch follow-up workflows based on internal SOPs.",
+    "Employees can ask the agent to research project history across Teamwork and connected documentation so they can answer client questions faster and with better context.",
+    "Internal teams can use the agent to guide repeatable workflows such as onboarding transitions, escalation prep, project health reviews, and delivery handoffs while updating Teamwork in bounded ways."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks project milestones before replying to delivery status questions.",
+    "A customer success assistant that creates Teamwork follow-up tasks after chat or ticket conversations.",
+    "An internal project bot that summarizes overdue tasks, blockers, and next steps for teams.",
+    "An escalation assistant that prepares handoff notes using Teamwork project activity and ownership data.",
+    "A service delivery agent that gathers missing details and logs approved project work items.",
+    "A leadership reporting assistant that turns Teamwork data into concise weekly project summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Teamwork in plain language, such as checking project status, creating follow-up tasks, or preparing handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, sets up safe authentication handling, protects and proxies secrets, and scopes access to the minimum Teamwork actions, records, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, action limits, and approval boundaries so the agent can answer questions and take approved Teamwork actions without exceeding your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds those findings into a self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for your website chat, helpdesk workflow, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Teamwork Project Management data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking project status or creating follow-up tasks, and Skill Builder designs, secures, tests, and prepares the Teamwork workflow for deployment. The finished Skill can power customer-facing support agents or private internal assistants."
+    },
+    {
+      "question": "Can an AI support agent use Teamwork to answer customer project questions?",
+      "answer": "Yes, a DocsBot support agent can use Teamwork data to look up project progress, task ownership, milestone status, and recent activity so replies are grounded in current delivery information. It can also prepare handoffs or create approved follow-up work when a conversation needs action beyond the initial response."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Teamwork Project Management?",
+      "answer": "DocsBot can help automate delivery status lookups, follow-up task creation, escalation handoff notes, project activity summaries, and collection of missing customer details before creating or updating approved Teamwork records. The exact actions are defined by the workflow you want Skill Builder to create."
+    },
+    {
+      "question": "Can an internal AI assistant update Teamwork records for employees?",
+      "answer": "Yes, an internal DocsBot agent can be designed to create tasks, update approved fields, assign work, or trigger project workflows inside Teamwork within the permissions and action limits you set. Skill Builder scopes access carefully and can add approval steps for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Teamwork access secure for AI agents?",
+      "answer": "Skill Builder defines secure connection settings, keeps secrets out of chats and Skill content, proxies credentials through protected runtime configuration, and limits access to the minimum records and actions needed. It can also enforce approval boundaries so higher-risk updates require explicit review before they run."
+    },
+    {
+      "question": "Can DocsBot create Teamwork handoffs and escalation summaries automatically?",
+      "answer": "Yes, DocsBot can generate structured handoff notes, escalation summaries, and next-step briefings using Teamwork project context and the conversation itself. This helps support, success, and delivery teams move work forward without losing important details."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "clickup",
+    "monday-com",
+    "jira",
+    "trello",
+    "basecamp"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Teamwork",
+    "domain": "teamwork.com",
+    "description": "Teamwork.com is a project management platform that combines powerful project management with streamlined operations, designed for managing client projects profitably. Headquartered in Cork, Ireland, the company was founded by a team with agency experience and has grown to serve over 20,000 customers worldwide with a global team of over 350 employees.",
+    "slogan": "Streamline teamwork, boost productivity, and manage projects profitably worldwide.",
+    "logoUrl": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+    "iconUrl": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+    "primaryColor": "#db3f9c",
+    "accentColor": "#141c2c",
+    "colors": [
+      {
+        "hex": "#db3f9c",
+        "name": "Prunus Avium"
+      },
+      {
+        "hex": "#141c2c",
+        "name": "Sambucus"
+      },
+      {
+        "hex": "#848c94",
+        "name": "Common Feldspar"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9f57141e-3866-4046-a37d-629733826801.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.teamwork.com/careers/",
+      "terms": "https://www.teamwork.com/legal/",
+      "contact": "https://www.teamwork.com/contact/sales/",
+      "privacy": "https://www.teamwork.com/legal/privacy-notice/",
+      "blog": "https://www.teamwork.com/blog/",
+      "pricing": "https://www.teamwork.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/db8a8559-1bcb-4d12-9da1-2ccd88551000.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d1d49327-1745-4b6e-99f5-31b8a39d8bc8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 565,
+        "height": 565,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 181,
+        "height": 20,
+        "aspectRatio": 9.05
+      },
+      {
+        "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 181,
+      "height": 20,
+      "aspectRatio": 9.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

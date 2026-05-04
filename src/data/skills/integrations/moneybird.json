@@ -1,0 +1,160 @@
+{
+  "slug": "moneybird",
+  "name": "Moneybird",
+  "domain": "moneybird.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Moneybird",
+  "metaTitle": "Build AI Agents for Moneybird with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Moneybird for invoice lookups, accounting updates, handoffs, and internal finance workflows with secure, tested Skills.",
+  "intro": "Moneybird helps businesses manage invoicing, billing, and day-to-day accounting tasks. With DocsBot Skill Builder, you can describe the Moneybird workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, check financial records, prepare handoffs, and take approved actions inside Moneybird without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check invoice status in Moneybird and explain whether an invoice is open, paid, overdue, or recently updated.",
+    "Use a support agent to look up customer billing details in Moneybird and answer questions about payment references, invoice dates, or outstanding balances.",
+    "Enable the agent to create a draft billing handoff when a customer disputes a charge, so finance or support staff receive the right context immediately.",
+    "Have the agent summarize a customer's recent Moneybird invoice activity inside a helpdesk ticket to speed up escalation and follow-up.",
+    "Allow the agent to trigger an approved workflow for sending payment instructions or routing a billing issue to the correct team based on Moneybird data."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up invoice records, customer balances, and billing history from Moneybird without manually searching the finance system.",
+    "Finance and operations teams can ask the agent to summarize overdue accounts, recent invoice changes, or account activity in Moneybird for faster internal decision-making.",
+    "Customer success or account teams can use the agent in Slack or Microsoft Teams to prepare billing-aware renewal, collection, or service handoff workflows using Moneybird context.",
+    "Employees can chat with the agent to follow finance SOPs, such as checking invoice status, gathering missing account context, and drafting the next approved action for review.",
+    "Internal teams can use the agent to create structured summaries or escalation notes based on Moneybird records so finance, support, and operations stay aligned."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Moneybird invoice status during billing conversations.",
+    "A finance assistant that summarizes open balances and recent invoice activity for employees.",
+    "A helpdesk workflow that prepares billing dispute handoffs using Moneybird account context.",
+    "A private AI agent that retrieves payment references and invoice timelines on request.",
+    "An internal collections assistant that flags overdue invoices and suggests approved next steps.",
+    "A support agent that routes billing questions using Moneybird customer and invoice data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Moneybird, such as checking invoice status, summarizing billing history, or preparing a finance handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the configuration values the Skill needs, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive Moneybird actions, Skill Builder adds approval boundaries, safe action limits, and role-aware permissions so the agent can help without making uncontrolled billing or accounting changes."
+    },
+    {
+      "title": "The Skill is tested and improved",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing checks, or weak instructions, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so your team can use Moneybird-powered AI Actions with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Moneybird without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Moneybird workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for you. It handles connection details, secret protection, scoped permissions, and deployment guidance so non-technical teams can launch useful AI actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Moneybird data to answer billing questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up approved Moneybird invoice and account details while responding in a website chat widget or helpdesk ticket. This helps customers get fast answers about invoice status, payment references, and billing history while keeping actions within your rules."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Moneybird?",
+      "answer": "You can build workflows for invoice lookups, billing summaries, dispute handoff preparation, routing to finance, and approved follow-up actions based on Moneybird records. The agent can answer the customer, gather missing context, and prepare the next step instead of only explaining what a human should do."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Moneybird?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve billing information, summarize account activity, and follow finance or operations SOPs using Moneybird data. Teams can access the agent through chat, Slack, or Microsoft Teams to reduce manual searching and speed up routine workflows."
+    },
+    {
+      "question": "How does DocsBot keep Moneybird actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration values, keep credentials out of chats and generated content, proxy secrets through approved runtime settings, and limit access to the minimum records and actions needed. It can also add approval steps and action boundaries for sensitive financial workflows."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in Moneybird?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating handoff records, updating approved fields, or triggering related workflows when your process allows it. Skill Builder helps define those limits clearly so the agent only performs safe actions under your chosen controls."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "freshbooks",
+    "stripe",
+    "chargebee",
+    "netsuite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Moneybird",
+    "domain": "moneybird.com",
+    "description": "Moneybird is an online billing and accounting platform designed for small to medium-sized enterprises (SMEs), freelancers, and service providers. It simplifies financial management by allowing users to create and send invoices online, track finances, and save time. The platform offers an easy-to-use alternative to complex bookkeeping software and traditional methods like Excel and Word, providing a straightforward solution for managing financial tasks such as invoicing and VAT declarations.",
+    "slogan": "Create, send, and manage invoices effortlessly with Moneybird.",
+    "logoUrl": "https://media.brand.dev/49763986-ef99-4f00-8570-030ceb789d5a.jpg",
+    "iconUrl": "https://media.brand.dev/49763986-ef99-4f00-8570-030ceb789d5a.jpg",
+    "primaryColor": "#0474eb",
+    "accentColor": "#79b4e7",
+    "colors": [
+      {
+        "hex": "#0474eb",
+        "name": "Níu Zǎi Sè Denim"
+      },
+      {
+        "hex": "#79b4e7",
+        "name": "Aero"
+      },
+      {
+        "hex": "#2493fc",
+        "name": "Clear Chill"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/aec5a903-c494-4500-bb49-8b78824f3db9.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": "https://www.moneybird.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/49763986-ef99-4f00-8570-030ceb789d5a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/05e50d07-4915-41f7-a9a6-97b64594b3a8.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/05e50d07-4915-41f7-a9a6-97b64594b3a8.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/05e50d07-4915-41f7-a9a6-97b64594b3a8.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    }
+  }
+}

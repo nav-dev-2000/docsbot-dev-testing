@@ -1,0 +1,168 @@
+{
+  "slug": "devrev",
+  "name": "DevRev",
+  "domain": "devrev.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with DevRev",
+  "metaTitle": "Build DevRev AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use DevRev for support lookups, case updates, handoffs, workflow triggers, and internal team workflows with safe controls.",
+  "intro": "DevRev helps teams manage customer conversations, work, and cross-functional workflows in one AI-ready platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent safely use DevRev data and actions. The result is an AI agent that can answer questions, look up live records, prepare handoffs, update approved fields, and trigger bounded workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up DevRev tickets, cases, or account history and answer customers with the latest status in chat or helpdesk replies.",
+    "Use the agent to create a DevRev case or task from a customer conversation when an issue needs follow-up beyond the chat session.",
+    "Allow the agent to update approved DevRev fields such as priority, category, or ownership after gathering the right context from the customer.",
+    "Have the agent summarize a customer's issue, recent DevRev activity, and next steps before handing the conversation to a human support team.",
+    "Enable the agent to trigger a DevRev workflow for escalation, bug follow-up, or customer success review when a defined support condition is met."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve DevRev account, ticket, and work-item details without digging through multiple screens.",
+    "Enable support, success, and operations teams to ask the agent for a summary of open DevRev work, recent customer issues, and blocked items for a specific account or product area.",
+    "Allow employees to use the agent to create DevRev tasks, assign follow-ups, and document handoff notes as part of internal SOPs.",
+    "Help managers and team leads ask the agent to compile DevRev activity summaries for renewals, escalations, incident reviews, or executive updates.",
+    "Support cross-functional workflows where employees chat with the agent to research a customer situation and trigger approved DevRev processes with clear approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks DevRev case status before replying to customers.",
+    "A customer chatbot that creates DevRev follow-up records from product or website conversations.",
+    "An internal assistant that summarizes DevRev account activity for support and success teams.",
+    "A triage agent that updates approved DevRev fields after collecting missing customer details.",
+    "A handoff assistant that prepares DevRev escalation notes and next-step summaries automatically.",
+    "A workflow agent that triggers DevRev follow-up processes when defined support rules are met."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the DevRev agent to do in plain language, such as checking case status, creating follow-ups, or preparing escalations for support teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a reusable Skill, decides the safest workflow design, identifies the required DevRev configuration values, and defines secure authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes DevRev access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Tests and improvements run",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into a self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps deploy the Skill to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can ask questions and take bounded action through DevRev."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with DevRev?",
+      "answer": "With DocsBot Skill Builder, you describe the DevRev workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your DocsBot agent. That agent can then look up DevRev data, summarize records, update approved fields, and trigger bounded workflows based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use DevRev data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a DevRev Skill to retrieve live case, task, or account information while responding in a website chat widget or helpdesk context. This helps the agent give more accurate status updates, gather context, and prepare clean handoffs when human follow-up is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with DevRev?",
+      "answer": "A DevRev Skill can help automate lookups, ticket or case creation, approved field updates, escalation preparation, workflow triggers, and conversation summaries. You define the allowed actions and approval boundaries so the agent stays within safe operating limits."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside DevRev?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve DevRev information, summarize customer situations, create follow-up work, and complete routine workflows across support, success, and operations teams. This reduces tool-switching and helps teams follow SOPs more consistently."
+    },
+    {
+      "question": "How does DocsBot handle DevRev authentication and secrets safely?",
+      "answer": "Skill Builder defines the connection requirements, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and Skill source by design. It also scopes permissions to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I require approval before an AI agent updates DevRev records?",
+      "answer": "Yes, Skill Builder can add approval boundaries and safe action limits for sensitive DevRev operations. That means the agent can gather context and prepare the action, while routing certain updates, escalations, or workflow triggers for human review when needed."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "zendesk",
+    "linear",
+    "freshdesk",
+    "intercom",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "DevRev",
+    "domain": "devrev.com",
+    "description": "DevRev builds the future of work with its AI teammate, Computer. Computer unifies data sources, tools, and workflows into a single AI‑ready platform, delivering real‑time insights, proactive suggestions, and agentic actions. The platform extends existing software with AI‑native apps and agents that collaborate alongside teams and customers, updating workflows, coordinating across departments, and eliminating repetitive tasks. DevRev calls this \"Team Intelligence,\" a human‑AI collaboration that breaks down silos and frees employees to tackle larger problems. Backed by Khosla Ventures and Mayfield with over $150M raised, DevRev serves global enterprises across industries, offering the only AI with native shared memory for trustworthy answers and actions.",
+    "slogan": "AI you can trust",
+    "logoUrl": "https://media.brand.dev/a4e6290a-f46a-4c22-8ae5-74cc70020b16.svg",
+    "iconUrl": "https://media.brand.dev/88035811-6f74-4501-b997-9bd1ef1d86a2.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#d6d6d6",
+        "name": "Silver Medal"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/eb9f7b8d-ae47-45a2-8e04-b775beda985d.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/88035811-6f74-4501-b997-9bd1ef1d86a2.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1c48fbe5-98e4-4eaf-afd5-b095ef4bb717.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 691,
+        "height": 720,
+        "aspectRatio": 0.96
+      },
+      {
+        "url": "https://media.brand.dev/a4e6290a-f46a-4c22-8ae5-74cc70020b16.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1338,
+        "height": 216,
+        "aspectRatio": 6.19
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a4e6290a-f46a-4c22-8ae5-74cc70020b16.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1338,
+      "height": 216,
+      "aspectRatio": 6.19
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1c48fbe5-98e4-4eaf-afd5-b095ef4bb717.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 691,
+      "height": 720,
+      "aspectRatio": 0.96
+    }
+  }
+}

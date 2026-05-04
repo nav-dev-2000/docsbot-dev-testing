@@ -1,0 +1,200 @@
+{
+  "slug": "cyberark-identity-management",
+  "name": "CyberArk Identity Management",
+  "domain": "cyberark-identity-management.com",
+  "category": "Identity & Access",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with CyberArk Identity Management",
+  "metaTitle": "CyberArk Identity Management AI Agents for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use CyberArk Identity Management for secure lookups, approvals, access workflows, and identity-related support or internal operations.",
+  "intro": "CyberArk Identity Management helps organizations secure identities, access, and privileged workflows across employees, contractors, and systems. With DocsBot Skill Builder, you can describe the identity or access workflow you want in plain language and have DocsBot create a reusable Skill that safely connects your AI agent to CyberArk Identity Management. This lets customer-facing support agents and private internal AI assistants answer questions, gather context, trigger approved identity workflows, and prepare secure handoffs without exposing sensitive credentials or broad admin access.",
+  "supportUseCases": [
+    "Let a DocsBot support agent check identity-related status information, such as whether a user account is active or pending, before guiding a customer through the next approved step.",
+    "Use a customer-facing AI agent to collect the details needed for an access issue, summarize the case, and create a secure handoff for identity or security teams.",
+    "Enable a helpdesk-connected DocsBot agent to look up approved user or group information in CyberArk Identity Management and give customers clearer answers about login or access problems.",
+    "Allow the agent to trigger bounded workflows such as password reset initiation, access review preparation, or account recovery escalation when your policies allow it.",
+    "Have the agent summarize authentication or provisioning state from CyberArk Identity Management so support teams can respond faster and with better context in tickets."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to check access status, identity details, or workflow progress without opening multiple admin tools.",
+    "Enable IT, security, or operations teams to ask the agent to gather user context from CyberArk Identity Management, summarize the current state, and recommend the next approved SOP step.",
+    "Allow helpdesk staff to use an internal AI assistant to prepare access-related handoffs, escalation notes, and audit-friendly summaries based on CyberArk Identity Management data.",
+    "Support manager or analyst workflows where employees ask the agent to start approved identity requests, route approvals, or verify onboarding and offboarding status within defined limits.",
+    "Give internal teams an AI assistant that can answer policy-grounded questions about identity operations while also taking bounded actions inside approved CyberArk Identity Management workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that verifies account and access status before responding to login issues.",
+    "A helpdesk assistant that prepares identity escalation summaries using live CyberArk Identity Management context.",
+    "An internal AI agent that starts approved password reset or recovery workflows with approval boundaries.",
+    "A team assistant that checks onboarding, offboarding, and provisioning progress across identity operations.",
+    "An employee-facing agent that answers access questions and routes exceptions to the right team.",
+    "A security operations assistant that summarizes privileged access context for faster internal triage."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with CyberArk Identity Management, such as checking access status, preparing a handoff, or triggering an approved workflow, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder translates your goal into a secure Skill design, defines the required configuration values, handles authentication and secret storage through protected runtime configuration, and keeps credentials out of chats and Skill content."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries or safe action limits for sensitive identity and access workflows."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, missing safeguards, weak instructions, or workflow gaps, and feeds fixes into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is validated and improved, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for CyberArk Identity Management?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize status, trigger approved workflows, and route handoffs safely. It also defines secure connection handling, scoped permissions, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use CyberArk Identity Management data to help with login and access issues?",
+      "answer": "Yes, a DocsBot support agent can use CyberArk Identity Management as a trusted system for approved lookups, status checks, and workflow context while responding to customers in chat or tickets. You control what the agent can see and what actions, if any, it is allowed to take."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with CyberArk Identity Management?",
+      "answer": "DocsBot can help automate identity-related support steps such as checking account status, gathering missing context, preparing escalation notes, summarizing provisioning state, and triggering approved recovery or routing workflows. Sensitive actions can be limited behind approvals and narrow permission scopes."
+    },
+    {
+      "question": "Can an internal AI assistant use CyberArk Identity Management for employee and IT workflows?",
+      "answer": "Yes, private DocsBot agents can help employees, helpdesk teams, and security staff retrieve identity information, check workflow progress, prepare SOP-based handoffs, and start approved access processes. This reduces tool switching while keeping actions within your defined rules."
+    },
+    {
+      "question": "How does DocsBot keep CyberArk Identity Management credentials and actions secure?",
+      "answer": "Skill Builder is designed to handle connection details securely by defining required configuration values, storing and proxying secrets through protected runtime settings, and keeping credentials out of conversations and generated instructions. It also scopes access to the minimum needed and can require approvals for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger identity workflows and approvals instead of only answering questions?",
+      "answer": "Yes, DocsBot AI Actions can go beyond answering by initiating bounded workflows, creating handoffs, generating summaries, and triggering approved next steps inside your CyberArk Identity Management process. You decide which actions are allowed and where approval checkpoints are required."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "duo-security",
+    "ping-identity"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "CyberArk",
+    "domain": "cyberark.com",
+    "description": "CyberArk is a global leader in Identity Security, providing comprehensive security solutions to protect against cyber threats. Founded in 1999, the company offers a range of products and services, including Privileged Access Manager, Endpoint Privilege Manager, and Cloud Entitlements Manager, to secure identities, access, and endpoints across various industries and government agencies. CyberArk's solutions help organizations prevent attack escalation, meet compliance requirements, and protect critical assets.",
+    "slogan": "Secure Identities, Protect Assets",
+    "logoUrl": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+    "iconUrl": "https://media.brand.dev/875f764b-3d96-433d-85c8-a15936483e5a.svg",
+    "primaryColor": "#2fafe0",
+    "accentColor": "#75cbe8",
+    "colors": [
+      {
+        "hex": "#2fafe0",
+        "name": "Royal Peacock"
+      },
+      {
+        "hex": "#75cbe8",
+        "name": "Spritzig"
+      },
+      {
+        "hex": "#366895",
+        "name": "Summerday Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9b61f7f7-a260-4d6b-b1c0-ea9963cf26e1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.cyberark.com/careers/",
+      "terms": "https://www.cyberark.com/terms-conditions/",
+      "contact": "https://www.cyberark.com/contact/",
+      "privacy": "https://www.cyberark.com/privacy-notice/",
+      "blog": "https://www.cyberark.com/company/newsroom/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d601edfa-f7e3-4dbe-a66c-e0b0104701c0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b010a48b-5a48-43a8-8180-5a2ac1c89665.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d2b2c46-38c3-409c-90e9-76723675c00d.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 190,
+        "height": 42,
+        "aspectRatio": 4.52
+      },
+      {
+        "url": "https://media.brand.dev/875f764b-3d96-433d-85c8-a15936483e5a.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 260,
+        "height": 260,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/87a1cbf2-b6fd-40d0-a07a-c3f47ed02334.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/61528a60-edd5-4b67-a3e1-85d7f995dceb.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7aa3d22c-019d-4a75-b08b-23679f5e7328.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 190,
+      "height": 42,
+      "aspectRatio": 4.52
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/87a1cbf2-b6fd-40d0-a07a-c3f47ed02334.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

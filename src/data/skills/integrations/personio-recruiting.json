@@ -1,0 +1,176 @@
+{
+  "slug": "personio-recruiting",
+  "name": "Personio Recruiting",
+  "domain": "personio-recruiting.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Personio Recruiting",
+  "metaTitle": "Personio Recruiting AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Personio Recruiting for candidate lookups, hiring updates, interview coordination, and secure internal recruiting workflows.",
+  "intro": "Personio Recruiting helps teams manage candidates, hiring workflows, and recruiting operations in one place. With DocsBot Skill Builder, you can describe the recruiting task you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up hiring data, update approved records, trigger workflows, and summarize outcomes. This helps customer-facing support teams and internal recruiting or operations teams move faster with AI agents that can answer questions and take bounded action.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check a candidate's application status in Personio Recruiting and respond with an approved progress update.",
+    "Let a helpdesk-connected AI agent create a recruiting handoff by summarizing a candidate issue, attaching relevant context, and routing it to the right hiring team.",
+    "Allow the agent to look up interview scheduling details in Personio Recruiting so it can answer candidate questions from website chat or support tickets.",
+    "Enable the agent to capture missing applicant details from a conversation and create or update approved recruiting records in Personio Recruiting.",
+    "Have the agent summarize a candidate's current pipeline stage, recent activity, and next expected step before replying to an inquiry or escalating it."
+  ],
+  "internalUseCases": [
+    "Let recruiters and hiring managers chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve candidate status, interview history, and pipeline summaries from Personio Recruiting.",
+    "Enable employees to ask the agent to prepare recruiting handoffs, summarize candidate records, and gather context before a human reviews the next hiring step.",
+    "Give operations or HR teams an internal AI assistant that can update approved recruiting fields, trigger workflow steps, and document outcomes while following company rules.",
+    "Allow recruiting teams to chat with the agent to answer process questions, pull live Personio Recruiting data, and complete SOP-driven follow-up workflows faster.",
+    "Help internal teams research open hiring activity across roles by having the agent summarize recruiting data and generate brief status updates for stakeholders."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks candidate application status and drafts clear next-step replies.",
+    "A recruiting assistant that summarizes candidate records before recruiter or hiring manager review.",
+    "An internal agent that updates approved recruiting fields after a chat-based confirmation flow.",
+    "A helpdesk agent that prepares escalations for interview issues and candidate experience concerns.",
+    "A Slack recruiting assistant that retrieves pipeline details and generates hiring update summaries.",
+    "An AI workflow that collects missing applicant information and creates a structured recruiting handoff."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Personio Recruiting, such as checking candidate status, updating approved fields, or preparing recruiting handoffs, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the agent should look up data, take allowed actions, and stay within safe workflow limits."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles authentication design, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes access to the minimum records, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, approval checkpoints, and action limits so sensitive recruiting updates or workflow triggers only happen under the rules you approve."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "DocsBot's testing agent runs imagined customer support and internal recruiting scenarios, finds bugs, unclear instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Personio Recruiting?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Personio Recruiting data to answer candidate questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved recruiting information such as application status, interview details, or next steps in Personio Recruiting and use that context to answer candidate inquiries safely."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Personio Recruiting?",
+      "answer": "An internal DocsBot agent can help recruiters and hiring managers retrieve candidate information, summarize pipelines, prepare handoffs, update approved record fields, and trigger bounded recruiting workflows."
+    },
+    {
+      "question": "Can DocsBot update records in Personio Recruiting instead of only answering questions?",
+      "answer": "Yes, Skill Builder can create Skills for approved updates and workflow actions, with scoped permissions and approval boundaries so the agent only changes the records and fields your team allows."
+    },
+    {
+      "question": "How do approval controls work for AI actions in recruiting workflows?",
+      "answer": "Skill Builder can add approval steps and action limits for sensitive tasks, so the agent can gather information, draft updates, and wait for human confirmation before making important recruiting changes."
+    },
+    {
+      "question": "Is it safe to connect an AI agent to Personio Recruiting?",
+      "answer": "DocsBot Skill Builder is designed to define secure configuration values, protect and proxy secrets, keep credentials out of chats, and scope access to the minimum systems, users, records, and actions required for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "personio",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Personio",
+    "domain": "personio.com",
+    "description": "Personio is an HR technology company that provides an all-in-one HR software solution for small and medium-sized organizations. Their Intelligent HR Platform simplifies complicated tasks, empowering HR teams to help their people do their best work. Serving over 14,000 businesses and 1 million people worldwide, Personio's platform is designed for companies with 10-5,000 employees, streamlining HR processes and unlocking the power of people.",
+    "slogan": "No hoops, no hype, just great HR",
+    "logoUrl": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+    "iconUrl": "https://media.brand.dev/8670c512-eb94-419a-bb67-d75f6a7cd9f6.png",
+    "primaryColor": "#040404",
+    "accentColor": "#545454",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#545454",
+        "name": "Brilliant Liquorice"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6208a83a-fe65-4b4c-9a5e-a5d32caa235a.png",
+    "industries": [],
+    "links": {
+      "careers": "https://personio.com/about-personio/careers/",
+      "terms": "https://personio.com/terms/",
+      "contact": "https://personio.com/contact/",
+      "privacy": "https://personio.com/privacy-policy/",
+      "blog": "https://personio.com/blog/",
+      "pricing": "https://personio.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8c009aa1-c9f5-4c6e-8507-42ee568916ad.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 405,
+        "height": 54,
+        "aspectRatio": 7.5
+      },
+      {
+        "url": "https://media.brand.dev/8670c512-eb94-419a-bb67-d75f6a7cd9f6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9d542e13-67b7-4b3e-bba6-dddfc5cf995c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 122,
+        "height": 24,
+        "aspectRatio": 5.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0877f31d-47f3-40e1-bf8d-79b2279e1b19.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 405,
+      "height": 54,
+      "aspectRatio": 7.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8c009aa1-c9f5-4c6e-8507-42ee568916ad.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

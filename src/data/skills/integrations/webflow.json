@@ -1,0 +1,160 @@
+{
+  "slug": "webflow",
+  "name": "Webflow",
+  "domain": "webflow.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Webflow",
+  "metaTitle": "Build Webflow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Webflow to answer questions, look up site content, prepare updates, and trigger safe website workflows for support and internal teams.",
+  "intro": "Webflow helps teams create, manage, and optimize websites and CMS-driven experiences. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Webflow, and Skill Builder designs, secures, tests, improves, and deploys that ability for you. The result is a support or internal AI agent that can look up site information, summarize content state, prepare approved changes, and trigger bounded website workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up published Webflow CMS content, page details, or site status to answer website content questions in chat or tickets.",
+    "Use a support agent to collect missing details from a customer and create a structured handoff for a marketing or web team when a site update request needs human review.",
+    "Enable the agent to summarize whether a help article, landing page, or campaign page exists in Webflow before guiding the customer to the right resource.",
+    "Have the agent prepare approved content update requests based on customer feedback and route them into an internal review workflow.",
+    "Use Webflow data to help the agent explain which site section, collection item, or page a customer is referring to before escalating the conversation."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to find Webflow pages, CMS items, collections, or site details without opening the Webflow dashboard.",
+    "Give marketing, support, and operations teams an internal AI assistant that summarizes website content status, recent content structure, or likely update locations in Webflow.",
+    "Enable employees to ask the agent to prepare website update workflows, draft handoff notes, and package the right Webflow context for designers, marketers, or developers.",
+    "Use an internal agent to guide team members through standard operating procedures for publishing requests, content audits, campaign launches, and website QA workflows tied to Webflow.",
+    "Help cross-functional teams research what is currently live on the website and compare that information with internal plans, customer feedback, or campaign requirements."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that finds the right Webflow page or CMS item during a customer conversation.",
+    "A private team assistant that summarizes Webflow site structure for marketers and support staff.",
+    "A workflow Skill that prepares website change handoffs with Webflow context and approval steps.",
+    "An internal AI agent that helps employees audit live content before campaign launches.",
+    "A support workflow that checks whether a knowledge page exists in Webflow before escalation.",
+    "A team assistant that gathers missing details for content requests and routes them safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Webflow in plain language, such as looking up pages, summarizing CMS content, preparing updates, or routing website requests."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Webflow."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive website changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and self-improving the Skill, Skill Builder helps publish it to the right DocsBot agent so it can safely answer questions and take bounded action in customer support or internal team workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Webflow?",
+      "answer": "With DocsBot Skill Builder, you describe the Webflow task you want in plain language, and Skill Builder designs the workflow, secures the connection, tests scenarios, and packages it as a reusable Skill for your agent."
+    },
+    {
+      "question": "Can an AI support agent use Webflow data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Webflow Skill to look up approved site or CMS information, summarize what is live, and help answer customer questions more accurately from chat widgets or helpdesk tickets."
+    },
+    {
+      "question": "What Webflow workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees find pages and CMS items, summarize website content, prepare update requests, guide publishing SOPs, and route handoffs to the right team with the right context."
+    },
+    {
+      "question": "Can DocsBot safely trigger Webflow-related actions instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as preparing updates, routing requests, or triggering approved workflows, with scoped permissions and approval steps for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Webflow credentials and access secure?",
+      "answer": "Skill Builder defines secure configuration for the connection, keeps secrets out of chats and generated content, proxies authentication through protected runtime settings, and limits access to only the records and actions required."
+    },
+    {
+      "question": "Can a DocsBot agent help with website content handoffs and escalations from support?",
+      "answer": "Yes, the agent can gather missing context from the customer, identify the relevant Webflow content area, summarize the issue, and create a structured handoff for marketing, web, or operations teams."
+    }
+  ],
+  "relatedSlugs": [
+    "contentful",
+    "wordpress",
+    "shopify",
+    "hubspot",
+    "airtable",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Webflow",
+    "domain": "webflow.com",
+    "description": "Webflow is a Website Experience Platform that enables businesses and marketing teams to create, manage, and optimize high-performance websites. It offers a visual builder, AI-driven personalization, and a composable CMS to boost conversion rates and drive business growth. With Webflow, teams can design and build custom, responsive websites with the power of code, and host them on a top-tier platform.",
+    "slogan": "Build stunning websites visually, without code, for business growth and success.",
+    "logoUrl": "https://media.brand.dev/0dcf9e7e-b663-4a80-b327-2fc0bb73e500.svg",
+    "iconUrl": "https://media.brand.dev/a5203ec7-bf85-466b-9cd6-13076422004f.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#146cf3",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#146cf3",
+        "name": "Deep Sky Blue"
+      },
+      {
+        "hex": "#82b4ec",
+        "name": "Fly Away"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cf9af640-2e9d-45a8-b0eb-ed96e72722be.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://webflow.com/company/careers",
+      "terms": "https://webflow.com/legal/terms",
+      "contact": "https://webflow.com/enterprise/contact-sales",
+      "privacy": "https://webflow.com/legal/privacy",
+      "blog": "https://webflow.com/blog",
+      "pricing": "https://webflow.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a5203ec7-bf85-466b-9cd6-13076422004f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 511,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0dcf9e7e-b663-4a80-b327-2fc0bb73e500.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 108,
+        "height": 19,
+        "aspectRatio": 5.68
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0dcf9e7e-b663-4a80-b327-2fc0bb73e500.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 108,
+      "height": 19,
+      "aspectRatio": 5.68
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a5203ec7-bf85-466b-9cd6-13076422004f.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 511,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

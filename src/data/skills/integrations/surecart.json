@@ -1,0 +1,184 @@
+{
+  "slug": "surecart",
+  "name": "SureCart",
+  "domain": "surecart.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with SureCart",
+  "metaTitle": "Build SureCart AI Agents for Support and Operations",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that look up SureCart orders, subscriptions, and customers, trigger approved actions, and support teams safely.",
+  "intro": "SureCart helps WordPress businesses sell products, subscriptions, services, and digital goods with flexible checkout and order management. With DocsBot Skill Builder, you can describe the SureCart workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up commerce data, trigger approved actions, and prepare clean handoffs without exposing sensitive credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up SureCart orders and subscription status during a website chat or support ticket reply so customers get fast, accurate updates.",
+    "Use the agent to confirm purchase details, payment plan state, or product access information from SureCart before responding to billing and account questions.",
+    "Enable the agent to create escalation summaries for refund, failed payment, or cancellation issues using SureCart order history and customer context.",
+    "Allow the agent to trigger approved follow-up workflows, such as tagging an issue for human review or preparing a cancellation handoff, based on SureCart order or subscription data.",
+    "Have the agent summarize recent order activity and checkout outcomes from SureCart so support teams can respond clearly when customers report purchase problems."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to retrieve SureCart order, customer, and subscription details without opening multiple dashboards.",
+    "Enable customer success or operations teams to ask the agent for billing context, renewal status, or purchase history and receive a concise SureCart-backed summary for follow-up work.",
+    "Give finance or support staff an internal AI assistant that prepares refund review notes, failed payment follow-up summaries, or cancellation research based on SureCart records.",
+    "Allow team members to use the agent to complete standard operating procedures such as investigating checkout complaints, identifying subscription issues, and preparing approved handoffs.",
+    "Help internal teams combine SureCart lookups with broader business workflows so employees can research accounts, gather context, and move cases forward from one chat conversation."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks SureCart order status before answering customer billing questions.",
+    "A DocsBot assistant that summarizes subscriptions, renewals, and payment plan activity for support teams.",
+    "An internal agent that prepares refund review notes from SureCart order and customer history.",
+    "A support workflow that gathers SureCart checkout details and drafts a clean escalation handoff.",
+    "A private team assistant that researches failed payments and suggests the next approved action.",
+    "An AI agent that retrieves customer purchase history to help with account and access questions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with SureCart in plain language, such as checking orders, summarizing subscriptions, or preparing a refund handoff, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the safest way to connect SureCart, defines the required configuration values, handles authentication through secure runtime setup, keeps credentials out of chats and Skill source, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds approval boundaries, user scope limits, and action restrictions so sensitive updates or financial workflows stay within the rules you choose for support agents and internal assistants."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios against the SureCart workflow, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SureCart without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the SureCart task you want in plain language and the builder designs the workflow, secure connection method, testing plan, and deployment path for you. It can create a reusable Skill that helps an AI agent look up data, summarize account state, and take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use SureCart data to answer customer order or subscription questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use SureCart data during a website chat or helpdesk reply to check orders, subscriptions, payment plans, or customer purchase history. You control what data it can access and which actions require approvals or human review."
+    },
+    {
+      "question": "What SureCart workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees research orders, review subscription status, prepare refund or cancellation summaries, investigate failed payments, and complete standard operating procedures faster. It works well for support, customer success, and operations teams that need quick commerce context in chat."
+    },
+    {
+      "question": "Can DocsBot take actions in SureCart as well as answer questions?",
+      "answer": "Yes, DocsBot Skills can be built for bounded AI Actions such as approved lookups, record-related updates, workflow triggers, handoff preparation, and summaries. Skill Builder adds permission scope and approval boundaries so the agent only acts within the limits you define."
+    },
+    {
+      "question": "Is it safe to connect SureCart to a DocsBot AI agent?",
+      "answer": "Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets through secure runtime settings, and keeping credentials out of chat transcripts and generated content. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a SureCart AI agent help with escalations and human handoffs?",
+      "answer": "Yes, you can build a Skill that gathers SureCart order and subscription context, summarizes the issue, and prepares a structured handoff for a human teammate. This helps support teams move faster while keeping sensitive decisions under review when needed."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "woocommerce",
+    "stripe",
+    "recharge",
+    "bigcommerce",
+    "paypal"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SureCart",
+    "domain": "surecart.com",
+    "description": "SureCart is a headless eCommerce platform designed for WordPress users to sell physical goods, digital products, subscriptions, and services with ease. It offers a robust set of features including customizable checkout, subscriptions, payment plans, order management, and real-time insights, all built on a secure and scalable architecture that minimizes conflicts and failures, allowing users to start for free with a flat and fair pricing model.",
+    "slogan": "Modern, reliable eCommerce for WordPress — simple, scalable, and secure.",
+    "logoUrl": "https://media.brand.dev/f9421a99-9c5e-4ed6-bc51-44b7830ec9c1.svg",
+    "iconUrl": "https://media.brand.dev/24e3438f-7924-4317-aefb-58a4e1d5817a.svg",
+    "primaryColor": "#242c2c",
+    "accentColor": "#7cceac",
+    "colors": [
+      {
+        "hex": "#242c2c",
+        "name": "Charleston Green"
+      },
+      {
+        "hex": "#7cceac",
+        "name": "Aquamarine Ocean"
+      },
+      {
+        "hex": "#08844e",
+        "name": "Dark Emerald"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b37cb90f-5f65-43c7-8b51-9eef8a92e91c.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://surecart.com/terms-and-conditions/",
+      "contact": "https://surecart.com/contact-us/",
+      "privacy": "https://surecart.com/privacy-policy/",
+      "blog": "https://surecart.com/blog/",
+      "pricing": "https://surecart.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1b4c4a5b-c5e0-4556-91af-49436f26cdcc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f9421a99-9c5e-4ed6-bc51-44b7830ec9c1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 751,
+        "height": 139,
+        "aspectRatio": 5.4
+      },
+      {
+        "url": "https://media.brand.dev/24e3438f-7924-4317-aefb-58a4e1d5817a.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 27,
+        "height": 27,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b07a60da-57e6-4a86-96a1-a499d33ae439.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0bb3d056-4d18-4524-a3a8-bbe3ce2d5f58.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 26,
+        "height": 16,
+        "aspectRatio": 1.63
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f9421a99-9c5e-4ed6-bc51-44b7830ec9c1.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 751,
+      "height": 139,
+      "aspectRatio": 5.4
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/b07a60da-57e6-4a86-96a1-a499d33ae439.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

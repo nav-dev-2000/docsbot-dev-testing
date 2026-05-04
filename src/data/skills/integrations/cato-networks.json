@@ -1,0 +1,168 @@
+{
+  "slug": "cato-networks",
+  "name": "Cato Networks",
+  "domain": "cato-networks.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents for Cato Networks with DocsBot Skills",
+  "metaTitle": "Build AI Agents for Cato Networks with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Cato Networks for secure lookups, incident context, workflow triggers, and internal network operations assistance.",
+  "intro": "Cato Networks helps organizations manage secure networking, access, and cloud-native security in one platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Cato Networks data and approved actions. That means support teams and internal operations teams can move faster with AI agents that answer questions, gather context, prepare handoffs, and trigger bounded workflows instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Cato Networks incident or service status details and summarize the current impact in a clear customer-safe response.",
+    "Use a DocsBot support agent to collect network or access issue symptoms from a customer, look up matching Cato Networks context, and prepare a structured escalation for human follow-up.",
+    "Enable a helpdesk-connected DocsBot agent to summarize relevant Cato Networks alerts, events, or policy context when replying to tickets about connectivity or access problems.",
+    "Have the agent verify whether a reported outage or degraded experience aligns with known Cato Networks conditions before suggesting the next approved support step.",
+    "Use the agent to generate concise handoff notes for network or security teams with customer details, observed symptoms, and the related Cato Networks context already attached."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up Cato Networks incident details, policy context, or network status without opening multiple consoles.",
+    "Enable IT or security teams to ask an internal AI agent to summarize recent Cato Networks events, highlight likely impact, and recommend the next SOP-driven action.",
+    "Use a DocsBot internal agent to collect missing troubleshooting details from employees and then prepare a clean escalation package for network operations or security responders.",
+    "Allow operations teams to chat with the agent to trigger approved Cato Networks workflows, create notes, or request bounded follow-up actions with approval gates for sensitive steps.",
+    "Help support, success, and operations teams research customer-reported connectivity issues by combining DocsBot conversations with Cato Networks context in one guided workflow."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Cato Networks status context before answering connectivity questions.",
+    "An internal network assistant that summarizes Cato Networks incidents and recommended next steps.",
+    "A helpdesk Skill that turns troubleshooting chats into structured Cato Networks escalation handoffs.",
+    "An employee AI assistant that gathers issue details and prepares network operations case summaries.",
+    "A DocsBot workflow that triggers approved Cato Networks follow-up actions with human approval.",
+    "A support agent that explains likely service impact using live Cato Networks incident context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Cato Networks, such as checking incident context, summarizing network issues, or preparing escalations, and it turns that request into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Cato Networks data, actions, users, and systems required, and adds approval boundaries wherever a lookup, update, or workflow trigger should be reviewed before it runs."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the agent can answer questions and take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Cato Networks without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and DocsBot designs the Skill for you. It handles the secure connection approach, configuration, testing, and deployment so your agent can safely use Cato Networks data and approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Cato Networks data to help with connectivity or access issues?",
+      "answer": "Yes, a DocsBot support agent can use a Cato Networks Skill to look up relevant status, incident, or policy context and turn that into a helpful response or escalation summary. The agent can also gather missing details from the customer before handing the case to a human team."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Cato Networks?",
+      "answer": "DocsBot can help automate issue triage, context lookups, ticket enrichment, escalation preparation, handoff notes, and approved follow-up workflows tied to network or access problems. The exact actions stay bounded by the permissions and approval rules you choose."
+    },
+    {
+      "question": "Can an internal AI assistant help employees and IT teams work with Cato Networks?",
+      "answer": "Yes, private DocsBot agents can help employees and operations teams retrieve incident context, summarize events, follow troubleshooting SOPs, and prepare network or security escalations. This gives teams a faster chat-based way to work across Cato Networks and related systems."
+    },
+    {
+      "question": "How does DocsBot keep Cato Networks access secure in an AI workflow?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, keeps credentials out of conversations, and scopes access to the minimum data and actions needed. It can also add approval steps for sensitive updates or workflow triggers before the agent takes action."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Cato Networks or only answer questions?",
+      "answer": "DocsBot Skills can be designed for both lookups and bounded actions such as creating handoffs, updating records, or triggering approved workflows. Skill Builder sets the safe action limits and approval boundaries so the agent acts within your rules."
+    }
+  ],
+  "relatedSlugs": [
+    "zscaler",
+    "cloudflare",
+    "okta",
+    "crowdstrike",
+    "servicenow",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cato Networks",
+    "domain": "catonetworks.com",
+    "description": "Cato provides a world‑leading, single‑vendor Secure Access Service Edge (SASE) platform that unifies SD‑WAN, a purpose‑built global cloud network, and a cloud‑native security stack. By replacing costly, rigid legacy infrastructure with an open, modular architecture, Cato enables seamless threat prevention, data protection, and rapid incident detection and response for hybrid workforces and mission‑critical applications—whether on‑premises or in the cloud. The platform delivers an elegant, end‑to‑end experience that accelerates digital transformation, allowing organizations of any size to move at the speed of business while securing and optimizing their global network and data.",
+    "slogan": "AI-Native SASE. Start Anywhere. Grow Everywhere.",
+    "logoUrl": "https://media.brand.dev/11359414-2f42-494e-846b-2788aba30bc3.png",
+    "iconUrl": "https://media.brand.dev/138e5e3b-b3bc-4665-b196-2d8e338de0fb.jpg",
+    "primaryColor": "#148e68",
+    "accentColor": "#9edbca",
+    "colors": [
+      {
+        "hex": "#148e68",
+        "name": "Elf Green"
+      },
+      {
+        "hex": "#9edbca",
+        "name": "Yucca Cream"
+      },
+      {
+        "hex": "#f1f8f7",
+        "name": "Distant Horizon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e8102e4e-13b9-4cb9-8a3f-4ca3c383765e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.catonetworks.com/careers/",
+      "terms": null,
+      "contact": "https://www.catonetworks.com/contact-us/",
+      "privacy": "https://www.catonetworks.com/privacypolicy/",
+      "blog": "https://www.catonetworks.com/news/",
+      "pricing": "https://www.catonetworks.com/cato-bcp-business-continuity-plan-qa/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/138e5e3b-b3bc-4665-b196-2d8e338de0fb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/11359414-2f42-494e-846b-2788aba30bc3.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 162,
+        "height": 74,
+        "aspectRatio": 2.19
+      },
+      {
+        "url": "https://media.brand.dev/f87f5c62-244f-4c37-b707-9a007f308aa1.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/11359414-2f42-494e-846b-2788aba30bc3.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 162,
+      "height": 74,
+      "aspectRatio": 2.19
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f87f5c62-244f-4c37-b707-9a007f308aa1.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

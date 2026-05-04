@@ -1,0 +1,148 @@
+{
+  "slug": "greythr",
+  "name": "greytHR",
+  "domain": "greythr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with greytHR",
+  "metaTitle": "Build greytHR AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use greytHR for HR and payroll lookups, employee workflows, approvals, handoffs, and internal support actions.",
+  "intro": "greytHR helps businesses manage HR and payroll processes, and DocsBot Skill Builder can turn that system into secure AI actions for support and internal teams. In plain language, you describe what the agent should do, and Skill Builder designs, tests, secures, and deploys a reusable Skill. The result is a DocsBot agent that can answer questions, retrieve approved greytHR data, trigger bounded workflows, and prepare clean handoffs when people need help.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent confirm the status of employee self-service requests, such as leave, attendance, or document-related questions, using approved greytHR data during chat or ticket replies.",
+    "Use a support agent to collect missing details from an employee, summarize the HR issue, and create a structured handoff for the HR or payroll team with greytHR context attached.",
+    "Allow the agent to answer common payroll and HR policy questions by combining DocsBot knowledge with live greytHR lookups for approved employee-specific details.",
+    "Enable the agent to check whether a request is pending, completed, or needs manual review in greytHR, then explain the next step clearly to the employee.",
+    "Have the agent prepare escalation notes for sensitive cases such as salary discrepancies, leave balance confusion, or onboarding issues, with a concise summary pulled from the customer conversation and greytHR records."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat portal to look up approved greytHR information such as leave balances, attendance status, or employee profile details.",
+    "HR teams can ask the agent to summarize employee records, policy context, and recent request history from greytHR before responding to internal questions or handling exceptions.",
+    "Managers can chat with the agent to retrieve team attendance or leave information, with access scoped to the right people and records defined by the Skill.",
+    "Operations or HR staff can use the agent to collect required details, trigger approved greytHR workflows, and follow standard SOPs without switching between systems.",
+    "Internal helpdesk teams can use the agent to prepare payroll or HR case summaries, route requests to the correct team, and capture a consistent audit-friendly handoff."
+  ],
+  "whatYouCanBuild": [
+    "An employee self-service agent that checks leave balances and request status from greytHR.",
+    "A payroll support assistant that summarizes approved salary or payslip issue details for HR review.",
+    "A manager assistant that retrieves team attendance or leave context with scoped access controls.",
+    "An HR operations agent that gathers missing information and prepares greytHR case handoffs.",
+    "An internal assistant that answers policy questions and combines them with live employee-specific greytHR data.",
+    "A workflow agent that triggers approved HR requests after collecting the right employee details."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the greytHR agent to do in plain language, such as checking leave status, summarizing payroll issues, or preparing HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed greytHR configuration values, and defines how the agent should look up information or take bounded actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication design, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes greytHR access to the minimum records and actions required."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder adds approval boundaries, role-aware permissions, and clear action limits so sensitive HR or payroll updates only happen inside the rules you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with greytHR?",
+      "answer": "With DocsBot Skill Builder, you describe the greytHR workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The finished agent can answer questions, perform approved lookups, and take bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use greytHR data to answer employee questions?",
+      "answer": "Yes, a DocsBot support agent can use approved greytHR data during website chat or helpdesk conversations to check request status, retrieve employee-specific details, and prepare escalations. Access can be limited to the exact records and actions you allow."
+    },
+    {
+      "question": "What internal employee workflows can a DocsBot AI assistant automate with greytHR?",
+      "answer": "Internal agents can help employees and managers check leave balances, review attendance details, retrieve profile information, summarize HR cases, and trigger approved workflows. They can also guide teams through standard HR SOPs without requiring people to navigate every system manually."
+    },
+    {
+      "question": "Can DocsBot update records or trigger HR workflows in greytHR safely?",
+      "answer": "DocsBot Skills can be designed for approved updates or workflow triggers with strict boundaries, scoped permissions, and approvals for sensitive actions. Skill Builder plans those controls by default so the agent only acts within the limits you define."
+    },
+    {
+      "question": "How does DocsBot keep greytHR credentials and sensitive HR data secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chat transcripts and generated copy, and proxies authentication through secure runtime configuration. It also scopes access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent help with payroll issue triage using greytHR?",
+      "answer": "Yes, the agent can gather missing details from the employee, review approved greytHR context, summarize the issue, and prepare a clean handoff for HR or payroll teams. This helps reduce back-and-forth while keeping sensitive actions under control."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "gusto",
+    "workday",
+    "freshservice",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Greythr",
+    "domain": "greythr.com",
+    "description": "greytHR is a leading provider of HR and Payroll software solutions catering to the needs of small and midsize businesses across various industries in India, offering efficient and effective management of HR and payroll processes.",
+    "slogan": "Empowering SMEs with Cloud HR & Payroll Solutions for Better People Practices",
+    "logoUrl": "https://media.brand.dev/5e3754f0-9960-48af-8aab-36f88a47a7e9.png",
+    "iconUrl": "https://media.brand.dev/5e3754f0-9960-48af-8aab-36f88a47a7e9.png",
+    "primaryColor": "#ab06eb",
+    "accentColor": "#c560f1",
+    "colors": [
+      {
+        "hex": "#ab06eb",
+        "name": "Vibrant Purple"
+      },
+      {
+        "hex": "#c560f1",
+        "name": "After-Party Pink"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8c436f2c-fd84-4789-bc21-abf26aeb4777.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.greythr.com/company/careers/",
+      "terms": "https://www.greythr.com/terms-service/",
+      "contact": "https://www.greythr.com/contact-us/",
+      "privacy": "https://www.greythr.com/privacy-policy/",
+      "blog": "https://www.greythr.com/resources/blogs/",
+      "pricing": "https://www.greythr.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5e3754f0-9960-48af-8aab-36f88a47a7e9.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5e3754f0-9960-48af-8aab-36f88a47a7e9.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5e3754f0-9960-48af-8aab-36f88a47a7e9.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

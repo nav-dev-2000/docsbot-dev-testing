@@ -1,0 +1,160 @@
+{
+  "slug": "openvpn-cloudconnexa",
+  "name": "OpenVPN CloudConnexa",
+  "domain": "openvpn-cloudconnexa.com",
+  "category": "Customer Support",
+  "trutoCategory": "Remote Support",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with OpenVPN CloudConnexa",
+  "metaTitle": "OpenVPN CloudConnexa AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use OpenVPN CloudConnexa for secure lookups, access support workflows, internal requests, and approved network operations.",
+  "intro": "OpenVPN CloudConnexa helps businesses provide secure access to applications, users, and devices across a managed private network. With DocsBot Skill Builder, you can describe the CloudConnexa workflow you want in plain language and have DocsBot create a secure reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, check access details, prepare handoffs, and trigger approved actions inside clear boundaries instead of only telling people what to do next.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user has the right CloudConnexa access path, summarize likely connection issues, and guide the customer through the next approved troubleshooting step.",
+    "Use a helpdesk-connected DocsBot agent to gather the details needed for a VPN or secure access issue, look up relevant CloudConnexa status or configuration context, and prepare a complete escalation for the network team.",
+    "Enable the support agent to verify device or user connectivity context in CloudConnexa and respond with a tailored troubleshooting summary based on the customer’s reported issue.",
+    "Have the agent create or update an internal support handoff when a customer needs a higher-risk network change that should be reviewed by an authorized team member.",
+    "Let the agent trigger approved follow-up workflows such as notifying an operations queue or generating a structured incident summary after a customer reports secure access problems."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up CloudConnexa access information, connection status context, or documented secure access procedures without searching multiple tools.",
+    "IT and operations teams can ask the agent to gather facts from CloudConnexa, summarize what changed, and prepare a step-by-step handoff for network administrators when an access issue needs human approval.",
+    "Help internal teams use chat to follow secure onboarding or offboarding SOPs, with the agent retrieving the right CloudConnexa context and triggering approved downstream workflows inside defined limits.",
+    "Support managers and security teams can ask the agent to summarize recurring access issues, organize case notes, and produce cleaner incident documentation for review or follow-up.",
+    "Employees can use the agent to research remote access questions, retrieve internal documentation, and complete repetitive request workflows that depend on CloudConnexa data or actions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks CloudConnexa access context during customer troubleshooting conversations.",
+    "A helpdesk assistant that prepares complete VPN issue escalations with structured CloudConnexa summaries.",
+    "An internal IT copilot that answers employee remote access questions using CloudConnexa data.",
+    "A private operations agent that gathers connection details and triggers approved incident workflows.",
+    "An onboarding assistant that follows secure access SOPs and prepares CloudConnexa-related requests for review.",
+    "A network support agent that summarizes likely causes of failed secure access sessions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with OpenVPN CloudConnexa, such as checking access context, preparing escalations, or triggering an approved workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow design, required configuration values, and runtime behavior for your DocsBot agent."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection planning by defining authentication needs, protecting and proxying secrets through approved runtime configuration, keeping credentials out of chats and Skill content, and scoping access to the minimum users, records, and actions required."
+    },
+    {
+      "title": "Boundaries are applied",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive CloudConnexa operations so the agent can assist confidently without overreaching beyond the permissions and workflows you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for OpenVPN CloudConnexa?",
+      "answer": "With DocsBot Skill Builder, you describe the CloudConnexa task you want in plain language, and Skill Builder designs, secures, tests, improves, and packages the Skill for your support bot or internal AI assistant. The result can include live lookups, summaries, handoffs, and approved actions inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use OpenVPN CloudConnexa data during customer troubleshooting?",
+      "answer": "Yes, a DocsBot agent can be designed to use CloudConnexa context to help with secure access troubleshooting, summarize relevant details, and prepare escalations or next steps. Skill Builder scopes what the agent can access and can add approval controls for any sensitive action."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with OpenVPN CloudConnexa?",
+      "answer": "A DocsBot agent can gather issue details, look up access context, summarize likely causes, create internal handoffs, and trigger approved follow-up workflows for remote access problems. This helps support teams respond faster while keeping higher-risk changes under human review when needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with OpenVPN CloudConnexa requests?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve remote access information, follow onboarding or offboarding steps, and complete internal support workflows that depend on CloudConnexa context. Teams can use the agent in chat, Slack, or Microsoft Teams for faster and more consistent assistance."
+    },
+    {
+      "question": "How does DocsBot keep OpenVPN CloudConnexa actions secure?",
+      "answer": "Skill Builder defines secure connection handling by identifying required configuration values, keeping secrets out of chat and Skill source, proxying credentials through approved runtime settings, and limiting permissions to the minimum workflow scope. It can also enforce approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger workflows or create handoffs based on OpenVPN CloudConnexa issues?",
+      "answer": "Yes, the Skill can be designed to generate incident summaries, create structured handoffs, notify the right internal queue, or kick off approved follow-up workflows when access issues are detected. This helps your AI agent move work forward instead of only providing instructions."
+    }
+  ],
+  "relatedSlugs": [
+    "openvpn",
+    "okta",
+    "jumpcloud",
+    "cisco-meraki",
+    "cloudflare-zero-trust",
+    "microsoft-entra-id"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OpenVPN",
+    "domain": "openvpn.net",
+    "description": "OpenVPN is a company that provides secure networking solutions to businesses, helping them create a reliable and secure connection between their applications, users, and devices. They offer two main solutions: CloudConnexa, a managed service that provides a secure virtualized network, and Access Server, a self-hosted solution that allows businesses to host their own VPN server. With OpenVPN, businesses can ensure secure and private access to their resources, whether it's for employees, partners, or IoT devices.",
+    "slogan": "Secure Your Network, Empower Your Business with OpenVPN’s Trusted Solutions",
+    "logoUrl": "https://media.brand.dev/abd96897-6a87-487f-bfaa-eddf8908327c.svg",
+    "iconUrl": "https://media.brand.dev/caa8d24a-6bf4-402f-af77-5a20e688a770.png",
+    "primaryColor": "#eb7f27",
+    "accentColor": "#1d3b66",
+    "colors": [
+      {
+        "hex": "#eb7f27",
+        "name": "Chaat Masala"
+      },
+      {
+        "hex": "#1d3b66",
+        "name": "Passionate Blue"
+      },
+      {
+        "hex": "#f1ece3",
+        "name": "Vanilla Milkshake"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/b5f55a5a-acc7-487b-a3be-7c2de95f1619.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.openvpn.net/",
+      "terms": null,
+      "contact": "https://openvpn.net/contact/",
+      "privacy": "https://openvpn.net/privacy-policy/",
+      "blog": "https://blog.openvpn.net/openvpn-dco-added-to-linux-kernel-2025",
+      "pricing": "https://openvpn.net/access-server/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/caa8d24a-6bf4-402f-af77-5a20e688a770.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/abd96897-6a87-487f-bfaa-eddf8908327c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 131,
+        "height": 38,
+        "aspectRatio": 3.45
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/abd96897-6a87-487f-bfaa-eddf8908327c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 131,
+      "height": 38,
+      "aspectRatio": 3.45
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/caa8d24a-6bf4-402f-af77-5a20e688a770.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

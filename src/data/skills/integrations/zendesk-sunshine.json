@@ -1,0 +1,178 @@
+{
+  "slug": "zendesk-sunshine",
+  "name": "Zendesk Sunshine",
+  "domain": "zendesk-sunshine.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zendesk Sunshine",
+  "metaTitle": "Zendesk Sunshine AI Agent Builder for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Zendesk Sunshine data for support lookups, record updates, handoffs, and internal workflows.",
+  "intro": "Zendesk Sunshine gives teams a flexible customer data layer for richer service workflows and context. With DocsBot Skill Builder, you can describe the Zendesk Sunshine actions you want in plain language and have DocsBot create a secure reusable Skill for a support bot or internal AI agent. That means your AI agent can answer questions, look up records, prepare handoffs, update approved fields, and trigger bounded actions inside Zendesk Sunshine instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Sunshine customer profiles, custom objects, or relationship data to answer account-specific support questions in real time.",
+    "Use the agent to summarize Sunshine context from multiple related records and present a clear case history before responding in chat or by helpdesk ticket.",
+    "Allow the agent to create or update approved Sunshine records such as custom objects, timeline events, or status fields while helping a customer complete a request.",
+    "Have the agent gather missing information from the customer, then prepare a structured escalation or handoff using Zendesk Sunshine context for the human support team.",
+    "Enable the agent to log interaction notes or workflow events in Sunshine after a support conversation so downstream teams have better context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Sunshine customer context, relationships, and custom object details without searching across systems manually.",
+    "Customer success or operations teams can ask the agent to summarize account history from Zendesk Sunshine and prepare renewal, escalation, or onboarding briefs.",
+    "Internal support teams can use the agent to follow SOPs that create Sunshine records, update approved fields, and document next steps with consistent formatting.",
+    "Managers can chat with the agent to research customer situations across linked Sunshine data and generate clean handoff notes for sales, support, or success teams.",
+    "Teams can use a private AI assistant to collect required details from employees, then trigger bounded Sunshine updates or workflow events with approval checks where needed."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Sunshine custom objects to answer account-specific questions.",
+    "A handoff assistant that summarizes Sunshine records and drafts escalation notes for human agents.",
+    "An internal research assistant that finds linked customer context across Sunshine profiles and objects.",
+    "A workflow Skill that creates timeline events after approved customer support interactions.",
+    "An employee-facing agent that updates selected Sunshine fields after collecting missing details.",
+    "A success team assistant that prepares onboarding or renewal briefs from Sunshine account data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Zendesk Sunshine, such as looking up customer context, updating approved fields, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps credentials out of chats and Skill source, proxies secrets through protected runtime settings, and scopes access to only the records, actions, and users required."
+    },
+    {
+      "title": "It adds action boundaries",
+      "description": "Skill Builder defines safe workflow limits such as which Sunshine objects can be read or updated, when approvals are required, and how the agent should gather missing context before taking action."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, permission gaps, or risky behavior, and feeds those findings into an improvement loop automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk-connected support agent, or private employee AI assistant for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Zendesk Sunshine data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as retrieving customer context or updating approved records, and Skill Builder creates the secure Zendesk Sunshine Skill for that workflow. It also handles configuration, authentication protection, testing, and deployment guidance for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Zendesk Sunshine to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zendesk Sunshine as a context system for live lookups, summaries, and approved record actions while responding in a chat widget or through helpdesk tickets. This helps the agent give more accurate, account-aware responses and prepare cleaner handoffs when needed."
+    },
+    {
+      "question": "What Zendesk Sunshine workflows can a customer support AI automate?",
+      "answer": "A DocsBot agent can look up profiles and custom objects, summarize related records, collect missing details, log timeline events, update approved fields, and prepare escalations or follow-up artifacts. Approval boundaries and scoped permissions can be added for any action that should stay controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Zendesk Sunshine?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Sunshine information, research account history, follow SOPs, and complete bounded updates from chat, Slack, or Microsoft Teams. This makes internal operations faster without giving the agent unlimited access."
+    },
+    {
+      "question": "How does DocsBot keep Zendesk Sunshine actions secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, keeps credentials out of conversations and generated content, and scopes access to the minimum records and actions needed. It can also add approval checkpoints for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot create handoffs and summaries from Zendesk Sunshine records?",
+      "answer": "Yes, a Skill can combine Sunshine context from multiple related records and turn it into concise summaries, escalation notes, or structured handoff artifacts for support, success, or operations teams. This helps human teams step in with full context when a case needs review."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "hubspot",
+    "salesforce",
+    "intercom",
+    "freshdesk",
+    "pipedrive"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zendesk",
+    "domain": "zendesk.com",
+    "description": "Zendesk is a cloud‑based service platform that helps businesses deliver AI‑enhanced support for customers and employees. Its Resolution Platform combines AI agents, analytics, and a marketplace of 1,800+ integrations to automate ticketing, live chat, voice, and IT service management across all channels. Products include Customer Service, Employee Service, Contact Center, AI‑driven Copilot, Quality Assurance, and Workforce Management, all designed to improve resolution speed, quality, and scalability. Zendesk serves over 100,000 companies worldwide, offering enterprise‑grade security, AI governance, and self‑improving agents that learn from each interaction.",
+    "slogan": "Deliver beautifully simple service with Zendesk AI Agents",
+    "logoUrl": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+    "iconUrl": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+    "primaryColor": "#040404",
+    "accentColor": "#848480",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848480",
+        "name": "Tank Grey"
+      },
+      {
+        "hex": "#e6e6e3",
+        "name": "Pearl Brite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/39996815-cc09-4d55-8c52-14694631ee55.png",
+    "industries": [],
+    "links": {
+      "login": null,
+      "signup": null,
+      "careers": "http://www.zendesk.com/company/careers/",
+      "terms": "http://www.zendesk.com/company/agreements-and-terms/terms-of-use/",
+      "contact": "http://www.zendesk.com/service/contact-center/",
+      "privacy": "http://www.zendesk.com/company/agreements-and-terms/privacy-notice/",
+      "blog": "http://www.zendesk.com/blog/",
+      "pricing": "http://www.zendesk.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/62674e33-aa12-4e61-bdd1-2ca813a41549.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 152,
+        "height": 152,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48452d1d-fdf8-4762-9f50-e003aaaeae22.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 78,
+        "height": 56,
+        "aspectRatio": 1.39
+      },
+      {
+        "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 84,
+        "height": 16,
+        "aspectRatio": 5.25
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45620b55-6a0e-4681-a5df-5aad8ac334e2.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 84,
+      "height": 16,
+      "aspectRatio": 5.25
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a2869e4a-16c2-40cb-93c2-740fcaa9d413.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "slug": "rocketreach",
+  "name": "RocketReach",
+  "domain": "rocketreach.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use RocketReach with DocsBot Skills",
+  "metaTitle": "Build RocketReach AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use RocketReach for safe contact lookups, lead research, support handoffs, and internal team workflows with secure controls.",
+  "intro": "RocketReach helps teams find contact details and company information for sales, recruiting, and outreach workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up contacts, summarize findings, prepare handoffs, and support approved internal actions. This gives support and operations teams an AI agent that can answer questions and take bounded action instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Use RocketReach during a customer chat or helpdesk ticket to identify the right account contact or decision-maker for a renewal, procurement, or partnership follow-up.",
+    "Let the support agent research a company and summarize likely stakeholders before preparing a handoff to sales, success, or account management.",
+    "Have the agent gather publicly available contact and company details from RocketReach to enrich escalation notes when a customer asks for executive outreach or urgent follow-up.",
+    "Use RocketReach data to help the agent route complex commercial or onboarding questions to the most appropriate internal team with a cleaner handoff summary.",
+    "Let the agent prepare outreach-ready contact summaries for approved teams when a support conversation reveals an upsell, recruiting, or partner opportunity."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to research a company, find likely contacts in RocketReach, and generate a concise outreach brief without leaving Slack, Microsoft Teams, or chat.",
+    "Sales, recruiting, and partnerships teams can ask the agent to summarize target accounts, identify relevant people, and prepare next-step recommendations based on RocketReach data.",
+    "Customer success employees can use the agent to find additional contacts at an account, support renewal planning, and prepare escalation or stakeholder maps for internal review.",
+    "Operations teams can chat with the agent to collect lead intelligence from RocketReach and format it into internal SOP outputs, handoff notes, or CRM-ready summaries.",
+    "Internal teams can ask the agent to combine RocketReach lookups with company research workflows so employees get faster answers and more consistent preparation before outreach."
+  ],
+  "whatYouCanBuild": [
+    "A support handoff Skill that finds likely account stakeholders and drafts an escalation summary.",
+    "An internal sales research Skill that returns contact details and account snapshots on demand.",
+    "A recruiting assistant Skill that finds candidate contact information and prepares outreach notes.",
+    "A partnership research Skill that identifies company decision-makers and creates briefing summaries for teams.",
+    "A customer success Skill that maps additional account contacts for renewal and escalation planning.",
+    "A lead enrichment Skill that turns RocketReach lookups into structured notes for downstream workflows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with RocketReach in plain language, such as finding the right contact, summarizing a company, or preparing a handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates that goal into a secure Skill design, decides the needed configuration values, and sets up safe authentication and secret handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum data, users, actions, and records needed, and adds approval boundaries or action limits wherever a lookup or downstream workflow should be reviewed before use."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into improvements automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or internal team assistant so it can answer questions and take bounded action with RocketReach."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses RocketReach data?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and Skill Builder creates a secure Skill that lets your AI agent look up contacts, summarize company information, prepare handoffs, or support approved internal actions using RocketReach."
+    },
+    {
+      "question": "Can an AI support agent use RocketReach during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use RocketReach as a research layer while responding to customers, such as identifying account stakeholders, enriching escalation notes, or preparing a handoff to sales or customer success."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with RocketReach?",
+      "answer": "Internal agents can help employees research accounts, find contact details, prepare outreach briefs, support recruiting research, and produce consistent notes or summaries for SOP-driven team workflows."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do with RocketReach?",
+      "answer": "Yes, Skill Builder designs the Skill with scoped permissions, secure authentication handling, and approval boundaries so the agent only performs the lookups and approved actions you want it to perform."
+    },
+    {
+      "question": "How does DocsBot handle RocketReach credentials and authentication safely?",
+      "answer": "Skill Builder identifies the required connection settings, keeps secrets out of chat transcripts and generated copy, and proxies credentials through secure runtime configuration so access is controlled and easier to govern."
+    },
+    {
+      "question": "Can a RocketReach AI Skill be tested before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal scenarios, finds issues or missing safeguards, and helps improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "apollo-io",
+    "zoominfo",
+    "clearbit",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RocketReach",
+    "domain": "rocketreach.com",
+    "description": "RocketReach is a lead intelligence and sales intelligence solution that provides access to a vast contact database, enabling users to find email addresses, phone numbers, and social media profiles. With a vast database of 700 million profiles, 60 million companies, and 150 million phone numbers, it is used by top companies worldwide, including Adobe, New York Times, and Morgan Stanley, to power their sales, recruitment, and marketing teams.",
+    "slogan": "Find anyone, anywhere — power your sales and recruitment with RocketReach.",
+    "logoUrl": "https://media.brand.dev/5e95c394-520e-46b5-aa03-8c9d1839666d.jpg",
+    "iconUrl": "https://media.brand.dev/5e95c394-520e-46b5-aa03-8c9d1839666d.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#f9bb17",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#f9bb17",
+        "name": "Orange Yellow"
+      },
+      {
+        "hex": "#3f5c9a",
+        "name": "Blue Dahlia"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5e95c394-520e-46b5-aa03-8c9d1839666d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/af3d45b7-6f78-4482-81d5-692859762992.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1000,
+        "height": 1000,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/af3d45b7-6f78-4482-81d5-692859762992.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1000,
+      "height": 1000,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/af3d45b7-6f78-4482-81d5-692859762992.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1000,
+      "height": 1000,
+      "aspectRatio": 1
+    }
+  }
+}

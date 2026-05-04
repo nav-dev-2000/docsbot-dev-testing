@@ -1,0 +1,184 @@
+{
+  "slug": "datadog",
+  "name": "Datadog",
+  "domain": "datadoghq.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Datadog",
+  "metaTitle": "Build Datadog AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Datadog for safe monitoring lookups, alert summaries, incident handoffs, and internal observability workflows.",
+  "intro": "Datadog helps teams monitor infrastructure, applications, logs, security signals, and user experience in one observability platform. With DocsBot Skill Builder, you can describe the Datadog-powered action you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, investigate issues, summarize system state, and trigger approved next steps without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Datadog service health, active incidents, or alert status when users report outages or degraded performance.",
+    "Use a DocsBot helpdesk agent to summarize recent Datadog errors, log spikes, or monitor changes before replying to a customer ticket.",
+    "Have the agent gather Datadog evidence for a support handoff, including affected services, timestamps, and relevant alert context for escalation teams.",
+    "Allow the agent to confirm whether a known incident is already being tracked in Datadog and share a safe status update with the customer.",
+    "Enable the agent to trigger an approved internal incident workflow when customer messages indicate a potential production issue tied to Datadog signals."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Datadog monitor status, service health, or recent alert activity without opening multiple dashboards.",
+    "Help support, success, and operations teams ask the agent for a plain-language summary of Datadog logs, traces, or infrastructure signals related to a reported issue.",
+    "Allow on-call or operations teams to use the agent to prepare incident handoff notes, escalation summaries, and next-step checklists from Datadog context.",
+    "Enable employees to chat with the agent to follow observability SOPs, such as checking impacted services, reviewing recent spikes, and documenting findings for teammates.",
+    "Support internal research workflows where teams ask the agent to correlate customer complaints with Datadog incident patterns and produce a concise summary for action."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that checks Datadog monitor status before the agent responds to outage questions.",
+    "A Skill that summarizes recent Datadog alerts, logs, or traces for support ticket replies.",
+    "A Skill that prepares incident escalation notes using Datadog evidence and customer-reported symptoms.",
+    "A Skill that lets internal teams ask for service health summaries in plain language.",
+    "A Skill that triggers an approved internal workflow when Datadog signals suggest a live incident.",
+    "A Skill that gathers relevant Datadog context and formats it for handoffs to engineering or SRE teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Datadog-powered agent to do, such as check alerts, summarize incident context, or prepare an escalation, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes Datadog access to only the users, actions, and data needed."
+    },
+    {
+      "title": "Set action boundaries",
+      "description": "Skill Builder adds approval boundaries and safe action limits for sensitive steps so the agent can perform lookups, summaries, and approved triggers without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing results, Skill Builder refines the Skill and helps publish it to the right DocsBot agent so it can work in your customer chat widget, helpdesk flows, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Datadog data to answer support questions?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking incident status or summarizing alerts, and Skill Builder creates a secure Skill the agent can use during customer chats or ticket replies."
+    },
+    {
+      "question": "Can an AI support agent use Datadog to investigate outages or performance complaints?",
+      "answer": "Yes, a DocsBot agent can be designed to look up Datadog monitor status, recent alerts, logs, or related observability context and then return a safe customer-facing answer or prepare an internal escalation summary."
+    },
+    {
+      "question": "What Datadog workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve service health information, summarize alert activity, follow incident SOPs, prepare handoff notes, and trigger approved observability workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Datadog?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, define which actions and records are allowed, protect credentials through secure runtime configuration, and add approval boundaries for sensitive steps."
+    },
+    {
+      "question": "Can a DocsBot agent create incident handoffs or escalation summaries from Datadog signals?",
+      "answer": "Yes, the agent can gather relevant Datadog context, organize it into a concise summary, and prepare handoff material for engineering, SRE, or operations teams under the rules you define."
+    },
+    {
+      "question": "How does setup work for a non-technical team that wants a Datadog AI assistant?",
+      "answer": "You explain the result you want, and Skill Builder handles the workflow design, secure connection details, testing, improvements, and deployment so your team does not need to manually wire every step."
+    }
+  ],
+  "relatedSlugs": [
+    "new-relic",
+    "grafana",
+    "sentry",
+    "opsgenie",
+    "pagerduty",
+    "splunk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Datadog",
+    "domain": "datadoghq.com",
+    "description": "Datadog is a monitoring and analytics platform that provides real-time observability of infrastructure, applications, and technology stacks for developers, IT operations teams, and business users. It offers a range of services including infrastructure monitoring, application performance monitoring, log management, security monitoring, and user experience monitoring, helping teams avoid downtime and ensure optimal user experience.",
+    "slogan": "See inside any stack, any app, at any scale, anywhere.",
+    "logoUrl": "https://media.brand.dev/92795231-74be-4aca-856b-fe6025185968.svg",
+    "iconUrl": "https://media.brand.dev/d33010e2-6496-46b5-a7f3-8fd563eb7aa1.png",
+    "primaryColor": "#6e3bac",
+    "accentColor": "#bea6d9",
+    "colors": [
+      {
+        "hex": "#6e3bac",
+        "name": "Shiner"
+      },
+      {
+        "hex": "#bea6d9",
+        "name": "Enchanted Lavender"
+      },
+      {
+        "hex": "#ede8f2",
+        "name": "Tranquil Eve"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4818e959-863e-4b6d-9e2b-1c97d211b518.png",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.datadoghq.com/",
+      "terms": "https://www.datadoghq.com/legal/terms/",
+      "contact": "https://www.datadoghq.com/about/contact/",
+      "privacy": "https://www.datadoghq.com/privacy/",
+      "blog": "https://www.datadoghq.com/blog/",
+      "pricing": "https://www.datadoghq.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cbb3d6f2-c8d9-4c65-8ee6-e3645e869a66.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 405,
+        "height": 405,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0303a2e2-0c9d-4e74-aecb-8f939260db13.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 229,
+        "height": 229,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d33010e2-6496-46b5-a7f3-8fd563eb7aa1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d11d6aa5-3391-4cc4-8c33-b53ad9998442.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/92795231-74be-4aca-856b-fe6025185968.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 174,
+        "height": 28,
+        "aspectRatio": 6.21
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/92795231-74be-4aca-856b-fe6025185968.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 174,
+      "height": 28,
+      "aspectRatio": 6.21
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0303a2e2-0c9d-4e74-aecb-8f939260db13.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 229,
+      "height": 229,
+      "aspectRatio": 1
+    }
+  }
+}

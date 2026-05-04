@@ -1,0 +1,164 @@
+{
+  "slug": "box",
+  "name": "Box",
+  "domain": "box.com",
+  "category": "Cloud Storage",
+  "trutoCategory": "Cloud Storage",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Box Content and Workflows",
+  "metaTitle": "Build Box AI Agents for Support and Internal Workflows",
+  "metaDescription": "Create DocsBot AI agents that securely use Box to find files, summarize content, prepare handoffs, update records, and trigger approved workflows for support and internal teams.",
+  "intro": "Box helps teams store, organize, share, and secure business content across the company. With DocsBot Skill Builder, you can describe the Box workflow you want in plain language and have DocsBot create a reusable AI Skill that lets support agents and internal assistants safely look up files, summarize content, route work, and trigger approved actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to find the right Box file or folder, summarize relevant documents, and answer customer questions from approved content sources.",
+    "Let a support agent gather files related to an account, summarize open documents or uploaded materials, and prepare a clean handoff for a human team member.",
+    "Allow the agent to create or organize Box folders for onboarding, case documentation, or customer project work when the conversation reaches an approved step.",
+    "Have the agent check whether required documents have been uploaded to Box and guide the customer on what is still missing.",
+    "Use the agent in helpdesk replies to pull Box-based reference material, summarize policy documents, and draft a more accurate response for the ticket context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find the right Box files, folders, and document summaries without manual searching.",
+    "Teams can ask the agent to collect content from Box for an SOP, account review, project brief, or audit preparation workflow and receive a structured summary.",
+    "Operations staff can use the agent to create standardized Box folders, organize content for new customers or projects, and confirm that required files are in place.",
+    "Customer success or compliance teams can chat with the agent to review Box document status, identify missing materials, and prepare internal follow-up tasks.",
+    "Internal teams can ask the agent to retrieve approved content from Box, summarize what changed, and generate a handoff note for the next team in the workflow."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that searches Box and summarizes approved files for faster customer answers.",
+    "An onboarding assistant that creates Box folders and checks for missing customer documents.",
+    "A ticket assistant that uses Box content to draft case summaries and escalation notes.",
+    "An internal knowledge agent that finds the latest Box documents and explains key updates.",
+    "A compliance workflow assistant that verifies required Box files before advancing a process.",
+    "A project operations agent that organizes Box folders using consistent naming and workflow rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Box-enabled agent to do, such as find files, summarize documents, create folders, or verify uploads, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through secure runtime handling, and scopes Box access to the minimum files, folders, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits and approval boundaries so the agent can retrieve content, prepare updates, or trigger sensitive Box changes only within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing permission controls, and workflow gaps, and records what should improve."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test findings to refine the Skill, strengthen instructions and safeguards, and help publish the finished Box workflow to the right DocsBot agent for website chat, helpdesk use, or private team access."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Box files and folders?",
+      "answer": "With DocsBot Skill Builder, you describe the Box workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests it, and prepares it for deployment. The finished agent can search content, summarize documents, organize files, and take approved actions inside Box."
+    },
+    {
+      "question": "Can an AI support agent use Box data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Box content to find relevant files, summarize documents, verify uploads, and prepare accurate ticket or chat responses. You control which content and actions are allowed, and Skill Builder adds safe access limits by default."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Box?",
+      "answer": "A DocsBot agent can look up account documents, confirm whether required files exist, summarize case materials, create onboarding folders, and prepare escalation notes for human teams. These workflows are especially useful when support teams rely on Box as a system of record for customer documents."
+    },
+    {
+      "question": "Can an internal AI assistant help employees find and summarize Box content?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to locate Box files, review folder contents, summarize documents, and gather materials for projects, audits, and SOP-driven work. This reduces manual searching and helps teams work faster across shared content."
+    },
+    {
+      "question": "How does DocsBot keep Box access secure for AI actions?",
+      "answer": "Skill Builder defines the required connection settings, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes permissions to the minimum needed. It can also add approval boundaries for sensitive actions like creating, moving, or updating Box content."
+    },
+    {
+      "question": "Can a DocsBot agent create folders or organize content in Box?",
+      "answer": "Yes, a Skill can be designed to create folders, apply naming rules, place files in the right location, or prepare content organization steps when those actions fit your approved workflow. Skill Builder helps define safe limits so the agent only performs bounded changes."
+    }
+  ],
+  "relatedSlugs": [
+    "google-drive",
+    "dropbox",
+    "onedrive",
+    "sharepoint",
+    "confluence",
+    "notion"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Box",
+    "domain": "box.com",
+    "description": "Box is a leading online file sharing and cloud content management service designed to streamline collaboration and enhance productivity for organizations worldwide. Founded in 2005 and headquartered in Redwood City, CA, Box offers unlimited storage, custom branding, and robust administrative controls, making it a versatile solution for businesses like AstraZeneca, JLL, and Morgan Stanley. The Intelligent Content Cloud by Box allows enterprises to manage the entire content lifecycle while securing critical data and transforming workflows with the aid of enterprise AI. With a focus on collaboration and workflow automation, Box empowers organizations to work effectively and securely, whether internally or with external partners. Additionally, Box is committed to social impact through Box.org, which supports nonprofits in achieving their missions. Discover more about their innovative offerings by visiting box.com.",
+    "slogan": "Secure content, empower collaboration, transform workflows on one intelligent platform.",
+    "logoUrl": "https://media.brand.dev/6aa6c3ce-7394-47f5-814c-143b726f0f73.png",
+    "iconUrl": "https://media.brand.dev/6aa6c3ce-7394-47f5-814c-143b726f0f73.png",
+    "primaryColor": "#0474f5",
+    "accentColor": "#7cb4ec",
+    "colors": [
+      {
+        "hex": "#0474f5",
+        "name": "Blue Darknut"
+      },
+      {
+        "hex": "#7cb4ec",
+        "name": "Aero"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0b647589-a665-4fc9-baa4-69a9b1336b01.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.box.com/",
+      "terms": "https://box.com/legal/termsofservice",
+      "contact": "https://box.com/about-us/contact-us",
+      "privacy": "https://box.com/legal/privacypolicy",
+      "blog": "https://blog.box.com/",
+      "pricing": "https://box.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d1a7ad68-bd3b-4ee7-9c1e-a4e129881c1b.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0af7ffa6-a16b-40f9-9461-39e0ce972e18.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6aa6c3ce-7394-47f5-814c-143b726f0f73.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 676,
+        "height": 676,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d1a7ad68-bd3b-4ee7-9c1e-a4e129881c1b.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d1a7ad68-bd3b-4ee7-9c1e-a4e129881c1b.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

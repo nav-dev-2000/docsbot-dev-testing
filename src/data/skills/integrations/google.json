@@ -1,0 +1,160 @@
+{
+  "slug": "google",
+  "name": "Google",
+  "domain": "google.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Using DocsBot Skills",
+  "metaTitle": "Build Google AI Agent Workflows with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Google services for support and internal workflows, with secure actions, testing, and controlled automation.",
+  "intro": "Google powers widely used tools for communication, search, documents, storage, and business operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up information, prepare updates, trigger approved workflows, and summarize results across Google services. That means a customer support bot or internal team assistant can do more than answer questions and can take bounded action inside the rules you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up order, account, or case details stored in approved Google resources and respond with a current status summary.",
+    "Let a support agent create or update rows in Google Sheets to log refund requests, bug reports, callback requests, or onboarding follow-ups during a live customer conversation.",
+    "Have the agent search approved Google Drive or Docs content to find policy details, troubleshooting steps, or product guidance before replying to a helpdesk ticket.",
+    "Use the agent to draft escalation notes, handoff summaries, or incident timelines and save them into a shared Google Doc for the human team.",
+    "Let the agent trigger approved Gmail-based follow-ups such as sending confirmation messages, collecting missing details, or preparing next-step communications for review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to search approved Google Drive folders, Docs, or Sheets and retrieve the exact information needed for a task or decision.",
+    "Customer success and operations teams can ask the agent to update tracking sheets, create follow-up records, and summarize account activity without switching between tools.",
+    "Teams can use the agent in Slack or Microsoft Teams to draft internal handoff documents, meeting summaries, and SOP checklists that are saved into Google Docs.",
+    "Managers can chat with the agent to gather information from approved Google sources, compare data across shared files, and prepare reports or action lists.",
+    "Internal support teams can use the agent to follow repeatable workflows such as intake, routing, escalation prep, and documentation updates across Google tools."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that reads approved Google Sheets data and returns live customer status updates.",
+    "An internal assistant that searches Google Drive and summarizes the right document for employees.",
+    "A workflow agent that creates Google Docs handoff notes from support conversations automatically.",
+    "A DocsBot Skill that logs product issues into a shared Google Sheet with approval controls.",
+    "A customer service agent that drafts Gmail follow-ups using ticket context and approved templates.",
+    "An operations assistant that updates spreadsheets, summarizes changes, and alerts the next team member."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Google-connected agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure setup, identifies the required configuration values, handles authentication through protected runtime configuration, keeps secrets out of chats and Skill source, and scopes access to only the Google actions and data the workflow requires."
+    },
+    {
+      "title": "It adds controls",
+      "description": "Skill Builder defines safe action limits, approval boundaries, and the right user or record scope so sensitive Google updates, messages, or document changes stay under your control."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings back into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer questions and take approved action."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google services?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and it creates a reusable Skill that lets your agent search, summarize, update, or trigger approved actions across Google services. Skill Builder also handles secure configuration, scoped access, and testing before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Google data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Google sources such as Docs, Drive, Sheets, or Gmail context to look up information, prepare summaries, log requests, and support handoffs while responding to chat or helpdesk conversations. The actions can be limited to the exact records, users, and workflows you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Google?",
+      "answer": "Teams can build workflows for live status lookups, request logging, escalation note creation, knowledge retrieval, follow-up drafting, and internal handoff preparation using Google tools. DocsBot can answer the customer and take bounded action inside the same workflow instead of only suggesting next steps."
+    },
+    {
+      "question": "Can an internal AI assistant search Google Drive and Docs for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees find information in approved Google Drive folders and Docs, summarize key content, and guide them through SOPs or team workflows. Access can be scoped so each assistant only reaches the files and actions that match your rules."
+    },
+    {
+      "question": "Can DocsBot update Google Sheets or create Google documents safely?",
+      "answer": "DocsBot Skill Builder can create Skills that update rows, add records, or generate documents with approval boundaries and controlled permissions. It designs the workflow to keep credentials protected, limit what can be changed, and require review for sensitive actions when needed."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Google with DocsBot?",
+      "answer": "You do not need to manually design the integration step by step. Skill Builder asks about the outcome you want, then handles the secure connection design, required configuration values, secret protection, testing, improvement, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "gmail",
+    "google-drive",
+    "google-sheets",
+    "google-docs",
+    "google-calendar",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "google.com",
+    "description": "Google is a multinational technology company that provides a wide range of internet‑related services and products. It operates the world’s leading search engine, offers advertising platforms for businesses, and develops cloud computing, hardware, and software solutions. Google leverages artificial intelligence across its services, from search algorithms to scientific research tools, and focuses on sustainability and environmental initiatives. The company also delivers popular consumer applications such as Gmail, Google Maps, YouTube, and the Android operating system, connecting billions of users worldwide.",
+    "slogan": "Organizing the world's information to make it universally accessible and useful.",
+    "logoUrl": "https://media.brand.dev/951c2fdd-3b71-4f6e-a298-a6fdf0bbd0fb.png",
+    "iconUrl": "https://media.brand.dev/951c2fdd-3b71-4f6e-a298-a6fdf0bbd0fb.png",
+    "primaryColor": "#eb8f2f",
+    "accentColor": "#259db6",
+    "colors": [
+      {
+        "hex": "#eb8f2f",
+        "name": "Goblin Eyes"
+      },
+      {
+        "hex": "#259db6",
+        "name": "Pelorus"
+      },
+      {
+        "hex": "#d4e0e4",
+        "name": "Wavecrest"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": null,
+      "blog": null,
+      "pricing": null,
+      "terms": "https://policies.google.com/terms",
+      "privacy": "https://policies.google.com/privacy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9e50b14d-142d-45e8-8393-d70c13910ab3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/951c2fdd-3b71-4f6e-a298-a6fdf0bbd0fb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9e50b14d-142d-45e8-8393-d70c13910ab3.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9e50b14d-142d-45e8-8393-d70c13910ab3.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

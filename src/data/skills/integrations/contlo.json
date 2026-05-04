@@ -1,0 +1,168 @@
+{
+  "slug": "contlo",
+  "name": "Contlo",
+  "domain": "contlo.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Contlo",
+  "metaTitle": "Build Contlo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that read Contlo data, trigger approved marketing workflows, and summarize customer context safely.",
+  "intro": "Contlo helps teams run personalized marketing, customer journeys, and AI-driven engagement across touchpoints. With DocsBot Skill Builder, you can describe the Contlo-powered workflow you want in plain language, and DocsBot can turn it into a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up campaign or customer context, trigger approved actions, and create clean handoffs without exposing technical complexity to your team.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a shopper's marketing journey or engagement status in Contlo and explain the next relevant campaign touchpoint during a support conversation.",
+    "Use a support agent to look up Contlo audience or behavior-based segment details so it can personalize troubleshooting responses based on recent customer activity.",
+    "Enable the agent to summarize a customer's recent Contlo campaign interactions and add that context to a helpdesk handoff for human support or success teams.",
+    "Allow the agent to trigger approved follow-up journeys, re-engagement flows, or notification workflows in Contlo after a support interaction is completed.",
+    "Use the agent to confirm whether a customer was included in a promotion, automation, or lifecycle campaign and respond with a clear status update."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent that can chat with them about Contlo campaigns, segments, journeys, and engagement history without requiring them to search multiple dashboards manually.",
+    "Let marketing, support, and customer success teams ask the agent to research customer engagement patterns in Contlo and return concise summaries for account reviews or escalations.",
+    "Enable team members to use chat, Slack, or Microsoft Teams to trigger approved Contlo workflows, such as adding contacts to specific journeys or preparing re-engagement actions.",
+    "Help internal teams follow SOPs by having the agent gather Contlo context, combine it with business rules, and recommend or complete the next approved step.",
+    "Allow employees to ask the agent for campaign performance context, customer journey status, or segment membership before they respond to a customer or launch outreach."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Contlo journey enrollment and explains customer messaging status.",
+    "A private team assistant that summarizes Contlo engagement history for support escalations and renewals.",
+    "A DocsBot Skill that adds approved contacts to Contlo journeys after support conversations.",
+    "An internal AI agent that looks up Contlo segments before sales or success outreach.",
+    "A support workflow that confirms promotion eligibility using Contlo audience and campaign context.",
+    "An employee assistant that prepares handoff notes using Contlo engagement and lifecycle activity summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Contlo agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, secure connection method, and authentication handling, while keeping credentials out of chats and protected through secure runtime configuration."
+    },
+    {
+      "title": "Access is scoped automatically",
+      "description": "Skill Builder defines the minimum Contlo permissions, allowed actions, record access, and approval boundaries needed so the agent only takes bounded actions your team approves."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, and approved Contlo actions the DocsBot agent needs to answer questions and take the next step."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, weak guidance, or permission gaps, and feeds those findings into an automated improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Contlo?",
+      "answer": "With DocsBot Skill Builder, you describe the Contlo workflow you want in plain language, such as looking up journey status or triggering an approved follow-up. Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Contlo data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Contlo Skill to retrieve approved customer engagement, segment, or journey context while responding in a website chat widget or helpdesk flow. That helps the agent give more relevant answers, prepare handoffs, or trigger the next approved action."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Contlo?",
+      "answer": "A DocsBot agent can look up campaign participation, summarize recent engagement, verify whether a customer is in a lifecycle journey, and trigger approved follow-up workflows after a support interaction. It can also package Contlo context into a clean escalation summary for a human teammate."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Contlo?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Contlo information, research customer engagement history, and complete approved marketing or customer-success workflows. This reduces dashboard switching and makes SOPs easier to follow."
+    },
+    {
+      "question": "How does DocsBot keep Contlo actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes access to the minimum necessary permissions, and adds approval boundaries for sensitive actions. That lets your agent work inside Contlo without exposing credentials or giving the AI unlimited access."
+    },
+    {
+      "question": "Can DocsBot trigger Contlo workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as adding contacts to a journey, preparing a handoff, generating a summary, or starting an approved workflow. The exact actions are bounded by the rules, permissions, and approvals your team defines."
+    }
+  ],
+  "relatedSlugs": [
+    "klaviyo",
+    "hubspot",
+    "mailchimp",
+    "activecampaign",
+    "salesforce-marketing-cloud",
+    "customer-io"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Contlo",
+    "domain": "contlo.com",
+    "description": "Contlo is an AI-native marketing and support platform that empowers fast-growing businesses to utilize their brand's own generative AI model for end-to-end marketing optimization. It enables personalized campaigns, automated customer journeys, and contextual marketing across touchpoints, driving customer retention. Contlo's Brand AI Model generates personalized marketing creatives, creates behavior-based customer segments, and auto-generates customer journeys, improving with use.",
+    "slogan": "Empowering eCommerce with AI-driven Marketing, Customer Engagement, and Personalization",
+    "logoUrl": "https://media.brand.dev/aefc2c4a-a652-45b3-aa48-db894cfc6b46.png",
+    "iconUrl": "https://media.brand.dev/15509cf9-b9ef-4e9e-bf35-ec62a07ce53f.png",
+    "primaryColor": "#d85f5d",
+    "accentColor": "#6e363c",
+    "colors": [
+      {
+        "hex": "#d85f5d",
+        "name": "Roman"
+      },
+      {
+        "hex": "#6e363c",
+        "name": "Rubine"
+      },
+      {
+        "hex": "#151b2b",
+        "name": "Sambucus"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f871d33d-8df4-447d-84ab-c40e8aa39512.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15509cf9-b9ef-4e9e-bf35-ec62a07ce53f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/aefc2c4a-a652-45b3-aa48-db894cfc6b46.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 176,
+        "height": 30,
+        "aspectRatio": 5.87
+      },
+      {
+        "url": "https://media.brand.dev/259e91cd-b054-4b57-bfa9-4e3ef5bf53ab.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/aefc2c4a-a652-45b3-aa48-db894cfc6b46.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 176,
+      "height": 30,
+      "aspectRatio": 5.87
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/259e91cd-b054-4b57-bfa9-4e3ef5bf53ab.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

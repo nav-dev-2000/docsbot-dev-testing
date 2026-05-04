@@ -1,0 +1,160 @@
+{
+  "slug": "apollo",
+  "name": "Apollo",
+  "domain": "apollo.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Apollo",
+  "metaTitle": "Build AI Agents for Apollo with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up Apollo data, prepare handoffs, update records, and automate sales and operations workflows.",
+  "intro": "Apollo can be part of a DocsBot AI agent that does more than answer questions. With DocsBot Skill Builder, non-technical teams can describe the outcome they want in plain language and have DocsBot create a secure reusable Skill for lookups, updates, handoffs, and workflow actions. This helps support teams, revenue teams, and operations teams give faster answers and complete approved work inside Apollo from a customer-facing or internal AI agent.",
+  "supportUseCases": [
+    "Use Apollo data during a website chat or helpdesk reply to look up account, contact, or company details and answer customer or prospect questions with better context.",
+    "Have the agent summarize Apollo activity history before responding so customers receive a clearer answer and human teammates get a cleaner handoff if escalation is needed.",
+    "Let the agent create or update Apollo records from qualified support or sales conversations when a customer requests follow-up, a demo, or ownership from the right team.",
+    "Trigger approved Apollo workflows after a support conversation, such as assigning a lead, flagging a high-intent account, or preparing a next-step task for sales.",
+    "Use the agent to capture missing details in chat, then send a structured Apollo-ready summary to the correct team for follow-up and pipeline action."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Apollo contact, company, and account context before outreach, renewals, or escalation reviews.",
+    "Sales, support, and success teams can ask the agent to summarize Apollo activity, recent changes, and ownership so they can prepare for calls and follow-up faster.",
+    "Team members can use the agent in Slack or Microsoft Teams to create records, update fields, assign owners, or trigger approved Apollo workflows without leaving chat.",
+    "Operations teams can chat with the agent to follow SOPs that combine Apollo research, qualification steps, and handoff preparation across multiple internal systems.",
+    "Managers can ask the agent for structured Apollo summaries to support territory reviews, lead routing checks, and next-action planning across the team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up Apollo contact and account details during live customer conversations.",
+    "A sales-assist agent that creates Apollo tasks and follow-up records from chat-qualified requests.",
+    "An internal research agent that summarizes Apollo company activity before calls, demos, or renewals.",
+    "A handoff agent that packages conversation details into structured Apollo-ready notes for sales teams.",
+    "A routing agent that flags high-intent conversations and triggers Apollo ownership or assignment workflows.",
+    "An operations agent that updates approved Apollo fields after employees complete standard workflow steps."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Apollo agent to do in plain language, and it translates that goal into a reusable Skill design for customer support or internal team workflows."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder identifies the Apollo connection details it needs, defines secure configuration values, protects and proxies secrets through approved runtime handling, and scopes the Skill to the minimum data and actions required."
+    },
+    {
+      "title": "Actions get clear boundaries",
+      "description": "Skill Builder adds the right instructions, approval boundaries, and permission limits so the agent can safely perform lookups, updates, handoffs, summaries, and workflow triggers only within your chosen rules."
+    },
+    {
+      "title": "Testing runs automatically",
+      "description": "DocsBot's testing agent exercises imagined support and employee scenarios, finds bugs, missing guardrails, and workflow gaps, then feeds those findings into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once reviewed, Skill Builder helps deploy the improved Apollo Skill to your website chat widget, helpdesk agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Apollo without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Apollo workflow you want in plain language and the builder designs the Skill, secures the connection, tests it, improves it, and prepares it for deployment. That lets non-technical teams create AI actions around Apollo data and approved updates without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use Apollo data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use an Apollo Skill to look up relevant account, contact, or company context while responding to customers or prospects. It can also prepare structured handoffs, summaries, and follow-up actions inside the limits you define."
+    },
+    {
+      "question": "What Apollo workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal DocsBot agents can help employees research accounts, summarize activity, update approved Apollo fields, assign work, create follow-up tasks, and prepare handoffs across sales and operations workflows. Teams can access those workflows through private chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update Apollo records or trigger workflows?",
+      "answer": "Yes, Skill Builder is designed to set scoped permissions, secure authentication handling, and approval boundaries for sensitive Apollo actions. That means the agent can take bounded action such as updating records or triggering workflows only when those actions fit your configured rules."
+    },
+    {
+      "question": "How does DocsBot keep Apollo credentials and secrets secure?",
+      "answer": "Skill Builder defines the required configuration values and keeps secrets out of chat transcripts and Skill content by using secure runtime configuration and secret proxying. It also limits access to the users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot create Apollo handoffs and summaries for sales or success teams?",
+      "answer": "Yes, a DocsBot agent can turn conversations, support tickets, or internal requests into structured Apollo-ready summaries, notes, and next steps. This helps teams move faster while keeping records more consistent and easier to act on."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zendesk",
+    "intercom",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Apollo Global Management",
+    "domain": "apollo.com",
+    "description": "Apollo is a leading global alternative asset management firm specializing in private investment-grade and fixed-income markets. With over three decades of experience, Apollo aims to deliver excess returns for clients across various risk-reward spectrums, ranging from investment-grade credit to private equity. The firm operates a fully integrated platform that not only addresses the financial return needs of its clients but also provides innovative capital solutions to support business growth. Additionally, through its retirement services division, Athene, Apollo offers a comprehensive suite of retirement savings products designed to enhance clients' financial security. Apollo's approach to investing is characterized by patience, creativity, and knowledge, aligning the interests of clients, invested businesses, employees, and communities to foster opportunities and achieve positive outcomes.",
+    "slogan": "Expanding opportunity through innovative asset management and retirement solutions.",
+    "logoUrl": "https://media.brand.dev/d31c0aa4-f52e-4a5c-8101-7a4fefa2c5d8.png",
+    "iconUrl": "https://media.brand.dev/d31c0aa4-f52e-4a5c-8101-7a4fefa2c5d8.png",
+    "primaryColor": "#047c54",
+    "accentColor": "#7cc0ac",
+    "colors": [
+      {
+        "hex": "#047c54",
+        "name": "Pepper Green"
+      },
+      {
+        "hex": "#7cc0ac",
+        "name": "Ocean Wave"
+      },
+      {
+        "hex": "#d0e8e2",
+        "name": "Aqua Glass"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3efc91b2-745b-4f91-840c-3e2cfd5594da.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://apollo.com/careers",
+      "terms": "https://apollo.com/governance/terms-of-use",
+      "contact": "https://apollo.com/aboutus/contact-us",
+      "privacy": "https://apollo.com/governance/privacy-policy",
+      "blog": "https://apollo.com/insights-news/news",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d31c0aa4-f52e-4a5c-8101-7a4fefa2c5d8.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7db44813-3e39-4845-a5d1-d4571bd99b00.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d31c0aa4-f52e-4a5c-8101-7a4fefa2c5d8.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d31c0aa4-f52e-4a5c-8101-7a4fefa2c5d8.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

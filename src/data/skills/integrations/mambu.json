@@ -1,0 +1,168 @@
+{
+  "slug": "mambu",
+  "name": "Mambu",
+  "domain": "mambu.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With Mambu",
+  "metaTitle": "Build AI Agents for Mambu With DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mambu for secure banking data lookups, workflow actions, handoffs, and internal team support with safe controls.",
+  "intro": "Mambu is a cloud banking platform used by banks, fintechs, and financial institutions to manage modern financial products and customer records. With DocsBot Skill Builder, you can describe the Mambu-powered agent behavior you want in plain language and have DocsBot design, secure, test, and package the Skill for you. The result is an AI support or internal operations agent that can answer questions, retrieve approved information, prepare handoffs, and take bounded actions inside your defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up approved loan, deposit, or account status details in Mambu while responding in website chat or helpdesk tickets.",
+    "Use the agent to summarize a customer's product relationship, recent account changes, or servicing context from Mambu before replying with the next best step.",
+    "Have the agent collect missing details from the customer, create a structured handoff, and attach a Mambu-based summary for operations or support teams.",
+    "Allow the agent to trigger approved follow-up workflows, such as review requests or case preparation steps, based on Mambu account conditions.",
+    "Enable the agent to verify customer eligibility or servicing status from Mambu and explain what documents, actions, or timelines apply next within policy boundaries."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Mambu customer, product, or account context without searching manually.",
+    "Give operations and support teams an internal AI assistant that summarizes Mambu record history, highlights servicing gaps, and prepares escalation notes for the right team.",
+    "Help customer success, onboarding, or back-office staff complete SOPs by chatting with an agent that uses Mambu data to guide next steps and trigger approved workflows.",
+    "Allow risk, servicing, or support employees to ask the agent for structured snapshots of customer relationships, pending actions, and product status across Mambu records.",
+    "Use a private agent to generate internal case summaries, follow-up checklists, or review packets based on approved Mambu lookups and business rules."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks account or loan servicing status in Mambu before answering customers.",
+    "An internal assistant that summarizes customer records and recent changes for operations teams.",
+    "A handoff Skill that gathers customer details and prepares Mambu-based escalation notes.",
+    "A workflow Skill that triggers approved review or follow-up actions from Mambu conditions.",
+    "An employee agent that answers policy questions using internal docs plus live Mambu context.",
+    "A case preparation Skill that creates structured summaries for servicing, support, or compliance review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Mambu-enabled agent to do, such as look up account context, prepare handoffs, or trigger an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the required Mambu connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes the Skill to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits and approval boundaries for sensitive updates so the agent can retrieve information, draft changes, or request confirmation before taking higher-impact actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into improvement."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private team assistant can use Mambu safely in live workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Mambu data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and DocsBot designs a Skill that can look up approved Mambu data, summarize it for the conversation, and take bounded actions under your rules. Skill Builder also handles secure configuration, secret protection, permission scoping, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Mambu during customer chat or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Mambu Skill to retrieve approved account or servicing context, prepare summaries, gather missing information, and create handoff-ready notes while replying to customers. Sensitive actions can be limited or placed behind approval steps."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Mambu?",
+      "answer": "Teams can build workflows for account status lookups, servicing summaries, eligibility checks, escalation preparation, follow-up workflow triggers, and structured case notes. The agent responds to the customer conversation while using Mambu only within the permissions and action boundaries you approve."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Mambu?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Mambu context, summarize records, follow SOPs, prepare review packets, and coordinate next steps from chat, Slack, or Microsoft Teams. This reduces manual searching and gives teams faster access to approved operational context."
+    },
+    {
+      "question": "How does DocsBot keep Mambu access secure?",
+      "answer": "Skill Builder defines the needed configuration, keeps credentials out of chats and generated content, proxies secrets through secure runtime settings, and scopes access to the minimum actions and records required. It can also add approval boundaries for sensitive workflows and test the Skill for missing checks before deployment."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in Mambu safely?",
+      "answer": "DocsBot Skills can be designed for bounded updates or workflow triggers when that fits your process and permissions. Skill Builder helps limit who can use those actions, what the agent can change, and when approval is required before anything higher risk happens."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "zendesk",
+    "hubspot",
+    "intercom",
+    "freshdesk",
+    "stripe"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mambu",
+    "domain": "mambu.com",
+    "description": "Mambu is the world's only true SaaS cloud banking platform and the founders of composable banking. They help banks, fintechs, and other financial institutions design and launch modern financial products with speed, flexibility, and scale using a modular, building-block approach. Trusted by hundreds of customers across 65 countries, Mambu provides the agility, scalability, and reliability needed to succeed in today's financial landscape.",
+    "slogan": "Empowering financial innovation with flexible, scalable, and composable cloud banking.",
+    "logoUrl": "https://media.brand.dev/7b3e3062-24bb-419a-8b96-7532bc940319.svg",
+    "iconUrl": "https://media.brand.dev/61bffbab-281b-44d1-8b7f-9aaed5aa25a7.jpg",
+    "primaryColor": "#349d59",
+    "accentColor": "#8fbfb3",
+    "colors": [
+      {
+        "hex": "#349d59",
+        "name": "Kelly Green"
+      },
+      {
+        "hex": "#8fbfb3",
+        "name": "Catarina Green"
+      },
+      {
+        "hex": "#dbede0",
+        "name": "Sea Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e78a88dd-95ac-4606-b15f-ce6c22a53ad3.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://mambu.com/en/careers",
+      "terms": null,
+      "contact": "https://mambu.com/en/contact-us",
+      "pricing": null,
+      "privacy": "https://mambu.com/legal/privacy-policy",
+      "blog": "https://mambu.com/en/insights/press"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/61bffbab-281b-44d1-8b7f-9aaed5aa25a7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7b3e3062-24bb-419a-8b96-7532bc940319.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 177,
+        "height": 61,
+        "aspectRatio": 2.9
+      },
+      {
+        "url": "https://media.brand.dev/63568a30-c522-4ed6-a6ac-8f9f695d0813.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 177,
+        "height": 61,
+        "aspectRatio": 2.9
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/63568a30-c522-4ed6-a6ac-8f9f695d0813.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 177,
+      "height": 61,
+      "aspectRatio": 2.9
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/61bffbab-281b-44d1-8b7f-9aaed5aa25a7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

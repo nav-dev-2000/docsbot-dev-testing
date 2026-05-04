@@ -1,0 +1,168 @@
+{
+  "slug": "applicantstack",
+  "name": "ApplicantStack",
+  "domain": "applicantstack.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ApplicantStack",
+  "metaTitle": "ApplicantStack AI Agent Integration for DocsBot Skill Builder",
+  "metaDescription": "Build DocsBot AI agents that use ApplicantStack to answer questions, retrieve hiring data, trigger workflows, and support recruiting teams safely.",
+  "intro": "ApplicantStack helps teams manage recruiting and onboarding, and DocsBot Skill Builder helps you turn those processes into reusable AI agent abilities. In plain language, you describe what you want the agent to do with ApplicantStack, and Skill Builder designs, secures, tests, and deploys the workflow for you. The result is a customer support or internal AI agent that can look up hiring information, prepare handoffs, update approved records, and trigger next steps inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an application or onboarding step in ApplicantStack and respond with a clear summary.",
+    "Use a DocsBot agent connected to your helpdesk to gather missing applicant details from a ticket and create a recruiting handoff with the relevant ApplicantStack context.",
+    "Enable the agent to summarize applicant or candidate record history from ApplicantStack so support teams can answer portal access or process questions faster.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying a recruiting team when a candidate reports an issue with an application or onboarding task.",
+    "Have the agent prepare escalation notes using ApplicantStack data so a human recruiter receives the current status, recent activity, and customer-reported problem in one handoff."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to look up candidate, job, and onboarding status information from ApplicantStack.",
+    "Recruiting and HR teams can ask the agent to summarize open requisitions, applicant progress, or stalled onboarding tasks without manually searching through records.",
+    "Team members can use the agent to collect required context for a hiring workflow, then create an approved handoff or follow-up task based on ApplicantStack data.",
+    "Operations teams can chat with the agent to follow SOPs for candidate issue resolution, with the agent retrieving relevant ApplicantStack details and guiding the next step.",
+    "Managers can ask the agent to generate concise summaries of recruiting pipeline activity or onboarding blockers using live ApplicantStack information within allowed access limits."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks application or onboarding status and explains the next step.",
+    "A recruiting assistant that summarizes candidate records and prepares clean handoff notes for recruiters.",
+    "An internal HR agent that retrieves requisition details and highlights stalled hiring steps.",
+    "A helpdesk workflow that turns applicant issues into structured recruiting escalations with ApplicantStack context.",
+    "A private team assistant that answers onboarding progress questions using approved ApplicantStack lookups.",
+    "An AI agent that gathers missing details from chats before creating a follow-up workflow for hiring teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ApplicantStack-powered agent to do, such as checking application status, summarizing onboarding progress, or preparing an escalation, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required configuration values, sets up secure connection and authentication handling, protects and proxies secrets through approved runtime configuration, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder defines safe action limits, assigns the right permissions, and adds approval boundaries for sensitive updates or workflow triggers so the agent only acts within your rules."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "The Skill improves itself",
+      "description": "Skill Builder uses those test findings to refine instructions, tighten logic, and improve the ApplicantStack workflow before deployment so the agent is more reliable from day one."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ApplicantStack?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or onboarding workflow you want in plain language, and Skill Builder creates the ApplicantStack Skill with secure configuration, scoped access, testing, and deployment guidance built in."
+    },
+    {
+      "question": "Can an AI support agent use ApplicantStack data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use approved ApplicantStack lookups to summarize application status, onboarding progress, or related record details while responding in a website chat widget or helpdesk flow."
+    },
+    {
+      "question": "What ApplicantStack workflows can an internal AI assistant automate for HR and recruiting teams?",
+      "answer": "An internal DocsBot agent can retrieve candidate and requisition information, summarize pipeline activity, prepare recruiter handoffs, guide SOPs, and trigger approved follow-up steps based on ApplicantStack data."
+    },
+    {
+      "question": "Can DocsBot update ApplicantStack records or trigger actions safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved updates, handoffs, or workflow triggers, with scoped permissions and approval boundaries so sensitive steps stay controlled."
+    },
+    {
+      "question": "How does DocsBot handle ApplicantStack credentials and authentication securely?",
+      "answer": "Skill Builder defines the needed connection settings, keeps secrets out of chat transcripts and Skill content, and proxies authentication through secure runtime configuration instead of exposing credentials to users."
+    },
+    {
+      "question": "Can a DocsBot agent prepare escalations or recruiter handoffs using ApplicantStack?",
+      "answer": "Yes, the agent can collect the customer issue, pull the relevant ApplicantStack context, and generate a concise handoff summary so recruiters or HR staff receive the right information faster."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "bamboohr",
+    "workable",
+    "jobvite",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ApplicantStack",
+    "domain": "applicantstack.com",
+    "description": "ApplicantStack is a provider of online recruitment and onboarding solutions. They offer an affordable and user-friendly applicant tracking system and employee onboarding system, designed to streamline hiring processes and simplify new hire integration.",
+    "slogan": "Big bank sophistication, small town values, personalized banking experience.",
+    "logoUrl": "https://media.brand.dev/6181d3a7-d480-4b86-b1c7-204de9c817d1.png",
+    "iconUrl": "https://media.brand.dev/0b135128-85f0-4b45-a058-ad5f0e9c67ad.png",
+    "primaryColor": "#86898f",
+    "accentColor": "#6c7277",
+    "colors": [
+      {
+        "hex": "#86898f",
+        "name": "Grey Heather"
+      },
+      {
+        "hex": "#6c7277",
+        "name": "Draw Your Sword"
+      },
+      {
+        "hex": "#cedce4",
+        "name": "Dartmoor Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5c38768f-fd87-447d-9c42-a0bfa7029e7b.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.applicantstack.com/contact/",
+      "privacy": null,
+      "blog": "https://www.applicantstack.com/blog/",
+      "pricing": "https://www.applicantstack.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/6181d3a7-d480-4b86-b1c7-204de9c817d1.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 2604,
+        "height": 512,
+        "aspectRatio": 5.09
+      },
+      {
+        "url": "https://media.brand.dev/0b135128-85f0-4b45-a058-ad5f0e9c67ad.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7df23874-546b-487d-8ee7-17222cd820b8.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 82,
+        "aspectRatio": 4.88
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7df23874-546b-487d-8ee7-17222cd820b8.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 400,
+      "height": 82,
+      "aspectRatio": 4.88
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0b135128-85f0-4b45-a058-ad5f0e9c67ad.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "delighted",
+  "name": "Delighted",
+  "domain": "delighted.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Delighted for Feedback-Driven Support",
+  "metaTitle": "Delighted AI Agent Integration for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read Delighted feedback, summarize customer sentiment, trigger follow-up workflows, and support teams safely.",
+  "intro": "Delighted helps teams collect customer, product, and employee feedback, making it a strong source of context for AI agents. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language and have DocsBot create a reusable Skill that safely reads Delighted data, prepares summaries, and triggers approved follow-up actions. This helps customer-facing and internal AI agents respond with better context, faster handoffs, and more consistent next steps.",
+  "supportUseCases": [
+    "Use Delighted survey responses and scores during a customer chat or ticket reply to summarize recent sentiment before the agent answers.",
+    "Have the agent look up a customer's latest NPS, CSAT, or feedback history in Delighted and tailor support responses based on that context.",
+    "Let the agent prepare an escalation handoff that includes Delighted feedback themes, recent survey comments, and a concise customer sentiment summary.",
+    "Enable the agent to identify unhappy customers from Delighted feedback and trigger an approved follow-up workflow while responding in chat or helpdesk tickets.",
+    "Use Delighted response history to help the agent explain whether a support issue appears isolated or part of a broader customer experience pattern."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Delighted survey trends, recent scores, and common feedback themes without manually digging through dashboards.",
+    "Customer success or support leaders can ask the agent to summarize negative feedback by segment, product area, or time period for faster internal reviews.",
+    "Teams can use the agent in Slack or Microsoft Teams to prepare follow-up lists, escalation notes, and retention outreach plans based on Delighted responses.",
+    "Operations or CX teams can chat with the agent to research recurring complaint themes and turn them into structured summaries for planning and SOP reviews.",
+    "Internal agents can combine Delighted feedback context with team workflows to route issues, create handoffs, and document next steps for employees."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that looks up recent Delighted feedback before responding to customers.",
+    "An AI assistant that summarizes NPS, CSAT, or survey comments for internal teams.",
+    "A workflow that flags detractors and prepares follow-up or escalation handoff notes.",
+    "An internal research agent that groups Delighted comments into recurring complaint themes.",
+    "A customer success assistant that drafts outreach priorities from recent feedback signals.",
+    "A support workflow that adds Delighted sentiment context to helpdesk ticket responses."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Delighted in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Delighted connection details, defines secure authentication and runtime configuration, protects and proxies secrets automatically, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Safe actions are defined",
+      "description": "Skill Builder adds the right boundaries for lookups, summaries, workflow triggers, and any sensitive updates or follow-up actions so the agent operates within approved limits."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action with Delighted context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Delighted feedback in customer support?",
+      "answer": "With DocsBot Skill Builder, you can describe a workflow where the agent reads Delighted scores, comments, or response history during chats or ticket handling. Skill Builder then creates a secure Skill that can summarize sentiment, prepare handoffs, and trigger approved follow-up actions."
+    },
+    {
+      "question": "Can an AI support agent use Delighted data to personalize replies?",
+      "answer": "Yes, a DocsBot agent can use Delighted survey context such as recent scores, comments, or sentiment patterns to tailor support responses. You can also set limits so the agent only performs approved lookups and workflow actions."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Delighted?",
+      "answer": "Internal DocsBot agents can summarize feedback trends, group recurring themes, prepare retention or escalation lists, and generate reports or handoff notes for teams. Employees can ask for this information in chat, Slack, or Microsoft Teams instead of manually searching through survey records."
+    },
+    {
+      "question": "Can DocsBot use Delighted responses to prepare escalations or follow-up tasks?",
+      "answer": "Yes, the Skill can be designed to turn Delighted responses into structured summaries, escalation notes, or approved workflow triggers. Skill Builder can also add approval boundaries when actions should be reviewed before they are sent or created."
+    },
+    {
+      "question": "Is it safe to connect Delighted to an AI agent?",
+      "answer": "DocsBot Skill Builder is designed to handle connections securely by defining required configuration values, protecting and proxying secrets, and keeping credentials out of chats and generated content. It also scopes permissions and action limits so the agent only accesses what your workflow needs."
+    },
+    {
+      "question": "Do I need to write code to create a Delighted AI workflow in DocsBot?",
+      "answer": "No, you describe the outcome you want in plain language and Skill Builder handles the workflow design, secure setup, testing, and deployment process. It can also refine the Skill automatically after testing imagined scenarios."
+    }
+  ],
+  "relatedSlugs": [
+    "surveymonkey",
+    "typeform",
+    "qualtrics",
+    "zendesk",
+    "intercom",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Delighted",
+    "domain": "delighted.com",
+    "description": "Delighted is a self-serve experience management platform that helps businesses connect with their customers to learn, improve, and delight. Based in Palo Alto, the company was founded by Caleb Elston, Mike Gowen, and Mark Dodwell. Delighted enables top brands to collect employee, product, and customer feedback quickly, driving business growth through customer satisfaction.",
+    "slogan": "To learn, improve, and delight",
+    "logoUrl": "https://media.brand.dev/e150dca7-91ab-4179-bd5a-998e2e9e339e.png",
+    "iconUrl": "https://media.brand.dev/e150dca7-91ab-4179-bd5a-998e2e9e339e.png",
+    "primaryColor": "#949494",
+    "accentColor": "#353535",
+    "colors": [
+      {
+        "hex": "#949494",
+        "name": "Grey Shingle"
+      },
+      {
+        "hex": "#353535",
+        "name": "Jet"
+      },
+      {
+        "hex": "#d4d4d4",
+        "name": "Disco Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c5fd8ed3-e8d5-4256-b58e-5a80527d3bee.png",
+    "industries": [],
+    "links": {
+      "careers": "https://delighted.com/jobs",
+      "terms": "https://app.delighted.com/terms",
+      "contact": "https://delighted.com/contact-sales",
+      "privacy": "https://app.delighted.com/privacy",
+      "blog": "https://delighted.com/blog",
+      "pricing": "https://delighted.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e150dca7-91ab-4179-bd5a-998e2e9e339e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6142c30f-e7b2-44ad-a83d-cbbe28a8628e.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6142c30f-e7b2-44ad-a83d-cbbe28a8628e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6142c30f-e7b2-44ad-a83d-cbbe28a8628e.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "netiq",
+  "name": "NetIQ",
+  "domain": "netiq.com",
+  "category": "Identity & Access",
+  "trutoCategory": "SSO",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work Safely with NetIQ",
+  "metaTitle": "Build NetIQ AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use NetIQ for identity and access lookups, safe workflow actions, support handoffs, and internal security operations.",
+  "intro": "NetIQ helps organizations manage identity, access, security, and compliance across complex environments. With DocsBot Skill Builder, you can describe the NetIQ workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve identity-related information, prepare handoffs, and take approved actions inside NetIQ while staying within your security rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent verify account or access status in NetIQ and explain the next approved support step without exposing sensitive identity details.",
+    "Use a support agent to collect missing context from a customer, look up relevant identity or authentication information in NetIQ, and prepare a clean escalation for your access management team.",
+    "Enable a helpdesk-connected DocsBot agent to summarize login or access-related issues against NetIQ records so support teams can respond faster and more consistently.",
+    "Have the agent trigger approved access support workflows in NetIQ, such as submitting a review request or starting an internal remediation process, when a customer conversation meets your rules.",
+    "Let the agent check whether a user is affected by a known identity or authentication issue in NetIQ and provide a status-based response with a safe handoff path when needed."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI agent they can chat with to look up user access context, identity status, or policy-related information from NetIQ without switching between admin tools.",
+    "Let IT and security teams use an internal DocsBot agent in Slack or Microsoft Teams to gather NetIQ details, summarize incidents, and follow access management SOPs faster.",
+    "Enable service desk employees to chat with an internal agent that collects the right request details, checks NetIQ records, and prepares approval-ready access change handoffs.",
+    "Help operations teams use a private AI assistant to generate NetIQ-based audit summaries, identity review notes, and compliance-oriented status updates for internal stakeholders.",
+    "Allow authorized employees to ask the agent to trigger bounded NetIQ workflows, with approval boundaries for sensitive actions and clear summaries of what happened."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks NetIQ identity and access status during customer account recovery conversations.",
+    "A helpdesk agent that summarizes NetIQ authentication context before escalating login issues to internal specialists.",
+    "An internal IT assistant that retrieves user identity details and recommended next steps from NetIQ.",
+    "A security operations agent that prepares audit-friendly summaries from NetIQ access and policy information.",
+    "An employee-facing agent that gathers request details and starts approved NetIQ access review workflows.",
+    "A private assistant that helps teams follow identity governance SOPs using NetIQ data and actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the NetIQ agent to do in plain language, such as checking access status, preparing escalations, or starting an approved identity workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed NetIQ configuration values, and defines how the agent should look up data, respond, and take bounded actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication planning by keeping credentials out of chats and Skill content, proxying secrets through approved runtime configuration, and limiting access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Safety rules are applied",
+      "description": "Skill Builder adds scoped permissions, response rules, and approval boundaries for sensitive NetIQ actions so the agent can assist confidently without overreaching."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with NetIQ?",
+      "answer": "With DocsBot Skill Builder, you describe the NetIQ task you want in plain language, and Skill Builder designs the workflow, secures the connection, tests the behavior, and prepares the Skill for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use NetIQ data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved NetIQ lookups to check identity or access-related status, gather context, summarize findings, and prepare safe escalations while responding to customers."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with NetIQ?",
+      "answer": "Teams can build workflows for login issue triage, account access context gathering, escalation preparation, status summaries, and approved identity-support workflow triggers that stay within defined limits."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with NetIQ tasks?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve NetIQ information, research access questions, generate summaries, and complete approved identity-management workflows."
+    },
+    {
+      "question": "How does DocsBot keep NetIQ actions safe?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes permissions to the minimum needed, and adds approval boundaries for sensitive actions so the agent operates within your rules."
+    },
+    {
+      "question": "Can a NetIQ AI agent prepare handoffs and escalations for IT or security teams?",
+      "answer": "Yes, the agent can gather the right details, summarize NetIQ context, and create a cleaner handoff for human teams so escalations are faster and more complete."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "auth0",
+    "microsoft-entra-id",
+    "ping-identity",
+    "jumpcloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "NetIQ",
+    "domain": "netiq.com",
+    "description": "NetIQ is a global enterprise software company specializing in solutions for managing security, compliance, identity, access, performance, and availability for organizations. They leverage The Power of Identity™ to address the challenges of today's hybrid IT infrastructures. By offering a wide range of proven solutions, NetIQ helps businesses simplify access to IT services, prevent unauthorized activities, and manage complexity in a secure manner. Their portfolio enables organizations to understand their environment in real-time, mitigate risks, and leverage new technologies and services securely and efficiently. NetIQ's goal is to empower organizations to achieve successful business outcomes through the Identity-Powered Enterprise approach, creating new opportunities and competitive advantages by enhancing visibility and understanding of relationships between individuals, devices, and behaviors.",
+    "slogan": "The Power of Identity™ for a secure, simplified IT environment",
+    "logoUrl": "https://media.brand.dev/d3ff8e13-633b-4f5a-a6dd-e8a81beaea06.jpg",
+    "iconUrl": "https://media.brand.dev/15820b9e-2c4c-4ad0-bbff-9467b5ee1603.png",
+    "primaryColor": "#8a8a8a",
+    "accentColor": "#171717",
+    "colors": [
+      {
+        "hex": "#8a8a8a",
+        "name": "Wild Dove"
+      },
+      {
+        "hex": "#171717",
+        "name": "Cynical Black"
+      },
+      {
+        "hex": "#dddddd",
+        "name": "Steam"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/af12436b-b8f6-4b4a-bde8-c3bd4d130573.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://netiq.com/products/contact-center-solutions",
+      "privacy": "https://netiq.com/products/data-privacy-protection-foundation",
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15820b9e-2c4c-4ad0-bbff-9467b5ee1603.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d3ff8e13-633b-4f5a-a6dd-e8a81beaea06.jpg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 156,
+        "height": 46,
+        "aspectRatio": 3.39
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d3ff8e13-633b-4f5a-a6dd-e8a81beaea06.jpg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 156,
+      "height": 46,
+      "aspectRatio": 3.39
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/15820b9e-2c4c-4ad0-bbff-9467b5ee1603.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

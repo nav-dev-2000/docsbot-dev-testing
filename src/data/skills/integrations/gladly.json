@@ -1,0 +1,160 @@
+{
+  "slug": "gladly",
+  "name": "Gladly",
+  "domain": "gladly.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Gladly",
+  "metaTitle": "Build Gladly AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Gladly to look up customer context, update support records, prepare handoffs, and automate safe service workflows.",
+  "intro": "Gladly helps brands deliver more personal customer service by centering every conversation on the customer, not the ticket. With DocsBot Skill Builder, you can describe the Gladly workflow you want in plain language and have DocsBot create a secure reusable Skill for support or internal teams. The result is an AI agent that can answer questions, retrieve customer context, prepare handoffs, update records, and trigger approved actions inside Gladly.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer's recent Gladly conversation history and summarize the situation before replying.",
+    "Let the agent create or update Gladly customer records with approved notes, tags, or follow-up details collected during the chat.",
+    "Have the agent prepare an escalation handoff in Gladly with a clean summary of the issue, steps already taken, and missing information.",
+    "Enable the agent to check Gladly case or conversation status and give customers a clear progress update without making them repeat themselves.",
+    "Use the agent to gather required support details from the customer, then create a structured Gladly handoff for a human specialist to review."
+  ],
+  "internalUseCases": [
+    "Let support employees chat with a private DocsBot agent to retrieve Gladly customer history, conversation summaries, and prior resolutions without switching tools.",
+    "Enable customer success or operations teams to ask the agent to research a customer situation across Gladly and return a concise next-step summary.",
+    "Give supervisors an internal AI assistant that drafts escalation notes, QA summaries, or follow-up templates based on Gladly conversation data.",
+    "Allow employees in Slack or Microsoft Teams to trigger approved Gladly workflows, such as assigning follow-up tasks or updating internal support notes, through chat.",
+    "Use a private agent to guide team members through support SOPs while it retrieves relevant Gladly context and prepares the right handoff artifacts."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes Gladly conversation history before answering a customer.",
+    "An AI assistant that creates structured Gladly handoff notes from live customer chats.",
+    "A private employee agent that retrieves customer context from Gladly in Slack.",
+    "A workflow that updates Gladly records after the agent confirms key support details.",
+    "An escalation assistant that drafts specialist-ready summaries using Gladly conversation data.",
+    "A QA helper that reviews Gladly interactions and produces internal coaching summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Gladly agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed Gladly connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder sets clear approval boundaries and safe action rules so sensitive Gladly updates, handoffs, or workflow triggers stay under the controls you choose."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, and approved Gladly actions your DocsBot agent needs to perform the job."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs or workflow gaps, and feeds improvements back into an automated self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Gladly?",
+      "answer": "With DocsBot Skill Builder, you describe the Gladly workflow you want in plain language, such as looking up customer context, updating records, or preparing escalations. Skill Builder then designs the Skill, secures the connection, tests realistic scenarios, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Gladly data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can be configured to use Gladly for live lookups, status checks, conversation summaries, and approved record updates while responding to customers in chat or through helpdesk tickets. You control which actions are allowed and where approval boundaries are required."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Gladly?",
+      "answer": "A DocsBot agent can gather missing details, summarize prior conversations, update support notes, prepare escalations, and trigger approved follow-up workflows in Gladly. This helps reduce repetition for customers while giving human agents cleaner handoffs and better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Gladly?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Gladly customer history, summarize conversations, draft follow-up notes, and complete support SOPs from chat, Slack, or Microsoft Teams. This gives teams faster access to context without constant tool switching."
+    },
+    {
+      "question": "How does DocsBot keep Gladly actions secure?",
+      "answer": "Skill Builder automatically defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets securely, and scopes permissions to the smallest practical set of users, records, and actions. It can also add approval steps for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Gladly workflows?",
+      "answer": "No, the setup is designed for non-technical users to describe the desired outcome instead of manually wiring the integration. Skill Builder handles the design, secure connection approach, testing, improvements, and deployment path for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "salesforce-service-cloud",
+    "hubspot",
+    "gorgias"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Gladly",
+    "domain": "gladly.com",
+    "description": "Gladly is a customer experience (CX) platform that uses Customer AI to put customers at the center of every conversation. It provides radically efficient and personal support, treating customers as individuals rather than tickets. Trusted by customer-centric brands like Crate & Barrel and Ulta Beauty, Gladly delivers AI-powered customer service software for businesses seeking to reinvent their customer experience.",
+    "slogan": "Treating people like people, not tickets",
+    "logoUrl": "https://media.brand.dev/45d5abc3-7fc9-45fb-9a38-768e6068838a.png",
+    "iconUrl": "https://media.brand.dev/45d5abc3-7fc9-45fb-9a38-768e6068838a.png",
+    "primaryColor": "#069c06",
+    "accentColor": "#addead",
+    "colors": [
+      {
+        "hex": "#069c06",
+        "name": "True Green"
+      },
+      {
+        "hex": "#addead",
+        "name": "Frozen Moss Green"
+      },
+      {
+        "hex": "#32a732",
+        "name": "Wageningen Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ea778e99-5000-4dd2-848b-59de0197694c.png",
+    "industries": [],
+    "links": {
+      "careers": "https://gladly.com/careers/",
+      "terms": "https://gladly.com/terms-of-service/",
+      "contact": "https://gladly.com/contact/",
+      "privacy": "https://gladly.com/privacy-policy/",
+      "blog": "https://gladly.com/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/45d5abc3-7fc9-45fb-9a38-768e6068838a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c1c8bf8d-c260-436f-8059-9dcd4a0f8032.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/45d5abc3-7fc9-45fb-9a38-768e6068838a.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/45d5abc3-7fc9-45fb-9a38-768e6068838a.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

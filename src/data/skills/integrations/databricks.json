@@ -1,0 +1,162 @@
+{
+  "slug": "databricks",
+  "name": "Databricks",
+  "domain": "databricks.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build Databricks AI agents with DocsBot Skill Builder",
+  "metaTitle": "Build Databricks AI agents for support and teams | DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query Databricks, summarize analytics, trigger workflows, and support teams or customers with approved actions.",
+  "intro": "Databricks helps organizations manage data, analytics, and AI work in one platform. With DocsBot Skill Builder, you can describe the Databricks workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your agent can answer questions, retrieve approved data, summarize findings, and take bounded actions inside Databricks-driven workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent query approved Databricks-backed metrics or account usage views to answer customer questions with current data.",
+    "Use a helpdesk-connected DocsBot agent to summarize relevant Databricks job, pipeline, or dataset status before drafting a support response or escalation handoff.",
+    "Enable the agent to gather customer-reported details, look up matching operational data in Databricks, and prepare a concise case summary for human support teams.",
+    "Have the agent trigger an approved downstream workflow based on Databricks-driven conditions, such as opening an internal review when usage anomalies or service-impact patterns appear.",
+    "Allow the agent to generate plain-language explanations of analytics results from Databricks so customers receive understandable updates instead of raw technical output."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve approved Databricks insights, compare trends, and get plain-language summaries without manually navigating dashboards or notebooks.",
+    "Operations and customer success teams can ask the agent to research account health signals from Databricks data and prepare next-step recommendations for renewals, outreach, or escalations.",
+    "Support leaders can use an internal agent in Slack or Microsoft Teams to summarize pipeline health, job outcomes, or usage anomalies from Databricks before coordinating incident response.",
+    "Teams can chat with the agent to follow SOPs that combine Databricks lookups with handoff creation, investigation notes, and workflow triggers across other business systems.",
+    "Analysts and managers can ask the agent to generate recurring summary artifacts from Databricks data for internal updates, leadership reporting, or shift handovers."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that explains customer usage trends using approved Databricks queries.",
+    "An internal assistant that summarizes pipeline failures and prepares escalation notes for operations teams.",
+    "A customer success agent that pulls account health signals from Databricks and drafts outreach recommendations.",
+    "A private team agent that answers KPI questions from Databricks in Slack or Microsoft Teams.",
+    "An AI workflow that checks Databricks job status and triggers approved follow-up actions.",
+    "A DocsBot Skill that converts analytics outputs into plain-language summaries for non-technical teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Databricks agent to do, such as answer usage questions, summarize pipeline status, or prepare escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, connection method, and authentication handling, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Access is scoped",
+      "description": "Skill Builder limits the Skill to the minimum data, actions, records, and users needed for the workflow, and it adds approval boundaries for any sensitive updates, workflow triggers, or higher-risk actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios against the Skill, identifies bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "It improves before launch",
+      "description": "Skill Builder refines the Skill based on testing results, strengthens guidance and safeguards, and helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Databricks data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as answering KPI questions or summarizing job status, and Skill Builder creates a secure Skill that can query approved Databricks data and return useful results."
+    },
+    {
+      "question": "Can a DocsBot support agent use Databricks during customer conversations?",
+      "answer": "Yes, a customer-facing DocsBot agent can use a Databricks Skill to look up approved analytics, summarize account or usage context, and help draft accurate responses or escalation handoffs while staying within defined action limits."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Databricks?",
+      "answer": "A private DocsBot agent can help employees retrieve metrics, summarize pipeline health, research account trends, generate reports, and trigger approved follow-up workflows that depend on Databricks-backed data."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent is allowed to do in Databricks workflows?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum required data and actions, protect credentials through secure runtime handling, and add approval boundaries for sensitive actions before the Skill is deployed."
+    },
+    {
+      "question": "Can an AI agent summarize Databricks results for non-technical teams?",
+      "answer": "Yes, DocsBot can turn approved Databricks outputs into plain-language summaries, investigation notes, and shareable updates so support, success, and operations teams can act on analytics without reading raw technical results."
+    },
+    {
+      "question": "What does setup look like for a Databricks AI Skill in DocsBot?",
+      "answer": "You describe the workflow you want, and Skill Builder handles the design, secure connection planning, testing, improvements, and deployment path so setup feels like defining an outcome instead of managing technical integration steps."
+    }
+  ],
+  "relatedSlugs": [
+    "snowflake",
+    "bigquery",
+    "tableau",
+    "looker",
+    "power-bi",
+    "google-analytics"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Databricks",
+    "domain": "databricks.com",
+    "description": "Databricks is a data and AI company that provides a unified platform for organizations to manage and utilize their data, leveraging technologies such as Lakehouse, Apache Spark, and MLflow to drive data-driven decision making and innovation.",
+    "slogan": "Accelerating innovation through unified data, AI, and analytics for all.",
+    "logoUrl": "https://media.brand.dev/5c6e27c0-64fe-4e45-91ea-ac3f2a896f93.png",
+    "iconUrl": "https://media.brand.dev/5afc5d5d-ce22-428a-812f-4683aca4598a.jpg",
+    "primaryColor": "#f4f4f4",
+    "accentColor": "#fb3525",
+    "colors": [
+      {
+        "hex": "#f4f4f4",
+        "name": "Lighthouse"
+      },
+      {
+        "hex": "#fb3525",
+        "name": "Red Card"
+      },
+      {
+        "hex": "#f49c8c",
+        "name": "Fruit Shake"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/54af37a9-8ca0-4235-b8b2-566a8be8ce0b.png",
+    "industries": [],
+    "links": {
+      "terms": "https://www.databricks.com/legal/terms-of-use",
+      "privacy": "https://www.databricks.com/legal/privacynotice",
+      "careers": "https://www.databricks.com/company/careers/open-positions",
+      "contact": "https://www.databricks.com/company/contact",
+      "blog": "https://www.databricks.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.databricks.com/product/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5afc5d5d-ce22-428a-812f-4683aca4598a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5c6e27c0-64fe-4e45-91ea-ac3f2a896f93.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 127,
+        "height": 20,
+        "aspectRatio": 6.35
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5c6e27c0-64fe-4e45-91ea-ac3f2a896f93.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 127,
+      "height": 20,
+      "aspectRatio": 6.35
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5afc5d5d-ce22-428a-812f-4683aca4598a.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

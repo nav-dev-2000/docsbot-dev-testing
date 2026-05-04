@@ -1,0 +1,176 @@
+{
+  "slug": "puzzel-case-management",
+  "name": "Puzzel Case Management",
+  "domain": "puzzel-case-management.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Puzzel Case Management",
+  "metaTitle": "Build AI Agents for Puzzel Case Management with DocsBot",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely use Puzzel Case Management for lookups, updates, handoffs, and workflow actions.",
+  "intro": "Puzzel Case Management helps teams manage customer cases inside a broader contact centre workflow, and DocsBot Skill Builder helps you turn that system into useful AI Actions. In plain language, you describe what your agent should do, and Skill Builder designs a reusable Skill that can safely look up case details, prepare updates, trigger handoffs, and summarize activity. The result is a customer-facing support agent or private internal assistant that can do more than answer questions.",
+  "supportUseCases": [
+    "Let a DocsBot website chat agent look up a customer's existing Puzzel Case Management record and explain the current case status during a support conversation.",
+    "Use a DocsBot helpdesk agent to create a new case in Puzzel Case Management when a customer issue needs formal tracking and follow-up.",
+    "Allow the agent to add approved notes or structured issue details to an existing Puzzel case while responding to a customer ticket.",
+    "Have the agent summarize open case history, recent updates, and ownership so customers receive a clear progress update without waiting for a human review.",
+    "Enable the agent to prepare escalation handoffs by collecting missing details from the customer and attaching a clean case summary in Puzzel Case Management."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Puzzel Case Management case details, ownership, and recent activity.",
+    "Give support and operations teams an internal agent that can summarize case queues, identify stalled cases, and prepare next-step recommendations from Puzzel records.",
+    "Allow supervisors to chat with the agent to create standardized handoff notes, escalation summaries, or follow-up drafts based on Puzzel Case Management data.",
+    "Help internal teams complete SOPs by having the agent gather required case context from Puzzel Case Management before routing work to the correct team or system.",
+    "Enable customer success or support leaders to ask the agent for structured summaries of recurring case themes and operational issues captured in Puzzel Case Management."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks case status and explains the latest customer update.",
+    "A case creation Skill that opens new Puzzel records from chat or ticket conversations.",
+    "A handoff assistant that gathers missing details and prepares escalation-ready case summaries.",
+    "An internal operations agent that reviews open cases and flags stalled follow-up work.",
+    "A supervisor assistant that drafts standardized case notes from conversation context and history.",
+    "A workflow Skill that updates approved case fields after customer confirmation or agent review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Puzzel Case Management, such as checking case status, creating a case, updating notes, or preparing an escalation summary."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a safe Skill design, identifies the needed configuration values, and defines secure connection and authentication handling without making you map every technical step yourself."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing DocsBot chat agent or your private team assistant so it can perform bounded actions inside your Puzzel workflow."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Puzzel Case Management?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and the builder designs a reusable Skill that can look up case details, create records, prepare summaries, and handle approved updates. It also defines secure configuration, protects secrets, scopes permissions, and helps test the Skill before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Puzzel Case Management during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to retrieve case information, create or update approved records, summarize progress, and prepare escalations while replying to customers in a chat widget or helpdesk flow. The customer conversation triggers DocsBot, and the Skill lets the agent act inside Puzzel Case Management within the limits you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Puzzel Case Management?",
+      "answer": "Common workflows include checking case status, opening a new case, appending structured notes, collecting missing issue details, summarizing account history, and preparing handoffs for specialist teams. These actions can be bounded with approval rules and limited to the exact case fields and workflows you allow."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Puzzel Case Management?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure internal chat to retrieve case context, review activity, draft handoff notes, and complete case-related SOPs faster. This helps teams work across support and operations systems without searching manually through case records."
+    },
+    {
+      "question": "How does DocsBot keep Puzzel Case Management actions secure?",
+      "answer": "Skill Builder is designed to handle secure connection setup, proxy and protect secrets, and keep credentials out of chat transcripts and generated content. It also scopes access to the minimum users, records, and actions required, and can add approval boundaries before sensitive updates are performed."
+    },
+    {
+      "question": "Can DocsBot prepare escalations and handoffs using Puzzel Case Management data?",
+      "answer": "Yes, a Skill can gather missing details from the conversation, pull the relevant case history, and generate a clean escalation summary or handoff note for your support team. This helps reduce back-and-forth and gives human agents the context they need faster."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "salesforce-service-cloud",
+    "hubspot-service-hub",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Puzzel",
+    "domain": "puzzel.com",
+    "description": "Puzzel is a leading European provider of cloud contact centre solutions, offering a comprehensive platform that enables organisations to deliver smart customer experiences. With a suite of tools that include forecasting, scheduling, and employee engagement, Puzzel empowers contact centres to serve customers efficiently and effectively. Leveraging artificial intelligence, Puzzel's platform automates tasks, provides insight, and personalises service and support, creating rich journeys for customers. With over 20 years of experience, Puzzel is a trusted CCaaS provider helping agents deliver faster and more human service at scale.",
+    "slogan": "Empowering Contact Centers with Smart, Human, and Seamless Customer Experiences",
+    "logoUrl": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+    "iconUrl": "https://media.brand.dev/4a02d496-9100-4542-988d-b0a5f2c3c777.svg",
+    "primaryColor": "#0c1434",
+    "accentColor": "#fc9c04",
+    "colors": [
+      {
+        "hex": "#0c1434",
+        "name": "Liberty Blue"
+      },
+      {
+        "hex": "#fc9c04",
+        "name": "Jack-O"
+      },
+      {
+        "hex": "#fc345c",
+        "name": "Radical Red"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8d973a79-e33f-4d0e-8acb-00e55462f76e.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.puzzel.com/products/contact-centre",
+      "privacy": "https://www.puzzel.com/privacy-policy",
+      "blog": "https://www.puzzel.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/27354324-a054-433c-bfb9-62a8ce582019.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 600,
+        "height": 159,
+        "aspectRatio": 3.77
+      },
+      {
+        "url": "https://media.brand.dev/4a02d496-9100-4542-988d-b0a5f2c3c777.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3faad858-8b3c-46b9-aab5-187da99940bc.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6a2c12a6-399e-4b5f-97bb-3fc57032ca6c.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 600,
+      "height": 159,
+      "aspectRatio": 3.77
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/27354324-a054-433c-bfb9-62a8ce582019.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

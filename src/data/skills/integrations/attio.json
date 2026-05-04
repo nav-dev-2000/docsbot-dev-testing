@@ -1,0 +1,170 @@
+{
+  "slug": "attio",
+  "name": "Attio",
+  "domain": "attio.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Attio CRM",
+  "metaTitle": "Build Attio AI Agents for Support and Team Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read and update Attio safely for customer support, sales handoffs, and internal team workflows.",
+  "intro": "Attio is a flexible AI-native CRM for managing people, companies, relationships, and revenue workflows. With DocsBot Skill Builder, you can describe the Attio-powered agent ability you want in plain language, and Skill Builder designs, secures, tests, and deploys the Skill for you. The result is a support or internal AI agent that can look up CRM context, update approved records, prepare handoffs, and trigger next steps without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up an account, company, owner, or relationship in Attio so it can personalize support replies with relevant CRM context.",
+    "Let the support agent create or update Attio notes, tasks, or follow-up fields after a customer conversation so handoffs to sales or success teams are already documented.",
+    "Have the agent summarize the current Attio record state, recent activity, and ownership details when responding to a helpdesk ticket that needs escalation.",
+    "Enable the agent to capture qualification details from a customer chat and add them to the right Attio record before routing the conversation to sales or customer success.",
+    "Allow the agent to prepare a clean CRM handoff by creating an Attio update that includes the customer issue, business impact, urgency, and next recommended action."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Attio account details, recent notes, pipeline status, and owner information without opening the CRM.",
+    "Enable sales, success, or operations teams to ask the agent to create follow-up tasks, log meeting summaries, and update approved Attio fields through guided workflows.",
+    "Help revenue teams research an account by having the agent combine Attio context with internal documentation and return a concise prep brief for calls or renewals.",
+    "Allow employees to chat with the agent to complete SOP-driven CRM workflows, such as qualifying inbound leads, preparing handoff notes, or checking whether required fields are complete.",
+    "Support managers and operations teams with an agent that summarizes Attio record changes, identifies missing data, and suggests the next approved action for pipeline hygiene."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Attio account context before answering customer questions.",
+    "A CRM handoff Skill that writes structured chat summaries into Attio records.",
+    "An internal sales assistant that fetches account ownership, notes, and pipeline status on demand.",
+    "A success operations agent that creates follow-up tasks after support escalations.",
+    "A lead qualification workflow that captures chat details and updates approved Attio fields.",
+    "An account research assistant that summarizes Attio activity before meetings or renewals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Attio-enabled agent to do, such as looking up account context, updating notes, or preparing handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through runtime configuration, and scopes Attio access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right guardrails for sensitive CRM work, including approval boundaries, user-specific permissions, and clear limits on which updates the agent can make automatically."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into self-improvement before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or private team assistant so employees and customers get the right Attio-powered actions in the right place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Attio CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Attio workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests realistic scenarios, and prepares it for deployment. The finished agent can retrieve CRM context, update approved records, trigger follow-ups, and summarize outcomes inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Attio data during customer chats or tickets?",
+      "answer": "Yes, a DocsBot support agent can use Attio as a trusted CRM source to look up account details, ownership, notes, and relationship context while replying to customers. It can also prepare approved updates or handoff summaries so your team gets clean CRM follow-through after the conversation."
+    },
+    {
+      "question": "What Attio workflows can an internal AI assistant automate for employees?",
+      "answer": "Internal DocsBot agents can help employees retrieve account context, create tasks, log summaries, update approved fields, and guide CRM SOPs through chat, Slack, or Microsoft Teams. This is especially useful for sales, customer success, and operations teams that need faster access to reliable account information and next steps."
+    },
+    {
+      "question": "Can DocsBot safely update Attio records with AI Actions?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, keep secrets out of chats and generated content, scope access to the minimum necessary permissions, and add approval boundaries for sensitive actions. That lets your agent take bounded actions in Attio without giving it open-ended CRM control."
+    },
+    {
+      "question": "Can an AI agent create sales or success handoffs in Attio?",
+      "answer": "Yes, you can build a Skill that turns customer chats, support tickets, or internal requests into structured Attio updates such as notes, tasks, field updates, or escalation summaries. This helps teams hand off opportunities and issues with better context and less manual data entry."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using Attio with DocsBot?",
+      "answer": "You do not need to map every technical step yourself because Skill Builder guides the process from a plain-language goal. It determines the needed configuration, handles secure authentication design, tests edge cases, improves the Skill, and helps publish it to the right DocsBot agent."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "close",
+    "intercom",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Attio",
+    "domain": "attio.com",
+    "description": "Attio is an AI-native CRM designed for modern companies, offering a powerful, flexible, and data-driven solution to build a customized CRM tailored to a business's specific needs.",
+    "slogan": "Unlock your team's true potential with Attio",
+    "logoUrl": "https://media.brand.dev/7a7fc127-71c3-4d9d-b186-04c020a9e1c5.svg",
+    "iconUrl": "https://media.brand.dev/cc87c50a-4421-4940-99c3-ab1bc33e4ca0.png",
+    "primaryColor": "#969798",
+    "accentColor": "#313132",
+    "colors": [
+      {
+        "hex": "#969798",
+        "name": "Spanish Grey"
+      },
+      {
+        "hex": "#313132",
+        "name": "Dark Charcoal"
+      },
+      {
+        "hex": "#d4d4d4",
+        "name": "Disco Ball"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/2fed7dad-78d5-4616-ac95-b1ee8a44204f.png",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://attio.com/careers",
+      "terms": "https://attio.com/legal/terms-and-conditions",
+      "privacy": "https://attio.com/legal/privacy",
+      "blog": "https://attio.com/engineering/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://attio.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e29452b3-4974-4492-8022-7737739ed85a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cc87c50a-4421-4940-99c3-ab1bc33e4ca0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a7fc127-71c3-4d9d-b186-04c020a9e1c5.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 103,
+        "height": 26,
+        "aspectRatio": 3.96
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7a7fc127-71c3-4d9d-b186-04c020a9e1c5.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 103,
+      "height": 26,
+      "aspectRatio": 3.96
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e29452b3-4974-4492-8022-7737739ed85a.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "doppler",
+  "name": "Doppler",
+  "domain": "doppler.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely With Doppler",
+  "metaTitle": "Build DocsBot AI Agents That Integrate With Doppler",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support and internal agents that safely look up Doppler data, summarize secret status, and trigger approved workflows.",
+  "intro": "Doppler helps teams centralize and govern secrets, machine identities, and environment configuration across systems. With DocsBot Skill Builder, you can describe the Doppler workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, perform safe lookups, prepare handoffs, and take bounded actions inside Doppler-aware workflows without exposing credentials.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a customer environment has the expected secret setup status and summarize the result during a support chat.",
+    "Use a helpdesk-connected DocsBot agent to gather missing context from a ticket, look up relevant Doppler project or config details, and prepare an escalation summary for the support team.",
+    "Enable the agent to confirm whether a requested rotation, sync, or environment-related workflow has been completed and explain the current state to the customer.",
+    "Have the agent collect approved troubleshooting details tied to secret configuration issues and create a structured handoff for engineering without revealing secret values.",
+    "Allow the agent to trigger a bounded internal follow-up workflow when a customer reports a credential or environment problem that requires deeper review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to look up Doppler project, environment, or configuration status without manually digging through multiple systems.",
+    "Security and operations teams can ask the agent to summarize recent secret management activity, highlight exceptions, and prepare audit-ready notes for internal reviews.",
+    "Support and success teams can use the agent to follow SOPs for credential-related incidents, gather the right context, and route work to the correct team.",
+    "Engineering teams can chat with the agent to verify whether a service has the expected non-secret configuration coverage across environments and identify gaps for follow-up.",
+    "Internal teams can ask the agent to generate handoff summaries, remediation checklists, or approval requests for sensitive secret-management changes that need human review."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Doppler environment status and explains safe next steps to customers.",
+    "An internal assistant that summarizes secret management activity for audits, incidents, and compliance reviews.",
+    "A workflow agent that gathers troubleshooting context and creates engineering handoffs for credential-related issues.",
+    "A private AI assistant that verifies configuration coverage across projects and environments before deployments.",
+    "An operations agent that prepares approval-ready change summaries for secret rotation or access review workflows.",
+    "A team assistant that answers policy questions using your secret management SOPs and Doppler-linked context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Doppler in plain language, such as checking configuration status, summarizing activity, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the required configuration values, and chooses how the agent should interact with Doppler while keeping secrets and authentication out of chats and generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder defines protected runtime configuration, proxies credentials safely, scopes access to the minimum records and actions needed, and adds approval boundaries anywhere a sensitive update or workflow trigger should require control."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot’s automated testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take approved actions with Doppler-aware context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Doppler?",
+      "answer": "With DocsBot Skill Builder, you describe the Doppler task you want in plain language and Skill Builder creates the secure workflow, connection setup, testing plan, and deployment path for your agent. The finished Skill can let the agent perform approved lookups, summaries, handoffs, and bounded actions tied to your Doppler workflows."
+    },
+    {
+      "question": "Can an AI support agent use Doppler data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Doppler-focused Skill to check approved status information, summarize environment or configuration context, and prepare escalations while responding to customer chats or tickets. Skill Builder is designed to keep secrets protected and to limit the agent to the specific records and actions you allow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Doppler?",
+      "answer": "Teams can build workflows for troubleshooting secret-related issues, confirming environment setup status, summarizing relevant configuration context, and creating structured handoffs for engineering or security review. The agent can answer the customer and take the next approved step instead of only suggesting manual follow-up."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Doppler?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Doppler-related status, follow incident or compliance SOPs, summarize activity, and prepare change or approval requests through chat, Slack, or Microsoft Teams. This makes routine secret-management workflows faster while keeping access scoped and auditable."
+    },
+    {
+      "question": "How does DocsBot keep Doppler credentials and secrets safe?",
+      "answer": "Skill Builder defines secure runtime configuration, keeps credentials out of chat transcripts and Skill instructions, and proxies authentication through protected settings rather than exposing sensitive values. It also scopes permissions and can require approval boundaries for higher-risk actions."
+    },
+    {
+      "question": "Can DocsBot trigger actions related to Doppler workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for AI Actions such as generating handoff artifacts, triggering approved follow-up workflows, updating related records, or preparing approval-ready summaries tied to Doppler processes. The exact actions are bounded by the rules, permissions, and approvals your team defines."
+    }
+  ],
+  "relatedSlugs": [
+    "vault",
+    "1password",
+    "okta",
+    "aws-secrets-manager",
+    "azure-key-vault",
+    "gitlab"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Doppler",
+    "domain": "doppler.com",
+    "description": "Doppler is a developer‑first security platform that provides a centralized, cloud‑based secrets management hub. It lets engineering teams securely store, sync, and govern secrets and non‑human identities across environments, automating workflows with webhooks, SDKs, and API integrations. Doppler integrates with popular CI/CD tools and cloud providers such as AWS, Azure, and GCP, offering user‑based pricing with no extra charge for machine identities. The platform is SOC 2 and ISO compliant, delivers audit‑ready activity logs, and helps prevent credential‑related breaches while keeping development velocity high.",
+    "slogan": "The developer-first secrets management platform teams trust to scale securely.",
+    "logoUrl": "https://media.brand.dev/0ea272f3-b802-469a-aa1c-f1b3d6e81ef4.svg",
+    "iconUrl": "https://media.brand.dev/d2fe9b92-eb1b-4d55-aaa6-77832d3850f6.jpg",
+    "primaryColor": "#894cdc",
+    "accentColor": "#d75b53",
+    "colors": [
+      {
+        "hex": "#894cdc",
+        "name": "Gloomy Purple"
+      },
+      {
+        "hex": "#d75b53",
+        "name": "Rosy Sunset"
+      },
+      {
+        "hex": "#f3ebf4",
+        "name": "Perfume Haze"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ba52433e-a52c-4998-be94-568d9e8ce438.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.doppler.com/careers",
+      "terms": "https://www.doppler.com/legal/terms",
+      "privacy": "https://www.doppler.com/legal/privacy",
+      "blog": "https://www.doppler.com/blog",
+      "pricing": "https://www.doppler.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d2fe9b92-eb1b-4d55-aaa6-77832d3850f6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0ea272f3-b802-469a-aa1c-f1b3d6e81ef4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 563,
+        "height": 108,
+        "aspectRatio": 5.21
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0ea272f3-b802-469a-aa1c-f1b3d6e81ef4.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 563,
+      "height": 108,
+      "aspectRatio": 5.21
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d2fe9b92-eb1b-4d55-aaa6-77832d3850f6.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

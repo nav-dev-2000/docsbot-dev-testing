@@ -1,0 +1,168 @@
+{
+  "slug": "talentlms",
+  "name": "TalentLMS",
+  "domain": "talentlms.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with TalentLMS",
+  "metaTitle": "Build AI Agents for TalentLMS with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use TalentLMS to answer training questions, check learner status, trigger approved actions, and support employees safely.",
+  "intro": "TalentLMS helps businesses deliver training for employees, partners, and customers, making it a strong system for AI agents that answer learning questions and coordinate training workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that connects safely to TalentLMS. The result is an AI support agent or internal assistant that can look up learning data, summarize progress, prepare handoffs, and take approved actions instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a DocsBot support agent in your website chat or helpdesk to check a customer's course enrollment, training progress, or completion status in TalentLMS while responding to a support request.",
+    "Let the agent answer customer questions about assigned training, due dates, certificates, or course availability by pulling the latest learner and course information from TalentLMS.",
+    "Enable the agent to create or prepare enrollment requests for customer training programs and collect missing details before handing the case to a human team member for approval.",
+    "Have the agent summarize a learner's recent activity, incomplete modules, and likely next steps so support teams can respond faster and with better context.",
+    "Allow the agent to prepare escalation notes for billing, onboarding, or customer success teams when a training issue depends on account setup, access changes, or manual intervention."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant in chat, Slack, or Microsoft Teams that can look up course catalogs, learner progress, certification status, and training deadlines from TalentLMS.",
+    "Let managers chat with the agent to get summaries of team training completion, overdue assignments, and compliance risks without manually reviewing reports.",
+    "Help HR, enablement, and operations teams use the agent to guide training SOPs, gather missing enrollment details, and trigger approved follow-up workflows tied to TalentLMS activity.",
+    "Allow customer success or partner teams to ask the agent which courses are assigned to a customer or partner group and receive a concise readiness summary.",
+    "Enable employees to ask the agent for learning recommendations based on role, existing assignments, or required certifications, using TalentLMS data as context."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks learner enrollment and completion status during support conversations.",
+    "A private training assistant that summarizes overdue courses for managers and team leads.",
+    "A support workflow that prepares certificate or access issue escalations with TalentLMS context.",
+    "An internal agent that answers course catalog and training deadline questions from employees.",
+    "A handoff assistant that gathers missing learner details before enrollment approval is requested.",
+    "A reporting helper that summarizes team training progress for HR and enablement teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the TalentLMS agent to do, such as checking learner status, summarizing progress, or preparing an enrollment handoff, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required TalentLMS connection details, defines secure authentication and configuration values, keeps credentials out of chats and Skill content, and proxies secrets through protected runtime settings."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow, and it adds approval boundaries or safe action limits wherever sensitive updates or requests should be reviewed."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the TalentLMS workflow is ready in the right place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for TalentLMS?",
+      "answer": "With DocsBot Skill Builder, you describe the TalentLMS workflow you want in plain language, such as checking learner progress or preparing enrollment actions, and Skill Builder creates, secures, tests, and packages the Skill for your agent. It can then be deployed to a support bot or a private internal assistant with controlled access."
+    },
+    {
+      "question": "Can an AI support agent use TalentLMS data to answer customer training questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to look up TalentLMS course details, enrollment status, progress, due dates, or completion information while responding in chat or through helpdesk tickets. You control which lookups and actions are allowed so the agent stays within approved support boundaries."
+    },
+    {
+      "question": "What TalentLMS workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees and managers retrieve course information, summarize training completion, identify overdue assignments, prepare follow-ups, and support learning or compliance SOPs. It can also generate concise summaries and next-step recommendations based on TalentLMS records."
+    },
+    {
+      "question": "Can DocsBot take actions in TalentLMS instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as preparing enrollment requests, triggering approved workflows, creating handoff summaries, or updating related records when your rules allow it. Skill Builder adds approval boundaries and scoped permissions for more sensitive actions."
+    },
+    {
+      "question": "Is it safe to connect TalentLMS to an AI agent?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets, keeping credentials out of chats, and limiting access to the minimum needed for the workflow. It also supports approval steps and scenario testing before deployment."
+    },
+    {
+      "question": "Can a DocsBot agent summarize TalentLMS progress for managers or customer success teams?",
+      "answer": "Yes, the agent can be built to turn learner, team, or customer training data from TalentLMS into quick summaries, risk flags, and next-step recommendations. That helps managers and success teams make faster decisions without manually reviewing dashboards."
+    }
+  ],
+  "relatedSlugs": [
+    "docebo",
+    "learnupon",
+    "litmos",
+    "moodle",
+    "lessonly",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "TalentLMS",
+    "domain": "talentlms.com",
+    "description": "TalentLMS is an online training platform that provides a simple and impactful way for growing businesses to launch training quickly and turn learning into a driver of success. With AI-powered features, a library of ready-to-use content, and built-in reporting, TalentLMS helps companies train employees, partners, and customers, fueling growth at every step. Trusted by over 12,000 organizations and 22 million learners worldwide, TalentLMS is a leading cloud learning platform for creating and managing online courses.",
+    "slogan": "Simplify, impact, and grow with TalentLMS's smart online training platform.",
+    "logoUrl": "https://media.brand.dev/0679e02f-c9fa-4336-b61b-10ea21c160a6.svg",
+    "iconUrl": "https://media.brand.dev/48fc88ee-ae56-44b4-b7f0-3be45055b52c.png",
+    "primaryColor": "#0563ca",
+    "accentColor": "#7a5a5a",
+    "colors": [
+      {
+        "hex": "#0563ca",
+        "name": "Royal Navy Blue"
+      },
+      {
+        "hex": "#7a5a5a",
+        "name": "Czarina"
+      },
+      {
+        "hex": "#fb6405",
+        "name": "Blaze Orange"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1549a867-87d2-4153-963c-fc486e3b2cd6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "contact": "https://www.talentlms.com/contact",
+      "terms": "https://www.talentlms.com/terms",
+      "privacy": "https://www.talentlms.com/privacy",
+      "blog": "https://www.talentlms.com/blog/",
+      "pricing": "https://www.talentlms.com/prices"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/087aa39e-fdb1-4a76-957d-0203f8010f15.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48fc88ee-ae56-44b4-b7f0-3be45055b52c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0679e02f-c9fa-4336-b61b-10ea21c160a6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 161,
+        "height": 38,
+        "aspectRatio": 4.24
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0679e02f-c9fa-4336-b61b-10ea21c160a6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 161,
+      "height": 38,
+      "aspectRatio": 4.24
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/087aa39e-fdb1-4a76-957d-0203f8010f15.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

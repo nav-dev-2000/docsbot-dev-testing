@@ -1,0 +1,159 @@
+{
+  "slug": "miro-scim",
+  "name": "Miro SCIM",
+  "domain": "miro.com",
+  "category": "Identity & Access",
+  "trutoCategory": "User Directory",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Miro SCIM",
+  "metaTitle": "Build AI Agents for Miro SCIM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Miro SCIM for safe user lookups, provisioning workflows, access updates, and internal identity support automation.",
+  "intro": "Miro SCIM helps organizations manage user identity lifecycle tasks for Miro workspaces, including provisioning and access changes. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up users, prepare updates, trigger approved identity workflows, and summarize account status. This is especially useful for internal IT, operations, and access support teams that want an AI agent to answer questions and take bounded action instead of only giving instructions.",
+  "supportUseCases": [
+    "Use a customer-facing or ticket-based DocsBot agent to check whether a reported Miro account exists, summarize provisioning status, and prepare a clean handoff for the identity or IT team.",
+    "Let the agent gather missing details from a user reporting Miro access issues, then create or update an approved access request workflow in your connected identity process.",
+    "Have the agent review Miro SCIM user state during a support conversation and explain whether the issue appears related to provisioning, deprovisioning, or group-based access changes.",
+    "Enable the agent to summarize account lifecycle details from Miro SCIM and attach that context to a helpdesk escalation so human teams can resolve access issues faster.",
+    "Let the agent identify when a sensitive access action needs approval, collect the required information, and route the request without exposing credentials or overreaching permissions."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Miro user provisioning status and get a simple explanation of the current account state.",
+    "IT and operations teams can ask the agent to gather identity details, compare requested access changes against policy, and prepare the next approved workflow step for review.",
+    "HR, IT, and onboarding teams can use the agent to help coordinate Miro account provisioning and deprovisioning workflows as part of employee lifecycle SOPs.",
+    "Managers can chat with the agent to understand whether a teammate's Miro access request is pending, completed, or blocked, with a summary pulled from approved identity data.",
+    "Internal support teams can use the agent to generate concise access-change summaries, escalation notes, and workflow updates across identity-related systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Miro user provisioning status during access support conversations.",
+    "A private IT assistant that summarizes Miro SCIM account lifecycle events for employees.",
+    "An onboarding workflow assistant that prepares approved Miro account provisioning requests.",
+    "A deprovisioning support agent that gathers context and triggers secure offboarding steps.",
+    "An access triage agent that identifies likely SCIM sync issues and prepares escalations.",
+    "A manager-facing assistant that explains Miro access status in plain language."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Miro SCIM in plain language, such as checking user status, preparing access changes, or routing identity requests."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that request into a secure Skill design, defines the required configuration values, sets up protected authentication handling, keeps secrets out of chats and source content, and scopes access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and safe action limits where needed so sensitive provisioning or access updates can be reviewed before anything important changes."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined support and internal team scenarios, finds bugs, weak spots, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can use Miro SCIM actions through normal conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Miro SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the Miro SCIM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can handle lookups, summaries, approved updates, and workflow routing inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Miro SCIM data to help with access issues?",
+      "answer": "Yes, a DocsBot support agent can use Miro SCIM data to check account status, identify likely provisioning problems, collect missing context, and prepare escalations or approved follow-up actions. This helps support teams respond faster with better identity context."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Miro SCIM?",
+      "answer": "A private DocsBot agent can help with onboarding, offboarding, access request triage, provisioning checks, deprovisioning reviews, and identity-related SOPs for IT and operations teams. It can also summarize status and prepare handoffs across systems your team already uses."
+    },
+    {
+      "question": "Can DocsBot safely trigger Miro access changes or provisioning workflows?",
+      "answer": "DocsBot Skill Builder is designed to enforce scoped permissions, secure authentication handling, and approval boundaries for sensitive actions. That means your agent can be configured to take bounded action only when it matches the permissions and review rules you define."
+    },
+    {
+      "question": "How does setup work for a Miro SCIM AI integration if I am not technical?",
+      "answer": "You do not need to map every technical step yourself. You explain the result you want, and Skill Builder handles the workflow design, secure configuration, secret protection, testing, and deployment guidance for the Skill."
+    },
+    {
+      "question": "Can a DocsBot agent prepare identity handoffs and escalation notes from Miro SCIM activity?",
+      "answer": "Yes, the agent can summarize relevant Miro SCIM account details, capture the user's issue, and generate clear escalation notes for IT or identity teams. This reduces back-and-forth and gives human responders better context from the start."
+    }
+  ],
+  "relatedSlugs": [
+    "okta-scim",
+    "azure-active-directory",
+    "onelogin",
+    "jumpcloud",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Miro",
+    "domain": "miro.com",
+    "description": "Miro is an AI‑powered visual collaboration platform that provides an infinite, multiplayer canvas for teams to plan, co‑create, and deliver projects faster. Serving over 100 million users across 250 000 organizations, Miro combines online whiteboarding with collaborative AI workflows, templates, and integrations with 250+ apps. The platform lets cross‑functional teams move from discovery to launch on a shared AI‑first canvas, shortening planning cycles and accelerating time‑to‑market. Enterprise‑grade security and scalable infrastructure support Fortune 100 companies, while built‑in tools such as Docs, Tables, Slides, and Blueprints automate repeatable processes. In short, Miro enables any team to visualize ideas, align instantly, and turn concepts into outcomes in one unified workspace.",
+    "slogan": "Move faster—and move the needle—with Miro’s AI innovation workspace",
+    "logoUrl": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+    "iconUrl": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+    "primaryColor": "#f7da3a",
+    "accentColor": "#fbfae5",
+    "colors": [
+      {
+        "hex": "#f7da3a",
+        "name": "Dandelion Yellow"
+      },
+      {
+        "hex": "#fbfae5",
+        "name": "Clearview"
+      },
+      {
+        "hex": "#221f19",
+        "name": "Petroleum"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cbecae4e-4dd8-4c0f-8816-55d73787ff36.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://miro.com/careers/",
+      "terms": "https://miro.com/legal/terms-of-service/",
+      "contact": "https://miro.com/contact/sales/",
+      "privacy": "https://miro.com/legal/privacy-policy/",
+      "pricing": "https://miro.com/pricing/",
+      "blog": "https://miro.com/blog/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ad130a3f-262a-4797-ae95-8325a0201310.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2d9f3cd1-5d44-49b9-88d7-f1190f954310.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

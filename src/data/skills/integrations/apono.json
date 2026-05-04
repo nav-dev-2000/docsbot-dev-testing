@@ -1,0 +1,160 @@
+{
+  "slug": "apono",
+  "name": "Apono",
+  "domain": "apono.com",
+  "category": "Identity & Access",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build DocsBot AI agents that work safely with Apono",
+  "metaTitle": "Build DocsBot AI agents with Apono access controls",
+  "metaDescription": "Create DocsBot AI agents that use Apono for secure access requests, approvals, status lookups, and just-in-time workflow actions in support and internal operations.",
+  "intro": "Apono helps teams replace standing privileges with just-in-time, scoped access across cloud and infrastructure environments. With DocsBot Skill Builder, you can describe the access workflow or lookup you want in plain language and have DocsBot create a reusable Skill that lets a support or internal AI agent interact with Apono safely. The result is an AI agent that can answer questions, gather context, trigger bounded access workflows, and prepare clear handoffs without exposing credentials or overreaching permissions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a previously requested access workflow and explain the current approval or provisioning state in plain language.",
+    "Use a support agent to collect the details needed for an access-related issue, create a structured handoff, and trigger an approved Apono workflow for internal review.",
+    "Enable a helpdesk-connected DocsBot agent to summarize why an access request is pending, what information is missing, and what the next approved step should be.",
+    "Let the agent confirm whether a temporary access grant has expired or been auto-revoked so customers receive a clear, accurate update.",
+    "Use the agent to gather environment, system, and urgency details from a ticket, then package that context for an access approval or escalation process in Apono."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to check the status of just-in-time access requests across cloud, Kubernetes, or database environments managed through Apono.",
+    "Teams can ask the agent to guide them through approved access request workflows, collect missing context, and submit the right request with safe approval boundaries.",
+    "Security and operations employees can chat with the agent to summarize recent access activity, review revocation timing, and understand which approvals are still outstanding.",
+    "Engineers can use the agent to prepare least-privilege access requests for incidents or maintenance tasks while the agent follows company rules for scope, duration, and escalation.",
+    "Internal teams can ask the agent to generate audit-ready summaries of access actions, approvers, and timing for compliance reviews or incident follow-up."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that checks Apono request status and explains approval progress to users or support teams.",
+    "A Skill that collects access request details and submits a structured just-in-time access workflow.",
+    "A Skill that summarizes temporary privilege grants, expiration times, and automatic revocation outcomes.",
+    "A Skill that prepares escalation notes for support tickets involving blocked or delayed access.",
+    "A Skill that generates compliance-friendly summaries of approvals, request context, and access timelines.",
+    "A Skill that enforces approval checkpoints before an AI agent can trigger sensitive access actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Apono, such as check request status, collect access details, trigger an approved workflow, or prepare an escalation handoff."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, handles connection and authentication setup through protected runtime configuration, keeps secrets out of chats and Skill source, and scopes access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds the right guardrails for sensitive Apono actions, including approval boundaries, safe action limits, and clear rules for when the agent should look up information, ask follow-up questions, or hand work to a human."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or internal team assistant so it can take bounded action with Apono during real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Apono access workflows?",
+      "answer": "With DocsBot Skill Builder, you describe the Apono workflow you want in plain language, and Skill Builder creates a reusable Skill for lookups, request intake, status summaries, approvals, and other bounded actions. It also designs the secure connection, scopes permissions, protects secrets, and prepares the Skill for deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use Apono data to answer customer access questions?",
+      "answer": "Yes, a DocsBot support agent can use an Apono Skill to look up approved status information, summarize request progress, confirm revocation state, or prepare a handoff for internal review. The agent can be limited to safe read actions and approved workflow triggers based on your rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Apono?",
+      "answer": "An internal DocsBot agent can help employees request just-in-time access, check approval status, gather required context, generate audit summaries, and route sensitive tasks through the right approval path. This is useful for engineering, security, operations, and compliance teams working across multiple environments."
+    },
+    {
+      "question": "Can an AI agent trigger Apono access requests without giving it broad permissions?",
+      "answer": "Yes, Skill Builder is designed to scope the agent to the minimum actions and systems required, with approval boundaries for sensitive steps. That lets the agent help with access workflows while keeping control over who can approve, submit, or escalate specific actions."
+    },
+    {
+      "question": "How does DocsBot handle Apono credentials and authentication safely?",
+      "answer": "Skill Builder identifies the connection details the Skill needs and uses secure runtime configuration to protect and proxy secrets instead of exposing them in chat transcripts or generated Skill content. It is designed to keep credentials out of normal agent conversations while enforcing scoped access."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs for access-related support tickets using Apono context?",
+      "answer": "Yes, the agent can collect missing details from the customer, summarize the issue, attach the relevant Apono request context, and create a structured handoff for support, security, or operations teams. This helps speed up triage while keeping actions within approved limits."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "ping-identity",
+    "aws-iam",
+    "azure-active-directory"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Apono",
+    "domain": "apono.com",
+    "description": "Apono is a cloud‑native access governance platform that replaces static, standing privileges with dynamic, just‑in‑time permissions. Its Agent Privilege Guard delivers runtime privilege controls for humans, machines, and AI agents across hybrid and multi‑cloud environments, granting exactly the access needed at the moment it’s required and revoking it automatically. By using intent‑based access control, Apono eliminates the security risks of excess privileges, streamlines compliance with AI‑generated audit trails, and integrates with existing workflows via Slack, CLI, or its AI assistant. The solution scales across AWS, Azure, GCP, Kubernetes, and databases, providing continuous visibility, reduced operational overhead, and secure, productive access for modern engineering teams.",
+    "slogan": "Apono replaces standing privileges with runtime, scoped, auto-revoked access.",
+    "logoUrl": "https://media.brand.dev/b8549d0d-4bdc-4785-8539-9e09c2eca2eb.svg",
+    "iconUrl": "https://media.brand.dev/5faa99fe-769d-4302-9a40-160690dc527c.jpg",
+    "primaryColor": "#848c8d",
+    "accentColor": "#15161e",
+    "colors": [
+      {
+        "hex": "#848c8d",
+        "name": "Necron Compound"
+      },
+      {
+        "hex": "#15161e",
+        "name": "Eigengrau"
+      },
+      {
+        "hex": "#cbcdcf",
+        "name": "Whisper of Smoke"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/bb846905-a22c-4c9d-866f-21f4070a4a44.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5faa99fe-769d-4302-9a40-160690dc527c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b8549d0d-4bdc-4785-8539-9e09c2eca2eb.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 176,
+        "height": 45,
+        "aspectRatio": 3.91
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b8549d0d-4bdc-4785-8539-9e09c2eca2eb.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 176,
+      "height": 45,
+      "aspectRatio": 3.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5faa99fe-769d-4302-9a40-160690dc527c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

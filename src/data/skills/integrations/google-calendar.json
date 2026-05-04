@@ -1,0 +1,160 @@
+{
+  "slug": "google-calendar",
+  "name": "Google Calendar",
+  "domain": "calendar.google.com",
+  "category": "Events & Scheduling",
+  "trutoCategory": "Scheduling",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Calendar",
+  "metaTitle": "Google Calendar AI Agents for Support and Internal Teams",
+  "metaDescription": "Build DocsBot AI agents that use Google Calendar to check schedules, create events, coordinate handoffs, and automate approved support or team workflows.",
+  "intro": "Google Calendar helps teams manage meetings, appointments, reminders, and shared schedules. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Google Calendar, and Skill Builder creates a secure reusable Skill for support or internal operations. The result is an AI agent that can answer questions, check calendar data, create or update events, and trigger approved scheduling workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check appointment availability in Google Calendar and suggest open time slots during a website chat or support ticket reply.",
+    "Enable the agent to create support calls, onboarding sessions, or follow-up meetings in Google Calendar after gathering the customer’s preferred timing.",
+    "Use the agent to reschedule booked meetings in Google Calendar when a customer needs to change an appointment without waiting for a human agent.",
+    "Have the agent summarize upcoming event details from Google Calendar so customers can confirm meeting times, attendees, and location or video links.",
+    "Let the agent prepare escalation handoffs by creating calendar events for specialist callbacks or success-manager meetings when a support conversation needs live help."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to check team availability in Google Calendar before scheduling meetings.",
+    "Let team members ask the agent to create recurring meetings, interviews, onboarding sessions, or operational review events in Google Calendar using approved rules.",
+    "Help customer success or support managers use the agent to coordinate escalations by finding overlapping availability and preparing calendar invites for the right people.",
+    "Allow operations teams to chat with the agent to summarize daily schedules, upcoming meetings, or calendar conflicts across selected users or shared calendars.",
+    "Support internal SOPs where employees ask the agent to book follow-ups, update meeting details, and generate a summary of what was scheduled and why."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks available appointment times before offering booking options to customers.",
+    "A scheduling assistant that creates onboarding, demo, or support follow-up events from chat conversations.",
+    "An internal AI agent that finds shared availability for managers, reps, and specialists.",
+    "A workflow assistant that reschedules meetings and summarizes the changes for everyone involved.",
+    "A handoff Skill that books escalation callbacks after collecting the right customer context.",
+    "A private team assistant that reviews calendar conflicts and suggests next available meeting windows."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Google Calendar, such as checking availability, booking follow-ups, or updating meeting details, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder decides the safest way to connect Google Calendar, defines the required configuration values, handles authentication through secure runtime configuration, and keeps credentials out of chats and Skill source by proxying secrets safely."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum calendars, users, actions, and records needed for the workflow, and it can add approval boundaries for sensitive actions like creating or changing high-impact events."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so it can answer questions and take bounded scheduling actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google Calendar for customer support scheduling?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling outcome you want in plain language, and it creates a secure Skill that lets your support agent check availability, create events, reschedule meetings, and prepare handoffs within approved limits."
+    },
+    {
+      "question": "Can a DocsBot support agent use Google Calendar data during live chats or support tickets?",
+      "answer": "Yes, a DocsBot agent can use a Google Calendar Skill to look up event details, check open time slots, confirm appointments, and take approved scheduling actions while responding to customers in chat or helpdesk conversations."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Google Calendar?",
+      "answer": "A private DocsBot agent can help employees find shared availability, book recurring meetings, coordinate escalations, update event details, and summarize schedules or conflicts across approved calendars."
+    },
+    {
+      "question": "Can an AI agent safely create or modify Google Calendar events?",
+      "answer": "Yes, Skill Builder is designed to define secure connection settings, protect and proxy secrets, scope access to the right calendars and actions, and add approval boundaries when event changes should be reviewed before execution."
+    },
+    {
+      "question": "Can DocsBot use Google Calendar for escalations and handoffs?",
+      "answer": "Yes, you can build workflows where the agent collects the needed context from a customer or employee conversation, creates a callback or specialist meeting, and summarizes the handoff for the next team member."
+    },
+    {
+      "question": "Do I need to manually configure APIs and security settings to connect Google Calendar?",
+      "answer": "No, you describe the workflow you want and Skill Builder handles the connection design, required configuration values, authentication handling, permission scoping, testing, and deployment guidance for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "calendly",
+    "google-meet",
+    "zoom",
+    "microsoft-outlook-calendar",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google Calendar",
+    "domain": "calendar.google.com",
+    "description": "Google Calendar is a time-management and scheduling calendar service developed by Google. It allows users to create and manage events, appointments, and meetings, and share them with others. With a Google account, individuals can access Google Calendar for personal use, while businesses can utilize it through a Google Workspace account. The service enables users to stay organized, set reminders, and collaborate with others in real-time.",
+    "slogan": "Organize your life effortlessly with Google Calendar.",
+    "logoUrl": "https://media.brand.dev/267d5c73-d77f-443d-bd68-46f9d4cc59c6.png",
+    "iconUrl": "https://media.brand.dev/6a946798-8981-4223-b822-7fa01550e894.png",
+    "primaryColor": "#f79613",
+    "accentColor": "#4385f5",
+    "colors": [
+      {
+        "hex": "#f79613",
+        "name": "DodgeRoll Gold"
+      },
+      {
+        "hex": "#4385f5",
+        "name": "Seljuk Blue"
+      },
+      {
+        "hex": "#bd8236",
+        "name": "Fresh Clay"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/267d5c73-d77f-443d-bd68-46f9d4cc59c6.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 148,
+        "height": 48,
+        "aspectRatio": 3.08
+      },
+      {
+        "url": "https://media.brand.dev/6a946798-8981-4223-b822-7fa01550e894.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/267d5c73-d77f-443d-bd68-46f9d4cc59c6.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 148,
+      "height": 48,
+      "aspectRatio": 3.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/6a946798-8981-4223-b822-7fa01550e894.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

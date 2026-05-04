@@ -1,0 +1,160 @@
+{
+  "slug": "razorpayx-payroll",
+  "name": "RazorpayX Payroll",
+  "domain": "razorpayx-payroll.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with RazorpayX Payroll",
+  "metaTitle": "Build AI Agents for RazorpayX Payroll with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use RazorpayX Payroll for payroll lookups, approved updates, employee support, and internal HR workflows with secure controls.",
+  "intro": "RazorpayX Payroll helps HR and finance teams manage payroll, salary disbursements, tax calculations, compliance, and employee benefits. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use RazorpayX Payroll, and DocsBot helps create a secure reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve payroll-related information, prepare handoffs, and take bounded actions inside the rules you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee payroll questions by looking up pay cycle details, salary slip status, reimbursement status, or statutory deduction information from RazorpayX Payroll.",
+    "Let a support agent collect missing context from an employee in chat and create or update a payroll support case, note, or follow-up task tied to the relevant payroll record.",
+    "Have the agent summarize payroll status for a helpdesk ticket so HR or finance teams receive a clear handoff with employee details, issue history, and next steps.",
+    "Enable the agent to confirm whether salary disbursement has been processed and explain approved next actions when an employee asks about delayed payment.",
+    "Use the agent to surface leave, benefits, or deduction-related payroll context during a support conversation so employees get faster and more accurate answers."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up payroll dates, deduction explanations, reimbursement status, or compliance-related payroll information from RazorpayX Payroll.",
+    "Enable HR and finance teams to ask the agent for payroll summaries, exception reports, or employee-specific payroll context before completing a workflow or escalation.",
+    "Use an internal AI assistant to gather the right payroll details, generate a handoff summary, and route sensitive cases to the correct HR or finance owner with approval boundaries in place.",
+    "Allow team members to chat with the agent to follow payroll SOPs, such as investigating salary discrepancies, checking statutory calculation context, or preparing audit-ready summaries.",
+    "Help managers and operations teams retrieve approved payroll data and status updates across systems without manually searching through dashboards or records."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks payroll processing status and explains the next approved support step.",
+    "A payroll support assistant that gathers employee details and prepares HR escalation summaries.",
+    "An internal HR agent that retrieves deduction, tax, and reimbursement context on request.",
+    "A finance operations assistant that summarizes payroll exceptions before team review.",
+    "An employee help agent that answers pay cycle and payslip status questions securely.",
+    "A workflow assistant that routes payroll issues to the right owner with approvals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with RazorpayX Payroll in plain language, such as answering payroll questions, retrieving records, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the required configuration values, and plans how the agent should interact with RazorpayX Payroll without making you map every technical step yourself."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder sets up safe authentication handling, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder adds approval limits, routing rules, and action boundaries so sensitive payroll updates or disclosures only happen within the permissions and controls you approve."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team scenarios, finds bugs, weak instructions, or missing permission checks, and feeds those results into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for RazorpayX Payroll?",
+      "answer": "You describe the payroll workflow or support task you want in plain language, and DocsBot Skill Builder designs the Skill, secures the connection, tests scenarios, and helps deploy it to the right DocsBot agent. The finished agent can answer questions, retrieve payroll data, prepare summaries, and take approved actions within your rules."
+    },
+    {
+      "question": "Can an AI support agent use RazorpayX Payroll data to answer employee payroll questions?",
+      "answer": "Yes, a DocsBot support agent can use RazorpayX Payroll as a source for approved lookups such as payroll status, deduction context, payment timing, or reimbursement information. You control what data the agent can access and what actions require human review or approval."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with RazorpayX Payroll?",
+      "answer": "An internal DocsBot agent can help HR, finance, and operations teams retrieve payroll context, summarize exceptions, prepare escalations, and follow payroll SOPs faster. It can also generate handoff notes, collect missing information, and trigger bounded follow-up workflows across your tools."
+    },
+    {
+      "question": "Can DocsBot safely handle payroll-related actions and sensitive employee data?",
+      "answer": "DocsBot Skill Builder is designed to define secure configuration, protect and proxy secrets, and scope access to the minimum records and actions required. It can also add approval boundaries for sensitive payroll changes or disclosures before the agent is deployed."
+    },
+    {
+      "question": "Can a DocsBot agent create payroll handoffs and escalation summaries from RazorpayX Payroll information?",
+      "answer": "Yes, the agent can gather the relevant payroll details, summarize the issue, and create a clean handoff for HR or finance teams. This helps support teams respond faster while ensuring complex or sensitive cases reach the right person with the right context."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using RazorpayX Payroll with DocsBot?",
+      "answer": "Your team explains the desired outcome, and Skill Builder handles the design, secure connection planning, testing, and improvement process for the Skill. That means non-technical teams can focus on the workflow they want the agent to perform instead of manually wiring the integration."
+    }
+  ],
+  "relatedSlugs": [
+    "gusto",
+    "rippling",
+    "deel",
+    "workday",
+    "bamboohr",
+    "quickbooks-online"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Razorpay",
+    "domain": "payroll.razorpay.com",
+    "description": "RazorpayX Payroll is the payroll solution offered by Razorpay, a leading Indian fintech platform that provides payment and financial infrastructure for businesses. RazorpayX Payroll delivers a smart, cloud‑based dashboard that automates salary disbursements, tax calculations, statutory compliance, and employee benefits. It integrates with banks and multiple payment methods, allowing businesses to pay staff quickly and securely while maintaining real‑time tracking and detailed reporting. The service is designed for HR and finance teams to streamline payroll processing, reduce manual effort, and ensure adherence to Indian labor regulations. New users can sign up directly through the platform, and existing customers can log in to manage their payroll operations efficiently.",
+    "slogan": "Smart payroll for smarter businesses",
+    "logoUrl": "https://media.brand.dev/1cb4a137-e12b-41b0-aeb2-e8cae0edc962.svg",
+    "iconUrl": "https://media.brand.dev/16b30e93-6dc2-4025-8bec-9cd4cf39a4b0.png",
+    "primaryColor": "#fc6c0c",
+    "accentColor": "#0e1636",
+    "colors": [
+      {
+        "hex": "#fc6c0c",
+        "name": "Orange Piñata"
+      },
+      {
+        "hex": "#0e1636",
+        "name": "Liberty Blue"
+      },
+      {
+        "hex": "#d7b4a1",
+        "name": "Suntan"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1cb4a137-e12b-41b0-aeb2-e8cae0edc962.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 1342,
+        "height": 179,
+        "aspectRatio": 7.5
+      },
+      {
+        "url": "https://media.brand.dev/16b30e93-6dc2-4025-8bec-9cd4cf39a4b0.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/1cb4a137-e12b-41b0-aeb2-e8cae0edc962.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 1342,
+      "height": 179,
+      "aspectRatio": 7.5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/16b30e93-6dc2-4025-8bec-9cd4cf39a4b0.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

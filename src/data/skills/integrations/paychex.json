@@ -1,0 +1,176 @@
+{
+  "slug": "paychex",
+  "name": "Paychex",
+  "domain": "paychex.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Paychex",
+  "metaTitle": "Build Paychex AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Paychex for employee lookups, HR workflows, payroll-related support, handoffs, and internal team automation.",
+  "intro": "Paychex helps businesses manage payroll, HR, and benefits, which makes it a strong system for AI agents that need trusted employee and workforce information. With DocsBot Skill Builder, you can describe the Paychex workflow you want in plain language and have DocsBot create a secure reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve approved data, prepare handoffs, and take bounded actions inside your Paychex-connected workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer payroll or benefits questions by looking up approved employee or account details in Paychex and summarizing the current status clearly.",
+    "Let a support agent gather missing context from a customer, check relevant Paychex records, and prepare a clean handoff for HR, payroll, or benefits specialists when human review is needed.",
+    "Have a DocsBot agent connected to your helpdesk summarize Paychex-related case details, attach the right internal notes, and route the ticket to the correct team faster.",
+    "Enable the agent to confirm whether a payroll, onboarding, or benefits workflow has reached the expected stage and explain the next approved step to the customer.",
+    "Use the agent to collect correction requests from customers or employees, create structured follow-up records, and trigger approved internal review workflows tied to Paychex data."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up approved Paychex employee, payroll, or benefits information without searching manually.",
+    "Enable HR and operations teams to ask the agent for summaries of employee status, onboarding progress, payroll exceptions, or benefits-related context pulled from Paychex.",
+    "Help managers and HR staff complete SOPs by chatting with an agent that gathers required details, checks Paychex records, and prepares the next approved workflow step.",
+    "Use an internal AI assistant to generate handoff notes, issue summaries, or follow-up checklists based on Paychex data for payroll, HR, and employee support teams.",
+    "Allow internal teams to ask the agent to trigger bounded workflows, such as escalation prep or review requests, while keeping sensitive actions behind approval boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks approved employee payroll or benefits status before answering questions.",
+    "A support workflow that collects missing details and prepares Paychex-related escalations for human review.",
+    "An internal HR assistant that summarizes onboarding progress and next required actions from Paychex.",
+    "A payroll support agent that drafts case notes and routes issues to the correct team.",
+    "A manager assistant that retrieves employee information and generates structured follow-up checklists.",
+    "An operations agent that identifies workflow gaps and prepares handoff summaries using Paychex context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Paychex-connected agent to do, such as answer payroll questions, retrieve employee details, prepare HR handoffs, or trigger an approved workflow, using plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, chooses the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Paychex."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, unclear instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill, validates the final behavior, and helps publish it to the right DocsBot agent so your website chatbot, helpdesk agent, or internal assistant can use Paychex safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Paychex?",
+      "answer": "With DocsBot Skill Builder, you describe the Paychex workflow you want in plain language and Skill Builder creates the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can handle lookups, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Paychex data to answer payroll or benefits questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve approved Paychex information, summarize it for the customer, and gather missing context before escalating to a human when needed. Access can be limited to the exact records, fields, and actions your team allows."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Paychex?",
+      "answer": "Internal DocsBot agents can help employees and HR teams retrieve approved employee information, summarize onboarding or payroll status, prepare handoffs, and trigger review workflows across your operating procedures. This helps teams move faster without giving the agent unlimited access."
+    },
+    {
+      "question": "Can DocsBot use Paychex for employee lookups in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy a private DocsBot agent for employees that answers questions in chat using approved Paychex data and workflow rules. Skill Builder can scope who can access the agent and what information or actions it can use."
+    },
+    {
+      "question": "How does DocsBot keep Paychex actions safe for HR and payroll workflows?",
+      "answer": "Skill Builder is designed to define secure configuration values, protect and proxy secrets, keep credentials out of conversations, and limit the Skill to the minimum permissions needed. It can also add approval steps for sensitive actions like updates, escalations, or workflow triggers."
+    },
+    {
+      "question": "Can a DocsBot agent prepare HR handoffs and escalation summaries from Paychex data?",
+      "answer": "Yes, the agent can gather relevant Paychex context, organize it into a structured summary, and prepare a clean handoff for HR, payroll, or benefits specialists. This reduces back-and-forth and helps human teams start with the right information."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "workday",
+    "adp",
+    "gusto",
+    "ukg",
+    "namely"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Paychex",
+    "domain": "paychex.com",
+    "description": "Paychex, Inc. is a leading provider of integrated human capital management solutions specializing in payroll, human resources, and benefits outsourcing. Established in 1971, Paychex serves approximately 740,000 business clients across the U.S. and Europe, supporting the payroll needs of 1 in 12 U.S. private sector employees. The company offers an all-in-one platform that simplifies complex HR, payroll, and benefits administration, adapting to the evolving needs of businesses and their employees. With a commitment to customer support available 24/7, Paychex combines advanced digital HR technology with expert advisory services, establishing itself as a top HR outsourcer serving over 2.2 million worksite employees. Paychex aims to empower businesses of any size with tailored HR solutions, enabling them to thrive in today’s dynamic work environment.",
+    "slogan": "Making complex HR, payroll, and benefits brilliantly simple.",
+    "logoUrl": "https://media.brand.dev/576a2e6b-760b-4624-8375-0d435880eef0.png",
+    "iconUrl": "https://media.brand.dev/3a2d75b3-5fbb-4799-a711-8a0819719687.png",
+    "primaryColor": "#7aacc8",
+    "accentColor": "#054c8c",
+    "colors": [
+      {
+        "hex": "#7aacc8",
+        "name": "Mirror Lake"
+      },
+      {
+        "hex": "#054c8c",
+        "name": "Magnetic Blue"
+      },
+      {
+        "hex": "#dae7ed",
+        "name": "First Light"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1a0aad78-f82a-457f-a680-1a575bc32feb.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.paychex.com/careers",
+      "terms": null,
+      "contact": "https://paychex.com/contact/sales",
+      "privacy": "https://www.paychex.com/corporate/security/privacy",
+      "blog": "https://www.paychex.com/newsroom",
+      "pricing": "https://www.paychex.com/payroll/compare-payroll-solutions"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/17ea7094-e01e-4d7c-94e0-ddcdbbe4edb2.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3a2d75b3-5fbb-4799-a711-8a0819719687.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/576a2e6b-760b-4624-8375-0d435880eef0.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 258,
+        "height": 48,
+        "aspectRatio": 5.38
+      },
+      {
+        "url": "https://media.brand.dev/ce3283cf-8b91-4a60-887f-0e5e4803beb3.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/576a2e6b-760b-4624-8375-0d435880eef0.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 258,
+      "height": 48,
+      "aspectRatio": 5.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/17ea7094-e01e-4d7c-94e0-ddcdbbe4edb2.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

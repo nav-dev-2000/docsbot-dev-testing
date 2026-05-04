@@ -1,0 +1,176 @@
+{
+  "slug": "reachdesk",
+  "name": "Reachdesk",
+  "domain": "reachdesk.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Reachdesk",
+  "metaTitle": "Build Reachdesk AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Reachdesk to check sends, trigger approved gifting workflows, prepare handoffs, and support internal teams safely.",
+  "intro": "Reachdesk helps teams send personalized gifts and direct mail at scale, making it useful for customer engagement, sales, and employee programs. With DocsBot Skill Builder, you can describe the Reachdesk workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, look up sending status, trigger approved actions, and summarize outcomes inside the rules you define.",
+  "supportUseCases": [
+    "A customer-facing DocsBot agent can check the status of a gift or direct mail send in Reachdesk and give the customer a clear delivery update.",
+    "A support agent connected to your helpdesk can review Reachdesk order details, summarize shipment progress, and prepare a handoff for a human teammate when follow-up is needed.",
+    "A DocsBot agent can collect missing delivery information from a customer and create or update an approved Reachdesk send request for a customer success or account team to review.",
+    "A support agent can confirm whether a reward, thank-you gift, or campaign item was already sent through Reachdesk before issuing a duplicate follow-up.",
+    "A DocsBot agent can trigger an approved internal workflow when a customer qualifies for a retention, apology, or loyalty gift managed through Reachdesk."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to check Reachdesk send status, campaign activity, or gifting history without leaving the conversation.",
+    "Sales and customer success teams can ask the agent to prepare approved gift send requests in Reachdesk based on account stage, event follow-up, or renewal workflows.",
+    "Marketing and operations employees can chat with the agent to summarize gifting campaign results, identify pending sends, and surface the next actions for each account segment.",
+    "HR or people teams can use a private AI agent to help coordinate employee recognition or onboarding gift workflows through Reachdesk with the right approval steps.",
+    "Revenue teams can ask the agent to research account context across systems and then generate a Reachdesk-ready gifting recommendation for review and execution."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Reachdesk send status and explains delivery progress to customers.",
+    "A private sales assistant that drafts approved Reachdesk gifting requests for target accounts.",
+    "An operations agent that summarizes pending sends, delivery exceptions, and campaign follow-up needs.",
+    "A customer success agent that triggers retention gift workflows after defined escalation conditions are met.",
+    "An employee recognition assistant that prepares onboarding or milestone gifting requests with approval controls.",
+    "A helpdesk agent that creates Reachdesk-related handoff notes for human review and fulfillment teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Reachdesk agent to do, such as checking send status, preparing gifting requests, or triggering approved follow-up workflows, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the required configuration values, secure authentication method, and secret handling automatically, keeps credentials out of chats and Skill source, and proxies sensitive values through secure runtime settings."
+    },
+    {
+      "title": "Actions are scoped",
+      "description": "Skill Builder limits the Skill to the minimum Reachdesk actions, records, users, and connected systems needed for the workflow, and it adds approval boundaries anywhere a gift send, update, or other sensitive action should be reviewed first."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Reachdesk workflow, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using Reachdesk actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Reachdesk without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Reachdesk workflow you want in plain language and Skill Builder creates the Skill, handles secure connection details, tests scenarios, and prepares it for deployment. That lets non-technical teams launch AI actions around gifting, direct mail, lookups, and handoffs without manually wiring every step."
+    },
+    {
+      "question": "Can an AI support agent use Reachdesk data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Reachdesk Skill to look up approved sending details, summarize status, collect missing context, and prepare internal follow-up while responding to a customer in chat or through a helpdesk ticket. The agent acts within the permissions and approval limits you define."
+    },
+    {
+      "question": "What Reachdesk workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees check send status, prepare gifting requests, summarize campaign activity, research account context, and route approvals for customer, prospect, or employee gifting programs. It can also guide teams through repeatable SOPs that involve Reachdesk and other business systems."
+    },
+    {
+      "question": "Can DocsBot trigger Reachdesk actions safely instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating approved requests, updating records, triggering workflows, generating handoff notes, and summarizing outcomes. Skill Builder scopes permissions carefully and can require approval boundaries for sensitive actions like sends or changes."
+    },
+    {
+      "question": "How does DocsBot keep Reachdesk credentials and actions secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of chats, prompts, and generated Skill code. It also scopes access to the minimum users, records, and actions needed for the workflow and can add approval checkpoints before sensitive steps run."
+    },
+    {
+      "question": "Can I use DocsBot with Reachdesk for customer success and retention programs?",
+      "answer": "Yes, teams can build agents that support retention and customer success workflows by checking gifting history, preparing apology or loyalty gift requests, and summarizing account context before a human review or approved action. This helps teams move faster while keeping outreach consistent and controlled."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Reachdesk",
+    "domain": "reachdesk.com",
+    "description": "Reachdesk is a platform that enables companies to deliver personalized gifts and direct mail at scale, globally, to build deeper connections with customers, prospects, and employees. Through their integrations and single platform, companies can source, send, and track ROI for their B2B direct mail campaigns, driving quantifiable results and boosting pipeline.",
+    "slogan": "Deliver moments that matter, build relationships, and boost ROI globally.",
+    "logoUrl": "https://media.brand.dev/ef458a14-3a16-410e-9597-da95b30dc7f6.svg",
+    "iconUrl": "https://media.brand.dev/a829b2a7-1b59-4ea3-b92d-620f7bd4909e.jpg",
+    "primaryColor": "#5c249c",
+    "accentColor": "#ac89c1",
+    "colors": [
+      {
+        "hex": "#5c249c",
+        "name": "Eine kleine Nachtmusik"
+      },
+      {
+        "hex": "#ac89c1",
+        "name": "East Side"
+      },
+      {
+        "hex": "#f0e9f2",
+        "name": "Greek Goddess"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/61c81418-4fac-451a-b840-b42521d7a769.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.reachdesk.com/careers",
+      "terms": "https://www.reachdesk.com/terms-and-conditions",
+      "contact": "https://www.reachdesk.com/contact-us",
+      "privacy": "https://www.reachdesk.com/privacy-policy",
+      "blog": "https://www.reachdesk.com/blog",
+      "pricing": "https://www.reachdesk.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a829b2a7-1b59-4ea3-b92d-620f7bd4909e.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ef458a14-3a16-410e-9597-da95b30dc7f6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 160,
+        "height": 20,
+        "aspectRatio": 8
+      },
+      {
+        "url": "https://media.brand.dev/1a5e6d19-5aee-453d-ad2b-155787043e97.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/96c41294-ea22-47c1-a34b-d5a59c584e65.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ef458a14-3a16-410e-9597-da95b30dc7f6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 160,
+      "height": 20,
+      "aspectRatio": 8
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a829b2a7-1b59-4ea3-b92d-620f7bd4909e.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

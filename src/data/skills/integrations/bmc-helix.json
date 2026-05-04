@@ -1,0 +1,162 @@
+{
+  "slug": "bmc-helix",
+  "name": "BMC Helix",
+  "domain": "bmc-helix.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with BMC Helix",
+  "metaTitle": "Build AI Agents for BMC Helix with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that connect with BMC Helix to look up tickets, update records, trigger workflows, and support employees or customers safely.",
+  "intro": "BMC Helix helps teams manage service operations, incidents, requests, and enterprise workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent work inside BMC Helix. The result is a support or internal AI agent that can answer questions, gather context, take approved actions, and summarize outcomes instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of an incident, service request, or case in BMC Helix and explain the latest update in plain language.",
+    "Use the agent to create a new BMC Helix ticket from a website chat or helpdesk conversation after it gathers the required details from the customer.",
+    "Allow the agent to add notes, attach conversation summaries, and prepare a clean handoff in BMC Helix when an issue needs escalation to a human team.",
+    "Enable the agent to look up known issue details, related service records, or prior ticket history in BMC Helix to improve troubleshooting responses.",
+    "Have the agent trigger approved workflow steps in BMC Helix, such as routing a request to the right support queue or marking a case ready for follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to check BMC Helix incident status, assignment, priority, and recent activity without opening multiple tools.",
+    "Allow internal teams to ask the agent to create service requests, log incidents, or update ticket notes in BMC Helix by describing the situation in natural language.",
+    "Help service desk teams use the agent to summarize open queues, aging tickets, repeated issue patterns, and escalation risks across BMC Helix records.",
+    "Enable operations staff to chat with the agent to follow SOPs that include BMC Helix lookups, routing actions, handoff preparation, and workflow triggers across connected systems.",
+    "Give managers an internal AI assistant that can compile BMC Helix case summaries and generate shift handoff notes or escalation briefings for the next team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that creates and updates BMC Helix incidents from customer conversations.",
+    "A private service desk assistant that retrieves ticket status and summarizes recent record activity.",
+    "An escalation workflow that gathers missing details and prepares a complete BMC Helix handoff.",
+    "A case triage agent that routes requests to the correct queue using approved rules.",
+    "An internal AI assistant that generates shift summaries from BMC Helix incidents and requests.",
+    "A support bot that checks request progress and explains next steps to customers clearly."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with BMC Helix, such as checking ticket status, creating incidents, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to only the records, actions, and users needed for the workflow."
+    },
+    {
+      "title": "Add rules and approvals",
+      "description": "Skill Builder adds the right action boundaries, approval steps, and routing guidance so the agent can answer questions and take bounded action in BMC Helix without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using it in chat right away."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for BMC Helix without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs the Skill for you. It handles connection planning, secure configuration, testing, improvement, and deployment so your agent can safely work with BMC Helix."
+    },
+    {
+      "question": "Can an AI support agent use BMC Helix data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a BMC Helix Skill to look up incident or request details, summarize status, gather missing information, and prepare or update records while replying to customers. The actions can be limited to the workflows and permissions you approve."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with BMC Helix?",
+      "answer": "DocsBot can help automate ticket creation, status lookups, note updates, escalation preparation, queue routing, and case summaries tied to customer conversations or helpdesk tickets. This helps support teams resolve more requests without switching tools constantly."
+    },
+    {
+      "question": "Can an internal AI assistant update BMC Helix records for employees?",
+      "answer": "Yes, a private DocsBot agent can help employees create incidents, add notes, check assignment details, and trigger approved workflows in BMC Helix. Skill Builder can also add approval boundaries for sensitive updates so actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep BMC Helix access secure when building an AI Skill?",
+      "answer": "Skill Builder defines the needed configuration values, keeps credentials out of chats and generated Skill content, and proxies secrets through secure runtime settings. It also scopes permissions to the minimum actions, records, and users required for the job."
+    },
+    {
+      "question": "Can DocsBot test a BMC Helix AI workflow before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can simulate support and internal team scenarios, identify bugs or workflow gaps, and improve the Skill before deployment. That helps you launch a more reliable agent with safer action boundaries."
+    }
+  ],
+  "relatedSlugs": [
+    "servicenow",
+    "jira-service-management",
+    "zendesk",
+    "freshservice",
+    "pagerduty",
+    "opsgenie"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BMC Software",
+    "domain": "bmc.com",
+    "description": "BMC is a global software company that enables the world’s largest enterprises to accelerate business value through automation, observability, and mainframe solutions. Leveraging an industry‑leading portfolio, BMC connects people, systems, and data to unlock human and machine potential, driving growth, innovation, and sustainable success. Serving roughly 80% of the Forbes Global 100, BMC’s platforms—such as Control‑M for workflow orchestration and BMC AMI for mainframe transformation—provide AI‑powered insights, generative assistance, and seamless integration across hybrid environments. By simplifying complex IT operations and delivering enterprise‑scale AI, BMC helps organizations gain a competitive advantage and achieve digital transformation faster than ever before.",
+    "slogan": "Business Faster Than Humanly Possible",
+    "logoUrl": "https://media.brand.dev/b3d8beee-16dc-40d6-a3ae-79fb8fd4915d.svg",
+    "iconUrl": "https://media.brand.dev/0f52ca3a-4bf5-49fc-b065-a11864f26589.jpg",
+    "primaryColor": "#042444",
+    "accentColor": "#e4584f",
+    "colors": [
+      {
+        "hex": "#042444",
+        "name": "Rhapsody In Blue"
+      },
+      {
+        "hex": "#e4584f",
+        "name": "Opal Flame"
+      },
+      {
+        "hex": "#e5ada2",
+        "name": "Rose Linen"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f80054ef-f7d0-412d-92a1-db11763f3dac.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.bmc.com/it-solutions/jobs-as-code.html",
+      "contact": "https://www.bmc.com/contacts-locations/united-states.html",
+      "pricing": "https://www.bmc.com/forms/pricing-request.html",
+      "terms": "https://www.bmc.com/legal/terms-of-use.html",
+      "privacy": "https://www.bmc.com/legal/privacy-policy.html",
+      "blog": "https://www.bmc.com/blogs/",
+      "login": null,
+      "signup": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0f52ca3a-4bf5-49fc-b065-a11864f26589.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b3d8beee-16dc-40d6-a3ae-79fb8fd4915d.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 76,
+        "height": 32,
+        "aspectRatio": 2.38
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b3d8beee-16dc-40d6-a3ae-79fb8fd4915d.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 76,
+      "height": 32,
+      "aspectRatio": 2.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0f52ca3a-4bf5-49fc-b065-a11864f26589.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

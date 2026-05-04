@@ -1,0 +1,160 @@
+{
+  "slug": "youtrack-hub",
+  "name": "Youtrack Hub",
+  "domain": "youtrack-hub.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with YouTrack Hub",
+  "metaTitle": "Build AI Agents for YouTrack Hub with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use YouTrack Hub for support lookups, issue handoffs, user management workflows, and safe internal team actions.",
+  "intro": "You can use DocsBot Skill Builder to create AI agents that work with YouTrack Hub in customer support and internal team workflows. In plain language, describe what you want the agent to look up, update, summarize, or trigger, and Skill Builder designs the Skill for you. The result is a reusable DocsBot Skill that helps support teams resolve requests faster and helps employees complete approved workflows through chat.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check YouTrack Hub user, group, or permission details to answer account access questions and prepare a precise support response.",
+    "Use a DocsBot helpdesk agent to gather customer details from a ticket, look up related YouTrack Hub records, and create a clean handoff for an internal admin or engineering team.",
+    "Enable the agent to summarize a customer's current access state in YouTrack Hub and explain the next approved support step without exposing sensitive internal details.",
+    "Allow the agent to trigger a bounded workflow in YouTrack Hub, such as creating an internal follow-up task or escalation record when a support case meets defined conditions.",
+    "Have the agent collect missing context from the customer, then use YouTrack Hub data to prepare escalation notes, ownership details, and a concise status summary for human review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up YouTrack Hub users, groups, roles, or related project administration details without hunting through multiple tools.",
+    "Internal teams can ask the agent to prepare onboarding or access review workflows by checking Hub account information, summarizing gaps, and guiding the next approved SOP step.",
+    "Operations or support managers can use the agent to generate handoff notes, escalation summaries, and user access snapshots from YouTrack Hub for faster cross-team coordination.",
+    "Team members can chat with the agent to research account administration questions, retrieve policy-linked context, and complete approved follow-up actions with clear approval boundaries.",
+    "IT or platform teams can use a private agent to standardize repetitive YouTrack Hub administration workflows, while Skill Builder keeps actions scoped to the right users, records, and permissions."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks YouTrack Hub account and group details during customer conversations.",
+    "A helpdesk assistant that prepares YouTrack Hub-based escalation summaries and internal follow-up records.",
+    "An internal admin agent that answers employee questions about Hub users, roles, and access status.",
+    "A workflow agent that gathers missing context, then routes YouTrack Hub actions for approval.",
+    "A private team assistant that summarizes YouTrack Hub data for onboarding and access review SOPs.",
+    "An operations agent that creates clean handoff notes from YouTrack Hub lookups and ticket context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with YouTrack Hub in plain language, such as checking access details, preparing a handoff, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and sets up safe authentication and connection handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum YouTrack Hub actions, records, and user scope required, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing checks, and feeds those results into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private employee agent with secure runtime settings and clear action boundaries."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for YouTrack Hub without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and the builder designs the Skill, secure connection method, required configuration, and action flow for you. It also tests and improves the Skill before deployment."
+    },
+    {
+      "question": "Can a DocsBot support agent use YouTrack Hub data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use a YouTrack Hub Skill to look up relevant account, user, group, or workflow context while responding to customers. You control which lookups and actions are allowed so the agent stays within approved support boundaries."
+    },
+    {
+      "question": "What customer support workflows can an AI agent handle with YouTrack Hub?",
+      "answer": "A DocsBot agent can retrieve relevant Hub details, summarize current state, collect missing customer context, prepare escalation notes, and trigger approved follow-up workflows. This helps support teams resolve requests faster and create cleaner handoffs."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with YouTrack Hub administration tasks?",
+      "answer": "Yes, private DocsBot agents can help employees research user access, group membership, role questions, onboarding steps, and escalation status across YouTrack Hub workflows. The agent can also complete bounded actions when your rules allow it."
+    },
+    {
+      "question": "How does DocsBot keep YouTrack Hub credentials and permissions secure?",
+      "answer": "Skill Builder defines secure authentication handling, keeps secrets out of conversations and generated content, and proxies credentials through approved runtime configuration. It also scopes access to the minimum records, actions, and users needed for the workflow."
+    },
+    {
+      "question": "Can I require approval before an AI agent updates records or triggers a workflow in YouTrack Hub?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries for sensitive actions so the agent can gather context and prepare the action, then wait for human approval before proceeding. This is useful for access changes, escalations, and administrative updates."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "trello"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "JetBrains",
+    "domain": "jetbrains.com",
+    "description": "JetBrains is a software development company that creates intelligent tools to boost developer productivity and enjoyment. It offers a suite of over 30 products, including IDEs such as IntelliJ IDEA, PyCharm, WebStorm, and more, supporting a wide range of programming languages and technologies. JetBrains also provides collaboration and CI/CD solutions like YouTrack, TeamCity, and Space. The company is the creator of Kotlin, a cross‑platform language adopted by millions and endorsed by Google for Android. Trusted by 11.4 million professionals and 88 of the Fortune Global 100, JetBrains helps developers write better code faster.",
+    "slogan": "Powerful IDEs for every language, with built-in AI agents.",
+    "logoUrl": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+    "iconUrl": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+    "primaryColor": "#ed216f",
+    "accentColor": "#7c847c",
+    "colors": [
+      {
+        "hex": "#ed216f",
+        "name": "Furious Fuchsia"
+      },
+      {
+        "hex": "#7c847c",
+        "name": "Stone Craft"
+      },
+      {
+        "hex": "#070405",
+        "name": "Pupil"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6f46d6d0-b79b-4ba1-b3e7-0bc1a29ada09.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.jetbrains.com/careers/",
+      "terms": "https://www.jetbrains.com/legal/docs/store/terms/",
+      "contact": "https://www.jetbrains.com/company/contacts/",
+      "privacy": "https://www.jetbrains.com/privacy-security/",
+      "blog": "https://www.jetbrains.com/resources/newsletters/",
+      "pricing": "https://www.jetbrains.com/icpc/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 298,
+        "height": 64,
+        "aspectRatio": 4.66
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/152fdc96-bd1f-4124-96d3-007c1668cc20.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 298,
+      "height": 64,
+      "aspectRatio": 4.66
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/035db9a7-e77f-4d5e-9e94-8c925d6ddce7.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "apify",
+  "name": "Apify",
+  "domain": "apify.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build DocsBot AI agents that use Apify for live web data",
+  "metaTitle": "Build DocsBot AI agents with Apify for web data workflows",
+  "metaDescription": "Create DocsBot AI agents that use Apify to gather live web data, summarize findings, trigger research workflows, and support teams or customers with safe actions.",
+  "intro": "Apify helps teams collect and automate web data from websites, marketplaces, maps, and social platforms. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent use Apify safely. This makes it possible for customer support and internal teams to answer questions, run research tasks, prepare handoffs, and trigger bounded web-data workflows directly from chat.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to run an Apify data collection workflow, summarize the latest public information about a product, listing, or company, and reply with a clear customer-ready answer.",
+    "Let a support agent gather fresh public website or marketplace data through Apify when a customer asks about pricing changes, location details, product availability signals, or competitor references.",
+    "Have the agent trigger an approved Apify actor to collect public page data, then prepare a concise handoff summary for a human support or success teammate when the case needs review.",
+    "Use Apify to monitor public pages related to a customer issue and let the DocsBot agent summarize what changed before responding in a helpdesk ticket.",
+    "Let the agent collect structured public data with Apify and generate a support-safe explanation, status summary, or escalation note without exposing raw workflow complexity to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to launch Apify research tasks, retrieve the latest public web findings, and get a clean summary for sales, operations, or support work.",
+    "Teams can ask an internal agent to gather competitor, partner, marketplace, location, or lead data through Apify and return only the fields and summaries allowed for that workflow.",
+    "Customer success or operations staff can use the agent to trigger recurring Apify runs, compare results over time, and produce internal briefings or SOP-ready summaries without leaving chat.",
+    "Analysts and researchers can ask the agent to collect public web data from approved sources, organize the findings, and create reports or handoff notes for downstream teams.",
+    "Employees can use the agent to follow multi-step research workflows that combine Apify collection, DocsBot reasoning, and approved updates or notifications across other systems."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that uses Apify to gather public product or listing data and explain changes to customers.",
+    "An internal research assistant that launches Apify actors and summarizes findings for sales, success, or operations teams.",
+    "A helpdesk workflow that collects public evidence with Apify before creating an escalation summary for human review.",
+    "A monitoring assistant that checks approved public pages and reports meaningful changes back to teams in chat.",
+    "A lead research agent that gathers company or marketplace signals through Apify and returns structured summaries.",
+    "A competitive intelligence assistant that compares public web data and creates briefings for internal stakeholders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Apify-powered agent to do, such as collect public web data, summarize results, trigger research runs, or prepare handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach for Apify, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes access to only the actions and data the workflow needs."
+    },
+    {
+      "title": "Add safe action boundaries",
+      "description": "Skill Builder defines when the agent can run Apify tasks automatically, when it should ask for confirmation, and where approval boundaries or user-specific limits should apply for sensitive or higher-cost actions."
+    },
+    {
+      "title": "Test real scenarios automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop before launch."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal assistant so teams can use Apify workflows through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Apify for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as collecting public page data or summarizing recent changes, and Skill Builder creates a secure Skill the support agent can use during chats or ticket replies."
+    },
+    {
+      "question": "Can a DocsBot support agent use Apify data to answer customer questions?",
+      "answer": "Yes, a DocsBot agent can use an Apify-powered Skill to gather approved public web data, summarize the findings, and respond with a clear answer or escalation summary while staying within the action limits you define."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Apify?",
+      "answer": "Internal agents can launch research tasks, collect public data from approved sources, summarize findings, compare results over time, and prepare reports or handoff notes for teams such as operations, sales, customer success, and support."
+    },
+    {
+      "question": "Can I control what an AI agent is allowed to do in Apify?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, define which workflows and data sources are allowed, protect authentication through secure runtime configuration, and add approval steps for actions that should not run automatically."
+    },
+    {
+      "question": "Can DocsBot use Apify for live web research without exposing credentials?",
+      "answer": "Yes, Skill Builder handles the secure connection design, identifies the required configuration values, and keeps secrets out of chat transcripts and generated Skill content by proxying them through approved runtime settings."
+    },
+    {
+      "question": "How does testing work for an Apify Skill in DocsBot?",
+      "answer": "DocsBot includes an automated testing agent that exercises imagined support and internal scenarios, identifies bugs or weak spots, and feeds improvements back into the Skill before it is deployed."
+    }
+  ],
+  "relatedSlugs": [
+    "airtable",
+    "zapier",
+    "make",
+    "google-sheets",
+    "notion",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Apify",
+    "domain": "apify.com",
+    "description": "Apify is a web scraping and automation platform that provides a marketplace for tools to extract data from websites, social media, and online maps. It allows developers to build, publish, and monetize their own tools, and offers pre-built tools for various use cases such as lead generation, market research, and machine learning. Apify is trusted by major enterprises and offers a cloud platform for web scraping, browser automation, and AI agents, with over 10,000 ready-made tools and custom solutions available.",
+    "slogan": "Automate, scrape, and leverage web data with Apify's powerful platform.",
+    "logoUrl": "https://media.brand.dev/33d2ea09-26b1-46de-b191-b4a4225644f6.svg",
+    "iconUrl": "https://media.brand.dev/fa13942c-0275-4f54-9405-c99b87c842ba.jpg",
+    "primaryColor": "#848c8c",
+    "accentColor": "#1a181e",
+    "colors": [
+      {
+        "hex": "#848c8c",
+        "name": "Monument"
+      },
+      {
+        "hex": "#1a181e",
+        "name": "Aswad Black"
+      },
+      {
+        "hex": "#e7dfda",
+        "name": "Memories"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9b65cc64-5351-480d-a91b-09936741a6c1.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://apify.com/jobs",
+      "terms": "https://docs.apify.com/legal/general-terms-and-conditions",
+      "contact": "https://apify.com/contact",
+      "privacy": "https://docs.apify.com/legal/privacy-policy",
+      "blog": "https://blog.apify.com/",
+      "pricing": "https://apify.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/fa13942c-0275-4f54-9405-c99b87c842ba.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/33d2ea09-26b1-46de-b191-b4a4225644f6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 362,
+        "height": 100,
+        "aspectRatio": 3.62
+      },
+      {
+        "url": "https://media.brand.dev/dcbfbe0c-ffaa-4135-abad-4b8f1fbb7f33.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 32,
+        "height": 32,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5784d52e-2a55-4021-91be-6b1c4f79f0ff.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/33d2ea09-26b1-46de-b191-b4a4225644f6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 362,
+      "height": 100,
+      "aspectRatio": 3.62
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/dcbfbe0c-ffaa-4135-abad-4b8f1fbb7f33.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 32,
+      "height": 32,
+      "aspectRatio": 1
+    }
+  }
+}

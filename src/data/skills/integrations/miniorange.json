@@ -1,0 +1,176 @@
+{
+  "slug": "miniorange",
+  "name": "miniOrange",
+  "domain": "miniorange.com",
+  "category": "Identity & Access",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely With miniOrange",
+  "metaTitle": "Build miniOrange AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use miniOrange for identity lookups, access workflows, secure handoffs, and internal support automation with safe controls.",
+  "intro": "miniOrange helps companies manage identity, authentication, single sign-on, and secure access across many apps and user groups. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up identity details, support access workflows, and trigger approved actions. This helps customer support teams and internal employees get faster answers and complete sensitive processes with clear boundaries and approvals.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a user's identity or authentication status in miniOrange and explain the next approved support step without exposing sensitive account details.",
+    "Use a DocsBot helpdesk agent to gather missing login or MFA context from a support ticket, look up relevant miniOrange records, and prepare a secure escalation summary for your identity team.",
+    "Allow the agent to confirm whether a user is assigned to the right SSO or access policy in miniOrange and guide them through approved recovery or enrollment steps.",
+    "Have the agent summarize recent authentication issues or access state from miniOrange so support teams can respond faster to login and account access questions.",
+    "Enable the agent to trigger approved identity workflows, such as sending a handoff for account recovery review or requesting a controlled access update, when customer support conversations require it."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up miniOrange user access, SSO configuration status, or MFA enrollment details for approved support tasks.",
+    "Enable IT and operations teams to ask the agent for identity troubleshooting guidance that combines miniOrange data with internal SOPs to speed up access investigations.",
+    "Use an internal AI assistant to collect the details needed for joiner, mover, and leaver workflows, then prepare miniOrange-related access actions or handoffs for approval.",
+    "Allow security and helpdesk teams to chat with the agent to summarize authentication issues, research access policies, and complete repeatable identity support workflows across systems.",
+    "Give employees a private AI assistant that can retrieve miniOrange-related records, explain policy differences, and prepare compliant escalation notes without requiring them to search multiple tools manually."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks MFA enrollment status before guiding a customer through recovery steps.",
+    "A helpdesk assistant that summarizes miniOrange identity records and prepares secure escalation handoffs.",
+    "An employee AI assistant for SSO troubleshooting across miniOrange and internal documentation.",
+    "A workflow agent that collects access request details and routes them for human approval.",
+    "A support Skill that verifies assigned policies and explains approved next steps for login issues.",
+    "An internal operations assistant that prepares joiner, mover, and leaver identity workflow summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with miniOrange in plain language, such as checking login status, summarizing access issues, or preparing an approval-based workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder translates your goal into a secure Skill design, defines the needed configuration values, and sets up safe connection and authentication handling without asking you to manually wire the integration."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive identity operations."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, missing guardrails, or unclear instructions, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can safely use miniOrange through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with miniOrange?",
+      "answer": "With DocsBot Skill Builder, you describe the miniOrange workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and bounded actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use miniOrange data to help with login and MFA issues?",
+      "answer": "Yes, a DocsBot support agent can use miniOrange data to look up identity or authentication context, summarize status, and guide users through approved next steps. You can also add escalation boundaries so sensitive recovery actions are routed for human review when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with miniOrange?",
+      "answer": "Teams can automate identity lookups, authentication status checks, support summaries, secure handoff creation, and approved workflow triggers related to SSO, MFA, and access troubleshooting. This helps support teams respond faster while keeping sensitive actions controlled."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with miniOrange access workflows?",
+      "answer": "Yes, private DocsBot agents can help employees and IT teams retrieve access information, research policy context, and complete repeatable identity support workflows. They can also prepare approval-ready summaries for onboarding, offboarding, and access change requests."
+    },
+    {
+      "question": "How does DocsBot keep miniOrange credentials and access secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and generated content, and proxies authentication through protected runtime settings. It also scopes permissions to the minimum required actions and can add approval gates for high-risk identity changes."
+    },
+    {
+      "question": "Can DocsBot trigger actions in miniOrange instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be built to take bounded actions such as creating handoffs, requesting approved updates, or triggering identity-related workflows. Those actions are governed by the limits, permissions, and approval rules you define with Skill Builder."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "auth0",
+    "onelogin",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "ping-identity"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "miniOrange",
+    "domain": "miniorange.com",
+    "description": "miniOrange is a premier cybersecurity organization specializing in Identity and Access Management solutions. With a global presence and over a decade of experience, miniOrange offers innovative products such as Single Sign-On, Two Factor Authentication, and Fraud Prevention for businesses worldwide. Their tailored solutions cater to various platforms including Atlassian, WordPress, Joomla, and more, with 5000+ integrations available. Trusted by over 17,000 customers, including Fortune 500 companies, miniOrange helps optimize IT operations and streamline user authentication processes. Whether you're looking to secure your workforce, customers, or partners, miniOrange's cutting-edge technologies provide secure access to sensitive data and applications. Explore miniOrange's website to discover how their solutions can enhance security and control in your IT environment.",
+    "slogan": "Secure your access, elevate your business with miniOrange cybersecurity solutions",
+    "logoUrl": "https://media.brand.dev/3ffafd65-7c09-4b6a-ab65-2503ecc5ed0b.webp",
+    "iconUrl": "https://media.brand.dev/06b269ca-0906-4568-9082-904badeb5fe2.png",
+    "primaryColor": "#ee9e5b",
+    "accentColor": "#f7ebdd",
+    "colors": [
+      {
+        "hex": "#ee9e5b",
+        "name": "Doughnut"
+      },
+      {
+        "hex": "#f7ebdd",
+        "name": "Cotton Sheets"
+      },
+      {
+        "hex": "#61a66d",
+        "name": "Great Gazoo"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8d2a5c8b-b851-4394-8bb6-f38b8a2d7aac.png",
+    "industries": [],
+    "links": {
+      "careers": "https://miniorange.com/career",
+      "terms": "https://miniorange.com/terms-and-policies/terms-of-service",
+      "contact": "https://miniorange.com/contact",
+      "privacy": "https://miniorange.com/terms-and-policies/privacy-policy",
+      "blog": "https://www.miniorange.com/blog/",
+      "pricing": "https://miniorange.com/iam/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/06b269ca-0906-4568-9082-904badeb5fe2.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3ffafd65-7c09-4b6a-ab65-2503ecc5ed0b.webp",
+        "type": "logo",
+        "mode": "dark",
+        "width": 397,
+        "height": 110,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/69a9a7a1-070b-42e9-be27-c7d585f31fb3.webp",
+        "type": "logo",
+        "mode": "dark",
+        "width": 397,
+        "height": 110,
+        "aspectRatio": 3.61
+      },
+      {
+        "url": "https://media.brand.dev/597fb12d-f144-4904-9d6d-1525eac6aa92.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3ffafd65-7c09-4b6a-ab65-2503ecc5ed0b.webp",
+      "type": "logo",
+      "mode": "dark",
+      "width": 397,
+      "height": 110,
+      "aspectRatio": 3.61
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/06b269ca-0906-4568-9082-904badeb5fe2.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

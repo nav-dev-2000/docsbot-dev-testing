@@ -1,0 +1,176 @@
+{
+  "slug": "smartrecruiters",
+  "name": "SmartRecruiters",
+  "domain": "smartrecruiters.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SmartRecruiters",
+  "metaTitle": "Build SmartRecruiters AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SmartRecruiters to answer questions, look up candidates, update hiring workflows, and support internal recruiting teams safely.",
+  "intro": "SmartRecruiters helps companies manage sourcing, screening, interviewing, and hiring workflows at scale. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to SmartRecruiters. The result is a customer-facing or internal AI agent that can answer questions, retrieve hiring information, prepare handoffs, and take approved actions inside clear boundaries.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer applicant questions by checking SmartRecruiters job status, interview stage, or application receipt details.",
+    "Let a support agent connected to your helpdesk summarize a candidate record from SmartRecruiters before replying to a ticket about hiring progress.",
+    "Enable the agent to create structured recruiting handoff notes for human teams when an applicant needs manual review or escalation.",
+    "Allow the agent to collect missing applicant details in chat and prepare an approved update workflow for the recruiting team inside SmartRecruiters.",
+    "Have the agent explain open roles, application steps, and next-stage expectations using SmartRecruiters job and workflow data."
+  ],
+  "internalUseCases": [
+    "Let recruiting employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate stage, requisition details, and interview progress from SmartRecruiters.",
+    "Enable hiring teams to ask the agent for summaries of open roles, pipeline bottlenecks, and pending actions so they can move candidates forward faster.",
+    "Give talent operations teams an AI assistant that prepares recruiter handoffs, interview coordination notes, and escalation summaries using SmartRecruiters data.",
+    "Allow employees to chat with the agent to trigger approved recruiting workflows, such as creating follow-up tasks or routing a candidate issue to the right owner.",
+    "Help internal teams follow hiring SOPs by having the agent gather context from SmartRecruiters and guide the next approved step in the process."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks candidate application status and drafts a clear applicant response.",
+    "A recruiting assistant that summarizes candidate history before a recruiter or hiring manager replies.",
+    "A private HR agent that retrieves requisition details and next-step actions from SmartRecruiters.",
+    "An internal assistant that prepares interview handoff notes and escalation summaries automatically.",
+    "A workflow agent that collects missing applicant context and routes it for recruiter review.",
+    "A hiring operations agent that flags stalled candidates and suggests the next approved action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the SmartRecruiters agent to do, such as look up candidate status, summarize recruiting records, or trigger a safe hiring workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and Skill source, and scopes SmartRecruiters access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions safely",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and permission limits so the agent can answer questions and take approved actions without exceeding the workflow you intended."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "The automated testing agent runs imagined applicant, recruiter, and operations scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal AI assistant for recruiting teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SmartRecruiters?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow or question-handling outcome you want in plain language, and Skill Builder creates a reusable Skill that lets your AI agent securely use SmartRecruiters data and actions. It also handles safe configuration, permission scoping, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use SmartRecruiters data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use SmartRecruiters to look up hiring status, application progress, job details, and other approved recruiting information while responding in a website chat or helpdesk workflow. You control what the agent is allowed to access, summarize, or prepare for human follow-up."
+    },
+    {
+      "question": "What internal recruiting workflows can a DocsBot AI assistant automate with SmartRecruiters?",
+      "answer": "An internal AI assistant can help employees retrieve candidate and requisition details, summarize pipeline activity, prepare handoff notes, route issues, and support hiring SOPs across recruiting teams. It can also trigger bounded workflow steps when those actions fit your approval rules and access limits."
+    },
+    {
+      "question": "Can DocsBot update records or trigger actions in SmartRecruiters safely?",
+      "answer": "DocsBot Skills can be designed for approved updates, workflow triggers, and handoff creation with clear action limits and approval boundaries. Skill Builder defines secure authentication handling, keeps secrets out of chats, and scopes permissions so the agent only performs the actions you allow."
+    },
+    {
+      "question": "How does DocsBot keep SmartRecruiters connections secure for AI agents?",
+      "answer": "Skill Builder identifies the configuration values the Skill needs, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated content. It also narrows access to the right users, records, and workflows so the agent operates within controlled boundaries."
+    },
+    {
+      "question": "Can a private employee AI assistant in Slack or Teams use SmartRecruiters?",
+      "answer": "Yes, DocsBot can power a private assistant for recruiters, hiring managers, and talent operations teams in chat, Slack, or Microsoft Teams. Employees can ask for recruiting information, research candidate progress, and complete approved workflows without leaving their conversation."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby",
+    "jobvite"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SmartRecruiters",
+    "domain": "smartrecruiters.com",
+    "description": "SmartRecruiters is a recruiting AI company that transforms hiring for the world’s leading enterprises. Its AI‑powered platform automates and optimizes the entire talent‑acquisition process, enabling faster, smarter hiring decisions at global scale. Used by more than 4,000 organizations—including Amazon, Visa, and McDonald’s—SmartRecruiters helps companies build winning teams by streamlining sourcing, screening, interviewing, and onboarding.",
+    "slogan": "AI-powered smart recruiting for faster, smarter hiring without headaches",
+    "logoUrl": "https://media.brand.dev/34c7ef02-d25e-400e-8538-3cc94d4e7454.svg",
+    "iconUrl": "https://media.brand.dev/eb247af2-fa87-4a19-8da4-390284d66148.jpg",
+    "primaryColor": "#4cd474",
+    "accentColor": "#fcfcfa",
+    "colors": [
+      {
+        "hex": "#4cd474",
+        "name": "Emerald Reflection"
+      },
+      {
+        "hex": "#fcfcfa",
+        "name": "Igloo"
+      },
+      {
+        "hex": "#1c3e4d",
+        "name": "Subterranean River"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/cd10e5f6-e55f-436e-b06a-340fc8846e2f.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": "https://www.smartrecruiters.com/about-us/contact-us/",
+      "privacy": "https://www.smartrecruiters.com/legal/general-privacy-policy/",
+      "blog": "https://www.smartrecruiters.com/about-us/news/",
+      "pricing": "https://www.smartrecruiters.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/eb247af2-fa87-4a19-8da4-390284d66148.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/34c7ef02-d25e-400e-8538-3cc94d4e7454.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 552,
+        "height": 109,
+        "aspectRatio": 5.06
+      },
+      {
+        "url": "https://media.brand.dev/a1f88411-f7e6-4401-a19a-24ddbf53ffa2.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f1a189d3-f860-4709-99d1-c6ac9c55e765.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/34c7ef02-d25e-400e-8538-3cc94d4e7454.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 552,
+      "height": 109,
+      "aspectRatio": 5.06
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a1f88411-f7e6-4401-a19a-24ddbf53ffa2.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

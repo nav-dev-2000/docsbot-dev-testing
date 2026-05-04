@@ -1,0 +1,168 @@
+{
+  "slug": "namely",
+  "name": "Namely",
+  "domain": "namely.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Namely",
+  "metaTitle": "Build AI Agents for Namely with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Namely for secure HR lookups, workflow updates, employee support, and internal team automation.",
+  "intro": "Namely is an HR, payroll, benefits, time, and talent platform that holds important employee and people-operations data. With DocsBot Skill Builder, you can describe the Namely workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or private internal AI assistant. The result is an AI agent that can answer questions, retrieve approved Namely data, trigger bounded actions, and prepare clean handoffs while staying inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check approved employment or payroll status details in Namely and explain the next step without exposing sensitive HR data.",
+    "Use a support agent connected to your helpdesk to collect missing employee details from a ticket, look up the relevant Namely record, and prepare a compliant handoff for HR.",
+    "Allow an employee support chatbot to answer common benefits or time-off questions by combining DocsBot knowledge with approved Namely profile lookups.",
+    "Have the agent summarize an employee’s current HR status from Namely so support or people-operations teams can respond faster and more accurately.",
+    "Enable the agent to trigger approved HR follow-up workflows, such as routing an onboarding, payroll, or benefits issue to the right internal owner."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve approved Namely information such as directory details, job information, or time-off context.",
+    "HR and people-operations teams can ask the agent to summarize employee records, payroll context, or benefits-related status from Namely before completing a workflow or SOP.",
+    "Managers can use an internal AI assistant to gather the right employee context from Namely and prepare escalation notes, follow-up tasks, or handoff summaries.",
+    "Operations teams can chat with the agent to trigger approved Namely-related workflows, collect missing details, and route requests to HR, payroll, or benefits teams.",
+    "Employees can ask the agent process questions, and the agent can combine policy knowledge with Namely lookups to provide more personalized and accurate guidance."
+  ],
+  "whatYouCanBuild": [
+    "An employee support agent that answers PTO, benefits, and payroll questions using approved Namely data.",
+    "A helpdesk assistant that reviews HR tickets and prepares complete Namely-based handoff summaries for specialists.",
+    "An internal HR copilot that retrieves employee directory and job information inside Slack or Microsoft Teams.",
+    "A payroll support agent that checks status details in Namely and routes exceptions for human approval.",
+    "A people-operations workflow assistant that gathers missing employee details and triggers approved follow-up tasks.",
+    "A manager-facing AI assistant that summarizes employee context from Namely before escalations or policy guidance."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Namely in plain language, such as answering employee questions, retrieving approved records, or preparing HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the agent should look up information, take bounded actions, and stay within your policies."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines safe authentication handling, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes Namely access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive HR, payroll, or employee-data workflows so the agent can help without exceeding the authority you set."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Namely?",
+      "answer": "With DocsBot Skill Builder, you describe the Namely workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Namely data during employee support conversations?",
+      "answer": "Yes, a DocsBot agent can use approved Namely data to look up relevant employee context, answer common HR questions, summarize status, and prepare handoffs while following your access rules and approval limits."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Namely?",
+      "answer": "Internal agents can help employees and HR teams retrieve approved records, summarize payroll or benefits context, collect missing information, route requests, and trigger bounded people-operations workflows."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Namely?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum required records and actions, protect authentication details, and add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can a DocsBot agent create HR handoffs and escalation summaries from Namely information?",
+      "answer": "Yes, the agent can gather approved context from Namely and generate structured handoff notes, case summaries, or escalation drafts so HR and payroll teams receive complete information faster."
+    },
+    {
+      "question": "Is it possible to use a private AI assistant with Namely in Slack or Microsoft Teams?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent for employees and teams so they can chat in internal tools, retrieve approved Namely information, and complete guided workflows safely."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "gusto",
+    "adp",
+    "paylocity",
+    "ukg"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Namely",
+    "domain": "namely.com",
+    "description": "Namely is a comprehensive HR, Payroll, and Benefits platform designed to simplify HR processes and enhance the employee experience. They offer a Human Capital Management (HCM) solution that combines HR, Payroll, Time, Benefits, and Talent software in a single platform, helping businesses manage critical functions more efficiently and accurately.",
+    "slogan": "Simplify HR, Payroll, and Benefits — Power Your Business with Namely",
+    "logoUrl": "https://media.brand.dev/6748c565-5c36-4121-9327-2e1ac67f633e.svg",
+    "iconUrl": "https://media.brand.dev/d1bfa5b4-9cfc-49ca-a712-3498f1ba8501.jpg",
+    "primaryColor": "#2c6cf3",
+    "accentColor": "#92bce6",
+    "colors": [
+      {
+        "hex": "#2c6cf3",
+        "name": "Retro Blue"
+      },
+      {
+        "hex": "#92bce6",
+        "name": "Blue Shutters"
+      },
+      {
+        "hex": "#545b62",
+        "name": "Titanium Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4374631c-19b0-4f27-a17a-5adbca47e9fe.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://namely.com/careers/",
+      "terms": "https://namely.com/tos/",
+      "contact": "https://namely.com/contact/",
+      "privacy": "https://namely.com/privacy/",
+      "blog": "https://namely.com/blog/",
+      "pricing": "https://namely.com/lp/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d1bfa5b4-9cfc-49ca-a712-3498f1ba8501.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6748c565-5c36-4121-9327-2e1ac67f633e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 288,
+        "height": 79,
+        "aspectRatio": 3.65
+      },
+      {
+        "url": "https://media.brand.dev/f21e1df6-e186-4236-a378-b9a344b86950.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/6748c565-5c36-4121-9327-2e1ac67f633e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 288,
+      "height": 79,
+      "aspectRatio": 3.65
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f21e1df6-e186-4236-a378-b9a344b86950.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

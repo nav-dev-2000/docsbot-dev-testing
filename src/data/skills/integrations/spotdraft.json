@@ -1,0 +1,168 @@
+{
+  "slug": "spotdraft",
+  "name": "SpotDraft",
+  "domain": "spotdraft.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with SpotDraft",
+  "metaTitle": "Build SpotDraft AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use SpotDraft to look up contract status, summarize agreements, route requests, and trigger safe legal workflows.",
+  "intro": "SpotDraft helps teams manage the full contract lifecycle, from drafting and review to signing and analysis. With DocsBot Skill Builder, you can describe the contract-related workflow you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely work with SpotDraft. The result is a support or internal AI agent that can answer questions, gather context, trigger approved actions, and keep contract work moving without exposing sensitive systems or credentials.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of an agreement in SpotDraft and give customers or partners a current, plain-language update.",
+    "Let the agent summarize contract progress, outstanding reviews, or signature state from SpotDraft when responding to helpdesk tickets about onboarding or procurement delays.",
+    "Have the agent collect missing contract details from a customer conversation and create a structured handoff for legal or sales operations to continue in SpotDraft.",
+    "Enable the agent to identify the right contract template or workflow path based on the customer's request and prepare the next approved step for a human reviewer.",
+    "Use the agent to surface renewal, amendment, or redline status from SpotDraft so customers get faster answers without waiting for manual follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up contract status, owners, approval stages, and signature progress from SpotDraft.",
+    "Enable sales, procurement, and legal teams to ask the agent for summaries of agreements, key obligations, renewal dates, or blockers without manually searching the CLM system.",
+    "Have employees use the agent to start contract intake workflows, gather required business context, and route requests into the right SpotDraft process.",
+    "Let internal teams ask the agent to prepare legal handoffs, summarize redline history, or generate a concise contract status brief for leadership updates.",
+    "Use a private AI assistant to guide employees through contract SOPs, including what information is needed, who must approve next, and when a human legal review is required."
+  ],
+  "whatYouCanBuild": [
+    "A contract status lookup Skill for customer and partner inquiries.",
+    "An internal legal request intake assistant that creates structured SpotDraft handoffs.",
+    "A renewal and amendment summary Skill for account and customer success teams.",
+    "A contract approval routing assistant with human approval boundaries for sensitive actions.",
+    "A sales enablement agent that explains contract stage, blockers, and next steps.",
+    "A procurement support assistant that gathers vendor contract details before legal review."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with SpotDraft, such as checking agreement status, summarizing contract progress, or routing intake requests, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, keeps secrets out of chats and Skill source, proxies credentials through protected runtime settings, and scopes access to only the records and actions required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries and safe action limits for higher-risk contract updates so the agent can assist confidently while keeping legal and operational control where it belongs."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, missing instructions, weak permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After testing, Skill Builder refines the Skill, prepares it for deployment, and helps publish it to the right DocsBot agent so your website chatbot, helpdesk agent, or internal assistant can use SpotDraft safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with SpotDraft?",
+      "answer": "With DocsBot Skill Builder, you describe the contract workflow you want in plain language, and it creates a Skill that lets your AI agent look up SpotDraft data, summarize status, gather missing details, and trigger approved next steps. Skill Builder also handles secure configuration, scoped access, testing, and deployment guidance for you."
+    },
+    {
+      "question": "Can an AI support agent use SpotDraft to answer customer contract questions?",
+      "answer": "Yes, a DocsBot support agent can use SpotDraft to check agreement status, summarize where a contract is in review or signature, and prepare a handoff when legal or sales operations needs to step in. This helps customers get faster updates while keeping sensitive actions bounded by your rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with SpotDraft?",
+      "answer": "A private DocsBot agent can help employees retrieve contract details, summarize approvals and blockers, start intake workflows, route requests, and guide teams through contract-related SOPs. It can also prepare structured updates for legal, procurement, sales, or customer success teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in SpotDraft instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoffs, routing requests, generating summaries, or triggering approved workflow steps. Skill Builder defines secure authentication, scopes permissions, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "How does DocsBot protect SpotDraft credentials and legal workflow access?",
+      "answer": "Skill Builder is designed to keep secrets out of chats and generated Skill code by storing and proxying authentication through secure runtime configuration. It also limits the Skill to the minimum actions, users, and records needed for the workflow you want."
+    },
+    {
+      "question": "Can I use DocsBot with SpotDraft for legal intake and contract triage?",
+      "answer": "Yes, you can build an AI agent that collects the right business context, identifies the request type, and routes the matter into the appropriate SpotDraft workflow. That gives legal teams cleaner intake and faster triage without requiring employees to memorize the process."
+    }
+  ],
+  "relatedSlugs": [
+    "ironclad",
+    "docu-sign",
+    "panda-doc",
+    "notion",
+    "slack",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SpotDraft",
+    "domain": "spotdraft.com",
+    "description": "SpotDraft is a leading contract lifecycle management (CLM) platform that helps businesses automate and streamline their contracting processes. Founded by a Harvard Law School lawyer and two Carnegie Mellon computer scientists, SpotDraft's AI-driven platform enables in-house legal teams to focus on high-leverage work and empowers business teams to close contracts independently. It provides a centralized solution for creating, managing, signing, and analyzing contracts, bringing speed, visibility, efficiency, and structure to the entire contracting process.",
+    "slogan": "Automate, Accelerate, Democratize Your Contract Management with SpotDraft",
+    "logoUrl": "https://media.brand.dev/3182733d-e75a-48d4-91ba-6303ccaf0996.svg",
+    "iconUrl": "https://media.brand.dev/d866474b-ce8b-46a2-945b-b493abc1cd30.jpg",
+    "primaryColor": "#375ddf",
+    "accentColor": "#94b4e4",
+    "colors": [
+      {
+        "hex": "#375ddf",
+        "name": "Veteran’s Day Blue"
+      },
+      {
+        "hex": "#94b4e4",
+        "name": "Adrift on the Nile"
+      },
+      {
+        "hex": "#edf3f7",
+        "name": "Aircraft White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/917b9606-cc2a-4713-932e-71ff1220deee.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://legal.spotdraft.com/signup/spotdraft-terms-of-use",
+      "contact": null,
+      "privacy": "https://legal.spotdraft.com/signup/privacy-policy",
+      "careers": "https://www.spotdraft.com/careers",
+      "blog": "https://www.spotdraft.com/blog",
+      "pricing": "https://www.spotdraft.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d866474b-ce8b-46a2-945b-b493abc1cd30.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/381431de-5848-4794-92e2-b9d9ef9258bb.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3182733d-e75a-48d4-91ba-6303ccaf0996.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 205,
+        "height": 40,
+        "aspectRatio": 5.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3182733d-e75a-48d4-91ba-6303ccaf0996.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 205,
+      "height": 40,
+      "aspectRatio": 5.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d866474b-ce8b-46a2-945b-b493abc1cd30.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

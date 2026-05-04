@@ -1,0 +1,168 @@
+{
+  "slug": "rollbar",
+  "name": "Rollbar",
+  "domain": "rollbar.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Rollbar for Support and Operations",
+  "metaTitle": "Build AI Agents for Rollbar with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Rollbar to look up incidents, summarize error trends, prepare escalations, and trigger safe support or internal workflows.",
+  "intro": "Rollbar helps teams monitor errors, debug issues, and understand release impact in real time. With DocsBot Skill Builder, you can describe the Rollbar-powered workflow you want in plain language and have DocsBot create a secure reusable Skill for it. That lets your support agent or internal AI assistant look up incidents, summarize system health, prepare handoffs, and take approved actions without exposing technical setup details to your team.",
+  "supportUseCases": [
+    "When a customer reports a bug in the chat widget or a helpdesk ticket, the DocsBot agent can search Rollbar for matching errors and summarize likely causes in plain language.",
+    "The agent can check whether an issue is already known in Rollbar and reassure the customer that the team is tracking it with an up-to-date status summary.",
+    "The agent can gather environment, browser, account, and reproduction details from the customer, then use Rollbar context to prepare a cleaner escalation for engineering.",
+    "The agent can summarize recent occurrence counts, affected releases, and severity signals from Rollbar before handing the conversation to a human support rep.",
+    "The agent can identify whether a customer problem appears linked to a recent release and explain that the issue has been routed for investigation or rollback review if your workflow allows it."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to search Rollbar incidents, compare error patterns across releases, and get a concise explanation of what changed.",
+    "Support, success, and operations teams can ask the agent to turn Rollbar findings into escalation notes, incident summaries, or engineering handoff drafts.",
+    "Developers and SREs can use the agent in Slack or Microsoft Teams to retrieve Rollbar issue details, affected environments, and recent activity without leaving chat.",
+    "Internal teams can ask the agent to follow SOPs for incident triage, including gathering context, summarizing impact, and routing the issue to the right team.",
+    "Product and operations teams can chat with the agent to understand recurring customer-facing errors and generate trend summaries for reviews or post-incident follow-up."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Rollbar for known errors during customer conversations.",
+    "A helpdesk assistant that creates engineering handoff summaries enriched with Rollbar incident context.",
+    "An internal triage agent that compares error spikes across releases and environments.",
+    "A Slack assistant that retrieves Rollbar issue details and summarizes probable impact.",
+    "An operations agent that prepares incident updates from Rollbar signals for customer-facing teams.",
+    "A private AI assistant that follows error escalation SOPs and routes cases safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want in plain language, such as checking Rollbar for matching incidents, summarizing impact, or preparing an escalation during support or internal conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, and sets up safe connection and authentication handling for Rollbar without asking you to map every technical detail."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill instructions, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded Rollbar-related actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Rollbar data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as searching incidents, summarizing error trends, or preparing escalations, and Skill Builder creates a secure reusable Skill around that workflow. It also handles connection details, permissions, testing, and deployment so the agent can safely use Rollbar inside support or internal conversations."
+    },
+    {
+      "question": "Can an AI support agent use Rollbar during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use Rollbar context to look up known errors, summarize likely impact, gather missing troubleshooting details, and prepare a clean handoff for engineering. You define the allowed actions and approval boundaries so the agent stays within safe support workflows."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Rollbar?",
+      "answer": "A DocsBot agent can check whether an issue is already known, summarize incident severity and affected releases, collect reproduction details, and draft escalation notes with Rollbar context attached. This helps support teams respond faster while keeping engineering handoffs more consistent."
+    },
+    {
+      "question": "Can an internal AI assistant help employees investigate Rollbar issues?",
+      "answer": "Yes, private DocsBot agents can help employees search Rollbar incidents, compare release impact, summarize recurring error patterns, and follow triage SOPs in chat, Slack, or Microsoft Teams. That gives non-engineering teams quicker access to operational context without needing to work directly inside Rollbar."
+    },
+    {
+      "question": "How does DocsBot keep Rollbar access secure for AI agents?",
+      "answer": "Skill Builder is designed to define the required configuration values, store and proxy secrets securely, and keep credentials out of conversations and generated content. It also scopes access to the minimum users, records, and actions needed, and can add approval steps for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot trigger actions or updates based on Rollbar findings?",
+      "answer": "Yes, the Skill can be designed to take bounded actions such as creating handoff records, routing incidents, generating summaries, or triggering approved follow-up workflows based on Rollbar context. Skill Builder helps set those limits so the agent can act usefully without overreaching."
+    }
+  ],
+  "relatedSlugs": [
+    "sentry",
+    "datadog",
+    "new-relic",
+    "pagerduty",
+    "jira",
+    "github"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rollbar",
+    "domain": "rollbar.com",
+    "description": "Rollbar is a comprehensive error monitoring and debugging platform designed for developers and SREs. It provides real-time error tracking, debugging tools, and release management capabilities, supporting a wide range of programming languages and frameworks, including JavaScript, PHP, Ruby, Python, and more.",
+    "slogan": "Code-first observability connecting errors, replays, releases for seamless debugging.",
+    "logoUrl": "https://media.brand.dev/9f03d5f3-6151-4f61-85c1-e482356a1cbc.svg",
+    "iconUrl": "https://media.brand.dev/4e34f3c1-1b3f-4111-8623-8d3b1c4b8abe.jpg",
+    "primaryColor": "#3464f3",
+    "accentColor": "#9cbcf8",
+    "colors": [
+      {
+        "hex": "#3464f3",
+        "name": "Retro Blue"
+      },
+      {
+        "hex": "#9cbcf8",
+        "name": "Truesky Gloxym"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e1749aba-264e-4e95-bb39-7d5e7791cdab.png",
+    "industries": [],
+    "links": {
+      "terms": "https://docs.rollbar.com/docs/terms-of-service",
+      "privacy": "https://docs.rollbar.com/docs/privacy-policy",
+      "careers": "https://rollbar.com/about-us",
+      "contact": "https://rollbar.com/contact-us",
+      "blog": null,
+      "pricing": "https://rollbar.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4e34f3c1-1b3f-4111-8623-8d3b1c4b8abe.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/be589e8b-159e-4481-a92a-83dc3b894803.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9f03d5f3-6151-4f61-85c1-e482356a1cbc.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 152,
+        "height": 36,
+        "aspectRatio": 4.22
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9f03d5f3-6151-4f61-85c1-e482356a1cbc.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 152,
+      "height": 36,
+      "aspectRatio": 4.22
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/be589e8b-159e-4481-a92a-83dc3b894803.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "slug": "teamwork-desk",
+  "name": "Teamwork Desk",
+  "domain": "teamwork-desk.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Teamwork Desk",
+  "metaTitle": "Teamwork Desk AI Agent Builder for Support and Internal Teams",
+  "metaDescription": "Build DocsBot AI agents that use Teamwork Desk to look up tickets, summarize cases, update records, and trigger safe support workflows.",
+  "intro": "Teamwork Desk helps teams manage customer conversations and support work, and DocsBot Skill Builder helps you turn that system into a practical AI agent capability. In plain language, you describe what you want the agent to do with Teamwork Desk, and Skill Builder designs, secures, tests, and deploys the Skill for you. The result is a customer-facing support agent or internal team assistant that can answer questions and take approved actions inside your support workflow.",
+  "supportUseCases": [
+    "Use Teamwork Desk ticket data during a website chat or helpdesk conversation to look up case status, ownership, tags, priorities, and recent updates before replying to the customer.",
+    "Create a new Teamwork Desk conversation or follow-up ticket from a DocsBot support chat when a customer needs human assistance or a tracked escalation.",
+    "Update approved Teamwork Desk fields such as priority, category, status, assignee, or internal notes based on the customer conversation and your routing rules.",
+    "Summarize a long Teamwork Desk thread into a short customer-friendly update so the agent can respond clearly without making the customer repeat details.",
+    "Prepare a clean handoff in Teamwork Desk with issue summary, customer context, attempted troubleshooting steps, and urgency so human agents can take over faster after the AI conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve Teamwork Desk ticket details, ownership, backlog status, and recent case activity without opening the helpdesk.",
+    "Support leaders can ask the agent to summarize Teamwork Desk trends, open escalations, unresolved queues, and recurring issue themes to speed up daily operations reviews.",
+    "Customer success or operations teams can use the agent to create internal follow-up workflows from Teamwork Desk cases, including structured handoff summaries and next-step checklists.",
+    "Team members can chat with the agent to follow support SOPs, gather missing case context, and complete approved Teamwork Desk updates with safer workflow guidance built into the Skill."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Teamwork Desk ticket status before answering customer questions.",
+    "A DocsBot Skill that creates Teamwork Desk escalations with structured summaries and routing notes.",
+    "An internal assistant that finds open Teamwork Desk issues by customer, owner, or priority.",
+    "A support workflow agent that updates Teamwork Desk fields after collecting missing customer details.",
+    "An AI handoff tool that turns chat conversations into clean Teamwork Desk internal notes.",
+    "A queue triage assistant that summarizes urgent Teamwork Desk cases for support managers each morning."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Teamwork Desk in plain language, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the configuration values the Skill needs, sets up secure authentication handling, protects and proxies secrets, and scopes Teamwork Desk access to the minimum actions and records required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder defines approval boundaries and action limits for sensitive Teamwork Desk steps so the agent can answer and act within the rules you want enforced."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs or weak spots, and checks for missing instructions or permission gaps before launch."
+    },
+    {
+      "title": "It improves before deployment",
+      "description": "Skill Builder uses those test results to refine the Skill, improve reliability and guardrails, and prepare it for deployment to your customer-facing DocsBot agent or private internal assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Teamwork Desk without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Teamwork Desk workflow you want in plain language and the builder designs the Skill for you. It handles secure connection setup, action boundaries, testing, and deployment so non-technical teams can launch useful AI actions safely."
+    },
+    {
+      "question": "Can an AI support agent use Teamwork Desk data during live customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Teamwork Desk Skill to look up ticket details, summarize case history, check ownership or status, and prepare approved follow-up actions while responding to customers. This helps the agent give better answers and create faster handoffs when human help is needed."
+    },
+    {
+      "question": "What Teamwork Desk workflows can a customer support AI agent automate?",
+      "answer": "A DocsBot agent can automate bounded workflows such as ticket lookups, case summaries, escalation prep, internal note creation, approved field updates, and new ticket creation based on your rules. Skill Builder helps define exactly which actions are allowed and where approvals are required."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Teamwork Desk?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Teamwork Desk information, summarize queues, review case activity, and complete approved support workflows. This is useful for support leads, operations teams, and customer success teams that need faster access to helpdesk context."
+    },
+    {
+      "question": "How does DocsBot keep Teamwork Desk actions secure?",
+      "answer": "Skill Builder defines the required configuration, keeps credentials out of chats and Skill source, proxies secrets through secure runtime settings, and scopes permissions to the minimum necessary access. It can also add approval steps and limits for sensitive updates so the agent only performs the actions you allow."
+    },
+    {
+      "question": "Can DocsBot test a Teamwork Desk Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs realistic support and internal scenarios against the Skill before deployment. It identifies workflow gaps, bugs, weak instructions, and permission issues, then feeds those findings into an improvement loop to strengthen the final Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "helpscout",
+    "jira-service-management",
+    "salesforce-service-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Teamwork",
+    "domain": "teamwork.com",
+    "description": "Teamwork.com is a project management platform that combines powerful project management with streamlined operations, designed for managing client projects profitably. Headquartered in Cork, Ireland, the company was founded by a team with agency experience and has grown to serve over 20,000 customers worldwide with a global team of over 350 employees.",
+    "slogan": "Streamline teamwork, boost productivity, and manage projects profitably worldwide.",
+    "logoUrl": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+    "iconUrl": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+    "primaryColor": "#db3f9c",
+    "accentColor": "#141c2c",
+    "colors": [
+      {
+        "hex": "#db3f9c",
+        "name": "Prunus Avium"
+      },
+      {
+        "hex": "#141c2c",
+        "name": "Sambucus"
+      },
+      {
+        "hex": "#848c94",
+        "name": "Common Feldspar"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9f57141e-3866-4046-a37d-629733826801.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.teamwork.com/careers/",
+      "terms": "https://www.teamwork.com/legal/",
+      "contact": "https://www.teamwork.com/contact/sales/",
+      "privacy": "https://www.teamwork.com/legal/privacy-notice/",
+      "blog": "https://www.teamwork.com/blog/",
+      "pricing": "https://www.teamwork.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/db8a8559-1bcb-4d12-9da1-2ccd88551000.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d1d49327-1745-4b6e-99f5-31b8a39d8bc8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 565,
+        "height": 565,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 181,
+        "height": 20,
+        "aspectRatio": 9.05
+      },
+      {
+        "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/95bc8740-689c-4191-b164-b17d779939e0.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/526803ea-b019-4cd7-b815-2ab843cd00aa.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 181,
+      "height": 20,
+      "aspectRatio": 9.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0d58e5fe-0e71-45ca-9cf0-578f51c07198.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

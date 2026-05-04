@@ -1,0 +1,148 @@
+{
+  "slug": "google-analytics",
+  "name": "Google Analytics",
+  "domain": "analytics.google.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Google Analytics",
+  "metaTitle": "Build AI Agents for Google Analytics with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Google Analytics for support insights, internal reporting, safe lookups, workflow summaries, and guided team actions.",
+  "intro": "Google Analytics helps teams understand website traffic, user behavior, campaigns, and conversion performance. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Google Analytics data, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can answer questions, summarize performance, prepare handoffs, and take bounded analytics-related actions inside your approved workflow.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check product usage or traffic trends in Google Analytics to add context when answering questions about onboarding, feature adoption, or campaign-driven activity.",
+    "Use a DocsBot helpdesk agent to summarize recent traffic, conversion, or engagement changes from Google Analytics before preparing a support handoff to customer success or marketing.",
+    "Enable the agent to compare current and prior-period analytics performance so it can explain whether a reported issue aligns with a broader site trend or an isolated customer concern.",
+    "Have the agent gather Google Analytics metrics alongside ticket details to prepare escalation notes for teams investigating checkout drops, sign-up declines, or content performance issues.",
+    "Allow the agent to surface approved Google Analytics insights during support conversations, such as whether a help article, landing page, or release page is seeing unusual traffic or engagement changes."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Google Analytics trends, traffic summaries, and campaign performance without opening dashboards manually.",
+    "Enable marketing, support, and operations teams to ask the agent for period-over-period analysis, top landing pages, conversion shifts, or audience behavior summaries from Google Analytics.",
+    "Use an internal AI assistant to combine Google Analytics lookups with SOPs so employees can investigate traffic anomalies, summarize findings, and prepare next-step recommendations faster.",
+    "Allow team members to ask the agent to create executive-ready summaries of website performance, campaign impact, or content engagement using approved Google Analytics data.",
+    "Help employees research customer or product questions by having the agent pull relevant analytics context, summarize what changed, and suggest the right escalation or follow-up workflow."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes traffic and conversion context during customer ticket triage.",
+    "A private analytics assistant that answers natural-language questions about website and campaign performance.",
+    "A handoff workflow that attaches Google Analytics trend summaries to escalations for marketing or product teams.",
+    "An internal reporting agent that prepares weekly performance digests for support and customer success leaders.",
+    "A troubleshooting assistant that compares current metrics with prior periods to spot unusual behavior quickly.",
+    "An AI agent that summarizes top landing pages, engagement changes, and conversion movement for specific campaigns."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Google Analytics agent to do in plain language, and it turns that goal into a practical Skill design for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required configuration values, defines secure connection and authentication handling, protects and proxies secrets through secure runtime settings, and scopes access to only the analytics data and actions needed."
+    },
+    {
+      "title": "Approve boundaries and actions",
+      "description": "Skill Builder adds sensible limits, approval boundaries, and user-specific permissions so the agent can perform safe lookups, summaries, and approved workflow steps without exceeding the access you intend."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing guardrails, or workflow gaps, and captures improvements before launch."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder feeds test findings into an automated self-improvement loop, refines the Skill, and helps deploy it to the right DocsBot agent for your website chat, helpdesk, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google Analytics data?",
+      "answer": "With DocsBot Skill Builder, you describe the analytics questions, summaries, or workflows you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The resulting agent can retrieve metrics, summarize trends, and support approved follow-up actions inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use Google Analytics during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Google Analytics as a source of context while responding to customers or tickets. That can help the agent explain broader traffic patterns, summarize engagement changes, and prepare better handoffs when an issue may relate to usage or campaign activity."
+    },
+    {
+      "question": "What can an internal AI assistant do with Google Analytics for employees?",
+      "answer": "An internal DocsBot agent can answer natural-language analytics questions, summarize website performance, compare time periods, and help teams follow investigation or reporting SOPs. Employees can chat with the agent in a private interface, Slack, or Microsoft Teams to get answers faster."
+    },
+    {
+      "question": "Can DocsBot safely control access to Google Analytics data?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, keep credentials out of chats and generated content, proxy secrets through approved runtime settings, and scope access to the minimum required data and actions. It can also add approval boundaries and action limits for sensitive workflows."
+    },
+    {
+      "question": "Can a DocsBot agent prepare analytics summaries for escalations and handoffs?",
+      "answer": "Yes, a Skill can gather relevant Google Analytics context and turn it into a concise summary for marketing, product, customer success, or operations teams. This helps escalations move faster with clearer evidence and recommended next steps."
+    },
+    {
+      "question": "What kinds of Google Analytics workflows can DocsBot automate?",
+      "answer": "DocsBot can automate lookups, trend summaries, anomaly research, handoff preparation, recurring reporting support, and other bounded analytics workflows you define. Skill Builder helps structure those actions so the agent stays useful while operating within safe limits."
+    }
+  ],
+  "relatedSlugs": [
+    "mixpanel",
+    "amplitude",
+    "google-search-console",
+    "looker-studio",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google Analytics",
+    "domain": "analytics.google.com",
+    "description": "Google Analytics is a web analytics service provided by Google that enables businesses and marketers to measure advertising ROI, track user interactions, and analyze traffic across websites, Flash and video content, as well as social networking sites and applications.",
+    "slogan": "Understand your audience, optimize your marketing with Google Analytics.",
+    "logoUrl": "https://media.brand.dev/8be589bf-b8d7-4155-8b5d-c96f58aa974c.png",
+    "iconUrl": "https://media.brand.dev/8be589bf-b8d7-4155-8b5d-c96f58aa974c.png",
+    "primaryColor": "#bd8236",
+    "accentColor": "#dad2cb",
+    "colors": [
+      {
+        "hex": "#bd8236",
+        "name": "Fresh Clay"
+      },
+      {
+        "hex": "#dad2cb",
+        "name": "Moth Grey"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/8be589bf-b8d7-4155-8b5d-c96f58aa974c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8be589bf-b8d7-4155-8b5d-c96f58aa974c.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/8be589bf-b8d7-4155-8b5d-c96f58aa974c.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "typeform",
+  "name": "Typeform",
+  "domain": "typeform.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Typeform",
+  "metaTitle": "Build AI Agents for Typeform with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Typeform to capture feedback, look up responses, trigger follow-up workflows, and support teams with safe automated actions.",
+  "intro": "Typeform helps businesses collect rich survey, quiz, and form responses that often need follow-up, routing, and analysis. With DocsBot Skill Builder, you can describe the Typeform-powered workflow you want in plain language, and DocsBot designs, secures, tests, and deploys a reusable Skill for your support or internal AI agent. The result is an AI agent that can answer questions, look up form activity, trigger approved actions, and help teams act on feedback faster.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a Typeform submission was received and summarize the latest response status during a support chat.",
+    "Use a helpdesk-connected DocsBot agent to create a Typeform intake form request for a customer and share the correct next step without leaving the ticket.",
+    "Enable the agent to look up quiz, survey, or application responses in Typeform so it can prepare a cleaner handoff for human support teams.",
+    "Have the agent gather missing details in chat, create or update a Typeform submission through an approved workflow, and confirm what was captured for the customer.",
+    "Use Typeform data to help the agent identify incomplete onboarding or feedback flows and guide the customer to the right form or follow-up action."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find recent Typeform survey results, response trends, or specific submissions without searching manually.",
+    "Enable customer success or operations teams to ask the agent to summarize Typeform feedback by campaign, form, or time period for faster decision-making.",
+    "Allow internal teams to use the agent in Slack or Microsoft Teams to trigger approved follow-up workflows when new Typeform responses meet defined conditions.",
+    "Help recruiting, training, or research teams use a private AI agent to retrieve Typeform application or questionnaire data and prepare structured summaries for review.",
+    "Give employees an AI assistant that guides SOP-based intake workflows by checking Typeform submissions, collecting missing context, and preparing the next approved action."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that confirms Typeform submission receipt and explains next steps to customers.",
+    "A private team assistant that summarizes survey responses and flags submissions needing follow-up.",
+    "A DocsBot workflow that creates Typeform-based intake requests from support conversations or tickets.",
+    "An internal AI agent that retrieves application or research form responses for employee review.",
+    "A support agent that gathers missing customer details and routes them into an approved Typeform workflow.",
+    "A team assistant that prepares escalation summaries using Typeform feedback and response history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Typeform-enabled agent to do, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through secure runtime settings, and scopes Typeform access to only the actions and records needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds clear instructions, safe action limits, and approval boundaries so the agent can look up data, create records, update records, or trigger follow-up steps only within your rules."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing chat widget, helpdesk agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Typeform without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Typeform workflow you want in plain language and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. You do not need to manually wire APIs, secret handling, or scenario testing."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Typeform data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Typeform Skill to look up submissions, confirm response status, gather missing details, and prepare handoffs or follow-up steps while replying to customers. Actions can be limited to approved lookups and updates based on your rules."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Typeform?",
+      "answer": "A DocsBot agent can confirm form receipt, route customers to the correct intake flow, create approved submissions, summarize response details for support teams, and trigger next-step workflows after a form is completed. This helps support teams move from answering questions to completing bounded actions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Typeform responses?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve submissions, summarize survey findings, review intake data, and trigger approved follow-up workflows. This is useful for operations, customer success, recruiting, training, and research teams."
+    },
+    {
+      "question": "How does DocsBot keep Typeform actions secure?",
+      "answer": "Skill Builder defines the needed configuration values, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes access to the minimum Typeform permissions required. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can a Typeform AI agent trigger follow-up workflows after a response is submitted?",
+      "answer": "Yes, DocsBot can help you build a Skill that lets an agent use Typeform response data to trigger approved downstream actions such as routing, escalation prep, notifications, or internal follow-up tasks. The workflow can be limited to the exact conditions and actions you approve."
+    }
+  ],
+  "relatedSlugs": [
+    "survey-monkey",
+    "jotform",
+    "google-forms",
+    "hubspot",
+    "slack",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Typeform",
+    "domain": "typeform.com",
+    "description": "Typeform is a people‑friendly form‑building platform that enables businesses to create interactive, visually striking forms, surveys, quizzes and lead‑generation experiences without coding. Leveraging AI, it helps design and optimize questionnaires that drive higher response rates, currently handling 500 million replies annually. The service integrates with tools such as Slack, Zapier, HubSpot and many others, and offers automation features that trigger segmentation and follow‑up actions as data arrives. Trusted by the majority of Fortune 500 companies, Typeform empowers over 150 000 organizations to collect richer data and gain deeper insights.",
+    "slogan": "Build beautiful, interactive forms. Get more responses. No coding needed.",
+    "logoUrl": "https://media.brand.dev/93a54cdb-abf7-4b84-b72b-75dd11eda85f.svg",
+    "iconUrl": "https://media.brand.dev/f322e8d0-8e20-44a7-9216-341b184df2b4.jpg",
+    "primaryColor": "#040404",
+    "accentColor": "#848486",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#848486",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#2d262e",
+        "name": "Black Onyx"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d915692e-bfdf-4877-93ef-ef5ee8f0ba29.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://admin.typeform.com/to/dwk6gt/",
+      "privacy": null,
+      "careers": "https://www.typeform.com/careers",
+      "contact": "https://www.typeform.com/contacts-and-automations",
+      "blog": "https://www.typeform.com/blog",
+      "pricing": "https://www.typeform.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f322e8d0-8e20-44a7-9216-341b184df2b4.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f320a700-39ba-43b9-a6b2-c3f6600bd258.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/93a54cdb-abf7-4b84-b72b-75dd11eda85f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 43,
+        "height": 24,
+        "aspectRatio": 1.79
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/93a54cdb-abf7-4b84-b72b-75dd11eda85f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 43,
+      "height": 24,
+      "aspectRatio": 1.79
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f322e8d0-8e20-44a7-9216-341b184df2b4.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

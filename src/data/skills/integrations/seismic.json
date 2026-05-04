@@ -1,0 +1,168 @@
+{
+  "slug": "seismic",
+  "name": "Seismic",
+  "domain": "seismic.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Seismic",
+  "metaTitle": "Build AI Agents for Seismic with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Seismic for content lookups, enablement summaries, workflow handoffs, and safe internal actions for support and revenue teams.",
+  "intro": "Seismic helps teams manage enablement content, guided selling workflows, analytics, and training across the revenue organization. With DocsBot Skill Builder, you can describe the Seismic workflow you want in plain language and have DocsBot build a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve Seismic data, prepare handoffs, trigger approved workflows, and summarize outcomes while staying within the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Seismic content or product collateral references to answer buyer questions consistently in chat or ticket replies.",
+    "Use Seismic data to help the agent summarize the latest enablement materials, messaging guidance, or content recommendations before responding to a customer.",
+    "Have the agent prepare a clean handoff for sales or customer success by attaching the relevant Seismic content context and conversation summary to the escalation.",
+    "Enable the agent to capture customer interest signals from a conversation and trigger an approved follow-up workflow for the right revenue team.",
+    "Let the agent retrieve compliant talking points or approved document references from Seismic so support and success responses stay aligned with current messaging."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find the right Seismic content for a deal stage, buyer persona, or product line.",
+    "Revenue teams can ask the agent to summarize Seismic content performance, usage trends, or recent enablement updates for faster decision-making.",
+    "Customer success or sales operations teams can use the agent to prepare account handoff notes that combine Seismic guidance with internal SOPs and next-step recommendations.",
+    "Enable managers and reps to ask the agent for the latest training, coaching, or guided selling resources in Seismic without manually searching multiple folders.",
+    "Teams can chat with the agent to complete repeatable workflows such as finding approved collateral, checking content status, and preparing follow-up artifacts for outreach or onboarding."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that finds the best Seismic content for a buyer question or deal stage.",
+    "A support assistant that summarizes approved messaging before drafting a customer response.",
+    "An internal enablement bot that retrieves training resources and coaching materials from Seismic.",
+    "A handoff workflow that packages Seismic context for sales, success, or advisory teams.",
+    "A private AI assistant that surfaces compliant collateral for regulated customer conversations.",
+    "A workflow agent that logs conversation context and triggers approved follow-up actions for revenue teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Seismic-powered agent to do, such as finding approved content, summarizing enablement guidance, or preparing handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the right configuration values, secure connection method, and authentication handling for Seismic, keeps secrets out of chats and source files, and scopes access to only the users, records, and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear runtime instructions, safe action limits, and approval boundaries for sensitive updates or workflow triggers so the agent can take useful action without exceeding your rules."
+    },
+    {
+      "title": "Test and improve automatically",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team scenarios, finds bugs, missing checks, or weak instructions, and feeds those findings into a self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so employees and customers can use the new Seismic workflow immediately."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Seismic?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and DocsBot designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The finished agent can use Seismic for lookups, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Seismic data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Seismic as a source for approved content, messaging guidance, and enablement context while responding in a chat widget or helpdesk flow. This helps customers get more consistent answers and gives your team better escalation context when a human needs to step in."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with Seismic?",
+      "answer": "Internal agents can help employees find the right collateral, summarize enablement updates, retrieve training resources, prepare handoff notes, and trigger approved follow-up workflows. This is especially useful for sales, customer success, enablement, and operations teams working across multiple systems."
+    },
+    {
+      "question": "Can DocsBot safely take actions in Seismic instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record-related updates, summaries, and handoff preparation. Skill Builder defines secure authentication, scopes permissions, and adds approval boundaries so actions stay controlled."
+    },
+    {
+      "question": "How does DocsBot keep Seismic credentials and access secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs and handles secrets through secure runtime configuration instead of exposing them in chat transcripts or generated instructions. It also limits access to the minimum users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can I deploy a Seismic-connected AI assistant for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, you can publish the Skill to a private DocsBot agent that employees use through chat, Slack, or Microsoft Teams. That assistant can answer questions, retrieve Seismic information, and help complete repeatable enablement workflows in a conversational way."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gong",
+    "outreach",
+    "highspot",
+    "showpad"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Seismic",
+    "domain": "seismic.com",
+    "description": "Seismic is a global revenue enablement platform that unifies AI‑powered content, insights, and workflow tools to help sales, marketing, and advisory teams engage buyers more effectively. Through its Seismic Enablement Cloud, the company delivers personalized, compliant content, real‑time analytics, and guided selling workflows that reduce administrative tasks, shorten sales cycles, and boost deal size. Trusted by roughly 2,000 organizations across financial services, manufacturing, technology, and life sciences, Seismic helps firms streamline operations, improve buyer experiences, and accelerate revenue growth while maintaining regulatory alignment. The platform also offers AI‑driven training, coaching, and content‑usage analytics to continuously optimize performance and drive measurable business outcomes.",
+    "slogan": "Better business outcomes start with Seismic",
+    "logoUrl": "https://media.brand.dev/f5f486cf-b38b-495d-9be7-900f57de746b.svg",
+    "iconUrl": "https://media.brand.dev/7046afef-847e-47a5-95a0-dbf0e9cf199c.png",
+    "primaryColor": "#fc580e",
+    "accentColor": "#fca478",
+    "colors": [
+      {
+        "hex": "#fc580e",
+        "name": "Orange Clown Fish"
+      },
+      {
+        "hex": "#fca478",
+        "name": "Usugaki Persimmon"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d1169da5-de6e-4d3f-a57d-976fa8cb968c.png",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "pricing": null,
+      "careers": "https://www.seismic.com/careers/",
+      "contact": "https://www.seismic.com/contact/",
+      "blog": "https://www.seismic.com/blog/",
+      "privacy": "https://www.seismic.com/legal/policies/privacy-policy/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f5f486cf-b38b-495d-9be7-900f57de746b.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 128,
+        "height": 24,
+        "aspectRatio": 5.33
+      },
+      {
+        "url": "https://media.brand.dev/7046afef-847e-47a5-95a0-dbf0e9cf199c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 108,
+        "height": 108,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4ac11f81-dcd3-45fe-9c16-145a18a1fe6c.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f5f486cf-b38b-495d-9be7-900f57de746b.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 128,
+      "height": 24,
+      "aspectRatio": 5.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4ac11f81-dcd3-45fe-9c16-145a18a1fe6c.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

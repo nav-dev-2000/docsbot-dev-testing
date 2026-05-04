@@ -1,0 +1,148 @@
+{
+  "slug": "hubspot",
+  "name": "HubSpot",
+  "domain": "hubspot.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with HubSpot",
+  "metaTitle": "Build HubSpot AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use HubSpot for support lookups, CRM updates, handoffs, and internal workflows with secure actions and approvals.",
+  "intro": "HubSpot helps teams manage customer relationships across sales, service, marketing, and operations. With DocsBot Skill Builder, you can describe the HubSpot workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. The result is an AI agent that can answer questions, look up CRM data, update approved records, trigger handoffs, and summarize outcomes inside the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up contact, company, deal, or ticket details in HubSpot so it can answer account-specific questions with current CRM context.",
+    "Use a support bot to create or update HubSpot tickets, notes, tasks, or contact properties while helping a customer in chat or responding to a helpdesk ticket.",
+    "Have the agent summarize a customer's recent HubSpot activity, open issues, lifecycle stage, and ownership before preparing a clean escalation or handoff.",
+    "Trigger approved HubSpot workflows from a support conversation, such as routing follow-up tasks, marking onboarding milestones, or notifying the right success manager.",
+    "Allow the agent to collect missing information from the customer and write a structured HubSpot note or timeline event for human teammates to review later."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to find HubSpot records, ownership history, pipeline status, or recent customer activity.",
+    "Let sales, success, and support teams ask an internal AI agent to create follow-up tasks, update contact or company fields, and log standardized notes in HubSpot within approved limits.",
+    "Help operations teams use an internal agent to research account health, summarize deal and service history, and prepare handoff briefs across HubSpot records.",
+    "Give managers an AI assistant that retrieves pipeline snapshots, overdue tasks, recent ticket trends, or rep activity from HubSpot and returns concise summaries for decision-making.",
+    "Support SOP-driven workflows where employees chat with the agent to qualify leads, prepare renewal checklists, route escalations, or document customer interactions in HubSpot."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks HubSpot contact and ticket history before answering customers.",
+    "An AI assistant that creates HubSpot tasks and follow-up notes after customer conversations.",
+    "A DocsBot workflow that updates approved HubSpot properties when onboarding milestones are confirmed.",
+    "An internal agent that summarizes deals, tickets, and account activity for handoff preparation.",
+    "A private AI assistant that finds record owners and routes escalations through HubSpot workflows.",
+    "A support bot that captures missing customer details and logs them to HubSpot safely."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the HubSpot task you want in plain language, and Skill Builder turns that goal into an agent workflow for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides the safest way to connect HubSpot, defines the needed configuration values, and sets up secure authentication and secret handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum HubSpot actions, records, users, and workflow paths required, and adds approval boundaries for sensitive updates or triggers."
+    },
+    {
+      "title": "The agent tests scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "After refining the Skill, Skill Builder helps deploy it to the right DocsBot agent so it can answer questions and take bounded HubSpot actions in your website chat, helpdesk, Slack, or Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with HubSpot data?",
+      "answer": "With DocsBot Skill Builder, you describe the HubSpot workflow you want, such as looking up contacts, updating tickets, or triggering follow-up tasks, and Skill Builder creates a reusable Skill around that goal. It also handles secure connection design, scoped permissions, testing, and deployment for the DocsBot agent you choose."
+    },
+    {
+      "question": "Can a DocsBot support agent use HubSpot during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a HubSpot Skill to look up CRM details, create or update approved records, summarize account history, and prepare handoffs while responding to customers. The customer conversation triggers the DocsBot agent, and the Skill lets that agent act inside HubSpot within your defined limits."
+    },
+    {
+      "question": "What HubSpot customer support workflows can an AI agent automate?",
+      "answer": "A DocsBot agent can help automate live record lookups, ticket or note creation, property updates, follow-up task creation, escalation prep, and workflow triggers tied to support conversations. You control which actions are allowed and where approvals are required."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in HubSpot?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve account context, research deal or service history, update approved fields, create tasks, and follow SOP-driven workflows in HubSpot. This works well in internal chat, Slack, or Microsoft Teams environments."
+    },
+    {
+      "question": "How does DocsBot keep HubSpot actions secure?",
+      "answer": "Skill Builder is designed to define secure configuration, protect and proxy secrets, keep credentials out of chat transcripts, and scope access to the minimum records and actions needed. It can also add approval boundaries for sensitive updates, workflow triggers, or ownership changes."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to HubSpot workflows?",
+      "answer": "No, the goal is to describe the outcome you want in plain language, not manually wire every step yourself. Skill Builder handles the workflow design, secure setup, testing, improvement, and deployment details for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "pipedrive",
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "HubSpot",
+    "domain": "hubspot.com",
+    "description": "HubSpot is a leading CRM platform that provides AI-powered software and support to help businesses grow. Their platform includes marketing, sales, service, and website management products that scale to meet customer needs. With a strong focus on culture and employee growth, HubSpot is a hybrid company with a global presence, headquartered in Cambridge, MA, and offices worldwide.",
+    "slogan": "Grow Better",
+    "logoUrl": "https://media.brand.dev/2b50f498-0470-4e86-a0e4-eaf4cb61e215.jpg",
+    "iconUrl": "https://media.brand.dev/2b50f498-0470-4e86-a0e4-eaf4cb61e215.jpg",
+    "primaryColor": "#fb5c35",
+    "accentColor": "#f5ac94",
+    "colors": [
+      {
+        "hex": "#fb5c35",
+        "name": "Portland Orange"
+      },
+      {
+        "hex": "#f5ac94",
+        "name": "Pretty Primrose"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/dc56ee73-4d8d-426d-bf1a-2e147765bbab.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.hubspot.com/careers",
+      "terms": null,
+      "contact": "https://offers.hubspot.com/contact-sales",
+      "privacy": "https://legal.hubspot.com/privacy-policy",
+      "blog": "https://blog.hubspot.com/",
+      "pricing": "https://www.hubspot.com/pricing/marketing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2b50f498-0470-4e86-a0e4-eaf4cb61e215.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2b50f498-0470-4e86-a0e4-eaf4cb61e215.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2b50f498-0470-4e86-a0e4-eaf4cb61e215.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "slug": "clickup",
+  "name": "ClickUp",
+  "domain": "clickup.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ClickUp",
+  "metaTitle": "Build ClickUp AI Agents for Support and Internal Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that read, update, and trigger ClickUp workflows for customer support and internal teams with safe controls.",
+  "intro": "ClickUp helps teams organize work, tasks, projects, and operational workflows across the business. With DocsBot Skill Builder, you can describe the ClickUp actions you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That lets your agent do more than answer questions by looking up project data, updating approved records, creating handoffs, and triggering the next step inside ClickUp.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up ClickUp task status, due dates, owners, or progress details when customers ask for updates on open work.",
+    "Use a helpdesk-connected DocsBot agent to create a ClickUp task from a customer issue, attach the ticket context, and confirm that the request has been routed.",
+    "Allow the agent to add comments or internal notes to the right ClickUp task so customer conversations and follow-up actions stay connected.",
+    "Have the agent summarize related ClickUp work before replying to a customer, including blockers, current status, and the next approved step.",
+    "Enable the agent to prepare escalation handoffs by creating or updating ClickUp tasks with the customer summary, priority, and supporting details collected in chat or email."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to find ClickUp tasks, project updates, owners, deadlines, and priority information without opening multiple tools.",
+    "Enable team members to ask the agent to create ClickUp tasks, subtasks, or follow-up items from meeting notes, incident reviews, or operating procedures.",
+    "Help operations or customer success teams use the agent to summarize project health, overdue work, blocked tasks, or team workload across ClickUp spaces and lists.",
+    "Allow employees to chat with the agent to update approved ClickUp fields, add comments, reassign work, or move tasks through the right workflow steps.",
+    "Support SOP execution by letting internal teams ask the agent to gather context from ClickUp, prepare a status summary, and trigger the next approved workflow action."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that creates ClickUp tasks from customer issues with ticket context attached.",
+    "An AI assistant that checks task status and explains the next step to customers.",
+    "A private team agent that finds project owners, deadlines, blockers, and recent ClickUp activity.",
+    "An internal workflow assistant that updates task fields after manager or team approval.",
+    "A handoff Skill that turns support conversations into structured ClickUp escalation tasks.",
+    "A summary agent that reviews related ClickUp work and prepares a concise project update."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the ClickUp agent to do, such as checking task status, creating follow-up tasks, or preparing escalations, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed ClickUp connection details, defines secure authentication and configuration values, protects and proxies secrets outside chats and source, and scopes access to only the records, actions, and users required."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right limits for sensitive ClickUp actions, including approval boundaries, allowed update types, and safe workflow rules so the agent only takes approved actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent so teams can use ClickUp actions through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ClickUp?",
+      "answer": "With DocsBot Skill Builder, you describe the ClickUp workflow you want in plain language, and Skill Builder designs, secures, tests, and packages a reusable Skill for your DocsBot agent. The finished agent can look up tasks, update approved fields, create records, trigger workflows, and summarize project state inside controlled boundaries."
+    },
+    {
+      "question": "Can an AI support agent use ClickUp data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a ClickUp Skill to retrieve task status, owners, deadlines, progress notes, or related project details while replying in chat or through helpdesk tickets. It can also prepare handoffs or create follow-up work in ClickUp when that is part of your approved support process."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with ClickUp?",
+      "answer": "DocsBot can help automate issue intake, task creation, escalation prep, status lookups, internal note updates, and follow-up summaries tied to customer conversations. This helps support teams move from explaining the next step to actually triggering the next approved action."
+    },
+    {
+      "question": "Can an internal AI assistant update ClickUp tasks for employees?",
+      "answer": "Yes, an internal DocsBot agent can help employees create tasks, add comments, update approved fields, reassign work, or move items through defined workflow stages in ClickUp. Skill Builder can also add approval checks and action limits for higher-risk changes."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in ClickUp?",
+      "answer": "DocsBot Skill Builder is designed to connect services safely by defining secure configuration, protecting and proxying secrets, and keeping credentials out of chats and generated content. It also scopes permissions and adds approval boundaries so the agent only performs the ClickUp actions you allow."
+    },
+    {
+      "question": "Can DocsBot test a ClickUp AI workflow before deployment?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs imagined support and internal scenarios against the Skill before launch. It can identify bugs, missing guardrails, weak instructions, or workflow gaps and use those findings to improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "asana",
+    "jira",
+    "trello",
+    "monday-com",
+    "notion",
+    "linear"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Clickup",
+    "domain": "clickup.com",
+    "description": "ClickUp is a performance‑driven digital marketing and paid‑advertising agency that helps startups, SMEs, and corporate brands turn marketing spend into measurable revenue. Operating across Tunisia, the MENA region, and Europe, ClickUp designs data‑backed campaigns on Meta, Google, and TikTok, manages social media content, and creates professional branding and visual identity. The agency also offers growth‑strategy consulting, delivering roadmaps tailored to each client’s goals. By focusing on conversion‑oriented performance rather than vanity metrics, ClickUp eliminates inconsistent leads, wasted ad budgets, and unclear ROI. Transparent reporting, continuous optimization, and a revenue‑engine mindset ensure that every campaign drives measurable growth for its partners.",
+    "slogan": "Every app. Every team. Unlimited AI Agents.",
+    "logoUrl": "https://media.brand.dev/85d75aa1-e660-4196-bb4a-ddb1f1b17000.svg",
+    "iconUrl": "https://media.brand.dev/d3eab080-4929-4d3b-a27d-38b688731223.png",
+    "primaryColor": "#242424",
+    "accentColor": "#2d5cfb",
+    "colors": [
+      {
+        "hex": "#242424",
+        "name": "Verified Black"
+      },
+      {
+        "hex": "#2d5cfb",
+        "name": "YInMn Blue"
+      },
+      {
+        "hex": "#cdf22b",
+        "name": "Stadium Grass"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/28ca0374-a9f1-4ad9-b4b0-f4ab42a0436b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://clickup.com/careers",
+      "terms": "https://clickup.com/terms",
+      "contact": "https://help.clickup.com/",
+      "privacy": "https://clickup.com/terms/privacy",
+      "blog": "https://clickup.com/blog/",
+      "pricing": "https://clickup.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9d55280d-f79e-412b-8396-c0ad6494cfaa.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/85d75aa1-e660-4196-bb4a-ddb1f1b17000.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 221,
+        "height": 55,
+        "aspectRatio": 4.02
+      },
+      {
+        "url": "https://media.brand.dev/d3eab080-4929-4d3b-a27d-38b688731223.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0e6b2176-b5ce-4516-af32-4f09fe766a0a.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 100,
+        "height": 30,
+        "aspectRatio": 3.33
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/85d75aa1-e660-4196-bb4a-ddb1f1b17000.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 221,
+      "height": 55,
+      "aspectRatio": 4.02
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9d55280d-f79e-412b-8396-c0ad6494cfaa.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

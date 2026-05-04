@@ -1,0 +1,161 @@
+{
+  "slug": "zoho-salesiq",
+  "name": "Zoho SalesIQ",
+  "domain": "zoho-salesiq.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Enablement",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho SalesIQ",
+  "metaTitle": "Build AI Agents for Zoho SalesIQ with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Zoho SalesIQ for customer support lookups, chat handoffs, visitor context, and safe internal team workflows.",
+  "intro": "Zoho SalesIQ helps teams manage live chat, visitor engagement, and conversation context across sales and support. With DocsBot Skill Builder, you can describe the Zoho SalesIQ workflow you want in plain language and have DocsBot create a reusable Skill for a support bot or internal AI agent. That means your agent can answer questions, retrieve live conversation details, prepare handoffs, trigger approved actions, and summarize outcomes without exposing sensitive access or requiring manual setup work from your team.",
+  "supportUseCases": [
+    "Use a DocsBot support agent to look up Zoho SalesIQ visitor and chat details while answering customer questions in a website widget or helpdesk ticket flow.",
+    "Let the agent summarize a customer's recent SalesIQ conversation history and prepare a cleaner handoff for a human sales or support rep.",
+    "Have the agent create or update approved chat notes, tags, or conversation context in Zoho SalesIQ based on what the customer just shared.",
+    "Enable the agent to capture missing qualification or support details from the customer and store them in Zoho SalesIQ for follow-up.",
+    "Use the agent to identify high-intent or at-risk conversations in Zoho SalesIQ and trigger an approved escalation workflow while replying to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Zoho SalesIQ visitor activity, chat history, and engagement context without switching tools.",
+    "Sales and support teams can ask the agent to summarize active conversations, identify priority follow-ups, and prepare next-step recommendations from Zoho SalesIQ data.",
+    "Operations teams can use the agent to complete SOPs such as routing conversation reviews, flagging escalation patterns, or creating structured handoff summaries from SalesIQ records.",
+    "Managers can chat with the agent to research engagement trends, review conversation outcomes, and generate internal coaching summaries using approved Zoho SalesIQ information."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that retrieves Zoho SalesIQ chat context before responding to customers.",
+    "A handoff assistant that summarizes SalesIQ conversations for human sales or support teams.",
+    "An internal assistant that surfaces visitor activity and engagement history on demand.",
+    "A workflow agent that tags chats and records approved follow-up details in SalesIQ.",
+    "An escalation helper that identifies urgent conversations and prepares structured transfer notes.",
+    "A research assistant that summarizes chat themes and common objections from SalesIQ records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You describe the Zoho SalesIQ workflow you want in plain language, and Skill Builder translates that goal into a practical agent action plan for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the secure configuration values, authentication method, secret handling, and minimum scoped permissions needed so credentials stay protected and access is limited to the right actions and records."
+    },
+    {
+      "title": "DocsBot drafts the Skill",
+      "description": "Skill Builder creates the Skill package with the right instructions, runtime behavior, data lookups, approved actions, and approval boundaries for any sensitive updates or handoffs."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak spots, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the refined Zoho SalesIQ Skill to your customer-facing DocsBot, helpdesk agent, or private internal AI assistant with logging and controlled access in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Zoho SalesIQ?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho SalesIQ workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The finished agent can retrieve context, summarize conversations, trigger approved actions, and support handoffs inside your defined limits."
+    },
+    {
+      "question": "Can an AI support agent use Zoho SalesIQ data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Zoho SalesIQ as a live context source while responding in a website chat widget or through a helpdesk workflow. It can look up visitor or chat details, summarize prior interactions, and prepare approved follow-up actions or escalations."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Zoho SalesIQ?",
+      "answer": "Teams can build workflows for chat context lookups, qualification capture, note updates, tagging, escalation prep, and structured handoffs to human reps. DocsBot can also summarize conversation history so agents and customers do not need to repeat information."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Zoho SalesIQ?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve SalesIQ conversation details, research visitor engagement, summarize follow-up needs, and complete internal workflows. This is useful for sales, support, operations, and management teams that need quick access to conversation context."
+    },
+    {
+      "question": "How does DocsBot keep Zoho SalesIQ actions secure?",
+      "answer": "Skill Builder defines the required configuration, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated content. It also scopes permissions to the minimum needed and can add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot test and improve a Zoho SalesIQ Skill before launch?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill. It can identify bugs, missing instructions, weak permission checks, or workflow gaps and improve the Skill before you deploy it."
+    }
+  ],
+  "relatedSlugs": [
+    "zoho-crm",
+    "intercom",
+    "zendesk",
+    "hubspot",
+    "freshdesk",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

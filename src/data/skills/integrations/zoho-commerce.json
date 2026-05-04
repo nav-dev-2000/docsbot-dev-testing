@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-commerce",
+  "name": "Zoho Commerce",
+  "domain": "zoho-commerce.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Commerce",
+  "metaTitle": "Build AI Support and Internal Agents for Zoho Commerce",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that connect with Zoho Commerce for customer support, order lookups, workflow updates, handoffs, and team automation.",
+  "intro": "Zoho Commerce helps businesses manage online stores, products, orders, and customer buying experiences. With DocsBot Skill Builder, you can describe the Zoho Commerce workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions and take approved actions in Zoho Commerce while staying inside clear security and approval rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up order details in Zoho Commerce and explain shipping status, payment state, or item information during a live chat or helpdesk reply.",
+    "Use the agent to retrieve product availability, variant details, pricing, or catalog information from Zoho Commerce so customers get faster pre-sales answers.",
+    "Enable the agent to create a structured handoff for refund, cancellation, or fulfillment questions by summarizing the Zoho Commerce order history for a human teammate.",
+    "Let the agent update approved order notes or internal comments in Zoho Commerce so support teams have a clean record of what the customer asked for.",
+    "Use the agent to trigger bounded post-purchase workflows tied to Zoho Commerce activity, such as escalation preparation, follow-up tasks, or review requests after a support interaction."
+  ],
+  "internalUseCases": [
+    "Give employees a private AI assistant they can chat with to look up Zoho Commerce orders, products, customers, and store activity without switching between tools.",
+    "Enable operations teams to ask the agent for summaries of order exceptions, fulfillment issues, or catalog changes in Zoho Commerce before taking action.",
+    "Let customer success or support managers chat with the agent in Slack or Microsoft Teams to prepare escalation notes, refund reviews, or daily store summaries using Zoho Commerce data.",
+    "Help merchandising teams use an internal AI agent to research product status, compare listings, and follow catalog maintenance SOPs connected to Zoho Commerce.",
+    "Allow employees to trigger approved internal workflows from chat when Zoho Commerce events require a handoff, investigation, or manager approval."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Zoho Commerce order status before replying to customers.",
+    "A shopping assistant that answers product and availability questions using live Zoho Commerce data.",
+    "A refund triage Skill that summarizes order context and prepares a human handoff.",
+    "An internal operations assistant that reviews order exceptions and drafts next-step recommendations.",
+    "A catalog support Skill that retrieves product details, variants, and pricing for agents.",
+    "A post-purchase workflow Skill that creates follow-up tasks from support conversations tied to Zoho Commerce activity."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Zoho Commerce, such as checking order status, summarizing a customer record, or triggering an approved follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, asks for any missing business context, and automatically decides the safest workflow, needed configuration values, and runtime behavior for the agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder defines secure authentication handling, protects and proxies secrets through approved runtime configuration, keeps credentials out of chats and Skill source, and scopes Zoho Commerce access to the minimum records and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, user scoping, and approval checkpoints for sensitive Zoho Commerce actions so the agent can take bounded action without overreaching."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Commerce without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Commerce workflow you want in plain language and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It handles connection details, authentication setup, and safe action boundaries for you."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Commerce data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Zoho Commerce Skill to look up approved order, product, or store information while replying in a website chat widget or helpdesk workflow. This helps the agent answer faster and create better handoffs or next steps."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Zoho Commerce?",
+      "answer": "A DocsBot agent can retrieve order context, summarize purchase history, add approved notes, prepare escalations, and trigger bounded follow-up workflows connected to Zoho Commerce activity. The exact actions are shaped around your support rules and approval needs."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Zoho Commerce from Slack or Teams?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to retrieve Zoho Commerce data, research issues, and complete approved workflows. This is useful for operations, support, merchandising, and customer success teams."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Commerce actions safe?",
+      "answer": "Skill Builder defines secure configuration, protects and proxies secrets, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive workflows. That lets the agent take useful action without exposing credentials or giving broad unchecked access."
+    },
+    {
+      "question": "Can DocsBot test a Zoho Commerce Skill before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs support and internal usage scenarios, identifies bugs or weak spots, and feeds improvements back into the Skill before deployment. This helps you launch a more reliable agent with clearer instructions and safer behavior."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "woocommerce",
+    "zoho-crm",
+    "zoho-books",
+    "stripe"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

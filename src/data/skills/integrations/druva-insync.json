@@ -1,0 +1,152 @@
+{
+  "slug": "druva-insync",
+  "name": "Druva inSync",
+  "domain": "druva-insync.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Druva inSync",
+  "metaTitle": "Build AI Agents for Druva inSync with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that securely use Druva inSync for backup lookups, recovery workflows, incident summaries, and internal data protection operations.",
+  "intro": "Druva inSync helps teams protect, recover, and manage endpoint and SaaS data, which makes it a strong system for AI-assisted backup, recovery, and security workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent safely use Druva inSync. The result is an AI agent that can answer questions, retrieve backup and protection details, prepare recovery handoffs, and trigger approved actions inside the boundaries you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check backup or protection status for a user's device or account and explain the current state in plain language during a support chat or ticket reply.",
+    "Use the agent to gather recovery details from the customer, look up relevant Druva inSync records, and prepare a complete handoff for an approved restore workflow.",
+    "Enable the agent to summarize recent backup activity, policy coverage, or recovery readiness so customers get faster answers without waiting for a manual review.",
+    "Have the agent confirm whether a protected user, device, or dataset is covered by the expected backup policy before escalating the case to a human specialist.",
+    "Use the agent to collect incident context from the customer and create a structured recovery or security escalation summary based on Druva inSync data."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up backup status, device protection details, and recovery readiness in Druva inSync.",
+    "Enable IT or security teams to ask the agent for incident research summaries that combine customer-reported symptoms with Druva inSync backup and protection information.",
+    "Allow operations staff to use the agent to follow recovery or escalation SOPs, with the agent gathering required details and triggering approved next steps.",
+    "Give helpdesk teams an internal assistant that can prepare restore requests, summarize affected users or devices, and route cases to the right recovery team.",
+    "Help compliance or security employees ask the agent for concise protection coverage summaries and workflow-ready reports drawn from Druva inSync records."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks endpoint backup status before creating a recovery handoff.",
+    "An internal IT assistant that summarizes protection coverage for a user, device, or team.",
+    "A recovery intake workflow that gathers missing details and prepares approved restore requests.",
+    "A security operations agent that creates incident summaries using backup and recovery context.",
+    "A helpdesk assistant that verifies policy coverage and routes escalations to the right team.",
+    "An employee-facing chat agent that answers backup readiness questions from Druva inSync data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Druva inSync, such as checking backup status, preparing recovery handoffs, or summarizing protection coverage, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the needed configuration values, defines secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions required for the workflow."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear instructions, safe action limits, and approval boundaries for sensitive updates or workflow triggers so the agent can help without overreaching."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so it can answer questions and take approved actions with Druva inSync."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Druva inSync?",
+      "answer": "With DocsBot Skill Builder, you describe the backup, recovery, or security workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment to the right AI agent."
+    },
+    {
+      "question": "Can an AI support agent use Druva inSync data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up allowed backup or protection details in Druva inSync, summarize status for the customer, and prepare escalation or recovery handoffs when human approval is needed."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Druva inSync?",
+      "answer": "Common workflows include backup status checks, policy coverage lookups, recovery intake, incident context gathering, escalation summaries, and approved workflow triggers related to restore or security operations."
+    },
+    {
+      "question": "Can an internal AI assistant help IT and security teams work faster with Druva inSync?",
+      "answer": "Yes, private DocsBot agents can help employees research protection status, summarize incidents, follow recovery SOPs, and prepare structured handoffs across IT, helpdesk, and security workflows."
+    },
+    {
+      "question": "How does DocsBot keep Druva inSync actions safe?",
+      "answer": "Skill Builder defines secure connection settings, keeps credentials out of chats and generated content, proxies secrets through protected runtime configuration, scopes permissions to the minimum required access, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger recovery or backup-related workflows from Druva inSync?",
+      "answer": "DocsBot Skills can be designed to trigger approved workflows or prepare action requests when that fits your process, with clear limits on what the agent may do automatically versus what requires review or approval."
+    }
+  ],
+  "relatedSlugs": [
+    "veeam",
+    "datto",
+    "okta",
+    "servicenow",
+    "jira-service-management",
+    "microsoft-intune"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Druva",
+    "domain": "druva.com",
+    "description": "Druva is the leading provider of data security solutions, empowering customers to secure and recover their data from all threats. They offer a fully managed SaaS solution, the Druva Data Security Cloud, which provides air-gapped and immutable data protection across various environments, enhancing traditional security measures and enabling faster incident response and robust data governance.",
+    "slogan": "Secure, Recover, and Manage Data Smarter with Druva Cloud Solutions",
+    "logoUrl": "https://media.brand.dev/3a863f8e-e357-48e5-ba39-c7cd9535ad91.jpg",
+    "iconUrl": "https://media.brand.dev/3a863f8e-e357-48e5-ba39-c7cd9535ad91.jpg",
+    "primaryColor": "#05254c",
+    "accentColor": "#7c9498",
+    "colors": [
+      {
+        "hex": "#05254c",
+        "name": "Oxford Blue"
+      },
+      {
+        "hex": "#7c9498",
+        "name": "Silent Tide"
+      },
+      {
+        "hex": "#d2c9b7",
+        "name": "Sandstone Cliff"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://druva.com/about/careers",
+      "terms": "https://www.druva.com/terms-of-use/",
+      "contact": "https://druva.com/about/contact-us",
+      "privacy": "https://druva.com/privacy-policy",
+      "blog": "https://druva.com/about/news",
+      "pricing": "https://druva.com/products/pricing-plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3a863f8e-e357-48e5-ba39-c7cd9535ad91.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3a863f8e-e357-48e5-ba39-c7cd9535ad91.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3a863f8e-e357-48e5-ba39-c7cd9535ad91.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

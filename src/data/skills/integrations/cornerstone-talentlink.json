@@ -1,0 +1,113 @@
+{
+  "slug": "cornerstone-talentlink",
+  "name": "Cornerstone TalentLink",
+  "domain": "cornerstone-talentlink.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents for Cornerstone TalentLink Workflows",
+  "metaTitle": "Cornerstone TalentLink AI Agent Integration for DocsBot",
+  "metaDescription": "Build DocsBot AI agents that use Cornerstone TalentLink data and workflows for support, recruiting operations, and safe internal team actions.",
+  "intro": "Cornerstone TalentLink supports recruiting and talent workflow needs that often require quick lookups, status updates, handoffs, and process coordination. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill your support or internal AI agent can use. The result is an AI agent that not only answers questions, but can also take bounded action inside approved Cornerstone TalentLink workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check candidate or application status in Cornerstone TalentLink and return a clear progress summary during a website chat or helpdesk reply.",
+    "Use the agent to collect missing application details from a candidate, prepare a structured handoff, and create or update the appropriate record in Cornerstone TalentLink.",
+    "Have the agent summarize recruiting progress, recent activity, or next steps from Cornerstone TalentLink so candidates get faster and more consistent answers.",
+    "Enable the agent to trigger approved follow-up workflows in Cornerstone TalentLink, such as routing an application for review or flagging a record for recruiter attention.",
+    "Use the agent to prepare escalation notes for a human recruiter by pulling relevant Cornerstone TalentLink details into a concise support-ready summary."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate, requisition, or workflow status from Cornerstone TalentLink without switching systems.",
+    "Recruiting and operations teams can ask the agent to summarize open tasks, stalled applications, or upcoming follow-ups in Cornerstone TalentLink and receive an action-ready overview.",
+    "Team members can use the agent to create structured handoffs, update approved fields, and move recruiting workflows forward while the agent follows company SOPs.",
+    "Managers can ask the agent to gather Cornerstone TalentLink information for internal reviews, audits, or recruiting meetings and return concise summaries with next-step recommendations.",
+    "Employees can use the agent to complete repeatable recruiting workflows across tools, with Cornerstone TalentLink as the system of record for approved lookups and updates."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup Skill that returns plain-language application updates during support chats.",
+    "A recruiter handoff Skill that collects missing details and creates structured escalation notes.",
+    "An internal recruiting assistant that summarizes open requisitions, applicants, and pending follow-ups.",
+    "A workflow action Skill that updates approved fields and routes records for review.",
+    "A hiring operations Skill that prepares daily summaries of stalled or high-priority applications.",
+    "A compliance-aware assistant that gathers required context before sensitive recruiting actions are submitted for approval."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Cornerstone TalentLink in plain language, such as checking applicant status, updating approved fields, or preparing recruiter handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and defines how the agent should use Cornerstone TalentLink safely inside support or internal workflows."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder sets up secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, and scopes access to only the records and actions the workflow needs."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds permission boundaries, user scoping, and approval steps for sensitive updates so the agent can act only within the safe limits you define."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, missing instructions, or weak permission checks, and feeds those findings into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Cornerstone TalentLink without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the result you want in plain language and Skill Builder creates the workflow, secure connection plan, runtime behavior, and testing process for the agent. It can then publish the Skill to a customer-facing support bot or a private internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Cornerstone TalentLink data to answer candidate questions?",
+      "answer": "Yes, a DocsBot agent can use a Skill to look up approved Cornerstone TalentLink information, summarize status, gather missing context, and prepare handoffs while replying in chat or through a helpdesk. You control which records, fields, and actions the agent is allowed to access."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Cornerstone TalentLink?",
+      "answer": "Common examples include candidate status lookups, application detail collection, support-to-recruiter handoffs, workflow summaries, and approved follow-up triggers. The agent can answer and take bounded action instead of only telling a person what to do next."
+    },
+    {
+      "question": "Can an internal AI assistant update Cornerstone TalentLink records safely?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills for approved record updates with scoped permissions, safe action limits, and approval boundaries for sensitive changes. This helps employees complete routine recruiting workflows through chat while keeping control in place."
+    },
+    {
+      "question": "How does DocsBot keep Cornerstone TalentLink credentials and access secure?",
+      "answer": "Skill Builder defines the required configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated Skill content. It also scopes access to the minimum users, actions, and records needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot test and improve a Cornerstone TalentLink Skill before launch?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs support and internal team scenarios to find bugs, weak instructions, missing permission checks, or workflow gaps. Those findings can be used in an automated improvement loop before the Skill is deployed."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "smartrecruiters",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SearchHounds",
+    "domain": "cornerstone-talentlink.com",
+    "description": "Cornerstone TalentLink is a youth‑focused talent agency that connects young performers with professional opportunities in film, television, theater, and digital media. The company guides families through the complexities of child representation, handling submissions, auditions, contract negotiations, and compliance with child labor laws and Coogan trust accounts. By offering transparent, commission‑based representation without upfront fees, Cornerstone TalentLink helps parents build polished headshots, resumes, and reels while prioritizing education and safety. The agency leverages both traditional industry networks and modern digital platforms—such as social media and online talent portals—to discover and promote emerging talent. With a commitment to ethical practices and the well‑being of its clients, Cornerstone TalentLink empowers children and their families to navigate the entertainment industry confidently and sustainably.",
+    "slogan": "",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": "http://cornerstone-talentlink.com/topics/news.html",
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": "http://cornerstone-talentlink.com/topics/insurance.html"
+    }
+  }
+}

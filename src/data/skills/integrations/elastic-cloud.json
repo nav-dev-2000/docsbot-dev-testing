@@ -1,0 +1,184 @@
+{
+  "slug": "elastic-cloud",
+  "name": "Elastic Cloud",
+  "domain": "elastic-cloud.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Elastic Cloud",
+  "metaTitle": "Build AI Agents for Elastic Cloud with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that safely use Elastic Cloud for support lookups, incident context, internal research, workflow triggers, and approved updates.",
+  "intro": "Elastic Cloud helps teams search, analyze, observe, and act on data across logs, security events, application activity, and operational systems. With DocsBot Skill Builder, you can describe the Elastic-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve live context, summarize findings, and take bounded actions inside Elastic Cloud under your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent search Elastic Cloud for recent product errors tied to an account or request and explain the current issue status in plain language.",
+    "Use Elastic Cloud data during helpdesk replies to summarize relevant logs, traces, or indexed support events before handing a case to a human specialist.",
+    "Allow the agent to look up outage indicators, service health signals, or known incident patterns in Elastic Cloud and share a customer-safe status update.",
+    "Have the agent gather troubleshooting evidence from Elastic Cloud, attach a concise summary to the ticket, and prepare a clean escalation handoff for support or engineering.",
+    "Enable the agent to check whether a customer action was processed, indexed, or recorded in Elastic-backed systems and respond with the latest verified status when appropriate."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to search Elastic Cloud across logs, observability data, and indexed operational records without switching tools.",
+    "Support and operations teams can ask the agent to summarize incident evidence from Elastic Cloud, compare patterns, and prepare a structured handoff for engineering review.",
+    "Security or platform teams can use the agent in Slack or Microsoft Teams to retrieve approved Elastic Cloud findings, timelines, and anomaly summaries for active investigations.",
+    "Customer success and product teams can chat with the agent to research account activity, usage signals, or recurring issue themes surfaced through Elastic Cloud indexes.",
+    "Internal teams can ask the agent to follow SOPs that query Elastic Cloud, gather context from related systems, and produce a next-step summary with approvals where needed."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that searches logs and explains customer-facing error status clearly.",
+    "An AI assistant that summarizes Elastic incident evidence before human escalation.",
+    "A private team agent that researches observability data across accounts and services.",
+    "A workflow Skill that gathers Elastic findings and drafts ticket handoff notes.",
+    "An assistant that checks indexed transaction or event status for support replies.",
+    "A Slack or Teams agent that answers operational questions using Elastic Cloud context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Elastic Cloud, such as checking logs, summarizing incidents, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right connection approach, defines the required configuration values, protects and proxies secrets through secure runtime settings, and scopes Elastic Cloud access to only the users, actions, and data needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds clear instructions, approval boundaries, and safe action limits so the agent can perform lookups, summaries, updates, or workflow triggers inside the rules you approve."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the finished Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can use Elastic Cloud through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Elastic Cloud without custom coding?",
+      "answer": "With DocsBot Skill Builder, you describe the Elastic Cloud workflow you want in plain language and the builder designs, secures, tests, and packages the Skill for deployment. It handles connection details, secret protection, scoped permissions, and safe runtime behavior for you."
+    },
+    {
+      "question": "Can a DocsBot support agent use Elastic Cloud data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use an Elastic Cloud Skill to retrieve approved logs, observability context, indexed events, or incident signals while responding to a customer conversation or helpdesk ticket. That helps the agent provide better answers, prepare escalations, and summarize current status with live context."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Elastic Cloud?",
+      "answer": "A DocsBot agent can search for account-related errors, summarize recent event history, check whether actions were processed, prepare incident handoffs, and trigger approved follow-up workflows. The exact actions are defined by the Skill you build and the limits you approve."
+    },
+    {
+      "question": "Can an internal AI assistant search Elastic Cloud for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, teams can use a private DocsBot agent to query Elastic Cloud from chat, Slack, or Microsoft Teams for faster troubleshooting, research, and operational summaries. Skill Builder can scope access so the assistant only returns the data and actions appropriate for each team."
+    },
+    {
+      "question": "How does DocsBot keep Elastic Cloud credentials and API access secure?",
+      "answer": "Skill Builder defines the needed configuration, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and generated Skill source. It also scopes access and can add approval boundaries for sensitive actions or broader data access."
+    },
+    {
+      "question": "Can DocsBot use Elastic Cloud for incident summaries and escalation handoffs?",
+      "answer": "Yes, you can build a Skill that gathers relevant Elastic Cloud evidence, summarizes what happened, and creates a structured handoff for support, engineering, or incident response teams. This helps reduce manual triage and keeps escalations consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "sentry",
+    "grafana",
+    "splunk",
+    "mongodb-cloud"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Elastic",
+    "domain": "elastic.co",
+    "description": "Elastic is a leading software company that specializes in making data usable in real-time and at scale across various applications including search, logging, security, and analytics. Known as The Search AI Company, Elastic integrates the precision of search with advanced AI capabilities to help organizations achieve meaningful results efficiently. Their flagship product, the Elastic Search AI Platform, empowers companies — including over 50% of the Fortune 500 — to discover valuable insights from their data quickly. With a focus on observability and security, Elastic provides enterprise solutions that facilitate rapid data insights, enabling users to act on key information and drive better outcomes. Discover how Elastic can transform your data experience and accelerate your time to insight.",
+    "slogan": "Accelerate insights with Elastic: The Search AI Company.",
+    "logoUrl": "https://media.brand.dev/4a05f8d2-9e05-4b95-82a1-926c371ff053.png",
+    "iconUrl": "https://media.brand.dev/c06efdfe-c7b7-4262-af7f-f839085888a4.png",
+    "primaryColor": "#0dabc7",
+    "accentColor": "#8bc404",
+    "colors": [
+      {
+        "hex": "#0dabc7",
+        "name": "Havasupai Falls"
+      },
+      {
+        "hex": "#8bc404",
+        "name": "Jewel Beetle"
+      },
+      {
+        "hex": "#eebf42",
+        "name": "Sharp Yellow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f3076eef-0239-4961-ad42-0d4a286039bd.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://elastic.co/careers",
+      "terms": "https://elastic.co/legal/terms-of-use",
+      "contact": "https://elastic.co/contact",
+      "privacy": "https://elastic.co/legal/privacy-statement",
+      "blog": "https://elastic.co/blog/category/generative-ai",
+      "pricing": "https://elastic.co/pricing/serverless-search"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/c06efdfe-c7b7-4262-af7f-f839085888a4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/cebfb21c-4a08-4705-8f7f-c0932c399bfb.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4a05f8d2-9e05-4b95-82a1-926c371ff053.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 177,
+        "height": 62,
+        "aspectRatio": 2.85
+      },
+      {
+        "url": "https://media.brand.dev/0ab69fab-4408-4e2c-ab26-627c8df59514.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/40b994e9-41eb-45fa-8c8e-0ffca7d368cb.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 117,
+        "height": 40,
+        "aspectRatio": 2.93
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4a05f8d2-9e05-4b95-82a1-926c371ff053.png",
+      "type": "logo",
+      "mode": "dark",
+      "width": 177,
+      "height": 62,
+      "aspectRatio": 2.85
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c06efdfe-c7b7-4262-af7f-f839085888a4.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

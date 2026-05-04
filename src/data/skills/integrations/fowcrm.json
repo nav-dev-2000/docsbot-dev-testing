@@ -1,0 +1,160 @@
+{
+  "slug": "fowcrm",
+  "name": "FowCRM",
+  "domain": "fowcrm.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with FowCRM",
+  "metaTitle": "Build AI Agents for FowCRM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use FowCRM for customer support, sales operations, and internal workflows with safe lookups, updates, handoffs, and approvals.",
+  "intro": "FowCRM brings sales, service, case management, field operations, invoicing, and inventory data into one platform, which makes it a strong system for AI agents that need real business context. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your support or internal AI agent safely read data, update records, trigger workflows, and summarize next steps in FowCRM. The result is an AI agent that can do more than answer questions because it can take bounded action inside the rules you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up account, order, warranty, or case details in FowCRM and answer customers with current status information.",
+    "Let the agent create or update support cases in FowCRM during a live chat or helpdesk ticket reply when a customer reports a problem.",
+    "Have the agent collect missing details from the customer, summarize the issue, and prepare a clean handoff into a FowCRM case for a human team.",
+    "Enable the agent to check invoice, payment, or order history in FowCRM and provide approved billing or fulfillment updates to customers.",
+    "Let the agent trigger follow-up workflows in FowCRM, such as escalation, survey requests, or service callbacks, after resolving or routing a conversation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve customer, lead, deal, case, invoice, or inventory information from FowCRM without switching systems.",
+    "Sales, service, and operations teams can ask the agent to summarize account history, open issues, recent activity, and recommended next steps from FowCRM records.",
+    "Team members can use the agent in chat, Slack, or Microsoft Teams to create cases, update deal stages, log follow-ups, or trigger approved workflows in FowCRM.",
+    "Managers can ask the agent to research account status across service and finance records in FowCRM and prepare handoff notes or escalation summaries.",
+    "Operations teams can use the agent to follow internal SOPs that require checking FowCRM data, gathering missing context, and completing approved record updates."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks case status, warranty details, and recent account activity in FowCRM.",
+    "A billing assistant that retrieves invoice history and prepares approved payment or escalation handoffs.",
+    "A service agent that creates FowCRM cases from chat conversations with structured issue summaries.",
+    "An internal sales assistant that summarizes leads, deals, follow-ups, and account health from FowCRM.",
+    "An operations agent that updates records and triggers approved workflows across service and order processes.",
+    "A customer success assistant that prepares renewal, risk, or escalation summaries from FowCRM account data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with FowCRM in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder figures out the needed configuration values, connection method, and authentication approach, then keeps secrets protected through secure runtime handling instead of exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum FowCRM records, actions, users, and approval boundaries needed so the agent can take useful but controlled action."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with instructions, runtime behavior, and any approved actions needed for FowCRM lookups, updates, summaries, handoffs, or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak spots, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for FowCRM without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the FowCRM workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests likely scenarios, and prepares it for deployment. It can create Skills for lookups, record updates, handoffs, summaries, and other bounded AI actions."
+    },
+    {
+      "question": "Can an AI support agent use FowCRM data during website chat or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a FowCRM Skill to look up account, case, order, invoice, or warranty information while responding to customer conversations or tickets. It can also create or update approved records and prepare escalations when your workflow allows it."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with FowCRM?",
+      "answer": "Common workflows include checking case status, retrieving account history, creating support records, updating case details, triggering follow-up tasks, and generating clean handoff summaries for human agents. These actions are bounded by the rules, permissions, and approvals you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside FowCRM?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in a web interface, Slack, or Microsoft Teams to retrieve FowCRM data, summarize account context, and complete approved workflows. This is useful for sales, service, finance, and operations teams that need faster access to business context and safe actions."
+    },
+    {
+      "question": "How does DocsBot keep FowCRM actions safe and controlled?",
+      "answer": "Skill Builder defines secure configuration values, protects and proxies secrets, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive changes. That helps your agent take useful action without giving it broad or unnecessary access."
+    },
+    {
+      "question": "Can DocsBot update FowCRM records instead of only answering questions?",
+      "answer": "Yes, a FowCRM Skill can be designed for bounded actions such as creating cases, updating fields, logging notes, triggering workflows, or preparing handoff artifacts. You decide which actions are allowed and where approvals are required."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zoho-crm",
+    "pipedrive",
+    "freshsales",
+    "microsoft-dynamics-365"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FowCRM",
+    "domain": "fowcrm.com",
+    "description": "FowCRM is a cloud‑based customer relationship management platform that unifies sales, service, field, order, finance and inventory operations. It offers a full suite of tools—including lead and deal management, omnichannel messaging, AI‑driven Copilot, case handling, surveys, warranty and parts tracking, invoicing, and customizable dashboards—to streamline end‑to‑end business processes. Users can build custom apps, integrate with over 100 popular applications, and access industry‑specific solutions that boost revenue and satisfaction. FowCRM’s flexible plans (Standard, Professional, Enterprise) and developer‑friendly resources such as documentation, an academy, and a portal make it easy for companies of any size to adapt the platform to their unique workflows and accelerate growth.",
+    "slogan": "Simple. Flexible. Productive. FowCRM boosts sales and customer satisfaction.",
+    "logoUrl": "https://media.brand.dev/6d65266c-3404-43bb-8d06-99207a51545b.jpg",
+    "iconUrl": "https://media.brand.dev/6d65266c-3404-43bb-8d06-99207a51545b.jpg",
+    "primaryColor": "#d45a20",
+    "accentColor": "#242c35",
+    "colors": [
+      {
+        "hex": "#d45a20",
+        "name": "Play School"
+      },
+      {
+        "hex": "#242c35",
+        "name": "Freinacht Black"
+      },
+      {
+        "hex": "#c7cacc",
+        "name": "Porpoise Fin"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3ab22855-7768-452a-b38a-de4aa4a56c5a.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://fowcrm.com/blog/",
+      "careers": "https://fowcrm.com/company/",
+      "privacy": "https://fowcrm.com/privacy-policy/",
+      "terms": null,
+      "contact": "https://fowcrm.com/contact/",
+      "pricing": "https://fowcrm.com/plans/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/2cc5f983-b1bc-495b-b3ad-0c2521cf4d99.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/6d65266c-3404-43bb-8d06-99207a51545b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/2cc5f983-b1bc-495b-b3ad-0c2521cf4d99.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2cc5f983-b1bc-495b-b3ad-0c2521cf4d99.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "sigma-computing",
+  "name": "Sigma Computing",
+  "domain": "sigma-computing.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Sigma Computing",
+  "metaTitle": "Build AI Agents for Sigma Computing with DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely query Sigma Computing, summarize insights, prepare handoffs, and automate approved workflows for support and internal teams.",
+  "intro": "Sigma Computing helps teams explore data and dashboards, and DocsBot Skill Builder helps you turn that data access into a reusable AI agent ability. In plain language, you describe the outcome you want, and Skill Builder designs, secures, tests, and deploys a Skill your DocsBot agent can use. The result is an AI support or internal agent that can retrieve analytics context, summarize findings, and take bounded follow-up actions without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account, usage, or product trend dashboards in Sigma Computing and explain relevant insights during a support chat or ticket reply.",
+    "Use Sigma Computing data to help the agent summarize customer health signals, recent adoption patterns, or anomaly indicators before preparing an escalation or handoff.",
+    "Enable the support agent to pull approved report results from Sigma Computing and answer customer questions about usage, billing drivers, or performance patterns with current data.",
+    "Have the agent compare customer-reported issues against Sigma Computing trend data so it can share a concise status summary and guide the next support step.",
+    "Let the agent gather analytics context from Sigma Computing and attach a clean summary to a helpdesk ticket for faster review by human support or success teams."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Sigma Computing dashboard insights without manually searching through reports.",
+    "Customer success, support, and operations teams can ask the agent to summarize account trends, product adoption changes, or renewal risk signals pulled from Sigma Computing.",
+    "Team members can use the agent to research business questions across Sigma Computing data, then generate a handoff summary, follow-up notes, or an action checklist for the next workflow step.",
+    "Managers can ask the internal agent for KPI summaries, exception reports, or analytics-based status updates so teams can make faster decisions inside their normal chat tools.",
+    "Operations teams can chat with the agent to follow SOPs that use Sigma Computing lookups, approved workflow triggers, and generated summaries across connected systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers usage questions using approved Sigma Computing dashboards.",
+    "A helpdesk assistant that summarizes account trends before escalating a ticket.",
+    "An internal analytics assistant that retrieves KPI insights in Slack or Teams.",
+    "A customer success agent that prepares renewal risk summaries from Sigma Computing data.",
+    "An operations assistant that turns dashboard lookups into follow-up tasks and handoff notes.",
+    "A support workflow that checks trend data before suggesting the next approved action."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Sigma Computing in plain language, and it turns that goal into a practical Skill design for support or internal workflows."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, defines the required configuration values, protects and proxies secrets through secure runtime handling, and scopes access to the minimum dashboards, queries, users, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds appropriate approval boundaries and safe action limits so sensitive lookups, summaries, and downstream workflow steps stay within the rules you define."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so people can start using it in the right context."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Sigma Computing data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as answering usage questions or summarizing account trends, and Skill Builder creates a secure Skill that lets your agent query Sigma Computing within approved limits."
+    },
+    {
+      "question": "Can an AI support agent use Sigma Computing during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a Sigma Computing Skill to retrieve approved analytics context, summarize relevant findings, and prepare cleaner replies, escalations, or handoffs while responding to customers."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Sigma Computing?",
+      "answer": "Internal agents can retrieve dashboard insights, answer KPI questions, prepare account summaries, support research, and trigger approved follow-up workflows for operations, support, and customer success teams."
+    },
+    {
+      "question": "Can DocsBot safely control what an AI agent is allowed to access in Sigma Computing?",
+      "answer": "Yes, Skill Builder is designed to define secure configuration, keep credentials out of chats and Skill source, scope permissions to the minimum necessary access, and add approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can an AI agent summarize Sigma Computing dashboards for support and success teams?",
+      "answer": "Yes, a DocsBot Skill can help the agent turn approved dashboard results into plain-language summaries, ticket notes, escalation briefs, and internal handoff updates that are easier for teams to use quickly."
+    },
+    {
+      "question": "Does building a Sigma Computing AI workflow require coding?",
+      "answer": "No, the process is designed for non-technical users. You describe the workflow you want, and Skill Builder handles the design, secure setup, testing, improvement, and deployment details for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "looker",
+    "power-bi",
+    "thoughtspot",
+    "snowflake",
+    "bigquery"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Sigma Computing",
+    "domain": "sigma-computing.com",
+    "description": "Sedo is a global online marketplace that connects domain buyers, sellers, and investors. It offers a full suite of services including domain search, brokerage, fixed‑price sales, auctions, and parking to monetize unused domains. Users can list domains for sale, acquire premium names through brokers, participate in live and timed auctions, and receive professional appraisals. Sedo also provides transfer services, a partner affiliate program, and tools for market trend analysis. With a large inventory of premium and niche domains, Sedo helps businesses secure brand‑protecting web addresses, startups find memorable URLs, and individuals monetize traffic through domain parking. The platform combines a user‑friendly interface with expert support to streamline all aspects of domain trading.",
+    "slogan": "All things domaining in one place",
+    "logoUrl": "",
+    "iconUrl": "",
+    "primaryColor": "",
+    "accentColor": "",
+    "colors": [],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    }
+  }
+}

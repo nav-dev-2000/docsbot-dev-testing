@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-projects",
+  "name": "Zoho Projects",
+  "domain": "zoho-projects.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Projects",
+  "metaTitle": "Build AI Agents for Zoho Projects with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Projects to answer customers, update work safely, trigger workflows, and help internal teams complete project operations.",
+  "intro": "Zoho Projects helps teams plan work, track tasks, manage issues, and coordinate delivery across projects. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Projects, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can do more than answer questions by looking up project data, preparing handoffs, updating approved records, and triggering bounded actions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Zoho Projects task, milestone, or issue status and respond with a clear progress update.",
+    "Use the agent to create a support follow-up task in Zoho Projects when a customer reports a bug, blocker, or onboarding problem.",
+    "Have the agent summarize related project work, open dependencies, and recent updates before escalating a complex customer ticket to a human team.",
+    "Enable the agent to add approved notes or tags to project items in Zoho Projects so support conversations stay connected to delivery work.",
+    "Allow the agent to trigger a predefined workflow in Zoho Projects when a customer requests implementation help, migration assistance, or post-sale setup support."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a chat interface to find tasks, owners, deadlines, and project health details from Zoho Projects.",
+    "Project managers can ask the agent to summarize overdue work, blocked items, and milestone risk across selected Zoho Projects workspaces.",
+    "Operations teams can use the agent to create tasks, update statuses, and prepare handoff notes in Zoho Projects while following internal SOPs.",
+    "Customer success teams can chat with the agent to gather implementation progress, identify next actions, and generate stakeholder-ready summaries from Zoho Projects data.",
+    "Internal teams can ask the agent to coordinate multi-step workflows that combine Zoho Projects lookups with approvals, notifications, and documentation updates."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks project status before replying to customer implementation questions.",
+    "A DocsBot workflow that creates Zoho Projects tasks from support chats with structured handoff notes.",
+    "An internal project assistant that summarizes blockers, deadlines, owners, and next steps on demand.",
+    "A customer success agent that gathers onboarding progress and prepares escalation summaries for human teams.",
+    "A private operations assistant that updates approved project fields after manager review or approval.",
+    "An AI agent that triggers predefined project workflows when customers request follow-up or delivery support."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Projects agent to do in plain language, such as checking project status, creating follow-up tasks, or preparing escalation summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and setting up secure connection and authentication handling for Zoho Projects."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and source by protecting and proxying credentials through secure runtime configuration, while scoping access to the minimum projects, actions, records, and users required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive actions such as record updates or workflow triggers, Skill Builder adds approval boundaries and safe action limits so the agent only performs approved tasks in the right situations."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Projects without coding?",
+      "answer": "You can describe the outcome you want in plain language, and DocsBot Skill Builder will design the Zoho Projects workflow, define secure configuration, handle authentication safely, test the Skill, and help deploy it to the right agent."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Projects data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Projects to look up task status, milestone progress, issue details, and related project context so it can give customers more accurate updates and prepare better handoffs."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Zoho Projects?",
+      "answer": "A DocsBot agent can retrieve project details, create follow-up tasks, attach structured notes, summarize open blockers, and trigger approved workflows when customer conversations require action beyond a simple answer."
+    },
+    {
+      "question": "Can an internal AI assistant update Zoho Projects records safely?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions for approved updates while scoping permissions, protecting credentials, and adding approval steps for sensitive changes so employees can work through chat with appropriate controls."
+    },
+    {
+      "question": "How do approvals and permission limits work for Zoho Projects AI actions?",
+      "answer": "Skill Builder designs the Skill with scoped access to the minimum records and actions needed, and it can add approval boundaries for updates, workflow triggers, or other sensitive operations before the agent acts."
+    },
+    {
+      "question": "Can DocsBot help teams summarize project risk and delivery status from Zoho Projects?",
+      "answer": "Yes, an internal DocsBot agent can pull task, deadline, owner, and milestone information from Zoho Projects and turn it into concise summaries for project managers, support leaders, and customer success teams."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "asana",
+    "monday-com",
+    "trello",
+    "clickup",
+    "zoho-desk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

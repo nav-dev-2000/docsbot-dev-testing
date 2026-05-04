@@ -1,0 +1,161 @@
+{
+  "slug": "zoho-recruit",
+  "name": "Zoho Recruit",
+  "domain": "zoho-recruit.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Zoho Recruit",
+  "metaTitle": "Build AI Agents for Zoho Recruit with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Recruit for candidate lookups, recruiter workflows, status updates, handoffs, and internal hiring support.",
+  "intro": "Zoho Recruit helps teams manage candidates, jobs, and hiring workflows across the recruiting process. With DocsBot Skill Builder, you can describe the hiring or support outcome you want in plain language and have DocsBot create a secure reusable Skill for your AI agent. The result is an AI assistant that can answer questions, look up recruiting data, prepare handoffs, update approved records, and support both candidate-facing and internal hiring workflows.",
+  "supportUseCases": [
+    "Let a candidate-facing DocsBot chat widget check application status in Zoho Recruit and respond with the latest approved update.",
+    "Use a DocsBot helpdesk agent to look up candidate or job records in Zoho Recruit before replying to recruiting questions from applicants.",
+    "Allow the agent to create a recruiter handoff with a summary of the candidate conversation and relevant Zoho Recruit details.",
+    "Enable the agent to update approved candidate notes or contact fields in Zoho Recruit after collecting missing information from an applicant.",
+    "Have the agent summarize open interview steps, pending documents, or next actions from Zoho Recruit while replying to support tickets or chat messages."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find candidate records, job openings, and hiring status from Zoho Recruit.",
+    "Recruiters can ask the agent to summarize a candidate profile, recent activity, and next recommended steps based on Zoho Recruit data.",
+    "Hiring teams can use the agent to prepare interview handoffs, recruiter notes, and follow-up summaries that pull context from Zoho Recruit.",
+    "Operations teams can chat with the agent to complete hiring SOPs, such as checking application progress, flagging missing information, or routing approved updates into Zoho Recruit.",
+    "Internal teams can use the agent to answer process questions about recruiting workflows while also retrieving live Zoho Recruit records when needed."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup assistant for applicant chat and helpdesk conversations.",
+    "An internal recruiter copilot that summarizes candidate progress and next hiring actions.",
+    "A handoff Skill that creates recruiter-ready summaries after candidate conversations.",
+    "A workflow assistant that captures missing applicant details and updates approved Zoho Recruit fields.",
+    "An interview coordination helper that summarizes stages, pending tasks, and recruiter notes.",
+    "A hiring operations agent that answers process questions and retrieves live recruiting records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You describe the Zoho Recruit workflow you want in plain language, and Skill Builder turns that goal into an agent ability for support teams or internal hiring teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides the safest way to connect Zoho Recruit, defines the required configuration values, and sets up secure authentication handling without exposing credentials in chats or Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and workflows required, and it adds approval boundaries for sensitive updates or recruiter-facing actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined candidate, recruiter, and operations scenarios, finds bugs or weak spots, and feeds improvements back into the Skill before deployment."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "Once refined, Skill Builder helps publish the Skill to the right DocsBot agent so it can safely answer questions, retrieve Zoho Recruit data, and take bounded approved actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Recruit without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the recruiting workflow or assistant behavior you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for deployment. It handles connection details, secret protection, scoped access, and safe action rules for you."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Recruit data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use a Zoho Recruit Skill to look up approved application details, summarize status, gather missing context, and prepare recruiter handoffs while responding in chat or tickets. Access can be limited to the exact fields and actions your team approves."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zoho Recruit?",
+      "answer": "An internal DocsBot agent can help recruiters and hiring teams retrieve candidate records, summarize application progress, prepare interview handoffs, update approved notes, and support repeatable hiring SOPs. This gives employees a faster way to work through recruiting tasks from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update records in Zoho Recruit safely?",
+      "answer": "Yes, DocsBot Skill Builder can create Skills that perform bounded updates such as adding notes, saving collected information, or triggering approved workflow steps. Skill Builder designs scoped permissions and approval boundaries so sensitive actions stay under your control."
+    },
+    {
+      "question": "How does DocsBot keep Zoho Recruit credentials and access secure?",
+      "answer": "Skill Builder defines the needed configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated Skill content. It also scopes access to the minimum systems, users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a Zoho Recruit AI agent prepare recruiter handoffs and summaries?",
+      "answer": "Yes, DocsBot can summarize candidate conversations, open steps, missing information, and relevant Zoho Recruit record details to create cleaner recruiter handoffs. That helps teams move faster while preserving context for the next human follow-up."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workday",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

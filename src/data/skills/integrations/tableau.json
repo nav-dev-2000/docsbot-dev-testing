@@ -1,0 +1,160 @@
+{
+  "slug": "tableau",
+  "name": "Tableau",
+  "domain": "tableau.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Business Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that use Tableau for support and team insights",
+  "metaTitle": "Build AI agents that integrate with Tableau using DocsBot",
+  "metaDescription": "Create DocsBot AI agents that can safely use Tableau for dashboard lookups, insight summaries, escalations, and internal team workflows.",
+  "intro": "Tableau helps teams explore and share data through dashboards and visual analytics. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Tableau, and Skill Builder will design, secure, test, and package that ability for customer support or internal team use. The result is an AI agent that can answer questions, summarize metrics, prepare handoffs, and take bounded actions around Tableau data without turning setup into a developer project.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Tableau dashboard metrics to answer product usage, performance, or account health questions in real time.",
+    "Use Tableau data during support chats or helpdesk replies to summarize trends, anomalies, or recent changes before escalating a case to a human team.",
+    "Have the agent gather customer context from the conversation, compare it with Tableau reporting views, and prepare a cleaner handoff with relevant metrics and findings.",
+    "Enable the agent to explain dashboard-backed status updates, service performance summaries, or usage snapshots without making customers wait for a manual lookup.",
+    "Let the agent generate concise ticket notes that combine the customer issue with Tableau insights so support and success teams can continue the case faster."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a private chat interface to retrieve Tableau metrics, dashboard summaries, and trend explanations without hunting through reports.",
+    "Customer success and operations teams can ask the agent to compare account performance, summarize KPI movement, and prepare data-backed renewal or escalation briefs using Tableau sources.",
+    "Managers can use an internal AI assistant to turn Tableau dashboard results into plain-language summaries, meeting notes, and action lists for team reviews.",
+    "Analysts and business teams can chat with the agent to follow reporting SOPs, gather the right Tableau context, and prepare approved summaries for stakeholders faster.",
+    "Internal teams can use the agent to research operational questions across Tableau and other business systems, then return a structured answer with next steps and supporting evidence."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer questions using approved Tableau dashboard metrics.",
+    "A helpdesk assistant that summarizes Tableau trends before creating an escalation handoff.",
+    "An internal KPI assistant that explains dashboard changes in plain language for teams.",
+    "A customer success agent that prepares account health summaries from Tableau reporting views.",
+    "An operations assistant that turns Tableau metrics into shift summaries and action lists.",
+    "A renewal support workflow that gathers Tableau insights and drafts stakeholder briefing notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Tableau in plain language, such as answering support questions from dashboards or preparing internal KPI summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow, identifies the required Tableau connection details, and defines the runtime behavior the agent should follow."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder automatically sets up secure configuration patterns, keeps credentials out of chats and Skill instructions, proxies secrets through approved runtime settings, and scopes Tableau access to the minimum dashboards, users, and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive steps, Skill Builder can add approval boundaries, safe action limits, and permission checks so the agent only retrieves data or triggers follow-on workflows within your rules."
+    },
+    {
+      "title": "An automated agent tests it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Tableau data with DocsBot?",
+      "answer": "You describe the outcome you want in plain language, and DocsBot Skill Builder designs the Tableau-enabled workflow, secures the connection, tests the behavior, and packages it for your support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Tableau dashboards to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Tableau views and metrics to look up relevant data, summarize what it finds, and respond with clearer answers or escalation context inside a chat or ticket workflow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Tableau?",
+      "answer": "A Tableau-connected Skill can help with live metric lookups, dashboard-backed status summaries, ticket note generation, escalation prep, and account or product usage context during customer conversations."
+    },
+    {
+      "question": "Can an internal AI assistant query Tableau for employees in Slack or Microsoft Teams?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Tableau insights, compare performance trends, summarize dashboards, and follow reporting workflows from chat without needing to manually navigate every report."
+    },
+    {
+      "question": "How does DocsBot keep Tableau access secure inside an AI agent?",
+      "answer": "Skill Builder defines the required configuration, protects and proxies secrets through secure runtime settings, scopes permissions to the smallest necessary access, and can add approval boundaries for sensitive actions or data exposure."
+    },
+    {
+      "question": "Can DocsBot summarize Tableau dashboards for executives, support, or operations teams?",
+      "answer": "Yes, a Skill can turn approved Tableau data into plain-language summaries, handoff notes, meeting briefs, and action-oriented updates tailored to different teams."
+    }
+  ],
+  "relatedSlugs": [
+    "power-bi",
+    "looker",
+    "google-analytics",
+    "snowflake",
+    "bigquery",
+    "metabase"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Tableau",
+    "domain": "tableau.com",
+    "description": "Tableau is a data visualization and business intelligence platform that enables users to quickly connect to, explore, and share data through interactive dashboards. With a user‑friendly, no‑code interface, individuals and teams can create compelling visualizations, publish insights, and collaborate across organizations. Tableau offers flexible licensing options to suit various business needs, allowing anyone—from analysts to executives—to see, understand, and act on data for better decision‑making.",
+    "slogan": "See, understand, and act on data with Tableau.",
+    "logoUrl": "https://media.brand.dev/08d1356f-9628-46fd-954d-1febe6903b8a.jpg",
+    "iconUrl": "https://media.brand.dev/08d1356f-9628-46fd-954d-1febe6903b8a.jpg",
+    "primaryColor": "#d31330",
+    "accentColor": "#156899",
+    "colors": [
+      {
+        "hex": "#d31330",
+        "name": "Goji Berry"
+      },
+      {
+        "hex": "#156899",
+        "name": "Jazz Blue"
+      },
+      {
+        "hex": "#a5976d",
+        "name": "Sweet Sparrow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ecc0a95a-6f27-4815-a0c4-7d917fc6dd57.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "blog": "https://www.tableau.com/blog",
+      "pricing": "https://www.tableau.com/pricing",
+      "contact": "https://www.tableau.com/about/contact"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/08d1356f-9628-46fd-954d-1febe6903b8a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5cbb4098-a3a8-4641-b2aa-10c5625bcec0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5cbb4098-a3a8-4641-b2aa-10c5625bcec0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5cbb4098-a3a8-4641-b2aa-10c5625bcec0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

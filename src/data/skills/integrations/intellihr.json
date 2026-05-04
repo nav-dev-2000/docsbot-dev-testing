@@ -1,0 +1,160 @@
+{
+  "slug": "intellihr",
+  "name": "IntelliHR",
+  "domain": "intellihr.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with IntelliHR",
+  "metaTitle": "Build AI Agents for IntelliHR with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use IntelliHR for HR lookups, workflow updates, employee support, and secure internal team actions.",
+  "intro": "IntelliHR helps organizations manage workforce processes like onboarding, payroll, rostering, time capture, and broader HR operations. With DocsBot Skill Builder, you can describe the HR or support workflow you want in plain language and have DocsBot create a reusable Skill your AI agent can use safely. That lets customer-facing or internal AI agents answer questions, retrieve approved IntelliHR data, trigger workflows, and prepare clean handoffs instead of only giving static guidance.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to answer employee or candidate questions by checking approved IntelliHR records such as onboarding status, policy acknowledgments, or roster-related details before replying.",
+    "Let a support agent connected to your helpdesk gather HR context from IntelliHR, summarize the employee’s current status, and prepare a handoff for payroll, onboarding, or people operations teams.",
+    "Enable the agent to capture missing information during an employee support conversation and create or update approved HR workflow records in IntelliHR when a request qualifies.",
+    "Have the agent confirm whether an onboarding step, form submission, or workforce process has been completed in IntelliHR and explain the next approved step to the employee.",
+    "Use the agent to trigger bounded follow-up workflows in IntelliHR, such as escalating an onboarding issue or flagging a workforce management request for human review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up approved IntelliHR information such as onboarding progress, team structure, or workflow status without searching across systems manually.",
+    "Give HR and people operations teams an internal AI assistant that summarizes employee records, highlights missing process steps, and helps complete standard operating procedures across IntelliHR and related systems.",
+    "Enable managers to ask an internal agent for workforce updates, roster or time-capture context, and policy-related guidance grounded in approved IntelliHR data.",
+    "Allow operations or HR staff to use chat to initiate approved IntelliHR actions, collect required details, and route sensitive requests for approval before any record change is made.",
+    "Help internal teams research employee lifecycle questions by having the agent retrieve IntelliHR context, compare it with internal documentation, and produce concise summaries or handoff notes."
+  ],
+  "whatYouCanBuild": [
+    "An employee support agent that checks onboarding progress and explains the next approved step.",
+    "A private HR assistant that summarizes IntelliHR records for managers and people operations teams.",
+    "A payroll and workforce help agent that gathers missing details before creating a handoff.",
+    "An AI workflow assistant that updates approved HR records after collecting employee confirmations.",
+    "A roster and time-capture support agent that explains status and triggers follow-up workflows.",
+    "An internal SOP assistant that uses IntelliHR data to guide consistent HR case handling."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the IntelliHR agent to do in plain language, such as checking onboarding status, answering employee questions, or preparing HR handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, and plans how the agent should look up information, take approved actions, and respond clearly."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles authentication design safely, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, and scopes access to the minimum records and actions required."
+    },
+    {
+      "title": "Approval limits are added",
+      "description": "Skill Builder sets sensible boundaries for sensitive IntelliHR actions, including approval steps, user scope, and action limits so the agent only performs the workflows you authorize."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined employee support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for IntelliHR without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language and Skill Builder creates the Skill design, secure connection plan, testing flow, and deployment path for your agent. It can support lookups, updates, summaries, handoffs, and workflow triggers inside the boundaries you approve."
+    },
+    {
+      "question": "Can an AI support agent use IntelliHR data to answer employee questions?",
+      "answer": "Yes, a DocsBot support agent can use approved IntelliHR data to check statuses, retrieve workflow context, and explain next steps during website chat or helpdesk conversations. You control which records, actions, and approval boundaries the agent is allowed to use."
+    },
+    {
+      "question": "What IntelliHR workflows can an internal AI assistant automate for HR teams?",
+      "answer": "An internal DocsBot agent can help HR and operations teams retrieve employee or onboarding context, summarize records, collect missing details, create handoff notes, and trigger approved workforce workflows. It can also guide employees through standard HR processes in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update IntelliHR records or trigger HR workflows?",
+      "answer": "DocsBot Skill Builder is designed to create bounded AI actions with scoped permissions, secure secret handling, and approval controls for sensitive steps. That means your agent can update records or trigger workflows only when the rules, user access, and approvals you define allow it."
+    },
+    {
+      "question": "How does setup work for an IntelliHR AI agent in DocsBot?",
+      "answer": "You explain the business outcome you want, and Skill Builder handles the technical design behind the scenes. It identifies required configuration values, secures authentication, tests realistic scenarios, improves the Skill, and helps publish it to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI agent using IntelliHR create better HR handoffs and escalations?",
+      "answer": "Yes, the agent can gather the right details from the conversation, pull approved IntelliHR context, and generate structured summaries for HR, payroll, or people operations teams. This helps reduce back-and-forth and makes escalations faster and more consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "adp-workforce-now",
+    "paylocity",
+    "personio",
+    "gusto"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "IntelliHR",
+    "domain": "intellihr.com",
+    "description": "IntelliHR is a humanforce company that leverages smart powered technology to revolutionize workforce management. They provide a unified platform that streamlines various HR processes, including payroll, onboarding, rostering, and time capture, making it easier for organizations to engage and manage their workforce.",
+    "slogan": "Empowering your people with smart, unified workforce management solutions.",
+    "logoUrl": "https://media.brand.dev/35485227-d8cc-469d-9ef3-2b8cbefa2ba0.svg",
+    "iconUrl": "https://media.brand.dev/fa7ab134-85b3-4170-b87d-6a2915afc23b.jpg",
+    "primaryColor": "#3c449c",
+    "accentColor": "#442cf2",
+    "colors": [
+      {
+        "hex": "#3c449c",
+        "name": "Galaxy Express"
+      },
+      {
+        "hex": "#442cf2",
+        "name": "Royal Vessel"
+      },
+      {
+        "hex": "#a494e4",
+        "name": "Dull Lavender"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/46264549-31b6-47a6-82b5-a6f8b17582be.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/35485227-d8cc-469d-9ef3-2b8cbefa2ba0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 217,
+        "height": 43,
+        "aspectRatio": 5.05
+      },
+      {
+        "url": "https://media.brand.dev/fa7ab134-85b3-4170-b87d-6a2915afc23b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/35485227-d8cc-469d-9ef3-2b8cbefa2ba0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 217,
+      "height": 43,
+      "aspectRatio": 5.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/fa7ab134-85b3-4170-b87d-6a2915afc23b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 160,
+      "height": 160,
+      "aspectRatio": 1
+    }
+  }
+}

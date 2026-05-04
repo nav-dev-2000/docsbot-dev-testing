@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-expense",
+  "name": "Zoho Expense",
+  "domain": "zoho-expense.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Expense",
+  "metaTitle": "Build AI Agents for Zoho Expense with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Zoho Expense for safe expense lookups, approvals, summaries, handoffs, and internal workflow automation.",
+  "intro": "Zoho Expense helps teams manage expense reports, reimbursements, receipts, and approvals across the business. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Zoho Expense, and DocsBot will help design, secure, test, improve, and deploy that Skill. The result is a support or internal AI agent that can answer questions, retrieve expense information, prepare handoffs, and take bounded actions inside your approval rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a reimbursement or expense claim and explain the current stage without exposing private financial details.",
+    "Use a DocsBot agent in chat or helpdesk tickets to collect missing receipt or submission details, then prepare a clean handoff for your finance or support team.",
+    "Enable the agent to summarize an employee's recent expense report activity so support can respond faster to questions about submission history or delays.",
+    "Have the agent identify common expense-policy issues from Zoho Expense data and guide the user toward the right next step or escalation path.",
+    "Let the agent create an approved internal follow-up task or escalation summary when a reimbursement issue needs review by finance or operations."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up expense report status, reimbursement progress, or submission details from Zoho Expense.",
+    "Finance and operations teams can ask the agent to summarize overdue approvals, flagged reports, or reimbursement bottlenecks so they can act faster.",
+    "Managers can use the agent to review team expense activity, gather the right context, and trigger bounded follow-up workflows for missing information or policy exceptions.",
+    "Employees can ask the agent how to complete an expense-related SOP, and the agent can combine your internal guidance with live Zoho Expense data to walk them through the next step.",
+    "Internal teams can use the agent to prepare approval handoffs, generate case summaries, and keep finance workflows moving without switching between systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks reimbursement or expense report status in Zoho Expense.",
+    "A support assistant that gathers missing expense details and prepares finance handoff summaries.",
+    "An internal finance bot that lists overdue approvals and summarizes priority exceptions.",
+    "A manager assistant that reviews team expense activity and highlights blocked reimbursements.",
+    "An employee help agent that explains expense policy using your docs and live record context.",
+    "A workflow agent that triggers approved follow-up steps for missing receipts or review issues."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Zoho Expense agent to do in plain language, such as checking reimbursement status, summarizing approval delays, or preparing a finance handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure connection and authentication handling for Zoho Expense."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill instructions, proxies credentials through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Deploy to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private internal assistant so teams can use Zoho Expense actions safely in daily work."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Expense?",
+      "answer": "With DocsBot Skill Builder, you describe the Zoho Expense workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and helps deploy it to the right AI agent. That can include lookups, summaries, handoffs, approvals, and other bounded actions you define."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Expense data to answer reimbursement questions?",
+      "answer": "Yes, a DocsBot support agent can use Zoho Expense data to check statuses, summarize claim progress, gather missing context, and prepare escalations while responding in chat or helpdesk tickets. You control what data the agent can access and what actions it may take."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Zoho Expense?",
+      "answer": "An internal DocsBot agent can help employees and finance teams retrieve expense details, summarize pending approvals, identify exceptions, prepare handoffs, and trigger approved follow-up workflows. It can also combine Zoho Expense data with your internal policies and SOPs to guide the next step."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Zoho Expense?",
+      "answer": "Yes, Skill Builder is designed to create bounded workflows with scoped permissions, secure secret handling, and approval limits for sensitive actions. That lets your AI agent take approved steps without giving it unlimited access."
+    },
+    {
+      "question": "Can a DocsBot agent summarize expense approval delays or reimbursement bottlenecks?",
+      "answer": "Yes, the agent can pull the relevant Zoho Expense context and turn it into clear summaries for finance teams, managers, or support staff. This helps teams prioritize issues and respond faster without manually reviewing every record."
+    },
+    {
+      "question": "How does setup work for a Zoho Expense AI agent if I am not technical?",
+      "answer": "You explain the outcome you want, and Skill Builder handles the design, secure configuration, authentication approach, testing, and deployment guidance for the Skill. You do not need to manually write code or map every integration step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks-online",
+    "xero",
+    "netsuite",
+    "freshbooks",
+    "zoho-books",
+    "bill-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

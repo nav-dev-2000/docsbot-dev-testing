@@ -1,0 +1,162 @@
+{
+  "slug": "domo",
+  "name": "Domo",
+  "domain": "domo.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Domo for Support and Team Workflows",
+  "metaTitle": "Build Domo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Domo for data lookups, summaries, alerts, and safe workflow actions in customer support and internal team operations.",
+  "intro": "Domo helps teams connect data and surface real-time business insights across the organization. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Domo, and DocsBot will help design, secure, test, improve, and deploy that Skill. The result is a support or internal AI agent that can answer questions, retrieve live metrics, summarize trends, and trigger approved follow-up actions instead of only pointing people to dashboards.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull approved Domo metrics to answer account health, usage, order, or service-status questions in real time.",
+    "Use Domo data during helpdesk replies to summarize recent customer activity, product adoption, or support history before the agent drafts a response.",
+    "Have the agent check Domo dashboards or datasets to identify threshold breaches, unusual trends, or open business risks and explain the result to the customer in plain language.",
+    "Enable the agent to prepare escalation handoffs by attaching a Domo-based summary of the customer account, recent trends, and relevant KPI changes.",
+    "Let the agent trigger approved follow-up workflows when Domo signals a churn risk, service anomaly, or onboarding milestone that needs human review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Domo KPIs, dashboard summaries, and trend explanations without searching manually.",
+    "Customer success and operations teams can ask the agent to compare account performance, summarize weekly changes, and generate executive-ready recap notes from Domo data.",
+    "Support managers can chat with the agent to investigate ticket trends, backlog shifts, or customer health signals pulled from Domo and receive recommended next steps.",
+    "Revenue and leadership teams can use an internal AI agent to assemble cross-functional business summaries from Domo before meetings, escalations, or planning reviews.",
+    "Teams can ask the agent to follow a standard operating procedure that checks Domo metrics, gathers context from connected systems, and prepares a safe handoff or approval request."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that answers customer questions using approved Domo metrics and dashboard summaries.",
+    "An internal assistant that explains KPI changes and trend drivers from Domo in plain language.",
+    "A helpdesk workflow that adds Domo account summaries to escalation tickets automatically.",
+    "A customer success agent that flags churn-risk signals and prepares next-step recommendations.",
+    "An operations assistant that checks Domo thresholds and triggers approved review workflows.",
+    "A meeting-prep agent that creates executive summaries from selected Domo dashboards and datasets."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Domo, such as answer metric questions, summarize dashboards, or trigger a follow-up workflow, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach for Domo, keeps secrets out of chats and Skill source, and proxies credentials through secure runtime settings by default."
+    },
+    {
+      "title": "Access is scoped",
+      "description": "Skill Builder limits the Skill to the minimum Domo data, actions, users, and systems needed for the workflow, and it adds approval boundaries where updates, escalations, or sensitive actions should stay controlled."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or internal team assistant so people can use Domo insights through natural conversation."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Domo data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as answering KPI questions or summarizing dashboards, and Skill Builder designs the Domo-connected workflow, secures access, tests scenarios, and prepares it for deployment."
+    },
+    {
+      "question": "Can an AI support agent use Domo to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Domo data to look up metrics, summarize recent trends, and prepare clearer responses or escalations while staying within the access rules and action limits you define."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Domo?",
+      "answer": "Teams can build workflows for live metric lookups, account health summaries, anomaly explanations, escalation prep, and approved follow-up triggers based on Domo insights surfaced during a customer conversation or ticket."
+    },
+    {
+      "question": "Can an internal AI assistant pull Domo dashboards and KPI summaries for employees?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Domo insights, compare performance, explain changes, and generate summaries for meetings, reviews, and operational decisions through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Domo access secure in an AI agent?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, keeps credentials out of chats, scopes permissions to the minimum necessary access, and adds approval boundaries for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger workflows based on Domo insights instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoffs, requesting approvals, alerting teams, or starting follow-up workflows when Domo data meets the conditions you choose."
+    }
+  ],
+  "relatedSlugs": [
+    "tableau",
+    "looker",
+    "power-bi",
+    "google-analytics",
+    "salesforce",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Domo",
+    "domain": "domo.com",
+    "description": "Domo, Inc. is a cloud-based business intelligence platform that connects organizations and provides real-time data insights to executives and employees. Headquartered in American Fork, Utah, Domo offers an executive management platform as a service, leveraging AI and data products to strengthen data journeys, connect and move data, and accelerate business-critical insights.",
+    "slogan": "Putting Data to Work for Everyone",
+    "logoUrl": "https://media.brand.dev/474d9a95-3485-4c5c-8f6c-9a577d13bf11.png",
+    "iconUrl": "https://media.brand.dev/474d9a95-3485-4c5c-8f6c-9a577d13bf11.png",
+    "primaryColor": "#9cccec",
+    "accentColor": "#9cccec",
+    "colors": [
+      {
+        "hex": "#9cccec",
+        "name": "Fail Whale"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4df929da-cfc5-438e-9d40-55fa3a591eb2.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.domo.com/company/careers",
+      "terms": "https://www.domo.com/company/terms-of-use",
+      "contact": "https://www.domo.com/company/contact-us",
+      "privacy": "https://www.domo.com/company/privacy-policy",
+      "blog": "https://www.domo.com/blog",
+      "login": null,
+      "signup": null,
+      "pricing": "https://www.domo.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/474d9a95-3485-4c5c-8f6c-9a577d13bf11.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/47c157d2-2936-47bc-b062-208aca589571.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d344615a-a728-4252-a5b9-ae3ab2e455a7.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 800,
+        "height": 800,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/474d9a95-3485-4c5c-8f6c-9a577d13bf11.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/474d9a95-3485-4c5c-8f6c-9a577d13bf11.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "braze",
+  "name": "Braze",
+  "domain": "braze.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Braze",
+  "metaTitle": "Build AI Support and Internal Agents for Braze",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Braze data, trigger approved workflows, and support customers or internal teams.",
+  "intro": "Braze helps teams manage customer engagement, journeys, and messaging across channels. With DocsBot Skill Builder, you can describe the Braze workflow you want in plain language and have DocsBot build a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve Braze context, trigger approved actions, and hand off cleanly when needed.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a customer’s Braze profile, subscription state, or messaging history to answer support questions with better context.",
+    "Use a support agent to trigger approved Braze updates such as preference changes, audience flags, or event-based workflows while responding to a customer in chat or tickets.",
+    "Have the agent summarize recent Braze engagement activity so support teams can explain what messages were sent and when.",
+    "Create structured handoff notes that include relevant Braze campaign, segment, or user engagement details for escalation to customer success or marketing operations.",
+    "Allow the agent to collect missing information from the customer, then use Braze data to prepare a more accurate next step or escalation path."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up Braze user profiles, campaign context, and engagement history without switching systems.",
+    "Enable marketing, support, or customer success teams to ask the agent for summaries of journeys, segments, or recent customer activity in Braze before taking action.",
+    "Help operations teams complete repeatable workflows by having the agent gather Braze context, prepare updates, and trigger approved actions within defined boundaries.",
+    "Allow employees to use the agent to research campaign performance context, draft internal handoff notes, and follow SOPs for customer communication reviews.",
+    "Give internal teams an AI assistant that can combine Braze lookups with information from other business systems to support cross-functional decisions and workflow execution."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that looks up Braze user profiles and summarizes recent engagement activity for support conversations.",
+    "A Skill that updates customer messaging preferences in Braze after collecting confirmation in chat.",
+    "A Skill that prepares escalation notes with Braze campaign, segment, and event context.",
+    "A Skill that triggers approved Braze events or workflow steps based on customer requests.",
+    "A Skill that helps employees research customer journey history before outreach or follow-up.",
+    "A Skill that creates structured internal summaries of Braze activity for operations and customer success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Braze-connected agent to do in plain language, and it turns that goal into a practical workflow for support or internal use."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, what Braze data or actions are needed, which configuration values must be collected, and how to connect the service safely without making you map every implementation detail."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder defines secure authentication handling, keeps secrets out of chats and Skill source, proxies credentials through approved runtime configuration, scopes access to the minimum required actions and records, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, unclear instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private internal agent so teams can use Braze-powered AI Actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Braze?",
+      "answer": "With DocsBot Skill Builder, you describe the Braze workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up data, summarize context, and take approved actions. It also handles secure connection design, testing, and deployment to the right DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use Braze data during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Braze-connected Skill to retrieve customer engagement context, messaging history, profile details, or workflow status while replying to customers. You control what the agent is allowed to access and which updates or triggers require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Braze?",
+      "answer": "Teams can build workflows for profile lookups, preference updates, message-history summaries, escalation preparation, and approved trigger-based actions tied to support conversations. This helps agents respond faster while keeping changes within defined rules."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Braze?",
+      "answer": "Yes, internal DocsBot agents can help employees retrieve Braze context, research journeys or user activity, prepare handoffs, and complete SOP-driven workflows from chat, Slack, or Microsoft Teams. This reduces tool-switching and makes cross-team work faster."
+    },
+    {
+      "question": "How does DocsBot keep Braze actions secure?",
+      "answer": "Skill Builder is designed to define the required configuration values, protect and proxy secrets, and keep credentials out of conversations and generated content. It also scopes permissions and adds approval boundaries so the agent only performs the actions you allow."
+    },
+    {
+      "question": "Can DocsBot trigger Braze workflows or update records safely?",
+      "answer": "DocsBot can be configured to trigger approved Braze events, update allowed fields, or prepare changes for review, depending on your rules. Skill Builder designs those action limits up front so sensitive workflows stay bounded and auditable."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "customer-io",
+    "mailchimp",
+    "intercom",
+    "zendesk",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Braze",
+    "domain": "braze.com",
+    "description": "Braze is a premier customer engagement platform dedicated to fostering meaningful connections between brands and their consumers. By enabling marketers to gather and act on data from diverse sources in real-time, Braze facilitates creative, cross-channel interactions that enhance customer loyalty and drive growth. The platform boasts features like journey orchestration and AI-powered optimization tools, streamlining the process of building engaging customer relationships. Recognized for its workplace culture, Braze has earned accolades such as the 2024 U.S. News Best Technology Companies to Work For and the 2023 UK Best Workplace for Women. Additionally, it has been acknowledged as a leader by Gartner® and Forrester in multichannel marketing solutions. Headquartered in New York, Braze operates across North America, Europe, and APAC, promoting customer-centricity through innovative engagement strategies.",
+    "slogan": "Powering lasting connections between consumers and brands they love.",
+    "logoUrl": "https://media.brand.dev/96c4646a-b03a-4da8-aee5-93041f584b75.png",
+    "iconUrl": "https://media.brand.dev/9597c708-6309-4363-bdba-44666c3ddde7.png",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#0a0a0a",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#0a0a0a",
+        "name": "Existential Angst"
+      },
+      {
+        "hex": "#c6c6c6",
+        "name": "Silver Polish"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/66367bc2-f52a-42a3-8c9e-9d3dfedfb6ae.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://braze.com/company/careers",
+      "terms": null,
+      "contact": "https://braze.com/company/contact",
+      "privacy": "https://braze.com/company/legal/privacy",
+      "blog": "https://braze.com/company/news",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9597c708-6309-4363-bdba-44666c3ddde7.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/26d53832-227b-4112-b453-1936dabd4f3d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/96c4646a-b03a-4da8-aee5-93041f584b75.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 100,
+        "height": 47,
+        "aspectRatio": 2.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/96c4646a-b03a-4da8-aee5-93041f584b75.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 100,
+      "height": 47,
+      "aspectRatio": 2.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/26d53832-227b-4112-b453-1936dabd4f3d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

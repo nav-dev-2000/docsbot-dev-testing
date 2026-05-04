@@ -1,0 +1,160 @@
+{
+  "slug": "shippingeasy",
+  "name": "ShippingEasy",
+  "domain": "shippingeasy.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ShippingEasy",
+  "metaTitle": "ShippingEasy AI Agent Integration for Support and Operations",
+  "metaDescription": "Build DocsBot AI agents that use ShippingEasy for shipment lookups, order updates, support handoffs, and internal shipping workflows with safe, controlled actions.",
+  "intro": "ShippingEasy helps growing businesses automate shipping, manage orders, and streamline fulfillment across sales channels. With DocsBot Skill Builder, you can describe the ShippingEasy workflow you want in plain language and have DocsBot create a reusable AI Skill for support or internal operations. That means your AI agent can answer questions, look up shipment details, trigger approved actions, and prepare clean handoffs without exposing sensitive access or requiring manual technical setup.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up shipment status, tracking details, and recent fulfillment activity in ShippingEasy while answering order and delivery questions.",
+    "Use the agent to confirm whether an order has shipped, summarize the shipping timeline, and explain the next expected delivery step inside a website chat or helpdesk reply.",
+    "Have the agent collect missing order details from the customer, then prepare a support handoff with ShippingEasy shipment context for a human team member.",
+    "Enable the agent to identify delayed or exception shipments in ShippingEasy and create a clear escalation summary for support teams before transferring the conversation.",
+    "Allow the agent to trigger approved follow-up workflows, such as notifying operations about a shipping issue or flagging an order for manual review, based on ShippingEasy data."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve ShippingEasy shipment, order, and fulfillment details without leaving the conversation.",
+    "Enable operations teams to ask the agent for shipping summaries, exception queues, and fulfillment status reports pulled from ShippingEasy and related systems.",
+    "Help customer success or support staff use the agent to gather order context, research shipping issues, and follow internal SOPs for lost, delayed, or returned shipments.",
+    "Allow warehouse or operations employees to chat with the agent to trigger approved workflows, create internal handoff notes, and document next steps based on ShippingEasy activity.",
+    "Use a private AI assistant to summarize daily shipping performance, identify unresolved fulfillment problems, and generate action-ready updates for team coordination."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks ShippingEasy tracking and fulfillment status during customer chats.",
+    "A helpdesk assistant that summarizes shipment exceptions and prepares escalation notes for human agents.",
+    "An internal shipping assistant that answers employee questions about order and delivery status.",
+    "An operations bot that flags delayed shipments and triggers approved review workflows.",
+    "A returns and delivery research assistant that gathers ShippingEasy context before handoff.",
+    "A team agent that generates daily shipping summaries and fulfillment exception reports."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with ShippingEasy, such as checking shipment status, summarizing fulfillment issues, or triggering an approved internal workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed configuration values, defines safe connection and authentication handling, and keeps credentials protected through secure runtime configuration instead of chats or copied instructions."
+    },
+    {
+      "title": "Permissions stay controlled",
+      "description": "Skill Builder scopes the Skill to the minimum ShippingEasy access, users, records, and actions required, and it adds approval boundaries or action limits wherever a workflow should stay reviewed or tightly controlled."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, missing checks, weak instructions, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once improved and validated, Skill Builder helps publish the ShippingEasy Skill to your customer-facing DocsBot, helpdesk agent, or private employee assistant so the agent can take safe, bounded action during real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ShippingEasy?",
+      "answer": "With DocsBot Skill Builder, you describe the ShippingEasy outcome you want in plain language, and Skill Builder designs the workflow, secures the connection, tests the behavior, and prepares the Skill for deployment. The resulting agent can answer questions, perform approved lookups or actions, and stay within the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use ShippingEasy data to answer customer shipping questions?",
+      "answer": "Yes, a DocsBot support agent can use a ShippingEasy Skill to retrieve shipment status, tracking context, fulfillment updates, and exception details while replying in chat or through a helpdesk. It can also summarize the situation and prepare a clean handoff when a human should take over."
+    },
+    {
+      "question": "What ShippingEasy workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve order and shipment information, investigate delays, summarize fulfillment issues, and trigger approved internal workflows. This is useful for operations, support, and customer success teams that need fast answers and consistent SOP execution."
+    },
+    {
+      "question": "Can DocsBot take actions in ShippingEasy instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as lookups, record-related updates, workflow triggers, summaries, and handoff preparation when those actions are approved in your setup. Skill Builder adds scoped permissions and approval controls so the agent only does what you allow."
+    },
+    {
+      "question": "How does DocsBot keep ShippingEasy access secure?",
+      "answer": "Skill Builder defines the required configuration and authentication approach, protects secrets through secure runtime handling, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum records, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can an AI agent help with shipping exception escalations and support handoffs?",
+      "answer": "Yes, a DocsBot agent can gather ShippingEasy context, summarize what happened, collect any missing customer details, and prepare an escalation or handoff for a human teammate. This speeds up resolution while giving staff a clearer starting point."
+    }
+  ],
+  "relatedSlugs": [
+    "shopify",
+    "bigcommerce",
+    "shipstation",
+    "stamps-com",
+    "amazon-seller-central",
+    "ebay"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ShippingEasy",
+    "domain": "shippingeasy.com",
+    "description": "ShippingEasy is an online shipping platform designed for growing businesses, providing discounted shipping rates, automation, and integration with leading online marketplaces. It offers full automation, robust tools, and extended support, allowing merchants to focus on building their business while streamlining their shipping process.",
+    "slogan": "Simplify Your Shipping with Easy, Automated Solutions and Best Rates",
+    "logoUrl": "https://media.brand.dev/43ce601f-c5e3-4c1d-8282-252a124bcaf7.png",
+    "iconUrl": "https://media.brand.dev/05689caf-d596-4f93-8160-1d69fb7ed174.jpg",
+    "primaryColor": "#478d38",
+    "accentColor": "#f0f8ed",
+    "colors": [
+      {
+        "hex": "#478d38",
+        "name": "Online Lime"
+      },
+      {
+        "hex": "#f0f8ed",
+        "name": "Garden Dawn"
+      },
+      {
+        "hex": "#b5d7ac",
+        "name": "Flower Stem"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0838379d-f84c-4806-9be8-a2fbe6ebcaf4.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://shippingeasy.com/careers/",
+      "terms": "https://support.shippingeasy.com/hc/en-us/articles/4407014947739",
+      "contact": "https://shippingeasy.com/contact-us/",
+      "privacy": null,
+      "blog": "https://shippingeasy.com/blog/",
+      "pricing": "https://shippingeasy.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/05689caf-d596-4f93-8160-1d69fb7ed174.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/43ce601f-c5e3-4c1d-8282-252a124bcaf7.png",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 978,
+        "height": 512,
+        "aspectRatio": 1.91
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/43ce601f-c5e3-4c1d-8282-252a124bcaf7.png",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 978,
+      "height": 512,
+      "aspectRatio": 1.91
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/05689caf-d596-4f93-8160-1d69fb7ed174.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

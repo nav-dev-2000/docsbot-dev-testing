@@ -1,0 +1,155 @@
+{
+  "slug": "google-cloud",
+  "name": "Google Cloud",
+  "domain": "google-cloud.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Cloud",
+  "metaTitle": "Build Google Cloud AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Google Cloud for secure lookups, workflow actions, summaries, and internal or customer support automation.",
+  "intro": "Google Cloud gives teams a powerful place to store data, run applications, and automate operations across products and internal systems. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use Google Cloud during support conversations or internal workflows. That means your agent can do more than answer questions by looking up information, triggering approved actions, preparing handoffs, and summarizing results inside the rules you define.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check order, account, or workflow status stored in Google Cloud services and return a clear customer-friendly update in chat or tickets.",
+    "Let the support agent create approved incident records, task entries, or follow-up workflow triggers in Google Cloud-backed systems when a customer reports a problem.",
+    "Have the agent gather missing details from the customer, look up related records in Google Cloud data sources, and prepare a complete escalation handoff for human support.",
+    "Enable the agent to summarize logs, workflow state, or recent activity from Google Cloud-connected systems so customers get fast progress updates without waiting on manual research.",
+    "Allow the agent to update approved fields such as case notes, callback preferences, or triage metadata in Google Cloud-powered support workflows while responding to the customer."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve workflow data, system status, or record details stored across Google Cloud services.",
+    "Operations teams can ask the agent to trigger approved Google Cloud workflows, generate summaries of current process state, and move work forward without switching tools.",
+    "Support and customer success teams can chat with the agent to research account history, assemble escalation context, and complete standard operating procedures across Google Cloud-connected systems.",
+    "Internal teams can use the agent to create structured handoff notes, incident summaries, or task artifacts based on Google Cloud data and business rules.",
+    "Managers and analysts can ask the agent for cross-system status snapshots, exception summaries, and workflow bottleneck insights drawn from approved Google Cloud resources."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks customer workflow status from Google Cloud and explains the next step clearly.",
+    "An AI assistant that creates incident handoffs and attaches relevant Google Cloud context for human teams.",
+    "A private operations agent that triggers approved Google Cloud workflows from Slack or Microsoft Teams.",
+    "An internal research agent that summarizes records, logs, and process state across Google Cloud systems.",
+    "A customer support agent that updates approved triage fields after collecting missing details in chat.",
+    "An employee assistant that generates SOP-based summaries and follow-up tasks using Google Cloud data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google Cloud in plain language, such as looking up status, updating approved records, or triggering a workflow during support or internal conversations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the agent should retrieve information, take bounded actions, and respond clearly."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder defines safe authentication handling, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, and scopes access to only the users, actions, records, and systems needed."
+    },
+    {
+      "title": "Approval limits are added",
+      "description": "For sensitive Google Cloud actions, Skill Builder adds approval boundaries, action limits, and safe workflow rules so the agent stays within the permissions and business controls you want."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google Cloud?",
+      "answer": "With DocsBot Skill Builder, you describe the Google Cloud task you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to your support or internal agent."
+    },
+    {
+      "question": "Can a DocsBot support agent use Google Cloud data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Google Cloud Skill to look up approved data, summarize status, create handoff context, and trigger bounded workflows while responding to customers in chat or helpdesk tickets."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Google Cloud?",
+      "answer": "A DocsBot agent can automate status lookups, triage updates, escalation prep, incident creation, workflow triggers, and customer-ready summaries as long as those actions are defined within your approved rules and permissions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees complete workflows in Google Cloud?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve records, research process state, trigger approved actions, generate summaries, and follow SOPs across Google Cloud-connected systems from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "How does DocsBot keep Google Cloud actions secure?",
+      "answer": "Skill Builder defines the required configuration, stores and proxies secrets securely, keeps credentials out of conversations, scopes access to the minimum needed, and adds approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "Can I control what the AI agent is allowed to update in Google Cloud?",
+      "answer": "Yes, the Skill can be designed with narrow action limits so the agent only updates the specific records, fields, workflows, or systems you approve for that use case."
+    }
+  ],
+  "relatedSlugs": [
+    "aws",
+    "azure",
+    "firebase",
+    "bigquery",
+    "google-workspace"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ChronoFlow",
+    "domain": "google-cloud.com",
+    "description": "ChronoFlow is a context‑aware, AI‑powered workflow management platform that automates and coordinates tasks across teams and systems. By leveraging real‑time data and intelligent automation, ChronoFlow reduces bottlenecks, eliminates manual handoffs, and keeps projects moving forward seamlessly. The platform integrates with existing tools, provides dynamic scheduling, and offers a unified view of work progress, enabling teams to collaborate efficiently and make data‑driven decisions. Designed for organizations of any size, ChronoFlow helps streamline processes, improve productivity, and accelerate delivery of outcomes.",
+    "slogan": "The AI-powered workflow management application",
+    "logoUrl": "https://media.brand.dev/3f94e248-914d-4389-bd20-65b13f8c12e0.svg",
+    "iconUrl": "https://media.brand.dev/3f94e248-914d-4389-bd20-65b13f8c12e0.svg",
+    "primaryColor": "#1c63f9",
+    "accentColor": "#1d91f5",
+    "colors": [
+      {
+        "hex": "#1c63f9",
+        "name": "Bluerocratic"
+      },
+      {
+        "hex": "#1d91f5",
+        "name": "Karimun Blue"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3f94e248-914d-4389-bd20-65b13f8c12e0.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 1518,
+        "height": 1426,
+        "aspectRatio": 1.06
+      },
+      {
+        "url": "https://media.brand.dev/170fcfba-e942-4d8e-96c7-2b908c2d517f.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3f94e248-914d-4389-bd20-65b13f8c12e0.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1518,
+      "height": 1426,
+      "aspectRatio": 1.06
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/3f94e248-914d-4389-bd20-65b13f8c12e0.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 1518,
+      "height": 1426,
+      "aspectRatio": 1.06
+    }
+  }
+}

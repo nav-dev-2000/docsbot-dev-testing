@@ -1,0 +1,176 @@
+{
+  "slug": "wati",
+  "name": "Wati",
+  "domain": "wati.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Wati",
+  "metaTitle": "Build AI Agents for Wati with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Wati for customer messaging lookups, workflow updates, handoffs, and internal team automation with secure controls.",
+  "intro": "Wati helps teams manage customer messaging workflows, and DocsBot Skill Builder helps you turn that system into safe AI Actions for support and operations. In plain language, you describe what the agent should do, and Skill Builder designs, secures, tests, improves, and deploys the Skill for you. The result is an AI support agent or internal assistant that can look up conversation context, update approved records, trigger workflows, and prepare clean handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Wati conversation details and message status so it can answer support questions with current context.",
+    "Use the agent to create or update approved contact notes, tags, or status fields in Wati while responding to customers in chat or tickets.",
+    "Have the agent summarize a customer's recent Wati interactions and prepare a clean escalation handoff for a human support rep.",
+    "Allow the agent to trigger approved follow-up workflows in Wati after resolving a support request or collecting missing details.",
+    "Use the agent to identify whether a customer already received a WhatsApp update in Wati before sending next-step guidance."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent to pull Wati conversation history, campaign context, or contact details without opening multiple tools.",
+    "Let customer success or operations teams ask the agent to summarize messaging activity in Wati and prepare follow-up tasks or SOP-based next steps.",
+    "Help support managers use an internal AI assistant in Slack or Microsoft Teams to review escalations, handoff quality, and recent customer communication from Wati.",
+    "Allow internal teams to ask the agent to update approved Wati fields, apply workflow tags, or trigger messaging processes within defined permission limits.",
+    "Use a private agent to combine Wati context with internal documentation so employees can research issues and complete communication workflows faster."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up Wati conversation status before answering customer questions.",
+    "A handoff Skill that summarizes Wati message history for human support escalation.",
+    "An internal assistant that updates approved Wati contact fields from Slack requests.",
+    "A workflow Skill that triggers follow-up messaging after a support case is resolved.",
+    "A QA assistant that reviews Wati interactions and summarizes messaging outcomes for managers.",
+    "An operations agent that gathers missing customer context and prepares next-step tasks."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Wati, such as checking conversation history, updating an approved field, or preparing an escalation summary."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill design, asks for any missing business context, and chooses a safer workflow that fits your support or internal team goals."
+    },
+    {
+      "title": "Secure connection is planned",
+      "description": "Skill Builder identifies the configuration values the Skill needs, sets up secure authentication handling, keeps credentials out of chats and Skill source, and proxies secrets through protected runtime settings."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder limits the Skill to the minimum Wati actions, records, users, and systems required, and adds approval boundaries wherever updates, triggers, or sensitive steps should be reviewed first."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Wati?",
+      "answer": "With DocsBot Skill Builder, you describe the Wati workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests realistic scenarios, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Wati data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Wati Skill to look up approved conversation details, message status, contact context, or workflow state while replying to customers in chat or helpdesk tickets."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Wati?",
+      "answer": "Teams can build Skills for live lookups, approved record updates, follow-up triggers, escalation prep, handoff summaries, and other bounded support actions that help resolve customer questions faster."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Wati?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve Wati information, summarize messaging activity, and complete approved SOP-driven actions more efficiently."
+    },
+    {
+      "question": "How does DocsBot keep Wati actions secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, scopes permissions to the smallest practical access level, and can add approval steps for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs and escalations using Wati conversation history?",
+      "answer": "Yes, a Skill can summarize relevant Wati interactions, capture the current state, and prepare a structured handoff so human agents receive the context they need without repeating manual review."
+    }
+  ],
+  "relatedSlugs": [
+    "whatsapp",
+    "intercom",
+    "zendesk",
+    "hubspot",
+    "freshdesk",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "WATI",
+    "domain": "wati.com",
+    "description": "West Advanced Technologies, Inc. (WATI) is a California‑based technology solutions provider specializing in cybersecurity, cloud management, and data analytics for government agencies and commercial clients. Since 1998, WATI delivers services such as vulnerability assessment and penetration testing, red‑team engagements, product security, SOC‑managed services, risk and compliance consulting, and staff augmentation. Its BEAGLE crime‑analytics platform integrates criminal‑justice data to aid law‑enforcement investigations, while Cybermindr offers continuous threat exposure monitoring. WATI also designs, implements, and supports IT infrastructure for state and local governments, covering public safety, utilities, health services, and more. Through managed security services and cloud solutions, the firm helps clients protect critical assets, achieve regulatory compliance, and transform security into a competitive advantage.",
+    "slogan": "IMPLEMENT · MANAGE · SECURE",
+    "logoUrl": "https://media.brand.dev/46b9220d-af6e-4ea0-bd00-0b7519e103c8.jpg",
+    "iconUrl": "https://media.brand.dev/a1e23623-f71e-49e0-9c02-db46e8fcc454.png",
+    "primaryColor": "#66c8d0",
+    "accentColor": "#313c82",
+    "colors": [
+      {
+        "hex": "#66c8d0",
+        "name": "Paradise Sky"
+      },
+      {
+        "hex": "#313c82",
+        "name": "Official Violet"
+      },
+      {
+        "hex": "#ecf2f3",
+        "name": "Maui Mist"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/730686dd-9bee-4fed-9e5c-99b1b9f5b28a.jpg",
+    "industries": [],
+    "links": {
+      "blog": "https://www.wati.com/whats-new/",
+      "careers": "https://www.wati.com/careers/",
+      "privacy": "https://www.wati.com/privacy-policy/",
+      "terms": "https://www.wati.com/terms-of-service/",
+      "contact": "https://www.wati.com/contact/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/52c612f3-8d81-4609-bad1-27937d95d988.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46b9220d-af6e-4ea0-bd00-0b7519e103c8.jpg",
+        "type": "logo",
+        "mode": "has_opaque_background",
+        "width": 153,
+        "height": 53,
+        "aspectRatio": 2.89
+      },
+      {
+        "url": "https://media.brand.dev/a1e23623-f71e-49e0-9c02-db46e8fcc454.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bca5a151-6b60-46c5-8f01-8afbc50060a9.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 60,
+        "height": 60,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/46b9220d-af6e-4ea0-bd00-0b7519e103c8.jpg",
+      "type": "logo",
+      "mode": "has_opaque_background",
+      "width": 153,
+      "height": 53,
+      "aspectRatio": 2.89
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bca5a151-6b60-46c5-8f01-8afbc50060a9.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 60,
+      "height": 60,
+      "aspectRatio": 1
+    }
+  }
+}

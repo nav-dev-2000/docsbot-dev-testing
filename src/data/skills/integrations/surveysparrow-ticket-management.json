@@ -1,0 +1,175 @@
+{
+  "slug": "surveysparrow-ticket-management",
+  "name": "SurveySparrow Ticket Management",
+  "domain": "surveysparrow-ticket-management.com",
+  "category": "Customer Support",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for SurveySparrow Ticket Management",
+  "metaTitle": "SurveySparrow Ticket Management AI Agent | DocsBot Skill Builder",
+  "metaDescription": "Build a DocsBot AI agent that uses SurveySparrow Ticket Management for support lookups, ticket updates, handoffs, and internal workflow automation with safe controls.",
+  "intro": "SurveySparrow Ticket Management helps teams manage customer issues and service workflows alongside feedback and experience data. With DocsBot Skill Builder, you can describe the support or internal workflow you want in plain language, and DocsBot helps create a reusable Skill that lets your AI agent look up tickets, update records, prepare handoffs, and trigger approved actions safely. This gives support teams and internal employees an AI agent that can answer questions and take bounded action inside SurveySparrow Ticket Management instead of only suggesting next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a SurveySparrow Ticket Management case and share a clear progress update in chat or by helpdesk reply.",
+    "Have the agent create a new SurveySparrow Ticket Management ticket from a website conversation when a customer reports a bug, billing issue, or service problem.",
+    "Enable the agent to add notes, tags, priority levels, or customer-provided details to an existing SurveySparrow Ticket Management ticket during an active support conversation.",
+    "Use the agent to summarize open issues, recent ticket activity, and next steps from SurveySparrow Ticket Management before handing the case to a human agent.",
+    "Let the agent collect missing troubleshooting details from the customer and attach that structured context to a SurveySparrow Ticket Management ticket for faster resolution later on.."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to find SurveySparrow Ticket Management tickets, owners, statuses, and recent activity without opening the platform directly.",
+    "Enable support managers to ask the agent for summaries of escalated SurveySparrow Ticket Management cases, repeated issue patterns, or overdue work so they can coordinate follow-up faster.",
+    "Help operations or customer success teams use a private agent to create internal handoff tickets, update fields, and follow standard response workflows inside SurveySparrow Ticket Management.",
+    "Allow employees to ask the agent to prepare structured case summaries, escalation notes, or shift handover reports based on SurveySparrow Ticket Management records and activity history."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that looks up ticket status and explains the latest update to customers.",
+    "A chat agent that creates SurveySparrow Ticket Management tickets from website support conversations.",
+    "An internal assistant that summarizes overdue tickets and drafts escalation handoff notes.",
+    "A support workflow Skill that collects missing customer details and attaches them to existing tickets.",
+    "An AI agent that updates approved ticket fields such as priority, tags, assignee, or status.",
+    "A private team assistant that finds related cases and surfaces patterns across open support work."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain the support or internal workflow you want in plain language, and Skill Builder turns that goal into a practical SurveySparrow Ticket Management Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required connection settings, handles authentication and secret storage through secure runtime configuration, keeps credentials out of chats and Skill source, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds sensible action limits, user scoping, and approval boundaries so the AI agent can look up data, update tickets, trigger workflows, or prepare handoffs only within your chosen rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, permission gaps, and workflow issues, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill, packages the reusable behavior, and helps publish it to the right DocsBot agent for your website chat, helpdesk flows, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for SurveySparrow Ticket Management?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want, such as checking ticket status, creating cases, or updating fields, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It can create bounded actions so your AI agent does more than answer questions and can safely work inside approved SurveySparrow Ticket Management workflows."
+    },
+    {
+      "question": "Can an AI support agent use SurveySparrow Ticket Management data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Skill to look up ticket details, summarize current status, gather missing context, and create or update approved records while replying to customers. This helps the agent resolve common requests faster and prepare better handoffs when a human needs to step in."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with SurveySparrow Ticket Management?",
+      "answer": "Teams can build workflows for ticket lookup, ticket creation, field updates, escalation prep, internal notes, structured troubleshooting intake, and next-step summaries. The exact actions are defined by your approved process and permission boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside SurveySparrow Ticket Management?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to find ticket information, review case history, prepare summaries, and complete approved workflow steps without manually navigating every screen. This is useful in internal chat, Slack, or Microsoft Teams for support, customer success, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep SurveySparrow Ticket Management actions secure?",
+      "answer": "Skill Builder defines the needed configuration, protects and proxies secrets through secure runtime settings, keeps credentials out of chat transcripts, and scopes the Skill to the minimum records and actions required. It can also add approval checkpoints and action boundaries for sensitive updates or escalations."
+    },
+    {
+      "question": "Can DocsBot prepare ticket handoffs and escalation summaries from SurveySparrow Ticket Management?",
+      "answer": "Yes, a Skill can gather ticket history, recent activity, customer context, and next steps from SurveySparrow Ticket Management to generate clean handoff notes or escalation summaries. That helps human agents start with better context and reduces repeated customer questions."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "jira-service-management",
+    "hubspot-service-hub",
+    "helpscout"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "SurveySparrow",
+    "domain": "surveysparrow.com",
+    "description": "SurveySparrow is an experience management platform that enables businesses to collect, analyze, and act on customer feedback in real-time. Leveraging AI to analyze the customer experience journey, SurveySparrow empowers over 100,000 customers across 149 countries to make smarter customer experience decisions.",
+    "slogan": "Transform Feedback into Conversations for Smarter Customer Experience",
+    "logoUrl": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+    "iconUrl": "https://media.brand.dev/ed0a8c79-e43b-4387-8842-9231f51a146d.png",
+    "primaryColor": "#a1d4d4",
+    "accentColor": "#559da5",
+    "colors": [
+      {
+        "hex": "#a1d4d4",
+        "name": "Smooth Satin"
+      },
+      {
+        "hex": "#559da5",
+        "name": "Tropical Oasis"
+      },
+      {
+        "hex": "#131b32",
+        "name": "Dark Knight"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/8d99253d-1734-464b-8a35-9551b031355c.png",
+    "industries": [],
+    "links": {
+      "careers": "https://surveysparrow.com/careers/",
+      "terms": "https://surveysparrow.com/legal/terms-of-service/",
+      "contact": "https://surveysparrow.com/contact-us/",
+      "privacy": "https://surveysparrow.com/legal/privacy-policy/",
+      "blog": "https://surveysparrow.com/newsroom/",
+      "pricing": "https://surveysparrow.com/pricing-get-quote/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a2c4fe34-4e86-44f9-bb51-03943e743d76.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed0a8c79-e43b-4387-8842-9231f51a146d.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ccc6fc0c-c2a3-4186-a313-ebd093befea7.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 101,
+        "height": 101,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 153,
+        "height": 24,
+        "aspectRatio": 6.38
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8e9d1701-6c03-4a86-bb68-db66e53e0d45.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 153,
+      "height": 24,
+      "aspectRatio": 6.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ccc6fc0c-c2a3-4186-a313-ebd093befea7.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 101,
+      "height": 101,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "slug": "robin",
+  "name": "Robin",
+  "domain": "robin.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Robin",
+  "metaTitle": "Build Robin AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Robin data and actions for customer support, internal operations, approvals, summaries, and secure workflow automation.",
+  "intro": "Robin helps families, teens, and young adults manage banking, spending controls, savings goals, and parental oversight. With DocsBot Skill Builder, you can describe the Robin workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That gives your team an AI agent that can answer questions, retrieve account-related context, prepare handoffs, and take approved actions inside defined rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account status, card details, recent notifications, or savings goal information in Robin while responding to support questions.",
+    "Use the agent to gather missing details from a customer, summarize the Robin account situation, and prepare a clean handoff for a human support or risk team.",
+    "Enable the agent to trigger approved workflows such as transaction review requests, parental approval follow-ups, or account support escalations based on the conversation.",
+    "Allow the agent to explain spending controls, debit card settings, direct deposit status, or bill pay context using live Robin data instead of static help content.",
+    "Have the agent create structured support notes that summarize the customer issue, relevant Robin records, and next steps for faster ticket resolution."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to retrieve Robin account context, policy guidance, and case history faster.",
+    "Enable operations or customer success teams to ask the agent to summarize account activity, approval status, parental control settings, or support trends across Robin workflows.",
+    "Give risk, compliance, or support employees an internal AI assistant that follows SOPs, gathers required context, and prepares escalation packages before a human approves the next action.",
+    "Help back-office teams use the agent to research customer issues across Robin and related systems, then generate clean summaries, checklists, or follow-up tasks.",
+    "Allow internal teams to trigger bounded workflows from chat, such as opening review cases, updating non-sensitive records, or routing requests to the right queue with approval boundaries in place."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Robin account and card context before answering customers.",
+    "A private team assistant that summarizes parental controls, spending limits, and approval history.",
+    "A support workflow that collects missing details and prepares Robin escalation handoffs automatically.",
+    "An internal agent that follows review SOPs and drafts structured case summaries for staff.",
+    "A customer-facing assistant that explains savings goals and account activity using live Robin data.",
+    "A team chatbot that routes Robin support issues to the correct queue with clear notes."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Robin agent to do in plain language, such as checking account context, preparing support handoffs, or triggering an approved workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the Robin connection details it needs, and defines the right runtime behavior, data inputs, and action limits for the workflow."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure configuration by defining required environment values, protecting and proxying secrets and authentication outside chats and Skill source, and scoping Robin access to the minimum records, actions, and users needed."
+    },
+    {
+      "title": "Approvals and safety are added",
+      "description": "Skill Builder adds approval boundaries and safe action rules for sensitive Robin tasks so the agent can look up information, draft updates, or trigger bounded workflows without exceeding the permissions you allow."
+    },
+    {
+      "title": "An AI tester exercises scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Robin?",
+      "answer": "With DocsBot Skill Builder, you describe the Robin workflow you want in plain language and Skill Builder creates the Skill, secure connection plan, testing approach, and deployment path for your DocsBot agent. The result can support live lookups, summaries, handoffs, and approved Robin actions inside the boundaries you define."
+    },
+    {
+      "question": "Can an AI support agent use Robin data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use Robin account-related context to answer questions, summarize account state, gather missing details, and prepare escalations. Skill Builder helps scope what the agent can read or do so support automation stays safe and controlled."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Robin?",
+      "answer": "Teams can build workflows for account lookups, card or spending-control context checks, savings goal explanations, support note creation, escalation prep, and approved review triggers. The agent responds in chat or tickets while using Robin as the system of record for the allowed workflow."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Robin?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Robin information, follow SOPs, summarize account or case context, and trigger bounded internal workflows from chat, Slack, or Microsoft Teams. This reduces manual switching between systems and improves consistency across operations."
+    },
+    {
+      "question": "How does DocsBot keep Robin connections and credentials secure?",
+      "answer": "Skill Builder defines the required configuration values, keeps secrets and authentication out of chats and generated copy, and proxies them through secure runtime configuration. It also scopes permissions and approval boundaries so the agent only reaches the Robin data and actions needed for the job."
+    },
+    {
+      "question": "Can DocsBot require approval before taking actions in Robin?",
+      "answer": "Yes, Skills can be designed with approval steps and action limits for sensitive Robin workflows. That means the agent can gather information, draft updates, or prepare the next step automatically while reserving final approval for the right human team member."
+    }
+  ],
+  "relatedSlugs": [
+    "plaid",
+    "stripe",
+    "square",
+    "intercom",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Robin",
+    "domain": "robin.com",
+    "description": "Robin.com is a fintech company that provides a modern, mobile‑first banking platform designed for families, teens and young adults. The service offers a secure, no‑fee checking account with a linked debit card, budgeting tools, savings goals, and parental controls that help teach financial responsibility. Users can manage money, set spending limits, and receive real‑time notifications through an intuitive app, while parents retain oversight and can approve transactions. Robin.com also integrates with popular financial services and offers features such as direct deposit, bill pay, and instant transfers. By combining financial education with practical banking tools, Robin.com aims to empower the next generation to build healthy money habits and achieve financial independence.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/61abf01f-69c5-40ef-8a30-522c4363e966.jpg",
+    "iconUrl": "https://media.brand.dev/61abf01f-69c5-40ef-8a30-522c4363e966.jpg",
+    "primaryColor": "#e00d2e",
+    "accentColor": "#252525",
+    "colors": [
+      {
+        "hex": "#e00d2e",
+        "name": "Rare Red"
+      },
+      {
+        "hex": "#252525",
+        "name": "Nero"
+      },
+      {
+        "hex": "#cdc1c3",
+        "name": "Ancestral"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/84e306ca-8b4d-45fa-a662-5d254bcd8594.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": "https://robin.com/",
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/61abf01f-69c5-40ef-8a30-522c4363e966.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 485,
+        "height": 512,
+        "aspectRatio": 0.95
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/61abf01f-69c5-40ef-8a30-522c4363e966.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 485,
+      "height": 512,
+      "aspectRatio": 0.95
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/61abf01f-69c5-40ef-8a30-522c4363e966.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 485,
+      "height": 512,
+      "aspectRatio": 0.95
+    }
+  }
+}

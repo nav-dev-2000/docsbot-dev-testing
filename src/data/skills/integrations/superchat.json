@@ -1,0 +1,176 @@
+{
+  "slug": "superchat",
+  "name": "Superchat",
+  "domain": "superchat.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Superchat",
+  "metaTitle": "Build AI Support and Team Agents for Superchat | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Superchat to look up conversations, prepare handoffs, update records, and trigger approved support workflows safely.",
+  "intro": "Superchat helps teams manage customer conversations across channels like WhatsApp, Instagram, and Facebook from one place. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Superchat, and DocsBot will design, secure, test, and package that ability for support or internal team use. The result is an AI agent that can answer questions and take approved actions inside your customer communication workflows.",
+  "supportUseCases": [
+    "Let a DocsBot support agent check Superchat conversation details and summarize the latest customer history before replying in a website chat or helpdesk ticket.",
+    "Use Superchat data to help the agent identify which channel a customer used, what was already discussed, and whether a follow-up is still open.",
+    "Have the agent create or update notes, tags, or conversation context in Superchat so human agents receive cleaner handoffs.",
+    "Enable the agent to prepare escalation summaries from Superchat threads and route urgent cases to the right support or success team.",
+    "Let the agent trigger approved follow-up workflows based on Superchat conversation status, customer intent, or unresolved messaging history."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to retrieve Superchat conversation history, customer communication summaries, and channel activity without switching tools.",
+    "Let support and customer success teams ask the agent to research open messaging issues in Superchat and prepare next-step recommendations for outreach.",
+    "Enable team members in Slack, Microsoft Teams, or private chat to generate handoff notes, conversation summaries, and escalation briefs from Superchat records.",
+    "Help operations teams use an internal AI agent to follow communication SOPs, update approved conversation metadata, and trigger bounded follow-up workflows in Superchat.",
+    "Allow managers to chat with the agent for quick visibility into messaging backlog, unresolved threads, and support patterns pulled from Superchat activity."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that summarizes Superchat conversations before answering customers.",
+    "A handoff Skill that turns Superchat thread history into escalation-ready support notes.",
+    "An internal assistant that finds open Superchat conversations by customer or channel.",
+    "A workflow Skill that updates approved tags or notes in Superchat records.",
+    "A team agent that prepares follow-up recommendations from recent Superchat messaging history.",
+    "A reporting helper that summarizes unresolved Superchat conversations for managers and operations teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Superchat, such as looking up conversation history, preparing handoffs, or updating approved records while helping customers or employees."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "DocsBot Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chat or source."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum actions and records needed, and adds approval boundaries wherever updates, escalations, or sensitive workflow steps should stay controlled."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, DocsBot helps deploy it to your customer-facing chat widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action in Superchat."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Superchat?",
+      "answer": "With DocsBot Skill Builder, you describe the Superchat workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The finished agent can look up conversation data, summarize activity, update approved records, and trigger bounded support actions."
+    },
+    {
+      "question": "Can an AI support agent use Superchat conversation data to help customers faster?",
+      "answer": "Yes, a DocsBot support agent can use Superchat as a source of conversation history, channel context, and open follow-up status while responding in a website chat or helpdesk flow. That helps the agent answer with better context and prepare cleaner escalations when a human needs to step in."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Superchat?",
+      "answer": "Teams can build Skills for conversation lookups, support summaries, note or tag updates, escalation prep, handoff creation, and approved workflow triggers based on Superchat activity. The agent stays within the actions, permissions, and approval limits you define."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Superchat?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Superchat information, summarize customer threads, follow communication SOPs, and complete approved operational steps from chat, Slack, or Microsoft Teams. This reduces tool switching while keeping actions controlled."
+    },
+    {
+      "question": "How does DocsBot keep Superchat actions secure?",
+      "answer": "Skill Builder defines secure configuration values, keeps secrets out of chats and generated content, proxies authentication through approved runtime settings, and scopes access to the minimum records and actions needed. It can also add approval boundaries for sensitive updates or escalations."
+    },
+    {
+      "question": "Can DocsBot prepare handoffs and escalation notes from Superchat messages?",
+      "answer": "Yes, you can build a Skill that turns Superchat conversation history into structured summaries, escalation briefs, and next-step notes for support or success teams. This helps human agents jump in with the full context already organized."
+    }
+  ],
+  "relatedSlugs": [
+    "help-scout",
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "gorgias",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Superchat",
+    "domain": "superchat.com",
+    "description": "Superchat is a customer communication platform that bundles messaging across popular channels like WhatsApp Business, Instagram, and Facebook. It enables businesses to work collaboratively in the cloud, automate tasks, and enhance customer experience with AI chatbots, all while being 100% GDPR compliant.",
+    "slogan": "Streamline customer communication across channels with Superchat’s intelligent solutions.",
+    "logoUrl": "https://media.brand.dev/955eb610-750c-46fd-a703-267049f456af.svg",
+    "iconUrl": "https://media.brand.dev/e2099ee1-36af-4ef8-9241-f01bbba137e1.jpg",
+    "primaryColor": "#1c1c1c",
+    "accentColor": "#12a8e6",
+    "colors": [
+      {
+        "hex": "#1c1c1c",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#12a8e6",
+        "name": "Huelveño Horizon"
+      },
+      {
+        "hex": "#83e4fb",
+        "name": "Silverpine Cyan"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://www.superchat.com/careers",
+      "terms": "https://www.superchat.com/terms",
+      "contact": "https://www.superchat.com/demo",
+      "privacy": "https://www.superchat.com/privacy",
+      "blog": "https://www.superchat.com/blog",
+      "pricing": "https://www.superchat.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e2099ee1-36af-4ef8-9241-f01bbba137e1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/177e39c2-ff52-4b9a-9788-d27454349246.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 196,
+        "height": 196,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/442370b4-5d49-4396-9a73-1fe749e424e7.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/955eb610-750c-46fd-a703-267049f456af.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 145,
+        "height": 40,
+        "aspectRatio": 3.63
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/955eb610-750c-46fd-a703-267049f456af.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 145,
+      "height": 40,
+      "aspectRatio": 3.63
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/177e39c2-ff52-4b9a-9788-d27454349246.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 196,
+      "height": 196,
+      "aspectRatio": 1
+    }
+  }
+}

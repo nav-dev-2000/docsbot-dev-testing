@@ -1,0 +1,167 @@
+{
+  "slug": "livechat",
+  "name": "LiveChat",
+  "domain": "livechat.com",
+  "category": "Communications",
+  "trutoCategory": "IM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with LiveChat",
+  "metaTitle": "Build LiveChat AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LiveChat for support lookups, chat updates, handoffs, summaries, and safe team workflows.",
+  "intro": "LiveChat helps teams manage real-time customer conversations, sales chats, and support handoffs across web and product experiences. With DocsBot Skill Builder, you can describe the LiveChat workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal team assistant. That lets your AI agent do more than answer questions by safely looking up chat context, updating records, preparing escalations, and triggering approved actions inside LiveChat.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent LiveChat conversation details and answer customers with better context in the chat widget or helpdesk reply.",
+    "Let the agent summarize a LiveChat conversation, capture the customer issue, and prepare a clean handoff for a human support rep.",
+    "Allow the agent to create or update LiveChat records with approved notes, tags, or follow-up details while responding to the customer.",
+    "Use the agent to check whether a customer already has an active LiveChat conversation before routing them to the right support path.",
+    "Have the agent trigger an escalation workflow in LiveChat when a billing, technical, or high-priority support condition is detected."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve LiveChat conversation history, summarize customer sentiment, and understand the latest account issues before replying.",
+    "Support managers can ask an internal agent to review LiveChat activity, surface recurring themes, and prepare summaries for shift handoffs or incident reviews.",
+    "Customer success and operations teams can use a private agent in Slack or Microsoft Teams to look up LiveChat records and complete guided escalation workflows without leaving chat.",
+    "Team members can ask the agent to create standardized notes, apply approved tags, or prepare follow-up actions in LiveChat as part of internal SOPs."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads LiveChat conversation context before answering customers.",
+    "A handoff Skill that summarizes chats and drafts escalation notes for human agents.",
+    "A workflow that applies approved tags in LiveChat based on issue type.",
+    "An internal assistant that finds recent LiveChat interactions for an account review.",
+    "A support triage Skill that checks chat status and routes urgent issues safely.",
+    "A QA assistant that summarizes LiveChat conversations for coaching and trend analysis."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with LiveChat in plain language, such as summarizing chats, updating tags, or preparing escalations."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and connection approach."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles authentication design, keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, and scopes LiveChat access to the minimum actions, records, and users needed."
+    },
+    {
+      "title": "Boundaries are added",
+      "description": "Skill Builder sets approval steps and safe action limits for sensitive updates so the agent can take bounded action in LiveChat without exceeding the rules you define."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, missing checks, or weak instructions, and feeds improvements back into the Skill before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LiveChat?",
+      "answer": "With DocsBot Skill Builder, you describe the LiveChat workflow you want in plain language, and the builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up chat context, summarize conversations, update approved records, and trigger bounded workflows."
+    },
+    {
+      "question": "Can an AI support agent use LiveChat data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use LiveChat as a connected system to retrieve conversation details, check chat status, prepare handoffs, and make approved updates while responding in a website widget or helpdesk flow. Access can be limited to the exact records and actions your team allows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with LiveChat?",
+      "answer": "Teams can build Skills for chat summaries, escalation prep, note creation, tagging, routing checks, and other support actions that help resolve conversations faster. DocsBot can also generate structured handoff details so human agents get cleaner context when a case needs escalation."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work across LiveChat?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve LiveChat history, summarize customer issues, research prior conversations, and complete support SOPs from chat, Slack, or Microsoft Teams. This gives teams a faster way to work without manually searching across tools."
+    },
+    {
+      "question": "How does DocsBot keep LiveChat actions secure?",
+      "answer": "Skill Builder designs secure configuration by default, identifies the needed credentials, keeps secrets out of chat transcripts and source, and proxies authentication through protected runtime settings. It also scopes permissions and can add approval boundaries for sensitive record changes or escalation actions."
+    },
+    {
+      "question": "Can DocsBot test a LiveChat Skill before deployment?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill to catch workflow gaps, permission issues, and unclear instructions. Those findings can flow into an automated improvement loop before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "intercom",
+    "zendesk",
+    "freshdesk",
+    "helpscout",
+    "front",
+    "slack"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LiveChat",
+    "domain": "livechat.com",
+    "description": "Text HQ is a company that develops innovative customer support solutions. They are the creators of LiveChat, ChatBot, and HelpDesk, and have introduced their latest product, Text App, a next-generation customer support tool. LiveChat is an AI-powered live chat software designed for businesses, particularly ecommerce and B2B, to facilitate real-time website support, drive sales, and enhance customer satisfaction.",
+    "slogan": "Real-time support that boosts sales and creates trusting customer relationships.",
+    "logoUrl": "https://media.brand.dev/f6cb56b4-6544-4e71-abcd-83d245225699.svg",
+    "iconUrl": "https://media.brand.dev/f16b1ba6-b88a-4882-ab29-e9438dd80281.jpg",
+    "primaryColor": "#1c1c24",
+    "accentColor": "#fc5404",
+    "colors": [
+      {
+        "hex": "#1c1c24",
+        "name": "Satin Deep Black"
+      },
+      {
+        "hex": "#fc5404",
+        "name": "Mystic Red"
+      },
+      {
+        "hex": "#f4ac7c",
+        "name": "Tacao"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/eecffe03-2620-492e-9397-d9b145306bab.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.livechat.com/careers/",
+      "terms": null,
+      "contact": "https://www.livechat.com/contact/",
+      "privacy": "https://www.livechat.com/privacy-policy-generator/",
+      "blog": "https://news.livechat.com/en/",
+      "pricing": "https://www.livechat.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f16b1ba6-b88a-4882-ab29-e9438dd80281.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f6cb56b4-6544-4e71-abcd-83d245225699.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 356,
+        "height": 108,
+        "aspectRatio": 3.3
+      },
+      {
+        "url": "https://media.brand.dev/ac4de016-5756-4411-a408-b244c8b5e644.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/f6cb56b4-6544-4e71-abcd-83d245225699.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 356,
+      "height": 108,
+      "aspectRatio": 3.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/ac4de016-5756-4411-a408-b244c8b5e644.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

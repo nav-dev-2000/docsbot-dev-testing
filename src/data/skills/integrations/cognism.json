@@ -1,0 +1,168 @@
+{
+  "slug": "cognism",
+  "name": "Cognism",
+  "domain": "cognism.com",
+  "category": "Sales",
+  "trutoCategory": "Sales Intelligence",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use Cognism for Sales Intelligence",
+  "metaTitle": "Build AI Agents for Cognism with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Cognism data for support, sales operations, and internal workflows with secure lookups, approvals, testing, and deployment.",
+  "intro": "Cognism gives teams access to global sales intelligence data, and DocsBot Skill Builder helps you turn that data into practical AI actions. In plain language, you can describe the outcome you want, and Skill Builder creates a reusable Skill that lets your DocsBot agent safely look up records, summarize findings, prepare handoffs, and trigger approved workflows. This helps customer-facing support teams and internal revenue or operations teams move faster with an AI agent that can answer questions and take bounded action.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up company or contact intelligence in Cognism to help verify lead details before routing a sales or partnership inquiry.",
+    "Use a DocsBot helpdesk agent to summarize known firmographic or decision-maker context from Cognism when preparing a handoff to sales after a customer asks about enterprise buying.",
+    "Have the agent check Cognism data to enrich inbound contact records and create a cleaner escalation package for revenue or account teams.",
+    "Enable the agent to gather missing company details from Cognism while responding to qualification questions in a website chat and then route the conversation to the right team.",
+    "Let the agent prepare concise account research summaries from Cognism data for support tickets that need commercial follow-up or expansion review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Cognism company and contact intelligence without manually searching multiple tools.",
+    "Revenue operations teams can ask the agent to enrich lead or account research with Cognism data, summarize findings, and prepare handoff notes for SDRs or account executives.",
+    "Sales managers can use an internal AI assistant to generate prospect briefings from Cognism records before outreach or territory reviews.",
+    "Customer success or partnership teams can chat with the agent to identify likely stakeholders at a target company and compile a structured summary for follow-up workflows.",
+    "Operations teams can use the agent to complete repeatable research SOPs that combine Cognism lookups, internal notes, and approved workflow triggers across their systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that looks up company and contact intelligence from Cognism during inbound qualification.",
+    "A support assistant that prepares sales handoff summaries using Cognism account context and decision-maker details.",
+    "An internal revenue agent that enriches prospect research and generates reusable account briefings.",
+    "A Slack assistant that answers employee questions about target accounts using Cognism data.",
+    "An AI workflow that checks lead details, summarizes findings, and routes records for approval.",
+    "A private team agent that supports prospecting SOPs with Cognism lookups and follow-up actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Cognism in plain language, and it translates that goal into a safe, reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs the Skill",
+      "description": "Skill Builder decides how the Skill should look up Cognism data, handle prompts and routing, define the required configuration values, and keep authentication and secrets protected through secure runtime configuration."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and systems needed, adds approval boundaries for sensitive updates or workflow triggers, and keeps credentials out of chats and generated content by design."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent so teams can use Cognism safely in everyday workflows."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Cognism without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Cognism workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. It handles connection details, secret protection, scoped permissions, and safe runtime behavior for you."
+    },
+    {
+      "question": "Can an AI support agent use Cognism data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use Cognism as a lookup source while responding in a website chat or helpdesk context. That can help the agent verify company details, prepare qualification summaries, and create cleaner handoffs to sales or success teams."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Cognism?",
+      "answer": "A private DocsBot agent can help employees research accounts, find likely stakeholders, enrich prospect records, summarize account context, and support repeatable prospecting or routing workflows. The Skill can also trigger approved downstream steps when those actions fit your process."
+    },
+    {
+      "question": "Can DocsBot use Cognism for lead qualification and handoff preparation?",
+      "answer": "Yes, Skill Builder can create a workflow where the agent checks Cognism data, summarizes fit signals, gathers missing context, and prepares a structured handoff for the right revenue team. Approval boundaries can be added if any update or trigger should require review."
+    },
+    {
+      "question": "How does DocsBot keep Cognism access secure inside an AI agent?",
+      "answer": "Skill Builder defines the required configuration values, stores and proxies secrets through secure runtime settings, and keeps credentials out of chat transcripts and Skill source. It also scopes access to the smallest set of actions, records, and users needed for the workflow."
+    },
+    {
+      "question": "Can an AI assistant summarize Cognism account research for sales teams?",
+      "answer": "Yes, a DocsBot internal agent can turn Cognism lookups into concise account briefings, stakeholder summaries, and preparation notes for SDRs, AEs, customer success, or partnerships teams. This helps teams get useful context quickly without opening multiple tools."
+    }
+  ],
+  "relatedSlugs": [
+    "zoominfo",
+    "apollo",
+    "clearbit",
+    "hubspot",
+    "salesforce",
+    "outreach"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Cognism",
+    "domain": "cognism.com",
+    "description": "Cognism is a leading provider of global sales intelligence, offering high-quality B2B data to help businesses discover, connect, and engage with decision-makers. With offices worldwide, their platform is trusted by over 4000 revenue teams to streamline prospecting. Cognism sets a new standard for data quality and compliance, making it a go-to solution for ambitious businesses of all sizes.",
+    "slogan": "The world's best global sales intelligence platform",
+    "logoUrl": "https://media.brand.dev/07278247-d816-4932-b0fc-245f2eb32b42.svg",
+    "iconUrl": "https://media.brand.dev/12f06388-c2d3-4c6a-9332-fecc3de7c4ff.jpg",
+    "primaryColor": "#bcbce6",
+    "accentColor": "#5b5baa",
+    "colors": [
+      {
+        "hex": "#bcbce6",
+        "name": "Pretty Posie"
+      },
+      {
+        "hex": "#5b5baa",
+        "name": "Yuè Guāng Lán Moonlight"
+      },
+      {
+        "hex": "#e1e1f0",
+        "name": "Iris Ice"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f1b84033-53dc-4e41-a926-f1454756c539.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.cognism.com/careers",
+      "terms": "https://www.cognism.com/terms-of-website-use",
+      "contact": null,
+      "privacy": "https://www.cognism.com/en/privacy-policy",
+      "blog": "https://www.cognism.com/blog",
+      "pricing": "https://www.cognism.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/12f06388-c2d3-4c6a-9332-fecc3de7c4ff.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/db6b95ff-c41e-44a3-9121-d376391eb377.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 800,
+        "height": 800,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/07278247-d816-4932-b0fc-245f2eb32b42.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 1145,
+        "height": 216,
+        "aspectRatio": 5.3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/07278247-d816-4932-b0fc-245f2eb32b42.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 1145,
+      "height": 216,
+      "aspectRatio": 5.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/db6b95ff-c41e-44a3-9121-d376391eb377.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 800,
+      "height": 800,
+      "aspectRatio": 1
+    }
+  }
+}

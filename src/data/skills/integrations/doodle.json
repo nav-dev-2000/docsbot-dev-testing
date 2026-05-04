@@ -1,0 +1,160 @@
+{
+  "slug": "doodle",
+  "name": "Doodle",
+  "domain": "doodle.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Doodle Scheduling",
+  "metaTitle": "DocsBot AI Agents for Doodle Scheduling Workflows",
+  "metaDescription": "Build DocsBot AI agents that use Doodle to check poll status, share scheduling updates, trigger follow-ups, and support internal coordination with safe controls.",
+  "intro": "Doodle helps teams propose times, collect availability, and confirm the best meeting slot without long email threads. With DocsBot Skill Builder, you can describe the scheduling outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent look up poll details, summarize responses, send updates, and trigger approved follow-up actions. This helps customer support teams and internal operations teams resolve scheduling questions faster while keeping actions controlled and secure.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a Doodle poll and tell a customer whether enough responses have been collected to confirm a meeting.",
+    "Enable the agent to share the latest proposed times and response summary from Doodle when a customer asks about booking progress in chat or a support ticket.",
+    "Use the agent to create a support handoff that includes the Doodle poll link, response status, and unresolved scheduling issue for a human team member.",
+    "Allow the agent to trigger an approved follow-up workflow when a customer needs a new scheduling poll or updated availability request.",
+    "Have the agent summarize scheduling activity from Doodle so support teams can respond clearly when customers ask why a meeting has not been finalized yet."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to look up Doodle poll status, participant responses, and next scheduling steps without opening multiple tools.",
+    "Sales, customer success, or operations teams can ask the agent to summarize open scheduling polls and highlight meetings that still need outreach or confirmation.",
+    "Team members can use the agent in Slack or Microsoft Teams to prepare scheduling handoffs with Doodle links, response summaries, and recommended follow-up actions.",
+    "Employees can ask the agent to trigger approved workflows such as sending reminders, escalating stalled scheduling requests, or creating internal coordination notes based on Doodle activity.",
+    "Internal teams can use the agent to follow scheduling SOPs by having it gather context from Doodle and guide the next action for onboarding, demos, renewals, or project meetings."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Doodle poll progress and explains scheduling status to customers.",
+    "A private team assistant that summarizes open Doodle polls and recommends the next follow-up action.",
+    "A helpdesk Skill that prepares scheduling handoffs with poll links, participant responses, and issue summaries.",
+    "An internal workflow assistant that flags stalled polls and triggers approved reminder or escalation steps.",
+    "A customer-facing agent that answers booking questions using live Doodle poll and response data.",
+    "A scheduling operations agent that gathers Doodle context and drafts outreach or coordination updates."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Doodle, such as checking poll status, summarizing responses, or triggering a follow-up workflow, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, decides the safest workflow design, identifies the required configuration values, and defines secure authentication handling for Doodle automatically."
+    },
+    {
+      "title": "Security is applied",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill source, scopes access to the minimum records and actions needed, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private internal assistant so teams can use Doodle actions safely in daily work."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Doodle scheduling data?",
+      "answer": "With DocsBot Skill Builder, you describe the scheduling task you want in plain language, and it creates a Skill that can look up Doodle poll details, summarize responses, and trigger approved follow-up actions. It also designs the secure connection, scopes access, and prepares the Skill for testing and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Doodle to answer customer scheduling questions?",
+      "answer": "Yes, a DocsBot support agent can use Doodle data to explain poll status, share available scheduling progress, summarize responses, and prepare a clean handoff when a human needs to step in. Actions can be limited to approved lookups and workflow triggers based on your rules."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Doodle?",
+      "answer": "An internal DocsBot agent can help employees review open polls, identify stalled scheduling requests, summarize participant responses, and trigger reminders or escalation workflows. This is useful for sales, customer success, onboarding, and operations teams that manage many meetings."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Doodle instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded actions such as creating follow-up tasks, preparing handoffs, or triggering approved scheduling workflows. Skill Builder adds secure authentication handling, scoped permissions, and approval boundaries for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot keep Doodle credentials and access secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes the Skill to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I use a Doodle-connected AI agent in Slack or Microsoft Teams for employees?",
+      "answer": "Yes, you can deploy the Skill to a private DocsBot agent that employees use through chat, Slack, or Microsoft Teams to retrieve Doodle context, research scheduling issues, and complete approved coordination workflows. This gives teams a simpler way to follow scheduling SOPs without switching tools constantly."
+    }
+  ],
+  "relatedSlugs": [
+    "calendly",
+    "google-calendar",
+    "microsoft-outlook",
+    "typeform",
+    "survey-monkey",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Doodle",
+    "domain": "doodle.com",
+    "description": "Doodle is a Zurich‑based technology company that provides a free online scheduling platform for meetings, events, and collaborations. By replacing endless email threads with a simple, click‑based poll, Doodle lets users propose times, gather responses, and automatically lock in the optimal slot. The service is trusted by millions and integrates with major calendar systems while meeting strict security standards such as SOC 2, GDPR, CCPA, and HIPAA. With offices in Atlanta, Berlin, and Belgrade, Doodle serves individuals, teams, and enterprises, helping them reduce coordination overhead, protect privacy, and make time work for people rather than the other way around.",
+    "slogan": "We make it human. We restore clarity.",
+    "logoUrl": "https://media.brand.dev/7ef65e87-650c-4f1b-95cf-55a7e4da12c9.png",
+    "iconUrl": "https://media.brand.dev/7ef65e87-650c-4f1b-95cf-55a7e4da12c9.png",
+    "primaryColor": "#e1a1f8",
+    "accentColor": "#744c7c",
+    "colors": [
+      {
+        "hex": "#e1a1f8",
+        "name": "Medium Lavender Magenta"
+      },
+      {
+        "hex": "#744c7c",
+        "name": "Cabbage Blossom Violet"
+      },
+      {
+        "hex": "#130e15",
+        "name": "Sticky Black Tarmac"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6d475aa7-995a-4e23-b24c-c6e7d39b04d1.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.doodle.com/",
+      "terms": null,
+      "contact": "https://doodle.com/en/contact-form/",
+      "privacy": null,
+      "pricing": "https://doodle.com/en/premium",
+      "blog": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a8252452-9ecb-4e0a-a65b-44ede4c8a481.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7ef65e87-650c-4f1b-95cf-55a7e4da12c9.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a8252452-9ecb-4e0a-a65b-44ede4c8a481.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a8252452-9ecb-4e0a-a65b-44ede4c8a481.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

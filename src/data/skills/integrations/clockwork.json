@@ -1,0 +1,167 @@
+{
+  "slug": "clockwork",
+  "name": "Clockwork",
+  "domain": "clockwork.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Clockwork",
+  "metaTitle": "Build AI Agents for Clockwork with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that connect with Clockwork to answer questions, retrieve records, trigger workflows, and support safe recruiting and team operations.",
+  "intro": "Clockwork can become part of a DocsBot AI agent that does more than answer questions. With DocsBot Skill Builder, non-technical teams can describe the outcome they want in plain language, and Skill Builder creates a reusable Skill that lets support or internal agents securely look up information, update records, trigger workflows, and prepare handoffs inside Clockwork. This helps teams deliver faster customer responses and smoother internal recruiting or operations workflows with bounded AI Actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up approved Clockwork candidate or hiring status details when applicants ask about next steps through a website chat or helpdesk ticket.",
+    "Let the agent collect missing application details from a candidate conversation and create or update the related Clockwork record for recruiter follow-up.",
+    "Have the agent summarize a candidate's current stage, recent notes, and required next action from Clockwork before responding with a consistent status update.",
+    "Trigger approved follow-up workflows in Clockwork, such as routing a candidate inquiry to the right recruiter or preparing an escalation handoff for a hiring team member.",
+    "Use the agent to generate a clean support summary from the customer conversation and attach the relevant Clockwork context for human review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up candidate status, interview progress, or recruiter ownership from Clockwork without switching tools.",
+    "Recruiting and operations teams can ask the agent to summarize open hiring workflows in Clockwork and prepare next-step recommendations based on current records.",
+    "Team members can use the agent to create handoff notes, update approved fields, or trigger recruiter follow-up workflows in Clockwork as part of a repeatable SOP.",
+    "Internal hiring teams can ask the agent to gather Clockwork information alongside other connected systems so they can research issues and complete hiring tasks faster.",
+    "Managers and coordinators can chat with the agent to prepare interview or candidate status summaries from Clockwork before meetings or escalations."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks candidate or applicant status in Clockwork during chat conversations.",
+    "A recruiting assistant that creates recruiter handoff notes from inbound candidate questions and ticket history.",
+    "An internal hiring agent that summarizes open roles, stages, and next actions from Clockwork.",
+    "A private team assistant that updates approved Clockwork fields after manager or recruiter approval.",
+    "An AI workflow agent that routes candidate issues to the correct recruiter based on Clockwork ownership.",
+    "A handoff Skill that packages conversation history and Clockwork context for human follow-up."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Clockwork in plain language, such as checking hiring status, updating approved records, or creating recruiter handoffs."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the needed configuration values, and plans how the agent should use Clockwork data and actions safely."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill content, and proxies secrets through approved runtime configuration by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Clockwork actions, records, users, and systems needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds improvements back into the Skill."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Clockwork without writing integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language and the builder designs, secures, tests, and prepares the Skill for deployment. It can create a reusable agent ability for Clockwork lookups, updates, summaries, and workflow actions without making setup feel technical."
+    },
+    {
+      "question": "Can a DocsBot support agent use Clockwork data during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Clockwork Skill to retrieve approved record details, summarize status, gather missing information, and prepare handoffs while responding to customers or applicants. Actions can be limited to safe lookups or expanded to bounded updates and workflow triggers you approve."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Clockwork?",
+      "answer": "A private DocsBot agent can help employees check candidate status, summarize hiring pipelines, prepare handoff notes, update approved fields, and trigger follow-up workflows inside Clockwork. This is useful for recruiting, talent operations, and hiring managers who want faster answers and more consistent SOP execution."
+    },
+    {
+      "question": "Can I control what an AI agent is allowed to update in Clockwork?",
+      "answer": "Yes, DocsBot Skill Builder is designed to scope permissions to the minimum records and actions needed for the workflow. It can also add approval boundaries for sensitive changes so the agent only takes actions you explicitly allow."
+    },
+    {
+      "question": "How does DocsBot handle Clockwork credentials and authentication securely?",
+      "answer": "Skill Builder defines the required connection settings, stores secrets in secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It uses protected secret handling and scoped access so the agent can act safely inside your approved boundaries."
+    },
+    {
+      "question": "Can an AI agent create hiring handoffs and escalation summaries from Clockwork data?",
+      "answer": "Yes, a DocsBot agent can combine the live conversation with Clockwork context to generate handoff summaries, escalation notes, and next-step recommendations for recruiters or hiring teams. This helps human staff take over with better context and less manual prep."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "bamboohr",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Clockwork Interactive",
+    "domain": "clockwork.com",
+    "description": "Clockwork Interactive is a Minneapolis-based IT company that provides digital business strategy services, creating human-centered digital products and experiences. Founded in 2002, they offer consulting, design, and technology services to solve complex problems for enterprises, building websites, software platforms, and mobile applications that drive successful investments.",
+    "slogan": "People. Process. Technology—in that order.",
+    "logoUrl": "https://media.brand.dev/9b1d8ac7-5448-4ad2-9f17-5a650761b8fc.svg",
+    "iconUrl": "https://media.brand.dev/1c2244a6-d83d-4a2b-b735-eabcdec14ebe.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#0e0e0e",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#0e0e0e",
+        "name": "Black Sheep"
+      },
+      {
+        "hex": "#c5c5c5",
+        "name": "Lunar Rock"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/69b4debc-ae7b-4b51-8498-c5b861aa1cd1.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.clockwork.com/careers/",
+      "terms": null,
+      "contact": "https://www.clockwork.com/contact-us/",
+      "privacy": "https://www.clockwork.com/privacy-policy/",
+      "blog": "https://www.clockwork.com/newsletter/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1c2244a6-d83d-4a2b-b735-eabcdec14ebe.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9b1d8ac7-5448-4ad2-9f17-5a650761b8fc.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 93,
+        "height": 48,
+        "aspectRatio": 1.94
+      },
+      {
+        "url": "https://media.brand.dev/aa5432d0-4fe1-4dbb-9c13-d05ee2d080f0.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9b1d8ac7-5448-4ad2-9f17-5a650761b8fc.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 93,
+      "height": 48,
+      "aspectRatio": 1.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/aa5432d0-4fe1-4dbb-9c13-d05ee2d080f0.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

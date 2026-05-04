@@ -1,0 +1,160 @@
+{
+  "slug": "insightly",
+  "name": "Insightly",
+  "domain": "insightly.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Insightly CRM",
+  "metaTitle": "Build AI Agents for Insightly CRM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Insightly to look up CRM data, update records, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Insightly helps teams manage customer relationships, sales activity, and growth in one CRM. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use Insightly, and Skill Builder will design, secure, test, and package that ability for support or internal team use. The result is an AI agent that can answer questions and take approved CRM actions instead of only pointing people to a manual process.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up an account, contact, lead, opportunity, or project in Insightly and summarize the latest status while replying in chat or over a helpdesk ticket.",
+    "Use an Insightly Skill to create or update support-related notes, tasks, or follow-up records when a customer asks for a callback, onboarding help, or account review.",
+    "Have the agent confirm customer details against Insightly records before preparing a clean handoff for sales, customer success, or account management.",
+    "Enable the agent to log conversation summaries in Insightly so human teams can see what the customer asked, what was resolved, and what still needs attention.",
+    "Let the agent trigger approved CRM workflows after a support conversation, such as routing a lead, creating a task, or flagging an opportunity for review."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Insightly account history, opportunity details, relationship context, and next-step recommendations.",
+    "Sales and customer success teams can ask the agent to create follow-up tasks, update CRM notes, or prepare handoff summaries that follow internal workflow rules.",
+    "Operations teams can use the agent to research missing CRM data, summarize pipeline activity, and complete repeatable SOPs across Insightly and other business systems.",
+    "Managers can chat with the agent to generate concise summaries of account changes, open opportunities, recent interactions, and pending actions without manually reviewing each record.",
+    "Internal teams can use the agent to gather context from Insightly before meetings, renewals, escalations, or account reviews, then produce a reusable briefing for the next owner."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Insightly account and contact records before answering customer questions.",
+    "A CRM assistant that creates follow-up tasks and conversation notes from chat or ticket interactions.",
+    "An internal sales agent that summarizes opportunities, recent activity, and next recommended actions.",
+    "A customer success assistant that prepares account handoff notes from Insightly relationship history.",
+    "An operations workflow that updates approved Insightly fields after a validated team request.",
+    "A private team agent that answers CRM questions in Slack or Microsoft Teams using Insightly data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Insightly in plain language, such as looking up CRM records, updating notes, or triggering a follow-up workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable DocsBot Skill, asks for any missing business context, and automatically defines the safest workflow, required configuration values, and secure connection approach."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and generated source, scopes Insightly access to the minimum records and actions required, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot widget, helpdesk agent, or private internal agent so teams can use Insightly actions safely in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Insightly CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Insightly workflow you want in plain language, and Skill Builder creates the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can look up CRM data, summarize records, and take bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Insightly data during customer chat or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use an Insightly Skill to retrieve customer, lead, opportunity, or account context while responding in a website chat widget or helpdesk workflow. It can also prepare summaries, create follow-up tasks, and log approved notes for human teams."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Insightly?",
+      "answer": "A DocsBot agent can verify CRM context, summarize account status, log conversation notes, create follow-up tasks, and prepare handoffs to sales or customer success teams. Approval boundaries can be added for any action that should stay under human review."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Insightly?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve account history, summarize opportunities, research relationship context, and complete approved CRM workflows. This works well for sales, customer success, and operations teams that need fast answers and consistent process execution."
+    },
+    {
+      "question": "How does DocsBot keep Insightly actions secure?",
+      "answer": "Skill Builder is designed to handle secure configuration by default, including defining required connection settings, protecting and proxying secrets, and keeping credentials out of chats and generated content. It also scopes access to the smallest practical set of users, records, and actions, with approval steps for sensitive updates."
+    },
+    {
+      "question": "Can DocsBot update Insightly records instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as adding notes, creating tasks, updating approved fields, triggering workflows, or generating structured handoff summaries. You control which actions are allowed and where human approval is required."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "monday-sales-crm"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Insightly",
+    "domain": "insightly.com",
+    "description": "Insightly is a modern CRM solution that helps businesses of all sizes build lasting customer relationships and drive growth. It offers a highly customizable, easy-to-use, and affordable platform that allows users to tailor their experience for various customer-facing roles. With fast setup and low total cost of ownership, Insightly empowers businesses to sell smarter and grow faster. Now part of Unbounce's go-to-market solutions, Insightly continues to help over 1.5 million users capture, convert, and cultivate customers more efficiently.",
+    "slogan": "Sell smarter, grow faster, build lasting customer relationships with Insightly.",
+    "logoUrl": "https://media.brand.dev/d0fc46b7-6bd1-47d6-9f54-196d4ff0dc82.svg",
+    "iconUrl": "https://media.brand.dev/f9125aae-4508-4b38-987b-3ab4d41362a9.jpg",
+    "primaryColor": "#fc5414",
+    "accentColor": "#040404",
+    "colors": [
+      {
+        "hex": "#fc5414",
+        "name": "Oil on Fire"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#e8ae8a",
+        "name": "Trick or Treat"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0071f678-c777-4d65-ace3-5a0b95f2038d.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://insightly.com/careers/",
+      "terms": "https://insightly.com/terms-of-service/",
+      "contact": "https://insightly.com/contact-us/",
+      "blog": "https://insightly.com/blog/",
+      "pricing": "https://insightly.com/pricing-plans/",
+      "privacy": "https://insightly.com/privacy-policy"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f9125aae-4508-4b38-987b-3ab4d41362a9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d0fc46b7-6bd1-47d6-9f54-196d4ff0dc82.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 120,
+        "height": 44,
+        "aspectRatio": 2.73
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d0fc46b7-6bd1-47d6-9f54-196d4ff0dc82.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 120,
+      "height": 44,
+      "aspectRatio": 2.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f9125aae-4508-4b38-987b-3ab4d41362a9.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

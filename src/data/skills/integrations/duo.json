@@ -1,0 +1,184 @@
+{
+  "slug": "duo",
+  "name": "Duo",
+  "domain": "duo.com",
+  "category": "Security & Verification",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely With Duo Security",
+  "metaTitle": "Build DocsBot AI Agents for Duo Security Workflows",
+  "metaDescription": "Create DocsBot AI agents that use Duo Security for safe lookups, access checks, workflow triggers, and internal security support with controlled actions.",
+  "intro": "Duo Security helps organizations protect identities with MFA, access policies, and trusted device controls. With DocsBot Skill Builder, you can describe the Duo-powered workflow you want in plain language and have DocsBot design a reusable Skill for a support agent or internal AI assistant. That lets your agent answer questions, check security status, prepare handoffs, and take bounded actions in Duo under the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a user’s MFA enrollment status in Duo and explain the next approved recovery or setup steps during a support chat or ticket reply.",
+    "Use a support agent to verify whether a login issue is related to Duo device trust, policy enforcement, or authentication challenges, then summarize the findings for the customer in plain language.",
+    "Have the agent collect identity details from a customer conversation, look up the matching Duo user or device record, and prepare a secure handoff for your support or security team.",
+    "Enable the agent to trigger approved enrollment or reactivation workflows in Duo after gathering the required context and applying any approval rules you set.",
+    "Use the agent to summarize recent Duo-related access issues on an account so support teams can respond faster and escalate with better context when needed."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Duo user status, enrolled devices, or MFA readiness without switching tools.",
+    "Use an internal AI assistant to guide IT or security teams through account recovery, enrollment troubleshooting, and access verification SOPs using Duo data and company policy documents together.",
+    "Have team members ask the agent to prepare incident summaries that combine Duo authentication details, user context, and recommended next steps for security review.",
+    "Enable operations or helpdesk staff to use a private agent to trigger approved Duo workflows, such as enrollment reminders or limited account support actions, within defined permission boundaries.",
+    "Let employees ask the agent compliance or security-readiness questions and receive answers grounded in Duo records, internal runbooks, and approved escalation paths."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Duo enrollment status during login troubleshooting.",
+    "A private IT assistant that looks up Duo user and device details safely.",
+    "A security workflow agent that prepares Duo-based incident handoff summaries.",
+    "An internal agent that guides MFA recovery steps using Duo and company SOPs.",
+    "A helpdesk agent that triggers approved Duo enrollment or reactivation workflows.",
+    "An AI assistant that explains Duo policy outcomes in plain language for staff."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Duo, such as checking MFA status, guiding recovery, or triggering an approved workflow, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required Duo connection details, defines secure authentication and configuration values, protects and proxies secrets outside of chats and source content, and scopes access to only the users, actions, and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits, approval boundaries, and routing rules so the agent can look up information, prepare handoffs, or take sensitive actions only when your rules allow it."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Duo Skill, validates the workflow, and helps publish it to the right DocsBot agent so your website bot, helpdesk agent, or internal assistant can use it confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Duo Security?",
+      "answer": "With DocsBot Skill Builder, you describe the Duo workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests realistic scenarios, and prepares it for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and bounded actions inside your Duo environment."
+    },
+    {
+      "question": "Can an AI support agent use Duo Security data during customer login or MFA troubleshooting?",
+      "answer": "Yes, a DocsBot support agent can use Duo data to check enrollment status, device or authentication context, and likely causes of access problems while responding in chat or tickets. You can keep actions bounded so the agent informs, routes, or escalates appropriately without overreaching."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Duo Security?",
+      "answer": "A private DocsBot agent can help employees and IT teams look up Duo user details, follow recovery SOPs, prepare security summaries, and trigger approved support workflows. This is useful for helpdesk, security operations, and identity teams that want faster answers and safer execution."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Duo Security?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, define approved actions, and add approval boundaries for sensitive workflows. It also keeps secrets out of chats and generated content by using secure runtime configuration and proxied authentication handling."
+    },
+    {
+      "question": "Can a DocsBot agent prepare security handoffs using Duo information?",
+      "answer": "Yes, the agent can gather the right context from the conversation, retrieve relevant Duo details, and create a concise handoff summary for IT, support, or security teams. That helps escalations move faster with fewer missing details."
+    },
+    {
+      "question": "What does setup look like for a non-technical team using DocsBot with Duo Security?",
+      "answer": "You describe the outcome you want, and Skill Builder handles the design, connection planning, secure configuration, testing, and improvement process for the Skill. Non-technical teams can focus on the workflow and approval rules instead of implementation details."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "ping-identity",
+    "microsoft-entra-id",
+    "auth0"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Duo Security",
+    "domain": "duo.com",
+    "description": "Duo is a security company that aims to democratize security and make the internet a secure place. They provide identity security solutions, including phishing-resistant MFA, to protect organizations from identity threats. With a diverse team of makers and builders, Duo brings an empathetic approach to solving complex global business and security challenges. Now a part of Cisco, Duo continues to drive innovation in human-centered security solutions, offering security-first IAM that is loved by users and hated by attackers.",
+    "slogan": "Democratizing security with simple, human-centered solutions everyone can trust.",
+    "logoUrl": "https://media.brand.dev/5e14c531-10ec-4586-b70e-8d22db4d750f.svg",
+    "iconUrl": "https://media.brand.dev/c5de4e31-27e8-4c8f-bc02-7dc2cd6f87ab.png",
+    "primaryColor": "#74bc4c",
+    "accentColor": "#4c4c4c",
+    "colors": [
+      {
+        "hex": "#74bc4c",
+        "name": "Turtle Green"
+      },
+      {
+        "hex": "#4c4c4c",
+        "name": "Shady Character"
+      },
+      {
+        "hex": "#bcdea2",
+        "name": "Cactus Spike"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/801ba8e2-f500-4f6c-9165-48950f85afe8.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://duo.com/legal/terms",
+      "contact": "https://duo.com/about/contact",
+      "privacy": "https://duo.com/legal/cisco-online-privacy-statement",
+      "blog": "https://duo.com/blog",
+      "pricing": "https://duo.com/editions-and-pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/e7244eaa-8543-4b06-9a3a-7183ec0cc9f1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 400,
+        "height": 400,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5e14c531-10ec-4586-b70e-8d22db4d750f.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 211,
+        "height": 102,
+        "aspectRatio": 2.07
+      },
+      {
+        "url": "https://media.brand.dev/85e9f164-9f3c-45d3-882f-d53ae372c7ee.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 180,
+        "height": 88,
+        "aspectRatio": 2.05
+      },
+      {
+        "url": "https://media.brand.dev/c5de4e31-27e8-4c8f-bc02-7dc2cd6f87ab.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fe809b71-eb33-4b64-8582-349d07f5e89a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5e14c531-10ec-4586-b70e-8d22db4d750f.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 211,
+      "height": 102,
+      "aspectRatio": 2.07
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e7244eaa-8543-4b06-9a3a-7183ec0cc9f1.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 400,
+      "height": 400,
+      "aspectRatio": 1
+    }
+  }
+}

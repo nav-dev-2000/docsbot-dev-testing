@@ -1,0 +1,168 @@
+{
+  "slug": "knowbe4",
+  "name": "KnowBe4",
+  "domain": "knowbe4.com",
+  "category": "Knowledge Management",
+  "trutoCategory": "Knowledge Management",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with KnowBe4",
+  "metaTitle": "Build AI Agents for KnowBe4 with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use KnowBe4 for security training lookups, risk summaries, ticket handoffs, and safe internal workflow automation.",
+  "intro": "KnowBe4 helps organizations improve security awareness, phishing resilience, and human risk management. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up KnowBe4 data, summarize training status, and trigger approved workflows. This helps customer support teams, security teams, and internal operations teams give faster answers and take bounded action from chat, helpdesk, Slack, or Microsoft Teams.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a user has completed required security awareness training before preparing a support handoff to the security or IT team.",
+    "Let a helpdesk-connected AI agent summarize a user’s recent phishing simulation or training status from KnowBe4 so support can respond with the right next steps.",
+    "Enable the agent to gather missing context from the customer and create an internal escalation note that includes relevant KnowBe4 training or risk details for review.",
+    "Have the agent answer policy or readiness questions by combining your support knowledge with approved KnowBe4 lookups and a clear summary of the user’s security training state.",
+    "Use the agent to prepare follow-up tasks or workflow triggers when a support case suggests a user needs awareness training, security coaching, or internal review."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to look up training completion, phishing test history, or assigned awareness content from KnowBe4.",
+    "Give security and IT teams an internal AI assistant that summarizes human risk indicators, training progress, and phishing simulation outcomes for a user, team, or department.",
+    "Enable managers to ask the agent which employees still need assigned training and receive a concise summary with recommended follow-up actions based on your approved workflow.",
+    "Help compliance, HR, or operations teams use a private agent to research training status during onboarding, annual reviews, or audit preparation without manually searching multiple systems.",
+    "Use an internal AI agent to generate escalation summaries, manager-ready status updates, or SOP-driven follow-up steps when KnowBe4 data suggests increased human-related security risk."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks security training completion before escalating account access issues.",
+    "An internal assistant that summarizes phishing simulation results for employees or departments.",
+    "A manager helper that lists overdue awareness training and drafts follow-up messages.",
+    "A security operations agent that prepares handoff notes with KnowBe4 risk context.",
+    "A compliance assistant that gathers training evidence for audit and policy review workflows.",
+    "An employee help agent that answers training status questions with live KnowBe4 lookups."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with KnowBe4 in plain language, such as checking training status, summarizing phishing results, or preparing an escalation."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a reusable Skill, decides the safest workflow design, and identifies the configuration values, connection method, and authentication handling needed for KnowBe4."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, keeps credentials out of chats and Skill content, scopes access to the minimum records and actions required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or missed edge cases, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once validated, Skill Builder helps publish the KnowBe4 Skill to your customer-facing support bot or your private employee agent so it can answer questions and take approved actions within your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with KnowBe4?",
+      "answer": "With DocsBot Skill Builder, you describe the KnowBe4 workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The resulting agent can perform approved lookups, summaries, handoffs, and workflow actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use KnowBe4 data during customer support conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved KnowBe4 lookups to gather training or phishing-awareness context while responding in a website chat or helpdesk workflow. It can then summarize the situation, collect missing details, and prepare a safe escalation or next step."
+    },
+    {
+      "question": "What internal workflows can a DocsBot AI assistant automate with KnowBe4?",
+      "answer": "An internal AI assistant can help employees and managers check training completion, review phishing simulation outcomes, prepare audit evidence, and generate follow-up summaries or handoff notes. It can also support SOP-driven workflows for security, HR, compliance, and IT teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions related to KnowBe4 workflows?",
+      "answer": "Yes, Skill Builder can create bounded actions such as preparing follow-ups, creating escalation artifacts, or triggering approved workflow steps with clear limits. It defines scoped permissions, protects secrets, and adds approval boundaries where sensitive actions should require review."
+    },
+    {
+      "question": "How does DocsBot handle security and authentication for a KnowBe4 Skill?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated Skill content. It also limits access to the minimum users, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can I use a private AI agent with KnowBe4 in Slack or Microsoft Teams?",
+      "answer": "Yes, DocsBot can power a private employee-facing agent in chat, Slack, or Microsoft Teams that uses KnowBe4 data for fast research, status checks, and guided workflows. This is useful for managers, IT, security, and compliance teams that need quick answers and consistent next steps."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "crowdstrike",
+    "servicenow",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "KnowBe4",
+    "domain": "knowbe4.com",
+    "description": "KnowBe4 empowers organizations to improve their security culture by training and testing employees to make smarter security decisions daily. Trusted by over 70,000 companies worldwide, the company provides an AI‑driven, best‑of‑suite human risk management platform that delivers adaptive, continuous awareness training, phishing simulations, and risk analytics, creating an adaptive defense layer that reduces human‑related cyber risk.",
+    "slogan": "We Train Humans and AI Agents",
+    "logoUrl": "https://media.brand.dev/e3af5aaa-be79-418a-8a76-ddb205901027.svg",
+    "iconUrl": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+    "primaryColor": "#ec4424",
+    "accentColor": "#141c24",
+    "colors": [
+      {
+        "hex": "#ec4424",
+        "name": "Heating Lamp"
+      },
+      {
+        "hex": "#141c24",
+        "name": "Coarse Wool"
+      },
+      {
+        "hex": "#fb250d",
+        "name": "Reign of Tomatoes"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c7c95325-9590-4821-89c7-96b3cd06b85a.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.knowbe4.com/careers",
+      "terms": "https://www.knowbe4.com/website-terms-of-use",
+      "contact": "https://www.knowbe4.com/contact-us",
+      "privacy": "https://www.knowbe4.com/website-privacy-notice",
+      "blog": "https://blog.knowbe4.com/",
+      "pricing": "https://www.knowbe4.com/products/security-awareness-training/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7d5f705a-043b-461c-8513-cb283e9a2aef.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 389,
+        "height": 73,
+        "aspectRatio": 5.33
+      },
+      {
+        "url": "https://media.brand.dev/e3af5aaa-be79-418a-8a76-ddb205901027.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 390,
+        "height": 73,
+        "aspectRatio": 5.34
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/7d5f705a-043b-461c-8513-cb283e9a2aef.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 389,
+      "height": 73,
+      "aspectRatio": 5.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a0c1ff7a-2429-49cc-87e7-079c40e76a1c.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

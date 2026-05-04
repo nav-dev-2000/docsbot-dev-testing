@@ -1,0 +1,184 @@
+{
+  "slug": "leadsquared",
+  "name": "Leadsquared",
+  "domain": "leadsquared.com",
+  "category": "Marketing",
+  "trutoCategory": "Marketing Automation",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that work with LeadSquared",
+  "metaTitle": "Build LeadSquared AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LeadSquared for customer support, lead lookups, record updates, handoffs, and internal workflow automation.",
+  "intro": "LeadSquared is a unified CRM, sales, marketing, and customer experience platform that holds valuable lead, customer, and workflow data. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely use LeadSquared. The result is a support or internal AI agent that can answer questions, look up records, update approved fields, trigger workflows, and prepare handoffs instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a contact, lead, or recent activity in LeadSquared so it can answer account and status questions more accurately.",
+    "Use a support agent to create or update LeadSquared records during a chat or helpdesk conversation when a customer shares new details or requests follow-up.",
+    "Have the agent summarize lead history, ownership, recent notes, and campaign context from LeadSquared before preparing a human handoff.",
+    "Enable the agent to trigger approved LeadSquared workflows such as assigning an owner, creating a follow-up task, or moving a record to the right stage.",
+    "Let the agent collect missing customer details in chat and write a clean summary back to LeadSquared so sales or service teams can continue without rework."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve LeadSquared lead records, activity history, and ownership details without leaving the conversation.",
+    "Help sales, support, and operations teams ask the agent to create follow-up tasks, update approved lead fields, or trigger routing workflows in LeadSquared through guided SOPs.",
+    "Enable customer success or service teams to ask the agent for summaries of account activity, campaign engagement, and open follow-ups before outreach or escalation.",
+    "Allow employees to use the agent to research pipeline context across LeadSquared and generate concise handoff notes, next-step checklists, or meeting prep summaries.",
+    "Support operations teams with an internal AI assistant that follows approved workflows for lead qualification checks, assignment reviews, and record hygiene tasks in LeadSquared."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks LeadSquared contact and lead status during customer conversations.",
+    "An AI assistant that creates follow-up tasks and ownership handoffs in LeadSquared.",
+    "A private team agent that summarizes lead history before calls, demos, or escalations.",
+    "A workflow agent that updates approved CRM fields after collecting missing details from chat.",
+    "An internal assistant that prepares sales or service handoff notes from LeadSquared activity.",
+    "A support bot that triggers routing or follow-up workflows based on customer requests."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in LeadSquared, such as look up lead status, update approved fields, or prepare a handoff, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed configuration values, secure connection method, and authentication handling, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems required, and it adds approval boundaries or action limits for sensitive updates, workflow triggers, or ownership changes."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder assembles the reusable Skill package with the right instructions, runtime behavior, reference material, and approved actions so the DocsBot agent can use LeadSquared consistently."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with LeadSquared?",
+      "answer": "With DocsBot Skill Builder, you describe the LeadSquared workflow you want in plain language, and Skill Builder designs, secures, tests, and prepares a reusable Skill for your DocsBot agent. That agent can then perform bounded actions such as record lookups, approved updates, workflow triggers, and handoff preparation."
+    },
+    {
+      "question": "Can an AI support agent use LeadSquared data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use a LeadSquared Skill to retrieve customer, lead, or activity context while responding in a website chat widget or helpdesk flow. It can also prepare summaries, gather missing details, and complete approved record updates or follow-up actions."
+    },
+    {
+      "question": "What LeadSquared workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees retrieve lead history, update approved CRM fields, create follow-up tasks, trigger routing workflows, and generate summaries or handoff notes. These workflows can be delivered through private chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update LeadSquared records through AI Actions?",
+      "answer": "Yes, Skill Builder is designed to scope permissions, protect secrets, and set approval boundaries around sensitive actions. This lets your AI agent perform bounded LeadSquared updates while staying within the access rules and workflow limits you define."
+    },
+    {
+      "question": "Can a DocsBot agent create handoffs and escalation notes from LeadSquared activity?",
+      "answer": "Yes, the agent can pull lead history, recent notes, ownership details, and activity context from LeadSquared to generate clean handoff summaries. That helps human teams take over faster with better context and less manual copy and paste."
+    },
+    {
+      "question": "How does setup work if my team is not technical?",
+      "answer": "Your team describes the result you want, and Skill Builder handles the workflow design, secure configuration, authentication handling, testing, improvement, and deployment process. You do not need to manually write code or map every integration step yourself."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "zoho-crm",
+    "freshsales",
+    "pipedrive",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "LeadSquared",
+    "domain": "leadsquared.com",
+    "description": "LeadSquared is a SaaS CRM platform that provides end-to-end sales, marketing, and customer experience solutions. It helps businesses accelerate revenue growth with its unified platform, supporting sales, marketing, and service teams to improve customer acquisition, retention, and efficiency. With a global presence, LeadSquared serves various industries, including BFSI, healthcare, education, and real estate, among others.",
+    "slogan": "Accelerate revenue growth with unified sales, marketing, and automation solutions.",
+    "logoUrl": "https://media.brand.dev/e38cc633-10a7-441b-bcb7-db503d8485be.png",
+    "iconUrl": "https://media.brand.dev/31da62e5-eaa4-42c9-9e74-cd7cd2cb788c.png",
+    "primaryColor": "#4ba4f4",
+    "accentColor": "#0c2b3c",
+    "colors": [
+      {
+        "hex": "#4ba4f4",
+        "name": "Adamantine Blue"
+      },
+      {
+        "hex": "#0c2b3c",
+        "name": "Black Chasm"
+      },
+      {
+        "hex": "#0d9bfa",
+        "name": "Blue Nebula"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1018c7f0-f5e6-4be5-8c8a-8edbc308cb7e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.leadsquared.com/careers/",
+      "contact": "https://www.leadsquared.com/contact/",
+      "privacy": null,
+      "blog": "https://www.leadsquared.com/news/",
+      "pricing": "https://www.leadsquared.com/sales-crm-pricing/",
+      "terms": "https://www.leadsquared.com/leadsquared-terms-of-service/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a622cb87-079d-4bbc-915a-6bca6031dd06.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/31da62e5-eaa4-42c9-9e74-cd7cd2cb788c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/03aa4429-f8b5-4b27-a5ec-0802c1b9c45f.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 196,
+        "height": 190,
+        "aspectRatio": 1.03
+      },
+      {
+        "url": "https://media.brand.dev/e38cc633-10a7-441b-bcb7-db503d8485be.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 138,
+        "aspectRatio": 2.17
+      },
+      {
+        "url": "https://media.brand.dev/1bebcb1c-4145-4afa-ba77-2e1e759bd995.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/e38cc633-10a7-441b-bcb7-db503d8485be.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 138,
+      "aspectRatio": 2.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a622cb87-079d-4bbc-915a-6bca6031dd06.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

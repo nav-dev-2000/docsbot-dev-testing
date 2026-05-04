@@ -1,0 +1,167 @@
+{
+  "slug": "airtable-scim",
+  "name": "Airtable SCIM",
+  "domain": "airtable.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Airtable SCIM",
+  "metaTitle": "Build AI Agents for Airtable SCIM with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use Airtable SCIM for safe identity lookups, provisioning workflows, access updates, and internal support automation.",
+  "intro": "Airtable SCIM helps teams manage identity provisioning and access workflows connected to Airtable. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill your support or internal AI agent can use. That lets your agent answer questions, look up account state, prepare handoffs, and take bounded actions inside Airtable SCIM-driven workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user account has been provisioned to Airtable and explain the current status during a support chat or ticket reply.",
+    "Use the agent to collect the details needed for an access issue, summarize the SCIM-related account state, and prepare a clean handoff for human support.",
+    "Allow the agent to confirm whether a deprovisioning or access change request appears complete and share the next approved steps with the customer.",
+    "Have the agent look up identity-related record details tied to an Airtable access request and summarize the result without exposing sensitive internal data.",
+    "Use the agent to trigger an approved follow-up workflow for account access review or escalation when a customer reports provisioning problems."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up Airtable provisioning status for a user and get a plain-language explanation of the result.",
+    "IT, operations, or support teams can ask the agent to gather SCIM-related account details, compare current state against expected onboarding steps, and prepare an internal action summary.",
+    "Managers or helpdesk teams can use the agent to start approved access review or offboarding workflows while the agent follows company approval boundaries.",
+    "Employee-facing agents can help teams research user lifecycle issues across Airtable access records and generate a handoff note for identity or security teams.",
+    "Operations teams can chat with the agent to complete repeatable onboarding and offboarding SOPs that include Airtable SCIM checks, status summaries, and documented next steps."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Airtable user provisioning status before replying to access tickets.",
+    "An internal helpdesk assistant that summarizes SCIM account state and recommended next actions.",
+    "An onboarding workflow agent that verifies Airtable access setup across approved identity steps.",
+    "An offboarding assistant that checks deprovisioning status and prepares escalation notes for IT teams.",
+    "A private operations agent that answers employee questions about Airtable access lifecycle workflows.",
+    "An AI handoff tool that gathers missing context and drafts identity support case summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Airtable SCIM in plain language, such as checking provisioning status, summarizing account state, or triggering an approved access workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, asks for any missing business context, and automatically defines the safest workflow design, required configuration values, and runtime behavior for the agent."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder handles secure connection planning by defining authentication and secret handling, keeping credentials out of chats and Skill source, proxying secrets through approved runtime configuration, and scoping access to the minimum records and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds appropriate permission boundaries, user scope, and approval steps for sensitive actions so the agent can take bounded action without exceeding the rules you set."
+    },
+    {
+      "title": "The Skill tests itself",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or missing permission checks, and feeds those findings into a self-improvement loop before deployment."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Airtable SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and Skill Builder creates a secure Skill your agent can use for lookups, summaries, handoffs, and approved actions. It also plans configuration, authentication, testing, and permission boundaries for you."
+    },
+    {
+      "question": "Can an AI support agent use Airtable SCIM data to help with access issues?",
+      "answer": "Yes, a DocsBot support agent can use Airtable SCIM-connected workflows to check provisioning status, summarize account state, gather missing details, and prepare escalations or follow-up actions. The actions can be limited to safe lookups or expanded to approved workflow steps depending on your rules."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with Airtable SCIM?",
+      "answer": "Internal agents can help with onboarding checks, offboarding reviews, access troubleshooting, identity handoff preparation, and repeatable helpdesk SOPs that depend on Airtable provisioning status. Employees can request these workflows through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely update or trigger Airtable SCIM-related workflows?",
+      "answer": "Yes, Skill Builder can design bounded actions such as approved workflow triggers, record updates, or escalation steps while enforcing scoped permissions and approval boundaries. Sensitive actions can require explicit review before they run."
+    },
+    {
+      "question": "How does DocsBot keep Airtable SCIM credentials and access secure?",
+      "answer": "Skill Builder defines secure connection settings, keeps secrets out of conversations and generated Skill code, and uses protected runtime configuration for authentication. It also scopes access to only the users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Airtable SCIM account state for human handoffs?",
+      "answer": "Yes, the agent can gather the relevant status details, explain what has already happened, identify missing context, and generate a clean summary for support, IT, or security teams. This helps teams move faster without manually collecting the same information again."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Airtable",
+    "domain": "airtable.com",
+    "description": "Airtable is an AI-native platform that enables organizations to build custom AI applications to accelerate business operations and streamline workflows. With its AI app builder and agent software, teams can create apps that drive innovation, improve customer experiences, and enhance governance, allowing businesses to work more efficiently and effectively.",
+    "slogan": "Build custom AI apps quickly—no code, no limits, your work reimagined.",
+    "logoUrl": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+    "iconUrl": "https://media.brand.dev/e1bc46c3-639e-4ce9-be5a-1170433be24b.png",
+    "primaryColor": "#1bbdfc",
+    "accentColor": "#b42244",
+    "colors": [
+      {
+        "hex": "#1bbdfc",
+        "name": "Cherenkov Radiation"
+      },
+      {
+        "hex": "#b42244",
+        "name": "Cherryade"
+      },
+      {
+        "hex": "#1c1c24",
+        "name": "Satin Deep Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/c7249ddc-1126-4ec9-a732-1acc00f9e332.png",
+    "industries": [],
+    "links": {
+      "contact": "https://support.airtable.com/docs/contacting-airtable-support",
+      "pricing": "https://airtable.com/pricing",
+      "careers": "https://www.airtable.com/careers",
+      "terms": "https://www.airtable.com/company/terms-and-policies",
+      "privacy": "https://www.airtable.com/company/privacy",
+      "blog": "https://www.airtable.com/newsroom"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/aac2d506-7454-42e1-b9c2-e904e3cdb796.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/e1bc46c3-639e-4ce9-be5a-1170433be24b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 170,
+        "aspectRatio": 1.18
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0dbf7332-60f0-4471-9c9a-dea5670351ba.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 170,
+      "aspectRatio": 1.18
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/aac2d506-7454-42e1-b9c2-e904e3cdb796.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

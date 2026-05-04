@@ -1,0 +1,159 @@
+{
+  "slug": "help-scout",
+  "name": "Help Scout",
+  "domain": "helpscout.com",
+  "category": "Customer Support",
+  "trutoCategory": "Helpdesk",
+  "availability": "install",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Help Scout",
+  "metaTitle": "Build Help Scout AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Help Scout to look up conversations, update records, prepare handoffs, and automate safe support workflows.",
+  "intro": "Help Scout helps teams manage customer conversations across inboxes, chat, and help center experiences. With DocsBot Skill Builder, you can describe the Help Scout workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up live support context, take approved actions, and hand work off cleanly when a human should step in.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up a customer’s recent Help Scout conversations and summarize open issues before replying.",
+    "Let the agent create a new Help Scout conversation or draft a ticket handoff when a customer needs follow-up from a human team member.",
+    "Enable the agent to add internal notes in Help Scout that capture troubleshooting steps, promised next actions, and customer sentiment.",
+    "Have the agent update conversation fields, tags, or status in Help Scout after collecting the right information from the customer.",
+    "Use the agent to prepare escalation summaries from Help Scout conversation history so specialists receive clear context without rereading the full thread."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Help Scout conversations, mailbox activity, or customer history without manually searching across queues.",
+    "Enable customer success or operations teams to ask an internal agent for summaries of unresolved Help Scout threads, common issue themes, or recent support activity.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to create Help Scout notes, tag conversations, or prepare handoff drafts as part of documented support SOPs.",
+    "Allow team members to chat with the agent to research a customer situation across Help Scout and generate a concise status brief before escalation or renewal outreach."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that retrieves Help Scout conversation context before answering a customer question.",
+    "An AI workflow that creates Help Scout handoff drafts with issue summaries and next-step recommendations.",
+    "A private team assistant that finds tagged Help Scout threads and explains the current support state.",
+    "An agent that updates Help Scout conversation fields after gathering missing details from the customer.",
+    "A triage assistant that adds internal notes and prepares escalation packets for complex cases.",
+    "A reporting helper that summarizes recent Help Scout activity for operations or support leaders."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Help Scout agent to do in plain language, such as looking up conversations, creating handoffs, or updating ticket details during support chats."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides what Help Scout data and actions are needed, and defines the right runtime behavior, configuration values, and authentication approach for you."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder keeps secrets and credentials out of chats and Skill source, proxies them through secure runtime configuration, and scopes Help Scout access to the minimum records, users, and actions required."
+    },
+    {
+      "title": "Safe actions get bounded",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive updates, escalations, or record changes happen only within the rules you approve."
+    },
+    {
+      "title": "Scenarios get tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those results into a self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Help Scout?",
+      "answer": "With DocsBot Skill Builder, you describe the Help Scout workflow you want in plain language and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. The agent can then use Help Scout for lookups, updates, summaries, handoffs, and other bounded actions you approve."
+    },
+    {
+      "question": "Can an AI support agent use Help Scout conversation data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use approved Help Scout data to pull conversation history, summarize prior issues, identify open threads, and prepare more accurate replies or escalations. Access can be scoped so the agent only reads or updates the records needed for the workflow."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Help Scout?",
+      "answer": "Teams can build workflows for conversation lookups, ticket or conversation creation, tagging, status updates, internal note creation, escalation prep, and handoff summaries. The goal is to let the AI agent answer and take safe next steps instead of only suggesting what a person should do."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster in Help Scout?",
+      "answer": "Yes, private DocsBot agents can help employees search Help Scout activity, summarize customer situations, create notes, and follow support SOPs from chat, Slack, or Microsoft Teams. This reduces queue searching and helps teams act on support context faster."
+    },
+    {
+      "question": "How does DocsBot keep Help Scout actions secure?",
+      "answer": "Skill Builder defines secure connection handling, keeps secrets out of transcripts and generated content, proxies credentials through protected runtime configuration, and scopes permissions to the minimum necessary access. It can also add approval steps or action boundaries for sensitive changes."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to Help Scout workflows?",
+      "answer": "No, the experience is designed for non-technical users to describe the outcome they want. Skill Builder handles the workflow design, secure setup details, testing, improvement, and deployment path behind the scenes."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "freshdesk",
+    "intercom",
+    "front",
+    "gorgias",
+    "hubspot-service-hub"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Help Scout",
+    "domain": "helpscout.com",
+    "description": "Help Scout is a customer service platform designed with simplicity and efficiency in mind. Offering a more powerful alternative to regular email, Help Scout allows businesses to provide email and live chat support with a personal touch. With features like integrated knowledge base, best-in-class reporting, 50+ integrations, and a robust API, Help Scout empowers teams to deliver great support at scale. Trusted by over 12,000 customers in 140+ countries, Help Scout's shared inbox, help center, and live chat software enable teams to easily manage customer communications. Try Help Scout for free and experience how it can streamline and enhance your customer support processes.",
+    "slogan": "Simplify support. Amplify experience. Help Scout at your service.",
+    "logoUrl": "https://media.brand.dev/ed6f069b-1ed9-4e7f-80d7-7a2369765eac.svg",
+    "iconUrl": "https://media.brand.dev/a5c360c3-4aa7-4535-b010-fcee197cbc1a.jpg",
+    "primaryColor": "#344cdb",
+    "accentColor": "#94ace4",
+    "colors": [
+      {
+        "hex": "#344cdb",
+        "name": "Veteran’s Day Blue"
+      },
+      {
+        "hex": "#94ace4",
+        "name": "Blue Skies Today"
+      },
+      {
+        "hex": "#141c24",
+        "name": "Coarse Wool"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f854b6ed-b74f-4858-ab3c-33c9a291e753.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://helpscout.com/company/careers/",
+      "terms": "https://helpscout.com/company/legal/terms-of-service/",
+      "contact": "https://helpscout.com/",
+      "privacy": "https://helpscout.com/company/legal/privacy/",
+      "blog": "https://helpscout.com/blog/",
+      "pricing": "https://helpscout.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a5c360c3-4aa7-4535-b010-fcee197cbc1a.jpg",
+        "type": "icon",
+        "mode": "light",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ed6f069b-1ed9-4e7f-80d7-7a2369765eac.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 168,
+        "height": 33,
+        "aspectRatio": 5.09
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ed6f069b-1ed9-4e7f-80d7-7a2369765eac.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 168,
+      "height": 33,
+      "aspectRatio": 5.09
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a5c360c3-4aa7-4535-b010-fcee197cbc1a.jpg",
+      "type": "icon",
+      "mode": "light",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

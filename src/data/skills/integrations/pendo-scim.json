@@ -1,0 +1,160 @@
+{
+  "slug": "pendo-scim",
+  "name": "Pendo SCIM",
+  "domain": "pendo.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Pendo SCIM",
+  "metaTitle": "Build AI Agents for Pendo SCIM with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Pendo SCIM for safe lookups, user lifecycle workflows, support handoffs, and internal access operations.",
+  "intro": "Pendo SCIM helps teams manage user identity and lifecycle data connected to the Pendo platform. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure Skill your AI agent can use for support or internal operations. The result is an AI agent that can answer questions, look up user state, prepare handoffs, and take bounded actions inside approved rules instead of only giving instructions.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user is provisioned in Pendo-related identity records before guiding the customer through an access issue.",
+    "Enable the agent to summarize user provisioning status from Pendo SCIM and add that context to a helpdesk reply or escalation.",
+    "Allow the agent to gather missing customer details and prepare a support handoff for identity or access teams when account provisioning needs human review.",
+    "Use the agent to confirm whether a user lifecycle change appears complete, then explain the next approved support step to the customer.",
+    "Let the agent create a structured internal note with Pendo SCIM lookup results so support teams can resolve account access tickets faster."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up user provisioning status in Pendo SCIM without digging through admin tools.",
+    "Operations or IT teams can ask the agent to collect identity context, summarize account lifecycle state, and prepare the next SOP step for onboarding or offboarding reviews.",
+    "Customer success or support managers can chat with the agent to research recurring access issues, compare provisioning patterns, and generate escalation summaries for internal teams.",
+    "Internal teams can use the agent to trigger bounded user lifecycle workflows, such as creating a review task or preparing an approval request when sensitive changes are needed.",
+    "Admins can ask the agent for a concise summary of recent provisioning-related findings so teams can coordinate faster across support, IT, and product operations."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks user provisioning status before responding to access questions.",
+    "An internal assistant that summarizes Pendo SCIM identity data for onboarding and offboarding workflows.",
+    "A DocsBot Skill that prepares escalation notes with user lifecycle context from Pendo SCIM.",
+    "An AI agent that gathers missing account details and routes identity issues to the right team.",
+    "A private team assistant that supports approved provisioning reviews with human approval boundaries.",
+    "A support workflow that turns SCIM lookups into structured ticket notes and handoff summaries."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with Pendo SCIM, such as checking provisioning status, preparing escalations, or supporting onboarding reviews, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure connection and authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the users, records, and actions required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When a workflow could affect user access or identity records, Skill Builder adds approval boundaries and safe action limits so the agent only performs changes that fit your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing permission controls, and workflow gaps, then feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing and refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or internal team assistant can use it confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Pendo SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the Pendo SCIM workflow you want in plain language, such as user lookups, provisioning summaries, or escalation prep, and Skill Builder designs, secures, tests, and packages the Skill for deployment. It also handles configuration, authentication protection, and scoped permissions so the agent can act safely."
+    },
+    {
+      "question": "Can an AI support agent use Pendo SCIM data to help with account access issues?",
+      "answer": "Yes, a DocsBot support agent can use a Pendo SCIM Skill to look up provisioning status, summarize identity context, and prepare handoff details while responding to customers in chat or tickets. This helps support teams resolve access questions faster without exposing unrestricted admin actions."
+    },
+    {
+      "question": "What internal workflows can an AI assistant automate with Pendo SCIM?",
+      "answer": "An internal DocsBot agent can help employees research provisioning status, prepare onboarding or offboarding summaries, create escalation notes, and trigger approved review workflows. It is especially useful for IT, operations, and support teams that need fast answers across identity-related processes."
+    },
+    {
+      "question": "Can DocsBot take actions in Pendo SCIM safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as approved workflow triggers, record checks, and structured handoff creation. Skill Builder adds secure authentication handling, scoped permissions, and approval boundaries so sensitive changes stay under your control."
+    },
+    {
+      "question": "How does DocsBot protect credentials and access when connecting to Pendo SCIM?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chat transcripts and Skill source, and proxies credentials through secure runtime configuration. It also limits the Skill to the minimum records, users, and actions needed for the workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Pendo SCIM findings for support or operations teams?",
+      "answer": "Yes, the agent can turn Pendo SCIM lookups into concise summaries, ticket notes, escalation briefs, or internal status updates. That makes it easier for teams to share the right context quickly without manually compiling account lifecycle details."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "microsoft-entra-id",
+    "jumpcloud",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Pendo",
+    "domain": "pendo.com",
+    "description": "Pendo is an AI‑powered analytics and adoption platform that helps product teams and AI agent builders understand user behavior, drive adoption, and improve business outcomes. By aggregating data from apps, agents, and interactions—over 35 trillion events—the platform offers product analytics, agent analytics, session replay, in‑app guides, sentiment analysis, churn prediction, and data sync across tools. Its AI features, such as natural‑language query (Agent Mode) and integration with LLMs like Claude and ChatGPT, deliver instant insights and automated recommendations. Pendo enables teams to measure AI impact, predict churn, orchestrate user experiences, and break down data silos, empowering organizations to iterate faster, reduce support costs, and increase revenue.",
+    "slogan": "AI-powered analytics and adoption platform for builders",
+    "logoUrl": "https://media.brand.dev/86ff83d3-8815-4465-a826-159e16a25953.jpg",
+    "iconUrl": "https://media.brand.dev/86ff83d3-8815-4465-a826-159e16a25953.jpg",
+    "primaryColor": "#f94d76",
+    "accentColor": "#e498b4",
+    "colors": [
+      {
+        "hex": "#f94d76",
+        "name": "Bonker Pink"
+      },
+      {
+        "hex": "#e498b4",
+        "name": "Usu Koubai Blossom"
+      },
+      {
+        "hex": "#eb235b",
+        "name": "Strawberry Pop"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ce549830-b6d0-4fc9-a130-87702d28a83c.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/86ff83d3-8815-4465-a826-159e16a25953.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ba8ceb9e-c452-42c6-87d9-5967db03e8d6.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/86ff83d3-8815-4465-a826-159e16a25953.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/86ff83d3-8815-4465-a826-159e16a25953.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

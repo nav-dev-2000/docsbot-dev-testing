@@ -1,0 +1,168 @@
+{
+  "slug": "orum",
+  "name": "Orum",
+  "domain": "orum.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Orum",
+  "metaTitle": "Build AI Agents for Orum with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Orum for call lookups, workflow triggers, coaching summaries, and safe team actions in support and internal operations.",
+  "intro": "Orum helps teams manage outbound calling, live conversation visibility, and coaching workflows. With DocsBot Skill Builder, you can describe the Orum-powered agent behavior you want in plain language, and DocsBot can design, secure, test, and package that ability as a reusable Skill. The result is an AI support or internal team agent that can look up call context, summarize activity, trigger approved workflows, and prepare better handoffs without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent pull recent Orum call activity so it can understand outreach history before answering an account-related question.",
+    "Use Orum conversation data to help a support agent summarize previous live interactions and prepare a clean handoff to sales or customer success.",
+    "Have the agent create an internal follow-up task or escalation request when a customer asks for a callback or live conversation.",
+    "Let the agent check whether a recent call attempt or conversation happened and respond with an accurate status update in chat or a helpdesk ticket.",
+    "Use Orum context to generate a concise conversation summary that support teams can attach to escalations, renewals, or account reviews."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat workspace to retrieve Orum call activity, conversation summaries, and coaching context without switching tools.",
+    "Sales, support, and customer success teams can ask the agent to prepare follow-up workflows after calls, including summaries, next-step checklists, and handoff notes.",
+    "Managers can use an internal AI agent to review Orum conversation patterns, surface coaching opportunities, and summarize team activity for pipeline or enablement reviews.",
+    "Operations teams can chat with the agent to research call outcomes across Orum and connected systems, then complete standard routing or escalation workflows more consistently.",
+    "Employees can ask the agent to generate structured call recap artifacts from Orum data for account records, internal notes, or cross-functional handoffs."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that summarizes recent Orum calls before replying to a customer or teammate.",
+    "A support handoff Skill that packages Orum conversation context for sales or success teams.",
+    "An internal assistant that creates callback requests and follow-up workflows from chat instructions.",
+    "A coaching summary Skill that turns Orum activity into manager-ready recap notes.",
+    "A workflow agent that checks call status and reports outreach progress in tickets.",
+    "A private team assistant that gathers Orum context before preparing escalations or account reviews."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Orum-enabled agent to do, such as summarize recent calls, check outreach status, or create a follow-up workflow, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the needed configuration values, sets up secure authentication handling, protects and proxies secrets outside of chats and Skill source, and scopes Orum access to the minimum actions, users, and records required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow includes updates, triggers, or escalations, Skill Builder adds approval boundaries and safe action limits so the agent can act only within the rules you approve."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined support and internal team conversations against the Skill, checks for bugs, weak instructions, missing permission checks, and workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve before deployment",
+      "description": "Skill Builder uses those test findings to refine instructions, strengthen safeguards, and improve the Orum workflow automatically before publishing the Skill to the right DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Orum?",
+      "answer": "You can describe the outcome you want in plain language, such as looking up call activity, summarizing conversations, or triggering follow-up workflows, and DocsBot Skill Builder can design the Orum-connected Skill, secure it, test it, and prepare it for deployment."
+    },
+    {
+      "question": "Can an AI support agent use Orum data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot support agent can use approved Orum data to look up recent call context, summarize live conversation history, and prepare better handoffs or status updates while responding to customers."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Orum?",
+      "answer": "An internal DocsBot agent can help employees research call activity, generate follow-up notes, prepare coaching summaries, create callback workflows, and standardize handoffs across sales, support, and customer success teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Orum instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, follow-up creation, summaries, and escalation prep, with scoped permissions and approval controls for sensitive steps."
+    },
+    {
+      "question": "How does DocsBot handle Orum authentication and secrets securely?",
+      "answer": "Skill Builder defines the required connection details, keeps credentials out of chats and generated content, proxies secrets through secure runtime configuration, and limits access to the records and actions your workflow actually needs."
+    },
+    {
+      "question": "Can an AI agent summarize Orum conversations for managers or account teams?",
+      "answer": "Yes, a DocsBot agent can turn Orum activity into concise summaries, coaching recaps, account notes, and handoff artifacts that help teams act faster and stay aligned."
+    }
+  ],
+  "relatedSlugs": [
+    "gong",
+    "outreach",
+    "salesloft",
+    "dialpad",
+    "aircall",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Orum",
+    "domain": "orum.com",
+    "description": "Orum is an AI-powered Live Conversation Platform that empowers sales teams to maximize every conversation and drive performance. It automates outbound calling, provides real-time visibility into live calls, and offers coaching and enablement tools to enhance sales conversations. With integrations with leading CRM and sales engagement platforms, Orum helps sales teams build authentic engagement, establish trust, and convert conversations into growth opportunities.",
+    "slogan": "Supercharge sales activity, connect teams, and drive more revenue",
+    "logoUrl": "https://media.brand.dev/9fc248f2-4308-4fe4-8d05-869f17912ce0.svg",
+    "iconUrl": "https://media.brand.dev/4dabcf2f-01d7-4ea6-bb04-bc740a6b12d8.png",
+    "primaryColor": "#f7f873",
+    "accentColor": "#9cac6c",
+    "colors": [
+      {
+        "hex": "#f7f873",
+        "name": "Huáng Dì Yellow"
+      },
+      {
+        "hex": "#9cac6c",
+        "name": "Matcha Mecha"
+      },
+      {
+        "hex": "#445c64",
+        "name": "Midnight in the Tropics"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a74708fd-f788-47d8-88be-07b97d0722fe.png",
+    "industries": [],
+    "links": {
+      "careers": "https://orum.com/careers",
+      "terms": "https://orum.com/terms",
+      "contact": null,
+      "privacy": "https://orum.com/privacy",
+      "blog": "https://orum.com/blog",
+      "pricing": "https://orum.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/4dabcf2f-01d7-4ea6-bb04-bc740a6b12d8.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/76240908-cf1f-4107-9247-dd5ef8c354f8.svg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9fc248f2-4308-4fe4-8d05-869f17912ce0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 26,
+        "height": 17,
+        "aspectRatio": 1.53
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9fc248f2-4308-4fe4-8d05-869f17912ce0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 26,
+      "height": 17,
+      "aspectRatio": 1.53
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/4dabcf2f-01d7-4ea6-bb04-bc740a6b12d8.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

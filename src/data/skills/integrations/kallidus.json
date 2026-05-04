@@ -1,0 +1,176 @@
+{
+  "slug": "kallidus",
+  "name": "Kallidus",
+  "domain": "kallidus.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Kallidus",
+  "metaTitle": "Build Kallidus AI Agents for Support and HR Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Kallidus for support answers, employee help, learning lookups, approvals, and HR workflow actions.",
+  "intro": "Kallidus helps organizations manage learning, compliance, and people development, making it a strong system for both employee assistance and selected support workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely look up Kallidus data, summarize status, trigger approved actions, and support handoffs. The result is an AI support agent or internal team assistant that can answer questions and take bounded action instead of only pointing people to manual steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check course enrollment status, training progress, or completion records in Kallidus when customers ask about onboarding or compliance learning access.",
+    "Use a support agent to confirm whether a user has been assigned required learning, summarize outstanding modules, and prepare a clear response in chat or a helpdesk ticket.",
+    "Allow the agent to create a handoff for training or account support when a customer needs manual follow-up related to course access, learner records, or compliance completion.",
+    "Have the agent summarize a learner's Kallidus training state for a support ticket so human teams can resolve access or completion questions faster.",
+    "Enable approved workflow triggers that notify the right internal team when a customer reports missing training content, incorrect assignments, or learning access problems."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to check assigned learning, due dates, completion history, and compliance status from Kallidus.",
+    "Help managers ask the agent for team training summaries, overdue learning reports, or compliance readiness snapshots without manually searching through multiple records.",
+    "Allow HR or L&D teams to use the agent to guide SOPs for learner support, course assignment follow-up, escalation prep, and internal handoffs tied to Kallidus records.",
+    "Enable employees to ask an internal AI assistant what training they still need, when certifications expire, and what next steps they should take based on Kallidus data.",
+    "Support operations teams by having the agent gather learning status details, summarize exceptions, and prepare outreach or follow-up tasks for unresolved compliance gaps."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks learner progress and explains missing training requirements.",
+    "A support assistant that summarizes course access issues and prepares internal handoffs.",
+    "An internal HR bot that answers employee questions about assigned learning and due dates.",
+    "A manager assistant that generates team compliance summaries from Kallidus records.",
+    "An AI workflow that flags overdue training and routes follow-up to the right team.",
+    "A private employee agent that explains certification status and next required actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Kallidus agent to do, such as checking learning status, summarizing compliance progress, or preparing a support handoff, and it turns that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right workflow, defines the required configuration values, handles authentication through secure runtime setup, protects and proxies secrets, and scopes the Skill to only the users, records, and actions needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "For sensitive updates or workflow triggers, Skill Builder adds approval boundaries and safe action limits so the agent can help confidently without exceeding the permissions you want it to have."
+    },
+    {
+      "title": "The Skill is tested automatically",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios against the Kallidus workflow, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing support bot or private employee agent so teams can use it in chat, on your website, or in connected helpdesk channels."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Kallidus?",
+      "answer": "With DocsBot Skill Builder, you describe the Kallidus workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment. The resulting agent can answer questions, look up training or compliance information, and take approved actions within the limits you define."
+    },
+    {
+      "question": "Can an AI support agent use Kallidus data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Kallidus data for approved lookups such as course assignment status, training completion, learner progress, or access-related context. It can also summarize findings for chat replies or helpdesk tickets and prepare handoffs when a human team needs to step in."
+    },
+    {
+      "question": "What internal employee workflows can a DocsBot AI assistant automate with Kallidus?",
+      "answer": "An internal agent can help employees and managers check assigned learning, review overdue training, summarize compliance status, and follow internal SOPs for escalations or follow-up. It can also gather context across workflows so teams spend less time searching and more time acting."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Kallidus instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as approved workflow triggers, record updates, notifications, summaries, and handoff preparation. Skill Builder adds scoped permissions, secure authentication handling, and approval boundaries for actions that should not run automatically."
+    },
+    {
+      "question": "How does setup work for a non-technical team using Kallidus with DocsBot?",
+      "answer": "You do not need to map every technical step yourself because Skill Builder guides the process from a plain-language request. It decides the secure configuration approach, keeps secrets out of chats and Skill instructions, tests likely scenarios, and improves the Skill before deployment."
+    },
+    {
+      "question": "Can a Kallidus AI assistant help managers with compliance and learning visibility?",
+      "answer": "Yes, a private DocsBot agent can give managers quick summaries of team learning progress, overdue requirements, and compliance readiness based on Kallidus data. This makes it easier to monitor status and act on exceptions without digging through dashboards manually."
+    }
+  ],
+  "relatedSlugs": [
+    "workday",
+    "bamboohr",
+    "personio",
+    "ukg",
+    "sage-hr",
+    "cornerstone"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Kallidus",
+    "domain": "kallidus.com",
+    "description": "Kallidus is a leading provider of Learning Management System (LMS) and HR software, supporting organisations for over 20 years. They help companies simplify compliance, develop people, and unlock potential through their LMS and content solutions, driving business growth and success.",
+    "slogan": "Your people success is our business",
+    "logoUrl": "https://media.brand.dev/3a4b3f7f-4c94-4afd-940e-ca2f1c7c8c99.svg",
+    "iconUrl": "https://media.brand.dev/7e8efacc-a10d-494f-861c-e6f9e9ac23c9.jpg",
+    "primaryColor": "#37b5cc",
+    "accentColor": "#d3a2c9",
+    "colors": [
+      {
+        "hex": "#37b5cc",
+        "name": "River Blue"
+      },
+      {
+        "hex": "#d3a2c9",
+        "name": "Geranium Bud"
+      },
+      {
+        "hex": "#403f6c",
+        "name": "Overcast Night"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7ab9725d-1a66-4d9a-b168-06e935891e32.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/7e8efacc-a10d-494f-861c-e6f9e9ac23c9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/56996502-47ba-496c-ab83-39c89bf1bcfb.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/91d2401c-385f-43c3-9720-19153f51df5f.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3a4b3f7f-4c94-4afd-940e-ca2f1c7c8c99.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 389,
+        "height": 115,
+        "aspectRatio": 3.38
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/3a4b3f7f-4c94-4afd-940e-ca2f1c7c8c99.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 389,
+      "height": 115,
+      "aspectRatio": 3.38
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/56996502-47ba-496c-ab83-39c89bf1bcfb.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 150,
+      "height": 150,
+      "aspectRatio": 1
+    }
+  }
+}

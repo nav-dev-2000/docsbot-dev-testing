@@ -1,0 +1,168 @@
+{
+  "slug": "mailgun",
+  "name": "Mailgun",
+  "domain": "mailgun.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Mailgun",
+  "metaTitle": "Build Mailgun AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mailgun for email lookups, delivery status checks, workflow triggers, and safe support or internal team actions.",
+  "intro": "Mailgun helps businesses send, receive, and track email at scale. With DocsBot Skill Builder, you can describe the Mailgun-powered agent behavior you want in plain language, and DocsBot can create a reusable Skill for customer support or internal team workflows. That gives your AI agent the ability to answer questions, check email activity, trigger approved actions, and prepare handoffs without exposing technical setup details to your team.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Mailgun delivery, bounce, and open status for a recent transactional email while answering a support question in chat or a ticket.",
+    "Use a DocsBot support agent to look up whether a password reset, order confirmation, or verification email was sent successfully before escalating the case.",
+    "Have the agent summarize recent Mailgun message events for a customer issue so support can explain whether an email was delivered, deferred, or rejected.",
+    "Allow the agent to trigger an approved resend workflow through your connected systems after confirming the original Mailgun message failed or never arrived.",
+    "Use Mailgun activity data to help the agent prepare a clean handoff for human support with message status, timestamps, and likely next steps already summarized."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to look up Mailgun delivery events for operational troubleshooting.",
+    "Let customer success or operations teams ask the agent to summarize email delivery trends, bounce patterns, or recent message issues for a specific account or workflow.",
+    "Help employees investigate missing transactional emails by having the agent retrieve Mailgun activity details and assemble an internal incident summary.",
+    "Allow teams to use the agent to follow internal SOPs for email troubleshooting, including gathering context, checking Mailgun status, and drafting the next action plan.",
+    "Support internal escalation workflows by letting employees chat with the agent to collect Mailgun evidence, generate handoff notes, and route issues to the right team."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks whether a customer email was sent, delivered, bounced, or deferred.",
+    "An internal assistant that summarizes Mailgun message events for troubleshooting and incident response.",
+    "A helpdesk agent that prepares escalation notes with Mailgun delivery timestamps and message status context.",
+    "A workflow assistant that gathers missing context before triggering an approved resend or follow-up process.",
+    "An operations agent that monitors email issues and drafts internal summaries for recurring delivery problems.",
+    "A customer support assistant that explains likely email delivery outcomes using Mailgun event data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Mailgun-enabled agent to do, such as checking delivery status, summarizing message events, or preparing support handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, defines the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes Mailgun access to only the actions and records needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "When the workflow includes higher-impact steps such as triggering follow-up actions or updating connected systems, Skill Builder adds approval boundaries and safe action limits so the agent stays within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and reports what should improve."
+    },
+    {
+      "title": "Improve before launch",
+      "description": "Skill Builder uses those test findings in an automated self-improvement loop to refine instructions, tighten permission handling, and improve reliability before the Skill is published to the right DocsBot agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Mailgun data for customer support?",
+      "answer": "With DocsBot Skill Builder, you can describe support goals like checking delivery status, confirming whether an email was sent, or summarizing message events, and Skill Builder creates a secure Skill for your support agent. The agent can then use Mailgun during customer chats or ticket replies to provide faster answers and better handoffs."
+    },
+    {
+      "question": "Can an AI support agent check Mailgun delivery status for missing emails?",
+      "answer": "Yes, a DocsBot agent can be designed to look up Mailgun activity such as delivered, bounced, deferred, or failed messages while responding to customer questions. You control what the agent is allowed to see and whether any follow-up actions require approval."
+    },
+    {
+      "question": "What Mailgun workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can help employees investigate missing transactional emails, summarize recent message events, gather troubleshooting context, and prepare escalation notes. It can also guide teams through repeatable email troubleshooting SOPs in chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot use Mailgun safely for lookups and approved actions?",
+      "answer": "Yes, Skill Builder is designed to define secure connection settings, keep credentials out of chats and Skill source, proxy secrets through secure runtime configuration, and limit access to approved Mailgun actions. It can also add approval boundaries for more sensitive steps."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Mailgun events before handing a case to human support?",
+      "answer": "Yes, the agent can collect relevant Mailgun activity, summarize what happened to an email, and prepare a clean handoff with timestamps, status details, and recommended next steps. That helps human agents start with context instead of repeating the investigation."
+    },
+    {
+      "question": "What does setup look like for a Mailgun AI agent if my team is not technical?",
+      "answer": "You describe the outcome you want in plain language, and Skill Builder handles the workflow design, secure configuration, testing, improvement, and deployment steps for the Skill. It asks for missing context when needed and helps shape a safer, more reliable agent before launch."
+    }
+  ],
+  "relatedSlugs": [
+    "sendgrid",
+    "postmark",
+    "gmail",
+    "outlook",
+    "hubspot",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mailgun",
+    "domain": "mailgun.com",
+    "description": "Mailgun, a leading email delivery service by Sinch, specializes in providing robust APIs that empower developers and businesses to efficiently send, receive, and track emails. Since its inception in 2010, Mailgun has supported hundreds of thousands of companies, including Lyft, Microsoft, and Etsy, facilitating the delivery of 250 billion emails annually. With a focus on technically progressive organizations, Mailgun offers a suite of innovative solutions such as the RESTful Email API and advanced Inbound Email Routing software, all backed by a dependable cloud infrastructure that guarantees 99.99% server uptime. Designed with developers in mind, Mailgun's powerful transactional email APIs streamline the email management process, making it easy for businesses to enhance their communication capabilities.",
+    "slogan": "The leading email delivery service for developers and businesses worldwide.",
+    "logoUrl": "https://media.brand.dev/73ab1109-76cc-4bc8-955e-745638c911bc.png",
+    "iconUrl": "https://media.brand.dev/92a8791f-6677-4b3f-84cf-14f76d05147b.png",
+    "primaryColor": "#ec5959",
+    "accentColor": "#f4a4a4",
+    "colors": [
+      {
+        "hex": "#ec5959",
+        "name": "Khmer Curry"
+      },
+      {
+        "hex": "#f4a4a4",
+        "name": "Calabrese"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/f752276e-5d7c-4ff2-a5af-3f4ab77cc626.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.mailgun.com/about/jobs/",
+      "terms": "https://www.mailgun.com/legal/terms/",
+      "contact": "https://www.mailgun.com/contact/support/",
+      "privacy": "https://www.mailgun.com/legal/privacy-policy/",
+      "blog": "https://www.mailgun.com/blog/",
+      "pricing": "https://www.mailgun.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/92a8791f-6677-4b3f-84cf-14f76d05147b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/73ab1109-76cc-4bc8-955e-745638c911bc.png",
+        "type": "logo",
+        "mode": "dark",
+        "width": 209,
+        "height": 63,
+        "aspectRatio": 3.32
+      },
+      {
+        "url": "https://media.brand.dev/8ad8a867-b7a2-496c-a4ca-e666549c6c38.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 397,
+        "height": 116,
+        "aspectRatio": 3.42
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8ad8a867-b7a2-496c-a4ca-e666549c6c38.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 397,
+      "height": 116,
+      "aspectRatio": 3.42
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/92a8791f-6677-4b3f-84cf-14f76d05147b.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

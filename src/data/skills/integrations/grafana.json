@@ -1,0 +1,184 @@
+{
+  "slug": "grafana",
+  "name": "Grafana",
+  "domain": "grafana.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Grafana for Support and Operations",
+  "metaTitle": "Build AI Agents for Grafana with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Grafana to look up observability data, summarize incidents, trigger workflows, and support customers or internal teams safely.",
+  "intro": "Grafana helps teams monitor metrics, logs, traces, dashboards, alerts, and overall system health. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Grafana, and Skill Builder creates, secures, tests, and publishes that reusable ability for support or internal operations. The result is an AI agent that can answer questions, gather live observability context, prepare handoffs, and take bounded actions inside your rules instead of only giving static guidance.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check Grafana dashboards or alert status to explain whether a known outage, latency spike, or service degradation is already being tracked.",
+    "Use Grafana data in support chats or tickets to summarize recent service health signals and give customers a clearer status update without exposing sensitive internal details.",
+    "Have the agent gather relevant metrics, logs, or incident context from Grafana and prepare an escalation handoff for support or engineering teams.",
+    "Enable the agent to confirm whether a customer-reported issue matches an active alert, affected service, or ongoing incident before responding.",
+    "Let the agent create a structured support summary that combines the customer report with Grafana observability findings for faster triage and follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Grafana dashboard status, alert context, and recent observability signals without switching tools.",
+    "Operations, support, and engineering teams can ask the agent to summarize incidents, compare affected services, and assemble troubleshooting context from Grafana for faster internal decisions.",
+    "Team members can use the agent to follow incident-response SOPs, including gathering Grafana evidence, preparing escalation notes, and routing approved handoffs to the right team.",
+    "Customer success or support leaders can ask the agent for plain-language summaries of platform health trends pulled from Grafana to help communicate status internally.",
+    "Employees can use the agent to research service reliability questions across Grafana data and generate concise incident briefings or post-update drafts."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Grafana alerts before replying to outage-related customer questions.",
+    "An internal incident assistant that summarizes dashboards, alerts, and telemetry context for on-call teams.",
+    "A ticket triage Skill that attaches Grafana findings to support escalations and engineering handoffs.",
+    "A status explanation workflow that turns Grafana signals into customer-friendly service health summaries.",
+    "An operations assistant that gathers observability evidence and drafts incident update notes for teams.",
+    "A reliability chatbot that answers employee questions about service health using approved Grafana data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Grafana-powered agent to do in plain language, such as checking alert status, summarizing dashboards, or preparing an escalation with observability context."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill, choosing the safest workflow, defining the needed configuration values, and setting up secure connection and authentication handling for Grafana."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder keeps secrets out of chats and Skill source, proxies credentials through secure runtime configuration, scopes access to the minimum dashboards, actions, users, and data needed, and adds approval boundaries for sensitive steps."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and approved, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or private internal assistant so teams can safely use Grafana through everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Grafana data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, such as checking alerts, summarizing dashboards, or preparing incident context. Skill Builder designs the workflow, secures the connection, tests the Skill, and helps deploy it to the right support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Grafana to answer customer outage or performance questions?",
+      "answer": "Yes, a DocsBot support agent can use approved Grafana data to check active alerts, review service health context, and prepare customer-friendly responses or escalation summaries. You control what data and actions are allowed so the agent stays within safe boundaries."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Grafana?",
+      "answer": "Teams can automate live observability lookups, incident-status summaries, support triage notes, engineering handoffs, and approved workflow triggers based on Grafana context. This helps support teams respond faster with better operational evidence behind each reply."
+    },
+    {
+      "question": "Can an internal AI assistant help employees with Grafana incident research?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve dashboard context, alert status, and incident summaries from Grafana. The agent can also help teams follow SOPs, prepare handoffs, and generate internal updates using approved observability data."
+    },
+    {
+      "question": "How does DocsBot keep Grafana access secure in an AI workflow?",
+      "answer": "Skill Builder defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of chats and generated content. It also scopes permissions and can add approval boundaries so sensitive actions stay controlled."
+    },
+    {
+      "question": "Can DocsBot trigger actions based on Grafana information instead of only summarizing it?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as preparing escalations, creating handoff artifacts, routing incidents, or triggering approved workflows after Grafana context is checked. The exact actions follow the limits and approval rules you define with Skill Builder."
+    }
+  ],
+  "relatedSlugs": [
+    "datadog",
+    "new-relic",
+    "pagerduty",
+    "opsgenie",
+    "statuspage",
+    "sentry"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Grafana",
+    "domain": "grafana.com",
+    "description": "Grafana Labs is a remote‑first company that builds the open observability cloud, including Grafana Cloud—a fully managed platform for collecting, visualizing, and acting on metrics, logs, traces, and other telemetry. Founded on open source, open standards, open ecosystems, and open culture, Grafana Labs enables organizations to ensure application reliability, resolve incidents quickly, and optimize telemetry to cut noise and cost. The platform powers over 25 million users and 7,000+ customers such as Anthropic, Bloomberg, NVIDIA, Microsoft, and Salesforce. With 1,400+ team members across 40+ countries, Grafana Labs is backed by investors like Lightspeed Venture Partners, Sequoia Capital, and J.P. Morgan.",
+    "slogan": "The open and composable observability platform",
+    "logoUrl": "https://media.brand.dev/bdcf0700-128d-4d61-87f1-55f3321b741c.svg",
+    "iconUrl": "https://media.brand.dev/8cc05e4c-99b4-478b-92c4-e02d606e44e1.png",
+    "primaryColor": "#f18227",
+    "accentColor": "#f3ca41",
+    "colors": [
+      {
+        "hex": "#f18227",
+        "name": "Iceland Poppy"
+      },
+      {
+        "hex": "#f3ca41",
+        "name": "Softsun"
+      },
+      {
+        "hex": "#14151d",
+        "name": "Kuroi Black"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d7df2fc1-93db-4ee4-b67c-c020bb3d0834.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://grafana.com/about/careers/",
+      "terms": "https://grafana.com/legal/terms/",
+      "contact": "https://grafana.com/contact/",
+      "privacy": "https://grafana.com/legal/privacy-policy/",
+      "blog": "https://grafana.com/blog/",
+      "pricing": "https://grafana.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/bb8a974e-ae69-4422-8e9e-3ccdc77c4172.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/bdcf0700-128d-4d61-87f1-55f3321b741c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 292,
+        "height": 76,
+        "aspectRatio": 3.84
+      },
+      {
+        "url": "https://media.brand.dev/8cc05e4c-99b4-478b-92c4-e02d606e44e1.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9aab3e09-bcc7-4dcf-b748-15baaa2d05c4.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 135,
+        "height": 23,
+        "aspectRatio": 5.87
+      },
+      {
+        "url": "https://media.brand.dev/5514c920-8bad-4622-b8e8-f705e203f440.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 213,
+        "height": 35,
+        "aspectRatio": 6.09
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/bdcf0700-128d-4d61-87f1-55f3321b741c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 292,
+      "height": 76,
+      "aspectRatio": 3.84
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/bb8a974e-ae69-4422-8e9e-3ccdc77c4172.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

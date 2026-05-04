@@ -1,0 +1,160 @@
+{
+  "slug": "dixa",
+  "name": "Dixa",
+  "domain": "dixa.com",
+  "category": "Customer Support",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dixa",
+  "metaTitle": "Build AI Support and Internal Agents for Dixa | DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Dixa to look up conversations, prepare handoffs, update records, and automate support and team workflows safely.",
+  "intro": "Dixa is a customer service platform built for personalized customer conversations across channels. With DocsBot Skill Builder, you can describe the Dixa workflow you want in plain language and have DocsBot create a reusable Skill for support or internal AI agents. That means your agent can answer questions, retrieve live context, prepare escalations, and take approved actions in Dixa while staying within the rules you define.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s recent Dixa conversation history so it can answer with better context.",
+    "Use a DocsBot support agent to create or update Dixa conversation notes, tags, or status changes during a live customer chat.",
+    "Have the agent summarize a Dixa case before handing the customer to a human support rep for a faster escalation.",
+    "Enable the agent to collect missing details from the customer and create a structured handoff in Dixa for billing, technical, or VIP support teams.",
+    "Let the agent check conversation ownership or queue state in Dixa and set expectations for the customer based on current support progress."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Dixa conversation details, customer history, and case summaries without switching tools.",
+    "Enable support managers to ask an internal agent to summarize open Dixa conversations by queue, topic, or priority for faster triage decisions.",
+    "Help customer success or operations teams use an internal agent to prepare escalation notes, follow-up tasks, or workflow handoffs based on Dixa activity.",
+    "Allow team members to chat with the agent to update approved Dixa fields, assign conversations, or add internal notes while following company SOPs.",
+    "Give QA or leadership teams an internal AI assistant that reviews Dixa records, surfaces patterns, and prepares summaries for coaching or process improvement."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that pulls recent Dixa conversation context before answering a customer.",
+    "An escalation Skill that gathers required details and creates a structured Dixa handoff.",
+    "A case summary Skill that turns long Dixa threads into clean internal briefing notes.",
+    "An internal triage assistant that groups Dixa conversations by issue type or urgency.",
+    "A workflow Skill that updates approved Dixa tags, owners, or statuses after review.",
+    "A reporting helper that summarizes Dixa queue activity for support leads and managers."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Dixa in plain language, such as summarizing conversations, updating approved fields, or preparing handoffs for human teams."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the Dixa connection details it needs, and defines the right runtime behavior, data flow, and configuration values for the workflow."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder automatically handles secure authentication patterns, keeps secrets out of chats and Skill source, proxies credentials through protected runtime configuration, scopes access to the minimum required actions and records, and adds approval boundaries for sensitive updates."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios against the Skill, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Review and publish",
+      "description": "Once the Skill is improved, DocsBot helps you publish it to the right customer-facing or internal agent so it can answer questions and take bounded action in Dixa with logging and control in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Dixa?",
+      "answer": "With DocsBot Skill Builder, you describe the Dixa workflow you want in plain language and DocsBot designs the Skill for lookups, summaries, updates, handoffs, or workflow triggers. It also defines secure configuration, authentication handling, scoped permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Dixa data to answer customers more accurately?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve approved Dixa conversation context, notes, ownership details, or status information while responding to customers. This helps the agent give more relevant answers and prepare better escalations without exposing unrestricted access."
+    },
+    {
+      "question": "What customer support workflows can a DocsBot agent automate with Dixa?",
+      "answer": "A DocsBot agent can be built to summarize conversations, collect missing details, create handoffs, update approved fields, add internal notes, or trigger next-step workflows in Dixa. The exact actions are bounded by the rules, permissions, and approval steps your team defines."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Dixa?",
+      "answer": "Yes, private DocsBot agents for employees can retrieve Dixa records, summarize queues, support triage, and help teams follow SOPs through chat, Slack, or Microsoft Teams. That makes it easier for support, operations, and customer success teams to act without jumping between systems."
+    },
+    {
+      "question": "How does DocsBot keep Dixa actions secure?",
+      "answer": "Skill Builder is designed to connect services safely by defining required configuration values, protecting and proxying secrets, and keeping credentials out of chat transcripts and generated content. It also scopes access to the minimum needed records and actions and can require approvals for sensitive steps."
+    },
+    {
+      "question": "Can DocsBot update Dixa records or create handoffs automatically?",
+      "answer": "DocsBot Skills can be built to perform approved record updates, create structured handoffs, and trigger workflow steps in Dixa when those actions are allowed by your configuration. Approval boundaries can be added so higher-risk changes are reviewed before they run."
+    }
+  ],
+  "relatedSlugs": [
+    "zendesk",
+    "intercom",
+    "freshdesk",
+    "helpscout",
+    "gorgias",
+    "front"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dixa",
+    "domain": "dixa.com",
+    "description": "Dixa is a customer service platform that combines AI with human touch to deliver effortless, personalized experiences. It empowers companies to drive customer loyalty and is trusted by leading consumer brands worldwide, supporting over 30 million conversations annually.",
+    "slogan": "Unlock customer loyalty at scale",
+    "logoUrl": "https://media.brand.dev/13518d2d-d600-479d-9d02-b86499a706b4.svg",
+    "iconUrl": "https://media.brand.dev/a50a463a-8385-4805-8d89-110bf674e0c1.jpg",
+    "primaryColor": "#2c246c",
+    "accentColor": "#1b1b1b",
+    "colors": [
+      {
+        "hex": "#2c246c",
+        "name": "After Work Blue"
+      },
+      {
+        "hex": "#1b1b1b",
+        "name": "Eerie Black"
+      },
+      {
+        "hex": "#5746db",
+        "name": "Majorelle Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6c7dda51-1eea-4855-a5b0-54159aa92def.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.dixa.com/careers/",
+      "terms": "https://www.dixa.com/legal/tos/",
+      "contact": "https://www.dixa.com/contact/",
+      "privacy": "https://www.dixa.com/legal/privacy/",
+      "blog": "https://www.dixa.com/blog/",
+      "pricing": "https://www.dixa.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a50a463a-8385-4805-8d89-110bf674e0c1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/13518d2d-d600-479d-9d02-b86499a706b4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 77,
+        "height": 37,
+        "aspectRatio": 2.08
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/13518d2d-d600-479d-9d02-b86499a706b4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 77,
+      "height": 37,
+      "aspectRatio": 2.08
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a50a463a-8385-4805-8d89-110bf674e0c1.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

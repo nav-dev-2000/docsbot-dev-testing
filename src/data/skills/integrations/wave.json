@@ -1,0 +1,168 @@
+{
+  "slug": "wave",
+  "name": "Wave",
+  "domain": "wave.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work Safely with Wave",
+  "metaTitle": "Build AI Agents for Wave with DocsBot Skill Builder",
+  "metaDescription": "Use DocsBot Skill Builder to create AI support agents and internal assistants that look up Wave data, trigger approved actions, and summarize outcomes safely.",
+  "intro": "Wave helps businesses and customers move money, review transactions, and manage mobile money activity. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent use Wave safely. That means customer-facing support agents and private internal assistants can answer questions, retrieve account or transaction details, prepare handoffs, and trigger approved workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check permitted Wave payment or transfer status details and explain the latest transaction state in a chat or ticket reply.",
+    "Allow the agent to collect missing customer information, summarize a payment issue, and prepare a support handoff with relevant Wave context for a human reviewer.",
+    "Use the agent to confirm whether a supported deposit, withdrawal, or business payment event has been recorded and respond with a clear next-step summary.",
+    "Enable the agent to trigger an approved follow-up workflow, such as flagging a payment issue for review, when a customer reports a failed or delayed transaction.",
+    "Have the agent summarize recent account activity or transaction history that the business has chosen to make available for customer support conversations."
+  ],
+  "internalUseCases": [
+    "Give employees a private DocsBot agent they can chat with to look up Wave transaction details, payment history, or account context without switching tools.",
+    "Let operations teams ask the agent to summarize payment exceptions, identify missing context, and prepare investigation notes for finance or support workflows.",
+    "Help customer success or support leads chat with an internal agent to gather Wave information, draft escalation summaries, and follow internal payment issue SOPs.",
+    "Enable finance or operations employees to use the agent in Slack or Microsoft Teams to trigger approved review workflows tied to Wave events.",
+    "Allow teams to ask the agent for structured summaries of transfer activity, account changes, or unresolved payment issues across customer cases."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Wave transaction status and explains the current payment outcome.",
+    "An internal assistant that summarizes customer payment issues and prepares escalation handoff notes.",
+    "A workflow Skill that flags reported transfer problems for human review with approval boundaries.",
+    "A finance assistant that retrieves approved account activity and drafts exception summaries for teams.",
+    "A support workflow that gathers missing payment details before creating a structured internal case.",
+    "An employee agent that answers operational questions about Wave activity inside Slack or Teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Wave, such as checking payment status, summarizing transaction activity, or preparing a handoff, and it turns that goal into a Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication handling, keeps credentials out of chats and Skill source, and proxies secrets securely through runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations, checks for bugs, weak instructions, and permission gaps, and feeds fixes into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can take bounded action with Wave."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Wave?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and Skill Builder creates a reusable Skill that can look up Wave data, summarize account or transaction state, and trigger approved actions. It also handles secure configuration, authentication, scoped access, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Wave data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Wave Skill to retrieve approved transaction or account details, explain status updates, collect missing information, and prepare handoffs while replying to customers. You control which data and actions are allowed and where human approval is required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Wave?",
+      "answer": "A DocsBot agent can help verify payment status, summarize recent transaction activity, gather missing case details, flag issues for review, and create structured escalation notes for support teams. These workflows are designed around safe, bounded AI Actions instead of unrestricted account access."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Wave?",
+      "answer": "Yes, private DocsBot agents can help operations, finance, and support teams retrieve Wave information, investigate payment issues, summarize exceptions, and follow internal SOPs from chat, Slack, or Microsoft Teams. This reduces tool switching and speeds up routine research and handoff work."
+    },
+    {
+      "question": "How does DocsBot keep a Wave integration secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets securely, keeps credentials out of conversations and generated content, and scopes permissions to the minimum workflow needed. It can also add approval boundaries for sensitive actions such as updates, escalations, or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot trigger actions in Wave instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating a handoff, flagging an issue for review, or triggering an approved operational workflow tied to Wave data. The exact actions depend on what you want the agent to do and the safe limits you set."
+    }
+  ],
+  "relatedSlugs": [
+    "quickbooks",
+    "xero",
+    "stripe",
+    "freshbooks",
+    "paypal",
+    "square"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Wave Mobile Money",
+    "domain": "wave.com",
+    "description": "Wave Mobile Money is a fintech company focused on providing app-based financial solutions in Africa. They aim to make the continent the first cashless one by offering services like saving, transferring, and borrowing money through their mobile app. Wave addresses the challenges of high fees, limited access to physical banks, and lack of card acceptance by providing no account fees, instant availability, and wide acceptance. Their services cater to individuals without bank accounts, small business owners, and parents, offering features like cash deposits, withdrawals, peer-to-peer payments, and business transactions. With millions of users and rapid growth, Wave Mobile Money is dedicated to driving financial inclusion in Africa and revolutionizing the traditional financial landscape.",
+    "slogan": "Driving financial inclusion, making Africa the first cashless continent.",
+    "logoUrl": "https://media.brand.dev/482fcd1f-1971-4417-8b3a-88490f305d69.png",
+    "iconUrl": "https://media.brand.dev/a0f14952-843d-4880-b99f-e3cb39e9f0a4.png",
+    "primaryColor": "#1cc3fa",
+    "accentColor": "#040506",
+    "colors": [
+      {
+        "hex": "#1cc3fa",
+        "name": "Cherenkov Radiation"
+      },
+      {
+        "hex": "#040506",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#4cd2f9",
+        "name": "Libra Blue Morpho"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/0c3951de-1011-47e9-9171-d423bead79f3.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://wave.com/en/careers/",
+      "terms": "https://wave.com/en/terms_and_conditions/",
+      "contact": null,
+      "privacy": "https://wave.com/en/privacy/",
+      "blog": "https://wave.com/en/blog/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a0f14952-843d-4880-b99f-e3cb39e9f0a4.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1081,
+        "height": 1080,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/2fe1d4a1-23ae-4a0d-9c8c-9a72778ec060.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 1024,
+        "height": 1024,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/482fcd1f-1971-4417-8b3a-88490f305d69.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 230,
+        "height": 101,
+        "aspectRatio": 2.28
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/482fcd1f-1971-4417-8b3a-88490f305d69.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 230,
+      "height": 101,
+      "aspectRatio": 2.28
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/2fe1d4a1-23ae-4a0d-9c8c-9a72778ec060.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 1024,
+      "height": 1024,
+      "aspectRatio": 1
+    }
+  }
+}

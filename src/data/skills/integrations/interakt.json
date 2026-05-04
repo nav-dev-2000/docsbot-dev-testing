@@ -1,0 +1,176 @@
+{
+  "slug": "interakt",
+  "name": "Interakt",
+  "domain": "interakt.com",
+  "category": "Communications",
+  "trutoCategory": "WhatsApp",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Interakt",
+  "metaTitle": "Build AI Agents for Interakt with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Interakt for WhatsApp support, customer lookups, workflow triggers, handoffs, and internal team automation.",
+  "intro": "Interakt helps teams manage WhatsApp and Instagram conversations, customer support, CRM activity, and sales workflows in one place. With DocsBot Skill Builder, you can describe the Interakt-powered agent behavior you want in plain language, and DocsBot will design, secure, test, and package that ability as a reusable Skill. The result is an AI support or internal team agent that can answer questions and take approved actions inside Interakt without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a DocsBot support agent look up Interakt conversation history or customer context while replying to customers in a website chat widget or helpdesk ticket.",
+    "Use an AI agent to summarize a customer's WhatsApp support status from Interakt and prepare a clean handoff when the issue needs a human teammate.",
+    "Allow the agent to create or update Interakt contact details, tags, or notes after collecting missing information from the customer.",
+    "Have the agent trigger approved follow-up workflows in Interakt, such as routing a lead, marking a support stage, or flagging a priority conversation.",
+    "Enable the agent to pull recent customer interaction details from Interakt so it can give faster and more personalized support responses."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Interakt customer records, conversation summaries, and CRM context.",
+    "Help support and sales teams ask an internal AI agent to prepare follow-up steps, draft outreach summaries, or document Interakt activity for standard operating procedures.",
+    "Allow operations teams to use a private agent to review tagged conversations, identify escalation patterns, and summarize support workload from Interakt data.",
+    "Enable customer success employees to chat with the agent to update approved Interakt fields, add internal notes, or move records through defined workflows with the right boundaries.",
+    "Give managers an internal AI assistant that researches Interakt interactions across customers and summarizes trends, risks, and next actions for the team."
+  ],
+  "whatYouCanBuild": [
+    "A WhatsApp support agent that retrieves Interakt contact and conversation context before answering customers.",
+    "An escalation assistant that summarizes Interakt activity and prepares handoff notes for human support teams.",
+    "A customer update workflow that adds notes, tags, or status changes in Interakt after approval.",
+    "An internal sales assistant that reviews Interakt interactions and drafts next-step recommendations for reps.",
+    "A support operations agent that identifies conversation patterns and summarizes recurring issues from Interakt records.",
+    "A lead routing Skill that triggers approved Interakt workflows based on customer intent and urgency."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the Interakt agent to do, such as look up customer conversations, update notes, trigger a workflow, or prepare handoff summaries."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required Interakt configuration values, and defines how the agent should retrieve information or take bounded actions."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder handles secure authentication planning, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes Interakt access to the minimum actions and records needed."
+    },
+    {
+      "title": "Safety rules are added",
+      "description": "Skill Builder adds permission boundaries, user scoping, and approval steps for sensitive Interakt updates so the agent can act only within the limits you approve."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs or workflow gaps, and feeds improvements into a self-improvement loop before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Interakt without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Interakt workflow you want in plain language and the builder designs, secures, tests, and prepares the Skill for deployment. It can create Skills for lookups, updates, summaries, handoffs, and approved workflow actions inside Interakt."
+    },
+    {
+      "question": "Can an AI support agent use Interakt data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can use an Interakt Skill to retrieve customer context, conversation history, notes, or status details while responding in a website chat widget or helpdesk flow. It can also prepare handoffs or trigger approved next steps when the workflow calls for action."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Interakt?",
+      "answer": "Teams can build Skills that look up records, summarize recent WhatsApp interactions, add notes, update tags or statuses, and trigger routing or follow-up workflows in Interakt. Sensitive changes can be limited with approvals and scoped permissions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work inside Interakt?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve Interakt information, research account history, summarize conversations, and complete approved SOP-driven updates through chat, Slack, or Microsoft Teams. This makes it easier for support, sales, and operations teams to act quickly without switching tools."
+    },
+    {
+      "question": "How does DocsBot keep Interakt access secure for AI agents?",
+      "answer": "Skill Builder defines the required configuration values, protects and proxies secrets through secure runtime settings, and keeps credentials out of conversations and generated content. It also scopes access to approved users, actions, and records and can add approval boundaries for sensitive Interakt operations."
+    },
+    {
+      "question": "Can DocsBot trigger Interakt workflows instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can go beyond answering by triggering bounded actions such as status updates, note creation, routing steps, and other approved Interakt workflows. The exact actions are designed around your rules so the agent stays useful and controlled."
+    }
+  ],
+  "relatedSlugs": [
+    "whatsapp",
+    "instagram",
+    "zendesk",
+    "freshdesk",
+    "hubspot",
+    "salesforce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Interakt",
+    "domain": "interakt.shop",
+    "description": "Interakt is a business automation platform that empowers e‑commerce merchants to grow on WhatsApp and Instagram. It provides a unified solution combining marketing automation, CRM, customer support, and sales promotion tools, enabling over 25,000 SMBs in more than 100 countries to streamline communication, boost conversions, and scale their online businesses.",
+    "slogan": "Elevate your CX with an AI-powered WhatsApp platform",
+    "logoUrl": "https://media.brand.dev/5d5cdf43-0f4c-4937-bfba-e0fc1f982e11.svg",
+    "iconUrl": "https://media.brand.dev/5d5cdf43-0f4c-4937-bfba-e0fc1f982e11.svg",
+    "primaryColor": "#0a7865",
+    "accentColor": "#e5f3f2",
+    "colors": [
+      {
+        "hex": "#0a7865",
+        "name": "Turquoise Cyan"
+      },
+      {
+        "hex": "#e5f3f2",
+        "name": "Ethereal White"
+      },
+      {
+        "hex": "#7abdb4",
+        "name": "Mintage"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/630ccfe5-2ba2-4bd9-82e5-583d70481c12.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.interakt.shop/terms-of-service/",
+      "contact": "https://www.interakt.shop/contact-us/",
+      "privacy": "https://www.interakt.shop/privacy-policy/",
+      "blog": "https://www.interakt.shop/blog/",
+      "pricing": "https://www.interakt.shop/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/334cddfe-8d20-4752-9162-08dbd4811657.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/559d06f7-7095-4a85-93ce-8d3a6136dfd8.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/dbc2fdd6-7707-4c8d-8570-b1b99260c2ac.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5d5cdf43-0f4c-4937-bfba-e0fc1f982e11.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 214,
+        "height": 214,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/dbc2fdd6-7707-4c8d-8570-b1b99260c2ac.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/dbc2fdd6-7707-4c8d-8570-b1b99260c2ac.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 256,
+      "height": 256,
+      "aspectRatio": 1
+    }
+  }
+}

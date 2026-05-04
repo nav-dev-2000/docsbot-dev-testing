@@ -1,0 +1,168 @@
+{
+  "slug": "freshsales",
+  "name": "Freshsales",
+  "domain": "freshworks.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Freshsales",
+  "metaTitle": "Build AI Agents for Freshsales with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Freshsales for live CRM lookups, safe updates, handoffs, and internal sales workflows with secure Skill Builder setup.",
+  "intro": "Freshsales helps teams manage leads, contacts, deals, and sales activity across the customer journey. With DocsBot Skill Builder, you can describe the Freshsales workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, retrieve CRM context, prepare handoffs, and take approved actions inside Freshsales while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s account, owner, deal stage, or recent sales activity in Freshsales while responding in chat or over helpdesk tickets.",
+    "Use the agent to capture qualified lead details from a website conversation and create or update a lead record in Freshsales for follow-up.",
+    "Have the agent summarize CRM history from Freshsales so support or sales teams receive a cleaner handoff when a customer asks for pricing, renewal help, or a callback.",
+    "Allow the agent to update approved Freshsales fields such as lead status, notes, source details, or follow-up preferences based on information the customer provides.",
+    "Use the agent to trigger escalation workflows by creating a Freshsales note or task for an account owner when a customer signals buying intent or account risk."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat interface to pull Freshsales contact, account, lead, and deal information without opening the CRM.",
+    "Sales and success teams can ask the agent to summarize deal progress, next steps, recent activity, and open tasks from Freshsales before meetings or renewals.",
+    "RevOps or sales managers can use the agent to create standardized notes, tasks, and follow-up reminders in Freshsales as part of internal SOPs.",
+    "Employees can ask the agent to research a prospect or customer across connected sources, then update Freshsales with approved enrichment notes or meeting outcomes.",
+    "Internal teams can use the agent to prepare escalation summaries, account snapshots, and pipeline handoff briefs using Freshsales data and company workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks account ownership and deal status before routing a sales-related request.",
+    "A website AI assistant that creates qualified Freshsales leads from product or pricing conversations.",
+    "An internal sales copilot that summarizes contacts, deals, and recent activity on demand.",
+    "A handoff Skill that writes Freshsales notes after a support chat or ticket escalation.",
+    "An approval-based workflow that updates lead status only when defined business rules are met.",
+    "A renewal assistant that prepares account summaries and follow-up tasks for customer success teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Freshsales agent to do, such as look up deal details, create leads, update notes, or prepare handoffs, and it turns that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the best workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets, and scopes Freshsales access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds approval boundaries, user limits, and safe action rules so the agent can answer and act inside Freshsales without exceeding the permissions or business controls you want."
+    },
+    {
+      "title": "Test realistic scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant so teams can start using it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Freshsales without writing code?",
+      "answer": "With DocsBot Skill Builder, you describe the Freshsales workflow you want in plain language and Skill Builder creates the Skill for you. It handles the workflow design, secure connection setup, testing, and deployment to your support or internal AI agent."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Freshsales data during customer chats?",
+      "answer": "Yes, a DocsBot support agent can use a Freshsales Skill to retrieve approved CRM details such as lead status, account ownership, contact history, or deal context while responding to customers. You control what data the agent can access and which actions it may take."
+    },
+    {
+      "question": "What Freshsales workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can summarize deals, retrieve account details, create notes or tasks, update approved CRM fields, and prepare handoff briefs for sales, customer success, or operations teams. It can also support repeatable SOPs through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can an AI agent update Freshsales records safely?",
+      "answer": "Yes, DocsBot Skill Builder can create bounded actions for approved record updates such as lead status changes, task creation, or note updates. Skill Builder defines secure authentication, scopes permissions, and can add approval steps for sensitive changes."
+    },
+    {
+      "question": "How does DocsBot keep Freshsales credentials and API access secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and Skill instructions, and proxies authentication through secure runtime configuration. It also limits access to the users, records, and actions required for the workflow."
+    },
+    {
+      "question": "Can DocsBot help with sales handoffs and escalation prep using Freshsales?",
+      "answer": "Yes, a Freshsales Skill can gather CRM context, summarize recent activity, and prepare structured handoffs for account owners, sales reps, or customer success managers. That helps your team respond faster with better context and fewer manual steps."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "freshdesk",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freshworks",
+    "domain": "freshworks.com",
+    "description": "Freshworks Inc. is a software development company providing modern cloud-based service software worldwide. Founded in 2010 and headquartered in San Mateo, California, Freshworks offers enterprise-grade solutions that are easy to use and deliver exceptional customer and employee experiences. With a people-first approach to AI, their software automates helpdesk support, fueling customer loyalty and service efficiency for over 72,000 companies globally.",
+    "slogan": "Delivering Exceptional Customer and Employee Experiences",
+    "logoUrl": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+    "iconUrl": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+    "primaryColor": "#d79b2b",
+    "accentColor": "#21b2b7",
+    "colors": [
+      {
+        "hex": "#d79b2b",
+        "name": "Glitzy Gold"
+      },
+      {
+        "hex": "#21b2b7",
+        "name": "Mermaid Treasure"
+      },
+      {
+        "hex": "#88bae3",
+        "name": "Blue Eyed Boy"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/065d156d-be5f-4499-8290-9a9069cabc7e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.freshworks.com/company/careers/",
+      "terms": "https://www.freshworks.com/site-terms/",
+      "contact": "https://www.freshworks.com/contact/",
+      "privacy": "https://www.freshworks.com/privacy/",
+      "blog": "https://www.freshworks.com/newsroom/press-releases/",
+      "pricing": "https://www.freshworks.com/freshdesk/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 250,
+        "height": 250,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/20588e78-9915-4fd9-bd38-f8c991328a31.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/1f37a30f-2cc0-4510-b994-d2326c2a8c68.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/cfce1c6a-88d7-46bb-b9ef-063a151e2cb6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 250,
+      "height": 250,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "onesignal",
+  "name": "OneSignal",
+  "domain": "onesignal.com",
+  "category": "Email",
+  "trutoCategory": "Email",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with OneSignal",
+  "metaTitle": "Build OneSignal AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use OneSignal to look up messaging data, trigger approved campaigns, prepare handoffs, and support internal teams safely.",
+  "intro": "OneSignal helps teams manage email, push, in-app, and SMS messaging across the customer journey. With DocsBot Skill Builder, you can describe the OneSignal-powered agent you want in plain language and have DocsBot create a reusable Skill for support or internal operations. The result is an AI agent that can answer questions, retrieve messaging context, trigger approved actions, and summarize outcomes inside clear security boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check a contact's messaging status in OneSignal and explain whether an email, push notification, or in-app message was sent.",
+    "Use a support agent to look up recent notification activity in OneSignal so it can help customers troubleshoot missed alerts or delivery confusion.",
+    "Enable the agent to confirm subscription or opt-in status from OneSignal before guiding a customer through notification preference changes.",
+    "Have the agent create an internal handoff summary that includes relevant OneSignal delivery history when a messaging issue needs escalation.",
+    "Allow the agent to trigger an approved OneSignal follow-up message, such as a confirmation or onboarding reminder, after a customer requests help in chat or by ticketing workflow."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve OneSignal campaign, segment, or delivery context without manually digging through dashboards.",
+    "Enable customer success or operations teams to ask the agent for a summary of recent messaging activity for an account before outreach or renewal conversations.",
+    "Use an internal AI assistant in Slack or Microsoft Teams to prepare messaging incident summaries from OneSignal data for support, marketing, or product teams.",
+    "Allow team members to chat with the agent to trigger approved operational messages in OneSignal as part of documented SOPs and approval-controlled workflows.",
+    "Help internal teams research engagement patterns by asking the agent to summarize message performance context from OneSignal for campaigns, journeys, or customer segments."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks notification delivery status for a specific customer or user.",
+    "An AI assistant that summarizes recent OneSignal messaging activity before escalation or account outreach.",
+    "A workflow that triggers approved follow-up messages after a support conversation reaches a defined outcome.",
+    "An internal agent that retrieves opt-in, subscription, or channel status for employees in chat.",
+    "A handoff helper that packages OneSignal history into a clear escalation summary for human teams.",
+    "A private operations assistant that follows messaging SOPs and requests approval for sensitive actions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the OneSignal-enabled agent to do, and Skill Builder turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder identifies the OneSignal connection details it needs, defines secure runtime configuration, keeps secrets and authentication out of chats and source, and scopes access to only the actions, records, and users required."
+    },
+    {
+      "title": "Safe actions are mapped",
+      "description": "Skill Builder decides where the agent should perform lookups, summaries, updates, workflow triggers, or approval-gated actions so the Skill stays useful while respecting your operating boundaries."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant with the right approvals, logging, and deployment settings in place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with OneSignal?",
+      "answer": "With DocsBot Skill Builder, you describe the OneSignal workflow you want in plain language, such as checking messaging history or triggering approved follow-ups, and Skill Builder designs, secures, tests, and prepares the Skill for deployment. The finished agent can then use OneSignal data and actions within the boundaries you approve."
+    },
+    {
+      "question": "Can a DocsBot support agent use OneSignal data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a OneSignal Skill to look up delivery status, messaging history, subscription state, or related context while responding to customers in chat or through helpdesk tickets. This helps the agent answer faster and prepare cleaner escalations when a human needs to step in."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with OneSignal?",
+      "answer": "A OneSignal-connected agent can help investigate missed notifications, confirm channel subscription status, summarize recent message activity, prepare escalation notes, and trigger approved follow-up messaging workflows. Approval boundaries can be added for any action you consider sensitive."
+    },
+    {
+      "question": "Can an internal AI assistant use OneSignal for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent in chat, Slack, or Microsoft Teams to retrieve OneSignal context, summarize campaign activity, research engagement patterns, or complete messaging SOPs. This reduces dashboard switching and helps teams act faster with better context."
+    },
+    {
+      "question": "How does DocsBot handle OneSignal authentication and secrets safely?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes permissions to the minimum access needed for the workflow."
+    },
+    {
+      "question": "Can I control which OneSignal actions the AI agent is allowed to take?",
+      "answer": "Yes, DocsBot Skills are designed with bounded actions, scoped permissions, and approval checkpoints where needed. That means you can allow safe lookups and summaries broadly while limiting message sends or updates to approved workflows."
+    }
+  ],
+  "relatedSlugs": [
+    "mailchimp",
+    "sendgrid",
+    "customer-io",
+    "braze",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "OneSignal",
+    "domain": "onesignal.com",
+    "description": "OneSignal is the market-leading customer messaging and engagement solution, offering email, mobile and web push notifications, in-app messaging, and SMS. They provide a powerful omnichannel platform that enables businesses to deliver messages quickly and reliably, with tools for automation, personalization, and analytics to create meaningful customer connections.",
+    "slogan": "Powering seamless customer engagement across all platforms and channels.",
+    "logoUrl": "https://media.brand.dev/c2b753ca-5412-4506-8ec1-3302dc7f5851.svg",
+    "iconUrl": "https://media.brand.dev/60140a63-acfc-4ad7-9709-fd62022cfe6b.png",
+    "primaryColor": "#e34e4f",
+    "accentColor": "#e5a4ac",
+    "colors": [
+      {
+        "hex": "#e34e4f",
+        "name": "Red Arremer"
+      },
+      {
+        "hex": "#e5a4ac",
+        "name": "Berry Riche"
+      },
+      {
+        "hex": "#ffffff",
+        "name": "White"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9a1a3cd3-223e-47e5-a56b-e31888932557.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://onesignal.com/careers",
+      "terms": "https://onesignal.com/tos",
+      "contact": "https://onesignal.com/contact",
+      "privacy": "https://onesignal.com/privacy",
+      "blog": "https://onesignal.com/blog/",
+      "pricing": "https://onesignal.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5f2f4328-45cf-4722-9c9a-5d195367e66b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/60140a63-acfc-4ad7-9709-fd62022cfe6b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c2b753ca-5412-4506-8ec1-3302dc7f5851.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 172,
+        "height": 40,
+        "aspectRatio": 4.3
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/c2b753ca-5412-4506-8ec1-3302dc7f5851.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 172,
+      "height": 40,
+      "aspectRatio": 4.3
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5f2f4328-45cf-4722-9c9a-5d195367e66b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 500,
+      "height": 500,
+      "aspectRatio": 1
+    }
+  }
+}

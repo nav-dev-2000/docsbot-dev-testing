@@ -1,0 +1,183 @@
+{
+  "slug": "workable",
+  "name": "Workable",
+  "domain": "workable.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Workable Hiring and HR Data",
+  "metaTitle": "Workable AI Agent Integration for Support and HR Workflows",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely look up Workable data, update hiring records, trigger workflows, and support HR teams.",
+  "intro": "Workable helps companies manage hiring and broader HR workflows, from candidate pipelines to employee records and recruiting operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets an AI agent safely use Workable data and approved actions. That means customer-facing support agents can prepare handoffs and status summaries, while private internal agents can help recruiting, HR, and operations teams complete real work inside defined limits.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to collect applicant questions, look up the right Workable job or candidate status context, and prepare a clean handoff for your recruiting team.",
+    "Let a support agent summarize open roles, application steps, or interview process details from Workable so candidates get consistent answers in chat or by ticket reply.",
+    "Have the agent capture missing applicant details during a support conversation and create or update an approved recruiting record in Workable for follow-up.",
+    "Use the agent to check whether a candidate already exists in Workable before routing a new inquiry to the correct recruiter or hiring workflow.",
+    "Let the agent generate recruiter-ready conversation summaries from customer or candidate chats and attach the handoff context needed for faster follow-up in Workable."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up job postings, candidate stages, interview status, and assigned recruiters from Workable.",
+    "Recruiting coordinators can ask the agent to create structured candidate summaries, prepare interview handoff notes, and trigger approved follow-up workflows based on Workable records.",
+    "HR and talent teams can use the agent to answer internal questions about open roles, hiring progress, and recruiting pipeline activity without manually digging through Workable.",
+    "Operations teams can chat with the agent to follow hiring SOPs, gather missing context across systems, and update approved Workable fields inside safe permission boundaries.",
+    "Managers can ask the agent for concise summaries of requisition status, candidate pipelines, and pending hiring actions so they can move faster without learning every screen in Workable."
+  ],
+  "whatYouCanBuild": [
+    "An AI recruiting assistant that looks up candidate stages and drafts recruiter handoff notes.",
+    "A support agent that answers applicant process questions using live job and hiring workflow data.",
+    "An internal HR agent that summarizes open requisitions and pending interview actions.",
+    "A workflow Skill that creates approved follow-up tasks after candidate conversations.",
+    "A hiring operations agent that checks for duplicate candidate records before routing inquiries.",
+    "An AI assistant that generates structured interview or applicant status summaries for teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Workable in plain language, such as checking candidate status, preparing recruiter handoffs, or updating approved hiring records."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the configuration values it needs, and defines safe authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Access is safely scoped",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, limits the Skill to the minimum Workable actions and records required, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, permission gaps, or missing edge cases, and feeds those findings back into improvements."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After testing, Skill Builder refines the Skill, prepares it for the right DocsBot agent, and helps publish it to your website chat, helpdesk agent, or private team assistant for everyday use."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Workable?",
+      "answer": "With DocsBot Skill Builder, you describe the hiring or HR outcome you want in plain language, and Skill Builder designs a reusable Skill that can look up Workable data, update approved records, and trigger defined workflows. It also handles secure configuration, scoped permissions, testing, and deployment for the agent."
+    },
+    {
+      "question": "Can an AI support agent use Workable data to answer applicant questions?",
+      "answer": "Yes, a DocsBot support agent can use Workable as a source of live hiring context to answer questions about roles, application steps, or recruiting status while staying within the actions and data access you approve. It can also prepare handoffs and summaries for your recruiting team when a conversation needs human follow-up."
+    },
+    {
+      "question": "What internal HR and recruiting workflows can an AI assistant automate with Workable?",
+      "answer": "A private DocsBot agent can help employees retrieve candidate and requisition details, summarize pipeline status, create recruiter notes, and complete approved hiring workflows across chat, Slack, or Microsoft Teams. This is useful for recruiting coordinators, HR teams, hiring managers, and operations staff who need faster access to Workable information."
+    },
+    {
+      "question": "Can DocsBot update Workable records safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating notes, updating approved fields, or triggering follow-up workflows in Workable. Skill Builder defines secure authentication, keeps secrets out of transcripts, scopes permissions, and can require approval boundaries for more sensitive actions."
+    },
+    {
+      "question": "How does DocsBot handle security for a Workable integration?",
+      "answer": "Skill Builder identifies the connection details the Skill needs, stores and proxies secrets through secure runtime configuration, and limits access to the minimum users, actions, and records required for the workflow. It is designed to keep credentials out of chats and generated Skill content while enforcing safe action limits."
+    },
+    {
+      "question": "Can an AI agent prepare recruiting handoffs from customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot agent can summarize the conversation, gather missing details, map the issue to the right role or candidate context in Workable, and create a structured handoff for your recruiting or HR team. This helps teams respond faster without losing important context."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "bamboohr",
+    "personio",
+    "ashby"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Workable",
+    "domain": "workable.com",
+    "description": "Workable is an all-in-one HR platform that streamlines the hiring and management process for businesses. It provides a comprehensive suite of tools, including an Applicant Tracking System and HRIS, to source talent, simplify hiring, manage employees, track time and attendance, and leverage AI-powered features. With a user-friendly interface, mobile app, and top-notch customer support, Workable is trusted by over 30,000 companies worldwide to build high-performance teams and manage their HR needs effectively.",
+    "slogan": "Simplify hiring, manage teams, and find top talent effortlessly with Workable.",
+    "logoUrl": "https://media.brand.dev/b7136528-7b89-4ebe-a9c3-ebb72a7297e4.svg",
+    "iconUrl": "https://media.brand.dev/b753737c-1e7b-477e-b21e-72483fbedd80.jpg",
+    "primaryColor": "#cf96a7",
+    "accentColor": "#265a6f",
+    "colors": [
+      {
+        "hex": "#cf96a7",
+        "name": "Honey Pink"
+      },
+      {
+        "hex": "#265a6f",
+        "name": "Legion Blue"
+      },
+      {
+        "hex": "#8cb4ac",
+        "name": "Jitterbug Lure"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/e6805cd3-bcf7-43c7-833c-2748594fc98e.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://jobs.workable.com/",
+      "terms": null,
+      "contact": null,
+      "blog": null,
+      "privacy": "https://www.workable.com/privacy",
+      "pricing": "https://www.workable.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b753737c-1e7b-477e-b21e-72483fbedd80.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0c9d77c6-b5aa-4fbb-9560-41feb4c836f8.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/32d4eb1c-5252-4f34-8f7a-88af4271d49d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/32133158-9905-4a9a-9c09-c7c14976bf5c.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 479,
+        "height": 512,
+        "aspectRatio": 0.94
+      },
+      {
+        "url": "https://media.brand.dev/b7136528-7b89-4ebe-a9c3-ebb72a7297e4.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 46,
+        "height": 24,
+        "aspectRatio": 1.92
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b7136528-7b89-4ebe-a9c3-ebb72a7297e4.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 46,
+      "height": 24,
+      "aspectRatio": 1.92
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0c9d77c6-b5aa-4fbb-9560-41feb4c836f8.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

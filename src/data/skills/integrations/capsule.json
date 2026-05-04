@@ -1,0 +1,176 @@
+{
+  "slug": "capsule",
+  "name": "Capsule",
+  "domain": "capsule.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Capsule",
+  "metaTitle": "Build Capsule AI Agents for Support and Internal Teams",
+  "metaDescription": "Create DocsBot AI agents that use Capsule to look up customer records, update CRM data, trigger follow-ups, and support safer team workflows.",
+  "intro": "Capsule helps teams manage customer relationships, sales activity, and account history in one place. With DocsBot Skill Builder, you can describe the Capsule workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That gives your team an AI agent that can answer questions, retrieve CRM context, update approved records, prepare handoffs, and trigger next steps inside Capsule.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up contact, organization, and opportunity details in Capsule so it can answer account-related questions with current CRM context.",
+    "Use the agent to create or update Capsule notes after a support chat or helpdesk ticket so customer history stays organized without manual copy and paste.",
+    "Have the agent log follow-up tasks in Capsule when a customer requests a callback, renewal discussion, or product demo.",
+    "Let the agent summarize recent Capsule activity and prepare a clean handoff for sales or customer success when a support conversation becomes a revenue or retention opportunity.",
+    "Use Capsule data to help the agent identify the right account owner and route escalations or priority conversations to the correct teammate."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Capsule contact history, deal status, and account notes without opening the CRM.",
+    "Sales, success, and support teams can ask the agent to create follow-up tasks, add notes, and summarize recent account activity in Capsule while following approved workflow rules.",
+    "Revenue operations teams can use the agent to research account context across Capsule and produce handoff summaries, renewal prep, or meeting briefs for internal workflows.",
+    "Managers can ask the agent to surface open opportunities, recent customer interactions, and pipeline changes from Capsule to speed up internal reporting and coaching.",
+    "Employees can use the agent to follow SOPs that combine Capsule lookups with next-step recommendations, escalation preparation, and approved record updates."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that reads Capsule account history before replying to customers.",
+    "A private sales assistant that creates Capsule follow-up tasks from team chat requests.",
+    "A handoff Skill that summarizes support conversations and saves notes to Capsule.",
+    "An account research agent that pulls Capsule contact, organization, and opportunity context on demand.",
+    "A renewal prep assistant that reviews Capsule activity and drafts internal briefing summaries.",
+    "A routing Skill that finds the right account owner in Capsule and prepares escalations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the agent to do with Capsule, and Skill Builder turns that goal into a practical workflow for support or internal team use."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder figures out the right Capsule lookups, updates, workflow steps, and safe action limits, then defines the configuration values and connection method needed for the Skill."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder handles authentication safely, keeps credentials out of chats and Skill source, proxies secrets through secure runtime configuration, scopes access to the minimum required records and actions, and adds approval boundaries for sensitive changes."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds improvements back into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take bounded action in Capsule."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Capsule CRM?",
+      "answer": "With DocsBot Skill Builder, you describe the Capsule workflow you want in plain language, such as looking up account details, adding notes, or creating follow-up tasks. Skill Builder then designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support bot or internal AI assistant."
+    },
+    {
+      "question": "Can an AI support agent use Capsule data during customer chats or ticket replies?",
+      "answer": "Yes, a DocsBot agent can use Capsule as a trusted source of CRM context while responding to customers in a chat widget or helpdesk flow. It can retrieve approved account details, summarize recent activity, identify the right owner, and prepare handoffs or follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Capsule?",
+      "answer": "A DocsBot Skill can help with account lookups, note creation, task logging, escalation preparation, ownership routing, and post-conversation summaries tied to Capsule records. This lets the agent do more than answer questions by taking bounded follow-up actions inside your CRM."
+    },
+    {
+      "question": "Can an internal AI assistant update Capsule records for employees?",
+      "answer": "Yes, internal DocsBot agents can be designed to create notes, add tasks, update approved fields, and summarize account activity in Capsule for employees. Skill Builder scopes permissions carefully and can require approvals for sensitive actions so teams keep control."
+    },
+    {
+      "question": "Is it safe to let an AI agent take actions in Capsule?",
+      "answer": "DocsBot Skill Builder is designed to connect services securely by defining the required configuration, protecting and proxying secrets, and keeping credentials out of conversations and generated content. It also scopes access to approved users, records, and actions, with approval boundaries where needed."
+    },
+    {
+      "question": "Can DocsBot use Capsule for sales and customer success handoffs?",
+      "answer": "Yes, you can build Skills that turn support conversations or internal requests into Capsule notes, follow-up tasks, and concise account summaries for sales or success teams. That helps reduce manual handoff work and keeps account history consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "hubspot",
+    "salesforce",
+    "pipedrive",
+    "zoho-crm",
+    "freshsales",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Capsule",
+    "domain": "capsule.com",
+    "description": "Capsule is a healthcare technology company revolutionizing the pharmacy industry with a focus on personalized care. They provide a platform for customized outcomes for doctors, hospitals, insurers, and manufacturers, while prioritizing a human-centered approach. With a strong investment backing, Capsule offers a simplified pharmacy experience, including same-day prescription delivery and accessible pharmacists.",
+    "slogan": "The smarter, simpler, kinder pharmacy",
+    "logoUrl": "https://media.brand.dev/8b4933d9-7a3e-47ed-a7c9-9feeee232195.svg",
+    "iconUrl": "https://media.brand.dev/8d0b0799-14c2-463e-84b3-cf998ac557e9.png",
+    "primaryColor": "#ef8221",
+    "accentColor": "#0d3c6b",
+    "colors": [
+      {
+        "hex": "#ef8221",
+        "name": "Iceland Poppy"
+      },
+      {
+        "hex": "#0d3c6b",
+        "name": "Blue Opal"
+      },
+      {
+        "hex": "#99baba",
+        "name": "Lap Pool Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/ae0aa32c-58c0-43fd-a45b-3e83f92feb2a.png",
+    "industries": [],
+    "links": {
+      "careers": "https://capsule.com/careers",
+      "terms": "https://capsule.com/terms",
+      "contact": null,
+      "privacy": "https://capsule.com/privacy",
+      "blog": "https://capsule.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/13579464-b28a-41e5-9a25-e3debd8e2851.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/8d0b0799-14c2-463e-84b3-cf998ac557e9.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/29b446e7-74dd-4dcf-98ad-672c7a0e4fca.webp",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 362,
+        "height": 364,
+        "aspectRatio": 0.99
+      },
+      {
+        "url": "https://media.brand.dev/8b4933d9-7a3e-47ed-a7c9-9feeee232195.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 202,
+        "height": 40,
+        "aspectRatio": 5.05
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/8b4933d9-7a3e-47ed-a7c9-9feeee232195.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 202,
+      "height": 40,
+      "aspectRatio": 5.05
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/13579464-b28a-41e5-9a25-e3debd8e2851.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 720,
+      "height": 720,
+      "aspectRatio": 1
+    }
+  }
+}

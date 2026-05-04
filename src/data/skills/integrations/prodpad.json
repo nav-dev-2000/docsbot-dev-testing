@@ -1,0 +1,168 @@
+{
+  "slug": "prodpad",
+  "name": "ProdPad",
+  "domain": "prodpad.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with ProdPad",
+  "metaTitle": "Build AI Agents for ProdPad with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use ProdPad to look up product ideas, summarize roadmap context, route feedback, and trigger approved team workflows safely.",
+  "intro": "ProdPad helps product teams collect ideas, prioritize work, and manage flexible roadmaps across the business. With DocsBot Skill Builder, you can describe the ProdPad workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, gather context, create handoffs, update approved records, and summarize product information without exposing sensitive access.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up relevant product ideas, roadmap notes, or feedback themes in ProdPad when customers ask whether a feature has been considered.",
+    "Use the agent to capture customer feedback from a website chat or support ticket and create a structured ProdPad idea or note for the product team.",
+    "Have the agent summarize known product direction or related request history from ProdPad so support can give customers a more informed response.",
+    "Allow the agent to prepare a clean handoff for feature requests by attaching customer context, urgency, account details, and conversation summaries to approved ProdPad records.",
+    "Use the agent to tag or route incoming feedback into the right product area in ProdPad when a support conversation reveals a clear product request or pain point."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve ProdPad idea history, roadmap context, and product feedback summaries.",
+    "Product, success, and support teams can ask the agent to turn scattered notes into a structured ProdPad submission that follows internal intake standards.",
+    "Teams can use the agent to research related customer pain points across systems and produce a concise ProdPad-ready summary for prioritization reviews.",
+    "Internal staff can ask the agent to follow product feedback SOPs, gather missing context, and prepare escalation or planning handoffs tied to ProdPad records.",
+    "Leaders can chat with the agent to generate summaries of themes, opportunity areas, and recent product requests based on approved ProdPad data."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that logs customer feature requests into ProdPad with structured context.",
+    "An internal assistant that summarizes roadmap themes and related feedback from ProdPad records.",
+    "A triage workflow that routes incoming product feedback to the right ProdPad category.",
+    "A handoff Skill that converts support conversations into ProdPad-ready idea submissions.",
+    "A research assistant that pulls ProdPad context before product, success, or support meetings.",
+    "A summary Skill that turns multiple customer requests into a concise prioritization brief."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with ProdPad, such as logging feature requests, summarizing roadmap context, or preparing product handoffs, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the right configuration values, connection method, and authentication approach, keeps secrets out of chats and Skill content, proxies credentials through secure runtime settings, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds clear action limits, user scope, and approval boundaries for sensitive updates so the agent can help with lookups, summaries, and approved ProdPad changes without exceeding your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, checks for bugs, missing instructions, weak permission controls, or workflow gaps, and records what should improve."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder feeds those findings into a self-improvement loop, refines the Skill, and helps publish it to the right DocsBot agent for your website chat, helpdesk workflow, or private employee assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with ProdPad?",
+      "answer": "With DocsBot Skill Builder, you describe the ProdPad outcome you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the workflow, and prepares it for deployment. The agent can then use ProdPad for approved lookups, summaries, record creation, updates, and handoffs inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use ProdPad data to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use approved ProdPad information to look up idea history, roadmap context, or feedback themes while responding in a chat widget or helpdesk flow. You control what data the agent can access and which actions require approval."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with ProdPad?",
+      "answer": "DocsBot can help capture feature requests, summarize customer pain points, prepare product team handoffs, route feedback into the right category, and attach structured conversation context to approved ProdPad records. This helps support teams respond faster while keeping product feedback organized."
+    },
+    {
+      "question": "Can an internal AI assistant help employees update ProdPad safely?",
+      "answer": "Yes, internal agents can help employees create or update ProdPad records within scoped permissions and approval boundaries defined by Skill Builder. That means teams can move faster without giving the agent unrestricted access."
+    },
+    {
+      "question": "How does DocsBot keep ProdPad credentials and actions secure?",
+      "answer": "Skill Builder defines the required connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated Skill content. It also scopes access to the minimum actions, users, and records needed for the workflow."
+    },
+    {
+      "question": "Can DocsBot test a ProdPad workflow before my team uses it?",
+      "answer": "Yes, Skill Builder includes an automated testing agent that runs realistic support and internal scenarios, identifies bugs or weak spots, and feeds those findings into an improvement loop before deployment. This helps you launch a safer and more reliable ProdPad-connected agent."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "trello",
+    "productboard",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "ProdPad",
+    "domain": "prodpad.com",
+    "description": "ProdPad is a product management software company that provides a dynamic toolkit to help product teams collect ideas, prioritize, and build flexible product roadmaps. Their software supports collaboration across the business, empowering product managers to turn ideas into products that customers love. ProdPad offers a comprehensive platform for managing product strategy, teams, feedback, and roadmaps, helping teams to create outstanding products.",
+    "slogan": "Empowering teams to turn ideas into products customers love.",
+    "logoUrl": "https://media.brand.dev/742b899d-2217-4c52-829c-308429d5c145.svg",
+    "iconUrl": "https://media.brand.dev/d7e60882-be8f-41af-97f8-c6b18bcd544b.jpg",
+    "primaryColor": "#3fcb7a",
+    "accentColor": "#54cf51",
+    "colors": [
+      {
+        "hex": "#3fcb7a",
+        "name": "UFO Green"
+      },
+      {
+        "hex": "#54cf51",
+        "name": "Koopa Green Shell"
+      },
+      {
+        "hex": "#28a5d8",
+        "name": "Blue Damselfly"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a694f92c-2e5a-4b27-a816-7ad92f639184.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.prodpad.com/about-us/jobs/",
+      "terms": "https://www.prodpad.com/terms-of-service/",
+      "contact": "https://www.prodpad.com/contact-us/",
+      "privacy": "https://www.prodpad.com/privacy-policy/",
+      "pricing": "https://www.prodpad.com/pricing",
+      "blog": "https://www.prodpad.com/blog/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d7e60882-be8f-41af-97f8-c6b18bcd544b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4bebf26c-d92e-479a-8fc8-575b756c2e58.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/742b899d-2217-4c52-829c-308429d5c145.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 180,
+        "height": 36,
+        "aspectRatio": 5
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/742b899d-2217-4c52-829c-308429d5c145.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 180,
+      "height": 36,
+      "aspectRatio": 5
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/d7e60882-be8f-41af-97f8-c6b18bcd544b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

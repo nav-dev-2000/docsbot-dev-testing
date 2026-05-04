@@ -1,0 +1,168 @@
+{
+  "slug": "metabase",
+  "name": "Metabase",
+  "domain": "metabase.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Metabase for Answers and Actions",
+  "metaTitle": "Build AI Agents for Metabase with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Metabase for live analytics lookups, summaries, escalations, and safe internal workflows without manual integration work.",
+  "intro": "Metabase helps teams measure, analyze, and share business data, and DocsBot Skill Builder helps you turn that data access into a practical AI agent ability. In plain language, you can describe the outcomes you want, such as answering metric questions, summarizing account health, or preparing escalations, and Skill Builder creates the reusable Skill for you. The result is a customer support or internal AI agent that can use Metabase safely to retrieve insights, generate summaries, and trigger approved next steps instead of only giving static answers.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent query Metabase dashboards or saved questions to answer billing, usage, fulfillment, or account activity questions in real time.",
+    "Use Metabase data during support chats or helpdesk replies to summarize recent product usage, plan limits, feature adoption, or trend changes before responding to the customer.",
+    "Have the agent pull account-level metrics from Metabase and prepare a clean escalation summary for customer success, support, or engineering teams.",
+    "Enable the agent to compare current and past customer activity from Metabase so it can explain unusual spikes, drops, or status changes more clearly.",
+    "Use Metabase lookups to help the agent identify whether an issue appears isolated or widespread and then route the conversation to the right team with supporting data context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve Metabase metrics, dashboard summaries, and trend explanations without hunting through reports.",
+    "Help support managers ask the agent for ticket volume, resolution time, or customer health trends from Metabase and receive a concise operational summary.",
+    "Enable customer success or operations teams to ask the agent for account performance snapshots, adoption changes, or renewal-risk indicators based on Metabase reporting.",
+    "Give finance, product, or leadership teams an internal AI assistant that can summarize key business metrics from Metabase and package them into briefings or handoff notes.",
+    "Support internal SOPs by letting employees ask the agent to gather Metabase insights, combine them with business context, and prepare next-step recommendations for review."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that answers customer account questions using approved Metabase queries.",
+    "A private team assistant that summarizes dashboard trends for support, success, and operations leaders.",
+    "A ticket triage Skill that attaches relevant Metabase metrics to escalations and handoffs.",
+    "An internal agent that prepares weekly KPI summaries from Metabase for managers and executives.",
+    "A support workflow that checks usage or activity data before suggesting troubleshooting steps.",
+    "A customer success assistant that generates account health snapshots from saved Metabase questions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Metabase in plain language, such as answering usage questions, summarizing trends, or preparing escalation notes."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, identifies the required configuration values, and plans how the DocsBot agent should query Metabase and respond within your workflow."
+    },
+    {
+      "title": "Connections stay protected",
+      "description": "Skill Builder defines secure authentication handling, keeps credentials out of chats and Skill source, proxies secrets through approved runtime configuration, and scopes access to only the dashboards, queries, users, and actions the workflow needs."
+    },
+    {
+      "title": "Safe actions are bounded",
+      "description": "Skill Builder adds approval boundaries and action limits where needed so sensitive summaries, escalations, or downstream workflow triggers happen only within the permissions and rules you choose."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for weak instructions, missing safeguards, confusing outputs, or workflow gaps, and identifies improvements before launch."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Metabase data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your agent query Metabase, summarize results, and take approved next steps. Skill Builder also handles secure connection design, scoped access, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Metabase to answer customer questions?",
+      "answer": "Yes, a DocsBot support agent can use Metabase to look up relevant metrics, usage trends, or account activity while replying in a website chat widget or helpdesk workflow. This helps the agent give more context-aware answers and prepare better escalations when human follow-up is needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Metabase?",
+      "answer": "A DocsBot agent can retrieve analytics tied to an account, summarize recent changes, attach key metrics to handoffs, and help route issues based on data patterns. You can also define bounded actions such as preparing escalation notes or triggering approved follow-up workflows."
+    },
+    {
+      "question": "Can an internal AI assistant answer team questions from Metabase dashboards and reports?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve dashboard insights, compare trends, and get plain-language summaries from Metabase. This is useful for support, customer success, operations, finance, and leadership teams that need faster answers from business data."
+    },
+    {
+      "question": "How does DocsBot keep Metabase access secure in an AI workflow?",
+      "answer": "Skill Builder designs the Skill with secure configuration by default, defines the needed connection values, protects and proxies secrets, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and can add approval boundaries so the agent only uses the Metabase access required for the workflow."
+    },
+    {
+      "question": "Can DocsBot use Metabase for escalations and handoff summaries?",
+      "answer": "Yes, the agent can pull relevant metrics or trend summaries from Metabase and turn them into structured handoff notes for support, customer success, or engineering teams. That gives human teammates a faster, more informed starting point when a case needs escalation."
+    }
+  ],
+  "relatedSlugs": [
+    "power-bi",
+    "tableau",
+    "looker",
+    "google-bigquery",
+    "snowflake",
+    "postgres"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Metabase",
+    "domain": "metabase.com",
+    "description": "Metabase is a company that brings data tools with the elegance and simplicity of consumer products to the often complex world of enterprise business intelligence. It offers an opinionated open‑source platform for measuring, analyzing, and sharing data, plus a suite of tools that scale as organizations grow.",
+    "slogan": "Open-source analytics that answers back—chat with your data using AI.",
+    "logoUrl": "https://media.brand.dev/136f3f02-425d-44b3-bdd2-cfa51ed30b1c.svg",
+    "iconUrl": "https://media.brand.dev/b979404c-af1b-4b65-b6eb-42685dc67f41.svg",
+    "primaryColor": "#549ce4",
+    "accentColor": "#8fb1d6",
+    "colors": [
+      {
+        "hex": "#549ce4",
+        "name": "Perfect Days"
+      },
+      {
+        "hex": "#8fb1d6",
+        "name": "Boy Blue"
+      },
+      {
+        "hex": "#c4dcf3",
+        "name": "Fly a Kite"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4ab951c7-c978-41ab-9a39-efafe78ce88a.jpg",
+    "industries": [],
+    "links": {
+      "contact": null,
+      "careers": "https://www.metabase.com/jobs",
+      "terms": "https://www.metabase.com/terms",
+      "privacy": "https://www.metabase.com/privacy-policies",
+      "blog": "https://www.metabase.com/blog",
+      "pricing": "https://www.metabase.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/f342269d-bfae-4e94-a6ae-49a618cffe38.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/136f3f02-425d-44b3-bdd2-cfa51ed30b1c.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 9,
+        "height": 16,
+        "aspectRatio": 0.56
+      },
+      {
+        "url": "https://media.brand.dev/b979404c-af1b-4b65-b6eb-42685dc67f41.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/136f3f02-425d-44b3-bdd2-cfa51ed30b1c.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 9,
+      "height": 16,
+      "aspectRatio": 0.56
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/f342269d-bfae-4e94-a6ae-49a618cffe38.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "slug": "shortcut",
+  "name": "Shortcut",
+  "domain": "shortcut.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Shortcut using DocsBot Skills",
+  "metaTitle": "Build Shortcut AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Shortcut to look up work, update stories, trigger handoffs, and support teams with secure, tested AI actions.",
+  "intro": "Shortcut helps product and engineering teams plan, track, and deliver work across stories, sprints, roadmaps, and goals. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Shortcut, and DocsBot helps design, secure, test, and deploy that ability. The result is a support or internal AI agent that can answer questions and take approved action in Shortcut without forcing your team to manage technical setup.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a bug, feature request, or incident-related story in Shortcut and reply with a clear progress summary.",
+    "Use a support agent to create a new Shortcut story from a customer conversation, including reproduction details, priority notes, and account context for the product team.",
+    "Allow the agent to append customer impact notes or follow-up details to an existing Shortcut story while keeping the customer updated in chat or over email.",
+    "Have the agent summarize linked Shortcut work before handing a ticket to human support, success, or engineering teams for faster escalation.",
+    "Enable the agent to search Shortcut for known issues or planned fixes so customers get more accurate answers about roadmap-related requests or active defects."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to find Shortcut stories, epics, milestones, objectives, or workflow status without digging through project boards manually.",
+    "Give product, support, and engineering teams an internal agent that creates well-structured Shortcut stories from Slack messages, meeting notes, or support escalations.",
+    "Help employees ask the agent for sprint summaries, blocked work, overdue items, or roadmap updates pulled from Shortcut and explained in plain language.",
+    "Enable teams to use a private AI assistant to prepare escalation handoffs that combine Shortcut context with internal SOP guidance and next-step recommendations.",
+    "Allow managers and operations teams to chat with the agent to update approved Shortcut fields, assign ownership, or trigger follow-up workflows within defined permission limits."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that creates Shortcut bug reports from customer chat transcripts.",
+    "An internal assistant that summarizes sprint health and blocked work from Shortcut.",
+    "A DocsBot workflow that finds related Shortcut stories before escalating a ticket.",
+    "An AI agent that updates approved Shortcut fields after human approval.",
+    "A team assistant that turns Slack feedback into structured Shortcut feature requests.",
+    "A support handoff skill that attaches customer impact notes to existing Shortcut stories."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do in Shortcut, such as finding story status, creating bug reports, or preparing escalations, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required Shortcut connection details, defines secure authentication and configuration values, protects and proxies secrets automatically, and scopes access to the minimum records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder sets clear runtime rules so the agent can perform safe lookups, summaries, updates, and workflow actions, while adding approval boundaries for sensitive changes or broader record access."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After reviewing results, Skill Builder refines the Skill, prepares it for publication, and helps deploy it to the right DocsBot agent for your website chat, helpdesk workflows, or internal team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Shortcut?",
+      "answer": "With DocsBot Skill Builder, you describe the Shortcut workflow you want in plain language, and DocsBot designs the Skill, handles secure connection setup, tests scenarios, and prepares it for deployment. The finished agent can look up work, create records, summarize status, and take bounded actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use Shortcut data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use approved Shortcut access to look up story status, check known issues, create escalation records, or summarize engineering progress while replying to customers. You control what the agent is allowed to read, update, or create."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Shortcut?",
+      "answer": "Teams can automate bug intake, feature request logging, known-issue lookups, escalation summaries, and handoff preparation that writes approved details into Shortcut. This helps support respond faster while giving product and engineering better structured context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage work in Shortcut?",
+      "answer": "Yes, private DocsBot agents can help employees search stories, summarize sprints, review roadmap progress, create new work items, and follow internal SOPs tied to Shortcut workflows. These assistants can be accessed through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot update Shortcut records safely?",
+      "answer": "DocsBot Skill Builder can create Skills that update Shortcut within defined boundaries, such as approved fields, selected projects, or specific user roles. It can also add approval steps before sensitive actions so the agent stays within your operating rules."
+    },
+    {
+      "question": "How does DocsBot keep Shortcut credentials and API access secure?",
+      "answer": "Skill Builder defines the required connection settings, keeps secrets out of chats and generated content, and proxies authentication through secure runtime configuration. It also scopes permissions to the smallest practical set of users, actions, and records needed for the workflow."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "asana",
+    "clickup",
+    "trello",
+    "monday-com"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Shortcut",
+    "domain": "shortcut.com",
+    "description": "Shortcut is a modern project management platform that unites product and engineering teams to accelerate the delivery of products. It combines simplicity with the intelligence of Korey, an AI Product Management Agent, to help teams focus on building rather than managing work. Shortcut brings together issue tracking, sprint planning, roadmaps, and goals in one collaborative space, enabling teams to plan, track, and deliver work with clarity.",
+    "slogan": "Simplify software development with fast, smart, and collaborative project management.",
+    "logoUrl": "https://media.brand.dev/94bbba95-395a-4793-9d5f-a08b5ff955e6.svg",
+    "iconUrl": "https://media.brand.dev/0fefc91a-aae5-4559-b30a-30a3e461b625.jpg",
+    "primaryColor": "#4c4ccb",
+    "accentColor": "#a4acd4",
+    "colors": [
+      {
+        "hex": "#4c4ccb",
+        "name": "Gorgonzola Blue"
+      },
+      {
+        "hex": "#a4acd4",
+        "name": "Childish Wonder"
+      },
+      {
+        "hex": "#ecedf3",
+        "name": "Springtime Rain"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1b3e9d47-8da9-4da9-99cf-bea5eeed009b.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.shortcut.com/careers",
+      "terms": "https://www.shortcut.com/terms",
+      "contact": "https://www.shortcut.com/contact",
+      "privacy": "https://www.shortcut.com/privacy",
+      "blog": "https://www.shortcut.com/blog",
+      "pricing": "https://www.shortcut.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0fefc91a-aae5-4559-b30a-30a3e461b625.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/94bbba95-395a-4793-9d5f-a08b5ff955e6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 162,
+        "height": 28,
+        "aspectRatio": 5.79
+      },
+      {
+        "url": "https://media.brand.dev/cc2da1ff-5651-48d0-bd86-3dd482b33c9f.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/94bbba95-395a-4793-9d5f-a08b5ff955e6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 162,
+      "height": 28,
+      "aspectRatio": 5.79
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0fefc91a-aae5-4559-b30a-30a3e461b625.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

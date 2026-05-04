@@ -1,0 +1,168 @@
+{
+  "slug": "avigilon-alta",
+  "name": "Avigilon Alta",
+  "domain": "avigilon-alta.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI agents that work with Avigilon Alta",
+  "metaTitle": "Build Avigilon Alta AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Avigilon Alta for secure lookups, incident summaries, handoffs, and approved security workflow actions.",
+  "intro": "Avigilon Alta helps organizations manage video security, analytics, and smart access control in cloud-connected environments. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent securely use Avigilon Alta data and actions. That means customer-facing support bots and internal team assistants can answer questions, gather context, prepare escalations, and trigger approved workflows without exposing sensitive access.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check the status of a site, door, camera, or known incident in Avigilon Alta and respond with an approved summary for the customer.",
+    "Let a support agent gather details from a customer report, look up matching access control or video security context in Avigilon Alta, and prepare a faster handoff to security or facilities teams.",
+    "Allow a helpdesk-connected DocsBot agent to create or update a service record tied to a reported access issue, then summarize the next steps for the customer.",
+    "Use the agent to verify whether a reported badge access problem, door event, or site alert already has related activity in Avigilon Alta before escalating the ticket.",
+    "Let the agent collect incident details from the conversation and trigger an approved internal review workflow tied to Avigilon Alta event information."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web portal to look up Avigilon Alta site, access, or incident information without manually navigating multiple consoles.",
+    "Security, workplace, and operations teams can ask the agent to summarize recent door activity, camera-related alerts, or incident context in Avigilon Alta for faster internal decision-making.",
+    "Team members can use the agent to follow standard operating procedures for access issues, visitor events, or location incidents while the agent pulls the right Avigilon Alta details and prepares the next step.",
+    "Managers and coordinators can ask the agent to generate a concise incident handoff or status summary from Avigilon Alta data for security teams, facilities staff, or leadership updates.",
+    "Internal teams can use the agent to trigger bounded workflows such as escalation requests, review queues, or follow-up tasks based on Avigilon Alta events and predefined approval rules."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks reported access issues against Avigilon Alta activity before escalation.",
+    "A private security assistant that summarizes recent site events, alerts, and incident context for employees.",
+    "A facilities workflow agent that prepares handoffs when door access problems or site incidents are reported.",
+    "An internal SOP assistant that gathers Avigilon Alta details and guides teams through response steps.",
+    "A helpdesk agent that enriches customer tickets with Avigilon Alta context and recommended next actions.",
+    "An AI assistant that triggers approved review or escalation workflows when specific security conditions are met."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Avigilon Alta, such as look up incident context, summarize activity, or trigger an approved escalation workflow, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the required connection details, authentication method, and configuration values, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime settings."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed for the workflow and adds approval boundaries for sensitive updates, escalations, or security-related actions."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee assistant so the agent can take bounded action inside your rules."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Avigilon Alta?",
+      "answer": "With DocsBot Skill Builder, you describe the result you want in plain language, such as incident lookups, access issue triage, or escalation prep, and Skill Builder creates the secure Skill design, testing plan, and deployment path for your agent."
+    },
+    {
+      "question": "Can an AI support agent use Avigilon Alta data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Avigilon Alta Skill to perform approved lookups, summarize relevant security or access context, and prepare accurate handoffs while responding to a chat or helpdesk ticket."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Avigilon Alta?",
+      "answer": "Teams can automate workflows such as checking reported access problems, confirming related activity, enriching tickets with security context, preparing escalations, and triggering bounded internal follow-up actions."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with Avigilon Alta?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve site and incident information, summarize activity, follow response procedures, and generate handoff notes or status updates from Avigilon Alta data."
+    },
+    {
+      "question": "How does DocsBot keep Avigilon Alta actions secure?",
+      "answer": "Skill Builder defines secure connection handling, stores and proxies secrets through protected runtime configuration, scopes access to the minimum required permissions, and can add approval steps for sensitive actions."
+    },
+    {
+      "question": "Can DocsBot trigger workflows based on Avigilon Alta events or findings?",
+      "answer": "Yes, a Skill can be designed to trigger approved workflows such as escalation requests, review queues, or follow-up tasks when the agent finds the right conditions in Avigilon Alta."
+    }
+  ],
+  "relatedSlugs": [
+    "verkada",
+    "genetec",
+    "rhombus-systems",
+    "okta",
+    "servicenow",
+    "jira-service-management"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Avigilon",
+    "domain": "avigilon.com",
+    "description": "Avigilon Corporation, a Motorola Solutions company, offers trusted security solutions worldwide. Acquired in 2018, Avigilon now enhances Motorola Solutions' safety and security technology ecosystem. Their security suite includes a range of video security products and services like fixed video, advanced analytics, and smart access control systems available for cloud and on-premise deployment. Motorola Solutions focuses on creating safer environments by connecting technologies to protect people, property, and places. With a strong focus on collaborative solutions for public safety agencies and enterprises, Motorola Solutions aims to promote a proactive approach to safety and security. Discover comprehensive security solutions from trusted brands like Avigilon Unity and Alta, providing cutting-edge technology for organizations globally.",
+    "slogan": "Solving for safer with comprehensive security solutions globally trusted",
+    "logoUrl": "https://media.brand.dev/b47265b5-396b-4eed-8d5d-9f50f6755c93.gif",
+    "iconUrl": "https://media.brand.dev/5a2c223c-f3d5-4142-839b-cd94b59a72ef.jpg",
+    "primaryColor": "#0e62ad",
+    "accentColor": "#5c7f9d",
+    "colors": [
+      {
+        "hex": "#0e62ad",
+        "name": "Greek Flag Blue"
+      },
+      {
+        "hex": "#5c7f9d",
+        "name": "Blue Beads"
+      },
+      {
+        "hex": "#c5d0db",
+        "name": "Polished Silver"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/a0816e48-5f81-4327-b07b-36059d22815f.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": "https://www.avigilon.com/terms-of-service",
+      "contact": "https://www.avigilon.com/contact-us",
+      "privacy": "https://www.avigilon.com/privacy",
+      "blog": "https://www.avigilon.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/b47265b5-396b-4eed-8d5d-9f50f6755c93.gif",
+        "type": "logo",
+        "mode": "dark",
+        "width": 160,
+        "height": 92,
+        "aspectRatio": 1.74
+      },
+      {
+        "url": "https://media.brand.dev/64d4c790-7ec5-4ad1-b1f0-8a4cb7263596.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 200,
+        "height": 27,
+        "aspectRatio": 7.41
+      },
+      {
+        "url": "https://media.brand.dev/5a2c223c-f3d5-4142-839b-cd94b59a72ef.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/64d4c790-7ec5-4ad1-b1f0-8a4cb7263596.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 200,
+      "height": 27,
+      "aspectRatio": 7.41
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/5a2c223c-f3d5-4142-839b-cd94b59a72ef.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 900,
+      "height": 900,
+      "aspectRatio": 1
+    }
+  }
+}

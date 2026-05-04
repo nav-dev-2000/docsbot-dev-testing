@@ -1,0 +1,168 @@
+{
+  "slug": "learndash",
+  "name": "LearnDash",
+  "domain": "learndash.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with LearnDash",
+  "metaTitle": "Build LearnDash AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use LearnDash to answer learner questions, check course progress, automate support workflows, and assist internal teams safely.",
+  "intro": "LearnDash helps organizations deliver courses, track learner progress, and manage online education inside WordPress. With DocsBot Skill Builder, you can describe the LearnDash workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent do more than answer questions by safely looking up learning data, preparing handoffs, updating approved records, and triggering bounded actions.",
+  "supportUseCases": [
+    "Use a DocsBot website chat widget to check a learner’s enrollment, course access, or lesson progress in LearnDash while answering support questions in real time.",
+    "Let a support agent review quiz completion or certificate status in LearnDash and explain the next steps when a learner says they cannot finish a course.",
+    "Have the agent create a structured support handoff that summarizes the learner’s LearnDash progress, completed steps, and reported issue for a human team member.",
+    "Allow the agent to trigger approved enrollment or access workflows after confirming the learner’s identity and collecting any missing details.",
+    "Use LearnDash data in helpdesk replies so the agent can summarize where a learner stopped, what content is unlocked, and what support action should happen next."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up learner progress, enrollment status, quiz results, or course completion details from LearnDash.",
+    "Help customer success or training teams ask the agent for summaries of course engagement trends, overdue learning activity, or learner blockers before outreach.",
+    "Enable operations teams to chat with the agent to prepare SOP-based handoffs for access problems, certificate disputes, or course completion investigations.",
+    "Give internal education teams an AI assistant that retrieves LearnDash course information, checks learner records, and helps complete approved administrative workflows across support systems.",
+    "Allow employees to ask the agent for a consolidated summary of a learner’s status in LearnDash before contacting the learner or escalating the case to another team."
+  ],
+  "whatYouCanBuild": [
+    "A learner support agent that checks enrollment, access, and progress before replying.",
+    "An AI assistant that summarizes quiz, lesson, and certificate status for support teams.",
+    "A course access troubleshooting workflow that gathers missing details and prepares handoffs.",
+    "An internal training operations agent that looks up learner records and next actions.",
+    "A helpdesk Skill that adds LearnDash progress context to escalation tickets automatically.",
+    "An AI workflow that triggers approved enrollment or re-access requests after verification."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LearnDash agent to do, such as checking course access, summarizing learner progress, or preparing a support handoff, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the required LearnDash connection details, defines secure authentication and configuration values, keeps secrets out of chats and source files, and scopes access to only the records and actions needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds safe action limits, user scoping, and approval boundaries for sensitive LearnDash changes so the agent can take helpful action without exceeding the rules you set."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined learner support and internal team scenarios, checks for bugs, weak instructions, missing permission controls, or workflow gaps, and feeds improvements back into the Skill."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "After reviewing the results, Skill Builder refines the Skill and helps deploy it to your customer-facing DocsBot agent or private internal assistant so teams can use it with confidence."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for LearnDash?",
+      "answer": "With DocsBot Skill Builder, you describe the LearnDash workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, and prepares it for deployment. The finished agent can answer questions, look up learner data, summarize status, and take approved actions inside your defined rules."
+    },
+    {
+      "question": "Can an AI support agent use LearnDash data to answer learner questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use LearnDash data during customer chats or helpdesk replies to check enrollment, progress, quiz status, course access, or completion details. It can then respond with better context, gather missing information, and prepare a clean escalation when needed."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with LearnDash?",
+      "answer": "Teams can build workflows for course access troubleshooting, learner progress lookups, certificate status checks, enrollment-related handoffs, and structured escalations for human review. The agent can also summarize a learner’s current LearnDash state so support teams do not have to gather it manually."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work with LearnDash?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve learner records, review course activity, summarize account status, and follow SOPs for education support or training operations. This is useful in chat, Slack, or Microsoft Teams when staff need fast answers or guided workflows."
+    },
+    {
+      "question": "Can a LearnDash AI agent safely update records or trigger workflows?",
+      "answer": "DocsBot Skill Builder can create bounded actions such as approved enrollment workflows, access-related updates, or handoff creation with clear limits and approval controls. Skill Builder handles secure authentication, scopes permissions, and keeps secrets protected through runtime configuration."
+    },
+    {
+      "question": "How does DocsBot keep LearnDash integration setup secure?",
+      "answer": "Skill Builder identifies the required connection settings, stores and proxies secrets securely, and keeps credentials out of conversations and generated Skill content. It also designs the Skill with scoped permissions, record limits, and approval boundaries for sensitive actions."
+    }
+  ],
+  "relatedSlugs": [
+    "wordpress",
+    "moodle",
+    "teachable",
+    "thinkific",
+    "zendesk",
+    "intercom"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Learndash",
+    "domain": "learndash.com",
+    "description": "LearnDash is a leading provider of online education solutions, offering guidance and tools for individuals and organizations looking to create online courses. Their premier WordPress online education system integrates learning management and e-learning delivery into the WordPress platform, making it accessible and user-friendly. LearnDash combines cutting-edge e-learning methodologies with WordPress functionality, catering to universities, companies, startups, and bloggers globally. With a diverse and inclusive remote team, LearnDash fosters a culture that values talent from various backgrounds and experiences. As a StellarWP brand at Liquid Web, LearnDash aims to empower users to easily develop professional and engaging online courses with just a few clicks.",
+    "slogan": "Powering learning on WordPress, globally embraced for diverse education solutions.",
+    "logoUrl": "https://media.brand.dev/0164f798-00a6-44c0-899e-f135979eaefa.png",
+    "iconUrl": "https://media.brand.dev/78d7b49c-4850-4851-9971-0fa5e46740fc.png",
+    "primaryColor": "#255df4",
+    "accentColor": "#8cacf4",
+    "colors": [
+      {
+        "hex": "#255df4",
+        "name": "YInMn Blue"
+      },
+      {
+        "hex": "#8cacf4",
+        "name": "Kitten’s Eye"
+      },
+      {
+        "hex": "#f8f9f4",
+        "name": "Blanca Peak"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7c9c255a-2774-43b4-ab65-68d003cebd2e.png",
+    "industries": [],
+    "links": {
+      "careers": "https://learndash.com/careers/",
+      "terms": "https://learndash.com/terms-and-conditions/",
+      "contact": "https://learndash.com/help",
+      "privacy": "https://learndash.com/privacy-policy/",
+      "blog": "https://www.learndash.com/blog/",
+      "pricing": "https://learndash.com/pricing-and-purchase/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/78d7b49c-4850-4851-9971-0fa5e46740fc.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/80c40244-05cb-4396-8262-925e06bd41c9.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 800,
+        "height": 800,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0164f798-00a6-44c0-899e-f135979eaefa.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1200,
+        "height": 193,
+        "aspectRatio": 6.22
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0164f798-00a6-44c0-899e-f135979eaefa.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1200,
+      "height": 193,
+      "aspectRatio": 6.22
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/78d7b49c-4850-4851-9971-0fa5e46740fc.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

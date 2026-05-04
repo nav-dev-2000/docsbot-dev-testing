@@ -1,0 +1,168 @@
+{
+  "slug": "planhat",
+  "name": "Planhat",
+  "domain": "planhat.com",
+  "category": "Sales",
+  "trutoCategory": "CRM",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Planhat",
+  "metaTitle": "Build AI Support and Team Agents for Planhat with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use Planhat to look up customer data, summarize account health, update records, and trigger safe follow-up workflows.",
+  "intro": "Planhat helps commercial and customer success teams manage customer data, collaboration, and growth workflows. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Planhat, and DocsBot helps design, secure, test, and deploy that Skill. The result is a support or internal AI agent that can answer questions and take approved actions with Planhat data instead of only giving static guidance.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up account status, renewal details, product usage notes, or customer health context from Planhat while replying in chat or tickets.",
+    "Use the agent to summarize a customer record from Planhat and prepare a clear support handoff for a customer success or account management team.",
+    "Allow the agent to create or update approved notes, tasks, or follow-up records in Planhat after collecting missing context from the customer.",
+    "Have the agent flag risk signals or escalation conditions in Planhat-based workflows and route the conversation to the right human team with a concise summary.",
+    "Enable the agent to confirm ownership, account tier, or lifecycle details from Planhat so support responses stay personalized and accurate."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to retrieve Planhat account context, health signals, renewal information, and recent customer activity.",
+    "Help customer success and operations teams ask the agent for concise Planhat summaries before meetings, escalations, or executive reviews.",
+    "Allow team members to use chat to create follow-up tasks, log notes, or update approved Planhat fields as part of internal workflows and SOPs.",
+    "Give revenue, success, and support teams a shared AI assistant that researches customer history across Planhat and returns a clean action summary for the next step.",
+    "Use a private agent to standardize account review workflows by gathering Planhat details, identifying gaps, and preparing handoff notes for the right team."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Planhat account health before answering a customer.",
+    "A customer success assistant that summarizes renewals, risks, and recent account activity.",
+    "An internal agent that creates Planhat follow-up tasks from chat requests.",
+    "A support handoff Skill that turns customer conversations into Planhat-ready summaries.",
+    "An account research assistant that retrieves Planhat data for pre-meeting preparation.",
+    "A workflow Skill that updates approved customer notes after a resolved support case."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Planhat-enabled agent to do in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the Skill should work, identifies the required configuration values, and sets up secure connection and authentication handling without exposing credentials in chats or generated content."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes Planhat access to the minimum records and actions needed, and adds approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds improvements back into the Skill automatically."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer and take bounded action safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Planhat without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the Planhat workflow you want in plain language, and Skill Builder designs the Skill, handles secure configuration, tests it, improves it, and prepares it for deployment. This makes it practical for non-technical teams to create agents that can look up data, summarize accounts, and take approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Planhat data during customer chats or helpdesk tickets?",
+      "answer": "Yes, a DocsBot support agent can use a Planhat Skill to retrieve account context, health details, ownership information, and other approved customer data while responding to chats or tickets. It can also prepare handoffs, create follow-up notes, or trigger bounded workflows when you allow those actions."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Planhat?",
+      "answer": "A private DocsBot agent can help employees retrieve account summaries, prepare for meetings, log notes, create tasks, and standardize customer success workflows using Planhat data. Teams can access it in chat, Slack, or Microsoft Teams to complete repeatable work faster."
+    },
+    {
+      "question": "Can DocsBot safely update Planhat records through an AI agent?",
+      "answer": "Yes, when you want update actions, Skill Builder defines secure access rules, scopes permissions, and adds approval boundaries where needed before the agent can modify Planhat records. That helps the agent stay within the exact actions and records your team approves."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Planhat account health and escalation context?",
+      "answer": "Yes, you can build a Skill that gathers approved Planhat signals and turns them into concise summaries for support, success, or leadership teams. This is useful for escalations, renewal reviews, and customer handoffs."
+    },
+    {
+      "question": "How does setup work for a Planhat AI agent in DocsBot?",
+      "answer": "You explain the outcome you want, such as checking account health or creating follow-up tasks, and Skill Builder handles the workflow design, secure authentication setup, testing, and deployment guidance. It also uses automated scenario testing and self-improvement before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "salesforce",
+    "hubspot",
+    "gainsight",
+    "zendesk",
+    "intercom",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Planhat",
+    "domain": "planhat.com",
+    "description": "Planhat is a customer platform that empowers commercial teams to work more effectively. They develop and implement cutting-edge technologies that combine data, artificial intelligence, and collaboration tools, enabling industry leaders to drive revenue growth and customer acquisition.",
+    "slogan": "Empowering customer success with innovative data, AI, and collaboration tools.",
+    "logoUrl": "https://media.brand.dev/a6fc8c2e-c7d9-4caf-8846-4c5569da9e04.svg",
+    "iconUrl": "https://media.brand.dev/3b17715b-6c71-4fa5-b513-3084f972a776.jpg",
+    "primaryColor": "#7c7c7c",
+    "accentColor": "#050505",
+    "colors": [
+      {
+        "hex": "#7c7c7c",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#050505",
+        "name": "Black Metal"
+      },
+      {
+        "hex": "#cdcdcd",
+        "name": "Compact Disc Grey"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/5fa4b584-9644-4e06-915e-cb6379518f44.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://planhat.com/careers",
+      "terms": "https://planhat.com/legal/terms-of-service-20250728",
+      "contact": "https://planhat.com/contact",
+      "privacy": "https://planhat.com/legal/privacy-policy",
+      "blog": null,
+      "pricing": "https://planhat.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/3b17715b-6c71-4fa5-b513-3084f972a776.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a6fc8c2e-c7d9-4caf-8846-4c5569da9e04.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 580,
+        "height": 134,
+        "aspectRatio": 4.33
+      },
+      {
+        "url": "https://media.brand.dev/001d2579-77a6-4988-b325-9302befe8d00.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a6fc8c2e-c7d9-4caf-8846-4c5569da9e04.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 580,
+      "height": 134,
+      "aspectRatio": 4.33
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/001d2579-77a6-4988-b325-9302befe8d00.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 128,
+      "height": 128,
+      "aspectRatio": 1
+    }
+  }
+}

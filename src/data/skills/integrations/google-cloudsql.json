@@ -1,0 +1,168 @@
+{
+  "slug": "google-cloudsql",
+  "name": "Google CloudSQL",
+  "domain": "google-cloudsql.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Google CloudSQL Safely",
+  "metaTitle": "Build AI Agents for Google CloudSQL with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that safely query, summarize, and trigger approved workflows with Google CloudSQL for customer support and internal operations.",
+  "intro": "Google CloudSQL stores application data that support teams and operations teams often need to reference quickly. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent query, summarize, and take bounded actions using CloudSQL data. This helps customer-facing and internal AI agents move from answering questions to completing approved work.",
+  "supportUseCases": [
+    "Let a customer support agent look up subscription, account, order, or tenant data stored in Google CloudSQL so it can answer account-specific questions in chat or tickets.",
+    "Use a DocsBot support agent to summarize a customer’s current product state from CloudSQL records before replying or preparing a human handoff.",
+    "Enable the agent to verify status fields, usage limits, renewal dates, or onboarding milestones from CloudSQL and explain the result to the customer in plain language.",
+    "Let the agent create an escalation-ready case summary based on CloudSQL account history, recent changes, and relevant identifiers for the support team.",
+    "Allow the agent to trigger approved follow-up workflows when CloudSQL data shows a customer qualifies for a retry, recheck, or manual review process."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve customer, product, billing, or operational data from Google CloudSQL without manually writing queries each time.",
+    "Support and success teams can ask the agent to research account state across CloudSQL-backed systems and return a clean summary for renewals, escalations, or health reviews.",
+    "Operations teams can use the agent in Slack or Microsoft Teams to follow SOPs that check records, flag anomalies, and prepare next-step recommendations from CloudSQL data.",
+    "Internal teams can ask the agent to generate structured handoff notes, audit summaries, or troubleshooting timelines from records stored in Google CloudSQL.",
+    "Authorized employees can use the agent to perform bounded record updates or workflow triggers tied to CloudSQL-backed processes when approval rules allow it."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks account or subscription status from CloudSQL before answering customers.",
+    "A private operations assistant that summarizes customer health, usage, and recent record changes from database data.",
+    "A helpdesk agent that prepares escalation notes using CloudSQL-backed account history and support context.",
+    "An internal agent that follows SOPs to validate records and trigger approved follow-up workflows.",
+    "A customer-facing agent that checks onboarding milestones and explains next steps using live application data.",
+    "A team assistant that turns CloudSQL lookups into clean summaries for renewals, reviews, and incident triage."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google CloudSQL in plain language, such as checking account status, summarizing records, or triggering a bounded workflow."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, identifies the required configuration values, and defines how the agent should safely query or act on CloudSQL data without exposing credentials."
+    },
+    {
+      "title": "Security is built in",
+      "description": "Skill Builder protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once ready, Skill Builder helps publish the Skill to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take approved actions with Google CloudSQL."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Google CloudSQL data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your AI agent safely query, summarize, and act on Google CloudSQL data within defined limits. Skill Builder also handles secure configuration, secret protection, permission scoping, testing, and deployment guidance."
+    },
+    {
+      "question": "Can a customer support AI agent use Google CloudSQL to answer account-specific questions?",
+      "answer": "Yes, a DocsBot support agent can use CloudSQL data to look up account state, usage details, onboarding progress, or other approved records while responding in chat or tickets. It can also summarize findings clearly for customers or prepare a better handoff for human support."
+    },
+    {
+      "question": "What workflows can an internal AI assistant automate with Google CloudSQL?",
+      "answer": "An internal DocsBot agent can retrieve operational data, summarize account history, support SOP-driven investigations, prepare audit notes, and trigger approved follow-up workflows tied to CloudSQL-backed processes. The exact actions are bounded by the rules and approvals your team defines."
+    },
+    {
+      "question": "Can DocsBot safely perform updates or actions tied to Google CloudSQL records?",
+      "answer": "Yes, when you want more than read-only lookups, Skill Builder can design bounded actions with scoped permissions and approval checkpoints for sensitive changes. This helps your agent take useful action without giving it unrestricted database access."
+    },
+    {
+      "question": "How does DocsBot keep Google CloudSQL credentials secure?",
+      "answer": "Skill Builder defines the required connection settings and handles secret storage through secure runtime configuration so credentials stay out of chat transcripts and Skill content. It also scopes access to the minimum systems, records, and actions needed for the workflow."
+    },
+    {
+      "question": "Can an AI agent summarize Google CloudSQL data for escalations or handoffs?",
+      "answer": "Yes, DocsBot can turn raw CloudSQL records into concise summaries, timelines, and structured handoff notes for support, success, or operations teams. This helps teams move faster without manually pulling together context from multiple records."
+    }
+  ],
+  "relatedSlugs": [
+    "google-bigquery",
+    "google-cloud",
+    "postgresql",
+    "mysql",
+    "mongodb",
+    "snowflake"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google Cloud",
+    "domain": "cloud.google.com",
+    "description": "Google Cloud is Google’s enterprise‑grade cloud platform that delivers a full suite of AI, compute, storage, database, and analytics services. It enables developers to build, deploy, and scale applications quickly using tools like Vertex AI with Gemini models, Kubernetes Engine, Cloud Run, and custom virtual machines with GPUs, TPUs, and Arm‑based processors. Businesses can leverage managed databases such as Cloud SQL, AlloyDB, and Spanner, and analyze massive datasets with BigQuery’s low‑cost, high‑performance analytics. Google Cloud also offers AI‑powered solutions for virtual agents, code assistance, and industry‑specific insights, plus a 30‑day trial and $300 in free credits for new users. The platform integrates security, migration, and data transfer capabilities, helping organizations modernize workloads and innovate with generative AI across any industry.",
+    "slogan": "Build, Deploy, Analyze with Google Cloud's AI and Cloud Computing Solutions",
+    "logoUrl": "https://media.brand.dev/b1a698a1-ba12-4321-a9be-ba960563ff79.svg",
+    "iconUrl": "https://media.brand.dev/5a3e87e6-c0bc-4831-a9cf-f9fa91db024b.png",
+    "primaryColor": "#ec4434",
+    "accentColor": "#34ac54",
+    "colors": [
+      {
+        "hex": "#ec4434",
+        "name": "Cascara"
+      },
+      {
+        "hex": "#34ac54",
+        "name": "Spandex Green"
+      },
+      {
+        "hex": "#4484f4",
+        "name": "Seljuk Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/80ee9493-a648-4421-9d89-9761e3bed221.png",
+    "industries": [],
+    "links": {
+      "careers": "https://cloud.google.com/spot-vms",
+      "terms": "https://cloud.google.com/product-terms",
+      "contact": "https://cloud.google.com/contact",
+      "privacy": null,
+      "pricing": "https://cloud.google.com/pricing",
+      "blog": "https://cloud.google.com/blog/products/ai-machine-learning/choose-the-right-google-ai-developer-tool-for-your-workflow"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0bc64b20-cb29-4e40-887e-d0e6b75a3b85.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b1a698a1-ba12-4321-a9be-ba960563ff79.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 138,
+        "height": 24,
+        "aspectRatio": 5.75
+      },
+      {
+        "url": "https://media.brand.dev/5a3e87e6-c0bc-4831-a9cf-f9fa91db024b.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b1a698a1-ba12-4321-a9be-ba960563ff79.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 138,
+      "height": 24,
+      "aspectRatio": 5.75
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0bc64b20-cb29-4e40-887e-d0e6b75a3b85.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

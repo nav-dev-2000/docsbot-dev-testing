@@ -1,0 +1,158 @@
+{
+  "slug": "exotel",
+  "name": "Exotel",
+  "domain": "exotel.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Exotel",
+  "metaTitle": "Build Exotel AI Agents for Support and Internal Teams",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely use Exotel for lookups, call workflow actions, handoffs, and conversation summaries.",
+  "intro": "Exotel helps businesses manage customer engagement across voice, bots, agents, and omnichannel conversations. With DocsBot Skill Builder, you can describe the Exotel-powered workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That means your AI agent can answer questions, retrieve live Exotel context, trigger approved actions, and prepare clean handoffs without exposing sensitive access or requiring a technical setup process.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Exotel call or conversation details so it can answer support questions with current interaction history.",
+    "Use an Exotel Skill to summarize a customer's recent voice or omnichannel activity and include that context in a helpdesk reply or escalation handoff.",
+    "Allow the agent to create approved callback requests or follow-up tasks in Exotel when a customer asks for another contact attempt.",
+    "Enable the agent to check call status, routing outcomes, or interaction records in Exotel before confirming next steps to the customer.",
+    "Have the agent gather missing information in chat, then trigger an approved Exotel workflow for outreach, queue placement, or agent follow-up."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Exotel interaction history, call outcomes, or conversation summaries without manually searching multiple screens.",
+    "Customer success or operations teams can ask the agent to prepare escalation notes from Exotel activity and package them into a clean internal handoff.",
+    "Supervisors can use an internal AI assistant to summarize high-volume Exotel conversations, identify repeat support issues, and surface coaching or workflow trends.",
+    "Teams can chat with the agent in Slack or Microsoft Teams to trigger approved callback workflows, assign follow-up actions, or confirm outreach status in Exotel.",
+    "Operations staff can use the agent to follow SOPs that combine Exotel lookups, summary generation, and cross-team notifications for service recovery or escalation workflows."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that checks Exotel interaction history before answering customer questions.",
+    "An AI assistant that creates approved callback or follow-up requests from chat conversations.",
+    "A handoff Skill that summarizes recent Exotel calls for support ticket escalations.",
+    "An internal assistant that retrieves call outcomes and outreach status for employees.",
+    "A workflow Skill that gathers context and triggers approved Exotel outreach actions.",
+    "A supervisor assistant that summarizes conversation patterns and recurring support issues from Exotel data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Exotel-powered agent to do, such as look up call history, create callback requests, or prepare escalation summaries, and it translates that goal into a reusable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the configuration values the Skill needs, protects and proxies secrets through secure runtime settings, and scopes access to the minimum Exotel data and actions required."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds action boundaries, user scoping, and approval steps for sensitive Exotel updates or workflow triggers so the agent only takes the actions you want under the conditions you define."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so people can start using Exotel-powered AI Actions in the right place."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Exotel?",
+      "answer": "With DocsBot Skill Builder, you describe the Exotel workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal agent."
+    },
+    {
+      "question": "Can an AI support agent use Exotel conversation data to answer customers?",
+      "answer": "Yes, a DocsBot agent can use a Skill to retrieve approved Exotel interaction details, summarize recent activity, and use that context while replying in a chat widget or helpdesk workflow."
+    },
+    {
+      "question": "What Exotel workflows can a customer support AI agent automate?",
+      "answer": "A DocsBot agent can be designed to perform bounded actions such as checking interaction status, preparing handoffs, creating callback requests, triggering approved follow-up workflows, and summarizing conversation history."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work faster with Exotel?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Exotel records, summarize customer interactions, prepare escalation notes, and complete approved SOP-driven follow-up workflows."
+    },
+    {
+      "question": "How does DocsBot keep Exotel access secure when building AI actions?",
+      "answer": "Skill Builder handles secure configuration by defining required connection values, keeping secrets out of chats and Skill content, proxying authentication through approved runtime settings, and limiting access to the right users, records, and actions."
+    },
+    {
+      "question": "Can I require approval before an AI agent updates anything in Exotel?",
+      "answer": "Yes, DocsBot Skills can include approval boundaries and action limits so sensitive Exotel updates or workflow triggers only happen when the conditions and reviewers you define are satisfied."
+    }
+  ],
+  "relatedSlugs": [
+    "twilio",
+    "aircall",
+    "ringcentral",
+    "dialpad",
+    "freshdesk",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Exotel",
+    "domain": "exotel.com",
+    "description": "Exotel is an AI transformation partner for customer engagement and experience. It serves over 7,000 global clients across industries, handling more than 25 billion conversations each year through omnichannel, voice, agents and bots. Exotel’s AI‑powered solutions empower agents, bots and customers with conversational intelligence, optimizing resources to deliver exceptional CX and drive business growth. The company’s mission is to win when you win.",
+    "slogan": "Smart Insights. Smarter Engagement.",
+    "logoUrl": "https://media.brand.dev/d8a487f9-7d5b-4bdc-ab35-659635009f0a.png",
+    "iconUrl": "https://media.brand.dev/9250e86d-56fc-4a2b-b164-7ac264a63f17.png",
+    "primaryColor": "#040404",
+    "accentColor": "#4cb860",
+    "colors": [
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      },
+      {
+        "hex": "#4cb860",
+        "name": "Samphire Green"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/4013b66b-c878-4ac9-8254-7c6dd13edd1b.jpg",
+    "industries": [],
+    "links": {
+      "terms": "https://exotel.com/terms-of-service-exotel/",
+      "contact": "https://exotel.com/contact",
+      "privacy": "https://exotel.com/privacy-policy/",
+      "careers": "https://exotel.com/careers/",
+      "blog": "https://exotel.com/blog/",
+      "login": null,
+      "signup": null,
+      "pricing": "https://exotel.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/d8a487f9-7d5b-4bdc-ab35-659635009f0a.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 300,
+        "height": 88,
+        "aspectRatio": 3.41
+      },
+      {
+        "url": "https://media.brand.dev/9250e86d-56fc-4a2b-b164-7ac264a63f17.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 105,
+        "height": 105,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d8a487f9-7d5b-4bdc-ab35-659635009f0a.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 300,
+      "height": 88,
+      "aspectRatio": 3.41
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9250e86d-56fc-4a2b-b164-7ac264a63f17.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 105,
+      "height": 105,
+      "aspectRatio": 1
+    }
+  }
+}

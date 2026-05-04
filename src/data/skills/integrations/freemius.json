@@ -1,0 +1,184 @@
+{
+  "slug": "freemius",
+  "name": "Freemius",
+  "domain": "freemius.com",
+  "category": "E-Commerce",
+  "trutoCategory": "E-Commerce",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with Freemius",
+  "metaTitle": "Build Freemius AI Agents for Support and Operations",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that safely use Freemius for support lookups, subscription actions, internal workflows, and revenue operations.",
+  "intro": "Freemius helps software companies manage monetization, subscriptions, licensing, payments, analytics, and compliance. With DocsBot Skill Builder, you can describe the Freemius workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. That lets your AI agent answer questions, retrieve account details, prepare handoffs, and take approved actions inside Freemius while staying within your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer's subscription, license, billing status, or recent purchase details in Freemius while replying in chat or over helpdesk tickets.",
+    "Use the agent to summarize renewal status, plan level, active licenses, and payment history so customers get faster billing and access answers without waiting for a human.",
+    "Enable the agent to collect missing order or account details, then prepare a clean escalation handoff with the relevant Freemius context for your support team.",
+    "Allow the agent to trigger approved workflows such as license resend requests, cancellation routing, or refund review preparation based on your support policies.",
+    "Have the agent explain why a product may be locked or limited by checking license state and subscription status in Freemius before suggesting next steps."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to retrieve Freemius subscription, licensing, and revenue context without logging into multiple systems.",
+    "Enable customer success or support teams to ask the agent for account summaries, churn risk signals, renewal timing, and product entitlement details pulled from Freemius.",
+    "Give finance or operations teams an internal AI assistant that can research billing patterns, summarize customer monetization history, and prepare case notes for refunds or subscription exceptions.",
+    "Allow team members to follow SOPs through chat, where the agent gathers the right context from Freemius, checks safe action limits, and completes approved workflow steps.",
+    "Help product and growth teams use a private agent to summarize licensing trends, subscriber behavior, and monetization signals from Freemius for faster internal decision-making."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Freemius subscriptions before answering billing or renewal questions.",
+    "A customer chat assistant that explains license status and prepares escalations with Freemius account context.",
+    "An internal revenue ops agent that summarizes subscriber history and payment activity from Freemius.",
+    "A support workflow Skill that gathers missing customer details and drafts refund review handoffs.",
+    "An employee AI assistant that retrieves plan, entitlement, and renewal information during account reviews.",
+    "A private Slack or Teams agent that follows billing SOPs using Freemius data and approvals."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Freemius, such as checking subscriptions, summarizing license status, or preparing a billing handoff, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder decides how the agent should interact with Freemius, what information it should read or update, which configuration values are required, and how to keep the workflow simple for non-technical teams."
+    },
+    {
+      "title": "Connections stay secure",
+      "description": "Skill Builder automatically defines secure authentication handling, protects and proxies secrets through runtime configuration, keeps credentials out of chats and Skill instructions, and scopes access to only the records and actions the workflow requires."
+    },
+    {
+      "title": "Approvals are added",
+      "description": "For sensitive steps such as account changes, refund-related workflows, or subscription actions, Skill Builder adds approval boundaries and safe action limits so the agent only acts within the permissions you choose."
+    },
+    {
+      "title": "Scenarios get tested",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Freemius workflow, finds bugs, weak spots, or missing checks, and feeds those results into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Freemius for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking subscription status or summarizing license details, and Skill Builder creates a secure Skill the agent can use during website chats or helpdesk replies."
+    },
+    {
+      "question": "Can an AI support agent use Freemius data to answer billing and license questions?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved Freemius account details like subscriptions, licenses, renewals, and payment context so it can answer common customer questions and prepare better escalations."
+    },
+    {
+      "question": "What Freemius workflows can an internal AI assistant help automate?",
+      "answer": "Internal DocsBot agents can retrieve account history, summarize monetization data, assist with refund or renewal SOPs, and help teams research subscription and licensing context through chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot take actions in Freemius instead of only showing information?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as creating handoff records, triggering approved workflows, or preparing updates for human approval, depending on the rules and permissions you define."
+    },
+    {
+      "question": "How does DocsBot keep Freemius connections secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets securely, keeps credentials out of chat transcripts and generated content, and scopes access to the minimum data and actions needed for the workflow."
+    },
+    {
+      "question": "Can I require approval before an AI agent changes anything related to subscriptions or billing?",
+      "answer": "Yes, Skill Builder can add approval boundaries for sensitive Freemius actions so the agent can gather context and recommend the next step while routing final changes through the right human review process."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "chargebee",
+    "paddle",
+    "recurly",
+    "shopify",
+    "woocommerce"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Freemius",
+    "domain": "freemius.com",
+    "description": "Freemius is an all-in-one growth engine for SaaS, app, plugin, and theme makers. It provides an analytics, monetization, and distribution platform for plugin and theme developers, handling payments, subscriptions, licensing, tax compliance, and more. Freemius helps businesses monetize their software products without the headaches, allowing them to focus on building great products while the company handles the rest.",
+    "slogan": "Empowering Software Developers to Grow, Monetize, and Succeed Globally",
+    "logoUrl": "https://media.brand.dev/ef833dae-867f-480b-9ce5-2e6cab5f0a1e.svg",
+    "iconUrl": "https://media.brand.dev/5f647d66-4293-4d0f-aa2c-2c568143cd9e.png",
+    "primaryColor": "#a42cdd",
+    "accentColor": "#6451f5",
+    "colors": [
+      {
+        "hex": "#a42cdd",
+        "name": "Sweet Desire"
+      },
+      {
+        "hex": "#6451f5",
+        "name": "Pink OCD"
+      },
+      {
+        "hex": "#040405",
+        "name": "Raven’s Coat"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/30b34985-f4e0-43e7-845c-fbbe15c42b97.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://freemius.com/careers/",
+      "terms": "https://freemius.com/terms/",
+      "contact": "https://freemius.com/",
+      "privacy": "https://freemius.com/privacy/",
+      "blog": "https://freemius.com/blog",
+      "pricing": "https://freemius.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/5f647d66-4293-4d0f-aa2c-2c568143cd9e.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 1000,
+        "height": 1000,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3588c526-e103-48f5-81cc-760bfdb7c229.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/ef833dae-867f-480b-9ce5-2e6cab5f0a1e.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 487,
+        "height": 107,
+        "aspectRatio": 4.55
+      },
+      {
+        "url": "https://media.brand.dev/c9a52b76-928d-42f8-9fdc-07f1ff6a5b2c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 300,
+        "height": 300,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c3af0a15-714c-4ecc-85ee-42c3738150ed.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 900,
+        "height": 900,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/ef833dae-867f-480b-9ce5-2e6cab5f0a1e.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 487,
+      "height": 107,
+      "aspectRatio": 4.55
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/c9a52b76-928d-42f8-9fdc-07f1ff6a5b2c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 300,
+      "height": 300,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "slug": "google-forms",
+  "name": "Google Forms",
+  "domain": "google-forms.com",
+  "category": "Surveys & Feedback",
+  "trutoCategory": "Survey",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Google Forms",
+  "metaTitle": "Build AI Agents for Google Forms with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Google Forms to collect feedback, summarize responses, trigger follow-up workflows, and support teams with safe automated actions.",
+  "intro": "Google Forms helps teams collect surveys, questionnaires, quizzes, and feedback in one simple place. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent read form data, create forms, summarize responses, and trigger approved follow-up work. This helps customer support and internal teams move from answering questions to taking bounded action with Google Forms data.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to share the right Google Form for bug reports, onboarding questions, feature requests, or satisfaction surveys during a live chat or helpdesk reply.",
+    "Let the support agent look up recent Google Forms responses to confirm a customer submission and summarize what was received without making the customer repeat details.",
+    "Have the agent create a new Google Form response on a customer’s behalf when they provide structured feedback, escalation details, or post-support survey answers in chat.",
+    "Enable the agent to summarize survey or intake results from Google Forms and prepare a clean handoff for a human support, success, or product team.",
+    "Trigger approved follow-up workflows when a Google Form response indicates refund risk, cancellation intent, urgent product issues, or negative satisfaction feedback."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure internal chat to find the right Google Form for a process such as incident intake, onboarding feedback, or training requests.",
+    "Team members can ask the agent to summarize Google Forms responses by theme, sentiment, or urgency so they can review feedback faster and decide next steps.",
+    "Operations, HR, or customer success teams can use the agent to create new Google Forms for recurring workflows and keep wording consistent with internal SOPs.",
+    "Managers can chat with the agent to retrieve submission trends, missing-response follow-ups, or response summaries before meetings, retrospectives, or planning sessions.",
+    "Internal teams can use the agent to turn Google Forms submissions into structured handoffs, action lists, and follow-up tasks across their approved systems."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that shares the correct Google Form based on customer issue type.",
+    "An internal assistant that summarizes form responses and highlights urgent themes for managers.",
+    "A DocsBot Skill that creates Google Forms responses from chat-collected customer feedback.",
+    "An agent workflow that routes negative survey responses into escalation and retention handoffs.",
+    "A private team assistant that finds the right intake form for any internal process.",
+    "A Skill that turns Google Forms answers into concise case summaries for support teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Google Forms, such as sharing the right form, logging responses, summarizing submissions, or triggering follow-up workflows, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the configuration values the Skill needs, sets up secure connection and authentication handling, keeps credentials out of chats and source, and proxies secrets through protected runtime settings by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum Google Forms actions, records, users, and connected systems needed for the workflow, and it adds approval boundaries when a response, update, or downstream trigger should be reviewed before execution."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Google Forms workflow, finds bugs, weak instructions, missing safeguards, or process gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or internal team assistant so it can safely answer questions and take approved action with Google Forms."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Google Forms?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, and it designs a reusable Skill that can read form data, create submissions, summarize responses, and trigger approved follow-up actions. Skill Builder also handles secure configuration, authentication, permission scoping, testing, and deployment."
+    },
+    {
+      "question": "Can an AI support agent use Google Forms during customer chats or support tickets?",
+      "answer": "Yes, a DocsBot support agent can use Google Forms to share the correct survey or intake form, confirm submitted responses, capture structured feedback, and prepare handoffs while replying to customers. The customer conversation triggers the agent, and the Skill lets that agent act safely inside Google Forms."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Google Forms?",
+      "answer": "DocsBot can help automate feedback collection, bug intake, post-resolution surveys, escalation intake, and structured follow-up requests using Google Forms. It can also summarize response content and trigger approved next steps for support, success, or product teams."
+    },
+    {
+      "question": "Can an internal AI assistant use Google Forms for employee workflows?",
+      "answer": "Yes, private DocsBot agents can help employees find the right form, summarize incoming responses, create recurring forms, and turn submissions into structured internal handoffs or action lists. This is useful for HR, operations, customer success, training, and other teams that rely on consistent intake processes."
+    },
+    {
+      "question": "How does DocsBot keep Google Forms actions secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets securely, and keeps credentials out of chat transcripts and generated content. It also scopes the Skill to only the necessary actions and can add approval boundaries for more sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot summarize Google Forms responses for teams?",
+      "answer": "Yes, a DocsBot Skill can organize and summarize responses into themes, urgency levels, sentiment patterns, or concise meeting-ready digests. That helps teams review feedback faster and decide what action to take next."
+    }
+  ],
+  "relatedSlugs": [
+    "typeform",
+    "google-sheets",
+    "airtable",
+    "slack",
+    "microsoft-teams",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Google",
+    "domain": "google-forms.com",
+    "description": "Google Forms is an online platform that enables individuals and businesses to easily create, share, and analyze custom forms, surveys, quizzes, and questionnaires. Users can design interactive forms with a variety of question types, collect responses in real time, and export data for further analysis. The service aims to simplify data collection, streamline feedback processes, and support decision‑making across education, marketing, HR, and many other fields.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/9a3143f2-230c-4106-a658-0f58f63b49a2.png",
+    "iconUrl": "https://media.brand.dev/9a3143f2-230c-4106-a658-0f58f63b49a2.png",
+    "primaryColor": "#848484",
+    "accentColor": "#161616",
+    "colors": [
+      {
+        "hex": "#848484",
+        "name": "Dover Grey"
+      },
+      {
+        "hex": "#161616",
+        "name": "Pot Black"
+      },
+      {
+        "hex": "#c6c6c6",
+        "name": "Silver Polish"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6fdfda96-08d7-4016-bb5f-89b013962b38.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/9a3143f2-230c-4106-a658-0f58f63b49a2.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/9a3143f2-230c-4106-a658-0f58f63b49a2.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9a3143f2-230c-4106-a658-0f58f63b49a2.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

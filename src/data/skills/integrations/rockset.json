@@ -1,0 +1,176 @@
+{
+  "slug": "rockset",
+  "name": "Rockset",
+  "domain": "rockset.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Use Rockset for Real-Time Support and Operations",
+  "metaTitle": "Build AI Agents for Rockset with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Rockset for real-time data lookups, summaries, alerts, and approved workflows in customer support and internal operations.",
+  "intro": "Rockset gives teams fast, real-time search and analytics across cloud data, and DocsBot Skill Builder helps you turn that data access into practical AI agent actions. In plain language, you can describe the outcomes you want, such as answering customer questions with live metrics, summarizing account activity, or preparing escalations from fresh analytics. DocsBot then builds a reusable Skill so your support or internal AI agent can safely use Rockset for lookups, summaries, and bounded actions.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to query Rockset for live usage, transaction, or account trends and answer support questions with current data instead of static documentation.",
+    "Let the agent summarize recent product activity from Rockset when a customer reports an issue, then prepare a cleaner support handoff with evidence and timeline context.",
+    "Have the agent check real-time analytics patterns in Rockset to identify whether a reported problem looks isolated to one account or part of a broader incident.",
+    "Enable the agent to pull fresh operational metrics from Rockset and explain delays, usage spikes, or status changes directly in website chat or helpdesk replies.",
+    "Use Rockset query results to help the agent draft escalation notes, including affected events, recent anomalies, and relevant customer-specific activity before handing off to a human team member."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat workspace to retrieve live Rockset analytics without manually opening dashboards or writing queries.",
+    "Support and customer success teams can ask the agent to summarize account health, feature adoption, or recent event patterns from Rockset before calls, renewals, or escalations.",
+    "Operations teams can use the agent to investigate spikes, drops, or unusual behavior by having it compare recent Rockset data, summarize findings, and recommend the next internal workflow step.",
+    "Product and engineering teams can chat with the agent to research customer-impacting trends from Rockset, gather supporting context, and generate incident or investigation summaries.",
+    "Internal teams can use the agent to follow SOPs that start with Rockset lookups, collect missing context from employees, and route approved follow-up actions to the right systems or people."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that answers customer questions using live Rockset metrics and event summaries.",
+    "An internal assistant that researches account activity patterns in Rockset before escalation reviews.",
+    "An AI workflow that summarizes real-time anomalies from Rockset and prepares incident handoff notes.",
+    "A customer success assistant that checks adoption or usage trends from Rockset before renewals.",
+    "A support triage agent that compares current customer reports against Rockset-wide issue patterns.",
+    "An operations assistant that retrieves fresh analytics from Rockset and drafts next-step recommendations."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Rockset, such as answer support questions from live analytics, summarize account activity, or prepare escalations from recent event data."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder asks for any missing business context, then designs the Rockset workflow, decides which lookups or actions are needed, and defines the safest way for the agent to respond or hand work off."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder identifies the required configuration values, sets up secure authentication handling, keeps credentials out of chats and Skill instructions, and proxies secrets through protected runtime configuration by default."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Rockset access, users, records, and actions needed for the job, and adds approval boundaries wherever sensitive queries, summaries, or downstream actions should be reviewed first."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, or permission gaps, and feeds those findings into an automated improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Rockset data for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking live account activity or summarizing recent anomalies from Rockset. Skill Builder then creates and secures a reusable Skill so your support agent can perform approved lookups and return clear answers in chat or ticket replies."
+    },
+    {
+      "question": "Can a DocsBot support agent use Rockset for real-time customer answers?",
+      "answer": "Yes, a DocsBot agent can use Rockset to retrieve fresh analytics, event patterns, or account-level summaries while responding to customers. This helps the agent answer with current operational context instead of relying only on static help content."
+    },
+    {
+      "question": "What Rockset workflows can an internal AI assistant automate for employees?",
+      "answer": "An internal DocsBot agent can use Rockset to research account trends, summarize product usage, investigate anomalies, prepare escalation notes, and support SOP-based operations workflows. Employees can ask for the result in chat while the agent handles the approved lookup and summary steps in the background."
+    },
+    {
+      "question": "Can an AI agent summarize Rockset query results for escalations and handoffs?",
+      "answer": "Yes, DocsBot Skills can be designed to pull relevant Rockset results, summarize what changed, and package the findings into a clean handoff or escalation note. This is useful for support, customer success, and operations teams that need faster context gathering."
+    },
+    {
+      "question": "How does DocsBot keep Rockset access secure for AI agents?",
+      "answer": "Skill Builder defines the needed connection settings, protects and proxies secrets through secure runtime configuration, and keeps credentials out of chat transcripts and generated content. It also scopes permissions and can add approval boundaries so the agent only performs the queries and actions you allow."
+    },
+    {
+      "question": "Can a DocsBot agent use Rockset to help detect broader incidents from customer reports?",
+      "answer": "Yes, a support-focused Skill can compare a customer’s reported issue against recent Rockset data to identify whether the pattern appears account-specific or more widespread. The agent can then summarize the evidence and prepare an escalation for human review when needed."
+    }
+  ],
+  "relatedSlugs": [
+    "snowflake",
+    "bigquery",
+    "datadog",
+    "tableau",
+    "looker",
+    "elasticsearch"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Rockset",
+    "domain": "rockset.com",
+    "description": "Rockset is a real-time indexing database company that enables businesses to build data applications for the cloud. They provide a search and analytics database built for the cloud, and are known for being the world's fastest in their field. Alternatively, Rockset is also an audiovisual production company that creates high-quality content for major brands, leveraging their expertise, technique, and passion to deliver creative results.",
+    "slogan": "Fast, scalable search and analytics for the cloud, built for real-time insights.",
+    "logoUrl": "https://media.brand.dev/081a0232-53ce-4023-9bd7-2ba33376959a.jpg",
+    "iconUrl": "https://media.brand.dev/081a0232-53ce-4023-9bd7-2ba33376959a.jpg",
+    "primaryColor": "#650796",
+    "accentColor": "#72c2da",
+    "colors": [
+      {
+        "hex": "#650796",
+        "name": "Indigo Purple"
+      },
+      {
+        "hex": "#72c2da",
+        "name": "Thredbo"
+      },
+      {
+        "hex": "#f2f4f8",
+        "name": "Boysenberry Shadow"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/562bf5d0-ce43-47ce-bc61-f64e245a4a4d.png",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "contact": null,
+      "privacy": null,
+      "blog": null,
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/081a0232-53ce-4023-9bd7-2ba33376959a.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/52ddfaaf-fe3b-4ddd-b39f-ad6a778da674.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4f41abdd-950c-4f6f-b5dc-7c4ddd953f06.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/7a80310d-b91c-48b1-93ea-09d9aab6fa3a.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 28,
+        "height": 28,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/52ddfaaf-fe3b-4ddd-b39f-ad6a778da674.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/52ddfaaf-fe3b-4ddd-b39f-ad6a778da674.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

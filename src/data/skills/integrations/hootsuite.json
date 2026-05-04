@@ -1,0 +1,176 @@
+{
+  "slug": "hootsuite",
+  "name": "Hootsuite",
+  "domain": "hootsuite.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with Hootsuite",
+  "metaTitle": "Build Hootsuite AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Hootsuite to monitor conversations, summarize activity, trigger handoffs, and support social media workflows safely.",
+  "intro": "Hootsuite helps teams manage social campaigns, monitor engagement, and centralize customer conversations across networks. With DocsBot Skill Builder, you can describe the Hootsuite workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions, look up social activity, prepare handoffs, and take approved actions inside your rules.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to look up recent Hootsuite conversation history and summarize prior social interactions before replying to a customer.",
+    "Let a support agent collect complaint details in chat and create a structured handoff for the social care team based on Hootsuite conversation context.",
+    "Have the agent check whether a social message thread has already been acknowledged in Hootsuite so it can avoid duplicate follow-ups.",
+    "Use the agent to summarize campaign or engagement context from Hootsuite when a helpdesk ticket references a social post or direct message.",
+    "Let the agent prepare escalation notes that combine the customer’s current request with relevant Hootsuite interaction history for a human team member."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent to retrieve Hootsuite conversation summaries, campaign context, or engagement activity without digging through dashboards.",
+    "Let marketing or support teams ask the agent to generate social monitoring summaries from Hootsuite for daily standups, incident reviews, or executive updates.",
+    "Help employees follow internal SOPs by having the agent gather Hootsuite context, format a handoff, and route the next step to the right team.",
+    "Allow team members in Slack or Microsoft Teams to ask the agent for status updates on social responses, open engagement trends, or campaign-related conversation activity.",
+    "Use a private AI assistant to combine Hootsuite insights with internal documentation so employees can research social issues and decide the next approved action faster."
+  ],
+  "whatYouCanBuild": [
+    "A support Skill that summarizes Hootsuite interactions before replying to customers.",
+    "An internal assistant that prepares daily social engagement and response summaries.",
+    "A workflow Skill that turns customer complaints into structured social care handoffs.",
+    "An AI agent that checks Hootsuite history before escalating a support issue.",
+    "A team assistant that drafts incident notes using Hootsuite conversation context.",
+    "A private agent that helps employees research campaign and engagement activity quickly."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Hootsuite-enabled agent to do, such as summarize social conversations, prepare handoffs, or retrieve campaign context, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the safest workflow, identifies the required configuration values, sets up secure authentication handling, protects and proxies secrets through runtime configuration, and scopes access to only the actions, records, and users needed."
+    },
+    {
+      "title": "Approvals and limits are added",
+      "description": "Skill Builder adds approval boundaries and action limits for sensitive updates or workflow triggers so the agent can take bounded action inside your rules instead of operating without guardrails."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk-connected support agent, or private team assistant in chat, Slack, or Microsoft Teams."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Hootsuite?",
+      "answer": "With DocsBot Skill Builder, you describe the Hootsuite workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your DocsBot agent. That agent can then use Hootsuite for lookups, summaries, handoffs, and other approved actions."
+    },
+    {
+      "question": "Can an AI support agent use Hootsuite data while helping customers?",
+      "answer": "Yes, a DocsBot support agent can use Hootsuite conversation context to summarize prior interactions, prepare escalations, and help route issues more accurately. You define the allowed actions and access boundaries so the agent stays within approved support workflows."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Hootsuite?",
+      "answer": "Teams can build workflows for conversation lookups, social interaction summaries, escalation prep, duplicate-checking, and structured handoffs to social care or support staff. This helps the agent respond faster while giving human teams better context when escalation is needed."
+    },
+    {
+      "question": "Can an internal AI assistant help employees use Hootsuite more efficiently?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve social activity summaries, research campaign context, and complete repeatable handoff or reporting workflows. This reduces dashboard switching and makes routine social operations easier to manage from chat."
+    },
+    {
+      "question": "How does DocsBot keep Hootsuite actions secure?",
+      "answer": "Skill Builder handles secure connection design by defining the needed configuration values, keeping secrets out of chats and Skill source, proxying credentials through approved runtime settings, and scoping permissions to the minimum required access. It can also add approval steps and safe action boundaries for sensitive workflows."
+    },
+    {
+      "question": "Can DocsBot create Hootsuite handoffs and escalation summaries automatically?",
+      "answer": "Yes, you can build a Skill that gathers the relevant Hootsuite conversation context, combines it with the current request, and formats a clear handoff or escalation summary for a human team. That helps support, social, and marketing teams act faster with less manual copy and paste."
+    }
+  ],
+  "relatedSlugs": [
+    "sprout-social",
+    "zendesk",
+    "intercom",
+    "slack",
+    "microsoft-teams",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Hootsuite",
+    "domain": "hootsuite.com",
+    "description": "Hootsuite is a social‑media management platform that helps brands bring order to the chaotic online landscape. Its suite of tools lets businesses launch and manage social campaigns, deliver seamless social‑commerce experiences, and centralize all customer conversations across multiple networks. With customizable plans for teams of any size, Hootsuite enables marketers to schedule posts, monitor engagement, analyze performance, and collaborate efficiently—all from one unified dashboard.",
+    "slogan": "Save time, simplify, and grow faster on social media with Hootsuite.",
+    "logoUrl": "https://media.brand.dev/a86cb5ae-beef-47b3-96e2-45dba63f7cc6.svg",
+    "iconUrl": "https://media.brand.dev/4d9e36a8-21d2-4818-8bb9-c846620063ca.svg",
+    "primaryColor": "#e43334",
+    "accentColor": "#042c3c",
+    "colors": [
+      {
+        "hex": "#e43334",
+        "name": "Rose Madder"
+      },
+      {
+        "hex": "#042c3c",
+        "name": "Artist Blue"
+      },
+      {
+        "hex": "#fc4f48",
+        "name": "Tart Orange"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/454cb7e5-4b77-4b08-858f-bdc847318985.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.hootsuite.com/",
+      "terms": null,
+      "blog": "https://blog.hootsuite.com/",
+      "contact": "https://www.hootsuite.com/about/contact-us",
+      "privacy": "https://www.hootsuite.com/legal/privacy",
+      "pricing": "https://www.hootsuite.com/plans"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/a86cb5ae-beef-47b3-96e2-45dba63f7cc6.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 950,
+        "height": 200,
+        "aspectRatio": 4.75
+      },
+      {
+        "url": "https://media.brand.dev/99e41db0-748e-4cac-9487-3b8ceb2188f6.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4d9e36a8-21d2-4818-8bb9-c846620063ca.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 500,
+        "height": 500,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/caa18ac6-d625-4c62-9f08-0ad3eef932da.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/a86cb5ae-beef-47b3-96e2-45dba63f7cc6.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 950,
+      "height": 200,
+      "aspectRatio": 4.75
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/99e41db0-748e-4cac-9487-3b8ceb2188f6.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 180,
+      "height": 180,
+      "aspectRatio": 1
+    }
+  }
+}

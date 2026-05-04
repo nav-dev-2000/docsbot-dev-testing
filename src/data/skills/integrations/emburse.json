@@ -1,0 +1,176 @@
+{
+  "slug": "emburse",
+  "name": "Emburse",
+  "domain": "emburse.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI agents that work with Emburse",
+  "metaTitle": "Build Emburse AI agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Emburse for expense lookups, approvals, summaries, and finance workflows in support and internal team chats.",
+  "intro": "Emburse helps organizations manage expenses, travel, and accounts payable workflows across global teams. With DocsBot Skill Builder, you can describe the Emburse workflow you want in plain language and have DocsBot create a secure reusable Skill for your AI agent. That lets customer-facing or internal agents look up finance status, prepare handoffs, trigger approved steps, and summarize outcomes without exposing sensitive systems broadly.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a submitted reimbursement or payment-related request in Emburse and reply with a clear progress update.",
+    "Use the agent to gather missing details from a customer or employee, then create a structured handoff for the finance team with Emburse context attached.",
+    "Have the agent summarize recent expense, invoice, or approval activity from Emburse when responding to a helpdesk ticket about delays or next steps.",
+    "Allow the agent to trigger approved workflow steps, such as notifying the right finance queue or flagging a record for review, while keeping sensitive actions bounded.",
+    "Use Emburse data to help the agent explain policy-related outcomes, such as why an expense is pending, rejected, or waiting on additional documentation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to look up expense report status, reimbursement progress, or approval history from Emburse.",
+    "Finance and operations teams can ask the agent to summarize outstanding approvals, payment exceptions, or delayed submissions across Emburse and related systems.",
+    "Managers can chat with the agent to review team expense activity, identify missing receipts or stalled reports, and prepare follow-up actions using approved boundaries.",
+    "Employees can use the agent to follow internal SOPs for expense and accounts payable questions, with the agent retrieving Emburse details and guiding the next approved step.",
+    "Shared services teams can ask the agent to collect required context, create handoff notes, and route finance issues faster instead of manually stitching together updates from multiple tools."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks expense report and reimbursement status from Emburse during support conversations.",
+    "A finance assistant that summarizes pending approvals and highlights records needing follow-up.",
+    "An internal agent that collects missing receipt or policy details before creating a finance handoff.",
+    "A support workflow that explains why an expense or payment request is still pending.",
+    "An employee help agent that retrieves approval history and next-step guidance from Emburse.",
+    "A private operations assistant that prepares daily summaries of exceptions, delays, and unresolved finance items."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Emburse-powered agent to do, such as check reimbursement status, summarize approvals, or prepare a finance handoff, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder determines the needed connection details, defines secure configuration values, protects and proxies secrets through runtime settings, and scopes Emburse access to the minimum records, actions, and users required."
+    },
+    {
+      "title": "Bound sensitive actions",
+      "description": "Skill Builder adds safe action limits and approval boundaries so the agent can look up data, draft updates, or trigger approved workflows without taking unrestricted finance actions."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "Its automated testing agent runs imagined support and internal team conversations, checks for bugs, weak instructions, missing permission checks, and workflow gaps, then feeds those findings back for improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "After refining the Skill, Skill Builder helps publish it to the right DocsBot agent so your website chat, helpdesk bot, or private employee assistant can use Emburse confidently."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Emburse for expense and reimbursement questions?",
+      "answer": "With DocsBot Skill Builder, you describe the Emburse workflow you want in plain language and it creates a secure Skill that can look up status, summarize records, collect missing context, and prepare approved follow-up actions."
+    },
+    {
+      "question": "Can an AI support agent use Emburse data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot support agent can use an Emburse Skill to retrieve relevant expense or payment status, explain the current state, and prepare escalations or handoffs while staying within the permissions and action limits you define."
+    },
+    {
+      "question": "What Emburse workflows can an internal AI assistant automate for employees and finance teams?",
+      "answer": "An internal DocsBot agent can help with expense status checks, approval summaries, exception reviews, handoff preparation, SOP guidance, and other bounded finance workflows that save time for operations and shared services teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Emburse instead of only answering questions?",
+      "answer": "Yes, DocsBot Skills can be designed for bounded AI Actions such as creating handoff records, flagging items for review, or triggering approved workflow steps, with approval boundaries and scoped permissions applied by design."
+    },
+    {
+      "question": "How does security work when connecting DocsBot to Emburse?",
+      "answer": "Skill Builder identifies the required configuration, keeps credentials out of chats and generated content, proxies secrets through secure runtime settings, and limits access to the specific records, actions, and users needed for the workflow."
+    },
+    {
+      "question": "Do I need to write code to create an Emburse AI assistant with DocsBot?",
+      "answer": "No, you describe the result you want and Skill Builder handles the design, connection planning, secure configuration, testing, improvement, and deployment process for the Skill."
+    }
+  ],
+  "relatedSlugs": [
+    "bill-com",
+    "concur",
+    "quickbooks",
+    "xero",
+    "netsuite",
+    "airtable"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Emburse",
+    "domain": "emburse.com",
+    "description": "Emburse is a global leader in expense management and accounts payable automation, providing innovative finance technologies that simplify work for organizations worldwide. Their suite of award-winning products supports over 12 million users across 120 countries, managing business travel and employee expenses in 180 currencies and 40 tax jurisdictions.",
+    "slogan": "We #HumanizeWork",
+    "logoUrl": "https://media.brand.dev/4ed064ad-a4f6-4dd3-8e93-a9308fe1829f.svg",
+    "iconUrl": "https://media.brand.dev/0aef6948-66cb-4fc9-83ca-ec7c5d9c4928.png",
+    "primaryColor": "#0494dc",
+    "accentColor": "#6bc6eb",
+    "colors": [
+      {
+        "hex": "#0494dc",
+        "name": "Atmosphere"
+      },
+      {
+        "hex": "#6bc6eb",
+        "name": "Blue Mana"
+      },
+      {
+        "hex": "#0c2444",
+        "name": "Dark Eclipse"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/005d5bf0-0aec-4336-bbf3-336e9a94fe64.png",
+    "industries": [],
+    "links": {
+      "careers": "https://emburse.com/company/careers",
+      "terms": null,
+      "contact": "https://emburse.com/contact-us",
+      "privacy": "https://legal.emburse.com/",
+      "blog": "https://emburse.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/11294a32-b240-482c-8e3a-5a63cd358a93.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 557,
+        "height": 556,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/0aef6948-66cb-4fc9-83ca-ec7c5d9c4928.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/4ed064ad-a4f6-4dd3-8e93-a9308fe1829f.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 138,
+        "height": 24,
+        "aspectRatio": 5.75
+      },
+      {
+        "url": "https://media.brand.dev/6ae9112c-81e4-4e5f-8677-0dbcf79294c1.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 14,
+        "height": 9,
+        "aspectRatio": 1.56
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/4ed064ad-a4f6-4dd3-8e93-a9308fe1829f.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 138,
+      "height": 24,
+      "aspectRatio": 5.75
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/11294a32-b240-482c-8e3a-5a63cd358a93.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 557,
+      "height": 556,
+      "aspectRatio": 1
+    }
+  }
+}

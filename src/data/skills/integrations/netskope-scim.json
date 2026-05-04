@@ -1,0 +1,168 @@
+{
+  "slug": "netskope-scim",
+  "name": "Netskope SCIM",
+  "domain": "netskope.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With Netskope SCIM",
+  "metaTitle": "Build AI Agents for Netskope SCIM With DocsBot Skills",
+  "metaDescription": "Use DocsBot Skill Builder to create AI agents that securely look up identities, support access workflows, and automate bounded actions with Netskope SCIM.",
+  "intro": "Netskope SCIM helps organizations manage identity-related provisioning data inside a broader security environment. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up users, support access workflows, prepare handoffs, and take approved actions. This helps customer support teams and internal operations teams move faster while keeping identity and security actions controlled.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user's account provisioning status is active, pending, or needs internal review before replying in chat or by ticket.",
+    "Use the agent to collect missing identity details from a customer, summarize the issue, and prepare a clean handoff for an access or provisioning team.",
+    "Allow the agent to confirm whether a user record exists in Netskope SCIM and explain the next approved support step without exposing sensitive identity data.",
+    "Have the agent summarize account lifecycle status for a support ticket so human teams can quickly understand whether the problem is onboarding, deprovisioning, or an attribute mismatch.",
+    "Enable the agent to trigger a bounded internal workflow when a customer reports an access problem, such as creating a review task or escalation package tied to the Netskope SCIM record."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to look up user provisioning status and identity attributes across approved Netskope SCIM records.",
+    "Help IT and security teams use an internal AI agent to gather missing context, summarize access issues, and follow standard operating procedures for joiner, mover, and leaver workflows.",
+    "Allow operations staff to ask the agent to find specific users, verify whether deprovisioning has completed, and prepare follow-up actions for exceptions that need review.",
+    "Support service desk teams by letting employees chat with the agent to create standardized escalation summaries and case notes based on Netskope SCIM data.",
+    "Give internal teams an AI assistant that can research identity-related requests, retrieve relevant record details, and complete approved workflow steps with human approval for sensitive changes."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks Netskope SCIM user provisioning status during support conversations.",
+    "A private IT assistant that finds identity records and summarizes access lifecycle issues.",
+    "A support workflow that gathers customer details and prepares secure access escalation handoffs.",
+    "An internal agent that verifies deprovisioning completion and flags exceptions for review.",
+    "A DocsBot Skill that creates approval-ready summaries for identity and account access cases.",
+    "An AI assistant that looks up user attributes within scoped Netskope SCIM permissions."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You explain in plain language what you want the AI agent to do with Netskope SCIM, and Skill Builder turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the secure connection approach, identifies the required configuration values, protects and proxies secrets through secure runtime settings, and scopes access to the minimum users, records, and actions needed."
+    },
+    {
+      "title": "Actions get bounded",
+      "description": "Skill Builder adds the right guardrails for lookups, updates, workflow triggers, and sensitive identity actions, including approval boundaries where a human should confirm the next step."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot’s testing agent runs imagined customer and employee scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot, helpdesk agent, or private team assistant so it can answer questions and take approved action with Netskope SCIM."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Netskope SCIM without custom development?",
+      "answer": "With DocsBot Skill Builder, you describe the identity or access workflow you want in plain language, and the builder designs, secures, tests, and packages the Skill for your DocsBot agent. It can define safe lookups, approved actions, and the configuration needed to connect with Netskope SCIM."
+    },
+    {
+      "question": "Can an AI support agent use Netskope SCIM data during customer conversations?",
+      "answer": "Yes, a DocsBot support agent can use a Netskope SCIM Skill to retrieve approved user or provisioning details, summarize account state, and prepare escalations while responding in a website chat or helpdesk ticket. The actions can be limited to safe lookups or require approval for more sensitive steps."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Netskope SCIM?",
+      "answer": "A DocsBot agent can help verify whether an account exists, check provisioning status, collect missing identity details, summarize lifecycle issues, and prepare internal handoffs for access-related requests. This shortens resolution time while keeping identity actions inside defined boundaries."
+    },
+    {
+      "question": "What can an internal AI assistant do with Netskope SCIM for IT or security teams?",
+      "answer": "An internal DocsBot agent can help employees and service desk teams look up user records, confirm deprovisioning status, research access issues, and complete SOP-driven workflows for identity operations. It can also generate clean summaries and escalation notes for human reviewers."
+    },
+    {
+      "question": "How does DocsBot keep Netskope SCIM connections and credentials secure?",
+      "answer": "Skill Builder defines the needed configuration, keeps credentials out of chats and generated Skill content, and proxies secrets through secure runtime handling by design. It also scopes permissions to the minimum records and actions required and can add approval checkpoints for sensitive operations."
+    },
+    {
+      "question": "Can DocsBot limit what an AI agent is allowed to do in Netskope SCIM?",
+      "answer": "Yes, the Skill can be designed around bounded actions such as read-only lookups, limited record updates, or specific workflow triggers. Skill Builder helps define those limits, assign appropriate access, and require human approval where needed."
+    }
+  ],
+  "relatedSlugs": [
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "microsoft-entra-id",
+    "ping-identity",
+    "scim"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Netskope",
+    "domain": "netskope.com",
+    "description": "Netskope is a global cybersecurity leader providing a security platform to protect data and stop threats. They offer a unified solution for security and networking teams, delivering real-time, context-based security and optimized access for people, devices, and data. With the Netskope One platform and Zero Trust Engine, they help organizations reduce risk and gain visibility over cloud, AI, SaaS, web, and private applications, ensuring security and performance without trade-offs.",
+    "slogan": "Security Evolved",
+    "logoUrl": "https://media.brand.dev/d5b3cd81-399d-4509-b8cd-d08ffdf021cf.svg",
+    "iconUrl": "https://media.brand.dev/dd73fc30-ef6c-4100-addb-b2674dfa6ace.jpg",
+    "primaryColor": "#fc8404",
+    "accentColor": "#04a4cc",
+    "colors": [
+      {
+        "hex": "#fc8404",
+        "name": "Atomic Orange"
+      },
+      {
+        "hex": "#04a4cc",
+        "name": "Gummy Dolphins"
+      },
+      {
+        "hex": "#54545c",
+        "name": "Coal Mine"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/6a31e404-1add-4f55-a60b-7a1087ef42bf.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.netskope.com/company/careers",
+      "terms": "https://www.netskope.com/terms-of-use",
+      "contact": "https://netskope.com/contact-us",
+      "privacy": "https://www.netskope.com/privacy",
+      "blog": "https://www.netskope.com/blog",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/dd73fc30-ef6c-4100-addb-b2674dfa6ace.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 720,
+        "height": 720,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/48699b0f-caa2-4a87-bbb4-dd594254763d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/d5b3cd81-399d-4509-b8cd-d08ffdf021cf.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 147,
+        "height": 24,
+        "aspectRatio": 6.13
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/d5b3cd81-399d-4509-b8cd-d08ffdf021cf.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 147,
+      "height": 24,
+      "aspectRatio": 6.13
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/48699b0f-caa2-4a87-bbb4-dd594254763d.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 192,
+      "height": 192,
+      "aspectRatio": 1
+    }
+  }
+}

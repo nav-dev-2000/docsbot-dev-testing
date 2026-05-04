@@ -1,0 +1,160 @@
+{
+  "slug": "azure-devops",
+  "name": "Azure DevOps",
+  "domain": "azure.microsoft.com",
+  "category": "Project Management",
+  "trutoCategory": "Ticketing",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents for Azure DevOps with DocsBot Skill Builder",
+  "metaTitle": "Build Azure DevOps AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Azure DevOps for issue lookups, work item updates, handoffs, workflow triggers, and internal team support automation.",
+  "intro": "Azure DevOps helps teams manage software work, track issues, plan releases, and coordinate delivery. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Azure DevOps, and Skill Builder designs, secures, tests, and deploys that ability for customer support or internal team use. The result is an AI agent that can answer questions and take bounded action inside approved Azure DevOps workflows instead of only pointing people to manual steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up Azure DevOps work items, incident status, or known bug details and explain the latest state in a website chat or support ticket reply.",
+    "Enable the agent to create Azure DevOps bug reports or task items from customer conversations, including summaries, reproduction details, priority hints, and product context for the engineering team.",
+    "Allow the agent to update approved Azure DevOps fields such as tags, status notes, or customer impact details when support teams need structured handoffs into development workflows.",
+    "Use the agent to summarize linked Azure DevOps records for escalations so customers receive clear next-step updates while internal teams get a cleaner engineering handoff.",
+    "Let the agent trigger approved follow-up workflows tied to Azure DevOps, such as routing urgent issues, notifying owners, or preparing release-related status updates for support."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find Azure DevOps work items, sprint details, blockers, and release status without searching manually.",
+    "Engineering, support, and operations teams can ask the agent to create or update Azure DevOps tasks, bugs, and follow-up records through guided workflows that match internal SOPs.",
+    "Team members can use the agent to summarize active incidents, backlog trends, or assigned work across Azure DevOps projects for standups, escalations, and leadership updates.",
+    "Internal teams can chat with the agent to prepare handoff notes between customer support and engineering by pulling relevant Azure DevOps context and formatting it into a reusable summary.",
+    "Employees can use the agent to follow approval-based workflows for sensitive Azure DevOps changes so updates stay within defined permissions and review boundaries."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Azure DevOps bug status before replying to customers.",
+    "A handoff Skill that turns support conversations into structured Azure DevOps work items.",
+    "An internal assistant that summarizes sprint progress and open blockers across projects.",
+    "A workflow Skill that routes urgent product issues to the right engineering queue.",
+    "An AI agent that adds customer impact notes to approved Azure DevOps records.",
+    "A private team assistant that prepares release-status summaries from Azure DevOps data."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do in Azure DevOps, such as checking issue status, creating bugs, updating approved fields, or preparing engineering handoffs, using plain language instead of technical setup steps."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that request into a secure Skill design, decides which Azure DevOps actions and data are needed, defines the required configuration values, and sets up safe authentication and secret handling through protected runtime configuration."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder automatically limits the Skill to the minimum Azure DevOps projects, records, users, and actions required, and it adds approval boundaries or safe action limits anywhere a workflow should be reviewed before changes are made."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team conversations against the Skill, checks for bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish with confidence",
+      "description": "After testing and self-improvement, Skill Builder helps publish the finished Skill to the right DocsBot agent for your website chat, helpdesk workflows, or private employee assistant so it can answer questions and take approved Azure DevOps actions."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Azure DevOps?",
+      "answer": "With DocsBot Skill Builder, you describe the Azure DevOps workflow you want in plain language, and Skill Builder designs the Skill, secures the connection, tests scenarios, improves weak spots, and prepares it for deployment. The finished agent can look up records, summarize status, create handoffs, or take other approved actions inside your rules."
+    },
+    {
+      "question": "Can an AI support agent use Azure DevOps data when responding to customers?",
+      "answer": "Yes, a DocsBot support agent can use Azure DevOps as a live system for issue lookups, bug status checks, escalation summaries, and approved record creation or updates. This helps the agent give customers more accurate answers while keeping actions bounded by your permissions and workflow policies."
+    },
+    {
+      "question": "What customer support workflows can be automated between DocsBot and Azure DevOps?",
+      "answer": "Teams can automate issue lookups, bug creation from support chats, escalation prep, customer-impact note updates, ownership routing, and structured handoffs to engineering. DocsBot can also summarize Azure DevOps state in ticket replies so support teams communicate faster and more consistently."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in Azure DevOps?",
+      "answer": "Yes, private DocsBot agents can help employees find work items, check sprint or release status, summarize blockers, create tasks, and follow internal SOPs through chat, Slack, or Microsoft Teams. This gives teams a faster way to work across Azure DevOps without digging through multiple screens."
+    },
+    {
+      "question": "How does DocsBot keep Azure DevOps actions secure?",
+      "answer": "Skill Builder defines the needed configuration values, keeps credentials out of chats and Skill content, proxies secrets through secure runtime settings, and scopes access to the minimum records and actions required. It can also add approval boundaries for sensitive updates so the agent only acts within your defined limits."
+    },
+    {
+      "question": "Can DocsBot create Azure DevOps bugs or tasks from a support conversation?",
+      "answer": "Yes, you can build a Skill that turns a customer conversation or helpdesk ticket into a structured Azure DevOps work item with summaries, issue details, and routing context. This reduces manual triage work and makes handoffs to engineering more consistent."
+    }
+  ],
+  "relatedSlugs": [
+    "jira",
+    "linear",
+    "github",
+    "gitlab",
+    "zendesk",
+    "freshdesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Microsoft Azure",
+    "domain": "azure.microsoft.com",
+    "description": "Microsoft Azure is Microsoft’s comprehensive cloud computing platform that delivers a wide range of services—including compute, storage, databases, networking, AI, and analytics—to help organizations build, deploy, and scale applications and workloads. It offers flexible, enterprise‑grade solutions such as managed databases, AI‑ready services, hybrid and multicloud capabilities, and tools for modernizing legacy systems. Azure enables developers and businesses to innovate faster, migrate securely, and run intelligent, data‑driven applications at global scale.",
+    "slogan": "Empowering innovation with limitless cloud solutions from Microsoft Azure.",
+    "logoUrl": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+    "iconUrl": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+    "primaryColor": "#08a8e7",
+    "accentColor": "#cf9b0b",
+    "colors": [
+      {
+        "hex": "#08a8e7",
+        "name": "Vivid Cerulean"
+      },
+      {
+        "hex": "#cf9b0b",
+        "name": "Yellow Ochre"
+      },
+      {
+        "hex": "#fc5124",
+        "name": "Smashing Pumpkins"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "terms": null,
+      "privacy": null,
+      "contact": "https://azure.microsoft.com/en-us/contact",
+      "blog": "https://azure.microsoft.com/en-us/blog/",
+      "pricing": "https://azure.microsoft.com/en-us/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 216,
+        "height": 46,
+        "aspectRatio": 4.7
+      },
+      {
+        "url": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 112,
+        "height": 112,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/441cd1d2-248d-4700-ac3d-dab259989ca6.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 216,
+      "height": 46,
+      "aspectRatio": 4.7
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/e812510c-c782-4328-8726-8a02605e5a75.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 112,
+      "height": 112,
+      "aspectRatio": 1
+    }
+  }
+}

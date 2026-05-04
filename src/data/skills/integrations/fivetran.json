@@ -1,0 +1,144 @@
+{
+  "slug": "fivetran",
+  "name": "Fivetran",
+  "domain": "fivetran.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Business Intelligence",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Use Fivetran with DocsBot Skills",
+  "metaTitle": "Build Fivetran AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Fivetran for data lookups, sync monitoring, handoffs, and internal workflow automation with secure, tested Skills.",
+  "intro": "Fivetran helps teams move and manage data across business systems, warehouses, and downstream tools. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use Fivetran, and DocsBot helps design, secure, test, improve, and publish that reusable Skill. The result is a support or internal AI agent that can answer questions, summarize pipeline state, prepare handoffs, and take approved data-related actions without exposing sensitive setup details.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check whether a customer's product or account data is flowing into analytics systems as expected and explain the current sync status in plain language.",
+    "Let a support agent summarize recent Fivetran connector health, sync history, or data freshness so customers get faster answers when reporting missing dashboard data.",
+    "Have the agent collect account details from a support conversation, look up relevant Fivetran pipeline context, and prepare a complete escalation handoff for technical teams.",
+    "Enable the agent to identify likely data delay issues, explain whether a connector appears paused or delayed, and suggest the next approved support step.",
+    "Use the agent in helpdesk replies to summarize warehouse replication context and attach a structured issue summary for customer success or data engineering follow-up."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat tool to check connector status, sync history, and data freshness across Fivetran-managed pipelines.",
+    "Enable operations or analytics teams to ask the agent which data sources are delayed, which connectors need review, or which downstream reports may be affected.",
+    "Give internal teams an AI assistant that gathers Fivetran pipeline details, summarizes likely root causes, and prepares incident notes or stakeholder updates.",
+    "Help analysts and customer success teams chat with the agent to research whether warehouse data is current before acting on revenue, product, or support metrics.",
+    "Support internal SOPs where employees ask the agent to generate a clean handoff, approval request, or follow-up task based on Fivetran sync issues and related business context."
+  ],
+  "whatYouCanBuild": [
+    "A Skill that checks connector health and explains sync delays in customer-friendly language.",
+    "A Skill that summarizes recent Fivetran sync activity for support tickets and escalations.",
+    "A Skill that gathers pipeline status and drafts internal incident updates for operations teams.",
+    "A Skill that checks data freshness before employees trust a dashboard or report.",
+    "A Skill that prepares structured handoffs when missing data affects customer accounts.",
+    "A Skill that routes data pipeline issues to the right team with supporting context."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Fivetran in plain language, such as checking sync status, summarizing connector health, or preparing a support handoff."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a reusable Skill design, asks for any missing business context, and defines the safest workflow, required configuration values, and runtime behavior for the agent."
+    },
+    {
+      "title": "Connections are secured",
+      "description": "Skill Builder handles secure connection design by identifying authentication needs, protecting and proxying secrets through approved runtime configuration, and keeping credentials out of chats and Skill source."
+    },
+    {
+      "title": "Access is carefully scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries or action limits wherever sensitive updates or triggers should be reviewed first."
+    },
+    {
+      "title": "Scenarios are tested",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Fivetran data?",
+      "answer": "With DocsBot Skill Builder, you describe the workflow you want in plain language, such as checking connector health or summarizing sync status, and Skill Builder creates a secure Skill your AI agent can use. It also defines the needed configuration, protects credentials, scopes access, and tests the workflow before deployment."
+    },
+    {
+      "question": "Can an AI support agent use Fivetran to help with missing or delayed customer data questions?",
+      "answer": "Yes, a DocsBot support agent can use a Fivetran Skill to look up sync health, summarize likely data freshness issues, and prepare a clear handoff for human follow-up. This helps support teams answer data-related questions faster without giving the agent unlimited access."
+    },
+    {
+      "question": "What internal team workflows can an AI assistant automate with Fivetran?",
+      "answer": "An internal DocsBot agent can help employees check connector status, review recent sync history, identify affected reports, draft incident updates, and prepare escalation notes. These workflows can be bounded to safe lookups, summaries, and approved actions based on your rules."
+    },
+    {
+      "question": "Can DocsBot safely connect an AI agent to Fivetran without exposing credentials?",
+      "answer": "Yes, Skill Builder is designed to define secure connection requirements, store and proxy secrets through runtime configuration, and keep sensitive credentials out of chat transcripts and generated Skill content. It also scopes access and approval boundaries to match the intended workflow."
+    },
+    {
+      "question": "Can a DocsBot agent summarize Fivetran pipeline health for support and operations teams?",
+      "answer": "Yes, a Skill can help the agent gather connector or sync details and turn them into customer-friendly explanations, internal summaries, or escalation notes. That makes it easier to respond quickly when dashboards or downstream systems appear outdated."
+    },
+    {
+      "question": "How does testing work for a Fivetran Skill in DocsBot?",
+      "answer": "After the Skill is drafted, DocsBot's automated testing agent can run support and internal team scenarios to catch missing logic, permission gaps, weak instructions, or edge cases. Those findings can be used in an automated self-improvement loop before the Skill is published."
+    }
+  ],
+  "relatedSlugs": [
+    "snowflake",
+    "bigquery",
+    "redshift",
+    "dbt",
+    "looker",
+    "tableau"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Fivetran",
+    "domain": "fivetran.com",
+    "description": "Fivetran is a data integration platform that automates the movement, management, and transformation of data across the enterprise. It connects to 700+ sources—including SaaS apps, databases, ERP systems, and file stores—and reliably replicates data into data warehouses, data lakes, and downstream business tools. The platform offers built‑in security, governance, and extensibility, enabling real‑time analytics, AI/ML pipelines, and operational workflows without manual coding. Fivetran also provides managed data lake services, automated transformations, and activation capabilities to push warehouse data into applications. Designed for developers, analysts, and business leaders, it simplifies data democratization, infrastructure modernization, and AI readiness while maintaining compliance and performance.",
+    "slogan": "The data foundation for AI",
+    "logoUrl": "https://media.brand.dev/426f36b3-4a73-4716-92e6-63dbb1526ed0.svg",
+    "iconUrl": "https://media.brand.dev/426f36b3-4a73-4716-92e6-63dbb1526ed0.svg",
+    "primaryColor": "#346cec",
+    "accentColor": "#346cec",
+    "colors": [
+      {
+        "hex": "#346cec",
+        "name": "Bluetiful"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9c71ea78-0580-44b3-8eda-0cc930ac1aa0.png",
+    "industries": [],
+    "links": {
+      "careers": "https://www.fivetran.com/careers",
+      "terms": "https://www.fivetran.com/legal/terms-of-use",
+      "contact": "https://www.fivetran.com/contact",
+      "privacy": "https://www.fivetran.com/legal/privacy",
+      "blog": "https://www.fivetran.com/blog",
+      "pricing": "https://www.fivetran.com/pricing/free-plan"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/426f36b3-4a73-4716-92e6-63dbb1526ed0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 115,
+        "height": 32,
+        "aspectRatio": 3.59
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/426f36b3-4a73-4716-92e6-63dbb1526ed0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 115,
+      "height": 32,
+      "aspectRatio": 3.59
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/426f36b3-4a73-4716-92e6-63dbb1526ed0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 115,
+      "height": 32,
+      "aspectRatio": 3.59
+    }
+  }
+}

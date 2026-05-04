@@ -1,0 +1,162 @@
+{
+  "slug": "zoho-checkout",
+  "name": "Zoho Checkout",
+  "domain": "zoho-checkout.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with Zoho Checkout",
+  "metaTitle": "Zoho Checkout AI Agent Integration for DocsBot Skills",
+  "metaDescription": "Build DocsBot AI agents that use Zoho Checkout for payment lookups, subscription support, billing summaries, and approved internal workflows.",
+  "intro": "Zoho Checkout helps businesses manage hosted payment pages, subscriptions, and billing workflows. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent look up payment details, summarize billing status, and trigger approved actions. This helps customer support teams resolve billing questions faster and gives internal teams a private AI assistant that can safely work across payment operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up a customer’s Zoho Checkout payment or subscription status and explain the current billing state in plain language.",
+    "Use the agent to confirm whether a hosted payment page transaction succeeded, failed, or is still pending while replying inside chat or a helpdesk ticket.",
+    "Have the agent summarize recent billing activity from Zoho Checkout so support can answer payment questions without switching tools.",
+    "Enable the agent to prepare a clean billing handoff that includes subscription details, payment history, and customer-reported issues for human review.",
+    "Let the agent trigger approved follow-up workflows after a billing inquiry, such as alerting a finance or success team when a payment issue needs manual intervention."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent to retrieve Zoho Checkout subscription, transaction, or payment page details without logging into multiple systems.",
+    "Finance or support teams can ask the agent to summarize billing exceptions, failed payments, or open follow-up items and prepare next-step notes for internal workflows.",
+    "Customer success teams can use the agent in Slack or Microsoft Teams to research a customer’s billing status before renewal, outreach, or escalation.",
+    "Operations teams can chat with the agent to complete standard payment support SOPs, including gathering context, checking status, and routing issues to the right team.",
+    "Internal teams can use the agent to generate consistent summaries of Zoho Checkout activity for audits, reporting prep, or cross-functional handoffs."
+  ],
+  "whatYouCanBuild": [
+    "An AI billing status checker for customer chat and ticket replies.",
+    "A support agent that summarizes payment results and subscription state from Zoho Checkout.",
+    "An internal finance assistant that reviews failed payment activity and drafts follow-up notes.",
+    "A handoff Skill that packages billing context for escalations to human teams.",
+    "A workflow assistant that checks hosted payment page outcomes before triggering next steps.",
+    "A private operations agent that answers employee questions about subscription and transaction records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Zoho Checkout, such as checking payment status, summarizing subscriptions, or preparing billing handoffs, using plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, defines the needed configuration values, and sets up safe connection and authentication handling without exposing credentials in chat or Skill instructions."
+    },
+    {
+      "title": "Protections are built in",
+      "description": "Skill Builder automatically protects and proxies secrets through secure runtime configuration, scopes access to the minimum records and actions needed, and adds approval boundaries for any sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is tested",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, permission gaps, or workflow issues, and feeds those findings into an improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps deploy it to your customer-facing DocsBot widget, helpdesk agent, or private team assistant so it can answer questions and take bounded action safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Zoho Checkout customer support?",
+      "answer": "You can describe the billing or payment tasks you want handled, and DocsBot Skill Builder can create a Skill that lets your support agent look up Zoho Checkout data, summarize payment status, prepare handoffs, and trigger approved follow-up actions."
+    },
+    {
+      "question": "Can an AI support agent use Zoho Checkout data to answer billing questions?",
+      "answer": "Yes, a DocsBot agent can be configured to use Zoho Checkout information for live lookups and billing summaries so customers get faster answers while sensitive actions stay within your approval and permission rules."
+    },
+    {
+      "question": "What Zoho Checkout workflows can an internal AI assistant automate?",
+      "answer": "An internal DocsBot agent can help employees research transactions, check subscription status, summarize billing exceptions, prepare escalation notes, and guide standard payment operations workflows across teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in Zoho Checkout-related workflows?",
+      "answer": "DocsBot Skill Builder is designed to define scoped permissions, protect secrets, and add approval boundaries so your agent can take only the bounded actions you allow in payment and billing workflows."
+    },
+    {
+      "question": "How does setup work for a Zoho Checkout AI agent if my team is not technical?",
+      "answer": "Your team explains the desired outcome in plain language, and Skill Builder handles the Skill design, secure configuration, testing, improvement, and deployment process for the DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot agent help with billing escalations and payment issue handoffs?",
+      "answer": "Yes, the agent can collect relevant Zoho Checkout context, summarize the issue, and create a structured handoff for finance, support, or customer success teams to review and continue."
+    }
+  ],
+  "relatedSlugs": [
+    "stripe",
+    "recurly",
+    "chargebee",
+    "quickbooks",
+    "xero",
+    "zoho-books"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Zoho",
+    "domain": "zoho.com",
+    "description": "Zoho is a privately held software company headquartered in Chennai, India, that provides a comprehensive suite of over 55 cloud‑based applications for businesses of all sizes. Its products cover sales and marketing, customer support, collaboration, finance, and recruitment, helping more than 130 million users worldwide streamline operations and focus on growth. Zoho emphasizes user privacy, operates without an ad‑revenue model, and offers both free and paid tools designed to transform the way companies work.",
+    "slogan": "Zoho One: The operating system for business, uniting teams and efficiency.",
+    "logoUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "iconUrl": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+    "primaryColor": "#ee722a",
+    "accentColor": "#1d8681",
+    "colors": [
+      {
+        "hex": "#ee722a",
+        "name": "Orange Zest"
+      },
+      {
+        "hex": "#1d8681",
+        "name": "Palm Springs Splash"
+      },
+      {
+        "hex": "#dbdcd5",
+        "name": "Pacific Fog"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/1c422d21-0bf3-4be2-93ac-c4f6c95b8fe6.jpg",
+    "industries": [],
+    "links": {
+      "careers": null,
+      "blog": null,
+      "pricing": null,
+      "privacy": "https://www.zoho.com/privacy-commitment.html",
+      "login": null,
+      "signup": null,
+      "terms": "https://www.zoho.com/terms.html",
+      "contact": "https://www.zoho.com/contactus.html"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/46e20547-ad3e-4358-bfcb-3ab84f5faeb3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/107fd617-2614-489c-b302-77e3b5b26e0b.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

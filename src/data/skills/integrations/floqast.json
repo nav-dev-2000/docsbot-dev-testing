@@ -1,0 +1,168 @@
+{
+  "slug": "floqast",
+  "name": "FloQast",
+  "domain": "floqast.com",
+  "category": "Accounting & Finance",
+  "trutoCategory": "Accounting",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work with FloQast",
+  "metaTitle": "Build AI Agents for FloQast with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use FloQast for accounting lookups, workflow updates, handoffs, and internal close-process support with secure controls.",
+  "intro": "FloQast helps accounting teams manage close, reconciliation, compliance, and audit preparation in one collaborative platform. With DocsBot Skill Builder, you can describe in plain language how you want an AI agent to use FloQast, and Skill Builder creates the secure reusable Skill for you. That lets you deploy customer-facing support agents or private internal AI assistants that can look up status, summarize work, prepare handoffs, and trigger approved accounting workflows.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of billing, reconciliation, or finance review workflows in FloQast before responding to account-related questions.",
+    "Use a DocsBot helpdesk agent to summarize relevant close or audit-preparation context from FloQast so finance or support teams can give faster, more accurate updates.",
+    "Have the agent create a structured internal handoff when a customer request needs accounting review, including the customer issue, supporting details, and the current FloQast workflow status.",
+    "Enable the agent to update approved notes, task context, or escalation details in FloQast while keeping the customer conversation moving.",
+    "Let the agent trigger bounded follow-up workflows in FloQast when customers report payment discrepancies, invoice questions, or reconciliation concerns that need finance investigation."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a chat portal to retrieve FloQast task status, close progress, reconciliation context, or audit-prep updates without switching tools.",
+    "Accounting and operations teams can ask the agent to summarize outstanding close items across FloQast and prepare next-step recommendations for daily standups or leadership reviews.",
+    "Finance employees can use the agent to create handoffs, attach investigation notes, and route issues into approved FloQast workflows while following internal SOPs.",
+    "Customer success, billing, and finance teams can chat with the agent to research account exceptions across systems and get a concise FloQast-backed summary before responding externally.",
+    "Internal teams can ask the agent to generate status updates, follow-up checklists, or escalation summaries using FloQast workflow data and company guidance."
+  ],
+  "whatYouCanBuild": [
+    "An AI agent that checks FloQast close-task status before answering account or billing questions.",
+    "A support workflow that creates finance handoffs in FloQast from customer tickets.",
+    "An internal assistant that summarizes reconciliation progress for controllers and accounting managers.",
+    "A private agent that prepares audit-readiness updates from FloQast workflow context.",
+    "A finance operations bot that routes discrepancy investigations into approved FloQast processes.",
+    "An AI assistant that drafts accounting follow-up notes based on FloQast task history."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "Tell Skill Builder what you want the agent to do with FloQast in plain language, and it turns that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required configuration values, sets up safe connection and authentication handling, protects and proxies secrets through secure runtime configuration, and scopes FloQast access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Actions get safe limits",
+      "description": "Skill Builder adds the right boundaries for lookups, updates, workflow triggers, and approvals so the agent can take useful action without exceeding the controls you want."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined customer support and internal team scenarios, checks for bugs, weak instructions, missing safeguards, or workflow gaps, and feeds those findings back into improvement."
+    },
+    {
+      "title": "Improve and deploy",
+      "description": "Skill Builder refines the Skill, prepares it for the right DocsBot agent, and helps publish it so your website bot, helpdesk agent, or private team assistant can use FloQast safely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with FloQast?",
+      "answer": "With DocsBot Skill Builder, you describe the FloQast workflow you want in plain language, such as checking close status, creating a handoff, or summarizing reconciliation progress. Skill Builder then designs the Skill, secures the connection, tests the workflow, and prepares it for deployment to a support or internal DocsBot agent."
+    },
+    {
+      "question": "Can an AI support agent use FloQast data when responding to customer questions?",
+      "answer": "Yes, a DocsBot support agent can use a FloQast Skill to retrieve approved workflow status, summarize accounting context, and prepare internal escalations while responding in chat or through helpdesk tickets. Access and actions can be limited so the agent only sees and does what your team approves."
+    },
+    {
+      "question": "What internal team workflows can a DocsBot AI assistant automate with FloQast?",
+      "answer": "Internal assistants can help employees check close progress, review reconciliation status, create finance handoffs, summarize audit-preparation work, and generate follow-up notes or checklists. This is useful in private chat, Slack, or Microsoft Teams for faster execution of accounting SOPs."
+    },
+    {
+      "question": "Can DocsBot update records or trigger workflows in FloQast safely?",
+      "answer": "DocsBot Skills can be designed for bounded actions such as updating notes, creating handoff records, or triggering approved workflows. Skill Builder applies scoped permissions, secure authentication handling, and approval boundaries so actions stay within your policies."
+    },
+    {
+      "question": "How does DocsBot keep FloQast credentials and authentication secure?",
+      "answer": "Skill Builder identifies the connection details the workflow needs and stores secrets in secure runtime configuration instead of exposing them in chat transcripts or generated Skill content. It also proxies credentials safely and limits access to the smallest set of actions and records required."
+    },
+    {
+      "question": "Can a DocsBot agent prepare escalations for finance or accounting teams using FloQast?",
+      "answer": "Yes, the agent can gather customer context, summarize the issue, attach relevant workflow details, and create a structured handoff for accounting review in FloQast. That helps teams move from support conversations to finance action with less manual copy and rework."
+    }
+  ],
+  "relatedSlugs": [
+    "netsuite",
+    "quickbooks",
+    "xero",
+    "sage-intacct",
+    "blackline",
+    "zuora"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "FloQast",
+    "domain": "floqast.com",
+    "description": "FloQast is an AI Accounting Transformation Platform built by accountants for accountants. It automates specific accounting workflows—such as month‑end close, reconciliation, and audit preparation—while preserving security, auditability, and full visibility for the accountant. Certified to ISO 42001, FloQast’s AI agents help global teams reduce manual effort, improve compliance, and shift from data preparation to strategic review. Over 3,500 companies, including Lululemon, Chipotle, and Shopify, use the platform to cut reconciliation time, audit cycles, and discrepancies, saving dozens of hours each month. FloQast also offers a free Certified Accountant program to train the next generation of AI‑enabled finance professionals. The solution integrates with existing ERP and finance tools, providing a single collaborative hub that streamlines the close, compliance, and reporting processes.",
+    "slogan": "AI Accounting Transformation Platform built by accountants, for accountants.",
+    "logoUrl": "https://media.brand.dev/915f599d-c7b3-4d32-8f99-f0d56f6fb0a0.svg",
+    "iconUrl": "https://media.brand.dev/af0d0467-5db9-4840-93ed-ffe6a4d29f39.jpg",
+    "primaryColor": "#84cc9c",
+    "accentColor": "#15352c",
+    "colors": [
+      {
+        "hex": "#84cc9c",
+        "name": "Foul Green"
+      },
+      {
+        "hex": "#15352c",
+        "name": "Intense Green"
+      },
+      {
+        "hex": "#b8e4c1",
+        "name": "Lattice Work"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/9782393b-703e-4178-ad41-65cc019a3691.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://www.floqast.com/careers",
+      "terms": null,
+      "contact": "https://www.floqast.com/contact",
+      "privacy": "https://www.floqast.com/legal/privacy-policy",
+      "blog": "https://www.floqast.com/blog",
+      "pricing": "https://www.floqast.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/af0d0467-5db9-4840-93ed-ffe6a4d29f39.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/915f599d-c7b3-4d32-8f99-f0d56f6fb0a0.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 126,
+        "height": 32,
+        "aspectRatio": 3.94
+      },
+      {
+        "url": "https://media.brand.dev/eba4e550-d66b-4c6c-a709-15e972ea77d3.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/915f599d-c7b3-4d32-8f99-f0d56f6fb0a0.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 126,
+      "height": 32,
+      "aspectRatio": 3.94
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/af0d0467-5db9-4840-93ed-ffe6a4d29f39.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -17,7 +17,20 @@ export const NAVIGATION = [
       }
     ]
   },
-  { name: 'Features', href: '/#features' },
+  {
+    name: 'Features',
+    href: '/#features',
+    children: [
+      {
+        name: 'AI Actions',
+        href: '/ai-actions'
+      },
+      {
+        name: 'Skills Library',
+        href: '/skills'
+      }
+    ]
+  },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Docs', href: '/documentation' },
   { name: 'Developers', href: '/documentation/developer' },

@@ -1,0 +1,168 @@
+{
+  "slug": "ring-central",
+  "name": "Ring Central",
+  "domain": "ring-central.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Work with RingCentral",
+  "metaTitle": "Build RingCentral AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use RingCentral for support workflows, call context, routing, summaries, handoffs, and internal communications automation.",
+  "intro": "RingCentral helps teams manage voice, messaging, video, and customer communications across channels. With DocsBot Skill Builder, you can describe the RingCentral workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded actions in RingCentral for faster support, cleaner handoffs, and smoother team operations.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent call, message, or interaction details in RingCentral so it can answer support questions with better context.",
+    "Use a DocsBot support agent to create a callback request, routing handoff, or follow-up task in RingCentral when a customer needs live assistance.",
+    "Have the agent summarize a customer conversation and attach the summary to a RingCentral workflow or escalation record for faster human handoff.",
+    "Enable the agent to check communication status, appointment outreach progress, or queued follow-up activity in RingCentral while replying to customer tickets.",
+    "Use the agent to trigger approved RingCentral communication workflows, such as sending a confirmation message or initiating a support callback path."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve RingCentral call, message, meeting, or interaction history without manually searching across communication records.",
+    "Enable teams to ask an internal AI assistant to prepare escalation notes, handoff summaries, or callback briefs using RingCentral communication data.",
+    "Allow support or operations staff to use a private agent in Slack, Microsoft Teams, or chat to trigger approved RingCentral workflows for routing, follow-up, or outreach.",
+    "Help managers and QA teams use an internal DocsBot agent to summarize communication activity, review interaction trends, and gather context before coaching or case review.",
+    "Give employees a conversational assistant that follows communication SOPs and uses RingCentral data to guide next steps, collect missing context, and complete routine workflows."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks RingCentral interaction history before answering customer questions.",
+    "A callback request workflow that creates RingCentral follow-up actions from chat or ticket conversations.",
+    "An escalation assistant that summarizes customer issues and prepares RingCentral handoff notes for live teams.",
+    "An internal assistant that retrieves call and messaging context for support, success, or operations staff.",
+    "A workflow agent that triggers approved RingCentral routing or outreach actions after collecting required details.",
+    "A QA helper that summarizes RingCentral conversations for review, coaching, and follow-up preparation."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with RingCentral, such as looking up call context, creating a callback workflow, or preparing escalation summaries, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder figures out the needed configuration values, connection method, and authentication approach, keeps secrets out of chats and Skill source, proxies credentials through secure runtime settings, and scopes RingCentral access to the minimum actions and records required."
+    },
+    {
+      "title": "It adds guardrails",
+      "description": "Skill Builder defines safe behavior boundaries such as which users can run the Skill, what RingCentral actions are allowed, when approvals are required, and how the agent should gather missing details before taking sensitive actions."
+    },
+    {
+      "title": "It tests real scenarios",
+      "description": "DocsBot’s automated testing agent runs imagined customer support and internal team conversations against the Skill, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those findings into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and ready, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or private employee agent so your team can safely use RingCentral-powered AI Actions in production."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with RingCentral?",
+      "answer": "With DocsBot Skill Builder, you describe the RingCentral workflow you want in plain language, and DocsBot designs the Skill, secures the connection, tests the behavior, and prepares it for deployment to a support or internal AI agent."
+    },
+    {
+      "question": "Can an AI support agent use RingCentral data while replying to customers?",
+      "answer": "Yes, a DocsBot support agent can be designed to retrieve approved RingCentral call, message, or interaction context so it can answer more accurately, prepare handoffs, and trigger bounded follow-up actions."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with RingCentral?",
+      "answer": "You can build workflows for communication lookups, callback requests, escalation preparation, routing support, follow-up triggers, and conversation summaries that help support teams respond faster and with better context."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in RingCentral?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve communication history, summarize interactions, follow SOPs, and trigger approved RingCentral workflows from chat, Slack, or Microsoft Teams."
+    },
+    {
+      "question": "Can DocsBot safely trigger actions in RingCentral?",
+      "answer": "DocsBot Skill Builder is designed to add scoped permissions, secure authentication handling, approval boundaries, and clear action limits so the agent only performs the RingCentral actions you allow."
+    },
+    {
+      "question": "Do I need to write code to connect DocsBot to RingCentral?",
+      "answer": "No, the setup is centered on describing the outcome you want. Skill Builder handles the Skill design, secure configuration, testing, and improvement process without making you manually wire every step."
+    }
+  ],
+  "relatedSlugs": [
+    "zoom",
+    "twilio",
+    "aircall",
+    "intercom",
+    "zendesk",
+    "microsoft-teams"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "RingCentral",
+    "domain": "ring-central.com",
+    "description": "RingCentral provides a unified business communications platform that combines voice, messaging, video meetings, and AI-driven solutions. Leveraging its Agentic Voice AI suite, the company offers AI Receptionist, Virtual Assistant, Conversation Expert, and customizable AI agents that automate call handling, routing, scheduling, and customer engagement across phone, SMS, chat, and social channels. RingCentral’s RingCX tools enable omnichannel support, workforce engagement, quality management, and interaction analytics, while RingEX delivers secure, scalable phone, SMS, and team chat services. The platform supports AI Meetings for virtual events and offers industry‑specific accelerators, such as healthcare AI agents. Designed for small to enterprise businesses, RingCentral helps organizations streamline communications, improve customer experiences, and drive outcomes with AI‑enhanced automation.",
+    "slogan": "Automate, assist, and analyze customer interactions end-to-end.",
+    "logoUrl": "https://media.brand.dev/39d4d4ab-2e37-4fd0-8102-c2251687bea1.svg",
+    "iconUrl": "https://media.brand.dev/ed660b97-62ed-4dd5-94b4-b8a0aebb61f3.png",
+    "primaryColor": "#fc8719",
+    "accentColor": "#168bc1",
+    "colors": [
+      {
+        "hex": "#fc8719",
+        "name": "Glorious Sunset"
+      },
+      {
+        "hex": "#168bc1",
+        "name": "Cyan Cornflower Blue"
+      },
+      {
+        "hex": "#dae3e4",
+        "name": "Bit of Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/57c053ac-6376-4042-8d95-f12f51b4ddd7.jpg",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://ring-central.com/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/ed660b97-62ed-4dd5-94b4-b8a0aebb61f3.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 128,
+        "height": 128,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/9df91d20-d89b-4004-97df-a190c951d12d.svg",
+        "type": "icon",
+        "mode": "light",
+        "width": 48,
+        "height": 48,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/39d4d4ab-2e37-4fd0-8102-c2251687bea1.svg",
+        "type": "logo",
+        "mode": "dark",
+        "width": 961,
+        "height": 146,
+        "aspectRatio": 6.58
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/39d4d4ab-2e37-4fd0-8102-c2251687bea1.svg",
+      "type": "logo",
+      "mode": "dark",
+      "width": 961,
+      "height": 146,
+      "aspectRatio": 6.58
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/9df91d20-d89b-4004-97df-a190c951d12d.svg",
+      "type": "icon",
+      "mode": "light",
+      "width": 48,
+      "height": 48,
+      "aspectRatio": 1
+    }
+  }
+}

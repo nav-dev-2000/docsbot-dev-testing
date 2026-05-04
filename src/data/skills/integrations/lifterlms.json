@@ -1,0 +1,168 @@
+{
+  "slug": "lifterlms",
+  "name": "LifterLMS",
+  "domain": "lifterlms.com",
+  "category": "Automation",
+  "trutoCategory": "Default",
+  "availability": "build",
+  "statusLabel": "Buildable",
+  "h1": "Build AI Agents That Work with LifterLMS",
+  "metaTitle": "Build AI Agents for LifterLMS with DocsBot Skills",
+  "metaDescription": "Create DocsBot AI agents that use LifterLMS to answer student questions, check enrollment details, trigger workflows, and support internal course operations safely.",
+  "intro": "LifterLMS helps businesses and educators manage courses, memberships, enrollments, and student learning inside WordPress. With DocsBot Skill Builder, you can describe the LifterLMS workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take bounded action in LifterLMS, such as looking up student details, summarizing course status, preparing handoffs, and triggering approved workflows.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check a student's enrollment, course access, or membership status in LifterLMS while answering support questions in chat or tickets.",
+    "Let the agent summarize learner progress, lesson completion, or course availability so students get faster answers without waiting for a human reply.",
+    "Have the agent collect missing details from a student and prepare a clean support handoff with LifterLMS context for your team.",
+    "Enable the agent to trigger approved workflows such as notifying staff about access issues, enrollment problems, or course completion follow-up needs.",
+    "Use the agent to look up course details, membership information, or purchase-related learning access context before responding to student support requests."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent to retrieve LifterLMS course, student, enrollment, or membership information without manually searching WordPress records.",
+    "Give support and operations teams an internal AI assistant that summarizes learner status, flags common access issues, and prepares next-step recommendations from LifterLMS data.",
+    "Enable customer success or education teams to chat with the agent to follow SOPs for student onboarding, course troubleshooting, and escalation prep using LifterLMS context.",
+    "Help internal teams research course performance questions by having the agent gather and summarize relevant learner or enrollment information from LifterLMS.",
+    "Allow staff to use chat, Slack, or Microsoft Teams to trigger approved LifterLMS-related workflows and generate consistent summaries, handoff notes, or follow-up tasks."
+  ],
+  "whatYouCanBuild": [
+    "A student support agent that checks enrollment and course access before answering questions.",
+    "An AI assistant that summarizes learner progress and unfinished lessons for support teams.",
+    "A course operations agent that prepares escalation notes for access or membership issues.",
+    "An internal assistant that helps employees follow student onboarding and troubleshooting SOPs.",
+    "A support workflow that gathers student details and creates structured handoff summaries.",
+    "An AI agent that surfaces course, membership, and enrollment context during helpdesk replies."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the LifterLMS agent to do, such as checking enrollment status, summarizing learner progress, or preparing support handoffs, and it turns that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs securely",
+      "description": "Skill Builder determines the required configuration values, handles connection and authentication safely, keeps credentials out of chats and Skill content, proxies secrets through secure runtime configuration, and scopes access to the minimum LifterLMS actions and records needed."
+    },
+    {
+      "title": "Safe actions are defined",
+      "description": "Skill Builder sets the Skill's allowed lookups, updates, workflow triggers, and approval boundaries so the agent can help with LifterLMS tasks while staying within your business rules and sensitive action limits."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined student support and internal team scenarios, finds bugs, weak instructions, missing permission checks, or workflow gaps, and feeds those results into an automated self-improvement loop before deployment."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is refined, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or internal team assistant so it can answer questions and take approved action with LifterLMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for LifterLMS?",
+      "answer": "With DocsBot Skill Builder, you describe the LifterLMS workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for deployment. The finished agent can look up learning data, summarize status, prepare handoffs, and trigger approved actions based on your rules."
+    },
+    {
+      "question": "Can an AI support agent use LifterLMS data to answer student questions?",
+      "answer": "Yes, a DocsBot support agent can be designed to use LifterLMS context such as enrollment status, course access, membership details, or learner progress while replying in chat or helpdesk tickets. You control which records and actions the agent can access and when human approval is required."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with LifterLMS?",
+      "answer": "DocsBot can support workflows such as checking access issues, summarizing learner progress, gathering missing student details, preparing escalations, and triggering approved follow-up tasks for your support team. This helps students get faster answers while keeping more sensitive actions inside defined boundaries."
+    },
+    {
+      "question": "Can an internal AI assistant help employees work in LifterLMS?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve LifterLMS information, research student or course issues, and follow internal SOPs through chat, Slack, or Microsoft Teams. The assistant can also generate summaries and handoff notes so teams spend less time searching across systems."
+    },
+    {
+      "question": "How does DocsBot handle security for a LifterLMS Skill?",
+      "answer": "Skill Builder identifies the needed configuration, stores and proxies secrets through secure runtime handling, keeps credentials out of chats and generated content, and scopes access to the minimum actions required. It can also add approval boundaries for sensitive updates or workflow triggers."
+    },
+    {
+      "question": "Can DocsBot test a LifterLMS AI workflow before it goes live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that runs imagined support and internal scenarios against the Skill design. It can identify bugs, weak instructions, missing safeguards, or workflow gaps and improve the Skill before deployment."
+    }
+  ],
+  "relatedSlugs": [
+    "moodle",
+    "thinkific",
+    "teachable",
+    "wordpress",
+    "memberpress",
+    "learnworlds"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Lifterlms",
+    "domain": "lifterlms.com",
+    "description": "LifterLMS is a leading company offering a robust learning management system designed to simplify the process of creating online courses. Known as the best WordPress LMS plugin software, LifterLMS assists education entrepreneurs in creating, launching, and scaling their online courses efficiently. Founded by CEO Christopher Badgett, LifterLMS stands out as the most powerful, customizable, stable, and secure online course and membership plugin tailored specifically for WordPress users. With a focus on ease of use and functionality, LifterLMS empowers educators to deliver high-quality online learning experiences to their students.",
+    "slogan": "Powerful. Customizable. Secure. The ultimate WordPress course plugin.",
+    "logoUrl": "https://media.brand.dev/867cac39-fda1-4cc0-b8c5-ad3e021c04b5.png",
+    "iconUrl": "https://media.brand.dev/50a129cf-710f-4ef5-8f39-efe37f9f9a7d.jpg",
+    "primaryColor": "#787f89",
+    "accentColor": "#d8e3e9",
+    "colors": [
+      {
+        "hex": "#787f89",
+        "name": "Downing Slate"
+      },
+      {
+        "hex": "#d8e3e9",
+        "name": "Baby’s Breath"
+      },
+      {
+        "hex": "#040404",
+        "name": "Armor Wash"
+      }
+    ],
+    "backdropUrl": "",
+    "industries": [],
+    "links": {
+      "careers": "https://lifterlms.com/work-with-us/",
+      "terms": "https://lifterlms.com/terms",
+      "contact": "https://lifterlms.com/general-contact/",
+      "privacy": "https://lifterlms.com/privacy-policy/",
+      "blog": "https://lifterlms.com/blog",
+      "pricing": "https://lifterlms.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/50a129cf-710f-4ef5-8f39-efe37f9f9a7d.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 320,
+        "height": 320,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/867cac39-fda1-4cc0-b8c5-ad3e021c04b5.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1025,
+        "height": 281,
+        "aspectRatio": 3.65
+      },
+      {
+        "url": "https://media.brand.dev/e55c6ed5-0e4e-44d7-971f-640e797ff83c.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 1025,
+        "height": 281,
+        "aspectRatio": 3.65
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/867cac39-fda1-4cc0-b8c5-ad3e021c04b5.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 1025,
+      "height": 281,
+      "aspectRatio": 3.65
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/50a129cf-710f-4ef5-8f39-efe37f9f9a7d.jpg",
+      "type": "icon",
+      "mode": "dark",
+      "width": 320,
+      "height": 320,
+      "aspectRatio": 1
+    }
+  }
+}

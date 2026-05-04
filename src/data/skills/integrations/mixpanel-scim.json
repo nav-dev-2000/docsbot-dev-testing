@@ -1,0 +1,176 @@
+{
+  "slug": "mixpanel-scim",
+  "name": "Mixpanel SCIM",
+  "domain": "mixpanel.com",
+  "category": "Analytics & BI",
+  "trutoCategory": "Analytics",
+  "availability": "build",
+  "statusLabel": "Beta",
+  "h1": "Build AI Agents That Work Safely With Mixpanel SCIM",
+  "metaTitle": "Build Mixpanel SCIM AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Mixpanel SCIM for safe user access lookups, identity updates, approvals, and internal workflow automation.",
+  "intro": "Mixpanel SCIM helps teams manage identity and access data connected to Mixpanel accounts and users. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets support or internal AI agents look up access details, update approved records, trigger handoffs, and summarize account state. This helps customer-facing and employee-facing agents move beyond answers alone and take bounded action inside your rules.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check whether a user's Mixpanel access or provisioning state looks correct before replying with next steps.",
+    "Use a support agent to gather account identity details from a customer conversation, summarize the current Mixpanel SCIM state, and prepare a clean handoff for an access-related ticket.",
+    "Enable a helpdesk-connected DocsBot agent to look up user or group provisioning information in Mixpanel SCIM and explain the current status to the customer in plain language.",
+    "Have the agent collect missing identity details from the customer, then trigger an approved internal workflow for access review or escalation based on Mixpanel SCIM findings.",
+    "Use the agent to summarize access mismatches, provisioning gaps, or deprovisioning status so support teams can respond faster and with better context."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal portal to look up Mixpanel user provisioning and access status without opening admin tools.",
+    "Give IT, security, or operations teams an internal AI assistant that summarizes Mixpanel SCIM identity records, group mappings, and recent access changes for faster investigations.",
+    "Enable employees to ask the agent to prepare access review handoffs, draft incident context, or route identity questions to the right team using Mixpanel SCIM data.",
+    "Use a private agent to guide staff through user onboarding or offboarding SOPs by checking Mixpanel SCIM state and triggering approved follow-up workflows.",
+    "Help product operations or analytics admins research workspace access questions by chatting with an agent that retrieves Mixpanel SCIM details across approved records."
+  ],
+  "whatYouCanBuild": [
+    "An AI support Skill that checks Mixpanel user provisioning status before answering access questions.",
+    "A helpdesk Skill that summarizes Mixpanel SCIM identity records for faster escalation handoffs.",
+    "An internal assistant that looks up user or group access details in Mixpanel securely.",
+    "A workflow Skill that prepares onboarding and offboarding steps based on Mixpanel SCIM state.",
+    "An approval-based Skill that updates allowed identity fields only after human confirmation.",
+    "A research assistant that summarizes Mixpanel access changes for IT, security, or analytics teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Mixpanel SCIM, such as checking access status, summarizing identity records, or preparing an escalation, and it turns that goal into a workable Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder decides the best workflow, defines the required configuration values, handles secure authentication and secret proxying, and keeps credentials out of chats, instructions, and generated Skill content by default."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum users, records, actions, and systems needed, and it adds approval boundaries or safe action limits anywhere a lookup, update, or workflow trigger should be controlled."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "DocsBot's testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated self-improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is reviewed and improved, Skill Builder helps deploy it to your customer-facing DocsBot, helpdesk agent, or private employee assistant so teams can use Mixpanel SCIM actions safely in real conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Mixpanel SCIM?",
+      "answer": "With DocsBot Skill Builder, you describe the Mixpanel SCIM task you want in plain language, such as looking up provisioning status or preparing an access handoff, and Skill Builder creates the secure workflow, configuration, testing, and deployment path for you."
+    },
+    {
+      "question": "Can an AI support agent use Mixpanel SCIM data to answer customer access questions?",
+      "answer": "Yes, a DocsBot support agent can use Mixpanel SCIM data for approved lookups and summaries so it can explain access status, identify missing details, and prepare cleaner escalations without exposing sensitive credentials."
+    },
+    {
+      "question": "What customer support workflows can DocsBot automate with Mixpanel SCIM?",
+      "answer": "DocsBot can help automate access-status lookups, provisioning summaries, deprovisioning checks, missing-context collection, escalation prep, and approved workflow triggers tied to identity-related support cases."
+    },
+    {
+      "question": "Can an internal AI assistant help employees manage Mixpanel access workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Mixpanel SCIM information, investigate access questions, follow onboarding or offboarding SOPs, and trigger approved internal steps from one conversation."
+    },
+    {
+      "question": "How does DocsBot keep Mixpanel SCIM actions safe?",
+      "answer": "Skill Builder defines secure connection settings, protects and proxies secrets through runtime configuration, scopes permissions to the minimum needed, and adds approval boundaries for sensitive actions or record changes."
+    },
+    {
+      "question": "Can DocsBot update Mixpanel SCIM records or only read them?",
+      "answer": "DocsBot Skills can be designed for read-only lookups, approved updates, or both, depending on the workflow you want and the action boundaries you choose for the agent."
+    }
+  ],
+  "relatedSlugs": [
+    "mixpanel",
+    "okta",
+    "onelogin",
+    "jumpcloud",
+    "google-workspace",
+    "microsoft-entra-id"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Mixpanel",
+    "domain": "mixpanel.com",
+    "description": "Mixpanel is an AI‑first digital analytics platform that helps businesses turn data clarity into innovation. Trusted by over 29,000 companies such as Workday, Pinterest, LG, and Rakuten Viber, Mixpanel combines product and web analytics, session replay, experimentation, feature flags, and metric trees into a single solution. Its tools accelerate user adoption, improve retention, and enable teams to ship features with confidence, delivering reliable insights that drive product decisions and growth.",
+    "slogan": "Mixpanel, wherever you work. Get answers faster.",
+    "logoUrl": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+    "iconUrl": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+    "primaryColor": "#74674b",
+    "accentColor": "#0c0b0a",
+    "colors": [
+      {
+        "hex": "#74674b",
+        "name": "Shady Oak"
+      },
+      {
+        "hex": "#0c0b0a",
+        "name": "Raven"
+      },
+      {
+        "hex": "#c3d0b5",
+        "name": "Tender Greens"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7afb1b09-c27d-4da8-8e59-b47d2f603cbb.jpg",
+    "industries": [],
+    "links": {
+      "terms": null,
+      "contact": "https://mixpanel.com/contact-us/sales/",
+      "pricing": "https://mixpanel.com/pricing/",
+      "careers": "https://mixpanel.com/jobs/",
+      "privacy": "https://mixpanel.com/legal/privacy-policy/",
+      "blog": "https://mixpanel.com/blog/mixpanel-mcp/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/338b62e8-d06f-4d08-b3d5-709ac7609995.svg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 64,
+        "height": 64,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b0f292d4-498a-41a7-aadf-4b866e32ed46.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 180,
+        "height": 180,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b1479f2f-b5e4-4242-a4fb-171f0d27e837.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 160,
+        "height": 160,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0903fc5a-ceb0-4680-b0a5-dabe4f5e843d.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

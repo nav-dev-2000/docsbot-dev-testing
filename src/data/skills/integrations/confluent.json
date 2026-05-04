@@ -1,0 +1,168 @@
+{
+  "slug": "confluent",
+  "name": "Confluent",
+  "domain": "confluent.com",
+  "category": "Application Development",
+  "trutoCategory": "Application Development",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Confluent",
+  "metaTitle": "Build AI Agents for Confluent with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Confluent for real-time lookups, workflow triggers, summaries, and safe internal or support actions.",
+  "intro": "Confluent helps teams work with real-time data streams across applications and operations. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a reusable Skill that lets your AI agent safely query Confluent, summarize streaming state, and trigger approved workflows. This helps customer support teams and internal employees move from static answers to AI Actions that retrieve live information and take bounded next steps.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of customer-related event streams or downstream processing signals in Confluent and explain the current state during a support chat or ticket reply.",
+    "Use a DocsBot support agent to summarize recent streaming events tied to an account, order, device, or subscription so customers get a clearer real-time update without waiting for engineering.",
+    "Enable the agent to prepare a technical handoff by collecting relevant stream, topic, connector, or processing context from Confluent and packaging it for escalation.",
+    "Let the agent trigger an approved operational workflow when a support case needs a replay request, monitoring follow-up, or incident escalation tied to streaming activity.",
+    "Use the agent to compare expected versus recent event activity from Confluent so support can quickly identify whether a customer issue looks like delayed ingestion, missing events, or downstream processing lag."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to retrieve real-time streaming context from Confluent when investigating product, data, or operational issues.",
+    "Enable operations or support teams to ask the agent for a plain-language summary of topic activity, connector health, or recent event flow before following an internal SOP.",
+    "Help engineers, analysts, and customer success teams use the agent to gather cross-system context, summarize streaming behavior, and prepare escalation notes without manually checking multiple dashboards.",
+    "Allow internal teams to trigger approved workflows through the agent, such as creating investigation records, initiating review steps, or sending a handoff with Confluent-backed evidence.",
+    "Support employee research workflows where team members ask the agent to correlate customer-reported issues with recent streaming patterns and return a concise next-step recommendation."
+  ],
+  "whatYouCanBuild": [
+    "A support agent that summarizes recent customer event activity from Confluent in plain language.",
+    "An internal troubleshooting assistant that checks stream health and recommends the next approved SOP step.",
+    "A ticket enrichment workflow that adds Confluent-based event context before human escalation.",
+    "An AI agent that detects missing or delayed events and prepares an investigation handoff.",
+    "A private team assistant that explains connector or topic activity for non-technical stakeholders.",
+    "A workflow trigger that launches an approved incident or review process from chat findings."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the AI agent to do with Confluent, such as checking stream activity, summarizing event flow, or triggering an approved follow-up, and it translates that goal into a practical Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed configuration values, connection method, and authentication handling, then keeps secrets out of chats and Skill source by protecting and proxying them through secure runtime configuration."
+    },
+    {
+      "title": "Access is scoped safely",
+      "description": "Skill Builder limits the Skill to the minimum Confluent actions, records, users, and systems required, and adds approval boundaries or safe action limits for sensitive updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the right instructions, runtime behavior, reference material, and any approved actions the DocsBot agent needs to use Confluent effectively."
+    },
+    {
+      "title": "Scenarios are tested automatically",
+      "description": "An automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those findings into improvements."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Confluent data?",
+      "answer": "With DocsBot Skill Builder, you describe the outcome you want in plain language, and it creates a Skill that lets your AI agent safely query Confluent, summarize streaming state, and trigger approved workflows. Skill Builder also handles secure configuration, authentication, scoped access, testing, and deployment guidance."
+    },
+    {
+      "question": "Can an AI support agent use Confluent during customer chats or helpdesk replies?",
+      "answer": "Yes, a DocsBot support agent can use a Confluent Skill to retrieve live streaming context, summarize recent event activity, and prepare handoffs or escalations while responding to customers. This is useful when support needs real-time signals instead of static documentation alone."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Confluent?",
+      "answer": "A DocsBot agent can check event flow related to an account or transaction, summarize whether activity looks delayed or missing, enrich tickets with technical context, and trigger approved follow-up workflows. It can also prepare clearer escalations for engineering or operations teams."
+    },
+    {
+      "question": "Can an internal AI assistant help employees investigate issues with Confluent?",
+      "answer": "Yes, private DocsBot agents can help employees retrieve streaming context, summarize topic or connector activity, and follow troubleshooting SOPs through chat, Slack, or Microsoft Teams. This helps teams research issues faster without manually searching multiple systems."
+    },
+    {
+      "question": "How does DocsBot handle Confluent access securely?",
+      "answer": "Skill Builder defines the required connection details, keeps credentials out of chats and generated content, and proxies secrets through secure runtime configuration. It also scopes permissions to the minimum actions and data needed and can add approval steps for sensitive operations."
+    },
+    {
+      "question": "Can a DocsBot AI agent trigger actions based on Confluent findings?",
+      "answer": "Yes, the Skill can be designed for bounded AI Actions such as creating handoffs, starting an incident workflow, updating an investigation record, or triggering an approved follow-up process. Those actions are controlled by the permissions and approval boundaries you define with Skill Builder."
+    }
+  ],
+  "relatedSlugs": [
+    "kafka",
+    "datadog",
+    "new-relic",
+    "snowflake",
+    "mongodb",
+    "postgresql"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Confluent",
+    "domain": "confluent.io",
+    "description": "Confluent is a leading company specializing in a cutting-edge streaming platform built upon Apache Kafka, which allows organizations to access and manage data as real-time streams. Pioneering a new category of data infrastructure, Confluent's cloud-native platform serves as the intelligent connective framework that facilitates the continuous flow of real-time data from diverse sources across an organization. This capability empowers businesses to enhance digital customer experiences and streamline operations. Confluent's mission is to enable every organization to effectively harness data in motion, equipping them to thrive in a competitive, fast-paced environment. With a unified Data Streaming Platform founded on the principles of Apache Kafka and Apache Flink, Confluent helps customers streamline, connect, process, and govern their data successfully.",
+    "slogan": "Harness data in motion for real-time business success.",
+    "logoUrl": "https://media.brand.dev/b6c7e574-6bc9-4b83-af01-72ed66ee2f5b.svg",
+    "iconUrl": "https://media.brand.dev/1d8ea6cc-1341-4a47-b13d-1ae1f1788e81.png",
+    "primaryColor": "#7d8296",
+    "accentColor": "#424f69",
+    "colors": [
+      {
+        "hex": "#7d8296",
+        "name": "Stand Out"
+      },
+      {
+        "hex": "#424f69",
+        "name": "Blackberry Cobbler"
+      },
+      {
+        "hex": "#e6eaed",
+        "name": "Blizzard"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3a37ab01-5613-49c7-aad4-d2d0077608d5.jpg",
+    "industries": [],
+    "links": {
+      "careers": "https://careers.confluent.io/",
+      "terms": "https://www.confluent.io/terms-of-use/",
+      "contact": "https://confluent.io/contact",
+      "privacy": "https://www.confluent.io/legal/confluent-privacy-statement/",
+      "blog": "https://confluent.io/blog/",
+      "pricing": "https://confluent.io/confluent-cloud/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/1d8ea6cc-1341-4a47-b13d-1ae1f1788e81.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/396aa5d4-86c0-45f5-ae16-2faa1be26c94.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1073,
+        "height": 1073,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/b6c7e574-6bc9-4b83-af01-72ed66ee2f5b.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 212,
+        "height": 41,
+        "aspectRatio": 5.17
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/b6c7e574-6bc9-4b83-af01-72ed66ee2f5b.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 212,
+      "height": 41,
+      "aspectRatio": 5.17
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/1d8ea6cc-1341-4a47-b13d-1ae1f1788e81.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

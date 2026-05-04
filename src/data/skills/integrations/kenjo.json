@@ -1,0 +1,151 @@
+{
+  "slug": "kenjo",
+  "name": "Kenjo",
+  "domain": "kenjo.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "HRIS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Kenjo",
+  "metaTitle": "Build Kenjo AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Kenjo for HR lookups, employee workflows, support handoffs, and safe record actions with secure Skill Builder setup.",
+  "intro": "Kenjo can become part of a DocsBot AI agent that does more than answer questions. With DocsBot Skill Builder, non-technical teams can describe the HR or people workflow they want in plain language, and Skill Builder creates a reusable Skill that lets the agent securely look up information, prepare updates, trigger approved actions, and summarize outcomes. This helps customer-facing support teams and internal people operations teams resolve requests faster while keeping permissions, approvals, and data access under control.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to check approved employee-facing HR information in Kenjo and answer policy or status questions without exposing private records.",
+    "Let the agent collect missing context from a website chat or helpdesk ticket, then create a structured HR handoff that includes the customer issue, urgency, and relevant Kenjo details for the right team.",
+    "Have the agent summarize an employee support case by pulling allowed status, timeline, or record context from Kenjo before replying in a helpdesk ticket.",
+    "Enable the agent to trigger approved follow-up workflows tied to onboarding, document collection, or people operations requests after confirming the request details with the customer.",
+    "Use the agent to prepare escalation notes for sensitive HR questions so human teams receive a clean summary, the requested action, and the relevant Kenjo record context."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or chat to look up approved Kenjo information such as process status, people operations context, or employee workflow details.",
+    "HR and operations teams can ask the agent to collect inputs, summarize employee requests, and prepare Kenjo updates or handoffs that follow internal SOPs.",
+    "Managers can use the agent to retrieve policy-linked answers, gather onboarding or leave-related context, and start approved workflows without searching across multiple systems.",
+    "People teams can chat with the agent to generate case summaries, draft internal follow-ups, and route requests to the correct HR owner using Kenjo data and workflow rules.",
+    "Internal support teams can use the agent to research repetitive employee questions, check allowed record details in Kenjo, and complete consistent next-step workflows faster."
+  ],
+  "whatYouCanBuild": [
+    "An HR helpdesk agent that looks up approved Kenjo record details before replying to employee tickets.",
+    "A private employee assistant that answers onboarding questions and starts approved people operations workflows.",
+    "A leave request triage agent that gathers missing details and prepares a Kenjo handoff.",
+    "An internal HR bot that summarizes employee cases and drafts next-step follow-ups for teams.",
+    "A manager assistant that retrieves allowed team information and routes requests to the right process owner.",
+    "A support agent that checks people operations status and creates structured escalation notes for HR teams."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the Kenjo agent to do in plain language, and it translates that goal into a practical support or internal workflow design."
+    },
+    {
+      "title": "Skill Builder designs safely",
+      "description": "Skill Builder decides the right connection approach, defines the required configuration values, and sets up secure authentication handling so credentials stay protected and out of chats and Skill source."
+    },
+    {
+      "title": "Permissions stay scoped",
+      "description": "Skill Builder limits the Skill to the minimum records, actions, users, and systems needed, and adds approval boundaries for sensitive Kenjo updates or workflow triggers."
+    },
+    {
+      "title": "The Skill is drafted",
+      "description": "Skill Builder creates the reusable Skill package with the instructions, runtime behavior, lookups, actions, and guidance your DocsBot agent needs to work with Kenjo."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The testing agent runs imagined customer support and internal team scenarios, finds bugs, weak spots, or missing checks, and feeds improvements back into an automated self-improvement loop."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that works with Kenjo?",
+      "answer": "With DocsBot Skill Builder, you describe the Kenjo workflow you want in plain language, such as answering HR questions, preparing handoffs, or triggering approved actions. Skill Builder then designs the Skill, secures the connection, scopes permissions, tests the workflow, and helps deploy it to the right DocsBot agent."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Kenjo data during customer or employee support conversations?",
+      "answer": "Yes, a DocsBot agent can use approved Kenjo data to look up status, summarize context, and prepare responses or escalations during chat or helpdesk conversations. Access can be limited to the exact records and fields needed for the support workflow."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Kenjo?",
+      "answer": "A DocsBot agent can gather missing details, check allowed HR or people operations information, prepare case summaries, create handoffs, and trigger approved follow-up workflows. This helps support teams respond faster while keeping sensitive actions behind clear rules and approval boundaries."
+    },
+    {
+      "question": "What can an internal AI assistant do with Kenjo for HR and operations teams?",
+      "answer": "An internal DocsBot agent can help employees and HR teams retrieve approved information, summarize requests, follow SOPs, route cases, and prepare updates or workflow actions connected to Kenjo. It is especially useful for repetitive people operations questions and structured internal service workflows."
+    },
+    {
+      "question": "Can I control what the AI agent is allowed to do in Kenjo?",
+      "answer": "Yes, Skill Builder is designed to scope access to the minimum required actions, records, and users for the workflow. It can also add approval steps and action limits for sensitive updates so the agent stays within your defined boundaries."
+    },
+    {
+      "question": "How does DocsBot handle security when connecting an AI agent to Kenjo?",
+      "answer": "Skill Builder identifies the connection details the workflow needs, stores and proxies secrets through secure runtime configuration, and keeps credentials out of chats and generated content. It also designs the Skill around least-privilege access and safe action rules by default."
+    }
+  ],
+  "relatedSlugs": [
+    "bamboohr",
+    "personio",
+    "hibob",
+    "workday",
+    "factorial"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Kenjo",
+    "domain": "kenjo.com",
+    "description": "Kenjo is a newly‑formed company headquartered at 16690 Collins Avenue in Sunny Isles Beach, Florida. The team is currently finalising its online presence and plans to launch its website in the coming months. While the exact product line is still under development, Kenjo positions itself as a provider of innovative digital solutions aimed at improving everyday business processes. Prospective customers can reach the company via phone (+54 348 426 36 94) or email (contact@kenjo.com) for inquiries, and the site will soon offer a notification service for launch updates. Kenjo’s branding and web design are crafted by the creative studio Mola.",
+    "slogan": "",
+    "logoUrl": "https://media.brand.dev/09c0e6a2-12f6-45ea-bc81-41ec9b7820e1.jpg",
+    "iconUrl": "https://media.brand.dev/09c0e6a2-12f6-45ea-bc81-41ec9b7820e1.jpg",
+    "primaryColor": "#35217c",
+    "accentColor": "#5a4d8f",
+    "colors": [
+      {
+        "hex": "#35217c",
+        "name": "Deep Space Rodeo"
+      },
+      {
+        "hex": "#5a4d8f",
+        "name": "Purple Corallite"
+      },
+      {
+        "hex": "#bdb8d0",
+        "name": "Fragile"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/d87a3e6a-5a26-41f2-afcb-57779191bc77.png",
+    "industries": [],
+    "links": {
+      "blog": null,
+      "careers": null,
+      "privacy": null,
+      "terms": null,
+      "contact": "https://kenjo.com/",
+      "pricing": null
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/09c0e6a2-12f6-45ea-bc81-41ec9b7820e1.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 512,
+        "height": 512,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/09c0e6a2-12f6-45ea-bc81-41ec9b7820e1.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/09c0e6a2-12f6-45ea-bc81-41ec9b7820e1.jpg",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 512,
+      "height": 512,
+      "aspectRatio": 1
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "slug": "bombbomb",
+  "name": "BombBomb",
+  "domain": "bombbomb.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Video",
+  "availability": "build",
+  "statusLabel": "Built on request",
+  "h1": "Build AI Agents That Use BombBomb for Video Messaging",
+  "metaTitle": "Build AI Agents for BombBomb Video Messaging with DocsBot",
+  "metaDescription": "Create DocsBot AI agents that use BombBomb to send video messages, look up engagement details, trigger follow-ups, and support teams with safe workflow automation.",
+  "intro": "BombBomb helps teams build stronger relationships with video messaging, screen recordings, and engagement tracking. With DocsBot Skill Builder, you can describe the outcome you want in plain language and have DocsBot create a secure reusable Skill that lets your AI agent use BombBomb during support conversations or internal workflows. The result is an AI agent that can answer questions, prepare personalized video follow-ups, trigger approved actions, and keep teams moving without leaving chat.",
+  "supportUseCases": [
+    "Use a customer-facing DocsBot agent to prepare and send an approved BombBomb video follow-up after a support conversation that needs a more personal explanation.",
+    "Let a support agent look up whether a customer received or engaged with a BombBomb message so it can tailor the next response or escalation.",
+    "Have the agent create a handoff summary for human support and include the recommended BombBomb video next step for high-touch accounts.",
+    "Use DocsBot in helpdesk replies to trigger a personalized BombBomb video workflow when a ticket requires onboarding guidance, renewal outreach, or issue recovery.",
+    "Let the agent summarize recent BombBomb communication activity so customers do not need to repeat what they already watched or received."
+  ],
+  "internalUseCases": [
+    "Enable employees to chat with a private DocsBot agent in Slack, Microsoft Teams, or a web chat to generate personalized BombBomb video follow-up recommendations for leads, customers, or renewal accounts.",
+    "Let customer success or sales teams ask the agent for BombBomb engagement context, such as whether a video was sent or viewed, before choosing the next outreach step.",
+    "Give onboarding teams an internal AI assistant that prepares BombBomb video send workflows as part of standard SOPs for new customer activation.",
+    "Allow managers to chat with the agent to summarize BombBomb activity across accounts and identify where a personal video touchpoint may improve response rates.",
+    "Help operations teams use a private AI agent to coordinate BombBomb actions with CRM or helpdesk workflows while keeping approved steps and permissions bounded."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that sends approved BombBomb video follow-ups after complex customer conversations.",
+    "A helpdesk assistant that recommends when to use BombBomb instead of another written reply.",
+    "An internal AI assistant that checks BombBomb engagement before sales or success outreach.",
+    "A workflow agent that drafts personalized BombBomb video tasks from ticket or account context.",
+    "An escalation assistant that prepares a human handoff and includes a suggested BombBomb next step.",
+    "A customer success agent that summarizes BombBomb touchpoints alongside account health or support activity."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with BombBomb, such as sending approved video follow-ups or checking engagement history, and it translates that goal into a complete Skill design."
+    },
+    {
+      "title": "Skill Builder designs it safely",
+      "description": "Skill Builder determines the required connection details, defines secure authentication and configuration values, keeps secrets out of chats and source files, and scopes BombBomb access to the minimum actions, users, and records needed."
+    },
+    {
+      "title": "Bound actions and approvals",
+      "description": "Skill Builder adds the right runtime instructions, approval boundaries, and safe action limits so the agent can look up data, prepare updates, or trigger BombBomb workflows only within your rules."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "The automated testing agent runs imagined support and internal team conversations, checks for workflow gaps or permission issues, and finds bugs or weak spots before the Skill is deployed."
+    },
+    {
+      "title": "Improve and publish",
+      "description": "Skill Builder uses those test results to refine the Skill, improve reliability and guidance, and then helps publish it to the right DocsBot agent for your website chat, helpdesk, or private team assistant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses BombBomb for customer support follow-ups?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want, such as sending a personalized video after a difficult case or onboarding question, and Skill Builder creates a secure Skill that lets the agent use BombBomb within approved rules. The agent can then respond in chat or tickets, trigger the right video workflow, and prepare clean handoffs when a human should step in."
+    },
+    {
+      "question": "Can an AI support agent use BombBomb data during live customer conversations?",
+      "answer": "Yes, a DocsBot agent can use a BombBomb Skill to look up relevant video messaging context, summarize prior outreach, and support the next approved step while replying to customers. Skill Builder designs the connection securely and limits access to the records and actions you allow."
+    },
+    {
+      "question": "What BombBomb workflows can an internal AI assistant automate for employees?",
+      "answer": "A private DocsBot agent can help employees retrieve BombBomb activity, recommend next outreach steps, prepare video follow-up workflows, and complete repeatable SOPs across success, support, and sales processes. Teams can access that assistant in chat, Slack, or Microsoft Teams without needing to switch tools constantly."
+    },
+    {
+      "question": "Can DocsBot create safe approval controls for BombBomb actions?",
+      "answer": "Yes, Skill Builder can define boundaries so sensitive actions require approval while lower-risk lookups and summaries can run automatically. It also scopes permissions, protects credentials through secure runtime handling, and keeps secrets out of chats and generated content."
+    },
+    {
+      "question": "Can I use DocsBot and BombBomb together for helpdesk escalations?",
+      "answer": "Yes, you can build a Skill that lets the agent summarize the ticket, identify when a personal video response is appropriate, and prepare or trigger the approved BombBomb next step for the human team. This helps support teams deliver more personal follow-up without slowing down operations."
+    },
+    {
+      "question": "How does setup work for a BombBomb AI agent if my team is not technical?",
+      "answer": "You describe what you want the agent to accomplish in plain language, and Skill Builder handles the workflow design, secure configuration, testing, improvement, and deployment path for you. It can also run automated scenario testing to catch issues and improve the Skill before launch."
+    }
+  ],
+  "relatedSlugs": [
+    "loom",
+    "vidyard",
+    "twilio",
+    "zoom",
+    "intercom",
+    "hubspot"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "BombBomb",
+    "domain": "bombbomb.com",
+    "description": "BombBomb is a software company founded in Colorado Springs, CO in 2006, dedicated to helping businesses build better relationships through video messaging. With BombBomb, users can easily record, send, and track video messages to connect with others on a more personal level. The software aims to facilitate effective communication, reduce the need for meetings, and enhance relationships in a scalable manner. Serving 40,000 customers across 43 countries, BombBomb offers integration with CRM or helpdesk systems to streamline video message usage in business processes. By leveraging BombBomb's video messaging and screen recording capabilities, users can boost engagement and elevate their communication strategies. Offering a free 2-week trial with no credit card required, BombBomb is committed to guiding customers towards success in their business relationships.",
+    "slogan": "Record. Send. Connect. Build. BombBomb: Elevate your communication!",
+    "logoUrl": "https://media.brand.dev/826769cd-f37f-4027-88f4-5e69e60821c7.png",
+    "iconUrl": "https://media.brand.dev/0b8a2e90-2f07-47a3-9b38-4e42b4653379.png",
+    "primaryColor": "#fb8b06",
+    "accentColor": "#7b7b7b",
+    "colors": [
+      {
+        "hex": "#fb8b06",
+        "name": "Atomic Orange"
+      },
+      {
+        "hex": "#7b7b7b",
+        "name": "Namara Grey"
+      },
+      {
+        "hex": "#d3d2d1",
+        "name": "Silver Spoon"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/eb39d5d6-17ee-498b-bdf3-e071dd565dbe.png",
+    "industries": [],
+    "links": {
+      "careers": "https://bombbomb.com/careers/",
+      "terms": null,
+      "contact": "https://bombbomb.com/demo-request/",
+      "privacy": "https://bombbomb.com/data-privacy-request/",
+      "blog": "https://bombbomb.com/blog/topics/news/",
+      "pricing": "https://bombbomb.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/0b8a2e90-2f07-47a3-9b38-4e42b4653379.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/23e07fed-aa3d-4eef-b18c-dd113859f856.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 278,
+        "height": 288,
+        "aspectRatio": 0.97
+      },
+      {
+        "url": "https://media.brand.dev/c21af0bc-5273-4008-bc6c-a5966c1217e2.jpg",
+        "type": "icon",
+        "mode": "dark",
+        "width": 1080,
+        "height": 1080,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/51df9703-3046-4004-829c-beab9b106455.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 282,
+        "height": 282,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/fa0330a3-863d-445d-9135-0abde4af688a.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 460,
+        "height": 460,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/f9acba0d-80b8-4ac2-8efb-f966d3425817.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 150,
+        "height": 150,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/3f9a55fa-2e41-4fcc-957f-b45fdbc03b7c.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 282,
+        "height": 282,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/826769cd-f37f-4027-88f4-5e69e60821c7.png",
+        "type": "logo",
+        "mode": "light",
+        "width": 2000,
+        "height": 732,
+        "aspectRatio": 2.73
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/826769cd-f37f-4027-88f4-5e69e60821c7.png",
+      "type": "logo",
+      "mode": "light",
+      "width": 2000,
+      "height": 732,
+      "aspectRatio": 2.73
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/0b8a2e90-2f07-47a3-9b38-4e42b4653379.png",
+      "type": "icon",
+      "mode": "dark",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}

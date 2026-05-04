@@ -1,0 +1,184 @@
+{
+  "slug": "dialpad",
+  "name": "Dialpad",
+  "domain": "dialpad.com",
+  "category": "Voice & Video",
+  "trutoCategory": "Voice",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Dialpad",
+  "metaTitle": "Build Dialpad AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Dialpad for support lookups, call summaries, handoffs, and internal communication workflows with secure, tested actions.",
+  "intro": "Dialpad helps teams manage calls, messaging, and customer conversations across the business. With DocsBot Skill Builder, you can describe the Dialpad workflow you want in plain language and have DocsBot create a reusable Skill for a support agent or internal AI assistant. The result is an AI agent that can answer questions and take approved actions in Dialpad while staying within secure, tested boundaries.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent look up recent Dialpad call activity or conversation status to answer support questions with current context.",
+    "Use the agent to summarize Dialpad call details and add a clean handoff note for a human support or success representative.",
+    "Allow the agent to prepare escalation context from Dialpad interactions so helpdesk tickets include conversation history and next-step recommendations.",
+    "Enable the agent to trigger approved follow-up workflows after a customer chat, such as flagging a callback need or routing a case for human review.",
+    "Have the agent reference Dialpad communication records to explain whether a customer was contacted, when outreach happened, and what the latest outcome was."
+  ],
+  "internalUseCases": [
+    "Employees can chat with a private DocsBot agent in Slack, Microsoft Teams, or a secure chat interface to retrieve Dialpad conversation details without manually searching multiple tools.",
+    "Sales, support, or operations teams can ask the agent for summaries of recent Dialpad calls, voicemails, or contact activity to speed up follow-up work.",
+    "Managers can use an internal AI assistant to gather Dialpad communication context, prepare coaching notes, and organize next actions for customer-facing teams.",
+    "Employees can ask the agent to complete approved communication workflows, such as preparing a callback task, documenting outreach status, or routing a handoff to the right team.",
+    "Operations teams can use the agent to follow internal SOPs around communication review, escalation preparation, and cross-team coordination using Dialpad data."
+  ],
+  "whatYouCanBuild": [
+    "An AI support agent that checks Dialpad interaction history before replying to customers.",
+    "A helpdesk assistant that summarizes Dialpad calls and appends escalation-ready notes to tickets.",
+    "An internal assistant that finds recent Dialpad conversations and explains communication status instantly.",
+    "A workflow agent that prepares callback follow-ups after a customer support chat.",
+    "A team assistant that turns Dialpad activity into concise handoff summaries for sales or success.",
+    "An operations agent that routes communication-based escalations using approved business rules."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell Skill Builder what you want the agent to do with Dialpad, such as looking up call context, preparing summaries, or triggering a follow-up workflow, and it translates that goal into a working Skill design."
+    },
+    {
+      "title": "Skill Builder designs it securely",
+      "description": "Skill Builder determines the needed Dialpad connection details, defines secure authentication and configuration values, keeps secrets out of chats and Skill source, proxies credentials through protected runtime settings, and scopes access to the minimum actions and records required."
+    },
+    {
+      "title": "Guardrails are added",
+      "description": "Skill Builder adds the right instructions, approval boundaries, and action limits so the agent can retrieve information or take bounded actions in Dialpad only when those steps match your business rules."
+    },
+    {
+      "title": "Automated testing improves it",
+      "description": "The built-in testing agent runs imagined customer support and internal team scenarios, finds bugs, weak prompts, permission gaps, or workflow issues, and feeds those results into an automated self-improvement loop before launch."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is ready, Skill Builder helps publish it to your customer-facing DocsBot chat, helpdesk agent, or private internal assistant so teams can use Dialpad actions safely in everyday conversations."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent that uses Dialpad for customer support?",
+      "answer": "With DocsBot Skill Builder, you describe the support outcome you want in plain language, such as checking communication history or preparing a callback handoff, and Skill Builder creates a secure Skill the support agent can use during chats or ticket replies."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Dialpad data while responding to customers?",
+      "answer": "Yes, a DocsBot agent can be designed to look up approved Dialpad information, summarize interaction context, and prepare handoffs or follow-up actions while replying to customers. Skill Builder scopes access and adds approval boundaries so the workflow stays controlled."
+    },
+    {
+      "question": "What customer support workflows can an AI agent automate with Dialpad?",
+      "answer": "A DocsBot agent can help with communication lookups, call or voicemail summaries, escalation preparation, callback workflow triggers, and support handoff notes based on Dialpad activity. The exact actions are defined by the workflow you want Skill Builder to create."
+    },
+    {
+      "question": "Can an internal AI assistant use Dialpad for employee workflows?",
+      "answer": "Yes, employees can chat with a private DocsBot agent to retrieve Dialpad conversation context, summarize recent activity, and complete approved communication-related workflows. This is useful for support, sales, customer success, and operations teams."
+    },
+    {
+      "question": "How does DocsBot keep Dialpad actions secure?",
+      "answer": "Skill Builder defines secure connection handling, protects and proxies secrets through runtime configuration, limits permissions to the necessary records and actions, and can require approval boundaries for more sensitive workflows. Credentials are kept out of chat transcripts and generated content by design."
+    },
+    {
+      "question": "Can DocsBot summarize Dialpad calls or conversations for handoffs and escalations?",
+      "answer": "Yes, a Skill can be built to turn Dialpad interaction data into concise summaries, escalation briefs, and handoff notes for human teams. This helps customer-facing and internal teams move faster with clearer context."
+    }
+  ],
+  "relatedSlugs": [
+    "aircall",
+    "twilio",
+    "zoom",
+    "slack",
+    "microsoft-teams",
+    "zendesk"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Dialpad",
+    "domain": "dialpad.com",
+    "description": "Dialpad is a leading AI-powered communications intelligence platform that transforms how businesses interact with customers. It provides human-first, AI-enhanced solutions for enterprises, enabling them to deliver exceptional customer experiences. Supported by top investors, Dialpad is a rapidly expanding force in AI technology, used by major companies such as Netflix and T-Mobile to streamline interactions and coach customer-facing teams.",
+    "slogan": "Elevate every conversation",
+    "logoUrl": "https://media.brand.dev/84863ea7-a12b-45cf-aef0-92f2a2b0dd95.svg",
+    "iconUrl": "https://media.brand.dev/15f4a328-a2bb-40c8-85b8-24f039431a0a.png",
+    "primaryColor": "#a237d9",
+    "accentColor": "#c388eb",
+    "colors": [
+      {
+        "hex": "#a237d9",
+        "name": "Magenta Affair"
+      },
+      {
+        "hex": "#c388eb",
+        "name": "Luminous Lavender"
+      },
+      {
+        "hex": "#f95c3d",
+        "name": "Orange Soda"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/7b4e7aad-745e-4deb-a38b-fb481a758172.png",
+    "industries": [],
+    "links": {
+      "careers": "https://dialpad.com/careers/",
+      "terms": "https://dialpad.com/legal/",
+      "contact": "https://dialpad.com/features/contact-center-ai/",
+      "privacy": "https://dialpad.com/legal/",
+      "blog": "https://dialpad.com/blog/",
+      "pricing": "https://dialpad.com/pricing/"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/15f4a328-a2bb-40c8-85b8-24f039431a0a.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/a203c2df-aa94-43cd-91ef-fcb275794a0c.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 144,
+        "height": 144,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/61f20941-9708-49fa-92d7-c219a42de9f9.jpg",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 680,
+        "height": 680,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/c98d9773-22af-49a8-b28f-acfaf0a8f77d.png",
+        "type": "icon",
+        "mode": "light",
+        "width": 192,
+        "height": 192,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/84863ea7-a12b-45cf-aef0-92f2a2b0dd95.svg",
+        "type": "logo",
+        "mode": "light",
+        "width": 94,
+        "height": 33,
+        "aspectRatio": 2.85
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/84863ea7-a12b-45cf-aef0-92f2a2b0dd95.svg",
+      "type": "logo",
+      "mode": "light",
+      "width": 94,
+      "height": 33,
+      "aspectRatio": 2.85
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/a203c2df-aa94-43cd-91ef-fcb275794a0c.png",
+      "type": "icon",
+      "mode": "light",
+      "width": 144,
+      "height": 144,
+      "aspectRatio": 1
+    }
+  }
+}

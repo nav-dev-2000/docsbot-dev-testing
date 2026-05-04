@@ -1,0 +1,176 @@
+{
+  "slug": "recruiterflow",
+  "name": "Recruiterflow",
+  "domain": "recruiterflow.com",
+  "category": "HR & Recruiting",
+  "trutoCategory": "ATS",
+  "availability": "build",
+  "statusLabel": "Available",
+  "h1": "Build AI Agents That Work with Recruiterflow",
+  "metaTitle": "Build Recruiterflow AI Agents with DocsBot Skill Builder",
+  "metaDescription": "Create DocsBot AI agents that use Recruiterflow for candidate lookups, recruiting workflows, handoffs, and safe internal or support automation.",
+  "intro": "Recruiterflow is an AI-first recruiting operations platform with ATS, CRM, workflow automation, messaging, and analytics for staffing and recruiting teams. With DocsBot Skill Builder, you can describe the recruiting or support outcome you want in plain language and have DocsBot create a reusable Skill that connects your AI agent to Recruiterflow safely. The result is an AI agent that can answer questions, look up recruiting data, prepare handoffs, update approved records, and trigger bounded actions for customers or internal teams.",
+  "supportUseCases": [
+    "Let a customer-facing DocsBot agent check the status of a submitted job application in Recruiterflow and reply with a clear progress update.",
+    "Use a helpdesk-connected DocsBot agent to capture candidate questions, look up recruiter notes or stage details in Recruiterflow, and prepare a clean handoff for a human recruiter.",
+    "Allow a support agent to create or update candidate follow-up tasks in Recruiterflow after a candidate requests a callback or interview reschedule.",
+    "Have the AI agent summarize a candidate's recent activity, communication history, and current pipeline stage from Recruiterflow before responding to a support ticket.",
+    "Enable the agent to collect missing application details from a candidate in chat and create an approved note or activity record in Recruiterflow for the recruiting team."
+  ],
+  "internalUseCases": [
+    "Let employees chat with a private DocsBot agent in Slack, Microsoft Teams, or an internal chat to find candidates, jobs, contacts, and pipeline status from Recruiterflow.",
+    "Help recruiting and operations teams ask the agent for a summarized view of open roles, stalled candidates, overdue tasks, or recruiter activity across Recruiterflow.",
+    "Allow team members to use chat to create candidate notes, schedule follow-up tasks, update approved fields, or trigger next-step workflows in Recruiterflow.",
+    "Support recruiter SOPs by guiding employees through intake, outreach, handoff, and escalation steps while the agent writes back approved updates to Recruiterflow.",
+    "Give managers an internal AI assistant that researches account, job, and candidate context in Recruiterflow and prepares concise summaries before meetings or reviews."
+  ],
+  "whatYouCanBuild": [
+    "A candidate status lookup agent for website chat or support tickets.",
+    "An internal recruiting assistant that finds candidates and summarizes pipeline activity.",
+    "A task creation workflow for follow-ups, callbacks, and interview reschedules.",
+    "A handoff Skill that packages candidate context for recruiter escalation.",
+    "A recruiting operations agent that flags stalled jobs or overdue actions.",
+    "A note-taking Skill that writes approved conversation summaries into Recruiterflow records."
+  ],
+  "howItWorks": [
+    {
+      "title": "Describe the outcome",
+      "description": "You tell DocsBot Skill Builder what you want the agent to do with Recruiterflow, such as checking applicant status, creating follow-up tasks, or summarizing pipeline activity, in plain language."
+    },
+    {
+      "title": "Skill Builder designs it",
+      "description": "Skill Builder turns that goal into a secure Skill design, decides the needed Recruiterflow connection and configuration values, and handles authentication and secret protection through secure runtime setup without exposing credentials in chats or Skill content."
+    },
+    {
+      "title": "Safety is built in",
+      "description": "Skill Builder scopes the Skill to the minimum records, actions, users, and workflows required, and adds approval boundaries or safe action limits for sensitive updates before anything is deployed."
+    },
+    {
+      "title": "Test real scenarios",
+      "description": "DocsBot's automated testing agent runs imagined customer support and internal team scenarios against the Skill, finds bugs, weak instructions, missing checks, or workflow gaps, and feeds those results into an automated improvement loop."
+    },
+    {
+      "title": "Publish to the right agent",
+      "description": "Once the Skill is improved and validated, Skill Builder helps publish it to your customer-facing DocsBot chat widget, helpdesk agent, or internal employee agent so it can answer questions and take approved actions in Recruiterflow."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How can I build an AI agent for Recruiterflow without writing custom integration code?",
+      "answer": "With DocsBot Skill Builder, you describe the Recruiterflow workflow you want in plain language, and Skill Builder designs, secures, tests, and packages the Skill for your AI agent. It can handle lookups, summaries, approved updates, and workflow triggers while keeping authentication and secrets protected through runtime configuration."
+    },
+    {
+      "question": "Can a DocsBot AI support agent use Recruiterflow data to answer candidate questions?",
+      "answer": "Yes, a DocsBot support agent can use Recruiterflow as a system of record for approved candidate and job-related lookups, such as application status, next steps, or communication summaries. You can also define boundaries so the agent only reveals appropriate information and routes sensitive cases to a human recruiter."
+    },
+    {
+      "question": "What Recruiterflow workflows can an internal AI assistant automate for recruiting teams?",
+      "answer": "An internal DocsBot agent can help employees retrieve candidate and job details, summarize pipelines, create notes, add follow-up tasks, update approved fields, and prepare recruiter handoffs. It can also guide staff through repeatable recruiting SOPs while taking bounded actions inside Recruiterflow."
+    },
+    {
+      "question": "Can an AI agent create notes or tasks in Recruiterflow after a chat or support ticket?",
+      "answer": "Yes, DocsBot Skills can be designed to create approved notes, follow-up tasks, or handoff records in Recruiterflow after gathering the right context from a customer or employee conversation. Skill Builder can also add approval steps when updates should be reviewed before they are committed."
+    },
+    {
+      "question": "How does DocsBot keep Recruiterflow actions secure?",
+      "answer": "Skill Builder defines the required connection settings, stores and proxies secrets securely, keeps credentials out of chats and generated instructions, and scopes access to the minimum actions and records needed. It can also enforce approval boundaries and action limits for sensitive recruiting workflows."
+    },
+    {
+      "question": "Can DocsBot test a Recruiterflow AI agent before teams use it live?",
+      "answer": "Yes, DocsBot includes an automated testing agent that can run realistic support and internal recruiting scenarios to spot bugs, missing guardrails, and workflow gaps before deployment. Those findings can then be used in an automated self-improvement loop to strengthen the Skill before it goes live."
+    }
+  ],
+  "relatedSlugs": [
+    "greenhouse",
+    "lever",
+    "workable",
+    "ashby",
+    "breezy-hr",
+    "teamtailor"
+  ],
+  "brand": {
+    "cacheStatus": "ok",
+    "title": "Recruiterflow",
+    "domain": "recruiterflow.com",
+    "description": "Recruiterflow is an AI-first RecOps platform designed for recruiting and staffing businesses. It offers an integrated ATS and CRM with automation features to optimize recruitment operations. The platform provides intuitive workflows, email and text messaging, API integrations, candidate portals, and analytics to manage candidate and client pipelines, post jobs, and track candidates. With a user-friendly interface and open APIs, Recruiterflow enables agencies to close positions faster, engage top talent, and scale with ease.",
+    "slogan": "Transforming recruiting with AI-driven, seamless recruitment automation and insights.",
+    "logoUrl": "https://media.brand.dev/59a8f64f-52d3-439e-9259-a3b8d893df9b.webp",
+    "iconUrl": "https://media.brand.dev/6510a64b-42a3-46d7-a2f3-9ee309ea2cff.png",
+    "primaryColor": "#0999f3",
+    "accentColor": "#053f84",
+    "colors": [
+      {
+        "hex": "#0999f3",
+        "name": "Fresh Blue of Bel Air"
+      },
+      {
+        "hex": "#053f84",
+        "name": "Bracing Blue"
+      },
+      {
+        "hex": "#4ca3fb",
+        "name": "Adamantine Blue"
+      }
+    ],
+    "backdropUrl": "https://media.brand.dev/3c54cc1c-c537-4e2f-aab5-98a22f8958ad.png",
+    "industries": [],
+    "links": {
+      "careers": "https://recruiterflow.com/rfcareers/jobs",
+      "terms": "https://recruiterflow.com/user-agreement",
+      "contact": null,
+      "privacy": "https://recruiterflow.com/privacy-policy",
+      "blog": "https://recruiterflow.com/blog",
+      "pricing": "https://recruiterflow.com/pricing"
+    },
+    "logoVariants": [
+      {
+        "url": "https://media.brand.dev/668f8ec4-73dc-4ac0-86f2-ede97f41f40b.png",
+        "type": "icon",
+        "mode": "has_opaque_background",
+        "width": 200,
+        "height": 200,
+        "aspectRatio": 1
+      },
+      {
+        "url": "https://media.brand.dev/5c4653a5-97db-492d-a1f5-5ef37e3ecf21.webp",
+        "type": "logo",
+        "mode": "light",
+        "width": 457,
+        "height": 132,
+        "aspectRatio": 3.46
+      },
+      {
+        "url": "https://media.brand.dev/59a8f64f-52d3-439e-9259-a3b8d893df9b.webp",
+        "type": "logo",
+        "mode": "dark",
+        "width": 632,
+        "height": 185,
+        "aspectRatio": 3.42
+      },
+      {
+        "url": "https://media.brand.dev/6510a64b-42a3-46d7-a2f3-9ee309ea2cff.png",
+        "type": "icon",
+        "mode": "dark",
+        "width": 256,
+        "height": 256,
+        "aspectRatio": 1
+      }
+    ],
+    "preferredLogo": {
+      "url": "https://media.brand.dev/5c4653a5-97db-492d-a1f5-5ef37e3ecf21.webp",
+      "type": "logo",
+      "mode": "light",
+      "width": 457,
+      "height": 132,
+      "aspectRatio": 3.46
+    },
+    "preferredIcon": {
+      "url": "https://media.brand.dev/668f8ec4-73dc-4ac0-86f2-ede97f41f40b.png",
+      "type": "icon",
+      "mode": "has_opaque_background",
+      "width": 200,
+      "height": 200,
+      "aspectRatio": 1
+    }
+  }
+}
