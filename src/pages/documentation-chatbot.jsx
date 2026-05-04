@@ -741,19 +741,29 @@ export default function DocumentationChatbot() {
     <>
       <JsonLd id="documentation-chatbot-schema" data={schema} />
       <NextSeo
-        title="AI Chatbot for Documentation | Document AI Search | DocsBot"
-        description="Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations. Perfect for technical docs and knowledge bases."
+        title={pageTitle}
+        description={pageDescription}
         openGraph={{
-          title: 'AI Chatbot for Documentation | Document AI Search | DocsBot',
-          description: 'Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations.',
+          type: 'website',
+          locale: 'en_US',
+          url: pageUrl,
+          siteName: 'DocsBot AI',
+          title: pageTitle,
+          description: pageDescription,
           images: [
             {
-              url: 'https://docsbot.ai/og-customer-support.png', // Fallback or specific OG image if available
+              url: 'https://docsbot.ai/og-documentation-chatbot.jpeg',
               width: 1200,
               height: 630,
               alt: 'DocsBot AI Documentation Chatbot',
+              type: 'image/jpeg',
             },
           ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
         }}
       />
       <Head>

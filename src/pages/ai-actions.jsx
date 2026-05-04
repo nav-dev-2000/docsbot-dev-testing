@@ -1837,6 +1837,15 @@ export default function AiActionsPage() {
           siteName: 'DocsBot AI',
           title: pageTitle,
           description: pageDescription,
+          images: [
+            {
+              url: 'https://docsbot.ai/og-ai-actions.jpeg',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI agents that take action',
+              type: 'image/jpeg',
+            },
+          ],
         }}
         twitter={{
           handle: '@docsbotai',

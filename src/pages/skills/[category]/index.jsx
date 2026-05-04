@@ -200,6 +200,20 @@ export default function SkillCategoryHubPage({
           siteName: 'DocsBot AI',
           title: pageTitle,
           description: pageDescription,
+          images: [
+            {
+              url: 'https://docsbot.ai/og-skills.jpeg',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI agent skills and Skill Builder',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
         }}
       />
       <Header />

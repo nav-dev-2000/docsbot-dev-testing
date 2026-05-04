@@ -676,15 +676,29 @@ export default function InternalKnowledge() {
     <>
       <JsonLd id="internal-knowledge-schema" data={schema} />
       <NextSeo
-        title="Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot AI"
-        description="Deploy an internal knowledge base chatbot that gives employees instant answers from SOPs, company documents, and internal documentation. Enterprise AI assistant with 24/7 access."
+        title={pageTitle}
+        description={pageDescription}
         openGraph={{
           type: 'website',
           locale: 'en_US',
-          url: 'https://docsbot.ai/internal-knowledge',
+          url: pageUrl,
           siteName: 'DocsBot AI',
-          title: 'Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot AI',
-          description: 'Deploy an internal knowledge base chatbot that gives employees instant answers from SOPs and company documents.',
+          title: pageTitle,
+          description: pageDescription,
+          images: [
+            {
+              url: 'https://docsbot.ai/og-internal-knowledge.jpeg',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI internal knowledge chatbot for employees',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
         }}
       />
       

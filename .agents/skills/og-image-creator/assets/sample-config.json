@@ -1,0 +1,9 @@
+{
+  "background": "public/og-main.png",
+  "logo": "public/branding/docsbot-logo.svg",
+  "output": "/tmp/docsbot-og-sample.jpeg",
+  "pill": "AI Actions",
+  "title": ["AI agents", "that take action"],
+  "subtitle": ["Turn knowledge-backed answers into", "governed workflows your agent can complete."],
+  "quality": 82
+}

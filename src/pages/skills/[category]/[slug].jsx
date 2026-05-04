@@ -236,6 +236,20 @@ export default function SkillIntegrationPage({ record, relatedSkills, skillCateg
           siteName: 'DocsBot AI',
           title: record.metaTitle,
           description: record.metaDescription,
+          images: [
+            {
+              url: 'https://docsbot.ai/og-skills.jpeg',
+              width: 1200,
+              height: 630,
+              alt: 'DocsBot AI agent skills and Skill Builder',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@docsbotai',
+          site: '@docsbotai',
+          cardType: 'summary_large_image',
         }}
       />
       <Header />

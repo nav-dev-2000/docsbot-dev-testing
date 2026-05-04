@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --width: 1200px;
+        --height: 630px;
+        --text-x: 150px;
+        --logo-x: 150px;
+        --logo-y: 58px;
+        --pill-right: 76px;
+        --pill-y: 64px;
+        --navy: #0f172a;
+        --cyan: #22d3ee;
+        --teal: #14b8a6;
+      }
+
+      body {
+        margin: 0;
+        width: var(--width);
+        height: var(--height);
+        overflow: hidden;
+        background: var(--navy);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+      }
+
+      .card {
+        position: relative;
+        width: var(--width);
+        height: var(--height);
+        background: linear-gradient(90deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.82) 48%, rgba(15, 23, 42, 0) 100%),
+          linear-gradient(180deg, rgba(2, 6, 23, 0), rgba(2, 6, 23, 0.48)),
+          var(--background-image);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .logo {
+        position: absolute;
+        left: var(--logo-x);
+        top: var(--logo-y);
+        width: 220px;
+      }
+
+      .pill {
+        position: absolute;
+        top: var(--pill-y);
+        right: var(--pill-right);
+        border-radius: 999px;
+        padding: 7px 16px;
+        background: linear-gradient(135deg, var(--teal), #0891b2);
+        color: #ecfeff;
+        box-shadow: 0 0 0 8px rgba(6, 42, 53, 0.86), 0 0 0 10px rgba(21, 94, 117, 0.8);
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .title {
+        position: absolute;
+        left: var(--text-x);
+        top: 176px;
+        max-width: 560px;
+        color: #fff;
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.14;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        position: absolute;
+        left: calc(var(--text-x) + 2px);
+        top: 412px;
+        max-width: 580px;
+        color: #d8eef3;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.32;
+        letter-spacing: 0;
+      }
+
+      .accent {
+        position: absolute;
+        left: calc(var(--text-x) + 2px);
+        top: 520px;
+        width: 256px;
+        height: 16px;
+      }
+
+      .accent::before,
+      .accent::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 4px;
+        border-radius: 999px;
+      }
+
+      .accent::before {
+        top: 0;
+        width: 256px;
+        background: var(--cyan);
+      }
+
+      .accent::after {
+        top: 12px;
+        width: 150px;
+        background: var(--teal);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <img class="logo" src="{{logo}}" alt="" />
+      <div class="pill">{{pill}}</div>
+      <div class="title">{{title}}</div>
+      <div class="subtitle">{{subtitle}}</div>
+      <div class="accent"></div>
+    </main>
+  </body>
+</html>

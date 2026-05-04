@@ -1,0 +1,4 @@
+interface:
+  display_name: "OG Image Creator"
+  short_description: "Create branded OG images for landing pages"
+  default_prompt: "Use $og-image-creator to create a branded OG image for a new landing page."
