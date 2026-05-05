@@ -229,10 +229,11 @@ export default function App({ Component, pageProps }) {
             siteName: 'DocsBot AI',
             images: [
               {
-                url: 'https://docsbot.ai/og-main.png',
+                url: 'https://docsbot.ai/images/og/main.jpeg',
                 width: 1200,
                 height: 630,
                 alt: 'DocsBot AI',
+                type: 'image/jpeg',
               },
             ],
           }}
@@ -386,10 +387,11 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
             siteName: 'DocsBot AI',
             images: [
               {
-                url: 'https://docsbot.ai/og-main.png',
+                url: 'https://docsbot.ai/images/og/main.jpeg',
                 width: 1200,
                 height: 630,
                 alt: 'DocsBot AI',
+                type: 'image/jpeg',
               },
             ],
           }}

@@ -48,8 +48,11 @@ const GlossaryTermPage = ({
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/glossary.png',
+              url: 'https://docsbot.ai/images/og/glossary.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'AI Glossary',
+              type: 'image/jpeg',
             },
           ],
         }}

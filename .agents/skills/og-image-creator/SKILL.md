@@ -70,10 +70,20 @@ For generated backgrounds, use this structure and adapt page specifics:
 
 ```text
 Create a polished dark SaaS marketing OG background for a DocsBot page about <topic>.
-Use dark navy, teal, and cyan accents, subtle grid lines, crisp glassy panels, and clean product-like workflow visuals.
-Leave the left/center-left area clean for overlaid logo and headline, and keep the main visual on the right or lower center.
-Do not include readable text, brand names, logos, watermarks, pseudo-letters, humans, or robots with faces.
-Avoid purple gradients, beige palettes, clutter, blurry UI, and stock-photo styling.
+Match the inspected DocsBot landing page style: deep navy background, subtle grid lines, teal/cyan accents, soft glow, crisp product-like UI panels, and clean B2B SaaS product, knowledge, comparison, or workflow visuals as appropriate for the page.
+Do not include any readable text, brand names, logos, watermarks, pseudo-letters, UI labels, or fake interface copy.
+
+Scene/backdrop: deep navy SaaS interface environment with subtle grid lines, soft teal/cyan glow, and crisp glassy interface depth.
+
+Subject: abstract product system for <page concept>, using clean icon-like shapes, connected nodes, cards, panels, checkmarks, charts, knowledge surfaces, comparison structures, or workflow rails as appropriate. Use placeholders and geometric UI elements only, with no actual words or numbers.
+
+Composition: leave the left/center-left area clean and dark for overlaid logo and headline. Place the main visual system on the right and lower center. Keep all important visual details inside social-card safe margins.
+
+Style: premium B2B SaaS, crisp, modern, high contrast, DocsBot-like dark navy with teal/cyan highlights, subtle depth, not cartoonish, not photorealistic, not a busy dashboard screenshot.
+
+Palette: #0f172a, #111827, #0891b2, #14b8a6, #22d3ee, white highlights.
+
+Avoid: readable text, pseudo-letters, fake logos, humans, faces, robots with faces, stock-photo people, purple gradients, beige palettes, clutter, blurry UI, currency symbols, numbers, prices, plan names.
 ```
 
 When the target page has a strong hero visual, mention the screenshot/reference explicitly and ask the image model to match its mood and motifs, not its text.

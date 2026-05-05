@@ -59,7 +59,7 @@ export const freeTools = [
   {
     name: 'AI Prompt Library',
     href: '/prompts',
-    ogImage: '/images/og/prompt-library.png',
+    ogImage: '/images/og/prompt-library.jpeg',
     category: 'Prompt',
   },
   {
@@ -90,19 +90,19 @@ export const freeTools = [
   {
     name: 'LLM API Price Calculator',
     href: '/tools/gpt-openai-api-pricing-calculator',
-    ogImage: '/images/og/llm-api-calculator.png',
+    ogImage: '/images/og/llm-api-calculator.jpeg',
     category: 'AI',
   },
   {
     name: 'AI Terms Glossary',
     href: '/ai-terms-glossary',
-    ogImage: '/images/og/glossary.png',
+    ogImage: '/images/og/glossary.jpeg',
     category: 'AI',
   },
   {
     name: 'LLM AI Model Directory',
     href: '/models',
-    ogImage: '/images/og/llm-models.png',
+    ogImage: '/images/og/llm-models.jpeg',
     category: 'AI',
   },
   /* Productivity Tools */

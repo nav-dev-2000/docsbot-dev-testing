@@ -16,8 +16,11 @@ export default function CustomerSupportTools() {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/free-tools.png',
+              url: 'https://docsbot.ai/images/og/free-tools.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'Free AI Tools',
+              type: 'image/jpeg',
             },
           ],
         }}

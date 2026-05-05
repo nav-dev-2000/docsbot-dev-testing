@@ -204,7 +204,7 @@ export default function PricingPage() {
           description: pageDescription,
           images: [
             {
-              url: 'https://docsbot.ai/og-pricing.jpeg',
+              url: 'https://docsbot.ai/images/og/pricing.jpeg',
               width: 1200,
               height: 630,
               alt: 'DocsBot AI pricing and savings',

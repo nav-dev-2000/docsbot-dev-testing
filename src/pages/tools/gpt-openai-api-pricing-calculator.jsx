@@ -255,8 +255,11 @@ export default function Calculate({ starRatingData }) {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/llm-api-calculator.png',
+              url: 'https://docsbot.ai/images/og/llm-api-calculator.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'LLM API Pricing Calculator',
+              type: 'image/jpeg',
             },
           ],
         }}

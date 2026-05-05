@@ -56,8 +56,11 @@ export default function IndustryPage({
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-industry.jpeg',
+              url: 'https://docsbot.ai/images/og/industry.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'AI chatbots for your industry',
+              type: 'image/jpeg',
             },
           ],
         }}

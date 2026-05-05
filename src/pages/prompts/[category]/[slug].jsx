@@ -123,8 +123,11 @@ const PromptPage = ({ promptData, relatedPrompts }) => {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/prompts.png',
+              url: 'https://docsbot.ai/images/og/prompts.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'Ultimate AI Prompt Library',
+              type: 'image/jpeg',
             },
           ],
         }}

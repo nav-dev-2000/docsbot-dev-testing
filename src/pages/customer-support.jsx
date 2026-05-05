@@ -720,10 +720,11 @@ export default function Home() {
           description: 'AI chatbot for customer service that resolves 84% of support tickets instantly. Customer service AI chatbot for websites that speaks your tone, runs 24/7, and needs no code.',
           images: [
             {
-              url: 'https://docsbot.ai/og-customer-support.png',
+              url: 'https://docsbot.ai/images/og/customer-support.jpeg',
               width: 1200,
               height: 630,
               alt: 'AI Customer Support Chatbot - DocsBot AI',
+              type: 'image/jpeg',
             },
           ],
         }}

@@ -335,8 +335,11 @@ const ModelPage = ({ model1, model2 }) => {
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/images/og/llm-models.png',
+              url: 'https://docsbot.ai/images/og/llm-models.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'AI Model Details',
+              type: 'image/jpeg',
             },
           ],
         }}

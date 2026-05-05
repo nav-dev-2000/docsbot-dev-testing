@@ -199,8 +199,11 @@ export default function AlternativePage({
         openGraph={{
           images: [
             {
-              url: 'https://docsbot.ai/og-alternative.png',
+              url: 'https://docsbot.ai/images/og/alternatives.jpeg',
+              width: 1200,
+              height: 630,
               alt: 'Chatbot builder alternative',
+              type: 'image/jpeg',
             },
           ],
         }}
