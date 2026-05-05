@@ -6,7 +6,7 @@ date: 2026-04-29
 
 DocsBot Skills extend a bot with reusable instructions, reference material, and optional executable code. They are designed to let an agent load specialized context only when needed, then call structured functions when the conversation requires an action, API lookup, file generation, or other deterministic work.
 
-This guide explains how Skills are structured, how the Skill Builder and runtime work internally, how to test and improve a Skill, and how to enable published Skills as selectable actions in the embeddable chat widget.
+This guide explains how Skills are structured, how the Skill Builder and runtime work internally, how to test and improve a Skill, and how to enable published Skills as selectable actions in the embeddable chat widget. For examples and the product overview, visit the [DocsBot Skills page](/skills).
 
 ## Skill Architecture Overview
 
