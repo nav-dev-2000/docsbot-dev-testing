@@ -72,6 +72,18 @@ const BotSearch = ({
   const fullFileRequestRef = useRef(0)
   const selectedCardData = selectedIndex >= 0 ? searchData[selectedIndex] : null
 
+  const buildApiHeaders = ({ requireSignature = false } = {}) => {
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+
+    if (bot.signature && (requireSignature || bot.privacy === 'private')) {
+      headers['Authorization'] = 'Bearer ' + bot.signature
+    }
+
+    return headers
+  }
+
   useEffect(() => {
     onResultsChange?.(searchData.length > 0)
   }, [onResultsChange, searchData.length])
@@ -179,12 +191,7 @@ const BotSearch = ({
         top_k: searchSize,
         use_glossary: useGlossary,
       }
-      const headers = {
-        'Content-Type': 'application/json',
-      }
-      if (bot.privacy === 'private') {
-        headers['Authorization'] = 'Bearer ' + bot.signature
-      }
+      const headers = buildApiHeaders()
 
       try {
         const response = await fetch(apiUrl, {
@@ -239,12 +246,7 @@ const BotSearch = ({
     setFullFileLoading(true)
 
     const apiUrl = `${process.env.NEXT_PUBLIC_BOT_API_URL}/teams/${team.id}/bots/${bot.id}/fetch`
-    const headers = {
-      'Content-Type': 'application/json',
-    }
-    if (bot.privacy === 'private') {
-      headers['Authorization'] = 'Bearer ' + bot.signature
-    }
+    const headers = buildApiHeaders({ requireSignature: true })
 
     try {
       const response = await fetch(apiUrl, {
