@@ -1,12 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
+import { Fragment, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
+import { Menu, Transition } from '@headlessui/react'
 import {
   ArrowRightIcon,
+  ArrowUpIcon,
   BoltIcon,
   CheckCircleIcon,
   ChatBubbleLeftRightIcon,
+  ChevronDownIcon,
   CircleStackIcon,
   ClipboardDocumentCheckIcon,
   DocumentTextIcon,
@@ -36,6 +39,7 @@ import clsx from 'clsx'
 
 import SkillIntegrationCard from '@/components/skills/SkillIntegrationCard'
 import { skillCategorySlug } from '@/lib/skillsIntegrationPaths'
+import { Squares2X2Icon } from '@heroicons/react/24/outline'
 
 const pageTitle = 'AI Agent Skill Builder and Skills Library | DocsBot AI'
 const pageDescription =
@@ -81,6 +85,178 @@ const faqs = [
 
 function cleanHex(value, fallback) {
   return /^#[0-9A-Fa-f]{6}$/.test(value || '') ? value : fallback
+}
+
+const CategoryPill = forwardRef(function CategoryPill({ active, children, className, ...props }, ref) {
+  return (
+    <button
+      ref={ref}
+      type="button"
+      className={clsx(
+        'shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition',
+        active ? 'bg-slate-950 text-white shadow-sm' : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+})
+
+function SkillsCategoryFilter({ categories, category, onChange }) {
+  const containerRef = useRef(null)
+  const measureRefs = useRef([])
+  const moreMeasureRef = useRef(null)
+  const [visibleIndexes, setVisibleIndexes] = useState(() => new Set([0]))
+
+  const categoryItems = useMemo(
+    () => [{ name: 'All', count: null }, ...categories.map((item) => ({ name: item.name, count: item.count }))],
+    [categories],
+  )
+
+  const calculateVisibleCategories = useCallback(() => {
+    const containerWidth = containerRef.current?.clientWidth || 0
+    if (!containerWidth) return
+
+    const widths = categoryItems.map((_, index) => measureRefs.current[index]?.offsetWidth || 0)
+    const moreWidth = moreMeasureRef.current?.offsetWidth || 0
+    const gap = 8
+    const allWidth = widths.reduce((total, width, index) => total + width + (index === 0 ? 0 : gap), 0)
+
+    if (allWidth <= containerWidth) {
+      setVisibleIndexes(new Set(categoryItems.map((_, index) => index)))
+      return
+    }
+
+    const activeIndex = Math.max(
+      0,
+      categoryItems.findIndex((item) => item.name === category),
+    )
+    const requiredIndexes = [...new Set([0, activeIndex])]
+    const nextVisible = new Set(requiredIndexes)
+    let usedWidth =
+      moreWidth +
+      requiredIndexes.reduce((total, index) => total + widths[index], 0) +
+      gap * requiredIndexes.length
+
+    for (let index = 1; index < categoryItems.length; index += 1) {
+      if (nextVisible.has(index)) continue
+      const nextWidth = widths[index]
+      if (usedWidth + nextWidth + gap <= containerWidth) {
+        nextVisible.add(index)
+        usedWidth += nextWidth + gap
+      }
+    }
+
+    setVisibleIndexes(nextVisible)
+  }, [category, categoryItems])
+
+  useEffect(() => {
+    calculateVisibleCategories()
+
+    const resizeObserver = new ResizeObserver(calculateVisibleCategories)
+    const container = containerRef.current
+    if (container) resizeObserver.observe(container)
+    window.addEventListener('resize', calculateVisibleCategories)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', calculateVisibleCategories)
+    }
+  }, [calculateVisibleCategories])
+
+  const hiddenItems = categoryItems.filter((_, index) => !visibleIndexes.has(index))
+
+  return (
+    <div ref={containerRef} className="relative flex w-full min-w-0 flex-nowrap items-center gap-2 md:flex-1">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex flex-nowrap items-center gap-2 overflow-hidden opacity-0"
+      >
+        {categoryItems.map((item, index) => (
+          <CategoryPill
+            key={item.name}
+            ref={(node) => {
+              measureRefs.current[index] = node
+            }}
+            tabIndex={-1}
+          >
+            {item.name}
+          </CategoryPill>
+        ))}
+        <CategoryPill
+          ref={moreMeasureRef}
+          tabIndex={-1}
+          className="inline-flex items-center gap-1.5 px-4"
+        >
+          More
+          <ChevronDownIcon className="h-4 w-4" />
+        </CategoryPill>
+      </div>
+
+      {categoryItems.map((item, index) =>
+        visibleIndexes.has(index) ? (
+          <CategoryPill key={item.name} active={category === item.name} onClick={() => onChange(item.name)}>
+            {item.name}
+          </CategoryPill>
+        ) : null,
+      )}
+
+      {hiddenItems.length ? (
+        <Menu as="div" className="relative shrink-0">
+          <Menu.Button
+            className={clsx(
+              'inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition',
+              hiddenItems.some((item) => item.name === category)
+                ? 'bg-slate-950 text-white shadow-sm'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
+            )}
+          >
+            More
+            <ChevronDownIcon className="h-4 w-4" aria-hidden />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute right-0 z-20 mt-2 max-h-80 w-64 overflow-auto rounded-xl bg-white p-2 shadow-xl ring-1 ring-slate-900/10 focus:outline-none">
+              {hiddenItems.map((item) => (
+                <Menu.Item key={item.name}>
+                  {({ active }) => (
+                    <button
+                      type="button"
+                      onClick={() => onChange(item.name)}
+                      className={clsx(
+                        'flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2 text-left text-sm font-semibold transition',
+                        category === item.name
+                          ? 'bg-slate-950 text-white'
+                          : active
+                            ? 'bg-slate-100 text-slate-900'
+                            : 'text-slate-700',
+                      )}
+                    >
+                      <span>{item.name}</span>
+                      {item.count != null ? (
+                        <span className={clsx('text-xs', category === item.name ? 'text-white/70' : 'text-slate-400')}>
+                          {item.count}
+                        </span>
+                      ) : null}
+                    </button>
+                  )}
+                </Menu.Item>
+              ))}
+            </Menu.Items>
+          </Transition>
+        </Menu>
+      ) : null}
+    </div>
+  )
 }
 
 function SkillBuilderAnimation() {
@@ -251,8 +427,12 @@ function SkillBuilderAnimation() {
 
 export default function SkillsPage({ records, categories, totalCount }) {
   const router = useRouter()
+  const skillsLibrarySectionRef = useRef(null)
+  const skillsLibraryBarRef = useRef(null)
+  const skillsLibraryBarSentinelRef = useRef(null)
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('All')
+  const [isSkillsBarSticky, setIsSkillsBarSticky] = useState(false)
 
   useEffect(() => {
     if (!router.isReady) return
@@ -317,6 +497,41 @@ export default function SkillsPage({ records, categories, totalCount }) {
   const handleClearQuery = () => {
     setQuery('')
   }
+  const handleBackToSkills = () => {
+    document.getElementById('skills-library')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  useEffect(() => {
+    let animationFrame = null
+
+    const updateSkillsBarStickyState = () => {
+      if (animationFrame) return
+
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null
+
+        const bar = skillsLibraryBarRef.current
+        const sentinel = skillsLibraryBarSentinelRef.current
+        const section = skillsLibrarySectionRef.current
+        if (!bar || !sentinel || !section) return
+
+        const stickyTop = Number.parseFloat(window.getComputedStyle(bar).top) || 0
+        const sectionRect = section.getBoundingClientRect()
+        const sectionIsActive = sectionRect.top <= stickyTop && sectionRect.bottom > stickyTop + bar.offsetHeight
+        setIsSkillsBarSticky(sentinel.getBoundingClientRect().top <= stickyTop && sectionIsActive)
+      })
+    }
+
+    updateSkillsBarStickyState()
+    window.addEventListener('scroll', updateSkillsBarStickyState, { passive: true })
+    window.addEventListener('resize', updateSkillsBarStickyState)
+
+    return () => {
+      window.removeEventListener('scroll', updateSkillsBarStickyState)
+      window.removeEventListener('resize', updateSkillsBarStickyState)
+      if (animationFrame) window.cancelAnimationFrame(animationFrame)
+    }
+  }, [])
 
   const pageUrl = buildPageUrl('/skills')
   const faqPage = buildFaqPage({ url: pageUrl, mainEntity: buildFaqEntities(faqs) })
@@ -649,73 +864,96 @@ export default function SkillsPage({ records, categories, totalCount }) {
           </div>
         </section>
 
-        <section id="skills-library" className="bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-              <div className="max-w-3xl">
-                <p className="text-sm font-semibold uppercase tracking-wide text-cyan-700">Skills Library</p>
-                <div className="mt-3 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                    AI agent skills for your tools
-                  </h2>
+        <section ref={skillsLibrarySectionRef} id="skills-library" className="bg-white">
+          <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+            {/* Section: Header */}
+            <div id="skills-library--header" className="mb-4">
+              <p className="-mb-1 text-sm font-semibold uppercase tracking-wide text-cyan-700">Skills Library</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                AI agent skills for your tools
+              </h2>
+              <p className="mt-5 text-base leading-7 text-slate-600">
+                Find AI agent skills for your tools—then tune them for customer support or internal teams.
+              </p>
+            </div>
+
+            {/* Section: Control Bar */}
+            <div ref={skillsLibraryBarSentinelRef} aria-hidden="true" className="h-px" />
+            <div ref={skillsLibraryBarRef} id="skills-library--bar" className="sticky top-0 z-10 md:top-4">
+              <div
+                className={clsx(
+                  '-mx-6 rounded-lg bg-white px-6 pb-6 pt-4 transition-shadow',
+                  'md:mx-0 md:flex md:gap-x-6 md:rounded-2xl md:border md:border-slate-200 md:px-4 md:py-4',
+                  {
+                    ['shadow-lg md:shadow-md md:shadow-slate-200']: isSkillsBarSticky,
+                  },
+                )}
+              >
+                <div
+                  className={clsx(
+                    'flex items-center gap-1 mb-2 text-slate-800',
+                    'md:flex-none md:mb-0',
+                  )}
+                >
+                  <Squares2X2Icon className="size-6" />
+                  <p className="text-base/6 font-bold">Skills</p>
                 </div>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-                  Find AI agent skills for your tools—then tune them for customer support or internal teams.
-                </p>
-              </div>
-              <div className="relative w-full lg:mt-9 lg:max-w-sm">
-                <MagnifyingGlassIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                <input
-                  value={query}
-                  onChange={handleQueryChange}
-                  placeholder="Search integrations"
-                  className="w-full rounded-full border border-slate-300 py-3 pl-11 pr-11 text-sm outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100"
-                />
-                {query ? (
-                  <button
-                    type="button"
-                    onMouseDown={(event) => {
-                      event.preventDefault()
-                      handleClearQuery()
-                    }}
-                    onClick={(event) => {
-                      event.preventDefault()
-                      handleClearQuery()
-                    }}
-                    className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-slate-200 hover:text-slate-700"
-                    aria-label="Clear search"
-                  >
-                    <XMarkIcon className="h-4 w-4" />
-                  </button>
-                ) : null}
+
+                {/* Search Bar */}
+                <div className="relative mb-4 w-full md:mb-0 md:w-80 md:shrink-0 lg:w-[26rem] xl:w-[28rem]">
+                  <MagnifyingGlassIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+
+                  <input
+                    value={query}
+                    onChange={handleQueryChange}
+                    placeholder="Search integrations"
+                    className={clsx(
+                      'w-full rounded-full border border-slate-300 py-2 px-10 text-sm outline-none',
+                      'focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100',
+                    )}
+                  />
+
+                  {query ? (
+                    <button
+                      type="button"
+                      onMouseDown={(event) => {
+                        event.preventDefault()
+                        handleClearQuery()
+                      }}
+                      onClick={(event) => {
+                        event.preventDefault()
+                        handleClearQuery()
+                      }}
+                      className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-slate-200 hover:text-slate-700"
+                      aria-label="Clear search"
+                    >
+                      <XMarkIcon className="h-4 w-4" />
+                    </button>
+                  ) : null}
+                </div>
+
+                {/* Category Buttons */}
+                <SkillsCategoryFilter categories={categories} category={category} onChange={handleCategoryChange} />
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => handleCategoryChange('All')}
-                className={`rounded-full px-4 py-2 text-sm font-semibold ${
-                  category === 'All' ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
-              >
-                All
-              </button>
-              {categories.map((item) => (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => handleCategoryChange(item.name)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold ${
-                    category === item.name
-                      ? 'bg-slate-950 text-white'
-                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                  }`}
-                >
-                  {item.name} ({item.count})
-                </button>
-              ))}
-            </div>
+            <button
+              type="button"
+              onClick={handleBackToSkills}
+              aria-label="Back to Skills Library"
+              aria-hidden={!isSkillsBarSticky}
+              tabIndex={isSkillsBarSticky ? 0 : -1}
+              className={clsx(
+                'fixed bottom-5 right-5 z-30 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold shadow-lg shadow-slate-900/20 ring-1 transition duration-200 ease-out motion-reduce:transition-none',
+                'bg-slate-950 text-white ring-white/10 hover:-translate-y-0.5 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white md:bottom-8 md:right-8',
+                isSkillsBarSticky
+                  ? 'pointer-events-auto translate-y-0 scale-100 opacity-100'
+                  : 'pointer-events-none translate-y-3 scale-95 opacity-0',
+              )}
+            >
+              <ArrowUpIcon className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">Back to Skills</span>
+            </button>
 
             <div className="mt-10 flex flex-col gap-12">
               {groupedByCategory.map(([categoryName, sectionRecords]) => (
