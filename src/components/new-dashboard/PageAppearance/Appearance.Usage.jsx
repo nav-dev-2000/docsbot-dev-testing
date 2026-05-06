@@ -32,18 +32,10 @@ const AppearanceUsage = ({
     const [copiedKey, setCopiedKey] = useState(false)
 
     const isStripeEnabled = tools?.stripe?.enabled === true
-    const enabledWidgetSkillSet = new Set(
-        Array.isArray(widgetSkills) ? widgetSkills.map((id) => String(id)) : [],
-    )
     const skillMetadataKeys = Array.from(
         new Set(
             (Array.isArray(availableSkills) ? availableSkills : [])
-                .filter((skill) => {
-                    const id = String(
-                        skill?.skillName || skill?.draftId || skill?.id || skill?.name || '',
-                    ).trim()
-                    return id && enabledWidgetSkillSet.has(id)
-                })
+                .filter((skill) => skill?.enabledWidget)
                 .flatMap((skill) => {
                     const bindings =
                         skill?.metadataBindings ??
@@ -63,7 +55,9 @@ const AppearanceUsage = ({
         new Set(
             [
                 ...(isStripeEnabled ? ['priv_stripe_customer_id'] : []),
-                ...skillMetadataKeys.filter((key) => key.startsWith('priv_')),
+                ...skillMetadataKeys.map((key) =>
+                    key.startsWith('priv_') ? key : `priv_${key}`
+                ),
             ].filter(Boolean),
         ),
     )
