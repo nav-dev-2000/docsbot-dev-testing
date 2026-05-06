@@ -13,11 +13,15 @@ import {
 } from './Appearance.Options'
 import Button from '../Button'
 import IconButton from '../IconButton'
+import Alert from '@/components/Alert'
 import { formatDomainListInputText } from '@/lib/webSearch'
 
 const AppearanceUsage = ({
     bot,
     team,
+    tools,
+    widgetSkills,
+    availableSkills,
     allowedDomainsText,
     setAllowedDomainsText,
     setAllowedDomains,
@@ -27,9 +31,54 @@ const AppearanceUsage = ({
     const [copiedIframe, setCopiedIframe] = useState(false)
     const [copiedKey, setCopiedKey] = useState(false)
 
+    const isStripeEnabled = tools?.stripe?.enabled === true
+    const enabledWidgetSkillSet = new Set(
+        Array.isArray(widgetSkills) ? widgetSkills.map((id) => String(id)) : [],
+    )
+    const skillMetadataKeys = Array.from(
+        new Set(
+            (Array.isArray(availableSkills) ? availableSkills : [])
+                .filter((skill) => {
+                    const id = String(
+                        skill?.skillName || skill?.draftId || skill?.id || skill?.name || '',
+                    ).trim()
+                    return id && enabledWidgetSkillSet.has(id)
+                })
+                .flatMap((skill) => {
+                    const bindings =
+                        skill?.metadataBindings ??
+                        skill?.draft?.metadataBindings ??
+                        skill?.draft?.manifest?.metadataBindings ??
+                        []
+                    return Array.isArray(bindings)
+                        ? bindings.map((binding) =>
+                              String(binding?.metadataKey || '').trim(),
+                          )
+                        : []
+                })
+                .filter(Boolean),
+        ),
+    )
+    const privateMetadataKeys = Array.from(
+        new Set(
+            [
+                ...(isStripeEnabled ? ['priv_stripe_customer_id'] : []),
+                ...skillMetadataKeys.filter((key) => key.startsWith('priv_')),
+            ].filter(Boolean),
+        ),
+    )
+    const requiresSignedPrivateMetadata = privateMetadataKeys.length > 0
+    const signatureExample = `/* SERVER-SIGNED JWT WITH metadata: { ${privateMetadataKeys
+        .map((key) => `${key}: "YOUR_${key.toUpperCase()}_VALUE"`)
+        .join(', ')} } */`
+
+    const widgetInitProps = requiresSignedPrivateMetadata
+        ? `id: "${team.id}/${bot.id}", signature: '${signatureExample}'`
+        : `id: "${team.id}/${bot.id}"`
+
     const embed = `<script type="text/javascript">window.DocsBotAI=window.DocsBotAI||{},DocsBotAI.init=function(e){return new Promise((t,r)=>{var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://widget.docsbot.ai/chat.js";let o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o),n.addEventListener("load",()=>{let n;Promise.all([new Promise((t,r)=>{window.DocsBotAI.mount(Object.assign({}, e)).then(t).catch(r)}),(n=function e(t){return new Promise(e=>{if(document.querySelector(t))return e(document.querySelector(t));let r=new MutationObserver(n=>{if(document.querySelector(t))return e(document.querySelector(t)),r.disconnect()});r.observe(document.body,{childList:!0,subtree:!0})})})("#docsbotai-root"),]).then(()=>t()).catch(r)}),n.addEventListener("error",e=>{r(e.message)})})};</script>
 <script type="text/javascript">
-  DocsBotAI.init({id: "${team.id}/${bot.id}"});
+  DocsBotAI.init({${widgetInitProps}});
 </script>`
     const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`
 
@@ -61,6 +110,26 @@ const AppearanceUsage = ({
                         }
                         isLast={true}
                     >
+                        {requiresSignedPrivateMetadata ? (
+                            <Alert
+                                title="Signed metadata required for this bot"
+                                type="warning"
+                                className="!mt-0 !mb-3"
+                            >
+                                One or more active actions/skills require trusted
+                                private metadata. Generate the JWT server-side and
+                                pass it as <code>signature</code>. See{' '}
+                                <Link
+                                    href="/documentation/developer/embeddable-chat-widget#trusted-private-metadata-with-bearer-jwt"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-semibold underline"
+                                >
+                                    widget signing docs
+                                </Link>
+                                .
+                            </Alert>
+                        ) : null}
                         <AppearanceCode
                             isCopied={copied}
                             buttonProps={{
@@ -123,43 +192,41 @@ const AppearanceUsage = ({
                 </div>
             </AppearanceBlock>
 
-            {bot.privacy === 'private' && (
-                <AppearanceBlock
-                    title="Signing Key"
-                    titleTag="label"
-                    titleProps={{
-                        htmlFor: 'embedding-key',
-                        className: '!text-base !font-bold',
-                    }}
-                    description="Manage credentials used to verify and authorize widget usage on your site."
-                >
-                    <div className="relative">
-                        <AppearanceInput
-                            type="text"
-                            id="embedding-key"
-                            value={bot.signatureKey}
-                            className="pr-10"
-                            readOnly
-                        />
+            <AppearanceBlock
+                title="Signing Key"
+                titleTag="label"
+                titleProps={{
+                    htmlFor: 'embedding-key',
+                    className: '!text-base !font-bold',
+                }}
+                description="Manage credentials used to verify and authorize widget usage on your site."
+            >
+                <div className="relative">
+                    <AppearanceInput
+                        type="text"
+                        id="embedding-key"
+                        value={bot.signatureKey}
+                        className="pr-10"
+                        readOnly
+                    />
 
-                        <IconButton
-                            icon={copiedKey ? CheckIcon : ClipboardIcon}
-                            label={copiedKey ? 'Copied!' : 'Copy Key'}
-                            size="sm"
-                            className="absolute right-1 top-1/2 -translate-y-1/2"
-                            disabled={copiedKey}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                navigator.clipboard.writeText(bot.signatureKey)
-                                setCopiedKey(true)
-                                setTimeout(() => {
-                                    setCopiedKey(false)
-                                }, 2000)
-                            }}
-                        />
-                    </div>
-                </AppearanceBlock>
-            )}
+                    <IconButton
+                        icon={copiedKey ? CheckIcon : ClipboardIcon}
+                        label={copiedKey ? 'Copied!' : 'Copy Key'}
+                        size="sm"
+                        className="absolute right-1 top-1/2 -translate-y-1/2"
+                        disabled={copiedKey}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            navigator.clipboard.writeText(bot.signatureKey)
+                            setCopiedKey(true)
+                            setTimeout(() => {
+                                setCopiedKey(false)
+                            }, 2000)
+                        }}
+                    />
+                </div>
+            </AppearanceBlock>
 
             <AppearanceBlock
                 title="Allowed Domains"

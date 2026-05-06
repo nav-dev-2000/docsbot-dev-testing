@@ -1390,6 +1390,9 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 <AppearanceUsage
                     bot={bot}
                     team={team}
+                    tools={tools}
+                    widgetSkills={widgetSkills}
+                    availableSkills={availableSkills}
                     allowedDomainsText={allowedDomainsText}
                     setAllowedDomainsText={setAllowedDomainsText}
                     setAllowedDomains={setAllowedDomains}
