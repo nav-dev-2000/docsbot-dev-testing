@@ -74,7 +74,7 @@ const AppearanceUsage = ({
 <script type="text/javascript">
   DocsBotAI.init({${widgetInitProps}});
 </script>`
-    const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`
+    const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no" allow="microphone; camera"></iframe>`
 
     return (
         <>
@@ -147,7 +147,17 @@ const AppearanceUsage = ({
                         titleProps={{
                             className: '!text-sm/6',
                         }}
-                        description="Embed DocsBot as an iframe into a page on your website or supported cloud services."
+                        description={
+                            <>
+                                Embed DocsBot as an iframe into a page on your
+                                website or supported cloud services. Keep{' '}
+                                <code className="font-bold">allow=&quot;microphone; camera&quot;</code>{' '}
+                                so voice input and camera-based image upload work
+                                inside the frame (your site may also need them in{' '}
+                                <code className="font-bold">Permissions-Policy</code>{' '}
+                                if you restrict those features).
+                            </>
+                        }
                         isLast={true}
                     >
                         <AppearanceCode

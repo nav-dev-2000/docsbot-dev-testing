@@ -3226,6 +3226,7 @@ function Onboarding({ team }) {
                                 ? `http://localhost:3000/iframe/${team.id}/${createdBot.id}`
                                 : `https://docsbot.ai/iframe/${team.id}/${createdBot.id}`
                             }?agent=true&testing=true&signature=${createdBot.signature}`}
+                            allow="microphone; camera"
                             className={classNames(
                               'mx-auto block h-full w-full rounded-lg border border-gray-200',
                             )}

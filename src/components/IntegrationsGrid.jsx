@@ -1427,7 +1427,7 @@ export default function IntegrationsGrid({
                           <label className="text-sm font-semibold text-gray-900">iFrame Embed</label>
                           <button
                             onClick={() => {
-                              const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`
+                              const iframe = `<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no" allow="microphone; camera"></iframe>`
                               navigator.clipboard.writeText(iframe)
                               setCopiedIframe(true)
                               setTimeout(() => setCopiedIframe(false), 2000)
@@ -1438,7 +1438,7 @@ export default function IntegrationsGrid({
                           </button>
                         </div>
                         <pre className="overflow-x-auto rounded-md bg-gray-800 p-3 text-[10px] text-gray-100 font-mono leading-relaxed">
-                          {`<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no"></iframe>`}
+                          {`<iframe src="https://docsbot.ai/iframe/${team.id}/${bot.id}" width="600" height="650" frameborder="0" allowtransparency="true" scrolling="no" allow="microphone; camera"></iframe>`}
                         </pre>
                       </div>
 
