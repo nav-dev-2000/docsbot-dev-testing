@@ -5,9 +5,12 @@ import PageChatChat from './PageChat.Chat'
 
 import { auth } from '@/config/firebase-ui.config'
 import { i18n } from '@/constants/strings.constants'
-import { checkPlanPermission } from '@/utils/helpers'
 import { decideTextColor, getColorForLightBackground } from '@/utils/colors'
 import { canUserEditBot } from '@/utils/function.utils'
+import {
+    effectiveWidgetAudioUploads,
+    effectiveWidgetImageUploads,
+} from '@/lib/widgetUploadPrefs'
 
 const PageChat = ({ team, bot }) => {
     const [user] = useAuthState(auth)
@@ -20,11 +23,10 @@ const PageChat = ({ team, bot }) => {
             human_escalation: { enabled: true },
             followup_rating: { enabled: true },
         }
-        const imageUploads =
-            ((bot?.imageUploads === undefined || bot?.imageUploads) &&
-                checkPlanPermission(team, 'standard', 'imageUploads')
-                    .allowed) ||
-            false
+        const isAgent =
+            bot?.isAgent === undefined ? false : Boolean(bot?.isAgent)
+        const imageUploads = effectiveWidgetImageUploads(team, bot, isAgent)
+        const audioUploads = effectiveWidgetAudioUploads(team, bot, isAgent)
 
         return {
             color: bot?.color || '#1292EE',
@@ -39,9 +41,10 @@ const PageChat = ({ team, bot }) => {
             labels,
             hideSources: bot?.hideSources || false,
             showCopyButton: bot?.showCopyButton || false,
-            isAgent: bot?.isAgent === undefined ? false : bot?.isAgent,
+            isAgent,
             tools,
             imageUploads,
+            audioUploads,
         }
     }, [bot, team])
 
@@ -72,6 +75,9 @@ const PageChat = ({ team, bot }) => {
                 : 'false',
             '--mybot-is-agent': widgetSettings.isAgent ? 'true' : 'false',
             '--mybot-image-uploads': widgetSettings.imageUploads
+                ? 'true'
+                : 'false',
+            '--mybot-audio-uploads': widgetSettings.audioUploads
                 ? 'true'
                 : 'false',
         }),

@@ -25,6 +25,7 @@ const ApperancePreview = ({
     isAgent,
     tools,
     imageUploads,
+    audioUploads,
     leadCollect,
     color,
     size,
@@ -308,6 +309,7 @@ const ApperancePreview = ({
                             branding={branding}
                             isPreview={true}
                             showImageUpload={imageUploads && isAgent}
+                            showVoiceInput={audioUploads && isAgent}
                         />
                     </Widget>
 

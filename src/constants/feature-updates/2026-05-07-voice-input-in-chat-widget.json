@@ -1,0 +1,6 @@
+{
+  "date": "2026-05-07",
+  "title": "Voice input in the chat widget",
+  "description": "Visitors can send spoken messages from the embeddable widget; enable it in widget Content settings with agent mode on Standard plans and above.",
+  "href": "/documentation/developer/embeddable-chat-widget"
+}

@@ -1,11 +1,42 @@
 import Link from 'next/link'
-import Alert from '@/components/Alert'
 import { checkPlanPermission } from '@/utils/helpers'
+import {
+    ClipboardDocumentIcon,
+    LinkIcon,
+    ListBulletIcon,
+    MicrophoneIcon,
+    PhotoIcon,
+} from '@heroicons/react/24/outline'
 import {
     AppearanceToggle,
     AppearanceBlock,
     AppearanceInput,
 } from './Appearance.Options'
+
+const DOCSBOT_SQUARE_ICON_SRC = '/branding/docsbot-icon-sq.svg'
+
+const ContentToggleIconLabel = ({ icon: Icon, name }) => (
+    <div className="flex items-center gap-3">
+        <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+            <Icon className="size-5 text-gray-700" aria-hidden="true" />
+        </span>
+        <span className="text-sm font-semibold text-gray-900">{name}</span>
+    </div>
+)
+
+const ContentToggleImageLabel = ({ src, name }) => (
+    <div className="flex items-center gap-3">
+        <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+            <img
+                src={src}
+                alt=""
+                aria-hidden="true"
+                className="size-6 object-contain"
+            />
+        </span>
+        <span className="text-sm font-semibold text-gray-900">{name}</span>
+    </div>
+)
 
 const AppearanceContent = ({
     isAgent,
@@ -20,6 +51,8 @@ const AppearanceContent = ({
     setLinkSafetyEnabled,
     imageUploads,
     setImageUploads,
+    audioUploads,
+    setAudioUploads,
     team,
     branding,
     setBranding,
@@ -70,7 +103,12 @@ const AppearanceContent = ({
             {/* Options: Display Sources and Copy Button */}
             <AppearanceBlock className="flex flex-col gap-2">
                 <AppearanceToggle
-                    label="Display Sources"
+                    label={
+                        <ContentToggleIconLabel
+                            icon={ListBulletIcon}
+                            name="Display Sources"
+                        />
+                    }
                     description="Show sources titles and links after answers."
                     enabled={!hideSources}
                     setEnabled={() => setHideSources(!hideSources)}
@@ -78,7 +116,12 @@ const AppearanceContent = ({
                 />
 
                 <AppearanceToggle
-                    label="Display Copy Button"
+                    label={
+                        <ContentToggleIconLabel
+                            icon={ClipboardDocumentIcon}
+                            name="Display Copy Button"
+                        />
+                    }
                     description="Shows a copy-to-clipboard button after answer."
                     enabled={showCopyButton}
                     setEnabled={() => setShowCopyButton(!showCopyButton)}
@@ -87,7 +130,12 @@ const AppearanceContent = ({
                 />
 
                 <AppearanceToggle
-                    label="Link Safety"
+                    label={
+                        <ContentToggleIconLabel
+                            icon={LinkIcon}
+                            name="Link Safety"
+                        />
+                    }
                     description="When enabled, clicking links inside the chat widget outside the current site or allowed domains (and their subdomains) will show a confirmation modal."
                     enabled={linkSafetyEnabled}
                     setEnabled={setLinkSafetyEnabled}
@@ -97,12 +145,16 @@ const AppearanceContent = ({
 
                 {isAgent && (
                     <AppearanceToggle
-                        label="Image Uploads"
+                        label={
+                            <ContentToggleIconLabel
+                                icon={PhotoIcon}
+                                name="Image Uploads"
+                            />
+                        }
                         description="Allow users to upload images like screenshots to the chat."
                         enabled={imageUploads}
                         setEnabled={setImageUploads}
                         disabled={isUpdating}
-                        isNew={true}
                         planLabel={
                             !checkPlanPermission(
                                 team,
@@ -118,13 +170,46 @@ const AppearanceContent = ({
                         }
                     />
                 )}
+                {isAgent && (
+                    <AppearanceToggle
+                        label={
+                            <ContentToggleIconLabel
+                                icon={MicrophoneIcon}
+                                name="Voice input"
+                            />
+                        }
+                        description="Allow users to send voice messages from the widget microphone (requires a supported browser)."
+                        enabled={audioUploads}
+                        setEnabled={setAudioUploads}
+                        disabled={isUpdating}
+                        isNew={true}
+                        planLabel={
+                            !checkPlanPermission(
+                                team,
+                                'standard',
+                                'voiceInputInWidget',
+                            ).allowed
+                                ? checkPlanPermission(
+                                      team,
+                                      'standard',
+                                      'voiceInputInWidget',
+                                  ).requiredPlanLabel
+                                : null
+                        }
+                    />
+                )}
             </AppearanceBlock>
 
             {/* Options: Footer */}
             <AppearanceBlock title="Footer" titleTag="h4" isLast={true}>
                 <div className="flex flex-col gap-4">
                     <AppearanceToggle
-                        label="Display Branding"
+                        label={
+                            <ContentToggleImageLabel
+                                src={DOCSBOT_SQUARE_ICON_SRC}
+                                name="Display Branding"
+                            />
+                        }
                         description="If your plan allows you can disable the DocsBot branding in your widget footer."
                         enabled={branding}
                         setEnabled={setBranding}
@@ -172,7 +257,6 @@ const AppearanceContent = ({
                                 </Link>
                             </>
                         }
-                        isNew={true}
                     >
                         <AppearanceInput
                             id="footer-text"
@@ -195,6 +279,7 @@ const AppearanceContent = ({
                         enabled={keepFooterVisible}
                         setEnabled={() => setKeepFooterVisible(!keepFooterVisible)}
                         disabled={isUpdating}
+                        isNew={true}
                         isLast={true}
                         className="mt-4"
                     />

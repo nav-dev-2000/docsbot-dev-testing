@@ -7,6 +7,7 @@ import DocsBotLogo from '@/components/DocsBotLogo'
 import {
     PaperAirplaneIcon,
     PhotoIcon,
+    MicrophoneIcon,
     RectangleStackIcon as RectangleStackIconSolid,
     XMarkIcon,
     StopIcon,
@@ -17,6 +18,8 @@ const CustomButton = ({
     icon,
     isSolid = false,
     isActive = false,
+    className,
+    iconClassName,
     ...props
 }) => {
     const CustomIcon = icon
@@ -36,10 +39,11 @@ const CustomButton = ({
                         !isSolid,
                     ['!text-[var(--mybot-color)]']: !isSolid && isActive,
                 },
+                className,
             )}
             {...props}
         >
-            <CustomIcon className="size-4" />
+            <CustomIcon className={clsx('size-4', iconClassName)} />
         </button>
     )
 }
@@ -69,6 +73,7 @@ const WidgetFooter = ({
     contextBoostDisabled = false,
     modelSelector,
     showImageUpload: propShowImageUpload,
+    showVoiceInput = false,
     isDemo = true,
     children,
     ...props
@@ -256,16 +261,22 @@ const WidgetFooter = ({
 
                         <div
                             className={clsx(
-                                'absolute flex flex-none items-center justify-end gap-1',
+                                'absolute flex flex-none items-center justify-end',
+                                isPreview ? 'gap-0' : 'gap-1',
                                 {
-                                    ['top-1/2 right-1.5 -translate-y-1/2']: isPreview,
+                                    ['top-1/2 right-1 -translate-y-1/2']: isPreview,
                                     ['bottom-4 right-4']: !isPreview && hasSelectedImages,
                                     ['bottom-0 left-0 right-0 rounded-b-2xl p-1.5']: !isPreview && !hasSelectedImages,
                                     ['bg-white']: !isPreview,
                                 },
                             )}
                         >
-                            <div className="flex items-center gap-1">
+                            <div
+                                className={clsx(
+                                    'flex items-center',
+                                    isPreview ? 'gap-0' : 'gap-1',
+                                )}
+                            >
                                 {showImageUpload && (
                                     <>
                                         <input
@@ -294,8 +305,30 @@ const WidgetFooter = ({
                                                 fileInputRef.current?.click()
                                             }}
                                             aria-label="Upload image"
+                                        {...(isPreview
+                                            ? {
+                                                  className:
+                                                      'size-8 shrink-0 rounded-lg',
+                                                  iconClassName: 'size-3.5',
+                                              }
+                                            : {})}
                                         />
                                     </>
+                                )}
+                                {showVoiceInput && (
+                                    <CustomButton
+                                        icon={MicrophoneIcon}
+                                        disabled={disabled}
+                                        aria-label="Record voice message"
+                                        type="button"
+                                        {...(isPreview
+                                            ? {
+                                                  className:
+                                                      'size-8 shrink-0 rounded-lg',
+                                                  iconClassName: 'size-3.5',
+                                              }
+                                            : {})}
+                                    />
                                 )}
                                 {showContextBoost && (
                                     <CustomButton
@@ -319,6 +352,13 @@ const WidgetFooter = ({
                                             onToggleContextBoost?.()
                                         }}
                                         aria-label="Toggle context boost"
+                                        {...(isPreview
+                                            ? {
+                                                  className:
+                                                      'size-8 shrink-0 rounded-lg',
+                                                  iconClassName: 'size-3.5',
+                                              }
+                                            : {})}
                                     />
                                 )}
                                 {modelSelector && (
@@ -335,6 +375,13 @@ const WidgetFooter = ({
                                         isSolid={true}
                                         onClick={onStop}
                                         aria-label="Stop generating"
+                                        {...(isPreview
+                                            ? {
+                                                  className:
+                                                      'size-8 shrink-0 rounded-lg',
+                                                  iconClassName: 'size-3.5',
+                                              }
+                                            : {})}
                                     />
                                 ) : (
                                     <CustomButton
@@ -347,6 +394,13 @@ const WidgetFooter = ({
                                             }
                                         }}
                                         aria-label="Send message"
+                                        {...(isPreview
+                                            ? {
+                                                  className:
+                                                      'size-8 shrink-0 rounded-lg',
+                                                  iconClassName: 'size-3.5',
+                                              }
+                                            : {})}
                                     />
                                 )}
                             </div>

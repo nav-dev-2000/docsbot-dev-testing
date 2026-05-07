@@ -1935,6 +1935,7 @@ function Onboarding({ team }) {
         id: 'ZrbLG98bbxZ9EFqiPvyl/UMADr9eozeBQ8sZKr0GW',
         options: {
           useImageUpload: true,
+          useAudioUpload: true,
           contextItems: 12,
         },
         supportCallback: function (event, history, metadata, ticket) {
@@ -3179,6 +3180,11 @@ function Onboarding({ team }) {
                           imageUploads={
                             createdBot.imageUploads !== undefined
                               ? createdBot.imageUploads
+                              : false
+                          }
+                          audioUploads={
+                            createdBot.audioUploads !== undefined
+                              ? createdBot.audioUploads
                               : false
                           }
                           hidePreviewModeToggle

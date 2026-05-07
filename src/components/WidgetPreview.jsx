@@ -4,6 +4,7 @@ import {
   PhotoIcon,
   ArrowTopRightOnSquareIcon,
   DocumentDuplicateIcon,
+  MicrophoneIcon,
 } from '@heroicons/react/24/outline'
 import { ArrowPathIcon } from '@heroicons/react/20/solid'
 import {
@@ -124,6 +125,7 @@ export default function WidgetPreview({
   tools,
   leadCollect,
   imageUploads,
+  audioUploads,
   hidePreviewModeToggle = false,
 }) {
   const [isMounted, setIsMounted] = useState(false)
@@ -374,8 +376,21 @@ export default function WidgetPreview({
               }}
               disabled
             />
+            {audioUploads && isAgent && (
+              <MicrophoneIcon
+                className={classNames(
+                  'absolute top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300',
+                  imageUploads && isAgent ? 'right-12' : 'right-10',
+                )}
+              />
+            )}
             {imageUploads && isAgent && (
-              <PhotoIcon className="absolute right-10 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300" />
+              <PhotoIcon
+                className={classNames(
+                  'absolute top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-xl text-gray-300',
+                  audioUploads && isAgent ? 'right-[5.25rem]' : 'right-10',
+                )}
+              />
             )}
             <button
               className="absolute right-1 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-xl fill-gray-300"
