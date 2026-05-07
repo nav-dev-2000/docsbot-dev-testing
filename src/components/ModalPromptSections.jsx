@@ -653,6 +653,7 @@ export function InstructionsPreview({
             }?agent=${
                 activeTab === 'agent' ? 'true' : 'false'
             }&signature=${bot.signature}&testing=true`}
+            allow="microphone; camera"
             className={clsx('h-full min-h-0 w-full', {
                 ['pointer-events-none opacity-50']: hasUnsavedChanges,
             })}
