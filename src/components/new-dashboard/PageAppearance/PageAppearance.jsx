@@ -14,6 +14,10 @@ import {
     countBillableBotActions,
     getBotActionSlotLimit,
 } from '@/utils/helpers'
+import {
+    effectiveWidgetAudioUploads,
+    effectiveWidgetImageUploads,
+} from '@/lib/widgetUploadPrefs'
 import ModalCheckout from '@/components/ModalCheckout'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import ModalPrompt from '@/components/ModalPrompt'
@@ -160,6 +164,7 @@ const computeAppearanceDirtySnapshot = (
         showCopyButton,
         isAgent,
         imageUploads,
+        audioUploads,
         logo,
         linkSafetyEnabled,
         keepFooterVisible,
@@ -177,14 +182,12 @@ const computeAppearanceDirtySnapshot = (
     const initialBotIcon = bot.botIcon || 'none'
     const initialBranding = bot.branding === undefined ? true : bot.branding
     const initialIsAgent = bot.isAgent === undefined ? false : bot.isAgent
-    const initialImageUploads =
-        ((bot.imageUploads === undefined || bot.imageUploads) &&
-            checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
-        false
+    const initialImageUploads = effectiveWidgetImageUploads(team, bot, initialIsAgent)
+    const initialAudioUploads = effectiveWidgetAudioUploads(team, bot, initialIsAgent)
     const initialLabels =
         bot.labels || i18n[bot.language]?.labels || i18n.en.labels
     const initialTools = getInitialDisplayTools(bot.tools)
-    const initialLeadCollect = (() => {
+    const initialLeadCollectRaw = (() => {
         if (!bot?.leadCollect) return false
         try {
             return toWidgetLeadCollectState(bot.leadCollect)
@@ -192,6 +195,12 @@ const computeAppearanceDirtySnapshot = (
             return false
         }
     })()
+    // Match UI clamp: Personal+ plans only — below that we display lead collect off without saving.
+    const initialLeadCollect =
+        isLeadCollectEnabled(initialLeadCollectRaw) &&
+        !checkPlanPermission(team, 'personal', 'leadCollect').allowed
+            ? false
+            : initialLeadCollectRaw
     const initialMcpServers = bot?.mcpServers || []
     const initialWidgetSkills = Array.isArray(savedWidgetSkills)
         ? savedWidgetSkills
@@ -245,6 +254,12 @@ const computeAppearanceDirtySnapshot = (
         push('imageUploads', {
             current: imageUploads,
             saved: initialImageUploads,
+        })
+    }
+    if (audioUploads !== initialAudioUploads) {
+        push('audioUploads', {
+            current: audioUploads,
+            saved: initialAudioUploads,
         })
     }
     if (logo !== (bot.logo || null)) {
@@ -397,10 +412,19 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [keepFooterVisible, setKeepFooterVisible] = useState(
         bot.keepFooterVisible === true,
     )
-    const [imageUploads, setImageUploads] = useState(
-        ((bot.imageUploads === undefined || bot.imageUploads) &&
-            checkPlanPermission(team, 'standard', 'imageUploads').allowed) ||
-            false,
+    const [imageUploads, setImageUploads] = useState(() =>
+        effectiveWidgetImageUploads(
+            team,
+            bot,
+            bot.isAgent === undefined ? false : bot.isAgent,
+        ),
+    )
+    const [audioUploads, setAudioUploads] = useState(() =>
+        effectiveWidgetAudioUploads(
+            team,
+            bot,
+            bot.isAgent === undefined ? false : bot.isAgent,
+        ),
     )
     const [leadCollect, setLeadCollect] = useState(() => {
         if (!bot?.leadCollect) {
@@ -416,6 +440,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     const [showColorPicker, setShowColorPicker] = useState(false)
     const previousBranding = useRef(branding)
     const previousImageUploads = useRef(imageUploads)
+    const previousAudioUploads = useRef(audioUploads)
     const previousLeadCollect = useRef(leadCollect)
     const iconRef = useRef(null)
     const avatarRef = useRef(null)
@@ -449,12 +474,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                 i18n[nextBot.language]?.labels ||
                 i18n.en.labels
             const nextTools = getInitialDisplayTools(nextBot.tools)
-            const nextImageUploads =
-                ((nextBot.imageUploads === undefined ||
-                    nextBot.imageUploads) &&
-                    checkPlanPermission(team, 'standard', 'imageUploads')
-                        .allowed) ||
-                false
+            const nextImageUploads = effectiveWidgetImageUploads(team, nextBot, nextIsAgent)
+            const nextAudioUploads = effectiveWidgetAudioUploads(team, nextBot, nextIsAgent)
             const nextLeadCollect = (() => {
                 if (!nextBot?.leadCollect) {
                     return false
@@ -492,10 +513,12 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             setMcpServers(nextBot.mcpServers || [])
             previousBranding.current = nextBranding
             previousImageUploads.current = nextImageUploads
+            previousAudioUploads.current = nextAudioUploads
             previousLeadCollect.current = nextLeadCollect
             setLinkSafetyEnabled(nextBot.linkSafetyEnabled === true)
             setKeepFooterVisible(nextBot.keepFooterVisible === true)
             setImageUploads(nextImageUploads)
+            setAudioUploads(nextAudioUploads)
             setLeadCollect(nextLeadCollect)
         },
         [team],
@@ -733,7 +756,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             !branding &&
             !checkPlanPermission(team, 'business', 'branding').allowed
         ) {
-            setShowUpgrade(true)
             setBranding(true)
         }
     }, [branding, team])
@@ -749,10 +771,24 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             imageUploads &&
             !checkPlanPermission(team, 'standard', 'imageUploads').allowed
         ) {
-            setShowUpgrade(true)
             setImageUploads(false)
         }
     }, [imageUploads, team])
+
+    useEffect(() => {
+        if (previousAudioUploads.current === audioUploads) {
+            return
+        }
+
+        previousAudioUploads.current = audioUploads
+
+        if (
+            audioUploads &&
+            !checkPlanPermission(team, 'standard', 'voiceInputInWidget').allowed
+        ) {
+            setAudioUploads(false)
+        }
+    }, [audioUploads, team])
 
     useEffect(() => {
         if (previousLeadCollect.current === leadCollect) {
@@ -765,7 +801,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             isLeadCollectEnabled(leadCollect) &&
             !checkPlanPermission(team, 'personal', 'leadCollect').allowed
         ) {
-            setShowUpgrade(true)
             setLeadCollect(false)
         }
     }, [leadCollect, team])
@@ -818,6 +853,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     showCopyButton,
                     isAgent,
                     imageUploads,
+                    audioUploads,
                     logo,
                     linkSafetyEnabled,
                     keepFooterVisible,
@@ -845,6 +881,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             showCopyButton,
             isAgent,
             imageUploads,
+            audioUploads,
             logo,
             allowedDomains,
             labels,
@@ -935,9 +972,11 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             '--mybot-show-copy-button': showCopyButton ? 'true' : 'false',
             '--mybot-is-agent': isAgent ? 'true' : 'false',
             '--mybot-image-uploads': imageUploads ? 'true' : 'false',
+            '--mybot-audio-uploads': audioUploads ? 'true' : 'false',
         }
     }, [
         alignment,
+        audioUploads,
         botIcon,
         branding,
         color,
@@ -1169,6 +1208,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
             isAgent,
             tools: finalTools,
             imageUploads,
+            audioUploads,
             leadCollect,
             mcpServers,
             linkSafetyEnabled,
@@ -1226,6 +1266,10 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
     // Function to handle agent mode toggle
     const handleAgentToggle = (enabled) => {
         setIsAgent(enabled)
+        if (enabled && team) {
+            setImageUploads(effectiveWidgetImageUploads(team, bot, true))
+            setAudioUploads(effectiveWidgetAudioUploads(team, bot, true))
+        }
         // If agent mode is being enabled and there's no agent prompt, show the prompt modal
         if (enabled && !bot.agentPrompt) {
             setShowPromptModal(true)
@@ -1329,6 +1373,8 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setKeepFooterVisible={setKeepFooterVisible}
                     imageUploads={imageUploads}
                     setImageUploads={setImageUploads}
+                    audioUploads={audioUploads}
+                    setAudioUploads={setAudioUploads}
                 />
             ),
         },
@@ -1548,6 +1594,7 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                             isAgent={isAgent}
                             tools={tools}
                             imageUploads={imageUploads}
+                            audioUploads={audioUploads}
                             leadCollect={leadCollect}
                         />
                         {/* </AppearanceResize> */}

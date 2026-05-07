@@ -494,6 +494,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     tools,
     leadCollect,
     imageUploads,
+    audioUploads,
     temperature,
     copyFrom,
     topics,
@@ -727,6 +728,13 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       throw new Error('Widget screenshot uploads are not available at your plan level.')
     }
     botData.imageUploads = !!imageUploads
+  }
+
+  if (audioUploads !== undefined) {
+    if (audioUploads && !checkPlanPermission(team, 'standard', 'voiceInputInWidget').allowed) {
+      throw new Error('Voice input in the widget is not available at your plan level.')
+    }
+    botData.audioUploads = !!audioUploads
   }
 
   if (supportLink !== undefined) {

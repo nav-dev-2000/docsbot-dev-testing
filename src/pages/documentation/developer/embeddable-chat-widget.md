@@ -162,6 +162,8 @@ options: {
   useCalCom: false, // Enable the Cal.com booking tool for this widget instance when configured on the bot.
   useTidyCal: false, // Enable the TidyCal booking tool for this widget instance when configured on the bot.
   useCustomButtons: false, // set true to opt in to custom_button tools (requires configured custom button tools; see Custom Action buttons below).
+  useImageUpload: false, // Optional override for image uploads (agent mode and compatible browsers only). Omit to use saved bot/widget API defaults.
+  useAudioUpload: false, // Optional override for microphone voice input (agent mode; requires browser support). Omit to use saved bot/widget API defaults.
   botName: "DocsBot", //name of the bot.
   description: "Ask our AI support assistant your questions about our services.", //description of the bot. Only shown when no logo is present.
   allowedDomains: [

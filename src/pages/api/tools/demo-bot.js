@@ -177,6 +177,7 @@ export default async function handler(req, res) {
         logo: initialLogo,
         branding: true,
         imageUploads: true,
+        audioUploads: true,
         showButtonLabel: false,
         hideSources: false,
         questions: [],

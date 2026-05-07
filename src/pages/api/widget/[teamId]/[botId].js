@@ -3,6 +3,10 @@ import Cors from 'cors'
 import { i18n } from '@/constants/strings.constants'
 import { checkPlanPermission, getBotActionSlotLimit } from '@/utils/helpers'
 import {
+  effectiveWidgetAudioUploads,
+  effectiveWidgetImageUploads,
+} from '@/lib/widgetUploadPrefs'
+import {
   limitLeadCollectToDefaultFields,
   sanitizeLeadCollectOptions,
 } from '@/lib/leadCollect'
@@ -160,7 +164,8 @@ export default async function handler(req, res) {
           useCalCom: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.calcom),
           useTidyCal: schedulingPlanAllowed && getSchedulingToolValue(bot.tools?.tidycal),
           useCustomButtons: enabledCustomButtonCount > 0,
-          useImageUpload: ((bot.imageUploads === undefined || bot.imageUploads) && checkPlanPermission(team, 'standard', 'imageUploads').allowed && bot.isAgent) || false,
+          useImageUpload: effectiveWidgetImageUploads(team, bot, bot.isAgent),
+          useAudioUpload: effectiveWidgetAudioUploads(team, bot, bot.isAgent),
           leadCollect: false,
         }
 

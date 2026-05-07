@@ -279,4 +279,121 @@ describe('/api/widget/[teamId]/[botId]', () => {
     expect(res.statusCode).toBe(200)
     expect(res.body.useWebSearch).toBe(false)
   })
+
+  it('exposes useAudioUpload when agent mode is on, plan allows voice, and bot did not disable audio', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      model: 'gpt-5.4-nano',
+      tools: {},
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useAudioUpload).toBe(true)
+  })
+
+  it('returns false for useAudioUpload when bot.audioUploads is false', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      audioUploads: false,
+      model: 'gpt-5.4-nano',
+      tools: {},
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useAudioUpload).toBe(false)
+  })
+
+  it('returns false for useAudioUpload when isAgent is false', async () => {
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: false,
+      model: 'gpt-5.4-nano',
+      tools: {},
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useAudioUpload).toBe(false)
+  })
+
+  it('returns false for useAudioUpload below Standard when plan gate denies voice', async () => {
+    mocks.checkPlanPermission.mockImplementation((team, requiredPlan, feature) => {
+      if (requiredPlan === 'personal' && feature === 'bookingActions') {
+        return { allowed: false, requiredPlanLabel: 'Personal' }
+      }
+
+      if (
+        requiredPlan === 'standard' &&
+        (feature === 'imageUploads' || feature === 'voiceInputInWidget')
+      ) {
+        return { allowed: false, requiredPlanLabel: 'Standard' }
+      }
+
+      return { allowed: true, requiredPlanLabel: 'Personal' }
+    })
+    mocks.getTeam.mockResolvedValue({
+      id: 'team-1',
+      plan: 'hobby',
+      openAIKey: 'sk-abc...1234',
+    })
+    mocks.getBot.mockResolvedValue({
+      id: 'bot-1',
+      status: 'ready',
+      name: 'DocsBot',
+      description: 'Ask anything.',
+      language: 'en',
+      isAgent: true,
+      model: 'gpt-5.4-nano',
+      tools: {},
+    })
+
+    const req = createMockReq({
+      method: 'GET',
+      query: { teamId: 'team-1', botId: 'bot-1' },
+    })
+    const res = createMockRes()
+
+    await widgetHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.body.useAudioUpload).toBe(false)
+    expect(res.body.useImageUpload).toBe(false)
+  })
 })
