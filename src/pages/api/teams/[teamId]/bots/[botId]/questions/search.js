@@ -5,7 +5,7 @@
 */
 
 import { configureFirebaseApp } from '@/config/firebase-server.config';
-import { getBot, convertQuestionDocToData } from '@/lib/dbQueries';
+import { getBot, convertQuestionDocToData, getTeamWithEncryptedOpenAIKey } from '@/lib/dbQueries';
 import userTeamCheck from '@/lib/userTeamCheck';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import OpenAI from 'openai';
@@ -33,14 +33,14 @@ const getModelDimensions = (embeddingModel) => {
 };
 
 // Generates an embedding vector for a given input text using the specified model and provider.
-async function getEmbeddings({ input, model, provider = 'openai', team = null}) {
+async function getEmbeddings({ input, model, provider = 'openai', encryptedOpenAIKey = null }) {
   const dimension = getModelDimensions(model);
   if (provider === 'openai') {
     // Create OpenAI client with team's key if available, otherwise use default
     let apiKey = process.env.OPENAI_API_KEY;
-    if (team?.openAIKey) {
+    if (encryptedOpenAIKey) {
       try {
-        apiKey = decryptKey(team.openAIKey);
+        apiKey = decryptKey(encryptedOpenAIKey);
       } catch (error) {
         console.warn('Failed to decrypt team OpenAI key, using default:', error);
       }
@@ -135,11 +135,13 @@ async function handler(req, res) {
     const embeddingModel = bot?.embeddingModel || 'text-embedding-ada-002';
     
     // 5. Convert search query into an embedding vector
+    const teamSecrets = await getTeamWithEncryptedOpenAIKey(team.id);
+
     const queryEmbeddingVector = await getEmbeddings({
       input: query,
       model: embeddingModel,
       provider: cohereModels.includes(embeddingModel) ? 'cohere' : 'openai',
-      team,
+      encryptedOpenAIKey: teamSecrets?.openAIKey || null,
     });
     
     // 6. Determine the Firestore vector field based on dimensions
