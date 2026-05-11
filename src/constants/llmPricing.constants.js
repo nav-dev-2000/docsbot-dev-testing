@@ -337,6 +337,15 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 2,
     },
     {
+      model_name: 'Mistral Medium 3.5',
+      context: '256K',
+      provider: 'Mistral AI',
+      model_slug: 'mistral-medium-3.5',
+      page_slug: 'mistral-medium-3-5',
+      input_token_cost_per_million: 1.5,
+      output_token_cost_per_million: 7.5,
+    },
+    {
       model_name: 'Mistral Small 4',
       context: '256K',
       provider: 'Mistral AI',

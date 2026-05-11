@@ -658,6 +658,10 @@ export const BENCHMARKS = {
     title: 'Tau2Bench Telecom (no reasoning)',
     description: 'Tau2Bench Telecom evaluated without reasoning effort',
   },
+  Tau3BenchTelecom: {
+    title: 'Tau3Bench Telecom',
+    description: 'Tau3Bench Telecom evaluates agentic tool use in telecom-domain workflows',
+  },
   Translation_EN_to_14: {
     title: 'Translation EN to 14',
     description: 'English to 14-language translation benchmark',
