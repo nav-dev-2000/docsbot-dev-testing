@@ -3788,6 +3788,7 @@ const LLMS = [
   },
   {
     model_name: 'Mistral Medium 3.1',
+    redirect_to: 'mistral-medium-3-5',
     slug: 'mistral-medium-3-1',
     provider: 'mistral',
     description:
@@ -3813,6 +3814,51 @@ const LLMS = [
       GPQA: null,
       MATH: null,
       MMLU: null,
+    },
+  },
+  {
+    model_name: 'Mistral Medium 3.5',
+    slug: 'mistral-medium-3-5',
+    provider: 'mistral',
+    description:
+      'Mistral Medium 3.5 is Mistral’s frontier-class open multimodal model for agentic and coding workflows, released in public preview in April 2026. It is a dense 128B model with a 256K context window, configurable reasoning effort, image understanding, function calling, structured outputs, FIM, OCR, and document Q&A. Mistral released the weights under a Modified MIT license, positions it as the default model for Vibe remote agents and Le Chat Work mode, and prices API usage at $1.50 per million input tokens and $7.50 per million output tokens.',
+    input_context_window: '256K',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2026-04-29',
+    knowledge_cut_off_date: 'Unknown',
+    api_providers:
+      'Mistral AI Platform, Le Chat, Mistral Vibe, Hugging Face, NVIDIA NIM',
+    input_cost_per_million_tokens: 1.5,
+    output_cost_per_million_tokens: 7.5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      reasoning_mode: true,
+      function_calling: true,
+      structured_output: true,
+      document_qa: true,
+    },
+    benchmarks: {
+      SWEBench: {
+        score: 77.6,
+        notes: 'SWE-Bench Verified',
+        source: 'https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5',
+      },
+      Tau3BenchTelecom: {
+        score: 91.4,
+        notes: null,
+        source: 'https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5',
+      },
+      MMMU: null,
+      GPQA: null,
+      MMLUPro: null,
     },
   },
   {
