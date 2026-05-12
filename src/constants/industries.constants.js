@@ -11006,7 +11006,7 @@ const INDUSTRIES = [
       preHeading: 'Empower Operations',
       heading: 'Strategic AI Integration',
       paragraph:
-        'Build a more efficient auction operation with DocsBot AI tailored to the unique demands of the gaming industry. From handling large volumes of bidder inquiries to tracking auction progress, our AI solutions provide the tools necessary for seamless auction management.',
+        'Build a more efficient auction operation with DocsBot tailored to the unique demands of the gaming industry. From handling large volumes of bidder inquiries to tracking auction progress, our AI solutions provide the tools necessary for seamless auction management.',
       uses: {
         item1: {
           icon: 'FolderIcon',
@@ -21561,12 +21561,12 @@ const INDUSTRIES = [
       'https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzZWN1cml0eXxlbnwwfDB8fHwxNzE0ODc4MDcxfDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply',
     title: 'AI Chatbots for Private Security Firms',
     mainContentIntro:
-      "Introducing DocsBot AI, a ground-breaking solution for private security firms aiming to enhance their operational efficiency and client service. With DocsBot, your firm can automate customer support, streamline internal communications, and ensure quick access to critical security procedures and documentation. Transform your firm's approach to security management by leveraging AI-powered chatbots tailored to your specific business needs.",
+      "Introducing DocsBot, a ground-breaking solution for private security firms aiming to enhance their operational efficiency and client service. With DocsBot, your firm can automate customer support, streamline internal communications, and ensure quick access to critical security procedures and documentation. Transform your firm's approach to security management by leveraging AI-powered chatbots tailored to your specific business needs.",
     supportSection: {
       preHeading: 'Instant Support',
       heading: 'Boost Your Client Service with AI',
       paragraph:
-        "In today's high-demand security environment, private security firms are often overwhelmed with frequent queries from clients regarding safety protocols, event security details, and contractual obligations. DocsBot AI offers a scalable solution to manage these inquiries efficiently, providing real-time, accurate responses, thus freeing your staff to handle more complex issues.",
+        "In today's high-demand security environment, private security firms are often overwhelmed with frequent queries from clients regarding safety protocols, event security details, and contractual obligations. DocsBot offers a scalable solution to manage these inquiries efficiently, providing real-time, accurate responses, thus freeing your staff to handle more complex issues.",
       features: {
         item1: {
           icon: 'ChatBubbleLeftIcon',
@@ -21598,7 +21598,7 @@ const INDUSTRIES = [
       preHeading: 'Strategic Deployment',
       heading: 'Leverage AI for Enhanced Security Operations',
       paragraph:
-        'Private security firms can use DocsBot AI not only for client communication but also to enhance overall operational effectiveness. These AI-driven solutions help integrate comprehensive security knowledge into daily operations, promote better preparedness, and support strategic decision-making processes.',
+        'Private security firms can use DocsBot not only for client communication but also to enhance overall operational effectiveness. These AI-driven solutions help integrate comprehensive security knowledge into daily operations, promote better preparedness, and support strategic decision-making processes.',
       uses: {
         item1: {
           icon: 'DocumentTextIcon',

@@ -27,7 +27,7 @@ import {
 import {
   getSkillIntegrationPath,
   skillCategorySlug,
-} from '@/lib/skillsIntegrationPaths'
+} from '@/lib/skillsIntegrationPaths.mjs'
 
 function cleanHex(value, fallback) {
   return /^#[0-9A-Fa-f]{6}$/.test(value || '') ? value : fallback
@@ -233,7 +233,7 @@ export default function SkillIntegrationPage({ record, relatedSkills, skillCateg
         openGraph={{
           type: 'website',
           url: `https://docsbot.ai${getSkillIntegrationPath(record)}`,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: record.metaTitle,
           description: record.metaDescription,
           images: [
@@ -533,7 +533,7 @@ export default function SkillIntegrationPage({ record, relatedSkills, skillCateg
 }
 
 export async function getStaticPaths() {
-  const { getSkillsIndexRecords } = await import('@/lib/skillsIntegrations')
+  const { getSkillsIndexRecords } = await import('@/lib/skillsIntegrations.mjs')
 
   const records = getSkillsIndexRecords()
   return {
@@ -549,7 +549,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { getRelatedSkills, getSkillIntegrationBySlug, getSkillsIndexRecords } = await import(
-    '@/lib/skillsIntegrations'
+    '@/lib/skillsIntegrations.mjs'
   )
 
   const record = getSkillIntegrationBySlug(params?.slug)

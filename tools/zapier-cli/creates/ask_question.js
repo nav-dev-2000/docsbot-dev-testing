@@ -88,13 +88,13 @@ module.exports = {
     ],
     sample: {
       answer:
-        "DocsBot AI is a service that allows you to create chatbots and generate content from your documentation. You can index your content with DocsBot AI and use its AI-powered chatbot to provide answers to your users. You can also use DocsBot AI's API and embeddable widgets to integrate your custom DocsBot into your website, WordPress, app/plugin, Slack, or anywhere else you want to use it.",
+        "DocsBot is a service that allows you to create chatbots and generate content from your documentation. You can index your content with DocsBot and use its AI-powered chatbot to provide answers to your users. You can also use DocsBot's API and embeddable widgets to integrate your custom DocsBot into your website, WordPress, app/plugin, Slack, or anywhere else you want to use it.",
       couldAnswer: true,
       sources: [
         {
           type: 'sitemap',
           title:
-            'DocsBot AI - Custom chatbots and content generation from your documentation',
+            'DocsBot - Custom chatbots and content generation from your documentation',
           url: 'https://docsbot.ai',
           page: null,
           content: null,
@@ -117,7 +117,7 @@ module.exports = {
       history: [
         [
           'What does it do?',
-          "DocsBot AI is a service that allows you to create chatbots and generate content from your documentation. You can index your content with DocsBot AI and use its AI-powered chatbot to provide answers to your users. You can also use DocsBot AI's API and embeddable widgets to integrate your custom DocsBot into your website, WordPress, app/plugin, Slack, or anywhere else you want to use it.",
+          "DocsBot is a service that allows you to create chatbots and generate content from your documentation. You can index your content with DocsBot and use its AI-powered chatbot to provide answers to your users. You can also use DocsBot's API and embeddable widgets to integrate your custom DocsBot into your website, WordPress, app/plugin, Slack, or anywhere else you want to use it.",
         ],
       ],
       id: 'hTAcHh1rS0jOlEQVMPSn',

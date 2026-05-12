@@ -642,7 +642,7 @@ export default function InternalKnowledge() {
   ]
 
   const pageUrl = buildPageUrl('/internal-knowledge')
-  const pageTitle = 'Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot AI'
+  const pageTitle = 'Internal Chatbot for Employees | AI Knowledge Assistant | DocsBot'
   const pageDescription =
     'Deploy an internal knowledge base chatbot that gives employees instant answers from SOPs, company documents, and internal documentation. Enterprise AI assistant with 24/7 access.'
 
@@ -659,7 +659,7 @@ export default function InternalKnowledge() {
 
   const service = buildService({
     url: pageUrl,
-    name: 'DocsBot AI Internal Knowledge Chatbot',
+    name: 'DocsBot Internal Knowledge Chatbot',
     description: pageDescription,
     serviceType: 'Internal knowledge base chatbot',
   })
@@ -682,7 +682,7 @@ export default function InternalKnowledge() {
           type: 'website',
           locale: 'en_US',
           url: pageUrl,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [
@@ -690,7 +690,7 @@ export default function InternalKnowledge() {
               url: 'https://docsbot.ai/og-internal-knowledge.jpeg',
               width: 1200,
               height: 630,
-              alt: 'DocsBot AI internal knowledge chatbot for employees',
+              alt: 'DocsBot internal knowledge chatbot for employees',
               type: 'image/jpeg',
             },
           ],

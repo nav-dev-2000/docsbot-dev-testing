@@ -59,12 +59,12 @@ const CopyButtons = ({ summary, videoId, thumbnailError }) => {
   return (
     <div className="mb-8 mt-4 rounded-lg bg-gray-100 p-4">
       <h3 className="mb-2 mt-0 text-lg font-semibold">
-        {shouldShowCopyButtons() ? 'Copy this article' : 'Created with DocsBot AI'}
+        {shouldShowCopyButtons() ? 'Copy this article' : 'Created with DocsBot'}
       </h3>
       <p className="mb-4 text-sm text-gray-600">
         This article has been created using the same AI that powers{' '}
         <Link href="/" className="text-cyan-600 hover:underline">
-          DocsBot AI
+          DocsBot
         </Link>
         . {shouldShowCopyButtons() ? 'You can copy it and easily use on your website or blog.' : ''}
       </p>
@@ -136,7 +136,7 @@ const YoutubeBlogPost = ({ summary, videoId }) => {
   return (
     <>
       <NextSeo
-        title={`${summary.title} - DocsBot AI`}
+        title={`${summary.title} - DocsBot`}
         description={
           summary.seo_meta_description ||
           'An AI-generated blog post from a YouTube video'

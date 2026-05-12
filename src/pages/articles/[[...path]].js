@@ -81,8 +81,8 @@ const ArchivePageContent = ({ seo }) => {
         />
       ) : (
         <NextSeo
-          title="Blog - DocsBot AI"
-          description="DocsBot AI news, tutorials, case studies, and articles."
+          title="Blog - DocsBot"
+          description="DocsBot news, tutorials, case studies, and articles."
         />
       )}
       <Header />
@@ -97,7 +97,7 @@ const ArchivePageContent = ({ seo }) => {
               </h1>
               {data?.queriedObject?.term ? (
                 <p className="mt-2 text-lg leading-8 text-gray-600">
-                  DocsBot AI{' '}
+                  DocsBot{' '}
                   <Link
                     href="/articles/category/news"
                     className="font-medium text-cyan-700 hover:text-cyan-600 hover:underline"

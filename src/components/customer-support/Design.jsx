@@ -28,14 +28,14 @@ export const Design = ({ title, description }) => {
                         )}
                     </div>
 
-                    <div className="basis-1/2 grow-0 shrink-0 mt-8 md:mt-12 lg:mt-0">
+                    <div className="basis-1/2 grow-0 shrink-0 mt-8 md:mt-12 lg:mt-0 -mx-6 lg:mx-0">
                         <div
                             className="overflow-hidden md:w-[60rem] h-full"
                         >
                             <Image
                                 src={demoMobile}
                                 alt="Bot widget personalization settings (mobile)"
-                                className="md:hidden"
+                                className="md:hidden h-auto w-full"
                                 aria-hidden="true"
                             />
 

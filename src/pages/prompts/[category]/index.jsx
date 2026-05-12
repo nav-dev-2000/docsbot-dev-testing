@@ -33,7 +33,7 @@ const PromptPage = ({ prompts, category }) => {
   return (
     <>
       <NextSeo
-        title={`Best ${PROMPT_CATEGORIES[category]} AI Prompts - DocsBot AI`}
+        title={`Best ${PROMPT_CATEGORIES[category]} AI Prompts - DocsBot`}
         description={`A library of free ${PROMPT_CATEGORIES[category]} prompts for ChatGPT, Gemini, and Claude.`}
         openGraph={{
           images: [

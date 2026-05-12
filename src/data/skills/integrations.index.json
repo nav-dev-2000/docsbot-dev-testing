@@ -519,7 +519,7 @@
       "availability": "build",
       "statusLabel": "Available",
       "h1": "Build DocsBot AI agents for Microsoft Dynamics 365 Finance and Operations",
-      "metaTitle": "DocsBot AI for Microsoft Dynamics 365 Finance and Operations",
+      "metaTitle": "DocsBot for Microsoft Dynamics 365 Finance and Operations",
       "metaDescription": "Build DocsBot AI agents that use Microsoft Dynamics 365 Finance and Operations for secure lookups, approved updates, workflow triggers, and internal finance support.",
       "intro": "Microsoft Dynamics 365 Finance and Operations helps teams manage financial, operational, and business process data across the enterprise. With DocsBot Skill Builder, you can describe in plain language how your AI agent should use that data or trigger approved actions, and DocsBot helps design, secure, test, and publish the Skill. The result is a support or internal AI agent that can answer questions, retrieve live records, prepare handoffs, and take bounded actions inside your rules.",
       "brand": {

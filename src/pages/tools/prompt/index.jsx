@@ -11,7 +11,7 @@ export default function FreeTools() {
   return (
     <>
       <NextSeo
-        title="Free AI Prompt Tools - DocsBot AI"
+        title="Free AI Prompt Tools - DocsBot"
         description="Explore our collection of free AI Prompt tools for generating and using custom prompts for ChatGPT, Claude, and more."
         openGraph={{
           images: [

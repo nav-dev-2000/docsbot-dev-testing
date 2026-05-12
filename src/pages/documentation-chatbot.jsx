@@ -724,7 +724,7 @@ export default function DocumentationChatbot() {
 
   const service = buildService({
     url: pageUrl,
-    name: 'DocsBot AI Documentation Chatbot',
+    name: 'DocsBot Documentation Chatbot',
     description: pageDescription,
     serviceType: 'AI documentation chatbot',
   })
@@ -747,7 +747,7 @@ export default function DocumentationChatbot() {
           type: 'website',
           locale: 'en_US',
           url: pageUrl,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [
@@ -755,7 +755,7 @@ export default function DocumentationChatbot() {
               url: 'https://docsbot.ai/og-documentation-chatbot.jpeg',
               width: 1200,
               height: 630,
-              alt: 'DocsBot AI Documentation Chatbot',
+              alt: 'DocsBot Documentation Chatbot',
               type: 'image/jpeg',
             },
           ],

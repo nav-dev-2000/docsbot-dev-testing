@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { SKILL_INTEGRATION_SLUG_PATTERN } from './skillsIntegrationPaths.js'
+import { SKILL_INTEGRATION_SLUG_PATTERN } from './skillsIntegrationPaths.mjs'
 
 export {
   SKILL_CATEGORY_SLUG_PATTERN,
@@ -9,7 +9,7 @@ export {
   getSkillIntegrationPath,
   resolveSkillCategoryNameFromSlug,
   skillCategorySlug,
-} from './skillsIntegrationPaths.js'
+} from './skillsIntegrationPaths.mjs'
 
 export const DEFAULT_SKILLS_DATA_DIR = path.join(process.cwd(), 'src/data/skills')
 export function mapSkillIntegrationToLibraryCard(record) {

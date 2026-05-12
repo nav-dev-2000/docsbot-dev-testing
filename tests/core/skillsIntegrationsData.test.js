@@ -11,7 +11,7 @@ import {
   isPageReadySkillDetail,
   isPageReadySkillRecord,
   selectBrandLogoForLightSurface,
-} from '@/lib/skillsIntegrations'
+} from '@/lib/skillsIntegrations.mjs'
 
 function writeJson(filePath, data) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true })

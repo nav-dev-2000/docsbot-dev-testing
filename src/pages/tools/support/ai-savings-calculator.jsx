@@ -24,13 +24,13 @@ const features = [
   {
     name: '24/7 Availability and Real-Time Responses',
     description:
-      "DocsBot AI's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances your brand's reputation for reliable service.",
+      "DocsBot's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances your brand's reputation for reliable service.",
     icon: ClockIcon,
   },
   {
     name: 'Multilingual Support',
     description:
-      'DocsBot AI can perform real-time conversations in more than 95 languages, ensuring that customers receive support in their native language without delays, no matter the language of your training documentation.',
+      'DocsBot can perform real-time conversations in more than 95 languages, ensuring that customers receive support in their native language without delays, no matter the language of your training documentation.',
     icon: GlobeAltIcon,
   },
   {
@@ -60,13 +60,13 @@ const features = [
   {
     name: 'Learn from Existing Content',
     description:
-      "DocsBot AI can be trained on a company's existing documentation and content, turning it into an intelligent and dynamic knowledge base that provides tailored answers to user questions.",
+      "DocsBot can be trained on a company's existing documentation and content, turning it into an intelligent and dynamic knowledge base that provides tailored answers to user questions.",
     icon: DocumentTextIcon,
   },
   {
     name: 'Continuous Learning',
     description:
-      'The scheduled source refresh feature in DocsBot AI ensures that your bot is regularly updated with your latest documentation changes. This allows it to provide accurate and up-to-date answers to customer queries.',
+      'The scheduled source refresh feature in DocsBot ensures that your bot is regularly updated with your latest documentation changes. This allows it to provide accurate and up-to-date answers to customer queries.',
     icon: ArrowPathIcon,
   },
   {
@@ -208,8 +208,8 @@ export default function Calculate({ starRatingData }) {
   return (
     <>
       <NextSeo
-        title="AI Customer Support Chatbot Savings Calculator - DocsBot AI"
-        description="Calculate how much you can save in support hours and cost by automating your customer support using a custom GPT chatbot powered by DocsBot AI."
+        title="AI Customer Support Chatbot Savings Calculator - DocsBot"
+        description="Calculate how much you can save in support hours and cost by automating your customer support using a custom GPT chatbot powered by DocsBot."
         openGraph={{
           images: [
             {
@@ -242,7 +242,7 @@ export default function Calculate({ starRatingData }) {
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Calculate the potential savings in customer service support hours and cost by implementing a custom
-                  ChatGPT chatbot powered by DocsBot AI to automate your customer support.
+                  ChatGPT chatbot powered by DocsBot to automate your customer support.
                 </p>
               </div>
               <AiSupportSavingsCalculator />
@@ -271,13 +271,13 @@ export default function Calculate({ starRatingData }) {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-3xl text-center">
                 <h2 className="text-base font-semibold leading-7 text-cyan-600">
-                  Automate Your Customer Support with DocsBot AI
+                  Automate Your Customer Support with DocsBot
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   GPT-Powered Customer Support
                 </p>
                 <p className="mt-6 text-lg leading-8 text-gray-300 text-justify sm:text-center">
-                  Experience instant, accurate, 24/7 multilingual support with DocsBot AI. Train
+                  Experience instant, accurate, 24/7 multilingual support with DocsBot. Train
                   your chatbot from your existing content and documentation in minutes to start
                   delighting your customers and saving on support costs today.
                 </p>

@@ -159,7 +159,7 @@ Source objects found in the `sources` array (if present) have the following prop
             "sources": [
                 {
                     "page": null,
-                    "title": "DocsBot AI - Custom chatbots from your documentation",
+                    "title": "DocsBot - Custom chatbots from your documentation",
                     "type": "url",
                     "url": "https://docsbot.ai/",
                     "used": false,
@@ -167,7 +167,7 @@ Source objects found in the `sources` array (if present) have the following prop
                 },
                 {
                     "page": null,
-                    "title": "DocsBot AI - Custom chatbots from your documentation",
+                    "title": "DocsBot - Custom chatbots from your documentation",
                     "type": "url",
                     "url": "https://docsbot.ai/",
                     "used": false,
@@ -481,28 +481,28 @@ The `reasoning` event includes a reasoning summary in `text`. The summary can be
         {
           "type": "sitemap",
           "url": "https://docsbot.ai/tools/support",
-          "title": "Free AI Customer Support Tools - DocsBot AI",
+          "title": "Free AI Customer Support Tools - DocsBot",
           "page": null,
           "used": true
         },
         {
           "type": "url",
           "url": "https://docsbot.ai",
-          "title": "DocsBot AI - Custom chatbots from your documentation",
+          "title": "DocsBot - Custom chatbots from your documentation",
           "page": null,
           "used": true
         },
         {
           "type": "sitemap",
           "url": "https://docsbot.ai/tools/support",
-          "title": "Free AI Customer Support Tools - DocsBot AI",
+          "title": "Free AI Customer Support Tools - DocsBot",
           "page": null,
           "used": true
         },
         {
           "type": "sitemap",
           "url": "https://docsbot.ai/documentation/doc/training-a-chatbot-from-zendesk-tickets",
-          "title": "Training a Chatbot from Zendesk Tickets - DocsBot AI",
+          "title": "Training a Chatbot from Zendesk Tickets - DocsBot",
           "page": null,
           "used": true
         }

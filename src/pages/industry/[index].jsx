@@ -51,7 +51,7 @@ export default function IndustryPage({
   return (
     <>
       <NextSeo
-        title={`${title} - DocsBot AI`}
+        title={`${title} - DocsBot`}
         description={`${mainContentIntro}`}
         openGraph={{
           images: [
@@ -82,7 +82,7 @@ export default function IndustryPage({
             />
           </div>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-2 text-xl font-semibold leading-7 text-teal-500">DocsBot AI</p>
+            <p className="mb-2 text-xl font-semibold leading-7 text-teal-500">DocsBot</p>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">{mainContentIntro}</p>
           </div>
@@ -213,7 +213,7 @@ export default function IndustryPage({
 
         <div className="mx-auto bg-white py-16 text-center">
           <h2 className="mx-auto max-w-2xl text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Discover how DocsBot AI can revolutionize your industry!
+            Discover how DocsBot can revolutionize your industry!
           </h2>
           {Object.entries(INDUSTRIES.reduce((acc, item) => {
             if (item.slug !== slug) {

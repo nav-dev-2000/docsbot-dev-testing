@@ -27,7 +27,7 @@ const logos = [
       { format: 'SVG', url: '/branding/docsbot-logo.svg', filename: 'docsbot-logo.svg' },
     ],
     previewUrl: '/branding/docsbot-logo-lg.png',
-    alt: 'DocsBot AI color logo',
+    alt: 'DocsBot color logo',
   },
   {
     name: 'White Logo',
@@ -46,7 +46,7 @@ const logos = [
       },
     ],
     previewUrl: '/branding/docsbot-logo-white.png',
-    alt: 'DocsBot AI white logo',
+    alt: 'DocsBot white logo',
   },
   {
     name: 'Square Icon (Color)',
@@ -65,7 +65,7 @@ const logos = [
       },
     ],
     previewUrl: '/branding/docsbot-icon-sq.svg',
-    alt: 'DocsBot AI square icon',
+    alt: 'DocsBot square icon',
     isSquare: true,
   },
   {
@@ -80,7 +80,7 @@ const logos = [
       },
     ],
     previewUrl: '/branding/docsbot-icon-sq-white.svg',
-    alt: 'DocsBot AI white square icon',
+    alt: 'DocsBot white square icon',
     isSquare: true,
   },
 ]
@@ -124,11 +124,11 @@ export default function PressPage() {
   return (
     <>
       <NextSeo
-        title="Press & Branding Assets - DocsBot AI"
-        description="Download DocsBot AI logos, brand colors, and media assets for press and marketing use. High-quality PNG and SVG formats available."
+        title="Press & Branding Assets - DocsBot"
+        description="Download DocsBot logos, brand colors, and media assets for press and marketing use. High-quality PNG and SVG formats available."
         openGraph={{
-          title: 'Press & Branding Assets - DocsBot AI',
-          description: 'Download DocsBot AI logos, brand colors, and media assets for press and marketing use.',
+          title: 'Press & Branding Assets - DocsBot',
+          description: 'Download DocsBot logos, brand colors, and media assets for press and marketing use.',
         }}
       />
       <Header />

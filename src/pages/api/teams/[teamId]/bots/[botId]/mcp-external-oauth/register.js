@@ -204,7 +204,7 @@ export default async function handler(req, res) {
         }
 
         let registrationPayload = {
-          client_name: 'DocsBot AI',
+          client_name: 'DocsBot',
           client_uri: siteUrl,
           redirect_uris: [callbackUrl],
           grant_types: ['authorization_code', 'refresh_token'],

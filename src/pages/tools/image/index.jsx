@@ -11,7 +11,7 @@ export default function FreeTools() {
   return (
     <>
       <NextSeo
-        title="Free AI Image Tools - DocsBot AI"
+        title="Free AI Image Tools - DocsBot"
         description="Explore our collection of free AI Image tools for repurposing content for marketing, education, and more."
         openGraph={{
           images: [

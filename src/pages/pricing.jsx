@@ -171,9 +171,9 @@ const formatActionsLimitLabel = (value) => {
   return `Up to ${limit} per bot`
 }
 
-const pageTitle = 'Pricing & Savings - DocsBot AI'
+const pageTitle = 'Pricing & Savings - DocsBot'
 const pageDescription =
-  'Compare DocsBot AI plans, estimate support savings, and choose the right chatbot plan for your team.'
+  'Compare DocsBot plans, estimate support savings, and choose the right chatbot plan for your team.'
 
 export default function PricingPage() {
   //const [user] = useAuthState(auth)
@@ -199,7 +199,7 @@ export default function PricingPage() {
           type: 'website',
           locale: 'en_US',
           url: 'https://docsbot.ai/pricing',
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [
@@ -207,7 +207,7 @@ export default function PricingPage() {
               url: 'https://docsbot.ai/images/og/pricing.jpeg',
               width: 1200,
               height: 630,
-              alt: 'DocsBot AI pricing and savings',
+              alt: 'DocsBot pricing and savings',
               type: 'image/jpeg',
             },
           ],

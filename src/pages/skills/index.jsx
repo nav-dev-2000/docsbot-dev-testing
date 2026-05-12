@@ -38,10 +38,10 @@ import {
 import clsx from 'clsx'
 
 import SkillIntegrationCard from '@/components/skills/SkillIntegrationCard'
-import { skillCategorySlug } from '@/lib/skillsIntegrationPaths'
+import { skillCategorySlug } from '@/lib/skillsIntegrationPaths.mjs'
 import { Squares2X2Icon } from '@heroicons/react/24/outline'
 
-const pageTitle = 'AI Agent Skill Builder and Skills Library | DocsBot AI'
+const pageTitle = 'AI Agent Skill Builder and Skills Library | DocsBot'
 const pageDescription =
   'Build AI agent skills that securely use business integrations for customer support, internal team workflows, lookups, updates, handoffs, and approved actions with DocsBot Skill Builder.'
 
@@ -559,7 +559,7 @@ export default function SkillsPage({ records, categories, totalCount }) {
         openGraph={{
           type: 'website',
           url: pageUrl,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [
@@ -1070,7 +1070,7 @@ export async function getStaticProps() {
     getSkillCategoryCounts,
     getSkillsIndexRecords,
     mapSkillIntegrationToLibraryCard,
-  } = await import('@/lib/skillsIntegrations')
+  } = await import('@/lib/skillsIntegrations.mjs')
 
   const records = getSkillsIndexRecords()
   const libraryRecords = records.map(mapSkillIntegrationToLibraryCard).filter(Boolean)

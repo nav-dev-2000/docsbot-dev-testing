@@ -58,157 +58,100 @@ export default async function handler(req, res) {
       console.log('Website scrape for url:', website, scrape)
 
       const docsbot = `
-DocsBot AI
-ChatGPT for your docs
-Get instant answers for you, your customers, or your team with AI powered chatbots trained with your content and documentation. Save money and improve the support experience for your customers, the productivity of your team, and AI copywriting with existing knowledge of your business!
+DocsBot
+# Custom AI Agents for Your Business!
 
-ChatGPT-powered customer support
-Train and deploy custom chatbots in minutes!
+## Instant Answers & Actions for your customers and team
 
-Are you tired of answering the same questions over and over again? Do you wish you had a way to automate your customer support and give your team more time to focus on other tasks? With DocsBot, you can do just that. We make it simple to build ChatGPT-powered bots that are trained with your content and documentation, so they can provide instant answers to your customers' most detailed questions.
+DocsBot turns your knowledge base into AI agents that deliver instant, accurate answers and take action across your tools, workflows, and support operations.
 
-Question/Answer Bots
+## Use Cases
 
-Make your documentation interactive with our Q/A bot. Get detailed and direct answers about your product, including code examples and formatted output.
+AI Solutions to Real Business Problems
 
-Embeddable Widgets
+Give your customers and teams expert AI chatbots trained on your knowledge base. Capture more leads, deliver fast, concise answers, boost efficiency, and drive growth with instant, accurate responses tailored to your business.
 
-We make it simple to add DocsBot to your website in minute with fully customizable widgets. Just add a script tag or WordPress plugin (coming soon) and you are ready to go.
+## Customer Support Bots
 
-Custom Copywriting
+Set Your Customer Support Apart
 
-Need help writing marketing copy and blog posts? With DocsBot, you can do that too. Use a customized ChatGPT that knows everything about your product, so it can help you generate high-quality content in no time.
+Move your customer support from reactive to proactive with AI-powered bots that deliver instant, accurate responses 24/7. Ensure consistent quality while reducing resolution times and support costs.
 
-Reply to Support Tickets
+Eliminate Repetitive Work Let AI handle routine questions so your team can focus on complex, high-value issues that require human expertise.
 
-Tired of writing the same responses to support tickets over and over again? Train your DocBot on your support history and docs so it can reply to new tickets automatically, saving you time and money!
+Improve Efficiency Resolve more inquiries on first contact with accurate AI responses and seamless human handoffs.
 
-Internal Knowledge Bots
+Increase Agent Satisfaction Remove tedious tasks and empower your team to do meaningful problem-solving every day.
 
-Employees spend too much time just searching for what they need. DocsBot can help them find answers instantly by indexing your internal knowledge base and documentation.
+## Pre-Sales Chat
 
-Powerful API
+Turn Visitors Into Qualified Leads
 
-Our API allows you to integrate AI chat into your own products. Provide answers to your users from your site, app, or WordPress plugin.
+Capture more leads by engaging every visitor instantly with AI sales agents trained on your knowledge base and sales playbook.
 
-A simple managed chatbot service
-Powerful integrations and API
+10× More Leads Respond to inquiries within seconds. Our helpdesk data shows fast answers dramatically increase lead capture rates.
 
-Our intuitive interface makes it easy to index your documentation, blog posts, or any other content with just a few clicks. Then use our simple API and embeddable widgets to integrate your custom DocsBot into your website, WordPress, app/plugin, Slack, or anywhere else you want to use it!
+Always Accurate Deliver consistent, on-brand responses with chatbots trained on your product details, documentation, messaging, pricing, and offers.
 
-URL & Sitemaps
-Index a webpage, your support docs, or an entire website in minutes with our url and sitemap importers. Simply add a link and we take care of the rest. Schedule regular updates to keep your content fresh.
+Scale Your Sales Team Handle multiple conversations at once while giving every visitor a high-quality presales experience that builds trust and drives conversions.
 
-Document Files
-Upload any files in TXT, DOC, PPT, EML, HTML, PDF, MD format, or in bulk via ZIP. We will index your content and turn it into a ChatGPT-powered bot for you or your users.
+## Internal Knowledge Access
 
-Blog Posts
-Quickly train your DocsBot on your blog content via WordPress export files or RSS feeds. It's a simple way to surface your best content to those looking for answers.
+Your Business Knowledge On Demand
 
-CSV Import
-Add your content in bulk by uploading a specially formatted CSV file containing text blocks and sources to index.
+Transform how your team finds information with AI-powered knowledge retrieval. Eliminate hours spent searching through documents, systems, and databases with bots that deliver answers instantly.
 
-Zapier Integration
-Connect DocsBot to thousands of apps via Zapier. Pass your trained bots questions and route answers to your favorite apps.
+Knowledge Retrieval Surface relevant information instantly from your internal documentation without digging through multiple tools or data sources.
 
-API
-Build your own data ingestion pipelines for any use case with our powerful admin API.
+Secure Access Protect sensitive information with enterprise-grade security while giving authorized team members seamless access.
 
-## Plans
+Continuous Learning Your bot automatically stays current as documentation evolves, ensuring teams always have the latest, most accurate knowledge.
 
-Plans for any size business
+## AI Agents That Can Act
 
-[Plan pricing details](https://docsbot.ai/pricing)
+### Move From Answers to Action
 
-Save money and time with DocsBot. We offer a variety of plans to fit your needs. Need a custom plan?
+DocsBot can automate processes and connect to the systems your business already uses, so your AI agent can do more than explain the next step.
 
-14-day money-back guarantee!
+## Research Assistant
 
-Payment frequency
+Verified, Source-Aware Insights
 
-Monthly
+Transform your research process with AI-powered document analysis, structured reporting, and our new Deep Research agent. Combine your DocsBot knowledge base with live web search and Code Interpreter to surface cited insights in minutes.
 
-Annual
+Instant Reference Discovery Quickly surface relevant citations, data points, and research materials from your document library saving hours manually searching and cross-referencing.
 
-Two months free with annual plans!
+Comprehensive Analysis Get detailed insights and identify patterns, relationships, and findings across sources.
 
-### Hobby
+Content Repurposing Turn existing content into new formats and insights. Extract key data to create summaries, presentations, reports, or training materials.
 
-Create your own basic DocsBot for quick answers and copywriting.
+## How It Works
 
-*   1 DocsBot
-*   1k Source Pages
-*   Unlock all source types
-*   1k messages/mo
-*   Private bot
-*   GPT-4 support
-*   1 user
+Create your own AI-powered documentation assistant in four simple steps - no coding or technical skills required. Our intuitive process lets anyone go from setup to launch in minutes while ensuring high-quality responses.
 
-### Power
+AI agents that can act
 
-For power users and small businesses just getting started.
+## Move from answers to action
 
-*   3 DocsBots
-*   5k Source Pages
-*   Unlock all source types
-*   Monthly source refresh
-*   5k messages/mo
-*   Private bots
-*   GPT-4 support
-*   1 user
-*   Basic Analytics
-*   Zapier integration
-*   Chat history
+DocsBot can automate processes and connect to the systems your business already uses, so your AI agent can do more than explain the next step.
 
-### Pro
+## Effortless Chatbot Training
 
-Most popular
+Teach your AI Anything with 30+ Content Sources
 
-For businesses who want to save time and money on support and copywriting.
+Our intuitive interface makes it easy to index your documentation, websites, knowledge bases, cloud storage, YouTube videos, support tickets, or any other content with just a few clicks. Schedule automatic updates to keep your assistant up to date.
 
-*   10 DocsBots
-*   10k Source Pages
-*   Unlock all source types
-*   Weekly source refresh
-*   10k messages/mo
-*   Private bots
-*   GPT-5 support
-*   5 team users
-*   Advanced Analytics
-*   Zapier integration
-*   Help Scout integration
-*   Chat history
-*   Unbranded chat widgets
-*   Prompt customization
+## Deploy Anywhere
 
-Does not include OpenAI API costs (less than $0.0008/question)
+Powerful Integrations and APIs
 
-### Personal
+Easily add your custom DocsBot anywhere with our flexible widgets and powerful APIs. Embed it on your website, WordPress, app, or integrate with Slack, Microsoft Teams, ticketing systems—any platform you use.
 
-Try DocsBot free for personal use. No credit card required. Import document files or urls with up to 50 pages of content and start chatting with your bot. Free bots will be deleted after 30 days.
+Security & compliance
 
-### Enterprise
+## Built-in protection for sensitive data
 
-For serious traffic and custom integrations. Identify problem areas in your product and gaps in your documentation with automated AI analysis of user questions. Get priority support & integration help to create specialized bots for your unique business needs. Use the Microsoft Azure OpenAI Service for Enterprise-grade security with role-based access control (RBAC), private networks, and region restrictions. Self-hosted options are available to satisfy any data protection requirements.
-
-#### What’s included
-
-*   100+ DocsBots
-*   100k+ Source Pages
-*   Unlock all source types
-*   Daily source refresh
-*   100k+ messages/mo
-*   Private bots
-*   GPT-4 support
-*   50+ team users
-*   Advanced Analytics
-*   Zapier integration
-*   Chat history
-*   Unbranded chat widgets
-*   AI question reports
-*   Prompt customization
-*   Azure OpenAI Service
-*   Self-hosted options
+DocsBot pairs enterprise AI with rigorous controls so you can ship AI agents quickly without sacrificing privacy or trust.
 `
 
       const usageTypes = {
@@ -225,14 +168,14 @@ For serious traffic and custom integrations. Identify problem areas in your prod
       let chat_completion = null
       try {
         chat_completion = await openai.chat.completions.create({
-          model: 'gpt-4o-2024-08-06',
+          model: 'gpt-5.5',
           messages: [
             {
               role: 'system',
               content:
-                'Write a custom welcome to DocsBot AI email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just viewed their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/team/docsbot/onboarding.',
+                'Write a custom welcome to DocsBot email from Aaron the founder to a new potential customer. It should be friendly and informal, and not too wordy. Make it seem like it was typed by hand with one emoji in the subject and body signature. Mention that I just viewed their company website. Make sure to give some ideas how our product DocsBot as described in the provided context could be specifically used for their business based on the provided company information gathered from their website. Invite them to reply with any questions or to book a meeting via https://tidycal.com/team/docsbot/onboarding.',
             },
-            { role: 'system', content: `DocsBot AI context:\n${docsbot}` },
+            { role: 'system', content: `DocsBot context:\n${docsbot}` },
             { role: 'user', content: `Customer name: ${name}\nWebsite: ${website}` },
             { role: 'user', content: `Company information from website:\n${scrape}` },
             {

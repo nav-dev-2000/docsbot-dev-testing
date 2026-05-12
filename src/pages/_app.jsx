@@ -226,13 +226,13 @@ export default function App({ Component, pageProps }) {
             type: 'website',
             locale: 'en_US',
             url: 'https://docsbot.ai' + router.asPath.split('?')[0],
-            siteName: 'DocsBot AI',
+            siteName: 'DocsBot',
             images: [
               {
                 url: 'https://docsbot.ai/images/og/main.jpeg',
                 width: 1200,
                 height: 630,
-                alt: 'DocsBot AI',
+                alt: 'DocsBot',
                 type: 'image/jpeg',
               },
             ],
@@ -377,20 +377,20 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
         useYoastHtml={true}
       >
         <DefaultSeo
-          title="DocsBot AI - Custom chatbots from your documentation"
-          description="Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more."
+          title="DocsBot - AI Agents for Business | AI Customer Support & Team Automation"
+          description="Build AI agents that combine trusted knowledge with real actions for customers and teams across your business tools and workflows."
           canonical={'https://docsbot.ai' + router.asPath.split('?')[0]}
           openGraph={{
             type: 'website',
             locale: 'en_US',
             url: 'https://docsbot.ai' + router.asPath.split('?')[0],
-            siteName: 'DocsBot AI',
+            siteName: 'DocsBot',
             images: [
               {
                 url: 'https://docsbot.ai/images/og/main.jpeg',
                 width: 1200,
                 height: 630,
-                alt: 'DocsBot AI',
+                alt: 'DocsBot',
                 type: 'image/jpeg',
               },
             ],

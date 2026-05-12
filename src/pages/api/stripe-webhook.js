@@ -193,9 +193,9 @@ const webhookHandler = async (req, res) => {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `DocsBot AI plan changed!`,
+                        fallback: `DocsBot plan changed!`,
                         color: '#0891b2',
-                        title: 'DocsBot AI Subscription Plan Changed',
+                        title: 'DocsBot Subscription Plan Changed',
                         text: `Old plan ${stripePlan(teamObj).name}`,
                         fields: [
                           {
@@ -250,9 +250,9 @@ const webhookHandler = async (req, res) => {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `DocsBot AI cancellation!`,
+                        fallback: `DocsBot cancellation!`,
                         color: '#d10014',
-                        title: 'DocsBot AI Subscription Cancelled',
+                        title: 'DocsBot Subscription Cancelled',
                         text: `${stripePlan(teamObj).name} x ${subscription.quantity}`,
                         fields: [
                           {
@@ -289,9 +289,9 @@ const webhookHandler = async (req, res) => {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `DocsBot AI cancellation!`,
+                        fallback: `DocsBot cancellation!`,
                         color: '#d10014',
-                        title: 'DocsBot AI Subscription Cancelled!',
+                        title: 'DocsBot Subscription Cancelled!',
                         fields: [
                           {
                             title: 'Email',
@@ -454,7 +454,7 @@ const webhookHandler = async (req, res) => {
                   await slack.send({
                     attachments: [
                       {
-                        fallback: `New DocsBot AI signup by ${session.customer_details.name} (${
+                        fallback: `New DocsBot signup by ${session.customer_details.name} (${
                           session.customer_details.email
                         }) to ${planName} for ${
                           session.currency == 'jpy'
@@ -464,7 +464,7 @@ const webhookHandler = async (req, res) => {
                           plan.interval
                         }ly!`,
                         color: '#0891b2',
-                        title: 'New DocsBot AI Subscription Signup',
+                        title: 'New DocsBot Subscription Signup',
                         text: `${planName}`,
                         fields: [
                           {

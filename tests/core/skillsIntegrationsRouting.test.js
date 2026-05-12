@@ -4,7 +4,7 @@ import {
   getSkillIntegrationPath,
   resolveSkillCategoryNameFromSlug,
   skillCategorySlug,
-} from '../../src/lib/skillsIntegrationPaths'
+} from '../../src/lib/skillsIntegrationPaths.mjs'
 
 describe('skills library URL helpers', () => {
   it('slugifies category names for URL segments', () => {

@@ -54,7 +54,7 @@ const PromptPage = ({ initialPrompts }) => {
   return (
     <>
       <NextSeo
-        title="Ultimate AI Prompt Library: ChatGPT, Gemini, Claude - DocsBot AI"
+        title="Ultimate AI Prompt Library: ChatGPT, Gemini, Claude - DocsBot"
         description="Explore our free, curated collection of best AI prompts for ChatGPT, Gemini, and Claude. Enhance your AI productivity with our free prompt library. Unlock the full potential of AI chatbots and boost your creativity."
         openGraph={{
           images: [

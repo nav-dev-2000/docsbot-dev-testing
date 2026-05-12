@@ -12,7 +12,7 @@ export default function FreeTools() {
   return (
     <>
       <NextSeo
-        title="Free AI YouTube Tools - DocsBot AI"
+        title="Free AI YouTube Tools - DocsBot"
         description="Explore our collection of free AI YouTube tools for creating and repurposing content for marketing, education, and more."
         openGraph={{
           images: [

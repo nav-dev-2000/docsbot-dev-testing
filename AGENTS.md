@@ -3,7 +3,7 @@
 
 ### Project overview
 
-DocsBot AI is a Next.js 14 (Pages Router) SaaS application. It relies on external managed services (Firebase, Stripe, external bot API at `api.docsbot.ai`) with no local databases or Docker. See `README.md` for full architecture details.
+DocsBot is a Next.js 14 (Pages Router) SaaS application. It relies on external managed services (Firebase, Stripe, external bot API at `api.docsbot.ai`) with no local databases or Docker. See `README.md` for full architecture details.
 
 ### Running locally
 

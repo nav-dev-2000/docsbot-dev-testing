@@ -2,9 +2,9 @@ export const SITE_URL = 'https://docsbot.ai'
 export const ORG_ID = `${SITE_URL}/#organization`
 export const WEBSITE_ID = `${SITE_URL}/#website`
 export const LOGO_URL = `${SITE_URL}/branding/docsbot-logo-lg.png`
-export const ORG_NAME = 'DocsBot AI'
+export const ORG_NAME = 'DocsBot'
 export const ORG_DESCRIPTION =
-  'Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more.'
+  'Build AI agents that combine trusted knowledge with real actions for customers and teams across your business tools and workflows.'
 export const SAME_AS = [
   'https://x.com/docsbotai/',
   'https://www.linkedin.com/company/docsbot-ai',

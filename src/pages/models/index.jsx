@@ -52,7 +52,7 @@ const ModelsLandingPage = () => {
   return (
     <>
       <NextSeo
-        title="LLM Large Language Model Directory - DocsBot AI"
+        title="LLM Large Language Model Directory - DocsBot"
         description="Comprehensive directory of large language models (LLMs) and their capabilities. Compare details, pricing, benchmarks, and more."
         openGraph={{
           images: [

@@ -32,7 +32,7 @@ async function generateSitemap() {
     getSkillsIndexRecords,
     skillCategorySlug,
     getSkillIntegrationPath,
-  } = await import('../src/lib/skillsIntegrations.js')
+  } = await import('../src/lib/skillsIntegrations.mjs')
   const skillRecords = getSkillsIndexRecords()
   const skillIntegrationUrls = skillRecords.map((record) => getSkillIntegrationPath(record))
   const skillCategoryUrls = [

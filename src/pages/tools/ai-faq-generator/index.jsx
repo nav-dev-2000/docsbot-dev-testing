@@ -250,7 +250,7 @@ export default function FAQGenerator({ FAQs, starRatingData }) {
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-300">
                   Generate a list of frequently asked questions about a website for free, powered by
-                  DocsBot AI.
+                  DocsBot.
                 </p>
                 <AiFAQGenerator />
                 <RecentAIFAQs FAQs={FAQs} />

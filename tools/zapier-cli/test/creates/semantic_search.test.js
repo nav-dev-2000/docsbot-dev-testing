@@ -8,7 +8,7 @@ describe('creates.semantic_search', () => {
         json: [
           {
             type: 'url',
-            title: 'DocsBot AI',
+            title: 'DocsBot',
             url: 'https://docsbot.ai',
             page: null,
             content: 'DocsBot overview content.',

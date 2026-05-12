@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 
-import { getSkillIntegrationPath } from '@/lib/skillsIntegrationPaths'
+import { getSkillIntegrationPath } from '@/lib/skillsIntegrationPaths.mjs'
 
 function cleanHex(value, fallback) {
   return /^#[0-9A-Fa-f]{6}$/.test(value || '') ? value : fallback

@@ -12,7 +12,7 @@ export default function FreeTools() {
   return (
     <>
       <NextSeo
-        title="Free AI Productivity Tools - DocsBot AI"
+        title="Free AI Productivity Tools - DocsBot"
         description="Explore our collection of free AI tools to enhance your productivity and streamline your workflow."
         openGraph={{
           images: [
@@ -35,7 +35,7 @@ export default function FreeTools() {
                 Free AI Tools
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Explore our collection of powerful AI tools designed to boost your productivity and streamline your workflow. All free to use and brought to you by DocsBot AI!
+                Explore our collection of powerful AI tools designed to boost your productivity and streamline your workflow. All free to use and brought to you by DocsBot!
               </p>
               <p className="mt-4 text-lg leading-8 text-gray-300">
                 These tools are powered by the same advanced AI technology behind DocsBot. Experience the power of custom trained AI-driven solutions and discover how DocsBot can revolutionize your customer support, knowledge management, and content creation processes. <Link href="/register" className="text-cyan-400 hover:text-cyan-300">Create your free chatbot</Link> to see how our AI can transform your business to save you time and money.

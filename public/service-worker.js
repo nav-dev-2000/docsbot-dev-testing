@@ -7,7 +7,7 @@ self.addEventListener('push', (event) => {
     }
   })()
 
-  const title = data.title || 'DocsBot AI'
+  const title = data.title || 'DocsBot'
   const body = data.body || 'You have an update.'
   const tag = data.tag || 'docsbot-ai'
   const url = data.url || '/'

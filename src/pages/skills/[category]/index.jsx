@@ -26,7 +26,7 @@ import {
   buildWebPage,
   buildWebSite,
 } from '@/lib/structuredData'
-import { resolveSkillCategoryNameFromSlug, skillCategorySlug } from '@/lib/skillsIntegrationPaths'
+import { resolveSkillCategoryNameFromSlug, skillCategorySlug } from '@/lib/skillsIntegrationPaths.mjs'
 
 const CATEGORY_PSEO_PATH = path.join(process.cwd(), 'src/data/skills/category-pseo.json')
 
@@ -72,7 +72,7 @@ function buildCategoryMetaDescription(intro, categoryName, totalCount) {
 }
 
 export async function getStaticPaths() {
-  const { getSkillsIndexRecords } = await import('@/lib/skillsIntegrations')
+  const { getSkillsIndexRecords } = await import('@/lib/skillsIntegrations.mjs')
   const records = getSkillsIndexRecords()
   const categorySegments = [...new Set(records.map((r) => skillCategorySlug(r.category)))]
 
@@ -87,7 +87,7 @@ export async function getStaticProps({ params }) {
     getSkillsIndexRecords,
     getSkillCategoryCounts,
     mapSkillIntegrationToLibraryCard,
-  } = await import('@/lib/skillsIntegrations')
+  } = await import('@/lib/skillsIntegrations.mjs')
 
   const records = getSkillsIndexRecords()
   const categoryName = resolveSkillCategoryNameFromSlug(params?.category, records)
@@ -140,7 +140,7 @@ export default function SkillCategoryHubPage({
   const searchActive = query.trim().length > 0
 
   const h1Text = `${categoryName} AI Skills`
-  const pageTitle = `${h1Text} | DocsBot AI`
+  const pageTitle = `${h1Text} | DocsBot`
   const introBody =
     pseo?.introParagraph ||
     `Browse DocsBot Skill Builder ideas for integrations and workflows in ${categoryName}. Each Skill packages guidance and executable actions your agents can load when needed.`
@@ -197,7 +197,7 @@ export default function SkillCategoryHubPage({
         openGraph={{
           type: 'website',
           url: canonical,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [

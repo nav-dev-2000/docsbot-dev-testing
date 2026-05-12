@@ -848,7 +848,7 @@ const WorkflowAutomationsInfo = ({
   return (
     <>
       <p className="text-md text-gray-800">
-        Connect DocsBot AI to thousands of apps using automation platforms to
+        Connect DocsBot to thousands of apps using automation platforms to
         create powerful workflows. Train your bot or use it to respond to
         triggers in your apps like a new message, task, or form submission.
       </p>
@@ -1030,7 +1030,7 @@ const APIInfo = ({ team, bot, openLinksInNewTab }) => {
   return (
     <>
       <p className="text-md text-gray-800">
-        Integrate DocsBot AI with your apps using our powerful chat and admin
+        Integrate DocsBot with your apps using our powerful chat and admin
         APIs. Use these identifiers with the API for admin and chat
         interactions.
       </p>

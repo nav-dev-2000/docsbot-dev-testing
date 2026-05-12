@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import {
   BoltIcon,
@@ -9,8 +8,10 @@ import {
   LinkIcon,
   MagnifyingGlassIcon,
   PuzzlePieceIcon,
-  SparklesIcon,
 } from '@heroicons/react/20/solid'
+import clsx from 'clsx'
+import { motion } from 'framer-motion'
+import { Button } from '@/components/elements'
 
 const capabilityIcons = {
   skills: PuzzlePieceIcon,
@@ -63,7 +64,7 @@ const variants = {
 
 function ActionSurfaceMap({ activeKeys }) {
   return (
-    <div className="relative mx-auto min-h-[30rem] w-full max-w-xl overflow-hidden rounded-3xl border border-cyan-200 bg-gradient-to-br from-gray-900 to-cyan-950 p-6 shadow-2xl shadow-cyan-950/20">
+    <div className="relative flex min-h-[30rem] flex-1 flex-col w-full overflow-hidden rounded-3xl border border-cyan-200 lg:border-r-0 lg:rounded-r-none bg-gradient-to-br from-gray-900 to-cyan-950 p-6 shadow-2xl shadow-cyan-950/20">
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:32px_32px]" />
       <div className="absolute left-1/2 top-1/2 size-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/20" />
 
@@ -189,39 +190,54 @@ export default function AIActionContextSection({ variant = 'home', className = '
   }
 
   return (
-    <section className={`bg-white px-6 py-24 sm:py-32 lg:px-8 ${className}`}>
+    <motion.section
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className={clsx(
+        'w-full px-6 py-16 lg:px-8 lg:py-32',
+        'bg-white',
+        className
+      )}
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1 text-sm font-bold uppercase tracking-wider text-cyan-700 ring-1 ring-cyan-100">
-              <SparklesIcon className="size-4" aria-hidden="true" />
-              {content.eyebrow}
-            </div>
-            <h2 className="mt-6 text-pretty text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              {content.title}
-            </h2>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              {content.description}
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/ai-actions"
-                className="bg-animation inline-flex items-center justify-center rounded-md px-6 py-4 text-base/6 font-semibold text-white shadow transition-transform hover:scale-105 hover:from-teal-600 hover:to-cyan-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
-              >
-                Explore AI Actions
-              </Link>
-              <Link
-                href="/register"
-                className="inline-flex items-center justify-center rounded-md border border-gray-900 bg-transparent px-6 py-4 text-base/6 font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2"
-              >
-                Start free
-              </Link>
+        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="min-w-0 lg:py-8">
+            <div className="lg:max-w-lg">
+              <p className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
+                {content.eyebrow}
+              </p>
+              <h2 className="mt-2 text-pretty text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                {content.title}
+              </h2>
+              <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                {content.description}
+              </p>
+              <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
+                <Button theme="opalite" variant="primary" href="/register" label="Automate Processes" />
+                <Button
+                  theme="dark"
+                  variant="secondary"
+                  href="/ai-actions"
+                  label="Learn more →"
+                />
+              </div>
             </div>
           </div>
 
-          <ActionSurfaceMap activeKeys={activeKeysByVariant[variant] ?? activeKeysByVariant.home} />
+          <div
+            className={clsx(
+              'relative isolate flex h-full min-h-[28rem] min-w-0 items-stretch pointer-events-none lg:order-last',
+              // Bleed to viewport edge: include lg section padding (2rem) plus slack inside padded zone when viewport > max-w-7xl + padding.
+              'lg:-mr-[calc(2rem+max(0px,(100vw-4rem-80rem)/2))] lg:w-[calc(100%+2rem+max(0px,(100vw-4rem-80rem)/2))]'
+            )}
+            aria-hidden="true"
+          >
+            <ActionSurfaceMap activeKeys={activeKeysByVariant[variant] ?? activeKeysByVariant.home} />
+          </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

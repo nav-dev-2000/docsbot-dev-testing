@@ -146,13 +146,13 @@ const featuresSupport = [
   {
     name: '24/7 Availability and Real-Time Responses',
     description:
-      "DocsBot AI's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances your brand's reputation for reliable service.",
+      "DocsBot's chatbots offer round-the-clock support, allowing customers to receive immediate responses to their queries at any time, which improves customer satisfaction and enhances your brand's reputation for reliable service.",
     icon: ClockIcon,
   },
   {
     name: 'Multilingual Support',
     description:
-      'DocsBot AI can perform real-time conversations in more than 95 languages, ensuring that customers receive support in their native language without delays, no matter the language of your training documentation.',
+      'DocsBot can perform real-time conversations in more than 95 languages, ensuring that customers receive support in their native language without delays, no matter the language of your training documentation.',
     icon: GlobeAltIcon,
   },
   {
@@ -167,7 +167,7 @@ const featuresQA = [
   {
     name: 'Advanced Document Q&A',
     description:
-      'Upload any source of information, including documents, images, and audio files, and DocsBot AI will automatically extract the relevant information and answer questions based on the content. Our research mode does deep semantic search of your training data to craft detailed answers and summaries in your desired format, all with full source attribution and context.',
+      'Upload any source of information, including documents, images, and audio files, and DocsBot will automatically extract the relevant information and answer questions based on the content. Our research mode does deep semantic search of your training data to craft detailed answers and summaries in your desired format, all with full source attribution and context.',
     icon: MagnifyingGlassCircleIcon,
   },
   {
@@ -194,8 +194,8 @@ export default function AlternativePage({
   return (
     <>
       <NextSeo
-        title={`${name} Alternative - DocsBot AI`}
-        description={`Compare the differences between DocsBot AI and ${name == 'DocsBot' ? 'Competitors' : name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
+        title={`${name} Alternative - DocsBot`}
+        description={`Compare the differences between DocsBot and ${name == 'DocsBot' ? 'Competitors' : name} to discover why DocsBot is the preferred choice for businesses looking for a ${name} alternative.`}
         openGraph={{
           images: [
             {
@@ -224,7 +224,7 @@ export default function AlternativePage({
             />
           </div>
           <div className="mx-auto max-w-6xl text-center">
-            <p className="mb-2 text-xl font-semibold leading-7 text-teal-500">DocsBot AI</p>
+            <p className="mb-2 text-xl font-semibold leading-7 text-teal-500">DocsBot</p>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               The {name} alternative you've been looking for
             </h1>
@@ -361,11 +361,11 @@ export default function AlternativePage({
             <div className="mx-auto max-w-4xl text-center">
               <h2 className="text-base font-semibold leading-7 text-cyan-600">Comparison</h2>
               <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                DocsBot AI vs {name == 'DocsBot' ? 'Competitors' : name}
+                DocsBot vs {name == 'DocsBot' ? 'Competitors' : name}
               </p>
             </div>
             <p className="ma x-w-2xl mx-auto mt-6 text-center text-lg leading-8 text-gray-600">
-              Compare the differences between DocsBot AI and {name == 'DocsBot' ? 'Competitors' : name} with our detailed feature
+              Compare the differences between DocsBot and {name == 'DocsBot' ? 'Competitors' : name} with our detailed feature
               comparison table.
             </p>
 
@@ -374,7 +374,7 @@ export default function AlternativePage({
               {/* DocsBot */}
               <section className="rounded-xl bg-gray-400/5 p-8 ring-1 ring-inset ring-gray-200">
                 <h3 className="text-center text-xl font-semibold leading-6 text-gray-900">
-                  DocsBot AI
+                  DocsBot
                 </h3>
 
                 <ul role="list" className="mt-10 space-y-4 text-base leading-6 text-gray-900">
@@ -493,7 +493,7 @@ export default function AlternativePage({
                       <td />
                       <th scope="col" className="px-6 pt-6 xl:px-8 xl:pt-8">
                         <div className="text-center text-2xl font-semibold leading-7 text-gray-900">
-                          DocsBot AI
+                          DocsBot
                         </div>
                       </th>
                       <th scope="col" className="px-6 pt-6 xl:px-8 xl:pt-8">
@@ -560,7 +560,7 @@ export default function AlternativePage({
 
                                   <span className="sr-only">
                                     {feature.value === true ? 'Included' : 'Not included'} in
-                                    DocsBot AI
+                                    DocsBot
                                   </span>
                                 </>
                               )}
@@ -611,7 +611,7 @@ export default function AlternativePage({
         />
         <div className="mx-auto bg-white py-16 text-center">
           <h2 className="mx-auto max-w-2xl text-xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Discover why DocsBot AI is the best alternative to
+            Discover why DocsBot is the best alternative to
           </h2>
           <div className="mt-10 flex-wrap justify-center bg-white text-xl font-semibold leading-7 text-gray-900">
             {ALTERNATIVES.filter((item) => item.slug !== 'docsbot').map((item) => (

@@ -8,7 +8,7 @@ export default function KeepMeSubscribedPage() {
   return (
     <>
       <NextSeo
-        title="You're still subscribed - DocsBot AI"
+        title="You're still subscribed - DocsBot"
         description="Confirmation that you're still subscribed to DocsBot updates."
         noindex={true}
         nofollow={true}

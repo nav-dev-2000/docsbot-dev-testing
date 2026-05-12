@@ -615,7 +615,7 @@ These methods will only work if the widget has been mounted. If the widget is no
 
 ### JavaScript Events
 
-The DocsBot AI widget dispatches custom events for internal communication. While these events are primarily used internally, advanced users may find them useful for creating custom integrations or behaviors. Here's a list of the events dispatched:
+The DocsBot widget dispatches custom events for internal communication. While these events are primarily used internally, advanced users may find them useful for creating custom integrations or behaviors. Here's a list of the events dispatched:
 
 1. `docsbot_fetching_answer`: Triggered when the widget starts fetching an answer for a question. Includes the question as detail.
 2. `docsbot_fetching_answer_complete`: Fired when the widget has finished fetching an answer. Includes the final data object as detail.

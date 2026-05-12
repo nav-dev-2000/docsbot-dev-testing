@@ -328,8 +328,8 @@ function Register({ teamCount }) {
   return (
     <>
       <NextSeo
-        title="Sign Up - DocsBot AI"
-        description="Register for a free DocsBot AI account."
+        title="Sign Up - DocsBot"
+        description="Register for a free DocsBot account."
         noindex={true}
       />
       <RegisterLayout teamCount={teamCount}>

@@ -11,7 +11,7 @@ export default function CustomerSupportTools() {
   return (
     <>
       <NextSeo
-        title="Free AI Customer Support Tools - DocsBot AI"
+        title="Free AI Customer Support Tools - DocsBot"
         description="Explore our collection of free AI customer support tools for streamlining operations, enhancing satisfaction, and optimizing service efficiency."
         openGraph={{
           images: [

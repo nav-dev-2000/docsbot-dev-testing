@@ -59,7 +59,7 @@ import {
   buildWebSite,
 } from '@/lib/structuredData'
 
-const pageTitle = 'AI agents that take action | DocsBot AI'
+const pageTitle = 'AI agents that take action | DocsBot'
 const pageDescription =
   'DocsBot resolves 76% of support requests on average. AI Actions help your agents handle remaining workflows with MCP servers, lead capture, booking, live context, and custom Skills.'
 const mcpIconSrc = '/branding/mcp/mcp-icon.png'
@@ -1834,7 +1834,7 @@ export default function AiActionsPage() {
           type: 'website',
           locale: 'en_US',
           url: pageUrl,
-          siteName: 'DocsBot AI',
+          siteName: 'DocsBot',
           title: pageTitle,
           description: pageDescription,
           images: [

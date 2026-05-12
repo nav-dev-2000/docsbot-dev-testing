@@ -178,7 +178,7 @@ export default function DashboardWrap({
     <>
       <NextSeo
         title={pageTitle}
-        description="DocsBot AI Dashboard"
+        description="DocsBot Dashboard"
         noindex={true}
       />
       <main>

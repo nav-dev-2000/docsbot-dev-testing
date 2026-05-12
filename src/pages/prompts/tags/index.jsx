@@ -34,7 +34,7 @@ const PromptPage = ({ prompts, tag }) => {
   return (
     <>
       <NextSeo
-        title={`Best ${tag} AI Prompts - DocsBot AI`}
+        title={`Best ${tag} AI Prompts - DocsBot`}
         description={`A library of free ${tag} prompts for ChatGPT, Gemini, and Claude.`}
         canonical={`https://docsbot.ai/prompts/tags?tag=${encodeURIComponent(tag)}`}
         openGraph={{

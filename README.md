@@ -1,4 +1,4 @@
-# DocsBot AI Next.js Website and API
+# DocsBot Next.js Website and API
 
 DocsBot.ai is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org). It uses Firebase for authentication, database, and cloud storage. It also uses [Markdoc](https://markdoc.dev) for documentation.
 

@@ -61,7 +61,7 @@ module.exports = {
       results: [
         {
           type: 'url',
-          title: 'DocsBot AI',
+          title: 'DocsBot',
           url: 'https://docsbot.ai/',
           page: null,
           content: 'DocsBot is an AI support assistant...',

@@ -9,9 +9,9 @@ export default function RegisterCTA({ customTitle = false, description = false, 
 
   // a list of random CTA titles
   const titles = [
-    'Get Started with DocsBot AI Today!',
+    'Get Started with DocsBot Today!',
     'Your Documentation, AI-Enhanced',
-    'Try DocsBot AI Free!',
+    'Try DocsBot Free!',
     'Unleash the Power of AI Chatbots for Your Business',
     'Experience Seamless AI Customer Support',
     'Automate Your Customer Support Now!',
@@ -93,7 +93,7 @@ export default function RegisterCTA({ customTitle = false, description = false, 
                   <DynamicTitle title={title} />
                 </h2>
                 <p className="mx-auto mt-6 max-w-4xl text-lg text-white">
-                  {description || 'Sign up for DocsBot AI today and empower your workflows, your customers, and team with a cutting-edge AI-driven solution. Train your first chatbot completely free, no credit card required.'}
+                  {description || 'Sign up for DocsBot today and empower your workflows, your customers, and team with a cutting-edge AI-driven solution. Train your first chatbot completely free, no credit card required.'}
                 </p>
               </div>
               <div className="mt-5"><SocialFaces ringColor="ring-cyan-600" /></div>

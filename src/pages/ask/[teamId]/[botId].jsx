@@ -33,7 +33,7 @@ export function ChatPage({ team, bot }) {
           <p className="flex items-center justify-center text-lg text-teal-600">
             <span className="mb-2 block">{bot.labels.poweredBy}</span>
             <Link href="/" target="_blank" className="ml-1 block">
-              <span className="sr-only">DocsBot AI</span>
+              <span className="sr-only">DocsBot</span>
               <Image className="" src={docsbotLogo} alt="DocsBot Logo" height={24} width={95} />
             </Link>
           </p>

@@ -675,7 +675,7 @@ export default function Home() {
   ]
 
   const pageUrl = buildPageUrl('/customer-support')
-  const pageTitle = 'AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot AI'
+  const pageTitle = 'AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot'
   const pageDescription =
     'Make support faster and less stressful with an AI chatbot that’s available 24/7, resolves 84% of tickets, and speaks in your tone—no coding required.'
 
@@ -692,7 +692,7 @@ export default function Home() {
 
   const service = buildService({
     url: pageUrl,
-    name: 'DocsBot AI Customer Support Chatbot',
+    name: 'DocsBot Customer Support Chatbot',
     description: pageDescription,
     serviceType: 'AI customer support chatbot',
   })
@@ -709,21 +709,21 @@ export default function Home() {
     <>
       <JsonLd id="customer-support-schema" data={schema} />
       <NextSeo
-        title="AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot AI"
+        title="AI Customer Support Chatbot for Faster, Reliable Answers | DocsBot"
         description="Make support faster and less stressful with an AI chatbot that’s available 24/7, resolves 84% of tickets, and speaks in your tone—no coding required."
         openGraph={{
           type: 'website',
           locale: 'en_US',
           url: 'https://docsbot.ai/customer-support',
-          siteName: 'DocsBot AI',
-          title: 'AI Customer Support Chatbot - Automate Support 24/7 | DocsBot AI',
+          siteName: 'DocsBot',
+          title: 'AI Customer Support Chatbot - Automate Support 24/7 | DocsBot',
           description: 'AI chatbot for customer service that resolves 84% of support tickets instantly. Customer service AI chatbot for websites that speaks your tone, runs 24/7, and needs no code.',
           images: [
             {
               url: 'https://docsbot.ai/images/og/customer-support.jpeg',
               width: 1200,
               height: 630,
-              alt: 'AI Customer Support Chatbot - DocsBot AI',
+              alt: 'AI Customer Support Chatbot - DocsBot',
               type: 'image/jpeg',
             },
           ],

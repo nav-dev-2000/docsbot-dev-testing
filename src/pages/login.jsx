@@ -114,7 +114,7 @@ function Login() {
 
   return (
     <>
-      <NextSeo title="Sign In - DocsBot AI" description="Login to your DocsBot AI account." />
+      <NextSeo title="Sign In - DocsBot" description="Login to your DocsBot account." />
       <AuthLayout
         title="Sign in to account"
         subtitle={

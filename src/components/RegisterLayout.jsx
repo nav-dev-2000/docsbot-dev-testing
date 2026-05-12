@@ -59,7 +59,7 @@ export function RegisterLayout({ teamCount, children }) {
           <div className="my-auto hidden lg:block">
             <div className="mx-auto max-w-2xl text-white md:text-center">
               <h2 className="font-display text-xl tracking-tight sm:text-3xl">
-                Transform your business with DocsBot AI
+                Transform your business with DocsBot
               </h2>
             </div>
             <div className="mx-auto mt-10 mb-20 max-w-7xl">

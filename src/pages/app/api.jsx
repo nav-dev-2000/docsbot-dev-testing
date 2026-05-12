@@ -493,7 +493,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
       <div className="mt-8 rounded-lg bg-white p-8 shadow">
         <h3 className="text-2xl font-bold">Bot Integrations</h3>
         <p className="text-md mt-2 text-justify text-gray-800">
-          DocsBot AI offers several powerful integrations that can be configured for each of your bots:
+          DocsBot offers several powerful integrations that can be configured for each of your bots:
         </p>
         
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

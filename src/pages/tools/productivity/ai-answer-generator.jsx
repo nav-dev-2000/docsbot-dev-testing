@@ -696,7 +696,7 @@ export default function AIAnswerGeneratorPage({ starRatingData }) {
         <section className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-base font-semibold leading-7 text-cyan-600">Why DocsBot AI Answer Generator?</h2>
+              <h2 className="text-base font-semibold leading-7 text-cyan-600">Why DocsBot Answer Generator?</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 The AI answer generator built for business productivity and customer support
               </p>

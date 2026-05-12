@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-pageTitle: API Documentation - DocsBot AI
+pageTitle: API Documentation - DocsBot
 description: Learn how to get DocsBot set up for your project with our embeds and APIs.
 ---
 

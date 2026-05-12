@@ -53,7 +53,7 @@ const GlossaryLandingPage = () => {
   return (
     <>
       <NextSeo
-        title="Generative AI Terms Glossary - DocsBot AI"
+        title="Generative AI Terms Glossary - DocsBot"
         description="Comprehensive glossary of AI terms and definitions"
         openGraph={{
           images: [

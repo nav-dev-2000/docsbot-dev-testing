@@ -166,19 +166,19 @@ export default function Cancel({ team, bots }) {
   const steps = [
     {
       title: 'Begin Cancellation',
-      text: "We're sorry to see you go! To start the cancellation process for your DocsBot AI subscription, click 'Next'. Your feedback is valuable to us, and we'd appreciate it if you could share your reasons for cancellation in the next steps.",
+      text: "We're sorry to see you go! To start the cancellation process for your DocsBot subscription, click 'Next'. Your feedback is valuable to us, and we'd appreciate it if you could share your reasons for cancellation in the next steps.",
     },
     {
       title: 'See What’s New',
-      text: 'With support from customers like you, we’ve been hard at work innovating and making DocsBot AI even better. Here are some of our favorite recent highlights:',
+      text: 'With support from customers like you, we’ve been hard at work innovating and making DocsBot even better. Here are some of our favorite recent highlights:',
     },
     {
       title: 'Share Your Thoughts',
-      text: 'Your feedback helps us improve DocsBot AI. Please select your main reason for cancelling your subscription from the options below.',
+      text: 'Your feedback helps us improve DocsBot. Please select your main reason for cancelling your subscription from the options below.',
     },
     {
       title: 'Can we have more details?',
-      text: 'Please provide some additional details to help us improve DocsBot AI.',
+      text: 'Please provide some additional details to help us improve DocsBot.',
     },
     {
       title: 'Suggestions',
@@ -186,7 +186,7 @@ export default function Cancel({ team, bots }) {
     },
     {
       title: 'Confirm Your Cancellation',
-      text: "Are you absolutely sure you are ready to cancel your DocsBot AI plan? By clicking 'Confirm', cancellation will be scheduled for the end of your current billing period, after which all bots, question logs, reports, and other data will be deleted!",
+      text: "Are you absolutely sure you are ready to cancel your DocsBot plan? By clicking 'Confirm', cancellation will be scheduled for the end of your current billing period, after which all bots, question logs, reports, and other data will be deleted!",
     },
   ]
 
@@ -240,7 +240,7 @@ export default function Cancel({ team, bots }) {
       followup_question:
         'How could we improve DocsBot to make it more useful for you?',
       suggestion:
-        'We want DocsBot AI to be a vital part of your daily activities. Here are some ways our other users integrate it into their workflow. Perhaps these could make it more useful for you too?',
+        'We want DocsBot to be a vital part of your daily activities. Here are some ways our other users integrate it into their workflow. Perhaps these could make it more useful for you too?',
     },
     {
       id: 'customer_service',
@@ -254,7 +254,7 @@ export default function Cancel({ team, bots }) {
       value: 'Ease of use was less than expected',
       followup_question: 'What was complex or difficult to use?',
       suggestion:
-        'Ease of use is critical for us. Would you be open to a guided walkthrough to help streamline your experience and get  you setup with DocsBot AI? Book a time here: https://tidycal.com/team/docsbot/onboarding',
+        'Ease of use is critical for us. Would you be open to a guided walkthrough to help streamline your experience and get  you setup with DocsBot? Book a time here: https://tidycal.com/team/docsbot/onboarding',
     },
     {
       id: 'low_quality',

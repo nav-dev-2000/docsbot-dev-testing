@@ -1,15 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 
-export const InfiniteTypewriter = ({ words, className, wordClassName }) => {
+/** Optional `ssrFallback`: shown in server HTML only; after hydrate the typewriter uses `words`. */
+export const InfiniteTypewriter = ({
+  words,
+  className,
+  wordClassName,
+  ssrFallback,
+}) => {
+  const [hydrated, setHydrated] = useState(false)
+  const seedWord = words?.[0] ?? ''
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [displayedText, setDisplayedText] = useState('')
+  const [displayedText, setDisplayedText] = useState(() =>
+    ssrFallback ? '' : seedWord
+  )
   const [isDeleting, setIsDeleting] = useState(false)
-  const [charIndex, setCharIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(() =>
+    ssrFallback ? 0 : seedWord.length
+  )
   const stepTimeoutRef = useRef(null)
   const waitTimeoutRef = useRef(null)
 
+  useLayoutEffect(() => {
+    setHydrated(true)
+    if (ssrFallback && seedWord) {
+      setDisplayedText(seedWord)
+      setCharIndex(seedWord.length)
+      setCurrentWordIndex(0)
+      setIsDeleting(false)
+    }
+  }, [ssrFallback, seedWord])
+
   useEffect(() => {
+    if (ssrFallback && !hydrated) return
     if (!words?.length) return
 
     const currentWord = words[currentWordIndex] ?? ''
@@ -62,7 +85,27 @@ export const InfiniteTypewriter = ({ words, className, wordClassName }) => {
       if (stepTimeoutRef.current) clearTimeout(stepTimeoutRef.current)
       if (waitTimeoutRef.current) clearTimeout(waitTimeoutRef.current)
     }
-  }, [charIndex, isDeleting, currentWordIndex, words])
+  }, [charIndex, isDeleting, currentWordIndex, words, hydrated, ssrFallback])
+
+  if (ssrFallback && !hydrated) {
+    return (
+      <div
+        className={clsx(
+          'relative inline-block max-w-full align-top min-h-[1.5em]',
+          className
+        )}
+      >
+        <span
+          className={clsx(
+            'inline-block text-pretty whitespace-normal sm:whitespace-nowrap',
+            wordClassName
+          )}
+        >
+          {ssrFallback}
+        </span>
+      </div>
+    )
+  }
 
   return (
     <div

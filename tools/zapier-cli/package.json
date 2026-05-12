@@ -1,7 +1,7 @@
 {
   "name": "docs-bot-ai",
   "version": "2.0.3",
-  "description": "DocsBot AI provides instant & accurate answers for you, your customers, or your team with AI powered chatbots trained with your existing content and documentation.",
+  "description": "DocsBot provides instant & accurate answers for you, your customers, or your team with AI powered chatbots trained with your existing content and documentation.",
   "main": "index.js",
   "scripts": {
     "test": "jest --testTimeout 10000"

@@ -362,8 +362,8 @@ const ArchivePageContent = ({ seo }) => {
         />
       ) : (
         <NextSeo
-          title="Documentation - DocsBot AI"
-          description="DocsBot AI documentation and knowlegebase."
+          title="Documentation - DocsBot"
+          description="DocsBot documentation and knowlegebase."
         />
       )}
       <Header />
@@ -377,9 +377,9 @@ const ArchivePageContent = ({ seo }) => {
               Documentation
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Welcome to the DocsBot AI Documentation! These pages are designed to provide you with
+              Welcome to the DocsBot Documentation! These pages are designed to provide you with
               all the information you need to understand, integrate, and make the most out of
-              DocsBot AI.
+              DocsBot.
             </p>
           </div>
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none flex justify-center">

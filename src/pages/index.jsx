@@ -6,6 +6,7 @@ import {InfiniteTypewriter} from '@/components/customer-support/animation-elemen
 import AskAIModels from '@/components/AskAIModels'
 import Link from 'next/link'
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import Faq from '@/components/Faq'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -41,9 +42,10 @@ import {
 
 export default function Home() {
   const pageUrl = buildPageUrl('/')
-  const pageTitle = 'DocsBot AI - Custom chatbots from your documentation'
+  const pageTitle =
+    'DocsBot - AI Agents for Business | AI Customer Support & Team Automation'
   const pageDescription =
-    'Custom ChatGPT bots trained on your documentation and content for support, presales, research, and more.'
+    'Build AI agents that combine trusted knowledge with real actions for customers and teams across your business tools and workflows.'
 
   const howToSteps = HOW_IT_WORKS_FEATURES.map((feature) => ({
     name: feature.name,
@@ -59,7 +61,7 @@ export default function Home() {
   const howTo = buildHowTo({
     url: pageUrl,
     name: 'How DocsBot Works',
-    description: 'Create, train, refine, and launch your DocsBot AI assistant.',
+    description: 'Create, train, refine, and launch your DocsBot AI agents.',
     steps: howToSteps,
   })
 
@@ -73,6 +75,7 @@ export default function Home() {
   return (
     <>
       <JsonLd id="home-schema" data={schema} />
+      <NextSeo title={pageTitle} description={pageDescription} />
       <Head>
         <link rel="preconnect" href="https://cdn.docsbot.com" />
       </Head>
@@ -132,36 +135,41 @@ export default function Home() {
                   <div className="mx-auto max-w-4xl text-center">
                     <div className="mt-24 flex justify-center sm:mt-32 lg:mt-12">
                       <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
-                        <span className="pr-1">Custom ChatGPT</span>
+                        <span className="pr-1">Custom AI Agents</span>
                         <span className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-2 py-0.5 text-sm font-semibold leading-5 text-white">
                           for your business!
                         </span>
                       </div>
                     </div>
 
-                    <h1 className="mt-8 text-pretty text-5xl font-semibold leading-tight tracking-tight text-white sm:text-7xl">
-                      <span className="block text-7xl leading-none tracking-tighter md:leading-[0.8] lg:text-8xl">
-                        Instant AI Answers
+                    <h1 className="mt-8 text-pretty font-semibold leading-tight tracking-tight text-white">
+                      <span className="block text-5xl leading-none tracking-tighter sm:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl">
+                        Instant Answers & Actions
                       </span>
-                      for your{' '}
-                      <InfiniteTypewriter
-                        words={[
-                          'Customers',
-                          'Sales Reps',
-                          'Product',
-                          'Partners',
-                          'Support',
-                          'New Hires',
-                          'Members',
-                        ]}
-                        className="text-cyan-400"
-                      />
+                      <span className="mt-2 block text-5xl leading-none tracking-tighter sm:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl">
+                        for{' '}
+                        <InfiniteTypewriter
+                          ssrFallback="Customers and Your Team"
+                          words={[
+                            'Customers',
+                            'Your Team',
+                            'Support',
+                            'Sales Reps',
+                            'Product',
+                            'Partners',
+                            'New Hires',
+                            'Members',
+                          ]}
+                          className="text-cyan-400"
+                        />
+                      </span>
                     </h1>
                   </div>
 
                   <div className="mx-auto mt-8 max-w-2xl text-center">
                     <p className="text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
-                    Turn your knowledge base into an AI assistant that builds trust with instant, accurate answers.
+                      DocsBot turns your knowledge base into AI agents that deliver instant, accurate answers and
+                      take action across your tools, workflows, and support operations.
                     </p>
                   </div>
 
@@ -175,7 +183,7 @@ export default function Home() {
                         >
                           <div className="flex items-center justify-center space-x-2">
                             <SparklesIcon className="h-5 w-5" />
-                            <span>Turn your content into AI answers</span>
+                            <span>Turn Your Content Into AI Agents</span>
                           </div>
                         </Link>
                         <p className="mt-1 text-center text-sm text-gray-300 sm:mt-2">
@@ -216,9 +224,9 @@ export default function Home() {
               description="Give your customers and teams expert AI chatbots trained on your knowledge base. Capture more leads, deliver fast, concise answers, boost efficiency, and drive growth with instant, accurate responses tailored to your business."
             />
 
-            <HowItWorks />
-
             <AIActionContextSection variant="home" className="bg-gray-50" />
+
+            <HowItWorks />
 
             <IntegrationsFeatures />
 
