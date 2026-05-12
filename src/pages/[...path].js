@@ -201,7 +201,7 @@ export async function getStaticPaths() {
     const pagePaths = pagesData.result
       .map(({ link }) => {
         const normalizedLink = removeSourceUrl({ link, backendUrl: getWPUrl() })
-        if (normalizedLink === '/') {
+        if (normalizedLink === '/' || normalizedLink === '/affiliates') {
           return false
         }
 

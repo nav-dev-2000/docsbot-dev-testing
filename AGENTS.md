@@ -5,6 +5,20 @@
 
 DocsBot is a Next.js 14 (Pages Router) SaaS application. It relies on external managed services (Firebase, Stripe, external bot API at `api.docsbot.ai`) with no local databases or Docker. See `README.md` for full architecture details.
 
+### Design system
+
+Use `DESIGN.md` as the visual source of truth for all UI work.
+Before creating or editing UI components, read `DESIGN.md` and follow its guidance for:
+- colors
+- typography
+- spacing
+- radius
+- shadows
+- marketing vs product UI modes
+- component patterns
+
+Prefer existing design tokens and Tailwind equivalents over introducing new visual styles. Do not add new dominant accent colors unless they represent semantic state.
+
 ### Running locally
 
 - **Dev server:** `npm run dev` (starts on port 3000)
