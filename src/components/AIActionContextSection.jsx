@@ -11,7 +11,23 @@ import {
 } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/elements'
+
+/** Must match `orbit-spin` duration in `<style jsx>` below. */
+const ORBIT_DURATION_MS = 42_000
+/** Clockwise degrees from +x (east); 270° is toward the top of the viewport. */
+const TOP_HEADING_DEG = 270
+
+function normalizeDeg(deg) {
+  return ((deg % 360) + 360) % 360
+}
+
+function headingSeparation(a, b) {
+  let d = Math.abs(normalizeDeg(a) - normalizeDeg(b))
+  if (d > 180) d = 360 - d
+  return d
+}
 
 const capabilityIcons = {
   skills: PuzzlePieceIcon,
@@ -35,6 +51,20 @@ const baseCapabilities = [
   { key: 'search', label: 'Search', angle: 225 },
 ]
 
+function computeTopCapabilityKey(spinDeg) {
+  let bestKey = baseCapabilities[0].key
+  let bestSep = Infinity
+  for (const cap of baseCapabilities) {
+    const heading = normalizeDeg(cap.angle + spinDeg)
+    const sep = headingSeparation(heading, TOP_HEADING_DEG)
+    if (sep < bestSep) {
+      bestSep = sep
+      bestKey = cap.key
+    }
+  }
+  return bestKey
+}
+
 const variants = {
   home: {
     eyebrow: 'AI agents that can act',
@@ -47,6 +77,7 @@ const variants = {
     title: 'Resolve more customer requests',
     description:
       'When a support question needs a lookup, policy check, billing action, booking, or handoff, AI Actions let DocsBot complete governed workflows inside your tools.',
+    primaryButtonLabel: 'Automate support workflows',
   },
   internal: {
     eyebrow: 'Internal agents that get work done',
@@ -59,12 +90,55 @@ const variants = {
     title: 'Turn documentation answers into next steps',
     description:
       'When a docs answer exposes missing information or a follow-up action, DocsBot can collect feedback, create issues, route support requests, book implementation help, or trigger product workflows.',
+    primaryButtonLabel: 'Add workflow actions',
   },
 }
 
-function ActionSurfaceMap({ activeKeys }) {
+function ActionSurfaceMap({ bleedEdge = 'right' }) {
+  const [topKey, setTopKey] = useState(null)
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let raf = 0
+    const orbitStartMs = performance.now()
+
+    const tick = () => {
+      if (motionQuery.matches) {
+        setTopKey(null)
+        return
+      }
+      const elapsed = performance.now() - orbitStartMs
+      const spinDeg = ((elapsed % ORBIT_DURATION_MS) / ORBIT_DURATION_MS) * 360
+      const key = computeTopCapabilityKey(spinDeg)
+      setTopKey((prev) => (prev === key ? prev : key))
+      raf = requestAnimationFrame(tick)
+    }
+
+    const onMotionPreferenceChange = () => {
+      cancelAnimationFrame(raf)
+      if (motionQuery.matches) {
+        setTopKey(null)
+        return
+      }
+      raf = requestAnimationFrame(tick)
+    }
+
+    onMotionPreferenceChange()
+    motionQuery.addEventListener('change', onMotionPreferenceChange)
+    return () => {
+      motionQuery.removeEventListener('change', onMotionPreferenceChange)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
+
   return (
-    <div className="relative flex min-h-[30rem] flex-1 flex-col w-full overflow-hidden rounded-3xl border border-cyan-200 lg:border-r-0 lg:rounded-r-none bg-gradient-to-br from-gray-900 to-cyan-950 p-6 shadow-2xl shadow-cyan-950/20">
+    <div
+      className={clsx(
+        'relative flex min-h-[30rem] flex-1 flex-col w-full overflow-hidden rounded-3xl border border-cyan-200 bg-gradient-to-br from-gray-900 to-cyan-950 p-6 shadow-2xl shadow-cyan-950/20',
+        bleedEdge === 'right' && 'lg:border-r-0 lg:rounded-r-none',
+        bleedEdge === 'left' && 'lg:border-l-0 lg:rounded-l-none'
+      )}
+    >
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:32px_32px]" />
       <div className="absolute left-1/2 top-1/2 size-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/20" />
 
@@ -85,7 +159,7 @@ function ActionSurfaceMap({ activeKeys }) {
       <div className="absolute left-1/2 top-1/2 z-10 hidden size-[min(76%,22rem)] -translate-x-1/2 -translate-y-1/2 sm:block">
         {baseCapabilities.map((capability) => {
           const Icon = capabilityIcons[capability.key]
-          const isActive = activeKeys.includes(capability.key)
+          const isActive = topKey !== null && capability.key === topKey
           return (
             <div
               key={capability.key}
@@ -94,9 +168,10 @@ function ActionSurfaceMap({ activeKeys }) {
             >
               <div className="orbit-label absolute left-full top-0">
                 <div
-                  className={`flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xl ${
-                    isActive ? 'ring-2 ring-cyan-300' : ''
-                  }`}
+                  className={clsx(
+                    'flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xl',
+                    isActive && 'ring-2 ring-cyan-300'
+                  )}
                 >
                   {capability.iconSrc ? (
                     <span className="flex size-5 items-center justify-center rounded-md bg-cyan-600">
@@ -180,18 +255,16 @@ function ActionSurfaceMap({ activeKeys }) {
   )
 }
 
-export default function AIActionContextSection({ variant = 'home', className = '' }) {
+export default function AIActionContextSection({
+  variant = 'home',
+  className = '',
+  isReversed = false,
+}) {
   const content = variants[variant] ?? variants.home
-  const activeKeysByVariant = {
-    home: ['skills', 'mcp', 'apis', 'webhooks'],
-    support: ['billing', 'booking', 'buttons', 'skills'],
-    internal: ['mcp', 'apis', 'webhooks', 'skills'],
-    docs: ['skills', 'apis', 'booking', 'buttons'],
-  }
 
   return (
     <motion.section
-      initial={{ opacity: 0, x: -50 }}
+      initial={{ opacity: 0, x: isReversed ? 50 : -50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -203,8 +276,16 @@ export default function AIActionContextSection({ variant = 'home', className = '
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="min-w-0 lg:py-8">
-            <div className="lg:max-w-lg">
+          <div
+            className={clsx('min-w-0 lg:py-8', {
+              'lg:order-last': isReversed,
+            })}
+          >
+            <div
+              className={clsx('lg:max-w-lg', {
+                'lg:ml-auto': isReversed,
+              })}
+            >
               <p className="text-md/5 font-mono font-semibold uppercase tracking-widest text-cyan-600">
                 {content.eyebrow}
               </p>
@@ -215,7 +296,12 @@ export default function AIActionContextSection({ variant = 'home', className = '
                 {content.description}
               </p>
               <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
-                <Button theme="opalite" variant="primary" href="/register" label="Automate Processes" />
+                <Button
+                  theme="opalite"
+                  variant="primary"
+                  href="/register"
+                  label={content.primaryButtonLabel ?? 'Automate Processes'}
+                />
                 <Button
                   theme="dark"
                   variant="secondary"
@@ -228,13 +314,16 @@ export default function AIActionContextSection({ variant = 'home', className = '
 
           <div
             className={clsx(
-              'relative isolate flex h-full min-h-[28rem] min-w-0 items-stretch pointer-events-none lg:order-last',
+              'relative isolate flex h-full min-h-[28rem] min-w-0 items-stretch pointer-events-none',
+              isReversed ? 'lg:order-first' : 'lg:order-last',
               // Bleed to viewport edge: include lg section padding (2rem) plus slack inside padded zone when viewport > max-w-7xl + padding.
-              'lg:-mr-[calc(2rem+max(0px,(100vw-4rem-80rem)/2))] lg:w-[calc(100%+2rem+max(0px,(100vw-4rem-80rem)/2))]'
+              isReversed
+                ? 'lg:-ml-[calc(2rem+max(0px,(100vw-4rem-80rem)/2))] lg:w-[calc(100%+2rem+max(0px,(100vw-4rem-80rem)/2))]'
+                : 'lg:-mr-[calc(2rem+max(0px,(100vw-4rem-80rem)/2))] lg:w-[calc(100%+2rem+max(0px,(100vw-4rem-80rem)/2))]'
             )}
             aria-hidden="true"
           >
-            <ActionSurfaceMap activeKeys={activeKeysByVariant[variant] ?? activeKeysByVariant.home} />
+            <ActionSurfaceMap bleedEdge={isReversed ? 'left' : 'right'} />
           </div>
         </div>
       </div>

@@ -774,7 +774,7 @@ export default function InternalKnowledge() {
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
-              <AIActionContextSection variant="internal" className="bg-gray-50" />
+              <AIActionContextSection variant="internal" isReversed className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

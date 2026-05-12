@@ -825,7 +825,7 @@ export default function DocumentationChatbot() {
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
-              <AIActionContextSection variant="docs" className="bg-gray-50" />
+              <AIActionContextSection variant="docs" isReversed className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>

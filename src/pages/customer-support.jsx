@@ -766,15 +766,15 @@ export default function Home() {
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
+              <AIActionContextSection variant="support" className="bg-gray-50" />
+            </SectionReveal>
+
+            <SectionReveal direction="down" amount={0.25}>
               <Benefits { ...propsBenefits } personas={personas} />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
               <Tiers { ...propsTiers } />
-            </SectionReveal>
-
-            <SectionReveal direction="down" amount={0.25}>
-              <AIActionContextSection variant="support" className="bg-gray-50" />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
