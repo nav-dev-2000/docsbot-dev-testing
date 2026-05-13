@@ -396,7 +396,7 @@ export default function ModalPrompt({
         data.customPrompt = prompt
         data.agentPrompt = agentPrompt
         if (helpScoutIntegration) {
-            data.helpscoutPrompt = hsPrompt
+            data.helpscoutPrompt = hsPrompt.trim()
         }
 
         const response = await fetch(apiPath, {
@@ -408,6 +408,9 @@ export default function ModalPrompt({
         })
         if (response.ok) {
             const updatedBot = await response.json()
+            setPrompt(updatedBot.customPrompt || '')
+            setAgentPrompt(updatedBot.agentPrompt || '')
+            setHSPrompt(updatedBot.helpscoutPrompt || '')
             setHasUnsavedChanges(false)
             setIsUpdating(false)
             setSuccessText('Changes saved successfully')
