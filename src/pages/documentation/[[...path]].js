@@ -374,12 +374,13 @@ const ArchivePageContent = ({ seo }) => {
               Get the help you need
             </p>
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Documentation
+              DocsBot Documentation and Guides
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Welcome to the DocsBot Documentation! These pages are designed to provide you with
-              all the information you need to understand, integrate, and make the most out of
-              DocsBot.
+              DocsBot is an AI support and knowledge automation platform for customer support,
+              documentation, operations, and product teams. Use these guides to build AI chatbots,
+              connect knowledge sources, embed widgets, manage APIs, and turn trusted content into
+              accurate answers and actions.
             </p>
           </div>
           <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none flex justify-center">

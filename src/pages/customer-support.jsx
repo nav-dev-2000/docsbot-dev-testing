@@ -508,7 +508,7 @@ export default function Home() {
   const propsHero = {
     title: 'Clone Your Team. AI for Customer Success.',
     subtitle: "AI Customer Support Agents",
-    description: "Resolve 84% of support tickets instantly. DocsBot speaks your tone, runs 24/7, and needs no code to set up.",
+    description: "Resolve 84% of support tickets instantly. DocsBot speaks your tone, runs 24/7, and needs no code to set up. Built for software companies, ecommerce brands, manufacturers, and support teams from SMB to enterprise.",
     primaryButton: {
       href: '/register',
       label: 'Get Started Free',
@@ -521,7 +521,7 @@ export default function Home() {
 
   const propsOverview = {
     title: <>Support is changing.<br/>We've got you.</>,
-    description: 'Turn your knowledge base and ticket history into instant answers for your customers with our AI support automation platform.',
+    description: 'Turn your knowledge base, product specs, and ticket history into instant answers for your customers with our AI support automation platform.',
     data: dataOverview,
   }
 

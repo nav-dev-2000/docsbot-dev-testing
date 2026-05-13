@@ -158,6 +158,18 @@ export default function PressPage() {
                 </p>
               </div>
 
+              {/* About Section */}
+              <div className="mt-10 rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:mt-16">
+                <h3 className="text-lg font-semibold text-gray-900">About DocsBot</h3>
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  DocsBot is an AI support and knowledge automation platform that helps businesses
+                  turn documentation, help centers, product information, ticket history, and
+                  internal knowledge into accurate AI answers and actions. Teams use DocsBot to
+                  automate customer support, improve documentation discovery, power internal
+                  knowledge assistants, and connect AI agents to approved business workflows.
+                </p>
+              </div>
+
               {/* Press Contact Section */}
               <div className="mt-10 rounded-lg border border-gray-200 bg-gray-50 p-6 sm:mt-16">
                 <h3 className="text-lg font-semibold text-gray-900">Press Inquiries</h3>

@@ -219,6 +219,10 @@ const dataFeatures = [
     description: "Ensure every team member has access to the same single source of truth. Updates to documentation are instantly reflected in answers, keeping everyone aligned.",
     animation: ConsistentInfo,
     background: 'bg-gradient-to-r from-cyan-400 to-cyan-900',
+    evidence: {
+      metric: '48% lack update capacity',
+      copy: <>Nearly half of organizations say they lack the time and resources to keep training materials updated consistently, even though accurate knowledge is a top priority.<sup>3</sup></>,
+    },
     highlights: []
   },
   {
@@ -228,6 +232,10 @@ const dataFeatures = [
     description: "Get instant answers to internal queries, reducing wait times and enabling employees to solve problems independently around the clock.",
     animation: FastResponses,
     background: 'bg-gradient-to-tr from-teal-200 to-cyan-300',
+    evidence: {
+      metric: '76% average resolution rate',
+      copy: <>Across DocsBot customers, AI assistants resolve an average of 76% of questions before they become tickets or internal escalations.<sup>2</sup></>,
+    },
     highlights: []
   },
   {
@@ -237,6 +245,10 @@ const dataFeatures = [
     description: "Free up your team from searching through folders and files. Instant answers mean more time for strategic work and less time digging for information.",
     animation: Productivity,
     background: 'bg-gradient-to-tr from-teal-100 to-cyan-200',
+    evidence: {
+      metric: '3-6 hours lost weekly',
+      copy: <>Most organizations report employees lose at least 3 hours each week searching for information, with many losing 6 or more hours.<sup>3</sup></>,
+    },
     highlights: []
   },
   {
@@ -246,6 +258,10 @@ const dataFeatures = [
     description: "Eliminate the frustration of not finding what you need. A happy team is a productive team. DocsBot reduces the cognitive load of information retrieval.",
     animation: ReduceFrustration,
     background: 'bg-gradient-to-tr from-slate-100 to-zinc-200',
+    evidence: {
+      metric: '63% prefer preserved knowledge',
+      copy: <>Employees say they would rather work where unique internal knowledge is captured, preserved, and easy to access.<sup>4</sup></>,
+    },
     highlights: []
   },
   {
@@ -255,9 +271,24 @@ const dataFeatures = [
     description: "New hires can ask your internal chatbot questions immediately without waiting for a mentor, speeding up their ramp-up time significantly.",
     animation: Onboarding,
     background: 'bg-gradient-to-r from-blue-500 to-cyan-600',
+    evidence: {
+      metric: 'Nearly 2x more ready',
+      copy: <>Employees with exceptional onboarding are nearly twice as likely to feel fully prepared to excel in their role.<sup>1</sup></>,
+    },
     highlights: []
   }
 ]
+
+const EvidenceCallout = ({ metric, copy }) => {
+  if (!metric || !copy) return null
+
+  return (
+    <div className="mt-10 max-w-xl border-l-2 border-cyan-500 pl-5 lg:max-w-none">
+      <p className="text-base font-semibold leading-7 text-gray-900">{metric}</p>
+      <p className="mt-1 text-sm leading-6 text-gray-600">{copy}</p>
+    </div>
+  )
+}
 
 const dataSecurity = [
     {
@@ -302,35 +333,62 @@ const dataAnalytics = [
 const dataResults = [
   {
     title: 'Faster Onboarding',
-    description: 'New hires reach full productivity significantly faster with instant access to knowledge.',
-    note: '50%',
+    description: <>Exceptional onboarding makes employees nearly twice as likely to feel prepared to excel. DocsBot keeps policies, tools, and workflows available from day one.<sup>1</sup></>,
+    note: '2x more ready',
     background: 'neutral-100',
     foreground: 'gray-900',
     className: 'lg:flex-1 lg:self-stretch',
   },
   {
     title: 'Ticket Reduction',
-    description: 'Reduction in internal IT and HR support tickets for routine questions.',
-    note: '60%',
+    description: <>Across DocsBot customers, AI assistants resolve an average of 76% of questions before they become tickets or internal escalations.<sup>2</sup></>,
+    note: '76% fewer',
     background: 'gray-900',
     foreground: 'neutral-50',
     className: 'sm:w-9/12 lg:w-full lg:flex-1 lg:gap-y-[5rem]',
   },
   {
     title: 'Time Saved',
-    description: 'Reduction in time spent searching for information.',
-    note: '90%',
+    description: <>Most organizations report employees lose 3+ hours each week searching for information, with many losing 6+ hours.<sup>3</sup></>,
+    note: '3-6 hrs/wk',
     background: 'teal-500',
     foreground: 'neutral-50',
     className: 'sm:w-11/12 lg:w-full lg:flex-1 lg:gap-y-[12rem] lg:mt-12',
   },
   {
-    title: 'Employee Satisfaction',
-    description: "Employees report higher satisfaction when they can find what they need instantly.",
-    note: '4.8/5',
+    title: 'AI Productivity',
+    description: <>Two-thirds of employees at AI-adopting organizations say AI improves productivity and efficiency.<sup>5</sup></>,
+    note: '66% positive',
     background: 'teal-100',
     foreground: 'gray-900',
     className: 'sm:w-9/12 lg:w-full flex-1 sm:gap-x-4',
+  },
+]
+
+const dataResultSources = [
+  {
+    label: 'Gallup, Essential Ingredients for an Effective Onboarding Program',
+    detail: 'Employees who strongly agree their onboarding was exceptional are nearly twice as likely to feel fully prepared to excel in their new role.',
+    href: 'https://www.gallup.com/workplace/246242/essential-ingredients-effective-onboarding-program.aspx',
+  },
+  {
+    label: 'DocsBot customer data',
+    detail: 'Across DocsBot customers, AI assistants resolve an average of 76% of questions before they become tickets or internal escalations.',
+  },
+  {
+    label: 'Panopto Workforce Training Report, NewtonX research',
+    detail: 'Most organizations say employees spend more time than necessary searching for information, with 51% reporting 3 hours per week and 26% reporting 6 or more hours per week. The same report found 97% of companies see keeping training current as a priority, while 48% lack time and resources to do it.',
+    href: 'https://www.panopto.com/wp-content/uploads/2024/06/panopto-workforce-training-report-final.pdf',
+  },
+  {
+    label: 'Panopto Workplace Knowledge and Productivity study',
+    detail: '63% of employees reported they would prefer to work for organizations where unique knowledge is preserved.',
+    href: 'https://www.panopto.com/blog/how-much-time-is-lost-to-knowledge-sharing-inefficiencies-at-work/',
+  },
+  {
+    label: 'Gallup Global Indicator: Artificial Intelligence',
+    detail: 'As of February 2026, 66% of employees at organizations that have implemented AI say it has had a positive effect on productivity and efficiency.',
+    href: 'https://www.gallup.com/699797/indicator-artificial-intelligence.aspx',
   },
 ]
 
@@ -505,7 +563,7 @@ export default function InternalKnowledge() {
   const propsHero = {
     title: <>Turn <HighlightWord word="every"/> <HighlightWord word="employee"/> into an instant expert (even new hires)</>,
     subtitle: "Internal AI Knowledge Assistants for Teams",
-    description: "Turn your internal documents, SOPs, and company knowledge into instant answers available 24/7 and in any language.",
+    description: "Turn your internal documents, SOPs, and company knowledge into instant answers available 24/7 and in any language. Built for IT, HR, Ops, Enablement, and Support Ops teams.",
     primaryButton: {
       href: '/register',
       label: 'Start for free',
@@ -573,7 +631,7 @@ export default function InternalKnowledge() {
 
   const propsResults = {
     title: 'Real Impact',
-    description: 'See how companies are improving efficiency with an internal knowledge base chatbot.',
+    description: 'Ground your internal AI rollout in outcomes leaders already track: faster onboarding, fewer tickets, less search time, and measurable productivity gains.',
     data: dataResults,
   }
 
@@ -739,7 +797,12 @@ export default function InternalKnowledge() {
                             coverBackground={feature.background}
                             isReversed={index % 2 !== 0}
                         >
-                            <Highlights data={feature.highlights} />
+                            {feature.evidence && (
+                              <EvidenceCallout {...feature.evidence} />
+                            )}
+                            {feature.highlights?.length > 0 && (
+                              <Highlights data={feature.highlights} />
+                            )}
                         </SplitSection>
                     )
                 })}
@@ -812,6 +875,32 @@ export default function InternalKnowledge() {
             <SectionReveal direction="down" amount={0.25}>
               <Faq { ...propsFaq } />
             </SectionReveal>
+
+            <section className="bg-white px-6 pb-12 lg:px-8">
+              <div className="mx-auto max-w-7xl border-t border-gray-200 pt-6 text-xs leading-6 text-gray-500">
+                <p className="font-semibold text-gray-600">Sources and methodology</p>
+                <ol className="mt-3 list-decimal space-y-2 pl-4">
+                  {dataResultSources.map((source) => (
+                    <li key={source.label}>
+                      {source.href ? (
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="nofollow noopener noreferrer"
+                          className="font-medium text-gray-700 underline decoration-gray-300 underline-offset-2 hover:text-cyan-700"
+                        >
+                          {source.label}
+                        </a>
+                      ) : (
+                        <span className="font-medium text-gray-700">{source.label}</span>
+                      )}
+                      {': '}
+                      {source.detail}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
           </main>
 
           <Footer />

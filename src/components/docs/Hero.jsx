@@ -59,10 +59,13 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-gradient-to-r from-cyan-200 via-teal-400 to-cyan-400 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Simple chat API integrations for your business.
+                Build with DocsBot APIs and AI agents.
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                View our comprehensive API documentation to start integrating DocsBot with your products.
+                Use Chat Agent, Skills, Actions, Search, and Admin APIs to add AI support and knowledge automation to your product or client workflow.
+              </p>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500 md:mx-auto lg:mx-0">
+                Developer documentation for engineering teams, integrators, and agencies building with DocsBot.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <Button href="#start">View Docs</Button>

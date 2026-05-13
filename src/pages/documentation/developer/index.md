@@ -1,10 +1,10 @@
 ---
 title: Getting Started
-pageTitle: API Documentation - DocsBot
-description: Learn how to get DocsBot set up for your project with our embeds and APIs.
+pageTitle: DocsBot Developer APIs and Integration Guides
+description: Build with DocsBot Chat Agent, Skills, Actions, Search, and Admin APIs.
 ---
 
-Learn how to get DocsBot set up for your project with our embeds and APIs. {% .lead %}
+Use these guides to embed DocsBot, call the Chat Agent and Search APIs, add Skills and Actions, and manage bots with Admin APIs. {% .lead %}
 
 {% quick-links %}
 

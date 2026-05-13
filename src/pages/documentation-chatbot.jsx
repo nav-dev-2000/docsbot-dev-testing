@@ -623,7 +623,7 @@ export default function DocumentationChatbot() {
   const propsHero = {
     title: <>Turn Your Documentation Into <HighlightWord word="Answers" /></>,
     subtitle: "AI Documentation Assistant",
-    description: "Get instant answers from your technical docs, PDFs, and internal wikis with an AI chatbot designed for real-world, production documentation.",
+    description: "Get instant answers from your technical docs, PDFs, and internal wikis with an AI chatbot designed for real-world, production documentation. Built for product support, documentation teams, and developer relations.",
     primaryButton: {
       href: '/register',
       label: 'Get Started Free',
@@ -709,7 +709,7 @@ export default function DocumentationChatbot() {
   const pageUrl = buildPageUrl('/documentation-chatbot')
   const pageTitle = 'AI Chatbot for Documentation | Document AI Search | DocsBot'
   const pageDescription =
-    'Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations. Perfect for technical docs and knowledge bases.'
+    'Build a custom AI chatbot for your documentation, PDFs, and internal wikis. Instant answers with source citations for technical docs and knowledge bases.'
 
   const webPage = buildWebPage({
     url: pageUrl,

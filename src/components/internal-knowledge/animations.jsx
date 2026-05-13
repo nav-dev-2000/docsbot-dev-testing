@@ -183,7 +183,7 @@ const FastChatSequence = () => {
 export const FastResponses = () => {
     return (
         <div className="relative w-full h-[28rem]">
-             <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-10">
+             <div className="relative mx-auto h-full max-h-full w-full min-w-[min(100%,17rem)] max-w-[min(26rem,100%)] overflow-hidden pt-10">
                 <div className="overflow-hidden flex flex-col rounded-t-lg bg-white shadow-lg h-full">
                     <ChatHeader className="flex-none" isActive={true} />
                     <FastChatSequence />
@@ -254,7 +254,7 @@ const MultiLangInternalSequence = () => {
 export const MultilingualInternal = () => {
     return (
         <div className="relative w-full h-[28rem]">
-             <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-10">
+             <div className="relative mx-auto h-full max-h-full w-full min-w-[min(100%,17rem)] max-w-[min(26rem,100%)] overflow-hidden pt-10">
                 <div className="overflow-hidden flex flex-col rounded-t-lg bg-white shadow-lg h-full">
                     <ChatHeader className="flex-none" isActive={true} />
                     <MultiLangInternalSequence />

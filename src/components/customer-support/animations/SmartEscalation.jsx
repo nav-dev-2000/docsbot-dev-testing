@@ -395,8 +395,7 @@ export const SmartEscalation = () => {
     }
 
     return (
-        <div ref={rootRef} className="relative size-full">
-            <h4 className="sr-only">Demo animation showing chat conversations with smart escalation to human support</h4>
+        <div ref={rootRef} className="relative size-full" aria-hidden="true">
             {content}
         </div>
     );

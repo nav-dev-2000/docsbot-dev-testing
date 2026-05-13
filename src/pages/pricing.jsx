@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import CTASection from '@/components/CTASection'
 import { Testimonials } from '@/components/Testimonials'
 import TrustedBy from '@/components/TrustedBy'
+import JsonLd from '@/components/seo/JsonLd'
 import { motion } from 'framer-motion'
 import { useRef, useState, useEffect, useCallback, Fragment } from 'react'
 import AIHero from '@/components/AIHero'
@@ -32,6 +33,13 @@ import { BannerSale } from '@/components/HeaderBanners'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { useRouter } from 'next/router'
+import {
+  buildOrganization,
+  buildPageUrl,
+  buildWebPage,
+  buildWebSite,
+  ORG_ID,
+} from '@/lib/structuredData'
 
 // Add this component for reusability
 const ScrollFadeIn = ({ children, delay = 0 }) => {
@@ -174,6 +182,46 @@ const formatActionsLimitLabel = (value) => {
 const pageTitle = 'Pricing & Savings - DocsBot'
 const pageDescription =
   'Compare DocsBot plans, estimate support savings, and choose the right chatbot plan for your team.'
+const docsBotDefinition =
+  'DocsBot is an AI support and knowledge automation platform for support, documentation, operations, and product teams that turns your docs, tickets, product information, and internal content into accurate answers and AI actions.'
+
+const buildPricingProduct = ({ url, tiers }) => ({
+  '@type': 'Product',
+  '@id': `${url}#product`,
+  name: 'DocsBot AI Support and Knowledge Automation Platform',
+  description: docsBotDefinition,
+  brand: {
+    '@id': ORG_ID,
+  },
+  category: 'AI customer support software',
+  url,
+  offers: tiers
+    .filter((tier) => !tier.legacy)
+    .map((tier) => ({
+      '@type': 'Offer',
+      '@id': `${url}#offer-${tier.id}`,
+      name: `${tier.name} plan`,
+      description: tier.description,
+      url: `${url}${tier.href && tier.href !== '/register' ? `#${tier.id}` : ''}`,
+      price: tier.price.USD.monthly,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: [
+        {
+          '@type': 'UnitPriceSpecification',
+          price: tier.price.USD.monthly,
+          priceCurrency: 'USD',
+          unitText: 'month',
+        },
+        {
+          '@type': 'UnitPriceSpecification',
+          price: tier.price.USD.annually,
+          priceCurrency: 'USD',
+          unitText: 'year',
+        },
+      ],
+    })),
+})
 
 export default function PricingPage() {
   //const [user] = useAuthState(auth)
@@ -189,9 +237,25 @@ export default function PricingPage() {
         tier.legacy || ['hobby', 'personal', 'pro', 'standard', 'business'].includes(tier.id)
       )
     : pricingTiers.filter(tier => !tier.legacy)
+  const pageUrl = buildPageUrl('/pricing')
+  const webPage = buildWebPage({
+    url: pageUrl,
+    name: pageTitle,
+    description: pageDescription,
+  })
+  const product = buildPricingProduct({
+    url: pageUrl,
+    tiers: pricingTiers,
+  })
+  webPage.mainEntity = { '@id': product['@id'] }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [buildOrganization(), buildWebSite(), webPage, product],
+  }
 
   return (
     <>
+      <JsonLd id="pricing-schema" data={schema} />
       <NextSeo
         title={pageTitle}
         description={pageDescription}
@@ -294,9 +358,9 @@ export default function PricingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
-                    <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
-                      Save money and time with DocsBot. We offer a variety of
-                      plans to fit your needs. Need a custom plan?{' '}
+                    <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 text-gray-300">
+                      {docsBotDefinition} Save money and time with plans built
+                      to fit your needs. Need a custom plan?{' '}
                       <a
                         className="underline"
                         href="mailto:human@docsbot.ai"
@@ -661,8 +725,8 @@ export default function PricingPage() {
                     </div>
                     <p className="mx-auto mt-10 text-center text-sm text-gray-200">
                       Does not include optional OpenAI API costs
-                      (&lt;$0.008/message) if using advanced models like
-                      GPT-5. GPT-5 mini is included in all plans.
+                      (approximately $0.01/message) if using advanced models like
+                      GPT-5.5. Smaller GPT-5 models included.
                     </p>
                   </div>
 

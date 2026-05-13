@@ -120,8 +120,7 @@ export const MultilingualChat = () => {
     }, []);
 
     return (
-      <div ref={rootRef} className="relative size-full bg-gradient-to-tr from-slate-100 to-slate-300">
-        <h4 className="sr-only">Demo animation showing chat conversations in multiple languages</h4>
+      <div ref={rootRef} className="relative size-full bg-gradient-to-tr from-slate-100 to-slate-300" aria-hidden="true">
         {isActive && (
             <div className="overflow-hidden size-full max-w-[90%] sm:max-w-[80%] lg:max-w-[50%] max-h-[100%] relative mx-auto pt-5">
                 <Chat />
