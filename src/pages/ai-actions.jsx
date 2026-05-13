@@ -7,6 +7,8 @@ import { motion, useReducedMotion } from 'framer-motion'
 import clsx from 'clsx'
 import {
   ArrowPathIcon,
+  ArrowTrendingUpIcon,
+  BanknotesIcon,
   BoltIcon,
   CalendarDaysIcon,
   ChatBubbleLeftRightIcon,
@@ -15,6 +17,7 @@ import {
   ClipboardDocumentCheckIcon,
   CodeBracketSquareIcon,
   Cog6ToothIcon,
+  ComputerDesktopIcon,
   CursorArrowRaysIcon,
   DocumentCheckIcon,
   GlobeAltIcon,
@@ -47,7 +50,7 @@ import { Faq } from '@/components/customer-support/FAQs'
 import { SectionReveal } from '@/components/customer-support/transitions'
 import { Banner } from '@/components/customer-support/call-to-action'
 import { ChatBubble, LoadingDots } from '@/components/customer-support/animation-elements'
-import { Button, Section, SectionContent } from '@/components/elements'
+import { Button, Description, Section, SectionContent } from '@/components/elements'
 import { StripeSubscriptionDemoCard } from '@/components/StripeSubscriptionPreview'
 import {
   buildFaqEntities,
@@ -61,7 +64,9 @@ import {
 
 const pageTitle = 'AI agents that take action | DocsBot'
 const pageDescription =
-  'DocsBot resolves 76% of support requests on average. AI Actions help your agents handle remaining workflows with MCP servers, lead capture, booking, live context, and custom Skills.'
+  'AI Actions: agentic workflows for support & internal ops—MCP, booking, billing, Skills. ~76% of requests answered; Actions finish the rest.'
+const aiActionsDefinition =
+  "AI Actions are DocsBot's workflow automation layer—we built them for teams running customer-facing support and internal operations, from lean product-led SMBs to enterprise service centers."
 const mcpIconSrc = '/branding/mcp/mcp-icon.png'
 const mcpIconWhiteSrc = '/branding/mcp/mcp-icon-white.svg'
 
@@ -75,7 +80,7 @@ const actionCategories = [
   {
     title: 'Resolve account workflows',
     description:
-      'Look up account state, open self-serve paths, collect approval context, and complete governed requests.',
+      'Look up account state, open self-serve paths, collect approval context, and complete agentic requests.',
     icon: ClipboardDocumentCheckIcon,
   },
   {
@@ -210,6 +215,14 @@ const useCases = [
     icon: PaperAirplaneIcon,
   },
   {
+    name: 'RevOps',
+    title: 'Keep go-to-market systems accurate without ticket ping-pong',
+    description:
+      'Route leads, enrich records, update CRM stages, sync subscription or usage signals, and trigger the right follow-up so reps and marketers stay focused while the agent handles repeatable GTM hygiene.',
+    highlights: ['CRM updates', 'Lead routing', 'Lifecycle handoffs'],
+    icon: ArrowTrendingUpIcon,
+  },
+  {
     name: 'Support Ops',
     title: 'Close requests that need more than an answer',
     description:
@@ -218,18 +231,34 @@ const useCases = [
     icon: WrenchScrewdriverIcon,
   },
   {
-    name: 'Internal Ops',
-    title: 'Give teams a front door to business workflows',
+    name: 'IT & Service Desk',
+    title: 'Deflect internal tier-1 with agentic actions',
     description:
-      'Let employees ask for help in plain language while DocsBot gathers the right details and starts the right process.',
-    highlights: ['Intake forms', 'Approvals', 'Document generation'],
+      'Give employees and contractors a single place to reset access, request software, open tickets with full context, or look up device and policy answers—whether you are a lean SMB or a centralized enterprise service desk.',
+    highlights: ['Access requests', 'Ticket creation', 'Policy Q&A'],
+    icon: ComputerDesktopIcon,
+  },
+  {
+    name: 'Finance & Procurement',
+    title: 'Speed up approvals and lookups with audit-friendly steps',
+    description:
+      'Handle PO status, vendor onboarding checklists, invoice questions, expense policy guidance, and lightweight procurement intake so finance teams spend less time on repetitive routing at SMB and enterprise scale.',
+    highlights: ['Invoice help', 'Policy routing', 'Procurement intake'],
+    icon: BanknotesIcon,
+  },
+  {
+    name: 'Internal Ops',
+    title: 'Company-wide portals for HR, workplace, and ops',
+    description:
+      'Run one internal agent for HR questions, workplace policy, facilities requests, and cross-team intake—ideal when a small business shares hats across roles or when an enterprise standardizes on a single employee front door.',
+    highlights: ['Employee intake', 'Policy & HR routing', 'Multi-team handoffs'],
     icon: Cog6ToothIcon,
   },
   {
     name: 'Developers',
-    title: 'Expose real systems through governed skills',
+    title: 'Expose real systems through agentic skills',
     description:
-      'Use Skills, APIs, MCP, webhooks, and widget actions to connect DocsBot to internal tools without rebuilding your support UI.',
+      'Use Skills, APIs, MCP, webhooks, and widget actions to connect DocsBot to internal tools, line-of-business APIs, and employee portals without rebuilding your chat UI.',
     highlights: ['APIs', 'MCP', 'Webhooks'],
     icon: CodeBracketSquareIcon,
   },
@@ -266,7 +295,7 @@ const security = [
     icon: ServerStackIcon,
   },
   {
-    title: 'Governed automation',
+    title: 'Agentic automation',
     description:
       'Let agents act only inside the lanes, workflows, and policies your team configures.',
     icon: ShieldCheckIcon,
@@ -277,7 +306,7 @@ const faqs = [
   {
     question: 'What are AI Actions in DocsBot?',
     answer:
-      'AI Actions let your DocsBot agent use approved tools and workflows during a conversation, such as collecting structured information, booking a next step, looking up account context, triggering custom UI, searching live information, or calling a custom Skill.',
+      "AI Actions are DocsBot's workflow automation layer—we built them for teams running customer-facing support and internal operations, from lean product-led SMBs to enterprise service centers. They let your DocsBot agent use approved tools and workflows during a conversation—collecting structured information, booking a next step, looking up account context, triggering custom UI, searching live information, or calling a custom Skill—so those teams can finish work in chat.",
   },
   {
     question: 'Do AI Actions only work with specific billing or scheduling platforms?',
@@ -292,7 +321,7 @@ const faqs = [
   {
     question: 'How do MCP Connectors fit with AI Actions?',
     answer:
-      'MCP Connectors let DocsBot connect to remote MCP servers that expose tools from services your team already uses. You review and enable the tools your bot can call, then DocsBot can use them as governed actions during a conversation.',
+      'MCP Connectors let DocsBot connect to remote MCP servers that expose tools from services your team already uses. You review and enable the tools your bot can call, then DocsBot can use them as agentic actions during a conversation.',
   },
   {
     question: 'How do actions stay controlled?',
@@ -302,7 +331,7 @@ const faqs = [
   {
     question: 'Can actions help with the requests DocsBot does not resolve today?',
     answer:
-      'Yes. DocsBot already resolves an average 76% of support requests. Actions are designed for many of the remaining requests that need a lookup, handoff, booking, form, approval, or system update.',
+      'Yes. DocsBot already resolves an average 76% of support requests. Actions cover much of the rest: cases where the right outcome is to use an approved Skill or connector—live lookups, bookings, structured intake, or writing updates back to your systems.',
   },
   {
     question: 'Do I need developers to use AI Actions?',
@@ -312,7 +341,7 @@ const faqs = [
   {
     question: 'Can DocsBot AI Actions update customer accounts or billing records?',
     answer:
-      'Yes, when you enable the right governed workflow. DocsBot can collect the required details, check your instructions and metadata, then call approved tools for account updates, billing lookups, invoices, cancellations, refunds, or other platform-specific processes.',
+      'Yes, when you enable the right agentic workflow. DocsBot can collect the required details, check your instructions and metadata, then call approved tools for account updates, billing lookups, invoices, cancellations, refunds, or other platform-specific processes.',
   },
   {
     question: 'Can AI Actions work with my CRM, help desk, calendar, or internal tools?',
@@ -723,7 +752,7 @@ function HeroResolutionPanel() {
           <div>
             <p className="text-lg font-semibold text-white">Actionable requests</p>
             <p className="mt-1 text-sm leading-6 text-cyan-100/75">
-              The remaining work often needs a lookup, booking, update, approval, or handoff.
+              Often these are requests your agent can close with tools—live status from billing or CRM, a booked slot, a ticket or task created—not just another explanatory reply.
             </p>
           </div>
         </div>
@@ -1404,55 +1433,15 @@ function ActionCategoryGrid() {
   )
 }
 
-function ProblemSection() {
-  const items = [
-    {
-      title: 'DocsBot before Actions',
-      description: 'Trained on your documentation and content, DocsBot gives excellent answers with citations and context, but your team still has to perform the follow-up actions.',
-      icon: ChatBubbleLeftRightIcon,
-    },
-    {
-      title: 'DocsBot with Actions',
-      description: 'Resolves more of the remaining requests automatically, deflecting more repetitive work before it reaches your support team.',
-      icon: BoltIcon,
-    },
-  ]
-
-  return (
-    <Section theme="medium">
-      <SectionContent
-        theme="medium"
-        title="Answers still leave work behind"
-        description="The unresolved 24% often needs a lookup, form, approval, booking, handoff, or system update. AI Actions give DocsBot a way to finish more of those requests."
-      >
-        <div className="grid gap-6 lg:grid-cols-2">
-          {items.map((item) => {
-            const Icon = item.icon
-            return (
-              <div key={item.title} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-900/5">
-                <div className="mb-6 flex size-12 items-center justify-center rounded-xl bg-cyan-600 text-white">
-                  <Icon className="size-7" />
-                </div>
-                <h3 className="text-2xl font-semibold tracking-tight text-gray-900">{item.title}</h3>
-                <p className="mt-4 text-base/7 text-gray-600">{item.description}</p>
-              </div>
-            )
-          })}
-        </div>
-      </SectionContent>
-    </Section>
-  )
-}
-
 function ActionOpportunitySection() {
   const proofStats = [
     {
-      value: '76%',
+      value: '76',
       label: 'Average support resolution',
       description: 'DocsBot already resolves most support requests before a human needs to step in.',
     },
     {
-      value: '89%',
+      value: '89',
       label: 'Escalation deflection',
       description: 'Accurate answers and the right next step prevent most escalations.',
     },
@@ -1466,17 +1455,21 @@ function ActionOpportunitySection() {
 
   return (
     <Section>
-      <SectionContent
-        title="The next frontier is the remaining work"
-        description="DocsBot already answers most questions. Actions are how your agent handles the workflows that still need a system lookup, update, approval, or handoff."
-      >
+      <SectionContent title="The next frontier is the remaining work">
+        <Description
+          className="w-full"
+          content={`${aiActionsDefinition} Documentation answers most questions on its own. Actions cover what is left: your agent runs approved Skills and connectors to read live data from your systems, perform a task in another tool, or trigger the next step—so people leave with work done, not homework.`}
+        />
         <div className="grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
           <div className="rounded-2xl bg-gray-900 p-6 text-white shadow-xl lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-wide text-cyan-200">Already handled by answers</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               {proofStats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
-                  <p className="text-4xl font-semibold tracking-tight text-cyan-100">{stat.value}</p>
+                  <p className="inline-flex items-baseline gap-0.5 text-4xl font-semibold tracking-tight text-cyan-100">
+                    <span>{stat.value}</span>
+                    <span className="text-xl font-semibold tracking-tight text-cyan-100/90">%</span>
+                  </p>
                   <p className="mt-4 text-base font-semibold text-white">{stat.label}</p>
                   <p className="mt-2 text-sm/6 text-gray-300">{stat.description}</p>
                 </div>
@@ -1495,8 +1488,9 @@ function ActionOpportunitySection() {
                   Actions let DocsBot follow your SOPs, integrate with your own systems, take action, and resolve tickets instantly.
                 </p>
               </div>
-              <div className="flex size-24 shrink-0 items-center justify-center rounded-3xl bg-white text-3xl font-semibold text-cyan-700 shadow-sm ring-1 ring-cyan-900/10">
-                24%
+              <div className="flex size-24 shrink-0 items-center justify-center gap-0.5 rounded-3xl bg-white font-semibold text-cyan-700 shadow-sm ring-1 ring-cyan-900/10">
+                <span className="text-3xl leading-none">24</span>
+                <span className="text-lg leading-none text-cyan-700/95">%</span>
               </div>
             </div>
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -1688,8 +1682,8 @@ function UseCaseTabsSection() {
     <Section theme="medium">
       <SectionContent
         theme="medium"
-        title="Action-ready for every customer workflow"
-        description="Start with support and growth teams, then extend the same action model across the business."
+        title="Built for revenue, support, and internal operators"
+        description="The same action model scales from lean SMBs to enterprise shared-services teams: success and support, sales and RevOps, IT and service desk, finance, HR-facing intake, and engineering extensibility."
       >
         <div className="flex flex-wrap justify-center gap-3">
           {useCases.map((useCase, index) => (
@@ -1767,7 +1761,7 @@ function HeroSection() {
               AI agents that take action
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
-              DocsBot already resolves an average 76% of support requests and deflects 89% of escalations. AI Actions extend that same governed automation to customer and internal workflows, helping your agent complete the work instead of only explaining it.
+              DocsBot already resolves an average 76% of support requests and deflects 89% of escalations. AI Actions extend that same agentic automation to customer-facing teams—support, success, and sales—and to internal operators in IT, finance, RevOps, and company-wide service desks, so your agent completes the work instead of only explaining it.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
@@ -1791,7 +1785,10 @@ function HeroSection() {
           </div>
         </div>
         <div className="mx-auto max-w-7xl px-6 pb-14 lg:px-8">
-          <Brands title="Trusted by support and growth teams building practical AI agents" transparent />
+          <Brands
+            title="Trusted by support, success, revenue, and internal teams building practical AI agents"
+            transparent
+          />
         </div>
       </div>
     </div>
@@ -1856,7 +1853,7 @@ export default function AiActionsPage() {
           {
             name: 'keywords',
             content:
-              'AI actions, AI agents, customer support automation, AI workflow automation, MCP connectors, MCP servers, DocsBot Skills, DocsBot Skill Builder, AI support agent',
+              'AI actions, AI agents, customer support automation, AI workflow automation, RevOps automation, IT service desk AI, internal AI agents, MCP connectors, MCP servers, DocsBot Skills, DocsBot Skill Builder, AI support agent',
           },
         ]}
       />
@@ -1871,7 +1868,7 @@ export default function AiActionsPage() {
             <HeroSection />
 
             <SectionReveal direction="down" amount={0.25}>
-              <ProblemSection />
+              <ActionOpportunitySection />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
@@ -1903,20 +1900,16 @@ export default function AiActionsPage() {
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
-              <ActionOpportunitySection />
-            </SectionReveal>
-
-            <SectionReveal direction="down" amount={0.25}>
               <Testimonials
                 title="Built for teams that need outcomes"
-                description="DocsBot helps support and growth teams move from faster answers to more completed workflows."
+                description="From public help centers to private employee portals, DocsBot helps SMBs and enterprises move from faster answers to completed workflows across support, RevOps, IT, finance, and operations."
               />
             </SectionReveal>
 
             <SectionReveal direction="down" amount={0.25}>
               <Faq
                 title="AI Actions FAQ"
-                description="How DocsBot turns knowledge-backed conversations into governed customer and business workflows."
+                description="How DocsBot turns knowledge-backed conversations into agentic customer and business workflows."
                 data={faqs}
                 banner={{
                   variant: 'confetti',
