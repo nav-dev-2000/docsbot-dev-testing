@@ -5536,6 +5536,49 @@ const LLMS = [
     },
   },
   {
+    model_name: 'GPT-Realtime-2',
+    slug: 'gpt-realtime-2',
+    provider: 'openai',
+    description:
+      'GPT-Realtime-2 is OpenAI\'s next-generation realtime voice model for live voice agents, released in the API on May 7, 2026. It brings GPT-5-class reasoning to audio conversations, supports tool use while speaking, handles corrections and interruptions, adds adjustable reasoning effort from minimal through xhigh, and increases realtime session context to 128K tokens.',
+    input_context_window: '128K',
+    maximum_output_tokens: null,
+    input_cost_per_million_tokens: 32,
+    output_cost_per_million_tokens: 64,
+    open_source: false,
+    release_date: '2026-05-07',
+    knowledge_cut_off_date: null,
+    api_providers: 'OpenAI Realtime API',
+    modalities: {
+      text: true,
+      image: false,
+      voice: true,
+      video: false,
+    },
+    key_capabilities: {
+      realtime_voice: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: true,
+      multilingual_conversation: true,
+      low_latency: true,
+      long_context: true,
+    },
+    benchmarks: {
+      BigBenchAudio: {
+        score: 15.2,
+        notes: 'Relative improvement over GPT-Realtime-1.5; high reasoning effort',
+        source:
+          'https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/',
+      },
+      AudioMultiChallenge: {
+        score: 13.8,
+        notes: 'Relative improvement over GPT-Realtime-1.5; xhigh reasoning effort',
+        source:
+          'https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/',
+      },
+    },
+  },
+  {
     model_name: 'GPT‑5.4',
     slug: 'gpt-5-4',
     provider: 'openai',

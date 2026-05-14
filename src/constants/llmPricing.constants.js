@@ -414,6 +414,16 @@ export const LLM_PRICING = {
   ],
   'Audio Models': [
     {
+      model_name: 'GPT-Realtime-2 (Audio)',
+      model_slug: 'gpt-realtime-2',
+      page_slug: 'gpt-realtime-2',
+      context: '128K',
+      provider: 'OpenAI',
+      input_token_cost_per_million: 32,
+      cached_input_token_cost_per_million: 0.40,
+      output_token_cost_per_million: 64,
+    },
+    {
       model_name: 'GPT-4o Realtime (Audio)',
       model_slug: 'gpt-4o-realtime-preview',
       context: '128K',

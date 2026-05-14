@@ -107,6 +107,10 @@ export const BENCHMARKS = {
     title: 'APEX Agents',
     description: 'Evaluates long-horizon professional agent tasks with real-world objectives and constraints',
   },
+  AudioMultiChallenge: {
+    title: 'Audio MultiChallenge',
+    description: 'Evaluates multi-turn spoken-dialogue instruction following, context integration, self-consistency, and handling natural speech corrections',
+  },
   ARCAGI2: {
     title: 'ARC-AGI-2',
     description: 'Visual reasoning puzzles benchmark, ARC Prize Verified, testing abstract reasoning and visual problem-solving',
@@ -131,6 +135,10 @@ export const BENCHMARKS = {
   BigLawBench: {
     title: 'BigLaw Bench',
     description: 'Evaluates legal reasoning and document analysis on large law firm tasks',
+  },
+  BigBenchAudio: {
+    title: 'Big Bench Audio',
+    description: 'Evaluates challenging reasoning capabilities in language models that support audio input',
   },
   BrowseComp: {
     title: 'BrowseComp',
