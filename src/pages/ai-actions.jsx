@@ -700,7 +700,7 @@ function HeroResolutionPanel() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <div className="relative flex h-[31rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/80 p-5">
+    <div className="relative flex sm:h-[31rem] flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/80 p-5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(34,211,238,.12),transparent_34%),radial-gradient(circle_at_20%_78%,rgba(20,184,166,.12),transparent_30%)]" />
       <div className="relative grid grid-cols-2 gap-3">
         {[
@@ -726,7 +726,7 @@ function HeroResolutionPanel() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: prefersReducedMotion ? 0 : 0.45 }}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="relative flex size-20 shrink-0 items-center justify-center rounded-full border border-cyan-300/30 bg-gray-950/70 shadow-lg shadow-cyan-950/30">
             <svg className="absolute inset-0 size-full -rotate-90" viewBox="0 0 100 100" aria-hidden="true">
               <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.12)" strokeWidth="9" />
@@ -744,7 +744,7 @@ function HeroResolutionPanel() {
                 transition={prefersReducedMotion ? { duration: 0 } : { duration: 1, delay: 0.55, ease: 'easeOut' }}
               />
             </svg>
-            <p className="relative inline-flex translate-x-1 items-baseline text-3xl font-semibold text-cyan-200">
+            <p className="relative inline-flex translate-x-1 items-baseline text-lg sm:text-3xl font-semibold text-cyan-200">
               24
               <span className="ml-0.5 text-base">%</span>
             </p>
@@ -758,7 +758,7 @@ function HeroResolutionPanel() {
         </div>
       </motion.div>
 
-      <div className="relative mt-4 grid flex-1 grid-cols-[1fr_auto_1fr] items-stretch gap-3">
+      <div className="hidden relative mt-4 sm:grid flex-1 grid-cols-[1fr_auto_1fr] items-stretch gap-3">
         <div className="grid content-center gap-2">
           {actionableRequestCards.map((card, index) => {
             const Icon = card.icon
@@ -882,21 +882,21 @@ function ActionPipelineAnimation() {
             <SparklesIcon className="size-5 text-cyan-600" />
             Action pipeline
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {steps.map((step, index) => {
               const Icon = step.icon
               return (
                 <div key={step.label} className="relative">
                   <motion.div
-                    className="relative z-10 rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+                    className="relative z-10 flex items-center gap-2 p-2 border border-gray-200 rounded-xl bg-white shadow-sm"
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: prefersReducedMotion ? 0 : index * 0.25 }}
                   >
-                    <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-cyan-600 text-white">
+                    <div className="flex size-10 items-center justify-center rounded-lg bg-cyan-600 text-white">
                       <Icon className="size-5" />
                     </div>
-                    <p className="text-sm font-semibold leading-snug text-gray-900">{step.label}</p>
+                    <p className="flex-1 text-sm font-semibold leading-snug text-gray-900">{step.label}</p>
                   </motion.div>
                   {index < steps.length - 1 && (
                     <MotionLine className="absolute left-[calc(100%-0.5rem)] top-1/2 z-0 hidden h-0.5 w-6 bg-white/70 sm:block" delay={index * 0.25} />
@@ -1341,13 +1341,13 @@ function EcosystemMapAnimation() {
           <p className="mt-1 text-xs text-gray-500">Knowledge + action</p>
         </motion.div>
       </div>
-      <div className="absolute left-1/2 top-1/2 z-10 size-[min(72%,22rem)] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-1/2 z-10 size-[18rem] sm:size-[22rem] -translate-x-1/2 -translate-y-1/2">
         {nodes.map((node) => {
           const Icon = node.icon
           return (
             <div
               key={node.label}
-              className={clsx('orbit-arm absolute left-1/2 top-1/2 h-0 w-1/2 origin-left', prefersReducedMotion && 'motion-safe:animate-none')}
+              className={clsx('orbit-arm absolute left-1/2 top-1/2 h-0 w-[60%] sm:w-1/2 origin-left', prefersReducedMotion && 'motion-safe:animate-none')}
               style={{ '--orbit-angle': `${node.angle}deg` }}
             >
               <div className={clsx('orbit-label absolute left-full top-0', prefersReducedMotion && 'motion-safe:animate-none')}>
