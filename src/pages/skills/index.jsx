@@ -6,6 +6,7 @@ import { Menu, Transition } from '@headlessui/react'
 import {
   ArrowRightIcon,
   ArrowUpIcon,
+  BeakerIcon,
   BoltIcon,
   CheckCircleIcon,
   ChatBubbleLeftRightIcon,
@@ -18,6 +19,7 @@ import {
   PencilSquareIcon,
   ShieldCheckIcon,
   SparklesIcon,
+  Squares2X2Icon as Squares2X2IconSolid,
   UserGroupIcon,
   WrenchScrewdriverIcon,
   XMarkIcon,
@@ -995,66 +997,125 @@ export default function SkillsPage({ records, categories, totalCount }) {
 
         <section className="bg-slate-950">
           <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-            <div className="relative isolate overflow-hidden rounded-lg border border-cyan-300/20 bg-slate-900 px-6 py-12 shadow-2xl sm:px-10 lg:px-14">
+            <div
+              className={clsx(
+                'space-y-6',
+                'md:grid md:grid-cols-3 md:gap-6 lg:gap-8 md:space-y-0',
+              )}
+            >
+              {/* Left Column: Call To Action */}
               <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.25),transparent_34%),radial-gradient(circle_at_80%_0%,rgba(20,184,166,0.22),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.4),rgba(8,47,73,0.55))]"
-              />
-              <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/20">
-                    <LockClosedIcon className="h-4 w-4" />
-                    Secure, tested agent skills
-                  </div>
-                  <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                    Give your DocsBot agent the skills your workflows need
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
-                    Start from the Skills Library or describe the outcome in plain language. Skill Builder researches,
-                    asks clarifying questions, writes the Skill, tests it, and helps publish it to the right DocsBot
-                    agent.
-                  </p>
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Link
-                      href="/register"
-                      className="bg-animation inline-flex items-center justify-center gap-2 rounded-md px-6 py-4 text-base/6 font-semibold text-white shadow-sm transition-transform hover:scale-105 hover:from-teal-600 hover:to-cyan-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-950"
-                    >
-                      <SparklesIcon className="h-5 w-5 shrink-0" aria-hidden />
-                      Start building skills
-                    </Link>
-                    <Link
-                      href="#skills-library"
-                      className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-4 text-base/6 font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 focus:ring-offset-slate-950"
-                    >
-                      Explore the library
-                    </Link>
-                    <Link
-                      href="/ai-actions"
-                      className="inline-flex items-center justify-center gap-2 rounded-md border border-cyan-300/30 px-6 py-4 text-base/6 font-semibold text-cyan-100 transition hover:bg-cyan-300/10 focus:outline-none focus:ring-2 focus:ring-cyan-300/50 focus:ring-offset-2 focus:ring-offset-slate-950"
-                    >
-                      See all AI Actions
-                      <ArrowRightIcon className="h-5 w-5" />
-                    </Link>
+                className={clsx(
+                  'relative isolate overflow-hidden px-6 py-8 border border-cyan-300/20 rounded-lg bg-slate-900 shadow-2xl',
+                  'md:col-span-2',
+                  // 'sm:px-10 lg:px-14',
+                )}
+              >
+                {/* Gradient Background */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.25),transparent_34%),radial-gradient(circle_at_80%_0%,rgba(20,184,166,0.22),transparent_34%),linear-gradient(135deg,rgba(15,23,42,0.4),rgba(8,47,73,0.55))]"
+                />
+
+                {/* Content */}
+                <div className="grid gap-10 lg:items-center">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/20">
+                      <LockClosedIcon className="h-4 w-4" />
+                      Secure, tested agent skills
+                    </div>
+                    <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                      Give your DocsBot agent the skills your workflows need
+                    </h2>
+                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+                      Start from the Skills Library or describe the outcome in plain language. Skill Builder researches,
+                      asks clarifying questions, writes the Skill, tests it, and helps publish it to the right DocsBot
+                      agent.
+                    </p>
+                    <div className="flex flex-col gap-3 lg:gap-6 mt-8">
+                      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 lg:gap-8">
+                        <Link
+                          href="/register"
+                          className={clsx(
+                            'w-full lg:w-auto flex lg:flex-1 items-center justify-center gap-2 px-6 py-4 rounded-md bg-animation shadow-sm transition-transform',
+                            'text-white text-base/6 font-semibold',
+                            'hover:scale-105 hover:from-teal-600 hover:to-cyan-700 hover:shadow-lg',
+                            'focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-slate-950',
+                          )}
+                        >
+                          <SparklesIcon className="h-5 w-5 shrink-0" aria-hidden />
+                          Start building skills
+                        </Link>
+
+                        <Link
+                          href="#skills-library"
+                          className={clsx(
+                            'flex lg:flex-1 items-center lg:justify-center gap-2 lg:px-6 py-2 lg:py-4 lg:border lg:border-cyan-300/80 rounded-md text-cyan-300/80 transition-colors',
+                            'hover:border-cyan-200/100 hover:lg:bg-cyan-300/5 hover:text-cyan-200/100',
+                            'focus:outline-none focus:text-cyan-200',
+                          )}
+                        >
+                          Explore the library
+                          <ArrowRightIcon className="size-6" />
+                        </Link>
+                      </div>
+
+                      <div className="w-full border-t-slate-100/20">
+                          <div className="w-full h-[1px] mb-3 bg-gradient-to-r from-cyan-100/20 to-cyan-400/0" />
+
+                        <Link
+                          href="/ai-actions"
+                          className={clsx(
+                            'inline-flex items-center gap-2 py-2 text-slate-300/80 lg:text-sm transition-colors',
+                            'hover:text-white/100',
+                            'focus:outline-none focus:text-cyan-200',
+                          )}
+                        >
+                          <Squares2X2IconSolid className="size-4" />
+                          See all AI Actions
+                          <ArrowRightIcon className="size-6" />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              </div>
+
+              {/* Right Column: Highlights */}
+              <div className="md:col-span-1 space-y-6 lg:space-y-8">
                   {[
-                    [
-                      'Research',
-                      'Search the web, docs, GitHub, libraries, and package managers to identify the right abilities, APIs, and workflow shape.',
-                    ],
-                    [
-                      'Build',
-                      'The agent creates secure actions scoped to the users chatting with the bot, plus instructions for any process or ability.',
-                    ],
-                    ['Test', 'Our AI testing agent runs imagined support and internal scenarios before launch.'],
-                  ].map(([title, text]) => (
+                    {
+                      Icon: MagnifyingGlassIcon,
+                      title: 'Research',
+                      description: 'Search the web, docs, GitHub, libraries, and package managers to identify the right abilities, APIs, and workflow shape.',
+                    },
+                    {
+                      Icon: WrenchScrewdriverIcon,
+                      title: 'Build',
+                      description: 'The agent creates secure actions scoped to the users chatting with the bot, plus instructions for any process or ability.',
+                    },
+                    {
+                      Icon: BeakerIcon,
+                      title: 'Test',
+                      description: 'Our AI testing agent runs imagined support and internal scenarios before launch.',
+                    },
+                  ].map(({ Icon, title, description }) => (
                     <div key={title} className="rounded-lg border border-white/10 bg-white/5 p-4">
-                      <p className="text-sm font-semibold text-cyan-200">{title}</p>
-                      <p className="mt-2 text-sm leading-6 text-slate-300">{text}</p>
+                      <div
+                        className={clsx(
+                          'flex items-center gap-3',
+                          'md:flex-col md:items-start',
+                          'lg:flex-row lg:items-center',
+                        )}
+                      >
+                        <div className="flex flex-none h-11 w-11 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200 ring-1 ring-cyan-300/20">
+                          <Icon className="size-6" />
+                        </div>
+                        <p className="flex text-base font-semibold text-cyan-200">{title}</p>
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-slate-300">{description}</p>
                     </div>
                   ))}
-                </div>
               </div>
             </div>
           </div>
