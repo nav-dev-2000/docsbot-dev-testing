@@ -37,8 +37,8 @@ export default function HeaderAuthSection({ showAuthOnMobile = false }) {
   return (
     <>
       {user ? (
-        <div className="flex items-center">
-          <Menu as="div" className="relative ml-3">
+        <div className="flex flex-none items-center">
+          <Menu as="div" className="relative">
             <div>
               <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                 <span className="sr-only">Open user menu</span>

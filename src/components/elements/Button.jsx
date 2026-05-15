@@ -56,7 +56,7 @@ export const Button = ({
 
     const Element = href ? Link : 'button'
     const propsElement = href
-        ? { type, href, ...props }
+        ? { type, href, onClick, ...props }
         : { type, onClick, ...props }
 
     return (
