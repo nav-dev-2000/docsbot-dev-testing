@@ -188,8 +188,10 @@ export default function DashboardWrap({
             setSidebarOpen={setSidebarOpen}
             dashboardNavigation={dashboardNavigation}
             page={page}
+            team={team}
           />
           <div className="relative flex min-h-0 min-w-0 flex-1 flex-col print:!pl-0">
+            {/* START: Header */}
             <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow print:hidden">
               <button
                 type="button"
@@ -213,13 +215,14 @@ export default function DashboardWrap({
                   </h1>
                   <Breadcrumbs title={title} />
                 </div>
-                <TeamsSelector team={team} className="ml-2 self-center" />
+                <TeamsSelector team={team} className="hidden sm:block ml-2 self-center" />
                 <div className="ml-2 flex flex-none items-center md:ml-6">
                   <Notifications className="ml-3" />
                   <Profile className="ml-3" />
                 </div>
               </div>
             </div>
+            {/* END: Header */}
 
             {header}
 

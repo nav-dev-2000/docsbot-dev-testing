@@ -14,6 +14,7 @@ import Tooltip from '@/components/Tooltip'
 import { auth } from '@/config/firebase-ui.config'
 import { stripePlan } from '@/utils/helpers'
 import Chip from './Chip'
+import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
 const CACHE_KEY = 'docsbot-user-teams-cache-v2'
 const CACHE_TTL_MS = 1000 * 60 * 5
@@ -160,7 +161,7 @@ const getPlanMeta = (team) => {
   }
 }
 
-const TeamsSelector = ({ team, className = '' }) => {
+const TeamsSelector = ({ team, slides = false, className = '' }) => {
   const router = useRouter()
   const [user] = useAuthState(auth)
   const [teams, setTeams] = useState(() =>
@@ -324,9 +325,181 @@ const TeamsSelector = ({ team, className = '' }) => {
     () => mergeTeams(teams, team ? [team] : [], team?.id),
     [team, teams],
   )
+  const currentPlanMeta = getPlanMeta(team)
 
   if (!team?.id) {
     return null
+  }
+
+  if (slides === true) {
+    return (
+      <Menu as="div" className={clsx('relative', className)}>
+        {({ open }) => (
+          <>
+            <Menu.Button
+              type="button"
+              className={clsx(
+                'w-full rounded-xl border border-cyan-100/20 bg-cyan-100/15 px-4 py-3 text-left transition focus:outline-none',
+                open
+                  ? 'rounded-b-none border-b-cyan-700/80'
+                  : 'hover:border-cyan-700/90 hover:bg-cyan-900/80',
+              )}
+              onClick={() => loadTeams()}
+              onMouseEnter={() => loadTeams()}
+              onFocus={() => loadTeams()}
+            >
+              <span className="flex items-center gap-3">
+                <span className="flex size-9 flex-none items-center justify-center overflow-hidden rounded-lg bg-gray-100 text-gray-700">
+                  {team.logo ? (
+                    <img
+                      src={team.logo}
+                      alt=""
+                      className="size-full object-contain"
+                    />
+                  ) : (
+                    <BuildingOffice2Icon className="size-4" aria-hidden="true" />
+                  )}
+                </span>
+
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm font-semibold text-white">
+                    {team.name}
+                  </span>
+                  <span className="block truncate text-xs text-cyan-100/70">
+                    {currentPlanMeta.label} Plan {'\u2022'} {formatCount(team.botCount, 'bot')}
+                  </span>
+                </span>
+
+                <span className="flex flex-none items-center justify-center text-cyan-100">
+                  {isLoadingTeams ? (
+                    <ArrowPathIcon
+                      className="size-4 animate-spin"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <ChevronDownIcon
+                      className={clsx(
+                        'size-4 transition-transform',
+                        open && 'rotate-180',
+                      )}
+                      aria-hidden="true"
+                    />
+                  )}
+                </span>
+              </span>
+            </Menu.Button>
+
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-150"
+              enterFrom="transform opacity-0 -translate-y-2"
+              enterTo="transform opacity-100 translate-y-0"
+              leave="transition ease-in duration-100"
+              leaveFrom="transform opacity-100 translate-y-0"
+              leaveTo="transform opacity-0 -translate-y-2"
+            >
+              <Menu.Items className="overflow-hidden rounded-b-lg border border-t-0 border-cyan-100/20 bg-cyan-500/10 focus:outline-none">
+                {errorText && (
+                  <div className="border-b border-red-500/20 bg-red-500/10 px-5 py-3 text-xs text-red-100">
+                    {errorText}
+                  </div>
+                )}
+
+                <div className="max-h-96 overflow-y-auto">
+                  {displayedTeams.map((option) => {
+                    const isCurrentTeam = option.id === team.id
+                    const isSwitching = switchingTeamId === option.id
+                    const planMeta = getPlanMeta(option)
+
+                    return (
+                      <Menu.Item key={option.id}>
+                        {({ active }) => (
+                          <button
+                            type="button"
+                            className={clsx(
+                              'flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left transition',
+                              isCurrentTeam
+                                ? 'bg-cyan-700/30'
+                                : active
+                                  ? 'bg-cyan-700/40'
+                                  : 'bg-transparent',
+                            )}
+                            onClick={() => switchTeam(option.id)}
+                            disabled={isCurrentTeam || Boolean(switchingTeamId) || isCreatingTeam}
+                          >
+                            <span className="flex size-9 flex-none items-center justify-center overflow-hidden rounded-lg bg-gray-100 text-gray-700">
+                              {isCurrentTeam ? (
+                                <CheckIcon className="size-4 text-cyan-700" aria-hidden="true" />
+                              ) : option.logo ? (
+                                <img
+                                  src={option.logo}
+                                  alt=""
+                                  className="size-full object-contain"
+                                />
+                              ) : (
+                                <BuildingOffice2Icon
+                                  className="size-4"
+                                  aria-hidden="true"
+                                />
+                              )}
+                            </span>
+
+                            <span className="min-w-0 flex-1">
+                              <span className="block truncate text-sm font-semibold text-white">
+                                {option.name}
+                              </span>
+                              <span className="block truncate text-xs text-cyan-100/70">
+                                {planMeta.label} Plan {'\u2022'} {formatCount(option.botCount, 'bot')} {'\u2022'} {formatRole(option.roles?.[user?.uid])}
+                              </span>
+                            </span>
+
+                            {isSwitching && (
+                              <ArrowPathIcon
+                                className="size-4 animate-spin text-cyan-100/70"
+                                aria-hidden="true"
+                              />
+                            )}
+                          </button>
+                        )}
+                      </Menu.Item>
+                    )
+                  })}
+                </div>
+
+                <div className="border-t border-cyan-800/70">
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left transition hover:bg-cyan-900/50 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                    onClick={createTeam}
+                    disabled={isCreatingTeam || Boolean(switchingTeamId)}
+                  >
+                    <span className="flex size-9 flex-none items-center justify-center rounded-lg text-cyan-300">
+                      {isCreatingTeam ? (
+                        <ArrowPathIcon
+                          className="size-4 animate-spin"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <PlusIcon className="size-4" aria-hidden="true" />
+                      )}
+                    </span>
+
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-medium text-cyan-300">
+                        Create new team
+                      </span>
+                      <span className="block text-xs text-cyan-100/70">
+                        Start a new team workspace
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </Menu.Items>
+            </Transition>
+          </>
+        )}
+      </Menu>
+    )
   }
 
   return (
