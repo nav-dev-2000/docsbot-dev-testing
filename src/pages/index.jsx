@@ -132,7 +132,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:px-8 lg:py-40">
-                  <div className="mx-auto max-w-4xl text-center">
+                  <div className="mx-auto max-w-6xl text-center">
                     <div className="mt-24 flex justify-center sm:mt-32 lg:mt-12">
                       <div className="inline-flex items-center rounded-full bg-cyan-500/10 py-1 pl-3 pr-1 text-sm/6 font-semibold text-cyan-200 ring-1 ring-inset ring-cyan-500/20">
                         <span className="pr-1">Custom AI Agents</span>
@@ -143,10 +143,10 @@ export default function Home() {
                     </div>
 
                     <h1 className="mt-8 text-pretty font-semibold leading-tight tracking-tight text-white">
-                      <span className="block text-5xl leading-none tracking-tighter sm:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl">
+                      <span className="block text-4xl leading-none tracking-tighter sm:text-5xl md:leading-[0.95] lg:text-6xl xl:text-7xl">
                         Instant Answers & Actions
                       </span>
-                      <span className="mt-2 block text-5xl leading-none tracking-tighter sm:text-6xl md:leading-[0.95] lg:text-7xl xl:text-8xl">
+                      <span className="mt-2 block text-4xl leading-none tracking-tighter sm:text-5xl md:leading-[0.95] lg:text-6xl xl:text-7xl">
                         for{' '}
                         <InfiniteTypewriter
                           ssrFallback="Customers and Your Team"
